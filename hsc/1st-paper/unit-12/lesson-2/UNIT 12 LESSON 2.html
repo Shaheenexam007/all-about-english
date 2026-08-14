@@ -1,0 +1,3114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>All About English</title>
+
+
+<!-- =========================================================
+     FONTS
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef4f8,
+            #f8f5fb
+        );
+
+    color: #17202a;
+
+    font-family: "Montserrat", sans-serif;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SECTION 1
+   TOP HEADER
+========================================================= */
+
+.top-box {
+
+    width: 100%;
+
+    padding: 38px 20px 34px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071e3d 0%,
+            #0b3d5c 35%,
+            #146c78 65%,
+            #0a2a43 100%
+        );
+
+    border-radius: 0 0 24px 24px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.18);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.top-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    top: -120px;
+    left: -80px;
+
+    background:
+        rgba(70,220,255,0.18);
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+
+.top-box::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    right: -80px;
+    bottom: -110px;
+
+    background:
+        rgba(190,80,255,0.18);
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+
+.site-title {
+
+    margin: 0 0 8px;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(30px, 6vw, 52px);
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,0.35),
+        0 0 18px rgba(100,220,255,0.25);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.author-name {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size:
+        clamp(17px, 3.5vw, 23px);
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    letter-spacing: 1.5px;
+
+    color: #d9f8ff;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.teacher-info {
+
+    max-width: 900px;
+
+    margin: 4px auto;
+
+    font-size:
+        clamp(13px, 2.5vw, 16px);
+
+    line-height: 1.7;
+
+    font-weight: 500;
+
+    color: #f4fcff;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.contact-info {
+
+    margin-top: 10px;
+
+    font-size:
+        clamp(13px, 2.5vw, 16px);
+
+    font-weight: 600;
+
+    color: white;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.facebook-link {
+
+    display: inline-block;
+
+    margin-top: 8px;
+
+    padding: 8px 16px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    border:
+        1px solid rgba(255,255,255,0.22);
+
+    color: #dff9ff;
+
+    text-decoration: none;
+
+    font-size:
+        clamp(12px, 2.4vw, 15px);
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.facebook-link:hover {
+
+    background:
+        rgba(255,255,255,0.23);
+
+    color: white;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.20);
+}
+
+
+/* =========================================================
+   SECTION 2
+   PASSAGE HEADING
+========================================================= */
+
+.passage-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 30px auto 12px;
+
+    padding: 15px 20px;
+
+    text-align: center;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(25px, 5vw, 38px);
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #183b56,
+            #287c8e,
+            #633b78
+        );
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,0.18);
+}
+
+
+/* =========================================================
+   UNIT / LESSON
+========================================================= */
+
+.lesson-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 18px;
+
+    padding: 17px 20px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #633b78,
+            #365c9b
+        );
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.15);
+}
+
+
+.lesson-heading .unit {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+
+.lesson-heading .lesson {
+
+    margin-top: 5px;
+
+    font-size:
+        clamp(17px, 3vw, 24px);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PASSAGE CONTAINER
+========================================================= */
+
+#passage {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 45px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.10);
+}
+
+
+/* =========================================================
+   EACH PASSAGE SENTENCE
+========================================================= */
+
+.passage-sentence {
+
+    padding: 13px 12px;
+
+    margin-bottom: 6px;
+
+    border-radius: 10px;
+
+    line-height: 2;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Sentence highlight */
+
+.passage-sentence.active-sentence {
+
+    background: #fff3a8;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.35);
+}
+
+
+/* =========================================================
+   MARKED VOCABULARY WORD
+========================================================= */
+
+.marked-word {
+
+    color: #b21f4b;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    padding: 2px 5px;
+
+    border-radius: 5px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.marked-word:hover {
+
+    background: #ffe16b;
+
+    color: #6b1740;
+}
+
+
+.marked-word.active-word {
+
+    background: #ffcc33;
+
+    color: #5a3100;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.40);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.action-button {
+
+    display: inline-block;
+
+    margin-left: 8px;
+
+    margin-top: 4px;
+
+    padding: 4px 9px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: 0.25s ease;
+}
+
+
+.see-full {
+
+    background: #315c9b;
+
+    color: white;
+}
+
+
+.see-full:hover {
+
+    background: #1d3d70;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.pronounce {
+
+    background: #27856f;
+
+    color: white;
+}
+
+
+.pronounce:hover {
+
+    background: #17614f;
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   SECTION 3
+   VOCABULARY HEADING
+========================================================= */
+
+.vocabulary-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 20px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(23px, 4vw, 32px);
+
+    font-weight: 700;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b3d67,
+            #405fa3
+        );
+
+    border-radius: 17px;
+}
+
+
+/* =========================================================
+   VOCABULARY SENTENCE BOX
+========================================================= */
+
+.vocab-sentence {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 25px;
+
+    padding: 22px;
+
+    background: white;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.09);
+
+    transition: 0.3s ease;
+}
+
+
+.vocab-sentence.active-sentence {
+
+    background: #fff9d9;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.35);
+}
+
+
+/* =========================================================
+   VOCABULARY ENGLISH SENTENCE
+========================================================= */
+
+.vocab-english {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.8;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   BANGLA MEANING
+========================================================= */
+
+.bangla-meaning {
+
+    font-family:
+        "Noto Sans Bengali",
+        sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    padding: 12px;
+
+    margin: 0 0 18px;
+
+    border-left:
+        4px solid #6c63a8;
+
+    background: #f4f1fa;
+
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   BACK TO PASSAGE
+   FOR SENTENCE + MEANING
+========================================================= */
+
+.sentence-back-button {
+
+    display: inline-block;
+
+    margin-left: 7px;
+
+    padding: 4px 9px;
+
+    border-radius: 7px;
+
+    background: #e7eefb;
+
+    color: #315c9b;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.sentence-back-button:hover {
+
+    background: #315c9b;
+
+    color: white;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 3px 10px rgba(49,92,155,0.25);
+}
+
+
+/* =========================================================
+   WORD CARD
+========================================================= */
+
+.word-card {
+
+    margin-top: 14px;
+
+    padding: 16px;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fbff,
+            #f2f4fb
+        );
+
+    border:
+        1px solid #dce3ef;
+}
+
+
+/* =========================================================
+   WORD TITLE
+========================================================= */
+
+.word-title {
+
+    display: inline-block;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #8b2855;
+
+    margin-bottom: 8px;
+}
+.word-title.active-word {
+
+    background: #ffcc33;
+
+    color: #5a3100;
+
+    padding: 3px 7px;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.35);
+
+    transition: 0.25s ease;
+}
+
+/* =========================================================
+   WORD DETAILS
+========================================================= */
+
+.word-details {
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   WORD BACK TO PASSAGE
+========================================================= */
+
+.back-to-passage {
+
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 5px 10px;
+
+    border-radius: 7px;
+
+    background: #e7eefb;
+
+    color: #315c9b;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.back-to-passage:hover {
+
+    background: #315c9b;
+
+    color: white;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 3px 10px rgba(49,92,155,0.25);
+}
+
+
+/* =========================================================
+   ERROR / WARNING
+========================================================= */
+
+.data-warning {
+
+    width: min(94%, 1050px);
+
+    margin: 20px auto;
+
+    padding: 15px;
+
+    background: #fff1f1;
+
+    border-left: 5px solid #c0392b;
+
+    border-radius: 8px;
+
+    color: #7b241c;
+
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .top-box {
+
+        padding:
+            28px 14px 25px;
+    }
+
+    #passage,
+    .vocab-sentence {
+
+        padding: 16px;
+    }
+
+    .passage-sentence {
+
+        padding: 10px 5px;
+
+        line-height: 1.9;
+    }
+
+    .action-button {
+
+        margin-top: 7px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     SECTION 1
+     HEADER
+     
+     তুমি এখানে শুধু text পরিবর্তন করতে পারবে।
+========================================================= -->
+
+<div class="top-box">
+
+    <h1 class="site-title">
+        All About ENGLISH
+    </h1>
+
+
+    <div class="author-name">
+
+        <span>by</span>
+
+        <span>Shaheen Sir</span>
+
+    </div>
+
+
+    <div class="teacher-info">
+        Assistant Professor &amp; Head of the English Department
+    </div>
+
+
+    <div class="teacher-info">
+        Bangladesh Air Force Shaheen College Kurmitola
+    </div>
+
+
+    <div class="contact-info">
+
+        Contact: 01671642358
+
+        &nbsp; | &nbsp;
+
+        WhatsApp: 01671642358
+
+    </div>
+
+
+    <a
+        class="facebook-link"
+        href="https://www.facebook.com/profile.php?id=61553493074328"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Facebook Page
+    </a>
+
+</div>
+
+
+
+<!-- =========================================================
+     SECTION 2
+========================================================= -->
+
+<div class="passage-heading">
+    PASSAGE
+</div>
+
+
+<div class="lesson-heading">
+
+    <div class="unit">
+        UNIT 12
+    </div>
+
+    <div class="lesson">
+        LESSON 2 — "The Greta Effect"
+    </div>
+
+</div>
+
+
+<div id="passage"></div>
+
+
+
+<!-- =========================================================
+     SECTION 3
+========================================================= -->
+
+<div class="vocabulary-heading">
+    VOCABULARY
+</div>
+
+
+<div id="vocabulary"></div>
+
+
+
+<script>
+
+
+/* =========================================================
+   =========================================================
+   
+   ⭐⭐⭐⭐⭐  EDITABLE CONTENT AREA  ⭐⭐⭐⭐⭐
+   
+   তোমার মূল editing মূলত এখানেই হবে।
+   
+   =========================================================
+   ========================================================= */
+
+
+/* =========================================================
+   SECTION 2
+   পুরো passage একবারে এখানে paste করবে।
+   
+   প্রতিটি sentence আলাদা করে লিখতে হবে না।
+========================================================= */
+
+
+const passageText = `
+
+Greta Thunberg is an ‘environmental’ ‘activist’.
+She was ‘born’ in Stockholm, Sweden, in 2003.
+When she was eight, she ‘started’ ‘learning’ about ‘climate’ ‘change’.
+The more she ‘learned’, the more ‘baffled’ she became as to why so little was being done about it.
+At the age of 11, Greta became so ‘sad’ about climate change that she ‘temporarily’ ‘stopped’ ‘speaking’!
+
+Greta has ‘Asperger’ ‘syndrome’, a ‘condition’ that ‘affects’ how people ‘socialise’.
+But Greta ‘views’ her condition as a ‘positive’, calling it her "‘superpower’"!
+She says it ‘helps’ her see the world ‘in black and white’, and that there are "no ‘grey areas’ when it comes to climate change.
+In August 2018, Greta ‘decided’ to take ‘action’.
+Instead of going to school, she made a large ‘sign’ that read 'Skolstrejk för Klimatet": SCHOOL ‘STRIKE’ FOR CLIMATE', and ‘calmly’ sat down outside the Swedish parliament.
+Her aim?
+To make ‘politicians’ take ‘notice’ and act to stop ‘global’ ‘warming’.
+Greta's strike was ‘picked up’ by the Swedish ‘media’, and the word started to ‘spread’.
+Soon enough, tens of thousands of students from around the world ‘joined’ her #FridaysforFuture strikes – ‘skipping’ school on Fridays to ‘protest’ against climate change.
+In March 2019, climate ‘campaigners’ across the world, and ‘inspired’ by Greta, came together to ‘co-ordinate’ the first Global Strike for Climate.
+Over 6 million people from 125 countries ‘took part’!
+Since her strike ‘began’, Greta's life has become a ‘whirlwind’!
+She's given ‘rousing speeches’ to politicians, to the EU parliament, the UK parliament, to protesters and more.
+She's ‘appeared’ in ‘documentaries’ and had ‘loads’ of books and articles written about her.
+She's even been ‘nominated’ for a Nobel Peace Prize!
+In August 2019, Greta ‘travelled’ on a wind and ‘solar-powered’ boat from Plymouth, UK, to New York, USA - the ‘journey’ took 15 days.
+Her ‘passionate’ ‘speech’ "You have ‘stolen’ my dreams and my ‘childhood’ with your ‘empty’ words; We are in the beginning of a ‘mass extinction’, and all you can talk about is money, and ‘fairy’ ‘tales’ of ‘eternal’ ‘economic growth’; How dare you!" has drawn much ‘attention’ from all over the world.
+Thunberg was known for changing how some people ‘think’ and ‘act’ about climate change.
+Her ‘impact’ is called "the Greta effect.
+Greta has named Rosa Parks, the ‘civil’ ‘rights’ activist, as one of her ‘greatest’ ‘inspirations’.
+In the 1950s, Rosa ‘sparked’ a civil rights ‘movement’ that ‘improved’ the lives and ‘treatment’ of millions of African Americans.
+
+`;
+
+/* =========================================================
+   SECTION 3
+   এখানে sentence অনুযায়ী:
+   
+   1. বাংলা meaning
+   2. marked vocabulary
+   3. vocabulary particulars
+   
+   দিতে হবে।
+   
+   IMPORTANT:
+   প্রথম object = Passage-এর 1st sentence
+   দ্বিতীয় object = Passage-এর 2nd sentence
+   তৃতীয় object = Passage-এর 3rd sentence
+   
+   English sentence এখানে আবার লিখতে হবে না।
+========================================================= */
+
+
+const vocabularyData = [
+/* =====================================================
+Greta Thunberg is an ‘environmental’ ‘activist’.
+===================================================== */
+
+{
+meaning:
+"গ্রেটা থুনবার্গ একজন পরিবেশবাদী কর্মী।",
+
+vocabulary: [
+
+    {
+        word: "environmental",
+        pos: "Adjective",
+        meaning: "পরিবেশ-সংক্রান্ত; পরিবেশবাদী",
+        ipa: "/ɪnˌvaɪərənˈmentəl/",
+        pronunciation: "ইনভায়রনমেন্টাল",
+        synonyms:
+        "ecological, green, conservationist, eco-friendly",
+        antonyms:
+        "polluting, destructive, harmful, anti-environmental"
+    },
+
+    {
+        word: "activist",
+        pos: "Noun",
+        meaning: "কর্মী; কোনো বিশেষ উদ্দেশ্যে সক্রিয়ভাবে কাজ করেন এমন ব্যক্তি",
+        ipa: "/ˈæktɪvɪst/",
+        pronunciation: "অ্যাক্টিভিস্ট",
+        synonyms:
+        "campaigner, advocate, reformer, campaigner",
+        antonyms:
+        "opponent, inactive person, bystander, nonactivist"
+    }
+
+]
+},
+
+/* =====================================================
+She was ‘born’ in Stockholm, Sweden, in 2003.
+===================================================== */
+
+{
+meaning:
+"সে ২০০৩ সালে সুইডেনের স্টকহোমে জন্মগ্রহণ করে।",
+
+vocabulary: [
+
+    {
+        word: "born",
+        pos: "Verb",
+        meaning: "জন্মগ্রহণ করা",
+        ipa: "/bɔːrn/",
+        pronunciation: "বর্ন",
+        synonyms:
+        "delivered, brought into the world, given birth to, originated",
+        antonyms:
+        "died, deceased, departed, perished"
+    }
+
+]
+},
+
+/* =====================================================
+When she was eight, she ‘started’ ‘learning’ about ‘climate’ ‘change’.
+===================================================== */
+
+{
+meaning:
+"যখন তার বয়স আট বছর, তখন সে জলবায়ু পরিবর্তন সম্পর্কে শেখা শুরু করে।",
+
+vocabulary: [
+
+    {
+        word: "started",
+        pos: "Verb",
+        meaning: "শুরু করেছিল",
+        ipa: "/ˈstɑːrtɪd/",
+        pronunciation: "স্টার্টিড",
+        synonyms:
+        "began, commenced, initiated, launched",
+        antonyms:
+        "ended, stopped, finished, concluded"
+    },
+
+    {
+        word: "learning",
+        pos: "Verb",
+        meaning: "শেখা",
+        ipa: "/ˈlɜːrnɪŋ/",
+        pronunciation: "লার্নিং",
+        synonyms:
+        "studying, understanding, discovering, acquiring",
+        antonyms:
+        "forgetting, ignoring, neglecting, unlearning"
+    },
+
+    {
+        word: "climate",
+        pos: "Noun",
+        meaning: "জলবায়ু",
+        ipa: "/ˈklaɪmət/",
+        pronunciation: "ক্লাইমেট",
+        synonyms:
+        "weather pattern, atmosphere, conditions, environment",
+        antonyms:
+        "—",
+    },
+
+    {
+        word: "change",
+        pos: "Noun",
+        meaning: "পরিবর্তন",
+        ipa: "/tʃeɪndʒ/",
+        pronunciation: "চেইঞ্জ",
+        synonyms:
+        "alteration, transformation, modification, transition",
+        antonyms:
+        "stability, sameness, constancy, permanence"
+    }
+
+]
+},
+
+/* =====================================================
+The more she ‘learned’, the more ‘baffled’ she became as to why so little was being done about it.
+===================================================== */
+
+{
+meaning:
+"সে যত বেশি শিখতে লাগল, ততই অবাক ও বিভ্রান্ত হতে লাগল যে এটি সম্পর্কে এত কম কাজ কেন করা হচ্ছে।",
+
+vocabulary: [
+
+    {
+        word: "learned",
+        pos: "Verb",
+        meaning: "শিখেছিল; জেনেছিল",
+        ipa: "/lɜːrnd/",
+        pronunciation: "লার্ন্ড",
+        synonyms:
+        "studied, discovered, understood, acquired",
+        antonyms:
+        "forgot, ignored, misunderstood, neglected"
+    },
+
+    {
+        word: "baffled",
+        pos: "Adjective",
+        meaning: "বিভ্রান্ত; হতবুদ্ধি",
+        ipa: "/ˈbæfəld/",
+        pronunciation: "ব্যাফোল্ড",
+        synonyms:
+        "confused, puzzled, perplexed, bewildered",
+        antonyms:
+        "clear, certain, confident, informed"
+    }
+
+]
+},
+
+/* =====================================================
+At the age of 11, Greta became so ‘sad’ about climate change that she ‘temporarily’ ‘stopped’ ‘speaking’!
+===================================================== */
+
+{
+meaning:
+"১১ বছর বয়সে গ্রেটা জলবায়ু পরিবর্তন নিয়ে এতটাই দুঃখিত হয়ে পড়েছিল যে সে সাময়িকভাবে কথা বলা বন্ধ করে দিয়েছিল!",
+
+vocabulary: [
+
+    {
+        word: "sad",
+        pos: "Adjective",
+        meaning: "দুঃখিত; বিষণ্ণ",
+        ipa: "/sæd/",
+        pronunciation: "স্যাড",
+        synonyms:
+        "unhappy, sorrowful, miserable, depressed",
+        antonyms:
+        "happy, cheerful, joyful, delighted"
+    },
+
+    {
+        word: "temporarily",
+        pos: "Adverb",
+        meaning: "সাময়িকভাবে",
+        ipa: "/ˈtempərərəli/",
+        pronunciation: "টেম্পোরারিলি",
+        synonyms:
+        "briefly, provisionally, momentarily, for a while",
+        antonyms:
+        "permanently, forever, indefinitely, continually"
+    },
+
+    {
+        word: "stopped",
+        pos: "Verb",
+        meaning: "বন্ধ করেছিল",
+        ipa: "/stɒpt/",
+        pronunciation: "স্টপ্ট",
+        synonyms:
+        "ceased, ended, halted, discontinued",
+        antonyms:
+        "started, continued, resumed, proceeded"
+    },
+
+    {
+        word: "speaking",
+        pos: "Verb",
+        meaning: "কথা বলা",
+        ipa: "/ˈspiːkɪŋ/",
+        pronunciation: "স্পিকিং",
+        synonyms:
+        "talking, communicating, conversing, expressing",
+        antonyms:
+        "silencing, listening, remaining silent, withholding"
+    }
+
+]
+},
+
+/* =====================================================
+Greta has ‘Asperger’ ‘syndrome’, a ‘condition’ that ‘affects’ how people ‘socialise’.
+===================================================== */
+
+{
+meaning:
+"গ্রেটার অ্যাসপারগার সিনড্রোম রয়েছে, যা এমন একটি অবস্থা যা মানুষ কীভাবে সামাজিক মেলামেশা করে তা প্রভাবিত করে।",
+
+vocabulary: [
+
+    {
+        word: "Asperger",
+        pos: "Adjective",
+        meaning: "অ্যাসপারগার-সংক্রান্ত",
+        ipa: "/ˈæspɜːrɡər/",
+        pronunciation: "অ্যাসপারগার",
+        synonyms:
+        "autistic, neurodevelopmental, neurological, developmental",
+        antonyms:
+        "neurotypical, typical, conventional, standard"
+    },
+
+    {
+        word: "syndrome",
+        pos: "Noun",
+        meaning: "উপসর্গসমষ্টি; নির্দিষ্ট লক্ষণসমূহের সমষ্টি",
+        ipa: "/ˈsɪndrəʊm/",
+        pronunciation: "সিনড্রোম",
+        synonyms:
+        "condition, disorder, illness, disease",
+        antonyms:
+        "health, wellness, normality, well-being"
+    },
+
+    {
+        word: "condition",
+        pos: "Noun",
+        meaning: "শারীরিক বা মানসিক অবস্থা",
+        ipa: "/kənˈdɪʃən/",
+        pronunciation: "কনডিশন",
+        synonyms:
+        "state, situation, circumstance, disorder",
+        antonyms:
+        "wellness, health, normality, fitness"
+    },
+
+    {
+        word: "affects",
+        pos: "Verb",
+        meaning: "প্রভাবিত করে",
+        ipa: "/əˈfekts/",
+        pronunciation: "অ্যাফেক্টস",
+        synonyms:
+        "influences, impacts, changes, alters",
+        antonyms:
+        "protects, preserves, maintains, leaves unchanged"
+    },
+
+    {
+        word: "socialise",
+        pos: "Verb",
+        meaning: "সামাজিক মেলামেশা করা",
+        ipa: "/ˈsəʊʃəlaɪz/",
+        pronunciation: "সোশালাইজ",
+        synonyms:
+        "mingle, interact, communicate, mix",
+        antonyms:
+        "isolate, withdraw, avoid, separate"
+    }
+
+]
+},
+
+/* =====================================================
+But Greta ‘views’ her condition as a ‘positive’, calling it her "‘superpower’"!
+===================================================== */
+
+{
+meaning:
+"কিন্তু গ্রেটা তার অবস্থাকে ইতিবাচক হিসেবে দেখে এবং এটিকে তার ‘সুপারপাওয়ার’ বলে অভিহিত করে!",
+
+vocabulary: [
+
+    {
+        word: "views",
+        pos: "Verb",
+        meaning: "দেখে; বিবেচনা করে",
+        ipa: "/vjuːz/",
+        pronunciation: "ভিউজ",
+        synonyms:
+        "regards, considers, sees, perceives",
+        antonyms:
+        "ignores, overlooks, dismisses, rejects"
+    },
+
+    {
+        word: "positive",
+        pos: "Adjective",
+        meaning: "ইতিবাচক; ভালো",
+        ipa: "/ˈpɒzətɪv/",
+        pronunciation: "পজিটিভ",
+        synonyms:
+        "beneficial, favorable, optimistic, constructive",
+        antonyms:
+        "negative, harmful, unfavorable, pessimistic"
+    },
+
+    {
+        word: "superpower",
+        pos: "Noun",
+        meaning: "বিশেষ ক্ষমতা; অসাধারণ শক্তি বা সামর্থ্য",
+        ipa: "/ˈsuːpərpaʊər/",
+        pronunciation: "সুপারপাওয়ার",
+        synonyms:
+        "special ability, strength, talent, capability",
+        antonyms:
+        "weakness, inability, limitation, incapacity"
+    }
+
+]
+},
+
+/* =====================================================
+She says it ‘helps’ her see the world ‘in black and white’, and that there are "no ‘grey areas’ when it comes to climate change.
+===================================================== */
+
+{
+meaning:
+"সে বলে, এটি তাকে পৃথিবীকে সাদা-কালোভাবে দেখতে সাহায্য করে এবং জলবায়ু পরিবর্তনের ক্ষেত্রে কোনো ধূসর বা অস্পষ্ট ক্ষেত্র নেই।",
+
+vocabulary: [
+
+    {
+        word: "helps",
+        pos: "Verb",
+        meaning: "সাহায্য করে",
+        ipa: "/helps/",
+        pronunciation: "হেল্পস",
+        synonyms:
+        "assists, supports, aids, facilitates",
+        antonyms:
+        "hinders, obstructs, prevents, impedes"
+    },
+
+    {
+        word: "in black and white",
+        pos: "Phrase",
+        meaning: "স্পষ্টভাবে; দ্ব্যর্থহীনভাবে",
+        ipa: "/ɪn blæk ənd waɪt/",
+        pronunciation: "ইন ব্ল্যাক অ্যান্ড হোয়াইট",
+        synonyms:
+        "clearly, definitely, explicitly, unambiguously",
+        antonyms:
+        "ambiguously, vaguely, unclearly, uncertainly"
+    },
+
+    {
+        word: "grey areas",
+        pos: "Noun",
+        meaning: "অস্পষ্ট বা দ্ব্যর্থক বিষয়",
+        ipa: "/ɡreɪ ˈeəriəz/",
+        pronunciation: "গ্রে এরিয়াজ",
+        synonyms:
+        "ambiguities, uncertainties, unclear issues, doubtful areas",
+        antonyms:
+        "certainties, clear-cut issues, definite answers, clear areas"
+    }
+
+]
+},
+
+/* =====================================================
+In August 2018, Greta ‘decided’ to take ‘action’.
+===================================================== */
+
+{
+meaning:
+"আগস্ট ২০১৮ সালে গ্রেটা পদক্ষেপ নেওয়ার সিদ্ধান্ত নেয়।",
+
+vocabulary: [
+
+    {
+        word: "decided",
+        pos: "Verb",
+        meaning: "সিদ্ধান্ত নিয়েছিল",
+        ipa: "/dɪˈsaɪdɪd/",
+        pronunciation: "ডিসাইডিড",
+        synonyms:
+        "determined, resolved, chose, concluded",
+        antonyms:
+        "hesitated, doubted, wavered, postponed"
+    },
+
+    {
+        word: "action",
+        pos: "Noun",
+        meaning: "পদক্ষেপ; কার্যক্রম",
+        ipa: "/ˈækʃən/",
+        pronunciation: "অ্যাকশন",
+        synonyms:
+        "act, step, measure, initiative",
+        antonyms:
+        "inaction, inactivity, passivity, idleness"
+    }
+
+]
+},
+
+/* =====================================================
+Instead of going to school, she made a large ‘sign’ that read 'Skolstrejk för Klimatet": SCHOOL ‘STRIKE’ FOR CLIMATE', and ‘calmly’ sat down outside the Swedish parliament.
+===================================================== */
+
+{
+meaning:
+"স্কুলে যাওয়ার পরিবর্তে, সে একটি বড় সাইন তৈরি করেছিল যাতে লেখা ছিল ‘জলবায়ুর জন্য স্কুল ধর্মঘট’, এবং শান্তভাবে সুইডিশ পার্লামেন্টের বাইরে বসে পড়েছিল।",
+
+vocabulary: [
+
+    {
+        word: "sign",
+        pos: "Noun",
+        meaning: "সাইন; লিখিত প্ল্যাকার্ড",
+        ipa: "/saɪn/",
+        pronunciation: "সাইন",
+        synonyms:
+        "notice, poster, placard, banner",
+        antonyms:
+        "—"
+    },
+
+    {
+        word: "strike",
+        pos: "Noun",
+        meaning: "ধর্মঘট; প্রতিবাদস্বরূপ কাজ বন্ধ রাখা",
+        ipa: "/straɪk/",
+        pronunciation: "স্ট্রাইক",
+        synonyms:
+        "protest, stoppage, walkout, demonstration",
+        antonyms:
+        "work, cooperation, compliance, continuation"
+    },
+
+    {
+        word: "calmly",
+        pos: "Adverb",
+        meaning: "শান্তভাবে",
+        ipa: "/ˈkɑːmli/",
+        pronunciation: "কামলি",
+        synonyms:
+        "peacefully, quietly, serenely, composedly",
+        antonyms:
+        "angrily, nervously, violently, frantically"
+    }
+
+]
+},
+
+/* =====================================================
+Her aim?
+===================================================== */
+
+{
+meaning:
+"তার লক্ষ্য কী ছিল?",
+
+vocabulary: [
+
+]
+},
+
+/* =====================================================
+To make ‘politicians’ take ‘notice’ and act to stop ‘global’ ‘warming’.
+===================================================== */
+
+{
+meaning:
+"রাজনীতিবিদদের বিষয়টি লক্ষ্য করানো এবং বৈশ্বিক উষ্ণতা বন্ধ করার জন্য পদক্ষেপ নেওয়ানো।",
+
+vocabulary: [
+
+    {
+        word: "politicians",
+        pos: "Noun",
+        meaning: "রাজনীতিবিদরা",
+        ipa: "/ˌpɒləˈtɪʃənz/",
+        pronunciation: "পলিটিশান্স",
+        synonyms:
+        "statesmen, lawmakers, legislators, leaders",
+        antonyms:
+        "citizens, voters, civilians, nonpoliticians"
+    },
+
+    {
+        word: "notice",
+        pos: "Noun",
+        meaning: "মনোযোগ; লক্ষ্য",
+        ipa: "/ˈnəʊtɪs/",
+        pronunciation: "নোটিস",
+        synonyms:
+        "attention, awareness, observation, recognition",
+        antonyms:
+        "inattention, ignorance, neglect, disregard"
+    },
+
+    {
+        word: "global",
+        pos: "Adjective",
+        meaning: "বিশ্বব্যাপী; বৈশ্বিক",
+        ipa: "/ˈɡləʊbəl/",
+        pronunciation: "গ্লোবাল",
+        synonyms:
+        "worldwide, international, universal, planetary",
+        antonyms:
+        "local, national, regional, domestic"
+    },
+
+    {
+        word: "warming",
+        pos: "Noun",
+        meaning: "উষ্ণায়ন; তাপমাত্রা বৃদ্ধির প্রক্রিয়া",
+        ipa: "/ˈwɔːrmɪŋ/",
+        pronunciation: "ওয়ার্মিং",
+        synonyms:
+        "heating, warming-up, temperature rise, heat increase",
+        antonyms:
+        "cooling, freezing, chilling, cooling-down"
+    }
+
+]
+},
+
+/* =====================================================
+Greta's strike was ‘picked up’ by the Swedish ‘media’, and the word started to ‘spread’.
+===================================================== */
+
+{
+meaning:
+"গ্রেটার ধর্মঘটটি সুইডিশ গণমাধ্যমে প্রচারিত হয় এবং খবরটি ছড়িয়ে পড়তে শুরু করে।",
+
+vocabulary: [
+
+    {
+        word: "picked up",
+        pos: "Phrasal Verb",
+        meaning: "গণমাধ্যমে প্রচারিত বা গুরুত্বসহকারে গ্রহণ করা",
+        ipa: "/pɪkt ʌp/",
+        pronunciation: "পিক্ট আপ",
+        synonyms:
+        "reported, covered, publicised, broadcast",
+        antonyms:
+        "ignored, suppressed, concealed, overlooked"
+    },
+
+    {
+        word: "media",
+        pos: "Noun",
+        meaning: "গণমাধ্যম",
+        ipa: "/ˈmiːdiə/",
+        pronunciation: "মিডিয়া",
+        synonyms:
+        "press, journalism, news outlets, mass communication",
+        antonyms:
+        "—"
+    },
+
+    {
+        word: "spread",
+        pos: "Verb",
+        meaning: "ছড়িয়ে পড়া",
+        ipa: "/spred/",
+        pronunciation: "স্প্রেড",
+        synonyms:
+        "expand, circulate, disseminate, propagate",
+        antonyms:
+        "contract, shrink, concentrate, contain"
+    }
+
+]
+},
+
+/* =====================================================
+Soon enough, tens of thousands of students from around the world ‘joined’ her #FridaysforFuture strikes – ‘skipping’ school on Fridays to ‘protest’ against climate change.
+===================================================== */
+
+{
+meaning:
+"শীঘ্রই বিশ্বের বিভিন্ন দেশের কয়েক দশ হাজার শিক্ষার্থী তার #FridaysforFuture ধর্মঘটে যোগ দেয়—জলবায়ু পরিবর্তনের বিরুদ্ধে প্রতিবাদ করতে তারা শুক্রবার স্কুলে যাওয়া বাদ দিত।",
+
+vocabulary: [
+
+    {
+        word: "joined",
+        pos: "Verb",
+        meaning: "যোগ দিয়েছিল",
+        ipa: "/dʒɔɪnd/",
+        pronunciation: "জয়ন্ড",
+        synonyms:
+        "participated, entered, united, connected",
+        antonyms:
+        "left, withdrew, separated, departed"
+    },
+
+    {
+        word: "skipping",
+        pos: "Verb",
+        meaning: "বাদ দেওয়া; এড়িয়ে যাওয়া",
+        ipa: "/ˈskɪpɪŋ/",
+        pronunciation: "স্কিপিং",
+        synonyms:
+        "missing, avoiding, omitting, bypassing",
+        antonyms:
+        "attending, joining, participating, completing"
+    },
+
+    {
+        word: "protest",
+        pos: "Verb",
+        meaning: "প্রতিবাদ করা",
+        ipa: "/prəˈtest/",
+        pronunciation: "প্রোটেস্ট",
+        synonyms:
+        "oppose, object, demonstrate, resist",
+        antonyms:
+        "support, accept, approve, agree"
+    }
+
+]
+},
+
+/* =====================================================
+In March 2019, climate ‘campaigners’ across the world, and ‘inspired’ by Greta, came together to ‘co-ordinate’ the first Global Strike for Climate.
+===================================================== */
+
+{
+meaning:
+"মার্চ ২০১৯ সালে সারা বিশ্বের জলবায়ু আন্দোলনকারীরা গ্রেটার দ্বারা অনুপ্রাণিত হয়ে প্রথম Global Strike for Climate-এর সমন্বয় করতে একত্রিত হয়।",
+
+vocabulary: [
+
+    {
+        word: "campaigners",
+        pos: "Noun",
+        meaning: "অভিযানকারী; কোনো উদ্দেশ্যের পক্ষে প্রচারণাকারী",
+        ipa: "/kæmˈpeɪnərz/",
+        pronunciation: "ক্যাম্পেইনার্স",
+        synonyms:
+        "activists, advocates, campaigners, promoters",
+        antonyms:
+        "opponents, critics, detractors, bystanders"
+    },
+
+    {
+        word: "inspired",
+        pos: "Adjective",
+        meaning: "অনুপ্রাণিত",
+        ipa: "/ɪnˈspaɪərd/",
+        pronunciation: "ইনস্পায়ার্ড",
+        synonyms:
+        "motivated, encouraged, influenced, stimulated",
+        antonyms:
+        "discouraged, demotivated, uninspired, deterred"
+    },
+
+    {
+        word: "co-ordinate",
+        pos: "Verb",
+        meaning: "সমন্বয় করা",
+        ipa: "/kəʊˈɔːrdɪneɪt/",
+        pronunciation: "কো-অর্ডিনেট",
+        synonyms:
+        "organise, arrange, synchronise, manage",
+        antonyms:
+        "disorganise, disrupt, confuse, separate"
+    }
+
+]
+},
+
+/* =====================================================
+Over 6 million people from 125 countries ‘took part’!
+===================================================== */
+
+{
+meaning:
+"১২৫টি দেশের ৬০ লাখেরও বেশি মানুষ এতে অংশগ্রহণ করেছিল!",
+
+vocabulary: [
+
+    {
+        word: "took part",
+        pos: "Phrasal Verb",
+        meaning: "অংশগ্রহণ করেছিল",
+        ipa: "/tʊk pɑːrt/",
+        pronunciation: "টুক পার্ট",
+        synonyms:
+        "participated, joined, engaged, contributed",
+        antonyms:
+        "withdrew, avoided, refused, abstained"
+    }
+
+]
+},
+
+/* =====================================================
+Since her strike ‘began’, Greta's life has become a ‘whirlwind’!
+===================================================== */
+
+{
+meaning:
+"তার ধর্মঘট শুরু হওয়ার পর থেকে গ্রেটার জীবন অত্যন্ত ব্যস্ত ও ঘটনাবহুল হয়ে উঠেছে!",
+
+vocabulary: [
+
+    {
+        word: "began",
+        pos: "Verb",
+        meaning: "শুরু হয়েছিল",
+        ipa: "/bɪˈɡæn/",
+        pronunciation: "বিগ্যান",
+        synonyms:
+        "started, commenced, initiated, opened",
+        antonyms:
+        "ended, stopped, concluded, finished"
+    },
+
+    {
+        word: "whirlwind",
+        pos: "Noun",
+        meaning: "ঘূর্ণিঝড়; রূপক অর্থে অত্যন্ত ব্যস্ত ও ঘটনাবহুল অবস্থা",
+        ipa: "/ˈwɜːrlwɪnd/",
+        pronunciation: "ওয়ার্লউইন্ড",
+        synonyms:
+        "rush, frenzy, bustle, flurry",
+        antonyms:
+        "calm, stillness, peace, quiet"
+    }
+
+]
+},
+
+/* =====================================================
+She's given ‘rousing speeches’ to politicians, to the EU parliament, the UK parliament, to protesters and more.
+===================================================== */
+
+{
+meaning:
+"সে রাজনীতিবিদ, ইউরোপীয় ইউনিয়নের পার্লামেন্ট, যুক্তরাজ্যের পার্লামেন্ট, প্রতিবাদকারী এবং আরও অনেকের উদ্দেশে উদ্দীপনামূলক বক্তৃতা দিয়েছে।",
+
+vocabulary: [
+
+    {
+        word: "rousing speeches",
+        pos: "Noun Phrase",
+        meaning: "উদ্দীপনামূলক বক্তৃতা",
+        ipa: "/ˈraʊzɪŋ ˈspiːtʃɪz/",
+        pronunciation: "রাউজিং স্পিচিজ",
+        synonyms:
+        "inspiring speeches, stirring talks, motivational addresses, passionate speeches",
+        antonyms:
+        "dull speeches, uninspiring talks, boring addresses, discouraging speeches"
+    }
+
+]
+},
+
+/* =====================================================
+She's ‘appeared’ in ‘documentaries’ and had ‘loads’ of books and articles written about her.
+===================================================== */
+
+{
+meaning:
+"সে তথ্যচিত্রে উপস্থিত হয়েছে এবং তার সম্পর্কে প্রচুর বই ও প্রবন্ধ লেখা হয়েছে।",
+
+vocabulary: [
+
+    {
+        word: "appeared",
+        pos: "Verb",
+        meaning: "উপস্থিত হয়েছে; দেখা দিয়েছে",
+        ipa: "/əˈpɪərd/",
+        pronunciation: "অ্যাপিয়ার্ড",
+        synonyms:
+        "featured, showed up, emerged, participated",
+        antonyms:
+        "disappeared, vanished, withdrew, left"
+    },
+
+    {
+        word: "documentaries",
+        pos: "Noun",
+        meaning: "তথ্যচিত্র",
+        ipa: "/ˌdɒkjʊˈmentəriz/",
+        pronunciation: "ডকুমেন্টারিজ",
+        synonyms:
+        "factual films, documentaries, nonfiction films, informative films",
+        antonyms:
+        "fiction films, dramas, fantasies, imaginary stories"
+    },
+
+    {
+        word: "loads",
+        pos: "Noun",
+        meaning: "প্রচুর পরিমাণ",
+        ipa: "/ləʊdz/",
+        pronunciation: "লোডজ",
+        synonyms:
+        "lots, heaps, masses, plenty",
+        antonyms:
+        "little, few, lack, scarcity"
+    }
+
+]
+},
+
+/* =====================================================
+She's even been ‘nominated’ for a Nobel Peace Prize!
+===================================================== */
+
+{
+meaning:
+"এমনকি তাকে নোবেল শান্তি পুরস্কারের জন্য মনোনীতও করা হয়েছে!",
+
+vocabulary: [
+
+    {
+        word: "nominated",
+        pos: "Verb",
+        meaning: "মনোনীত করা হয়েছে",
+        ipa: "/ˈnɒmɪneɪtɪd/",
+        pronunciation: "নমিনেটিড",
+        synonyms:
+        "proposed, selected, recommended, appointed",
+        antonyms:
+        "rejected, excluded, disqualified, dismissed"
+    }
+
+]
+},
+
+/* =====================================================
+In August 2019, Greta ‘travelled’ on a wind and ‘solar-powered’ boat from Plymouth, UK, to New York, USA - the ‘journey’ took 15 days.
+===================================================== */
+
+{
+meaning:
+"আগস্ট ২০১৯ সালে গ্রেটা যুক্তরাজ্যের প্লাইমাউথ থেকে যুক্তরাষ্ট্রের নিউইয়র্কে বায়ু ও সৌরশক্তিচালিত নৌকায় ভ্রমণ করে—যাত্রাটিতে ১৫ দিন সময় লেগেছিল।",
+
+vocabulary: [
+
+    {
+        word: "travelled",
+        pos: "Verb",
+        meaning: "ভ্রমণ করেছিল",
+        ipa: "/ˈtrævəld/",
+        pronunciation: "ট্রাভেল্ড",
+        synonyms:
+        "journeyed, went, toured, voyaged",
+        antonyms:
+        "stayed, remained, settled, stopped"
+    },
+
+    {
+        word: "solar-powered",
+        pos: "Adjective",
+        meaning: "সৌরশক্তিচালিত",
+        ipa: "/ˈsəʊlər ˌpaʊərd/",
+        pronunciation: "সোলার-পাওয়ার্ড",
+        synonyms:
+        "sun-powered, solar-driven, photovoltaic-powered, renewable-powered",
+        antonyms:
+        "fuel-powered, coal-powered, gas-powered, manually powered"
+    },
+
+    {
+        word: "journey",
+        pos: "Noun",
+        meaning: "যাত্রা; ভ্রমণ",
+        ipa: "/ˈdʒɜːrni/",
+        pronunciation: "জার্নি",
+        synonyms:
+        "trip, voyage, travel, expedition",
+        antonyms:
+        "stay, rest, halt, arrival"
+    }
+
+]
+},
+
+/* =====================================================
+Her ‘passionate’ ‘speech’ "You have ‘stolen’ my dreams and my ‘childhood’ with your ‘empty’ words; We are in the beginning of a ‘mass extinction’, and all you can talk about is money, and ‘fairy’ ‘tales’ of ‘eternal’ ‘economic growth’; How dare you!" has drawn much ‘attention’ from all over the world.
+===================================================== */
+
+{
+meaning:
+"তার আবেগপূর্ণ বক্তব্য 'আপনারা আপনাদের ফাঁকা বুলি দিয়ে আমার স্বপ্ন ও শৈশব চুরি করেছেন; আমরা এক মহাবিলুপ্তির সূচনায় দাঁড়িয়ে আছি, আর আপনারা শুধু অর্থ এবং চিরন্তন অর্থনৈতিক প্রবৃদ্ধির রূপকথা নিয়ে কথা বলছেন; আপনাদের সাহস কত!' সারা বিশ্বের প্রচুর দৃষ্টি আকর্ষণ করেছে।",
+
+vocabulary: [
+
+    {
+        word: "passionate",
+        pos: "Adjective",
+        meaning: "আবেগপূর্ণ; অনুরাগী",
+        ipa: "/ˈpæʃənət/",
+        pronunciation: "প্যাশনেট",
+        synonyms:
+        "fervent, ARDENT, emotional, intense",
+        antonyms:
+        "apathetic, indifferent, cold, calm"
+    },
+
+    {
+        word: "speech",
+        pos: "Noun",
+        meaning: "বক্তব্য; ভাষণ",
+        ipa: "/spiːtʃ/",
+        pronunciation: "স্পীচ",
+        synonyms:
+        "address, oration, talk, lecture",
+        antonyms:
+        "silence, quiet, listening, inarticulate sentence"
+    },
+
+    {
+        word: "stolen",
+        pos: "Verb",
+        meaning: "চুরি করা হয়েছে এমন",
+        ipa: "/ˈstoʊlən/",
+        pronunciation: "স্টোলেন",
+        synonyms:
+        "pilfered, robbed, thieved, snatched",
+        antonyms:
+        "returned, given, restored, returned"
+    },
+
+    {
+        word: "childhood",
+        pos: "Noun",
+        meaning: "শৈশব; বাল্যকাল",
+        ipa: "/ˈtʃaɪldhʊd/",
+        pronunciation: "চাইল্ডহুড",
+        synonyms:
+        "youth, infancy, early years, adolescence",
+        antonyms:
+        "adulthood, maturity, old age, seniority"
+    },
+
+    {
+        word: "empty",
+        pos: "Adjective",
+        meaning: "ফাঁকা; অর্থহীন",
+        ipa: "/ˈempti/",
+        pronunciation: "এম্পটি",
+        synonyms:
+        "hollow, meaningless, vacant, void",
+        antonyms:
+        "meaningful, full, significant, substantial"
+    },
+
+    {
+        word: "mass extinction",
+        pos: "Noun",
+        meaning: "মহাবিলুপ্তি",
+        ipa: "/mæs ɪkˈstɪŋkʃn/",
+        pronunciation: "মাস এক্সটিংকশন",
+        synonyms:
+        "widespread annihilation, total destruction, die-off, eradication",
+        antonyms:
+        "genesis, survival, flourishing, regeneration"
+    },
+
+    {
+        word: "fairy tales",
+        pos: "Noun",
+        meaning: "রূপকথা",
+        ipa: "/ˈfeəri teɪlz/",
+        pronunciation: "ফেয়ারি টেলস",
+        synonyms:
+        "fables, myths, folklore, fantasies",
+        antonyms:
+        "facts, truths, realities, non-fiction"
+    },
+
+    {
+        word: "eternal",
+        pos: "Adjective",
+        meaning: "চিরন্তন; শাশ্বত",
+        ipa: "/ɪˈtɜːrnl/",
+        pronunciation: "ইটারনাল",
+        synonyms:
+        "everlasting, PERPETUAL, TIMELESS, ENDLESS",
+        antonyms:
+        "temporary, FEETING, MOMENTARY, TRANSIENT"
+    },
+
+    {
+        word: "economic growth",
+        pos: "Noun",
+        meaning: "অর্থনৈতিক প্রবৃদ্ধি",
+        ipa: "/ˌiːkəˈnɒmɪk ɡroʊθ/",
+        pronunciation: "ইকোনমিক গ্রোথ",
+        synonyms:
+        "financial expansion, economic progress, development, boom",
+        antonyms:
+        "economic decline, recession, stagnation, slump"
+    },
+
+    {
+        word: "attention",
+        pos: "Noun",
+        meaning: "মনোযোগ; দৃষ্টি",
+        ipa: "/əˈtenʃn/",
+        pronunciation: "অ্যাটেনশন",
+        synonyms:
+        "focus, notice, awareness, concentration",
+        antonyms:
+        "inattention, neglect, disregard, indifference"
+    }
+
+]
+},
+
+/* =====================================================
+Thunberg was known for changing how some people ‘think’ and ‘act’ about climate change.
+===================================================== */
+
+{
+meaning:
+"জলবায়ু পরিবর্তন সম্পর্কে কিছু মানুষের চিন্তা ও কাজকর্মের ধরন বদলে দেওয়ার জন্য থুনবার্গ পরিচিত ছিলেন।",
+
+vocabulary: [
+
+    {
+        word: "think",
+        pos: "Verb",
+        meaning: "চিন্তা করা; ভাবা",
+        ipa: "/θɪŋk/",
+        pronunciation: "থিংক",
+        synonyms:
+        "ponder, consider, reflect, REASON",
+        antonyms:
+        "ignore, disregard, forget, overlook"
+    },
+
+    {
+        word: "act",
+        pos: "Verb",
+        meaning: "কাজ করা; আচরণ করা",
+        ipa: "/ækt/",
+        pronunciation: "অ্যাক্ট",
+        synonyms:
+        "behave, operate, perform, EXECUTE",
+        antonyms:
+        "refrain, stay idle, pause, halt"
+    }
+
+]
+},
+
+/* =====================================================
+Her ‘impact’ is called "the Greta effect."
+===================================================== */
+
+{
+meaning:
+"তার এই প্রভাবকে বলা হয় 'দ্য গ্রেটা ইফেক্ট'।",
+
+vocabulary: [
+
+    {
+        word: "impact",
+        pos: "Noun",
+        meaning: "প্রভাব; প্রতিক্রিয়া",
+        ipa: "/ˈɪmpækt/",
+        pronunciation: "ইমপ্যাক্ট",
+        synonyms:
+        "influence, effect, impression, consequence",
+        antonyms:
+        "insignificance, weakness, powerlessness, noninterference"
+    }
+
+]
+},
+
+/* =====================================================
+Greta has named Rosa Parks, the ‘civil’ ‘rights’ activist, as one of her ‘greatest’ ‘inspirations’.
+===================================================== */
+
+{
+meaning:
+"গ্রেটা নাগরিক অধিকার কর্মী রোজা পার্কসকে তার অন্যতম সেরা অনুপ্রেরণা হিসেবে উল্লেখ করেছেন।",
+
+vocabulary: [
+
+    {
+        word: "civil rights",
+        pos: "Noun",
+        meaning: "নাগরিক অধিকার",
+        ipa: "/ˈsɪvl raɪts/",
+        pronunciation: "সিভিল রাইটস",
+        synonyms:
+        "human rights, legal freedoms, equal rights, liberties",
+        antonyms:
+        "disenfranchisement, oppression, discrimination, suppression"
+    },
+
+    {
+        word: "greatest",
+        pos: "Adjective",
+        meaning: "সর্বশ্রেষ্ঠ; সেরা",
+        ipa: "/ˈɡreɪtɪst/",
+        pronunciation: "গ্রেটেস্ট",
+        synonyms:
+        "supreme, foremost, paramount, preeminent",
+        antonyms:
+        "least, smallest, worst, insignificant"
+    },
+
+    {
+        word: "inspirations",
+        pos: "Noun",
+        meaning: "অনুপ্রেরণাসমূহ",
+        ipa: "/ˌɪnspəˈreɪʃnz/",
+        pronunciation: "ইনস্পিরেশনস",
+        synonyms:
+        "motivations, encouragements, muses, influences",
+        antonyms:
+        "discouragements, deterrents, dampers, depressions"
+    }
+
+]
+},
+
+/* =====================================================
+In the 1950s, Rosa ‘sparked’ a civil rights ‘movement’ that ‘improved’ the lives and ‘treatment’ of millions of African Americans.
+===================================================== */
+
+{
+meaning:
+"১৯৫০-এর দশকে, রোজা একটি নাগরিক অধিকার আন্দোলন সূচনা করেছিলেন যা লাখ লাখ আফ্রিকান আমেরিকানদের জীবন ও তাদের প্রতি আচরণের উন্নতি করেছিল।",
+
+vocabulary: [
+
+    {
+        word: "sparked",
+        pos: "Verb",
+        meaning: "সূচনা করেছিল; প্রজ্বলিত করেছিল",
+        ipa: "/spɑːrkt/",
+        pronunciation: "স্পার্কড",
+        synonyms:
+        "triggered, initiated, ignited, stimulated",
+        antonyms:
+        "extinguished, suppressed, stopped, prevented"
+    },
+
+    {
+        word: "movement",
+        pos: "Noun",
+        meaning: "আন্দোলন; প্রচারণা",
+        ipa: "/ˈmuːvmənt/",
+        pronunciation: "মুভমেন্ট",
+        synonyms:
+        "campaign, drive, crusade, agitation",
+        antonyms:
+        "stagnation, inactivity, stability, immobility"
+    },
+
+    {
+        word: "improved",
+        pos: "Verb",
+        meaning: "উন্নত করেছিল",
+        ipa: "/ɪmˈpruːvd/",
+        pronunciation: "ইম্প্রুভড",
+        synonyms:
+        "enhanced, upgraded, AMELIORATED, boosted",
+        antonyms:
+        "worsened, deteriorated, impaired, damaged"
+    },
+
+    {
+        word: "treatment",
+        pos: "Noun",
+        meaning: "আচরণ; ব্যবহার",
+        ipa: "/ˈtriːtmənt/",
+        pronunciation: "ট্রিটমেন্ট",
+        synonyms:
+        "behavior, conduct, handling, dealing",
+        antonyms:
+        "neglect, disregard, mistreatment, ignorance"
+    }
+
+]
+}
+
+];
+
+
+/* =========================================================
+   ⭐⭐⭐⭐⭐ END OF EDITABLE CONTENT ⭐⭐⭐⭐⭐
+   
+   এখান থেকে নিচের code সাধারণত edit করবে না।
+========================================================= */
+
+
+/* =========================================================
+   GET ELEMENTS
+========================================================= */
+
+const passageContainer =
+    document.getElementById("passage");
+
+
+const vocabularyContainer =
+    document.getElementById("vocabulary");
+
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(text) {
+
+    return String(text)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+}
+
+
+
+/* =========================================================
+   SPLIT FULL PASSAGE INTO SENTENCES
+========================================================= */
+
+function splitIntoSentences(text) {
+
+    /*
+       প্রথমে passage-এর line break ধরে
+       speaker information আলাদা করা হবে।
+    */
+
+    const lines = text
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(line => line.length > 0);
+
+
+    /*
+       এগুলো sentence নয়।
+       এগুলো শুধু speaker / location information।
+    */
+
+    const cleanLines = lines.filter(line => {
+
+        // Example:
+        // 26 Mahmud Najem, Born 1994
+        // 31 Yasmeen Katbeh, Born 1996
+
+        if (
+            /^\d+\s+.+,\s*Born\s+\d{4}$/i.test(line)
+        ) {
+            return false;
+        }
+
+
+        // Example:
+        // Ash Sheikh Radwan
+
+        if (
+            /^Ash Sheikh Radwan$/i.test(line)
+        ) {
+            return false;
+        }
+
+
+        return true;
+
+    });
+
+
+    /*
+       এখন প্রতিটি paragraph-এর sentence
+       আলাদা করা হবে।
+    */
+
+    const sentences = [];
+
+
+    cleanLines.forEach(line => {
+
+        const parts = line
+            .split(
+                /(?<=[.!?])\s+(?=[A-Z“"'])/
+            )
+            .map(sentence => sentence.trim())
+            .filter(sentence => sentence.length > 0);
+
+
+        parts.forEach(sentence => {
+
+            sentences.push(sentence);
+
+        });
+
+    });
+
+
+    return sentences;
+
+}
+
+
+
+/* =========================================================
+   CREATE IDS
+========================================================= */
+
+function sentenceID(index) {
+
+    return "passage-sentence-" + index;
+
+}
+
+
+function vocabularyID(index) {
+
+    return "vocabulary-sentence-" + index;
+
+}
+
+
+function wordID(sentenceIndex, wordIndex) {
+
+    return (
+        "passage-word-" +
+        sentenceIndex +
+        "-" +
+        wordIndex
+    );
+
+}
+
+
+
+/* =========================================================
+   MARK VOCABULARY WORDS
+========================================================= */
+
+function markVocabularyWords(
+    sentence,
+    vocabulary,
+    sentenceIndex
+) {
+
+    let result = escapeHTML(sentence);
+
+    vocabulary.forEach(
+        (item, wordIndex) => {
+
+            const word =
+                escapeHTML(item.word);
+
+            const safeWord =
+                word.replace(
+                    /[.*+?^${}()|[\]\\]/g,
+                    "\\$&"
+                );
+
+            const regex =
+                new RegExp(
+                    "(?<![A-Za-z])" +
+                    safeWord +
+                    "(?![A-Za-z])",
+                    "gi"
+                );
+
+            result =
+                result.replace(
+                    regex,
+
+                    `<span
+                        id="${wordID(sentenceIndex, wordIndex)}"
+                        class="marked-word"
+                        onclick="goToVocabularyWord(${sentenceIndex}, ${wordIndex})"
+                    >$&</span>`
+                );
+
+        }
+    );
+
+    return result;
+}
+
+
+
+/* =========================================================
+   CREATE PASSAGE
+========================================================= */
+
+function createPassage(sentences) {
+
+    passageContainer.innerHTML = "";
+
+
+    sentences.forEach(
+        (sentence, sentenceIndex) => {
+
+            const data =
+                vocabularyData[sentenceIndex];
+
+
+            const vocabulary =
+                data ? data.vocabulary : [];
+
+
+            const sentenceDiv =
+                document.createElement("div");
+
+
+            sentenceDiv.className =
+                "passage-sentence";
+
+
+            sentenceDiv.id =
+                sentenceID(sentenceIndex);
+
+
+            const sentenceHTML =
+                markVocabularyWords(
+                    sentence,
+                    vocabulary,
+                    sentenceIndex
+                );
+
+
+            sentenceDiv.innerHTML =
+
+                sentenceHTML +
+
+                `
+
+                <a
+                    href="#${vocabularyID(sentenceIndex)}"
+                    class="action-button see-full"
+                    onclick="highlightVocabularySentence(${sentenceIndex})"
+                >
+                    SEE FULL
+                </a>
+
+
+                <button
+                    class="action-button pronounce"
+                    onclick="pronounceSentence(${sentenceIndex})"
+                >
+                    🔊 PRONOUNCE
+                </button>
+
+                `;
+
+
+            passageContainer.appendChild(
+                sentenceDiv
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   CREATE VOCABULARY
+========================================================= */
+
+function createVocabulary(sentences) {
+
+    vocabularyContainer.innerHTML = "";
+
+
+    sentences.forEach(
+        (sentence, sentenceIndex) => {
+
+            const data =
+                vocabularyData[sentenceIndex];
+
+
+            if (!data) {
+
+                return;
+
+            }
+
+
+            const box =
+                document.createElement("div");
+
+
+            box.className =
+                "vocab-sentence";
+
+
+            box.id =
+                vocabularyID(sentenceIndex);
+
+
+            let html =
+
+                `
+
+                <!-- ENGLISH SENTENCE -->
+
+                <div class="vocab-english">
+
+                    ${escapeHTML(sentence)}
+
+                    <a
+                        class="sentence-back-button"
+                        onclick="goToPassageSentence(${sentenceIndex})"
+                    >
+                        ↩ BACK TO PASSAGE
+                    </a>
+
+                </div>
+
+
+                <!-- BANGLA MEANING -->
+
+                <div class="bangla-meaning">
+
+                    ${escapeHTML(data.meaning)}
+
+                    <a
+                        class="sentence-back-button"
+                        onclick="goToPassageSentence(${sentenceIndex})"
+                    >
+                        ↩ BACK TO PASSAGE
+                    </a>
+
+                </div>
+
+                `;
+
+
+            /* =================================================
+               WORD CARDS
+            ================================================= */
+
+
+            data.vocabulary.forEach(
+                (item, wordIndex) => {
+
+                    html +=
+
+                        `
+
+                        <div
+                            class="word-card"
+                            id="vocab-word-${sentenceIndex}-${wordIndex}"
+                        >
+
+                            <div class="word-title">
+
+                                ${escapeHTML(item.word)}
+
+                            </div>
+
+
+                            <div class="word-details">
+
+                                <b>
+                                    Part of Speech:
+                                </b>
+
+                                ${escapeHTML(item.pos)}
+
+                                <br>
+
+
+                                <b>
+                                    Bangla Meaning:
+                                </b>
+
+                                ${escapeHTML(item.meaning)}
+
+                                <br>
+
+
+                                <b>
+                                    IPA:
+                                </b>
+
+                                ${escapeHTML(item.ipa)}
+
+                                <br>
+
+
+                                <b>
+                                    Pronunciation:
+                                </b>
+
+                                ${escapeHTML(item.pronunciation)}
+
+                                <br>
+
+
+                                <b>
+                                    Synonyms:
+                                </b>
+
+                                ${escapeHTML(item.synonyms)}
+
+                                <br>
+
+
+                                <b>
+                                    Antonyms:
+                                </b>
+
+                                ${escapeHTML(item.antonyms)}
+
+                                <br>
+
+
+                                <a
+                                    class="back-to-passage"
+                                    onclick="
+                                        goToPassageWord(
+                                            ${sentenceIndex},
+                                            ${wordIndex}
+                                        )
+                                    "
+                                >
+                                    ↩ BACK TO PASSAGE
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                        `;
+
+                }
+            );
+
+
+            box.innerHTML = html;
+
+
+            vocabularyContainer.appendChild(
+                box
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   HIGHLIGHT VOCABULARY SENTENCE
+========================================================= */
+
+function highlightVocabularySentence(
+    sentenceIndex
+) {
+
+    const target =
+        document.getElementById(
+            vocabularyID(sentenceIndex)
+        );
+
+
+    if (!target) {
+
+        return;
+
+    }
+
+
+    setTimeout(() => {
+
+        target.classList.add(
+            "active-sentence"
+        );
+
+
+        setTimeout(() => {
+
+            target.classList.remove(
+                "active-sentence"
+            );
+
+        }, 2200);
+
+    }, 250);
+
+}
+
+/* =========================================================
+   GO TO VOCABULARY SENTENCE — INSTANT
+========================================================= */
+
+function goToVocabularySentence(sentenceIndex) {
+
+    const target =
+        document.getElementById(
+            vocabularyID(sentenceIndex)
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling সম্পূর্ণ বন্ধ।
+       এক লাফে destination-এ যাবে।
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center"
+    });
+
+    target.classList.add("active-sentence");
+
+    setTimeout(() => {
+
+        target.classList.remove("active-sentence");
+
+    }, 2200);
+}
+
+
+/* =========================================================
+   GO TO VOCABULARY WORD — INSTANT
+========================================================= */
+
+function goToVocabularyWord(
+    sentenceIndex,
+    wordIndex
+) {
+
+    const target =
+        document.getElementById(
+            "vocab-word-" +
+            sentenceIndex +
+            "-" +
+            wordIndex
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling বন্ধ
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+
+    /*
+       ⭐ মূল correction ⭐
+
+       আগে এখানে পুরো vocabulary sentence
+       scroll করা হচ্ছিল।
+
+       এখন সরাসরি clicked vocabulary
+       WORD CARD-কে screen-এর মাঝখানে
+       আনা হবে।
+    */
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "nearest"
+    });
+
+
+    /*
+       Exact vocabulary word highlight
+    */
+
+    const wordTitle =
+        target.querySelector(".word-title");
+
+
+    if (wordTitle) {
+
+        wordTitle.classList.add(
+            "active-word"
+        );
+
+    }
+
+
+    /*
+       2.5 seconds পরে highlight remove
+    */
+
+    setTimeout(() => {
+
+        if (wordTitle) {
+
+            wordTitle.classList.remove(
+                "active-word"
+            );
+
+        }
+
+    }, 2500);
+
+}
+
+/* =========================================================
+   GO TO PASSAGE SENTENCE — INSTANT
+========================================================= */
+
+function goToPassageSentence(sentenceIndex) {
+
+    const target =
+        document.getElementById(
+            sentenceID(sentenceIndex)
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling সম্পূর্ণ বন্ধ।
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center"
+    });
+
+    target.classList.add("active-sentence");
+
+    setTimeout(() => {
+
+        target.classList.remove("active-sentence");
+
+    }, 2200);
+}
+
+
+/* =========================================================
+   GO TO EXACT PASSAGE WORD — INSTANT
+========================================================= */
+
+function goToPassageWord(
+    sentenceIndex,
+    wordIndex
+) {
+
+    const target =
+        document.getElementById(
+            wordID(
+                sentenceIndex,
+                wordIndex
+            )
+        );
+
+    if (!target) {
+        return;
+    }
+
+
+    /*
+       Smooth scrolling বন্ধ
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+
+    /*
+       ⭐ সরাসরি নির্দিষ্ট marked word-কে
+       screen-এর মাঝখানে আনা হবে
+    */
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "nearest"
+    });
+
+
+    /*
+       Exact passage word highlight
+    */
+
+    target.classList.add(
+        "active-word"
+    );
+
+
+    /*
+       2.5 seconds পরে highlight remove
+    */
+
+    setTimeout(() => {
+
+        target.classList.remove(
+            "active-word"
+        );
+
+    }, 2500);
+
+}
+
+/* =========================================================
+   PRONUNCIATION
+========================================================= */
+
+function pronounceSentence(index) {
+
+    const sentences =
+        splitIntoSentences(
+            passageText
+        );
+
+
+    const text =
+        sentences[index];
+
+
+    if (
+        !("speechSynthesis" in window)
+    ) {
+
+        alert(
+            "Your browser does not support speech pronunciation."
+        );
+
+        return;
+
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+        new SpeechSynthesisUtterance(
+            text
+        );
+
+
+    speech.lang = "en-US";
+
+    speech.rate = 0.85;
+
+    speech.pitch = 1;
+
+
+    window.speechSynthesis.speak(
+        speech
+    );
+
+}
+
+
+
+/* =========================================================
+   CHECK DATA
+========================================================= */
+
+function checkData(sentences) {
+
+    if (
+        sentences.length !==
+        vocabularyData.length
+    ) {
+
+        const warning =
+            document.createElement("div");
+
+
+        warning.className =
+            "data-warning";
+
+
+        warning.innerHTML =
+
+            `
+
+            <b>Content warning:</b>
+
+            Passage-এ
+
+            <b>${sentences.length}</b>
+
+            টি sentence পাওয়া গেছে,
+
+            কিন্তু Vocabulary data-তে
+
+            <b>${vocabularyData.length}</b>
+
+            টি entry আছে।
+
+            <br><br>
+
+            প্রতিটি Passage sentence-এর জন্য
+            Vocabulary section-এ একটি করে
+            data object থাকতে হবে।
+
+            `;
+
+
+        document.body.insertBefore(
+            warning,
+            document.getElementById(
+                "passage"
+            )
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   START
+========================================================= */
+
+const sentences =
+    splitIntoSentences(
+        passageText
+    );
+
+
+checkData(sentences);
+
+
+createPassage(
+    sentences
+);
+
+
+createVocabulary(
+    sentences
+);
+
+
+</script>
+
+
+</body>
+</html>
