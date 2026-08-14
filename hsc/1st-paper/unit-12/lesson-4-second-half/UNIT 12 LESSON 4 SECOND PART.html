@@ -1,0 +1,3839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>All About English</title>
+
+
+<!-- =========================================================
+     FONTS
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef4f8,
+            #f8f5fb
+        );
+
+    color: #17202a;
+
+    font-family: "Montserrat", sans-serif;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SECTION 1
+   TOP HEADER
+========================================================= */
+
+.top-box {
+
+    width: 100%;
+
+    padding: 38px 20px 34px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071e3d 0%,
+            #0b3d5c 35%,
+            #146c78 65%,
+            #0a2a43 100%
+        );
+
+    border-radius: 0 0 24px 24px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.18);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.top-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    top: -120px;
+    left: -80px;
+
+    background:
+        rgba(70,220,255,0.18);
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+
+.top-box::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    right: -80px;
+    bottom: -110px;
+
+    background:
+        rgba(190,80,255,0.18);
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+
+.site-title {
+
+    margin: 0 0 8px;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(30px, 6vw, 52px);
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,0.35),
+        0 0 18px rgba(100,220,255,0.25);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.author-name {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size:
+        clamp(17px, 3.5vw, 23px);
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    letter-spacing: 1.5px;
+
+    color: #d9f8ff;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.teacher-info {
+
+    max-width: 900px;
+
+    margin: 4px auto;
+
+    font-size:
+        clamp(13px, 2.5vw, 16px);
+
+    line-height: 1.7;
+
+    font-weight: 500;
+
+    color: #f4fcff;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.contact-info {
+
+    margin-top: 10px;
+
+    font-size:
+        clamp(13px, 2.5vw, 16px);
+
+    font-weight: 600;
+
+    color: white;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.facebook-link {
+
+    display: inline-block;
+
+    margin-top: 8px;
+
+    padding: 8px 16px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    border:
+        1px solid rgba(255,255,255,0.22);
+
+    color: #dff9ff;
+
+    text-decoration: none;
+
+    font-size:
+        clamp(12px, 2.4vw, 15px);
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.facebook-link:hover {
+
+    background:
+        rgba(255,255,255,0.23);
+
+    color: white;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.20);
+}
+
+
+/* =========================================================
+   SECTION 2
+   PASSAGE HEADING
+========================================================= */
+
+.passage-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 30px auto 12px;
+
+    padding: 15px 20px;
+
+    text-align: center;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(25px, 5vw, 38px);
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #183b56,
+            #287c8e,
+            #633b78
+        );
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,0.18);
+}
+
+
+/* =========================================================
+   UNIT / LESSON
+========================================================= */
+
+.lesson-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 18px;
+
+    padding: 17px 20px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #633b78,
+            #365c9b
+        );
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.15);
+}
+
+
+.lesson-heading .unit {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+
+.lesson-heading .lesson {
+
+    margin-top: 5px;
+
+    font-size:
+        clamp(17px, 3vw, 24px);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PASSAGE CONTAINER
+========================================================= */
+
+#passage {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 45px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.10);
+}
+
+
+/* =========================================================
+   EACH PASSAGE SENTENCE
+========================================================= */
+
+.passage-sentence {
+
+    padding: 13px 12px;
+
+    margin-bottom: 6px;
+
+    border-radius: 10px;
+
+    line-height: 2;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Sentence highlight */
+
+.passage-sentence.active-sentence {
+
+    background: #fff3a8;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.35);
+}
+
+
+/* =========================================================
+   MARKED VOCABULARY WORD
+========================================================= */
+
+.marked-word {
+
+    color: #b21f4b;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    padding: 2px 5px;
+
+    border-radius: 5px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.marked-word:hover {
+
+    background: #ffe16b;
+
+    color: #6b1740;
+}
+
+
+.marked-word.active-word {
+
+    background: #ffcc33;
+
+    color: #5a3100;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.40);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.action-button {
+
+    display: inline-block;
+
+    margin-left: 8px;
+
+    margin-top: 4px;
+
+    padding: 4px 9px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: 0.25s ease;
+}
+
+
+.see-full {
+
+    background: #315c9b;
+
+    color: white;
+}
+
+
+.see-full:hover {
+
+    background: #1d3d70;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.pronounce {
+
+    background: #27856f;
+
+    color: white;
+}
+
+
+.pronounce:hover {
+
+    background: #17614f;
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   SECTION 3
+   VOCABULARY HEADING
+========================================================= */
+
+.vocabulary-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 20px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(23px, 4vw, 32px);
+
+    font-weight: 700;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b3d67,
+            #405fa3
+        );
+
+    border-radius: 17px;
+}
+
+
+/* =========================================================
+   VOCABULARY SENTENCE BOX
+========================================================= */
+
+.vocab-sentence {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 25px;
+
+    padding: 22px;
+
+    background: white;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.09);
+
+    transition: 0.3s ease;
+}
+
+
+.vocab-sentence.active-sentence {
+
+    background: #fff9d9;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.35);
+}
+
+
+/* =========================================================
+   VOCABULARY ENGLISH SENTENCE
+========================================================= */
+
+.vocab-english {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.8;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   BANGLA MEANING
+========================================================= */
+
+.bangla-meaning {
+
+    font-family:
+        "Noto Sans Bengali",
+        sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    padding: 12px;
+
+    margin: 0 0 18px;
+
+    border-left:
+        4px solid #6c63a8;
+
+    background: #f4f1fa;
+
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   BACK TO PASSAGE
+   FOR SENTENCE + MEANING
+========================================================= */
+
+.sentence-back-button {
+
+    display: inline-block;
+
+    margin-left: 7px;
+
+    padding: 4px 9px;
+
+    border-radius: 7px;
+
+    background: #e7eefb;
+
+    color: #315c9b;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.sentence-back-button:hover {
+
+    background: #315c9b;
+
+    color: white;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 3px 10px rgba(49,92,155,0.25);
+}
+
+
+/* =========================================================
+   WORD CARD
+========================================================= */
+
+.word-card {
+
+    margin-top: 14px;
+
+    padding: 16px;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fbff,
+            #f2f4fb
+        );
+
+    border:
+        1px solid #dce3ef;
+}
+
+
+/* =========================================================
+   WORD TITLE
+========================================================= */
+
+.word-title {
+
+    display: inline-block;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #8b2855;
+
+    margin-bottom: 8px;
+}
+.word-title.active-word {
+
+    background: #ffcc33;
+
+    color: #5a3100;
+
+    padding: 3px 7px;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.35);
+
+    transition: 0.25s ease;
+}
+
+/* =========================================================
+   WORD DETAILS
+========================================================= */
+
+.word-details {
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   WORD BACK TO PASSAGE
+========================================================= */
+
+.back-to-passage {
+
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 5px 10px;
+
+    border-radius: 7px;
+
+    background: #e7eefb;
+
+    color: #315c9b;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.back-to-passage:hover {
+
+    background: #315c9b;
+
+    color: white;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 3px 10px rgba(49,92,155,0.25);
+}
+
+
+/* =========================================================
+   ERROR / WARNING
+========================================================= */
+
+.data-warning {
+
+    width: min(94%, 1050px);
+
+    margin: 20px auto;
+
+    padding: 15px;
+
+    background: #fff1f1;
+
+    border-left: 5px solid #c0392b;
+
+    border-radius: 8px;
+
+    color: #7b241c;
+
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .top-box {
+
+        padding:
+            28px 14px 25px;
+    }
+
+    #passage,
+    .vocab-sentence {
+
+        padding: 16px;
+    }
+
+    .passage-sentence {
+
+        padding: 10px 5px;
+
+        line-height: 1.9;
+    }
+
+    .action-button {
+
+        margin-top: 7px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     SECTION 1
+     HEADER
+     
+     তুমি এখানে শুধু text পরিবর্তন করতে পারবে।
+========================================================= -->
+
+<div class="top-box">
+
+    <h1 class="site-title">
+        All About ENGLISH
+    </h1>
+
+
+    <div class="author-name">
+
+        <span>by</span>
+
+        <span>Shaheen Sir</span>
+
+    </div>
+
+
+    <div class="teacher-info">
+        Assistant Professor &amp; Head of the English Department
+    </div>
+
+
+    <div class="teacher-info">
+        Bangladesh Air Force Shaheen College Kurmitola
+    </div>
+
+
+    <div class="contact-info">
+
+        Contact: 01671642358
+
+        &nbsp; | &nbsp;
+
+        WhatsApp: 01671642358
+
+    </div>
+
+
+    <a
+        class="facebook-link"
+        href="https://www.facebook.com/profile.php?id=61553493074328"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Facebook Page
+    </a>
+
+</div>
+
+
+
+<!-- =========================================================
+     SECTION 2
+========================================================= -->
+
+<div class="passage-heading">
+    PASSAGE
+</div>
+
+
+<div class="lesson-heading">
+
+    <div class="unit">
+        UNIT 12
+    </div>
+
+    <div class="lesson">
+        LESSON 4 — "What is Environmental Justice? (second part)"
+    </div>
+
+</div>
+
+
+<div id="passage"></div>
+
+
+
+<!-- =========================================================
+     SECTION 3
+========================================================= -->
+
+<div class="vocabulary-heading">
+    VOCABULARY
+</div>
+
+
+<div id="vocabulary"></div>
+
+
+
+<script>
+
+
+/* =========================================================
+   =========================================================
+   
+   ⭐⭐⭐⭐⭐  EDITABLE CONTENT AREA  ⭐⭐⭐⭐⭐
+   
+   তোমার মূল editing মূলত এখানেই হবে।
+   
+   =========================================================
+   ========================================================= */
+
+
+/* =========================================================
+   SECTION 2
+   পুরো passage একবারে এখানে paste করবে।
+   
+   প্রতিটি sentence আলাদা করে লিখতে হবে না।
+========================================================= */
+
+
+const passageText = `
+Held in Washington, DC in 1991, the ‘People’ of Color ‘Environmental’ ‘Leadership’ ‘Summit’ brought together over six hundred ‘participants’ from ‘grassroots’ and ‘national’ ‘organizations’, marking the ‘birth’ of the ‘Environmental’ ‘Justice’ ‘Movement’ in the United States At this ‘historic’ ‘event’, the ‘attendees’ ‘created’ the ‘foundational’ document ‘known’ as the 'Principles of Environmental Justice' The summit ‘addressed’ various ‘aspects’ of life, including housing, education, healthcare, ‘transportation’, ‘employment’, food, water, air ‘quality’, and ‘access’ to parks and green spaces.
+The Principles of Environmental Justice (EJ)
+1) Environmental Justice ‘affirms’ the ‘sacredness’ of Mother Earth, ‘ecological’ unity and the ‘interdependence’ of all ‘species’, and the right to be free from ecological ‘destruction’.
+2) Environmental Justice ‘demands’ that public ‘policy’ be ‘based’ on ‘mutual’ respect and justice for all peoples, free from any form of ‘discrimination’ or bias.
+3) Environmental Justice ‘mandates’ the right to ‘ethical’, ‘balanced’ and ‘responsible’ uses of land and ‘renewable’ ‘resources’ in the interest of a ‘sustainable’ planet for humans and other living things.
+4) Environmental Justice calls for ‘universal’ ‘protection’ from nuclear testing, ‘extraction’, ‘production’ and ‘disposal’ of ‘toxic’/ ‘hazardous’ ‘wastes’ and ‘poisons’ and nuclear testing that ‘threaten’ the fundamental right to clean air, land, water, and food.
+5) Environmental Justice ‘affirms’ the ‘fundamental’ right to ‘political’, ‘economic’, ‘cultural’ and environmental ‘self-determination’ of all peoples. 
+6) Environmental Justice demands the ‘cessation’ of the ‘production’ of all ‘toxins’, ‘hazardous’ wastes, and radioactive ‘materials’, and that all past and ‘current’ ‘producers’ be held ‘strictly’ ‘accountable’ to the people for ‘detoxification’ and the ‘containment’ at the point of production.
+7) Environmental Justice demands the right to ‘participate’ as equal partners at every level of decision- making, including needs ‘assessment’, planning, ‘implementation’, ‘enforcement’ and ‘evaluation’.
+8) Environmental Justice affirms the right of all workers to a ‘safe’ and healthy work environment without being ‘forced’ to ‘choose’ between an unsafe ‘livelihood’ and ‘unemployment' It also affirms the right of those who work at home to be free from environmental ‘hazards’.
+9) Environmental Justice ‘protects’ the right of ‘victims’ of environmental ‘injustice’ to ‘receive’ full ‘compensation’ and ‘reparations’ for ‘damages’ as well as quality health care.
+10) Environmental Justice ‘considers’ governmental acts of environmental injustice a ‘violation’ of international law, the ‘Universal’ ‘Declaration’ On Human Rights, and the United Nations ‘Convention’ on ‘Genocide’.
+11) Environmental Justice must ‘recognize’ a ‘special’ ‘legal’ and natural relationship of ‘Native’ Peoples to the U.S. government through ‘treaties’, ‘agreements’, ‘compacts’, and ‘covenants’ affirming ‘sovereignty’ and ‘self-determination’.
+12) Environmental Justice affirms the ‘need’ for ‘urban’ and ‘rural’ ‘ecological’ policies to ‘clean up’ and ‘rebuild’ our cities and rural ‘areas’ in balance with ‘nature’, honoring the ‘cultural’ ‘integrity’ of all our ‘communities’, and provided ‘fair’ ‘access’ for all to the full ‘range’ of resources.
+13) Environmental Justice calls for the ‘strict’ ‘enforcement’ of ‘principles’ of ‘informed’ ‘consent’, and a ‘halt’ to the ‘testing’ of ‘experimental’ ‘reproductive’ and medical ‘procedures’ and ‘vaccinations’ on people of color.
+14) Environmental Justice ‘opposes’ the ‘destructive’ ‘operations’ of ‘multi-national’ ‘corporations’.
+15) Environmental Justice opposes ‘military’ ‘occupation’, ‘repression’ and ‘exploitation’ of lands, peoples and ‘cultures’, and other life ‘forms’.
+16) Environmental Justice calls for the ‘education’ of present and future generations which ‘emphasizes’ social and environmental ‘issues’, ‘based’ on our ‘experience’ and an ‘appreciation’ of our ‘diverse’ cultural ‘perspectives’.
+17) Environmental Justice ‘requires’ that we, as ‘individuals’, make personal and ‘consumer’ ‘choices’ to ‘consume’ as little of Mother Earth's ‘resources’ and to ‘produce’ as ‘little waste’ as possible; and make the ‘conscious’ ‘decision’ to ‘challenge’ and ‘reprioritize’ our ‘lifestyles’ to ‘ensure’ the health of the natural world for present and future generations.
+
+`;
+
+/* =========================================================
+   SECTION 3
+   এখানে sentence অনুযায়ী:
+   
+   1. বাংলা meaning
+   2. marked vocabulary
+   3. vocabulary particulars
+   
+   দিতে হবে।
+   
+   IMPORTANT:
+   প্রথম object = Passage-এর 1st sentence
+   দ্বিতীয় object = Passage-এর 2nd sentence
+   তৃতীয় object = Passage-এর 3rd sentence
+   
+   English sentence এখানে আবার লিখতে হবে না।
+========================================================= */
+
+
+const vocabularyData = [
+
+    {
+        sentence:
+        "Held in Washington, D.C. in 1991, the ‘People’ of Color ‘Environmental’ ‘Leadership’ ‘Summit’ brought together over six hundred ‘participants’ from ‘grassroots’ and ‘national’ ‘organizations’, marking the ‘birth’ of the ‘Environmental’ ‘Justice’ ‘Movement’ in the United States. At this ‘historic’ ‘event’, the ‘attendees’ ‘created’ the ‘foundational’ document ‘known’ as the \"Principles of Environmental Justice.\" The summit ‘addressed’ various ‘aspects’ of life, including housing, education, healthcare, ‘transportation’, ‘employment’, food, water, air ‘quality’, and ‘access’ to parks and green spaces.",
+
+        meaning:
+        "১৯৯১ সালে ওয়াশিংটন, ডি.সি.-তে অনুষ্ঠিত বর্ণের মানুষের পরিবেশগত নেতৃত্ব সম্মেলনে তৃণমূল ও জাতীয় সংগঠনগুলোর ছয় শতাধিক অংশগ্রহণকারী একত্রিত হয়েছিল। এটি যুক্তরাষ্ট্রে পরিবেশগত ন্যায়বিচার আন্দোলনের জন্মকে চিহ্নিত করে। এই ঐতিহাসিক অনুষ্ঠানে উপস্থিত ব্যক্তিরা ‘Principles of Environmental Justice’ নামে পরিচিত ভিত্তিমূলক দলিলটি তৈরি করেন। সম্মেলনে আবাসন, শিক্ষা, স্বাস্থ্যসেবা, পরিবহন, কর্মসংস্থান, খাদ্য, পানি, বায়ুর মান এবং পার্ক ও সবুজ স্থানে প্রবেশাধিকারসহ জীবনের বিভিন্ন দিক নিয়ে আলোচনা করা হয়েছিল।",
+
+        vocabulary: [
+
+            {
+                word: "People",
+                pos: "Noun",
+                meaning: "মানুষ; জনগণ",
+                ipa: "/ˈpiːpl/",
+                pronunciation: "পিপল",
+                synonyms: "persons, individuals, humans, population",
+                antonyms: "nobody, individual, outsider, stranger"
+            },
+
+            {
+                word: "Environmental",
+                pos: "Adjective",
+                meaning: "পরিবেশগত",
+                ipa: "/ɪnˌvaɪərənˈmentl/",
+                pronunciation: "ইনভায়রনমেন্টল",
+                synonyms: "ecological, green, natural, conservation-related",
+                antonyms: "artificial, industrial, harmful, polluting"
+            },
+
+            {
+                word: "Leadership",
+                pos: "Noun",
+                meaning: "নেতৃত্ব",
+                ipa: "/ˈliːdəʃɪp/",
+                pronunciation: "লিডারশিপ",
+                synonyms: "guidance, direction, command, management",
+                antonyms: "followership, submission, obedience, weakness"
+            },
+
+            {
+                word: "Summit",
+                pos: "Noun",
+                meaning: "শীর্ষ সম্মেলন",
+                ipa: "/ˈsʌmɪt/",
+                pronunciation: "সামিট",
+                synonyms: "conference, meeting, assembly, convention",
+                antonyms: "separation, dispersal, departure, disagreement"
+            },
+
+            {
+                word: "participants",
+                pos: "Noun",
+                meaning: "অংশগ্রহণকারীরা",
+                ipa: "/pɑːrˈtɪsɪpənts/",
+                pronunciation: "পার্টিসিপ্যান্টস",
+                synonyms: "attendees, members, entrants, contributors",
+                antonyms: "nonparticipants, spectators, outsiders, absentees"
+            },
+
+            {
+                word: "grassroots",
+                pos: "Adjective",
+                meaning: "তৃণমূল পর্যায়ের",
+                ipa: "/ˈɡrɑːsruːts/",
+                pronunciation: "গ্রাসরুটস",
+                synonyms: "local, community-based, popular, ordinary",
+                antonyms: "elite, central, governmental, top-level"
+            },
+
+            {
+                word: "national",
+                pos: "Adjective",
+                meaning: "জাতীয়",
+                ipa: "/ˈnæʃənəl/",
+                pronunciation: "ন্যাশনাল",
+                synonyms: "countrywide, domestic, nationwide, state",
+                antonyms: "international, foreign, local, regional"
+            },
+
+            {
+                word: "organizations",
+                pos: "Noun",
+                meaning: "সংগঠনসমূহ",
+                ipa: "/ˌɔːrɡənəˈzeɪʃənz/",
+                pronunciation: "অর্গানাইজেশন্স",
+                synonyms: "institutions, associations, groups, bodies",
+                antonyms: "disorder, chaos, individuals, disorganization"
+            },
+
+            {
+                word: "birth",
+                pos: "Noun",
+                meaning: "জন্ম; সূচনা",
+                ipa: "/bɜːrθ/",
+                pronunciation: "বার্থ",
+                synonyms: "origin, beginning, emergence, creation",
+                antonyms: "death, ending, conclusion, extinction"
+            },
+
+            {
+                word: "Justice",
+                pos: "Noun",
+                meaning: "ন্যায়বিচার",
+                ipa: "/ˈdʒʌstɪs/",
+                pronunciation: "জাস্টিস",
+                synonyms: "fairness, equity, righteousness, impartiality",
+                antonyms: "injustice, unfairness, bias, inequality"
+            },
+
+            {
+                word: "Movement",
+                pos: "Noun",
+                meaning: "আন্দোলন",
+                ipa: "/ˈmuːvmənt/",
+                pronunciation: "মুভমেন্ট",
+                synonyms: "campaign, cause, drive, initiative",
+                antonyms: "stillness, inactivity, stagnation, immobility"
+            },
+
+            {
+                word: "historic",
+                pos: "Adjective",
+                meaning: "ঐতিহাসিক; গুরুত্বপূর্ণ",
+                ipa: "/hɪˈstɒrɪk/",
+                pronunciation: "হিস্টোরিক",
+                synonyms: "important, significant, memorable, notable",
+                antonyms: "ordinary, insignificant, trivial, unimportant"
+            },
+
+            {
+                word: "event",
+                pos: "Noun",
+                meaning: "ঘটনা; অনুষ্ঠান",
+                ipa: "/ɪˈvent/",
+                pronunciation: "ইভেন্ট",
+                synonyms: "occasion, incident, happening, occurrence",
+                antonyms: "nonoccurrence, inactivity, nothing, absence"
+            },
+
+            {
+                word: "attendees",
+                pos: "Noun",
+                meaning: "উপস্থিত ব্যক্তিরা",
+                ipa: "/əˌtenˈdiːz/",
+                pronunciation: "অ্যাটেন্ডিজ",
+                synonyms: "participants, guests, visitors, audience",
+                antonyms: "absentees, nonparticipants, outsiders, dropouts"
+            },
+
+            {
+                word: "created",
+                pos: "Verb",
+                meaning: "তৈরি করেছিল",
+                ipa: "/kriˈeɪtɪd/",
+                pronunciation: "ক্রিয়েটেড",
+                synonyms: "made, produced, developed, established",
+                antonyms: "destroyed, ruined, abolished, eliminated"
+            },
+
+            {
+                word: "foundational",
+                pos: "Adjective",
+                meaning: "ভিত্তিমূলক; ভিত্তি স্থাপনকারী",
+                ipa: "/faʊnˈdeɪʃənəl/",
+                pronunciation: "ফাউন্ডেশনাল",
+                synonyms: "basic, fundamental, underlying, primary",
+                antonyms: "secondary, superficial, minor, unimportant"
+            },
+
+            {
+                word: "known",
+                pos: "Adjective",
+                meaning: "পরিচিত; নামে পরিচিত",
+                ipa: "/noʊn/",
+                pronunciation: "নোন",
+                synonyms: "recognized, familiar, identified, famous",
+                antonyms: "unknown, unfamiliar, unidentified, obscure"
+            },
+
+            {
+                word: "addressed",
+                pos: "Verb",
+                meaning: "আলোচনা করেছিল; মোকাবিলা করেছিল",
+                ipa: "/əˈdrest/",
+                pronunciation: "অ্যাড্রেস্ট",
+                synonyms: "discussed, dealt with, tackled, handled",
+                antonyms: "ignored, avoided, neglected, overlooked"
+            },
+
+            {
+                word: "aspects",
+                pos: "Noun",
+                meaning: "দিকসমূহ; বিষয়ের বিভিন্ন অংশ",
+                ipa: "/ˈæspekts/",
+                pronunciation: "অ্যাসপেক্টস",
+                synonyms: "features, elements, sides, dimensions",
+                antonyms: "whole, entirety, totality, generality"
+            },
+
+            {
+                word: "transportation",
+                pos: "Noun",
+                meaning: "পরিবহন",
+                ipa: "/ˌtrænspərˈteɪʃən/",
+                pronunciation: "ট্রান্সপোর্টেশন",
+                synonyms: "transport, transit, carriage, conveyance",
+                antonyms: "stoppage, immobility, stillness, stationary state"
+            },
+
+            {
+                word: "employment",
+                pos: "Noun",
+                meaning: "কর্মসংস্থান; চাকরি",
+                ipa: "/ɪmˈplɔɪmənt/",
+                pronunciation: "ইমপ্লয়মেন্ট",
+                synonyms: "work, occupation, job, profession",
+                antonyms: "unemployment, idleness, joblessness, inactivity"
+            },
+
+            {
+                word: "quality",
+                pos: "Noun",
+                meaning: "মান; গুণমান",
+                ipa: "/ˈkwɒləti/",
+                pronunciation: "কোয়ালিটি",
+                synonyms: "standard, grade, caliber, excellence",
+                antonyms: "inferiority, deficiency, poor quality, inadequacy"
+            },
+
+            {
+                word: "access",
+                pos: "Noun",
+                meaning: "প্রবেশাধিকার; সুযোগ",
+                ipa: "/ˈækses/",
+                pronunciation: "অ্যাকসেস",
+                synonyms: "entry, admission, approach, availability",
+                antonyms: "denial, exclusion, obstruction, restriction"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice ‘affirms’ the ‘sacredness’ of Mother Earth, ‘ecological’ unity and the ‘interdependence’ of all ‘species’, and the right to be free from ecological ‘destruction’.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার মাতা পৃথিবীর পবিত্রতা, পরিবেশগত ঐক্য এবং সব প্রজাতির পারস্পরিক নির্ভরশীলতা এবং পরিবেশগত ধ্বংস থেকে মুক্ত থাকার অধিকারকে স্বীকার ও সমর্থন করে।",
+
+        vocabulary: [
+
+            {
+                word: "affirms",
+                pos: "Verb",
+                meaning: "দৃঢ়ভাবে স্বীকার করে; সমর্থন করে",
+                ipa: "/əˈfɜːrmz/",
+                pronunciation: "অ্যাফার্মস",
+                synonyms: "confirms, asserts, declares, supports",
+                antonyms: "denies, rejects, contradicts, disputes"
+            },
+
+            {
+                word: "sacredness",
+                pos: "Noun",
+                meaning: "পবিত্রতা",
+                ipa: "/ˈseɪkrɪdnəs/",
+                pronunciation: "সেক্রিডনেস",
+                synonyms: "holiness, sanctity, divinity, purity",
+                antonyms: "profane nature, impurity, unholiness, profanity"
+            },
+
+            {
+                word: "ecological",
+                pos: "Adjective",
+                meaning: "পরিবেশগত",
+                ipa: "/ˌiːkəˈlɒdʒɪkəl/",
+                pronunciation: "ইকোলজিক্যাল",
+                synonyms: "environmental, natural, green, eco-friendly",
+                antonyms: "unnatural, artificial, polluting, harmful"
+            },
+
+            {
+                word: "interdependence",
+                pos: "Noun",
+                meaning: "পারস্পরিক নির্ভরশীলতা",
+                ipa: "/ˌɪntərdɪˈpendəns/",
+                pronunciation: "ইন্টারডিপেন্ডেন্স",
+                synonyms: "mutual dependence, cooperation, reciprocity, interconnectedness",
+                antonyms: "independence, self-reliance, isolation, autonomy"
+            },
+
+            {
+                word: "species",
+                pos: "Noun",
+                meaning: "প্রজাতি",
+                ipa: "/ˈspiːʃiːz/",
+                pronunciation: "স্পিশিজ",
+                synonyms: "kind, type, variety, group",
+                antonyms: "individual, person, specimen, organism"
+            },
+
+            {
+                word: "destruction",
+                pos: "Noun",
+                meaning: "ধ্বংস; বিনাশ",
+                ipa: "/dɪˈstrʌkʃən/",
+                pronunciation: "ডিস্ট্রাকশন",
+                synonyms: "demolition, devastation, ruin, annihilation",
+                antonyms: "creation, construction, preservation, restoration"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice ‘demands’ that public ‘policy’ be ‘based’ on ‘mutual’ respect and justice for all peoples, free from any form of ‘discrimination’ or bias.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার দাবি করে যে সরকারি নীতি পারস্পরিক সম্মান ও সবার জন্য ন্যায়বিচারের ভিত্তিতে হতে হবে এবং যেকোনো ধরনের বৈষম্য বা পক্ষপাত থেকে মুক্ত থাকতে হবে।",
+
+        vocabulary: [
+
+            {
+                word: "demands",
+                pos: "Verb",
+                meaning: "দাবি করে",
+                ipa: "/dɪˈmɑːndz/",
+                pronunciation: "ডিমান্ডস",
+                synonyms: "requires, insists, calls for, requests",
+                antonyms: "offers, gives, surrenders, relinquishes"
+            },
+
+            {
+                word: "policy",
+                pos: "Noun",
+                meaning: "নীতি",
+                ipa: "/ˈpɒləsi/",
+                pronunciation: "পলিসি",
+                synonyms: "plan, strategy, guideline, principle",
+                antonyms: "disorder, confusion, randomness, uncertainty"
+            },
+
+            {
+                word: "based",
+                pos: "Adjective",
+                meaning: "ভিত্তিক",
+                ipa: "/beɪst/",
+                pronunciation: "বেইস্ট",
+                synonyms: "founded, grounded, established, built",
+                antonyms: "unfounded, baseless, unsupported, groundless"
+            },
+
+            {
+                word: "mutual",
+                pos: "Adjective",
+                meaning: "পারস্পরিক",
+                ipa: "/ˈmjuːtʃuəl/",
+                pronunciation: "মিউচুয়াল",
+                synonyms: "reciprocal, shared, common, joint",
+                antonyms: "one-sided, individual, separate, unilateral"
+            },
+
+            {
+                word: "discrimination",
+                pos: "Noun",
+                meaning: "বৈষম্য",
+                ipa: "/dɪˌskrɪmɪˈneɪʃən/",
+                pronunciation: "ডিসক্রিমিনেশন",
+                synonyms: "prejudice, bias, inequality, unfairness",
+                antonyms: "equality, fairness, impartiality, justice"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice ‘mandates’ the right to ‘ethical’, ‘balanced’ and ‘responsible’ uses of land and ‘renewable’ ‘resources’ in the interest of a ‘sustainable’ planet for humans and other living things.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার মানুষের ও অন্যান্য জীবের জন্য একটি টেকসই পৃথিবীর স্বার্থে ভূমি এবং নবায়নযোগ্য সম্পদের নৈতিক, ভারসাম্যপূর্ণ ও দায়িত্বশীল ব্যবহারের অধিকার নিশ্চিত করার নির্দেশ দেয়।",
+
+        vocabulary: [
+
+            {
+                word: "mandates",
+                pos: "Verb",
+                meaning: "নির্দেশ দেয়; বাধ্যতামূলক করে",
+                ipa: "/ˈmændeɪts/",
+                pronunciation: "ম্যানডেটস",
+                synonyms: "orders, requires, commands, decrees",
+                antonyms: "forbids, prohibits, discourages, rejects"
+            },
+
+            {
+                word: "ethical",
+                pos: "Adjective",
+                meaning: "নৈতিক",
+                ipa: "/ˈeθɪkəl/",
+                pronunciation: "এথিক্যাল",
+                synonyms: "moral, principled, virtuous, righteous",
+                antonyms: "unethical, immoral, corrupt, dishonest"
+            },
+
+            {
+                word: "balanced",
+                pos: "Adjective",
+                meaning: "ভারসাম্যপূর্ণ",
+                ipa: "/ˈbælənst/",
+                pronunciation: "ব্যালান্সড",
+                synonyms: "stable, even, proportionate, harmonious",
+                antonyms: "unbalanced, uneven, unstable, disproportionate"
+            },
+
+            {
+                word: "responsible",
+                pos: "Adjective",
+                meaning: "দায়িত্বশীল",
+                ipa: "/rɪˈspɒnsəbl/",
+                pronunciation: "রেসপনসিবল",
+                synonyms: "accountable, reliable, dependable, trustworthy",
+                antonyms: "irresponsible, careless, reckless, negligent"
+            },
+
+            {
+                word: "renewable",
+                pos: "Adjective",
+                meaning: "নবায়নযোগ্য",
+                ipa: "/rɪˈnjuːəbl/",
+                pronunciation: "রিনিউয়েবল",
+                synonyms: "restorable, sustainable, replenishable, replaceable",
+                antonyms: "nonrenewable, exhaustible, finite, limited"
+            },
+
+            {
+                word: "resources",
+                pos: "Noun",
+                meaning: "সম্পদসমূহ",
+                ipa: "/rɪˈsɔːrsɪz/",
+                pronunciation: "রিসোর্সিজ",
+                synonyms: "assets, supplies, materials, wealth",
+                antonyms: "shortage, scarcity, deficiency, lack"
+            },
+
+            {
+                word: "sustainable",
+                pos: "Adjective",
+                meaning: "টেকসই; দীর্ঘস্থায়ীভাবে বজায় রাখা যায় এমন",
+                ipa: "/səˈsteɪnəbl/",
+                pronunciation: "সাসটেইনেবল",
+                synonyms: "durable, viable, maintainable, renewable",
+                antonyms: "unsustainable, temporary, wasteful, destructive"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice calls for ‘universal’ ‘protection’ from nuclear testing, ‘extraction’, ‘production’ and ‘disposal’ of ‘toxic’/ ‘hazardous’ ‘wastes’ and ‘poisons’ and nuclear testing that ‘threaten’ the fundamental right to clean air, land, water, and food.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার পারমাণবিক পরীক্ষা এবং বিষাক্ত বা বিপজ্জনক বর্জ্য ও বিষাক্ত পদার্থের উত্তোলন, উৎপাদন ও নিষ্পত্তি থেকে সর্বজনীন সুরক্ষার দাবি করে, যা পরিষ্কার বায়ু, ভূমি, পানি ও খাদ্যের মৌলিক অধিকারকে হুমকির মুখে ফেলে।",
+
+        vocabulary: [
+
+            {
+                word: "universal",
+                pos: "Adjective",
+                meaning: "সর্বজনীন",
+                ipa: "/ˌjuːnɪˈvɜːrsəl/",
+                pronunciation: "ইউনিভার্সাল",
+                synonyms: "worldwide, global, common, general",
+                antonyms: "limited, local, particular, restricted"
+            },
+
+            {
+                word: "protection",
+                pos: "Noun",
+                meaning: "সুরক্ষা",
+                ipa: "/prəˈtekʃən/",
+                pronunciation: "প্রোটেকশন",
+                synonyms: "defense, safety, shelter, security",
+                antonyms: "exposure, danger, vulnerability, attack"
+            },
+
+            {
+                word: "extraction",
+                pos: "Noun",
+                meaning: "উত্তোলন",
+                ipa: "/ɪkˈstrækʃən/",
+                pronunciation: "এক্সট্র্যাকশন",
+                synonyms: "removal, withdrawal, mining, retrieval",
+                antonyms: "insertion, addition, placement, deposit"
+            },
+
+            {
+                word: "production",
+                pos: "Noun",
+                meaning: "উৎপাদন",
+                ipa: "/prəˈdʌkʃən/",
+                pronunciation: "প্রোডাকশন",
+                synonyms: "manufacture, creation, generation, output",
+                antonyms: "destruction, consumption, loss, depletion"
+            },
+
+            {
+                word: "disposal",
+                pos: "Noun",
+                meaning: "নিষ্পত্তি; অপসারণ",
+                ipa: "/dɪˈspoʊzəl/",
+                pronunciation: "ডিসপোজাল",
+                synonyms: "removal, elimination, discarding, dumping",
+                antonyms: "retention, preservation, keeping, storage"
+            },
+
+            {
+                word: "toxic",
+                pos: "Adjective",
+                meaning: "বিষাক্ত",
+                ipa: "/ˈtɒksɪk/",
+                pronunciation: "টক্সিক",
+                synonyms: "poisonous, harmful, deadly, dangerous",
+                antonyms: "harmless, safe, beneficial, healthy"
+            },
+
+            {
+                word: "hazardous",
+                pos: "Adjective",
+                meaning: "বিপজ্জনক",
+                ipa: "/ˈhæzərdəs/",
+                pronunciation: "হ্যাজার্ডাস",
+                synonyms: "dangerous, risky, unsafe, perilous",
+                antonyms: "safe, harmless, secure, risk-free"
+            },
+
+            {
+                word: "wastes",
+                pos: "Noun",
+                meaning: "বর্জ্য",
+                ipa: "/weɪsts/",
+                pronunciation: "ওয়েস্টস",
+                synonyms: "garbage, rubbish, refuse, debris",
+                antonyms: "resources, assets, valuables, products"
+            },
+
+            {
+                word: "poisons",
+                pos: "Noun",
+                meaning: "বিষাক্ত পদার্থ",
+                ipa: "/ˈpɔɪzənz/",
+                pronunciation: "পয়জনস",
+                synonyms: "toxins, venoms, contaminants, pollutants",
+                antonyms: "antidotes, medicines, cures, remedies"
+            },
+
+            {
+                word: "threaten",
+                pos: "Verb",
+                meaning: "হুমকি দেওয়া; বিপদের মধ্যে ফেলা",
+                ipa: "/ˈθretən/",
+                pronunciation: "থ্রেটেন",
+                synonyms: "endanger, menace, intimidate, imperil",
+                antonyms: "protect, defend, secure, safeguard"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice ‘affirms’ the ‘fundamental’ right to ‘political’, ‘economic’, ‘cultural’ and environmental ‘self-determination’ of all peoples.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার সব মানুষের রাজনৈতিক, অর্থনৈতিক, সাংস্কৃতিক ও পরিবেশগত আত্মনিয়ন্ত্রণের মৌলিক অধিকারকে স্বীকার করে।",
+
+        vocabulary: [
+
+            {
+                word: "affirms",
+                pos: "Verb",
+                meaning: "দৃঢ়ভাবে স্বীকার করে; সমর্থন করে",
+                ipa: "/əˈfɜːrmz/",
+                pronunciation: "অ্যাফার্মস",
+                synonyms: "confirms, asserts, declares, supports",
+                antonyms: "denies, rejects, contradicts, disputes"
+            },
+
+            {
+                word: "fundamental",
+                pos: "Adjective",
+                meaning: "মৌলিক; অত্যাবশ্যক",
+                ipa: "/ˌfʌndəˈmentl/",
+                pronunciation: "ফান্ডামেন্টাল",
+                synonyms: "basic, essential, primary, foundational",
+                antonyms: "secondary, minor, superficial, trivial"
+            },
+
+            {
+                word: "political",
+                pos: "Adjective",
+                meaning: "রাজনৈতিক",
+                ipa: "/pəˈlɪtɪkəl/",
+                pronunciation: "পলিটিক্যাল",
+                synonyms: "governmental, civic, state-related, diplomatic",
+                antonyms: "nonpolitical, private, personal, apolitical"
+            },
+
+            {
+                word: "economic",
+                pos: "Adjective",
+                meaning: "অর্থনৈতিক",
+                ipa: "/ˌiːkəˈnɒmɪk/",
+                pronunciation: "ইকোনমিক",
+                synonyms: "financial, commercial, monetary, fiscal",
+                antonyms: "nonfinancial, uneconomic, unprofitable, wasteful"
+            },
+
+            {
+                word: "cultural",
+                pos: "Adjective",
+                meaning: "সাংস্কৃতিক",
+                ipa: "/ˈkʌltʃərəl/",
+                pronunciation: "কালচারাল",
+                synonyms: "social, traditional, artistic, ethnic",
+                antonyms: "uncultural, nontraditional, artificial, individual"
+            },
+
+            {
+                word: "self-determination",
+                pos: "Noun",
+                meaning: "আত্মনিয়ন্ত্রণ; নিজের সিদ্ধান্ত নিজে নেওয়ার অধিকার",
+                ipa: "/ˌself dɪˌtɜːrmɪˈneɪʃən/",
+                pronunciation: "সেলফ ডিটারমিনেশন",
+                synonyms: "autonomy, independence, self-rule, sovereignty",
+                antonyms: "dependence, submission, domination, control"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice demands the ‘cessation’ of the ‘production’ of all ‘toxins’, ‘hazardous’ wastes, and radioactive ‘materials’, and that all past and ‘current’ ‘producers’ be held ‘strictly’ ‘accountable’ to the people for ‘detoxification’ and the ‘containment’ at the point of production.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার সব বিষাক্ত পদার্থ, বিপজ্জনক বর্জ্য ও তেজস্ক্রিয় উপকরণের উৎপাদন বন্ধ করার দাবি করে এবং অতীত ও বর্তমান সব উৎপাদককে উৎপাদনস্থলে বিষমুক্তকরণ ও নিয়ন্ত্রণের জন্য জনগণের কাছে কঠোরভাবে জবাবদিহির আওতায় রাখার দাবি করে।",
+
+        vocabulary: [
+
+            {
+                word: "cessation",
+                pos: "Noun",
+                meaning: "বন্ধ; সমাপ্তি",
+                ipa: "/seˈseɪʃən/",
+                pronunciation: "সেসেশন",
+                synonyms: "stoppage, termination, ending, discontinuation",
+                antonyms: "continuation, beginning, commencement, resumption"
+            },
+
+            {
+                word: "production",
+                pos: "Noun",
+                meaning: "উৎপাদন",
+                ipa: "/prəˈdʌkʃən/",
+                pronunciation: "প্রোডাকশন",
+                synonyms: "manufacture, creation, generation, output",
+                antonyms: "destruction, consumption, depletion, loss"
+            },
+
+            {
+                word: "toxins",
+                pos: "Noun",
+                meaning: "বিষাক্ত পদার্থ",
+                ipa: "/ˈtɒksɪnz/",
+                pronunciation: "টক্সিনস",
+                synonyms: "poisons, venoms, contaminants, pollutants",
+                antonyms: "antidotes, remedies, cures, medicines"
+            },
+
+            {
+                word: "hazardous",
+                pos: "Adjective",
+                meaning: "বিপজ্জনক",
+                ipa: "/ˈhæzərdəs/",
+                pronunciation: "হ্যাজার্ডাস",
+                synonyms: "dangerous, risky, unsafe, perilous",
+                antonyms: "safe, harmless, secure, risk-free"
+            },
+
+            {
+                word: "materials",
+                pos: "Noun",
+                meaning: "উপকরণ; পদার্থ",
+                ipa: "/məˈtɪəriəlz/",
+                pronunciation: "ম্যাটেরিয়ালস",
+                synonyms: "substances, resources, components, matter",
+                antonyms: "products, finished goods, immaterial things, intangibles"
+            },
+
+            {
+                word: "current",
+                pos: "Adjective",
+                meaning: "বর্তমান",
+                ipa: "/ˈkʌrənt/",
+                pronunciation: "কারেন্ট",
+                synonyms: "present, existing, ongoing, contemporary",
+                antonyms: "past, former, previous, outdated"
+            },
+
+            {
+                word: "producers",
+                pos: "Noun",
+                meaning: "উৎপাদকরা",
+                ipa: "/prəˈduːsərz/",
+                pronunciation: "প্রোডিউসারস",
+                synonyms: "manufacturers, makers, creators, suppliers",
+                antonyms: "consumers, buyers, users, purchasers"
+            },
+
+            {
+                word: "strictly",
+                pos: "Adverb",
+                meaning: "কঠোরভাবে",
+                ipa: "/ˈstrɪktli/",
+                pronunciation: "স্ট্রিক্টলি",
+                synonyms: "rigorously, firmly, exactly, severely",
+                antonyms: "loosely, leniently, flexibly, casually"
+            },
+
+            {
+                word: "accountable",
+                pos: "Adjective",
+                meaning: "জবাবদিহিমূলক; দায়বদ্ধ",
+                ipa: "/əˈkaʊntəbl/",
+                pronunciation: "অ্যাকাউন্টেবল",
+                synonyms: "responsible, answerable, liable, obligated",
+                antonyms: "irresponsible, unaccountable, exempt, careless"
+            },
+
+            {
+                word: "detoxification",
+                pos: "Noun",
+                meaning: "বিষমুক্তকরণ",
+                ipa: "/ˌdiːtɒksɪfɪˈkeɪʃən/",
+                pronunciation: "ডিটক্সিফিকেশন",
+                synonyms: "purification, cleansing, decontamination, detox",
+                antonyms: "contamination, poisoning, pollution, toxicification"
+            },
+
+            {
+                word: "containment",
+                pos: "Noun",
+                meaning: "নিয়ন্ত্রণ; ছড়িয়ে পড়া রোধ",
+                ipa: "/kənˈteɪnmənt/",
+                pronunciation: "কনটেইনমেন্ট",
+                synonyms: "control, restriction, confinement, restraint",
+                antonyms: "release, spread, expansion, liberation"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice demands the right to ‘participate’ as equal partners at every level of decision-making, including needs ‘assessment’, planning, ‘implementation’, ‘enforcement’ and ‘evaluation’.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার সিদ্ধান্ত গ্রহণের প্রতিটি স্তরে সমান অংশীদার হিসেবে অংশগ্রহণের অধিকার দাবি করে, যার মধ্যে প্রয়োজন মূল্যায়ন, পরিকল্পনা, বাস্তবায়ন, আইন প্রয়োগ এবং মূল্যায়ন অন্তর্ভুক্ত।",
+
+        vocabulary: [
+
+            {
+                word: "participate",
+                pos: "Verb",
+                meaning: "অংশগ্রহণ করা",
+                ipa: "/pɑːrˈtɪsɪpeɪt/",
+                pronunciation: "পার্টিসিপেট",
+                synonyms: "join, engage, attend, contribute",
+                antonyms: "withdraw, avoid, abstain, exclude"
+            },
+
+            {
+                word: "assessment",
+                pos: "Noun",
+                meaning: "মূল্যায়ন",
+                ipa: "/əˈsesmənt/",
+                pronunciation: "অ্যাসেসমেন্ট",
+                synonyms: "evaluation, appraisal, judgment, estimation",
+                antonyms: "neglect, ignorance, disregard, guesswork"
+            },
+
+            {
+                word: "implementation",
+                pos: "Noun",
+                meaning: "বাস্তবায়ন",
+                ipa: "/ˌɪmplɪmenˈteɪʃən/",
+                pronunciation: "ইমপ্লিমেন্টেশন",
+                synonyms: "execution, application, enforcement, realization",
+                antonyms: "abandonment, cancellation, prevention, rejection"
+            },
+
+            {
+                word: "enforcement",
+                pos: "Noun",
+                meaning: "আইন প্রয়োগ; কার্যকর করা",
+                ipa: "/ɪnˈfɔːrsmənt/",
+                pronunciation: "এনফোর্সমেন্ট",
+                synonyms: "execution, implementation, application, imposition",
+                antonyms: "nonenforcement, neglect, violation, disregard"
+            },
+
+            {
+                word: "evaluation",
+                pos: "Noun",
+                meaning: "মূল্যায়ন; পর্যালোচনা",
+                ipa: "/ɪˌvæljuˈeɪʃən/",
+                pronunciation: "ইভ্যালুয়েশন",
+                synonyms: "assessment, appraisal, review, analysis",
+                antonyms: "neglect, ignorance, disregard, omission"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice affirms the right of all workers to a ‘safe’ and healthy work environment without being ‘forced’ to ‘choose’ between an unsafe ‘livelihood’ and ‘unemployment’ It also affirms the right of those who work at home to be free from environmental ‘hazards’.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার সব শ্রমিকের নিরাপদ ও স্বাস্থ্যকর কর্মপরিবেশের অধিকারকে স্বীকার করে, যাতে তাদের অনিরাপদ জীবিকা ও বেকারত্বের মধ্যে বেছে নিতে বাধ্য হতে না হয়। যারা বাড়িতে কাজ করেন, তাদেরও পরিবেশগত বিপদ থেকে মুক্ত থাকার অধিকার রয়েছে।",
+
+        vocabulary: [
+
+            {
+                word: "safe",
+                pos: "Adjective",
+                meaning: "নিরাপদ",
+                ipa: "/seɪf/",
+                pronunciation: "সেইফ",
+                synonyms: "secure, protected, harmless, risk-free",
+                antonyms: "dangerous, unsafe, risky, hazardous"
+            },
+
+            {
+                word: "forced",
+                pos: "Adjective",
+                meaning: "বাধ্য করা হয়েছে",
+                ipa: "/fɔːrst/",
+                pronunciation: "ফোর্স্ট",
+                synonyms: "compelled, coerced, obliged, pressured",
+                antonyms: "voluntary, willing, optional, free"
+            },
+
+            {
+                word: "choose",
+                pos: "Verb",
+                meaning: "বেছে নেওয়া",
+                ipa: "/tʃuːz/",
+                pronunciation: "চুজ",
+                synonyms: "select, pick, prefer, decide",
+                antonyms: "reject, refuse, discard, overlook"
+            },
+
+            {
+                word: "livelihood",
+                pos: "Noun",
+                meaning: "জীবিকা",
+                ipa: "/ˈlaɪvlihʊd/",
+                pronunciation: "লাইভলিহুড",
+                synonyms: "occupation, employment, income, means",
+                antonyms: "unemployment, joblessness, poverty, idleness"
+            },
+
+            {
+                word: "unemployment",
+                pos: "Noun",
+                meaning: "বেকারত্ব",
+                ipa: "/ˌʌnɪmˈplɔɪmənt/",
+                pronunciation: "আনইমপ্লয়মেন্ট",
+                synonyms: "joblessness, idleness, worklessness, redundancy",
+                antonyms: "employment, occupation, work, job"
+            },
+
+            {
+                word: "hazards",
+                pos: "Noun",
+                meaning: "বিপদসমূহ; ঝুঁকি",
+                ipa: "/ˈhæzərdz/",
+                pronunciation: "হ্যাজার্ডস",
+                synonyms: "dangers, risks, threats, perils",
+                antonyms: "safety, security, protection, certainty"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice ‘protects’ the right of ‘victims’ of environmental ‘injustice’ to ‘receive’ full ‘compensation’ and ‘reparations’ for ‘damages’ as well as quality health care.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার পরিবেশগত অবিচারের শিকারদের ক্ষতির জন্য পূর্ণ ক্ষতিপূরণ ও পুনর্বাসনমূলক প্রতিকার এবং মানসম্মত স্বাস্থ্যসেবা পাওয়ার অধিকার রক্ষা করে।",
+
+        vocabulary: [
+
+            {
+                word: "protects",
+                pos: "Verb",
+                meaning: "রক্ষা করে",
+                ipa: "/prəˈtekts/",
+                pronunciation: "প্রোটেক্টস",
+                synonyms: "defends, safeguards, shields, preserves",
+                antonyms: "attacks, harms, exposes, endangers"
+            },
+
+            {
+                word: "victims",
+                pos: "Noun",
+                meaning: "ক্ষতিগ্রস্ত ব্যক্তি; ভুক্তভোগী",
+                ipa: "/ˈvɪktɪmz/",
+                pronunciation: "ভিক্টিমস",
+                synonyms: "sufferers, casualties, sufferers, injured people",
+                antonyms: "perpetrators, offenders, victors, beneficiaries"
+            },
+
+            {
+                word: "injustice",
+                pos: "Noun",
+                meaning: "অন্যায়; অবিচার",
+                ipa: "/ɪnˈdʒʌstɪs/",
+                pronunciation: "ইনজাস্টিস",
+                synonyms: "unfairness, inequality, wrong, discrimination",
+                antonyms: "justice, fairness, equality, righteousness"
+            },
+
+            {
+                word: "receive",
+                pos: "Verb",
+                meaning: "গ্রহণ করা; পাওয়া",
+                ipa: "/rɪˈsiːv/",
+                pronunciation: "রিসিভ",
+                synonyms: "get, obtain, accept, acquire",
+                antonyms: "give, send, lose, reject"
+            },
+
+            {
+                word: "compensation",
+                pos: "Noun",
+                meaning: "ক্ষতিপূরণ",
+                ipa: "/ˌkɒmpənˈseɪʃən/",
+                pronunciation: "কমপেনসেশন",
+                synonyms: "reimbursement, payment, indemnity, recompense",
+                antonyms: "penalty, deduction, loss, deprivation"
+            },
+
+            {
+                word: "reparations",
+                pos: "Noun",
+                meaning: "ক্ষতিপূরণ; ক্ষতি পূরণের ব্যবস্থা",
+                ipa: "/ˌrepəˈreɪʃənz/",
+                pronunciation: "রেপারেশনস",
+                synonyms: "compensation, restitution, reimbursement, amends",
+                antonyms: "damage, harm, loss, injury"
+            },
+
+            {
+                word: "damages",
+                pos: "Noun",
+                meaning: "ক্ষয়ক্ষতি",
+                ipa: "/ˈdæmɪdʒɪz/",
+                pronunciation: "ড্যামেজেস",
+                synonyms: "harm, losses, injury, destruction",
+                antonyms: "benefits, gains, improvements, repairs"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice ‘considers’ governmental acts of environmental injustice a ‘violation’ of international law, the ‘Universal’ ‘Declaration’ On Human Rights, and the United Nations ‘Convention’ on ‘Genocide’.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার পরিবেশগত অবিচারের সরকারি কর্মকাণ্ডকে আন্তর্জাতিক আইন, মানবাধিকারের সর্বজনীন ঘোষণাপত্র এবং গণহত্যা সম্পর্কিত জাতিসংঘের কনভেনশনের লঙ্ঘন হিসেবে বিবেচনা করে।",
+
+        vocabulary: [
+
+            {
+                word: "considers",
+                pos: "Verb",
+                meaning: "বিবেচনা করে; মনে করে",
+                ipa: "/kənˈsɪdərz/",
+                pronunciation: "কনসিডারস",
+                synonyms: "regards, views, deems, judges",
+                antonyms: "ignores, disregards, overlooks, neglects"
+            },
+
+            {
+                word: "violation",
+                pos: "Noun",
+                meaning: "লঙ্ঘন",
+                ipa: "/ˌvaɪəˈleɪʃən/",
+                pronunciation: "ভায়োলেশন",
+                synonyms: "breach, infringement, offense, transgression",
+                antonyms: "obedience, compliance, observance, respect"
+            },
+
+            {
+                word: "Universal",
+                pos: "Adjective",
+                meaning: "সর্বজনীন",
+                ipa: "/ˌjuːnɪˈvɜːrsəl/",
+                pronunciation: "ইউনিভার্সাল",
+                synonyms: "worldwide, global, general, common",
+                antonyms: "limited, local, particular, restricted"
+            },
+
+            {
+                word: "Declaration",
+                pos: "Noun",
+                meaning: "ঘোষণাপত্র; ঘোষণা",
+                ipa: "/ˌdekləˈreɪʃən/",
+                pronunciation: "ডেক্লারেশন",
+                synonyms: "statement, announcement, proclamation, assertion",
+                antonyms: "denial, concealment, silence, withdrawal"
+            },
+
+            {
+                word: "Convention",
+                pos: "Noun",
+                meaning: "আন্তর্জাতিক চুক্তি; সম্মেলন",
+                ipa: "/kənˈvenʃən/",
+                pronunciation: "কনভেনশন",
+                synonyms: "treaty, agreement, pact, accord",
+                antonyms: "disagreement, opposition, dispute, conflict"
+            },
+
+            {
+                word: "Genocide",
+                pos: "Noun",
+                meaning: "গণহত্যা",
+                ipa: "/ˈdʒenəsaɪd/",
+                pronunciation: "জেনোসাইড",
+                synonyms: "massacre, extermination, mass killing, annihilation",
+                antonyms: "preservation, protection, survival, peace"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice must ‘recognize’ a ‘special’ ‘legal’ and natural relationship of ‘Native’ Peoples to the U.S. government through ‘treaties’, ‘agreements’, ‘compacts’, and ‘covenants’ affirming ‘sovereignty’ and ‘self-determination’.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচারকে চুক্তি, সমঝোতা, আনুষ্ঠানিক চুক্তিপত্র ও অঙ্গীকারের মাধ্যমে স্থানীয় জনগণের সঙ্গে মার্কিন সরকারের বিশেষ আইনগত ও প্রাকৃতিক সম্পর্ককে স্বীকৃতি দিতে হবে, যা তাদের সার্বভৌমত্ব ও আত্মনিয়ন্ত্রণকে নিশ্চিত করে।",
+
+        vocabulary: [
+
+            {
+                word: "recognize",
+                pos: "Verb",
+                meaning: "স্বীকৃতি দেওয়া; চিনতে পারা",
+                ipa: "/ˈrekəɡnaɪz/",
+                pronunciation: "রেকগনাইজ",
+                synonyms: "acknowledge, identify, accept, admit",
+                antonyms: "deny, ignore, reject, overlook"
+            },
+
+            {
+                word: "special",
+                pos: "Adjective",
+                meaning: "বিশেষ",
+                ipa: "/ˈspeʃəl/",
+                pronunciation: "স্পেশাল",
+                synonyms: "unique, particular, exceptional, distinct",
+                antonyms: "ordinary, common, usual, general"
+            },
+
+            {
+                word: "legal",
+                pos: "Adjective",
+                meaning: "আইনগত; বৈধ",
+                ipa: "/ˈliːɡəl/",
+                pronunciation: "লিগ্যাল",
+                synonyms: "lawful, legitimate, authorized, valid",
+                antonyms: "illegal, unlawful, illegitimate, invalid"
+            },
+
+            {
+                word: "Native",
+                pos: "Adjective",
+                meaning: "স্থানীয়; আদিবাসী",
+                ipa: "/ˈneɪtɪv/",
+                pronunciation: "নেটিভ",
+                synonyms: "indigenous, local, original, aboriginal",
+                antonyms: "foreign, immigrant, imported, alien"
+            },
+
+            {
+                word: "treaties",
+                pos: "Noun",
+                meaning: "চুক্তিসমূহ",
+                ipa: "/ˈtriːtiz/",
+                pronunciation: "ট্রিটিজ",
+                synonyms: "agreements, pacts, accords, conventions",
+                antonyms: "disagreements, conflicts, disputes, wars"
+            },
+
+            {
+                word: "agreements",
+                pos: "Noun",
+                meaning: "চুক্তি; সমঝোতা",
+                ipa: "/əˈɡriːmənts/",
+                pronunciation: "অ্যাগ্রিমেন্টস",
+                synonyms: "accords, pacts, contracts, understandings",
+                antonyms: "disagreements, disputes, conflicts, opposition"
+            },
+
+            {
+                word: "compacts",
+                pos: "Noun",
+                meaning: "আনুষ্ঠানিক চুক্তি",
+                ipa: "/ˈkɒmpækts/",
+                pronunciation: "কমপ্যাক্টস",
+                synonyms: "agreements, pacts, treaties, accords",
+                antonyms: "disputes, conflicts, disagreements, violations"
+            },
+
+            {
+                word: "covenants",
+                pos: "Noun",
+                meaning: "আনুষ্ঠানিক অঙ্গীকার বা চুক্তি",
+                ipa: "/ˈkʌvənənts/",
+                pronunciation: "কাভেন্যান্টস",
+                synonyms: "promises, agreements, contracts, pledges",
+                antonyms: "breaches, violations, denials, refusals"
+            },
+
+            {
+                word: "sovereignty",
+                pos: "Noun",
+                meaning: "সার্বভৌমত্ব",
+                ipa: "/ˈsɒvrənti/",
+                pronunciation: "সভরেনটি",
+                synonyms: "independence, autonomy, self-rule, supremacy",
+                antonyms: "dependence, submission, subordination, domination"
+            },
+
+            {
+                word: "self-determination",
+                pos: "Noun",
+                meaning: "আত্মনিয়ন্ত্রণ",
+                ipa: "/ˌself dɪˌtɜːrmɪˈneɪʃən/",
+                pronunciation: "সেলফ ডিটারমিনেশন",
+                synonyms: "autonomy, independence, self-rule, sovereignty",
+                antonyms: "dependence, submission, domination, control"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice affirms the ‘need’ for ‘urban’ and ‘rural’ ‘ecological’ policies to ‘clean up’ and ‘rebuild’ our cities and rural ‘areas’ in balance with ‘nature’, honoring the ‘cultural’ ‘integrity’ of all our ‘communities’, and provided ‘fair’ ‘access’ for all to the full ‘range’ of resources.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার শহর ও গ্রামীণ অঞ্চলের পরিবেশগত নীতির প্রয়োজনীয়তা স্বীকার করে, যার মাধ্যমে প্রকৃতির সঙ্গে ভারসাম্য রেখে আমাদের শহর ও গ্রামীণ এলাকাগুলো পরিষ্কার ও পুনর্নির্মাণ করা হবে, সব সম্প্রদায়ের সাংস্কৃতিক অখণ্ডতাকে সম্মান করা হবে এবং সবার জন্য সম্পদের পূর্ণ পরিসরে ন্যায্য প্রবেশাধিকার নিশ্চিত করা হবে।",
+
+        vocabulary: [
+
+            {
+                word: "need",
+                pos: "Noun",
+                meaning: "প্রয়োজন",
+                ipa: "/niːd/",
+                pronunciation: "নিড",
+                synonyms: "necessity, requirement, demand, want",
+                antonyms: "surplus, excess, luxury, abundance"
+            },
+
+            {
+                word: "urban",
+                pos: "Adjective",
+                meaning: "শহুরে",
+                ipa: "/ˈɜːrbən/",
+                pronunciation: "আরবান",
+                synonyms: "city, metropolitan, municipal, civic",
+                antonyms: "rural, countryside, agricultural, rustic"
+            },
+
+            {
+                word: "rural",
+                pos: "Adjective",
+                meaning: "গ্রামীণ",
+                ipa: "/ˈrʊrəl/",
+                pronunciation: "রুরাল",
+                synonyms: "countryside, agricultural, rustic, country",
+                antonyms: "urban, metropolitan, city, municipal"
+            },
+
+            {
+                word: "ecological",
+                pos: "Adjective",
+                meaning: "পরিবেশগত",
+                ipa: "/ˌiːkəˈlɒdʒɪkəl/",
+                pronunciation: "ইকোলজিক্যাল",
+                synonyms: "environmental, natural, green, eco-friendly",
+                antonyms: "artificial, industrial, polluting, harmful"
+            },
+
+            {
+                word: "clean up",
+                pos: "Phrasal Verb",
+                meaning: "পরিষ্কার করা; দূষণমুক্ত করা",
+                ipa: "/kliːn ʌp/",
+                pronunciation: "ক্লিন আপ",
+                synonyms: "clean, purify, clear, sanitize",
+                antonyms: "dirty, pollute, contaminate, soil"
+            },
+
+            {
+                word: "rebuild",
+                pos: "Verb",
+                meaning: "পুনর্নির্মাণ করা",
+                ipa: "/ˌriːˈbɪld/",
+                pronunciation: "রিবিল্ড",
+                synonyms: "reconstruct, restore, renovate, remake",
+                antonyms: "destroy, demolish, ruin, dismantle"
+            },
+
+            {
+                word: "areas",
+                pos: "Noun",
+                meaning: "এলাকাসমূহ",
+                ipa: "/ˈeəriəz/",
+                pronunciation: "এরিয়াজ",
+                synonyms: "regions, zones, districts, territories",
+                antonyms: "whole, entirety, center, core"
+            },
+
+            {
+                word: "nature",
+                pos: "Noun",
+                meaning: "প্রকৃতি",
+                ipa: "/ˈneɪtʃər/",
+                pronunciation: "নেচার",
+                synonyms: "environment, wilderness, creation, ecosystem",
+                antonyms: "artifice, technology, civilization, urbanization"
+            },
+
+            {
+                word: "cultural",
+                pos: "Adjective",
+                meaning: "সাংস্কৃতিক",
+                ipa: "/ˈkʌltʃərəl/",
+                pronunciation: "কালচারাল",
+                synonyms: "social, traditional, artistic, ethnic",
+                antonyms: "uncultural, nontraditional, artificial, individual"
+            },
+
+            {
+                word: "integrity",
+                pos: "Noun",
+                meaning: "অখণ্ডতা; সততা",
+                ipa: "/ɪnˈteɡrəti/",
+                pronunciation: "ইন্টেগ্রিটি",
+                synonyms: "wholeness, completeness, honesty, unity",
+                antonyms: "corruption, dishonesty, fragmentation, weakness"
+            },
+
+            {
+                word: "communities",
+                pos: "Noun",
+                meaning: "সম্প্রদায়সমূহ",
+                ipa: "/kəˈmjuːnətiz/",
+                pronunciation: "কমিউনিটিজ",
+                synonyms: "societies, groups, populations, neighborhoods",
+                antonyms: "individuals, isolation, outsiders, strangers"
+            },
+
+            {
+                word: "fair",
+                pos: "Adjective",
+                meaning: "ন্যায্য; সুবিচারপূর্ণ",
+                ipa: "/feər/",
+                pronunciation: "ফেয়ার",
+                synonyms: "just, impartial, equitable, reasonable",
+                antonyms: "unfair, unjust, biased, unequal"
+            },
+
+            {
+                word: "access",
+                pos: "Noun",
+                meaning: "প্রবেশাধিকার; সুযোগ",
+                ipa: "/ˈækses/",
+                pronunciation: "অ্যাকসেস",
+                synonyms: "entry, admission, approach, availability",
+                antonyms: "denial, exclusion, obstruction, restriction"
+            },
+
+            {
+                word: "range",
+                pos: "Noun",
+                meaning: "পরিসর; বিস্তৃতি",
+                ipa: "/reɪndʒ/",
+                pronunciation: "রেঞ্জ",
+                synonyms: "scope, extent, variety, spectrum",
+                antonyms: "limit, restriction, narrowness, confinement"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice calls for the ‘strict’ ‘enforcement’ of ‘principles’ of ‘informed’ ‘consent’, and a ‘halt’ to the ‘testing’ of ‘experimental’ ‘reproductive’ and medical ‘procedures’ and ‘vaccinations’ on people of color.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার অবহিত সম্মতির নীতিগুলোর কঠোর প্রয়োগ এবং বর্ণের মানুষের ওপর পরীক্ষামূলক প্রজনন ও চিকিৎসা পদ্ধতি এবং টিকা পরীক্ষার অবসানের দাবি করে।",
+
+        vocabulary: [
+
+            {
+                word: "strict",
+                pos: "Adjective",
+                meaning: "কঠোর",
+                ipa: "/strɪkt/",
+                pronunciation: "স্ট্রিক্ট",
+                synonyms: "rigid, severe, rigorous, exacting",
+                antonyms: "lenient, flexible, mild, tolerant"
+            },
+
+            {
+                word: "enforcement",
+                pos: "Noun",
+                meaning: "প্রয়োগ; কার্যকর করা",
+                ipa: "/ɪnˈfɔːrsmənt/",
+                pronunciation: "এনফোর্সমেন্ট",
+                synonyms: "execution, implementation, application, imposition",
+                antonyms: "neglect, nonenforcement, violation, disregard"
+            },
+
+            {
+                word: "principles",
+                pos: "Noun",
+                meaning: "নীতিমালা; মূলনীতি",
+                ipa: "/ˈprɪnsəpəlz/",
+                pronunciation: "প্রিন্সিপলস",
+                synonyms: "rules, doctrines, standards, guidelines",
+                antonyms: "exceptions, disorder, violations, deviations"
+            },
+
+            {
+                word: "informed",
+                pos: "Adjective",
+                meaning: "অবহিত; জ্ঞাত",
+                ipa: "/ɪnˈfɔːrmd/",
+                pronunciation: "ইনফর্মড",
+                synonyms: "knowledgeable, aware, educated, advised",
+                antonyms: "uninformed, ignorant, unaware, uninstructed"
+            },
+
+            {
+                word: "consent",
+                pos: "Noun",
+                meaning: "সম্মতি",
+                ipa: "/kənˈsent/",
+                pronunciation: "কনসেন্ট",
+                synonyms: "approval, agreement, permission, authorization",
+                antonyms: "refusal, denial, disagreement, objection"
+            },
+
+            {
+                word: "halt",
+                pos: "Noun",
+                meaning: "স্থগিতকরণ; বন্ধ",
+                ipa: "/hɔːlt/",
+                pronunciation: "হল্ট",
+                synonyms: "stop, cessation, suspension, termination",
+                antonyms: "continuation, beginning, progress, resumption"
+            },
+
+            {
+                word: "testing",
+                pos: "Noun",
+                meaning: "পরীক্ষা; পরীক্ষণ",
+                ipa: "/ˈtestɪŋ/",
+                pronunciation: "টেস্টিং",
+                synonyms: "examination, trial, assessment, experiment",
+                antonyms: "neglect, disregard, certainty, acceptance"
+            },
+
+            {
+                word: "experimental",
+                pos: "Adjective",
+                meaning: "পরীক্ষামূলক",
+                ipa: "/ɪkˌsperɪˈmentl/",
+                pronunciation: "এক্সপেরিমেন্টাল",
+                synonyms: "trial, exploratory, investigative, tentative",
+                antonyms: "proven, established, tested, conventional"
+            },
+
+            {
+                word: "reproductive",
+                pos: "Adjective",
+                meaning: "প্রজনন-সংক্রান্ত",
+                ipa: "/ˌriːprəˈdʌktɪv/",
+                pronunciation: "রিপ্রোডাক্টিভ",
+                synonyms: "generative, procreative, breeding-related, fertility-related",
+                antonyms: "sterile, infertile, nonreproductive, barren"
+            },
+
+            {
+                word: "procedures",
+                pos: "Noun",
+                meaning: "পদ্ধতিসমূহ; কার্যপ্রণালী",
+                ipa: "/prəˈsiːdʒərz/",
+                pronunciation: "প্রসিডিউরস",
+                synonyms: "methods, processes, techniques, protocols",
+                antonyms: "disorder, improvisation, randomness, chaos"
+            },
+
+            {
+                word: "vaccinations",
+                pos: "Noun",
+                meaning: "টিকাদান; টিকা প্রদান",
+                ipa: "/ˌvæksɪˈneɪʃənz/",
+                pronunciation: "ভ্যাক্সিনেশনস",
+                synonyms: "immunizations, inoculations, injections, prophylaxis",
+                antonyms: "infection, exposure, illness, disease"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice ‘opposes’ the ‘destructive’ ‘operations’ of ‘multi-national’ ‘corporations’.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার বহুজাতিক কর্পোরেশনগুলোর ধ্বংসাত্মক কর্মকাণ্ডের বিরোধিতা করে।",
+
+        vocabulary: [
+
+            {
+                word: "opposes",
+                pos: "Verb",
+                meaning: "বিরোধিতা করে",
+                ipa: "/əˈpoʊzɪz/",
+                pronunciation: "অপোজিজ",
+                synonyms: "resists, rejects, challenges, contradicts",
+                antonyms: "supports, accepts, approves, agrees"
+            },
+
+            {
+                word: "destructive",
+                pos: "Adjective",
+                meaning: "ধ্বংসাত্মক",
+                ipa: "/dɪˈstrʌktɪv/",
+                pronunciation: "ডিস্ট্রাক্টিভ",
+                synonyms: "damaging, harmful, devastating, ruinous",
+                antonyms: "constructive, beneficial, helpful, restorative"
+            },
+
+            {
+                word: "operations",
+                pos: "Noun",
+                meaning: "কার্যক্রম; কর্মকাণ্ড",
+                ipa: "/ˌɒpəˈreɪʃənz/",
+                pronunciation: "অপারেশনস",
+                synonyms: "activities, actions, procedures, functions",
+                antonyms: "inactivity, idleness, cessation, stoppage"
+            },
+
+            {
+                word: "multi-national",
+                pos: "Adjective",
+                meaning: "বহুজাতিক",
+                ipa: "/ˌmʌltiˈnæʃənəl/",
+                pronunciation: "মাল্টিন্যাশনাল",
+                synonyms: "international, global, worldwide, transnational",
+                antonyms: "national, local, domestic, regional"
+            },
+
+            {
+                word: "corporations",
+                pos: "Noun",
+                meaning: "কর্পোরেশন; বৃহৎ ব্যবসায়িক প্রতিষ্ঠান",
+                ipa: "/ˌkɔːrpəˈreɪʃənz/",
+                pronunciation: "কর্পোরেশনস",
+                synonyms: "companies, firms, enterprises, businesses",
+                antonyms: "individuals, employees, consumers, customers"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice opposes ‘military’ ‘occupation’, ‘repression’ and ‘exploitation’ of lands, peoples and ‘cultures’, and other life ‘forms’.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার ভূমি, জনগণ ও সংস্কৃতির সামরিক দখল, দমন ও শোষণ এবং অন্যান্য জীবনধারার বিরোধিতা করে।",
+
+        vocabulary: [
+
+            {
+                word: "military",
+                pos: "Adjective",
+                meaning: "সামরিক",
+                ipa: "/ˈmɪləteri/",
+                pronunciation: "মিলিটারি",
+                synonyms: "armed, defense-related, martial, soldierly",
+                antonyms: "civilian, peaceful, nonmilitary, diplomatic"
+            },
+
+            {
+                word: "occupation",
+                pos: "Noun",
+                meaning: "দখল; অধিগ্রহণ",
+                ipa: "/ˌɒkjʊˈpeɪʃən/",
+                pronunciation: "অকুপেশন",
+                synonyms: "invasion, takeover, possession, control",
+                antonyms: "liberation, freedom, withdrawal, independence"
+            },
+
+            {
+                word: "repression",
+                pos: "Noun",
+                meaning: "দমন; নিপীড়ন",
+                ipa: "/rɪˈpreʃən/",
+                pronunciation: "রিপ্রেশন",
+                synonyms: "suppression, oppression, persecution, restraint",
+                antonyms: "freedom, liberation, expression, release"
+            },
+
+            {
+                word: "exploitation",
+                pos: "Noun",
+                meaning: "শোষণ",
+                ipa: "/ˌeksplɔɪˈteɪʃən/",
+                pronunciation: "এক্সপ্লয়টেশন",
+                synonyms: "abuse, misuse, oppression, manipulation",
+                antonyms: "protection, fairness, cooperation, support"
+            },
+
+            {
+                word: "cultures",
+                pos: "Noun",
+                meaning: "সংস্কৃতিসমূহ",
+                ipa: "/ˈkʌltʃərz/",
+                pronunciation: "কালচারস",
+                synonyms: "traditions, civilizations, societies, lifestyles",
+                antonyms: "individuality, isolation, uniformity, sameness"
+            },
+
+            {
+                word: "forms",
+                pos: "Noun",
+                meaning: "রূপসমূহ; ধরনসমূহ",
+                ipa: "/fɔːrmz/",
+                pronunciation: "ফর্মস",
+                synonyms: "types, kinds, shapes, varieties",
+                antonyms: "absence, formlessness, emptiness, nothing"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice calls for the ‘education’ of present and future generations which ‘emphasizes’ social and environmental ‘issues’, ‘based’ on our ‘experience’ and an ‘appreciation’ of our ‘diverse’ cultural ‘perspectives’.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার বর্তমান ও ভবিষ্যৎ প্রজন্মের শিক্ষার দাবি করে, যেখানে আমাদের অভিজ্ঞতা এবং বৈচিত্র্যময় সাংস্কৃতিক দৃষ্টিভঙ্গির মূল্যায়নের ভিত্তিতে সামাজিক ও পরিবেশগত বিষয়গুলোকে গুরুত্ব দেওয়া হবে।",
+
+        vocabulary: [
+
+            {
+                word: "education",
+                pos: "Noun",
+                meaning: "শিক্ষা",
+                ipa: "/ˌedʒuˈkeɪʃən/",
+                pronunciation: "এডুকেশন",
+                synonyms: "learning, schooling, instruction, teaching",
+                antonyms: "ignorance, illiteracy, uneducation, neglect"
+            },
+
+            {
+                word: "emphasizes",
+                pos: "Verb",
+                meaning: "গুরুত্ব দেয়; জোর দেয়",
+                ipa: "/ˈemfəsaɪzɪz/",
+                pronunciation: "এমফাসাইজিজ",
+                synonyms: "stresses, highlights, underlines, accentuates",
+                antonyms: "minimizes, ignores, neglects, downplays"
+            },
+
+            {
+                word: "issues",
+                pos: "Noun",
+                meaning: "বিষয়সমূহ; সমস্যা",
+                ipa: "/ˈɪʃuːz/",
+                pronunciation: "ইশুজ",
+                synonyms: "problems, matters, concerns, topics",
+                antonyms: "solutions, answers, resolutions, agreements"
+            },
+
+            {
+                word: "based",
+                pos: "Adjective",
+                meaning: "ভিত্তিক",
+                ipa: "/beɪst/",
+                pronunciation: "বেইস্ট",
+                synonyms: "founded, grounded, established, built",
+                antonyms: "unfounded, baseless, unsupported, groundless"
+            },
+
+            {
+                word: "experience",
+                pos: "Noun",
+                meaning: "অভিজ্ঞতা",
+                ipa: "/ɪkˈspɪəriəns/",
+                pronunciation: "এক্সপিরিয়েন্স",
+                synonyms: "knowledge, practice, exposure, expertise",
+                antonyms: "inexperience, ignorance, unfamiliarity, innocence"
+            },
+
+            {
+                word: "appreciation",
+                pos: "Noun",
+                meaning: "মূল্যায়ন; উপলব্ধি; প্রশংসা",
+                ipa: "/əˌpriːʃiˈeɪʃən/",
+                pronunciation: "অ্যাপ্রিশিয়েশন",
+                synonyms: "recognition, understanding, admiration, gratitude",
+                antonyms: "disregard, ignorance, contempt, depreciation"
+            },
+
+            {
+                word: "diverse",
+                pos: "Adjective",
+                meaning: "বৈচিত্র্যময়",
+                ipa: "/daɪˈvɜːrs/",
+                pronunciation: "ডাইভার্স",
+                synonyms: "varied, different, assorted, multifaceted",
+                antonyms: "similar, uniform, identical, homogeneous"
+            },
+
+            {
+                word: "perspectives",
+                pos: "Noun",
+                meaning: "দৃষ্টিভঙ্গিসমূহ",
+                ipa: "/pərˈspektɪvz/",
+                pronunciation: "পারস্পেক্টিভস",
+                synonyms: "viewpoints, outlooks, opinions, standpoints",
+                antonyms: "blindness, ignorance, certainty, objectivity"
+            }
+
+        ]
+    },
+
+
+    {
+        sentence:
+        "Environmental Justice ‘requires’ that we, as ‘individuals’, make personal and ‘consumer’ ‘choices’ to ‘consume’ as little of Mother Earth's ‘resources’ and to ‘produce’ as ‘little waste’ as possible; and make the ‘conscious’ ‘decision’ to ‘challenge’ and ‘reprioritize’ our ‘lifestyles’ to ‘ensure’ the health of the natural world for present and future generations.",
+
+        meaning:
+        "পরিবেশগত ন্যায়বিচার আমাদের প্রত্যেক ব্যক্তিকে ব্যক্তিগত ও ভোক্তা হিসেবে এমন সিদ্ধান্ত নেওয়ার আহ্বান জানায়, যাতে আমরা মাতা পৃথিবীর যত কম সম্পদ সম্ভব ব্যবহার করি এবং যত কম সম্ভব বর্জ্য উৎপাদন করি। একই সঙ্গে আমাদের সচেতনভাবে আমাদের জীবনযাপনকে চ্যালেঞ্জ ও পুনঃঅগ্রাধিকার দিয়ে বর্তমান ও ভবিষ্যৎ প্রজন্মের জন্য প্রাকৃতিক বিশ্বের স্বাস্থ্য নিশ্চিত করতে হবে।",
+
+        vocabulary: [
+
+            {
+                word: "requires",
+                pos: "Verb",
+                meaning: "প্রয়োজন হয়; দাবি করে",
+                ipa: "/rɪˈkwaɪərz/",
+                pronunciation: "রিকোয়ারস",
+                synonyms: "needs, demands, necessitates, calls for",
+                antonyms: "forbids, prevents, discourages, excludes"
+            },
+
+            {
+                word: "individuals",
+                pos: "Noun",
+                meaning: "ব্যক্তিবর্গ",
+                ipa: "/ˌɪndɪˈvɪdʒuəlz/",
+                pronunciation: "ইন্ডিভিজুয়ালস",
+                synonyms: "persons, people, humans, subjects",
+                antonyms: "groups, communities, organizations, collectives"
+            },
+
+            {
+                word: "consumer",
+                pos: "Noun",
+                meaning: "ভোক্তা",
+                ipa: "/kənˈsuːmər/",
+                pronunciation: "কনসিউমার",
+                synonyms: "buyer, purchaser, customer, user",
+                antonyms: "producer, manufacturer, supplier, seller"
+            },
+
+            {
+                word: "choices",
+                pos: "Noun",
+                meaning: "পছন্দসমূহ; সিদ্ধান্তসমূহ",
+                ipa: "/ˈtʃɔɪsɪz/",
+                pronunciation: "চয়সিজ",
+                synonyms: "options, selections, preferences, decisions",
+                antonyms: "rejections, refusals, constraints, obligations"
+            },
+
+            {
+                word: "consume",
+                pos: "Verb",
+                meaning: "ব্যবহার করা; ভোগ করা",
+                ipa: "/kənˈsuːm/",
+                pronunciation: "কনসিউম",
+                synonyms: "use, spend, utilize, expend",
+                antonyms: "save, preserve, conserve, store"
+            },
+
+            {
+                word: "resources",
+                pos: "Noun",
+                meaning: "সম্পদসমূহ",
+                ipa: "/rɪˈsɔːrsɪz/",
+                pronunciation: "রিসোর্সিজ",
+                synonyms: "assets, supplies, materials, wealth",
+                antonyms: "shortage, scarcity, deficiency, lack"
+            },
+
+            {
+                word: "produce",
+                pos: "Verb",
+                meaning: "উৎপাদন করা",
+                ipa: "/prəˈdjuːs/",
+                pronunciation: "প্রডিউস",
+                synonyms: "create, make, manufacture, generate",
+                antonyms: "destroy, consume, eliminate, waste"
+            },
+
+            {
+                word: "little waste",
+                pos: "Noun Phrase",
+                meaning: "অল্প বর্জ্য",
+                ipa: "/ˈlɪtl weɪst/",
+                pronunciation: "লিটল ওয়েস্ট",
+                synonyms: "minimal waste, small amount of waste, little refuse, low waste",
+                antonyms: "much waste, excessive waste, abundant waste, huge waste"
+            },
+
+            {
+                word: "conscious",
+                pos: "Adjective",
+                meaning: "সচেতন; জ্ঞানসম্পন্ন",
+                ipa: "/ˈkɒnʃəs/",
+                pronunciation: "কনশাস",
+                synonyms: "aware, mindful, alert, deliberate",
+                antonyms: "unconscious, unaware, ignorant, careless"
+            },
+
+            {
+                word: "decision",
+                pos: "Noun",
+                meaning: "সিদ্ধান্ত",
+                ipa: "/dɪˈsɪʒən/",
+                pronunciation: "ডিসিশন",
+                synonyms: "choice, determination, resolution, judgment",
+                antonyms: "indecision, hesitation, uncertainty, doubt"
+            },
+
+            {
+                word: "challenge",
+                pos: "Verb",
+                meaning: "চ্যালেঞ্জ করা; মোকাবিলা করা",
+                ipa: "/ˈtʃælɪndʒ/",
+                pronunciation: "চ্যালেঞ্জ",
+                synonyms: "confront, question, oppose, dispute",
+                antonyms: "accept, agree, support, surrender"
+            },
+
+            {
+                word: "reprioritize",
+                pos: "Verb",
+                meaning: "অগ্রাধিকারের পুনর্বিন্যাস করা",
+                ipa: "/ˌriːpraɪˈɒrətaɪz/",
+                pronunciation: "রিপ্রায়োরিটাইজ",
+                synonyms: "reorder, rearrange, reorganize, reschedule",
+                antonyms: "ignore, neglect, maintain, deprioritize"
+            },
+
+            {
+                word: "lifestyles",
+                pos: "Noun",
+                meaning: "জীবনধারাসমূহ",
+                ipa: "/ˈlaɪfstaɪlz/",
+                pronunciation: "লাইফস্টাইলস",
+                synonyms: "ways of life, living patterns, habits, routines",
+                antonyms: "death, inactivity, disorder, isolation"
+            },
+
+            {
+                word: "ensure",
+                pos: "Verb",
+                meaning: "নিশ্চিত করা",
+                ipa: "/ɪnˈʃʊər/",
+                pronunciation: "এনশিওর",
+                synonyms: "guarantee, secure, assure, confirm",
+                antonyms: "endanger, jeopardize, prevent, threaten"
+            }
+
+        ]
+    }
+
+];
+
+
+/* =========================================================
+   ⭐⭐⭐⭐⭐ END OF EDITABLE CONTENT ⭐⭐⭐⭐⭐
+   
+   এখান থেকে নিচের code সাধারণত edit করবে না।
+========================================================= */
+
+
+/* =========================================================
+   GET ELEMENTS
+========================================================= */
+
+const passageContainer =
+    document.getElementById("passage");
+
+
+const vocabularyContainer =
+    document.getElementById("vocabulary");
+
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(text) {
+
+    return String(text)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+}
+
+
+
+/* =========================================================
+   SPLIT FULL PASSAGE INTO SENTENCES
+========================================================= */
+
+function splitIntoSentences(text) {
+
+    const lines = text
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(line => line.length > 0);
+
+    const cleanLines = lines.filter(line => {
+
+        if (/^\d+\s+.+,\s*Born\s+\d{4}$/i.test(line)) {
+            return false;
+        }
+
+        if (/^Ash Sheikh Radwan$/i.test(line)) {
+            return false;
+        }
+
+        return true;
+    });
+
+    const sentences = [];
+
+    cleanLines.forEach(line => {
+
+        const parts = line
+            .split(/(?<=[.!?])\s+(?=[A-Z“"‘'])/)
+            .map(sentence => sentence.trim())
+            .filter(sentence => sentence.length > 0);
+
+        parts.forEach(sentence => {
+            sentences.push(sentence);
+        });
+
+    });
+
+    return sentences;
+}
+
+
+/* =========================================================
+   SENTENCE TEXT MATCHING
+   ---------------------------------------------------------
+   Passage-এর sentence number এবং
+   vocabulary entry number একই হওয়া আর
+   বাধ্যতামূলক নয়।
+========================================================= */
+
+function normalizeSentenceForMatching(text) {
+
+    return String(text || "")
+        .toLowerCase()
+        .replace(/^\s*\d+\)\s*/g, "")
+        .replace(/[^a-z0-9\u0980-\u09ff]+/g, "")
+        .trim();
+
+}
+
+
+function buildVocabularyMatches(sentences) {
+
+    const usedPassageIndexes = new Set();
+
+    return vocabularyData.map(
+        (data, vocabularyIndex) => {
+
+            const target =
+                normalizeSentenceForMatching(
+                    data.sentence
+                );
+
+            let passageIndex = -1;
+
+            for (
+                let i = 0;
+                i < sentences.length;
+                i++
+            ) {
+
+                if (usedPassageIndexes.has(i)) {
+                    continue;
+                }
+
+                if (
+                    normalizeSentenceForMatching(
+                        sentences[i]
+                    ) === target
+                ) {
+
+                    passageIndex = i;
+                    usedPassageIndexes.add(i);
+                    break;
+
+                }
+
+            }
+
+            return {
+                data,
+                vocabularyIndex,
+                passageIndex
+            };
+
+        }
+    );
+
+}
+
+
+function buildPassageVocabularyMap(
+    vocabularyMatches
+) {
+
+    const map = new Map();
+
+    vocabularyMatches.forEach(match => {
+
+        if (match.passageIndex >= 0) {
+            map.set(
+                match.passageIndex,
+                match
+            );
+        }
+
+    });
+
+    return map;
+}
+
+
+/* =========================================================
+   CREATE IDS
+========================================================= */
+
+function sentenceID(index) {
+    return "passage-sentence-" + index;
+}
+
+
+function vocabularyID(index) {
+    return "vocabulary-sentence-" + index;
+}
+
+
+function wordID(sentenceIndex, wordIndex) {
+
+    return (
+        "passage-word-" +
+        sentenceIndex +
+        "-" +
+        wordIndex
+    );
+
+}
+
+
+/* =========================================================
+   MARK VOCABULARY WORDS
+========================================================= */
+
+function markVocabularyWords(
+    sentence,
+    vocabulary,
+    passageIndex
+) {
+
+    let result = escapeHTML(sentence);
+
+    vocabulary.forEach(
+        (item, wordIndex) => {
+
+            const word =
+                escapeHTML(item.word);
+
+            const safeWord =
+                word.replace(
+                    /[.*+?^${}()|[\]\\]/g,
+                    "\\$&"
+                );
+
+            const regex =
+                new RegExp(
+                    "(?<![A-Za-z])" +
+                    safeWord +
+                    "(?![A-Za-z])",
+                    "gi"
+                );
+
+            result =
+                result.replace(
+                    regex,
+
+                    `<span
+                        id="${wordID(passageIndex, wordIndex)}"
+                        class="marked-word"
+                        onclick="goToVocabularyWord(${passageIndex}, ${wordIndex})"
+                    >$&</span>`
+                );
+
+        }
+    );
+
+    return result;
+}
+
+
+/* =========================================================
+   CREATE PASSAGE
+========================================================= */
+
+function createPassage(
+    sentences,
+    passageVocabularyMap
+) {
+
+    passageContainer.innerHTML = "";
+
+    sentences.forEach(
+        (sentence, passageIndex) => {
+
+            const match =
+                passageVocabularyMap.get(
+                    passageIndex
+                );
+
+            const data =
+                match
+                    ? match.data
+                    : null;
+
+            const vocabulary =
+                data
+                    ? data.vocabulary
+                    : [];
+
+
+            const sentenceDiv =
+                document.createElement("div");
+
+            sentenceDiv.className =
+                "passage-sentence";
+
+            sentenceDiv.id =
+                sentenceID(passageIndex);
+
+
+            const sentenceHTML =
+                markVocabularyWords(
+                    sentence,
+                    vocabulary,
+                    passageIndex
+                );
+
+
+            let actions = "";
+
+
+            if (data) {
+
+                actions +=
+                    `
+                    <a
+                        href="#${vocabularyID(passageIndex)}"
+                        class="action-button see-full"
+                        onclick="highlightVocabularySentence(${passageIndex})"
+                    >
+                        SEE FULL
+                    </a>
+                    `;
+
+            }
+
+
+            actions +=
+                `
+                <button
+                    class="action-button pronounce"
+                    onclick="pronounceSentence(${passageIndex})"
+                >
+                    🔊 PRONOUNCE
+                </button>
+                `;
+
+
+            sentenceDiv.innerHTML =
+                sentenceHTML +
+                actions;
+
+            passageContainer.appendChild(
+                sentenceDiv
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CREATE VOCABULARY
+   ---------------------------------------------------------
+   Vocabulary entry নিজেই তার English sentence
+   দিয়ে Passage-এর matching sentence খুঁজে নেয়।
+========================================================= */
+
+function createVocabulary(
+    vocabularyMatches
+) {
+
+    vocabularyContainer.innerHTML = "";
+
+    vocabularyMatches.forEach(
+        match => {
+
+            const data =
+                match.data;
+
+            const passageIndex =
+                match.passageIndex;
+
+            const vocabularyIndex =
+                match.vocabularyIndex;
+
+
+            const box =
+                document.createElement("div");
+
+            box.className =
+                "vocab-sentence";
+
+
+            if (passageIndex >= 0) {
+
+                box.id =
+                    vocabularyID(
+                        passageIndex
+                    );
+
+            } else {
+
+                box.id =
+                    "vocabulary-unmatched-" +
+                    vocabularyIndex;
+
+            }
+
+
+            let html =
+                `
+                <div class="vocab-english">
+
+                    ${escapeHTML(
+                        data.sentence
+                    )}
+
+                    ${
+                        passageIndex >= 0
+                            ?
+                            `
+                            <a
+                                class="sentence-back-button"
+                                onclick="goToPassageSentence(${passageIndex})"
+                            >
+                                ↩ BACK TO PASSAGE
+                            </a>
+                            `
+                            :
+                            `
+                            <span
+                                class="sentence-back-button"
+                                style="opacity:.55;cursor:default;"
+                            >
+                                ⚠ PASSAGE SENTENCE NOT FOUND
+                            </span>
+                            `
+                    }
+
+                </div>
+
+
+                <div class="bangla-meaning">
+
+                    ${escapeHTML(
+                        data.meaning
+                    )}
+
+                    ${
+                        passageIndex >= 0
+                            ?
+                            `
+                            <a
+                                class="sentence-back-button"
+                                onclick="goToPassageSentence(${passageIndex})"
+                            >
+                                ↩ BACK TO PASSAGE
+                            </a>
+                            `
+                            :
+                            ``
+                    }
+
+                </div>
+                `;
+
+
+            data.vocabulary.forEach(
+                (item, wordIndex) => {
+
+                    const cardID =
+                        passageIndex >= 0
+                            ?
+                            "vocab-word-" +
+                            passageIndex +
+                            "-" +
+                            wordIndex
+                            :
+                            "vocab-word-unmatched-" +
+                            vocabularyIndex +
+                            "-" +
+                            wordIndex;
+
+
+                    html +=
+                        `
+                        <div
+                            class="word-card"
+                            id="${cardID}"
+                        >
+
+                            <div class="word-title">
+                                ${escapeHTML(
+                                    item.word
+                                )}
+                            </div>
+
+
+                            <div class="word-details">
+
+                                <b>
+                                    Part of Speech:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.pos
+                                )}
+
+                                <br>
+
+                                <b>
+                                    Bangla Meaning:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.meaning
+                                )}
+
+                                <br>
+
+                                <b>
+                                    IPA:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.ipa
+                                )}
+
+                                <br>
+
+                                <b>
+                                    Pronunciation:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.pronunciation
+                                )}
+
+                                <br>
+
+                                <b>
+                                    Synonyms:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.synonyms
+                                )}
+
+                                <br>
+
+                                <b>
+                                    Antonyms:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.antonyms
+                                )}
+
+                                <br>
+
+                                ${
+                                    passageIndex >= 0
+                                        ?
+                                        `
+                                        <a
+                                            class="back-to-passage"
+                                            onclick="
+                                                goToPassageWord(
+                                                    ${passageIndex},
+                                                    ${wordIndex}
+                                                )
+                                            "
+                                        >
+                                            ↩ BACK TO PASSAGE
+                                        </a>
+                                        `
+                                        :
+                                        ``
+                                }
+
+                            </div>
+
+                        </div>
+                        `;
+
+                }
+            );
+
+
+            box.innerHTML =
+                html;
+
+            vocabularyContainer.appendChild(
+                box
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   HIGHLIGHT VOCABULARY SENTENCE
+========================================================= */
+
+function highlightVocabularySentence(
+    sentenceIndex
+) {
+
+    const target =
+        document.getElementById(
+            vocabularyID(sentenceIndex)
+        );
+
+
+    if (!target) {
+
+        return;
+
+    }
+
+
+    setTimeout(() => {
+
+        target.classList.add(
+            "active-sentence"
+        );
+
+
+        setTimeout(() => {
+
+            target.classList.remove(
+                "active-sentence"
+            );
+
+        }, 2200);
+
+    }, 250);
+
+}
+
+/* =========================================================
+   GO TO VOCABULARY SENTENCE — INSTANT
+========================================================= */
+
+function goToVocabularySentence(sentenceIndex) {
+
+    const target =
+        document.getElementById(
+            vocabularyID(sentenceIndex)
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling সম্পূর্ণ বন্ধ।
+       এক লাফে destination-এ যাবে।
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center"
+    });
+
+    target.classList.add("active-sentence");
+
+    setTimeout(() => {
+
+        target.classList.remove("active-sentence");
+
+    }, 2200);
+}
+
+
+/* =========================================================
+   GO TO VOCABULARY WORD — INSTANT
+========================================================= */
+
+function goToVocabularyWord(
+    sentenceIndex,
+    wordIndex
+) {
+
+    const target =
+        document.getElementById(
+            "vocab-word-" +
+            sentenceIndex +
+            "-" +
+            wordIndex
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling বন্ধ
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+
+    /*
+       ⭐ মূল correction ⭐
+
+       আগে এখানে পুরো vocabulary sentence
+       scroll করা হচ্ছিল।
+
+       এখন সরাসরি clicked vocabulary
+       WORD CARD-কে screen-এর মাঝখানে
+       আনা হবে।
+    */
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "nearest"
+    });
+
+
+    /*
+       Exact vocabulary word highlight
+    */
+
+    const wordTitle =
+        target.querySelector(".word-title");
+
+
+    if (wordTitle) {
+
+        wordTitle.classList.add(
+            "active-word"
+        );
+
+    }
+
+
+    /*
+       2.5 seconds পরে highlight remove
+    */
+
+    setTimeout(() => {
+
+        if (wordTitle) {
+
+            wordTitle.classList.remove(
+                "active-word"
+            );
+
+        }
+
+    }, 2500);
+
+}
+
+/* =========================================================
+   GO TO PASSAGE SENTENCE — INSTANT
+========================================================= */
+
+function goToPassageSentence(sentenceIndex) {
+
+    const target =
+        document.getElementById(
+            sentenceID(sentenceIndex)
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling সম্পূর্ণ বন্ধ।
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center"
+    });
+
+    target.classList.add("active-sentence");
+
+    setTimeout(() => {
+
+        target.classList.remove("active-sentence");
+
+    }, 2200);
+}
+
+
+/* =========================================================
+   GO TO EXACT PASSAGE WORD — INSTANT
+========================================================= */
+
+function goToPassageWord(
+    sentenceIndex,
+    wordIndex
+) {
+
+    const target =
+        document.getElementById(
+            wordID(
+                sentenceIndex,
+                wordIndex
+            )
+        );
+
+    if (!target) {
+        return;
+    }
+
+
+    /*
+       Smooth scrolling বন্ধ
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+
+    /*
+       ⭐ সরাসরি নির্দিষ্ট marked word-কে
+       screen-এর মাঝখানে আনা হবে
+    */
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "nearest"
+    });
+
+
+    /*
+       Exact passage word highlight
+    */
+
+    target.classList.add(
+        "active-word"
+    );
+
+
+    /*
+       2.5 seconds পরে highlight remove
+    */
+
+    setTimeout(() => {
+
+        target.classList.remove(
+            "active-word"
+        );
+
+    }, 2500);
+
+}
+
+/* =========================================================
+   PRONUNCIATION
+========================================================= */
+
+function pronounceSentence(index) {
+
+    const sentences =
+        splitIntoSentences(
+            passageText
+        );
+
+
+    const text =
+        sentences[index];
+
+
+    if (
+        !("speechSynthesis" in window)
+    ) {
+
+        alert(
+            "Your browser does not support speech pronunciation."
+        );
+
+        return;
+
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+        new SpeechSynthesisUtterance(
+            text
+        );
+
+
+    speech.lang = "en-US";
+
+    speech.rate = 0.85;
+
+    speech.pitch = 1;
+
+
+    window.speechSynthesis.speak(
+        speech
+    );
+
+}
+
+
+
+/* =========================================================
+   DATA CHECK
+========================================================= */
+
+function checkData(
+    sentences,
+    vocabularyMatches
+) {
+
+    const unmatched =
+        vocabularyMatches.filter(
+            match =>
+                match.passageIndex < 0
+        );
+
+    if (unmatched.length > 0) {
+
+        const warning =
+            document.createElement("div");
+
+        warning.className =
+            "data-warning";
+
+        warning.innerHTML =
+            `
+            <b>Content warning:</b>
+            ${unmatched.length}
+            টি vocabulary sentence Passage-এ
+            খুঁজে পাওয়া যায়নি।
+            <br><br>
+            উপরের Vocabulary entry-গুলোর
+            <b>sentence</b> text Passage-এর
+            sentence-এর সঙ্গে মিলিয়ে দিন।
+            `;
+
+        document.body.insertBefore(
+            warning,
+            document.getElementById("passage")
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+const sentences =
+    splitIntoSentences(
+        passageText
+    );
+
+
+const vocabularyMatches =
+    buildVocabularyMatches(
+        sentences
+    );
+
+
+const passageVocabularyMap =
+    buildPassageVocabularyMap(
+        vocabularyMatches
+    );
+
+
+checkData(
+    sentences,
+    vocabularyMatches
+);
+
+
+createPassage(
+    sentences,
+    passageVocabularyMap
+);
+
+
+createVocabulary(
+    vocabularyMatches
+);
+
+</script>
+
+
+</body>
+</html>
