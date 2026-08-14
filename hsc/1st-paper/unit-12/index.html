@@ -1,1 +1,446 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unit 12 | HSC English 1st Paper | All About English</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #eef4ff, #f8fbff);
+    color: #1d2939;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    background: linear-gradient(135deg, #0b1f3a, #164e63);
+    color: white;
+    text-align: center;
+    padding: 45px 20px 40px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.18);
+}
+
+.brand {
+    font-size: 15px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    opacity: 0.9;
+    margin-bottom: 12px;
+}
+
+.header h1 {
+    margin: 5px 0;
+    font-size: clamp(32px, 6vw, 55px);
+    letter-spacing: 2px;
+}
+
+.header h2 {
+    margin: 10px 0 0;
+    font-size: clamp(17px, 3vw, 25px);
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 45px auto;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom: 35px;
+}
+
+.intro h2 {
+    margin-top: 0;
+    color: #0b1f3a;
+    font-size: 30px;
+}
+
+.intro p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #475467;
+}
+
+/* =========================
+   LESSON GRID
+========================= */
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* =========================
+   LESSON CARD
+========================= */
+
+.lesson-card {
+    background: white;
+    border-radius: 18px;
+    padding: 30px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border: 1px solid #e4e7ec;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.lesson-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 7px;
+    height: 100%;
+    background: #164e63;
+}
+
+.lesson-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.lesson-number {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #164e63;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.lesson-card h3 {
+    margin: 0 0 12px;
+    font-size: 25px;
+    color: #0b1f3a;
+}
+
+.lesson-card p {
+    margin: 0;
+    line-height: 1.6;
+    color: #667085;
+}
+
+.open-btn {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 11px 20px;
+    background: #0b1f3a;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+    text-align: center;
+    margin: 45px 0 25px;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    background: white;
+    color: #0b1f3a;
+    border: 2px solid #0b1f3a;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #0b1f3a;
+    color: white;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: #0b1f3a;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 50px;
+}
+
+.footer strong {
+    letter-spacing: 1px;
+}
+
+.footer p {
+    margin: 8px 0 0;
+    font-size: 13px;
+    opacity: 0.75;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .header {
+        padding: 35px 15px;
+    }
+
+    .container {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .intro {
+        padding: 23px 18px;
+    }
+
+    .intro h2 {
+        font-size: 25px;
+    }
+
+    .intro p {
+        font-size: 15px;
+    }
+
+    .lesson-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .lesson-card {
+        padding: 25px 22px;
+    }
+
+    .lesson-card h3 {
+        font-size: 22px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="brand">
+        ALL ABOUT ENGLISH
+    </div>
+
+    <h1>UNIT 12</h1>
+
+    <h2>HSC English 1st Paper</h2>
+
+</header>
+
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<main class="container">
+
+
+    <!-- INTRO -->
+
+    <section class="intro">
+
+        <h2>Unit 12 Lessons</h2>
+
+        <p>
+            Welcome to Unit 12 of HSC English 1st Paper.
+            Select a lesson below to explore the complete lesson,
+            vocabulary, passage analysis and learning materials.
+        </p>
+
+    </section>
+
+
+    <!-- LESSONS -->
+
+    <section class="lesson-grid">
+
+
+        <!-- LESSON 1 -->
+
+        <a
+            class="lesson-card"
+            href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-12/lesson-1/"
+        >
+
+            <div class="lesson-number">
+                Lesson 01
+            </div>
+
+            <h3>Lesson 1</h3>
+
+            <p>
+                Explore the complete learning materials
+                of Unit 12, Lesson 1.
+            </p>
+
+            <span class="open-btn">
+                OPEN LESSON →
+            </span>
+
+        </a>
+
+
+        <!-- LESSON 2 -->
+
+        <a
+            class="lesson-card"
+            href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-12/lesson-2/"
+        >
+
+            <div class="lesson-number">
+                Lesson 02
+            </div>
+
+            <h3>Lesson 2</h3>
+
+            <p>
+                Explore the complete learning materials
+                of Unit 12, Lesson 2.
+            </p>
+
+            <span class="open-btn">
+                OPEN LESSON →
+            </span>
+
+        </a>
+
+
+        <!-- LESSON 3 -->
+
+        <a
+            class="lesson-card"
+            href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-12/lesson-3/"
+        >
+
+            <div class="lesson-number">
+                Lesson 03
+            </div>
+
+            <h3>Lesson 3</h3>
+
+            <p>
+                Explore the complete learning materials
+                of Unit 12, Lesson 3.
+            </p>
+
+            <span class="open-btn">
+                OPEN LESSON →
+            </span>
+
+        </a>
+
+
+        <!-- LESSON 4 -->
+
+        <a
+            class="lesson-card"
+            href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-12/lesson-4/"
+        >
+
+            <div class="lesson-number">
+                Lesson 04
+            </div>
+
+            <h3>Lesson 4</h3>
+
+            <p>
+                Explore the complete learning materials
+                of Unit 12, Lesson 4.
+            </p>
+
+            <span class="open-btn">
+                OPEN LESSON →
+            </span>
+
+        </a>
+
+
+    </section>
+
+
+    <!-- BACK BUTTON -->
+
+    <div class="navigation">
+
+        <a
+            class="back-btn"
+            href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/"
+        >
+            ← BACK TO HSC ENGLISH 1ST PAPER
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <strong>ALL ABOUT ENGLISH BY SHAHEEN SIR</strong>
+
+    <p>
+        HSC English 1st Paper | Unit 12
+    </p>
+
+</footer>
+
+
+</body>
+</html>
+```
 
