@@ -1,1 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unit 12 | All About English</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+    --bg-main: #071421;
+    --bg-secondary: #0b1b2b;
+
+    --text-main: #f5f8fb;
+    --text-soft: #aebdcb;
+    --text-muted: #7f91a3;
+
+    --gold: #e8c56a;
+    --gold-soft: #d9bb6b;
+
+    --blue: #69b7d8;
+    --blue-soft: #7fc8df;
+
+    --green: #70c9a3;
+    --purple: #a99bd8;
+    --pink: #d89ab8;
+    --orange: #d9a06b;
+
+    --border: rgba(255,255,255,0.10);
+
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family: 'Poppins', sans-serif;
+
+    color: var(--text-main);
+
+    background:
+
+        radial-gradient(
+            circle at 10% 5%,
+            rgba(105,183,216,0.10),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(169,155,216,0.08),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #06121d,
+            #091a29 50%,
+            #071421
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND GRID
+========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,0.012) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.012) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 85%
+        );
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+
+    width: min(1050px, 92%);
+
+    margin: auto;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    text-align: center;
+
+    padding:
+        65px
+        20px
+        35px;
+
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+
+    font-family: 'Cinzel', serif;
+
+    font-size:
+        clamp(34px, 6vw, 62px);
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #f5f8fb,
+            var(--gold),
+            #f5f8fb
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+}
+
+
+/* =========================================================
+   UNIT TITLE
+========================================================= */
+
+.unit-label {
+
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+    color: var(--blue-soft);
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+}
+
+
+.unit-title {
+
+    margin-top: 8px;
+
+    font-family: 'Cinzel', serif;
+
+    font-size:
+        clamp(25px, 4vw, 40px);
+
+    color: var(--gold);
+
+}
+
+
+.divider {
+
+    width: 130px;
+
+    height: 2px;
+
+    margin: 22px auto;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+.subtitle {
+
+    color: var(--text-soft);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   LESSON SECTION
+========================================================= */
+
+.lesson-section {
+
+    margin-top: 20px;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    border:
+        1px solid rgba(232,197,106,0.14);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(232,197,106,0.045),
+            rgba(255,255,255,0.018)
+        );
+
+    box-shadow:
+        0 18px 55px rgba(0,0,0,0.22);
+
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+
+    text-align: center;
+
+    margin-bottom: 28px;
+
+}
+
+
+.section-heading h2 {
+
+    font-family: 'Cinzel', serif;
+
+    color: var(--text-main);
+
+    font-size: 23px;
+
+}
+
+
+.section-heading p {
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================================================
+   LESSON GRID
+========================================================= */
+
+.lesson-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+
+}
+
+
+/* =========================================================
+   LESSON CARD
+========================================================= */
+
+.lesson-card {
+
+    position: relative;
+
+    min-height: 155px;
+
+    padding: 24px;
+
+    border-radius: 19px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,0.035);
+
+    text-decoration: none;
+
+    color: white;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    transition:
+        transform .28s ease,
+        background .28s ease,
+        border-color .28s ease,
+        box-shadow .28s ease;
+
+}
+
+
+.lesson-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+
+    height: 130px;
+
+    border-radius: 50%;
+
+    right: -60px;
+
+    top: -60px;
+
+    background:
+        var(--lesson-color);
+
+    opacity: .10;
+
+    filter: blur(4px);
+
+}
+
+
+.lesson-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    background:
+        rgba(255,255,255,0.075);
+
+    border-color:
+        var(--lesson-color);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.30);
+
+}
+
+
+/* =========================================================
+   LESSON ICON
+========================================================= */
+
+.lesson-icon {
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* =========================================================
+   LESSON TITLE
+========================================================= */
+
+.lesson-card h3 {
+
+    font-size: 18px;
+
+    margin-bottom: 6px;
+
+}
+
+
+/* =========================================================
+   LESSON DESCRIPTION
+========================================================= */
+
+.lesson-card p {
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   OPEN TEXT
+========================================================= */
+
+.open-text {
+
+    margin-top: 13px;
+
+    color:
+        var(--lesson-color);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   COMING SOON
+========================================================= */
+
+.lesson-card.disabled {
+
+    cursor: default;
+
+    opacity: .58;
+
+}
+
+
+.lesson-card.disabled:hover {
+
+    transform: none;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border-color:
+        var(--border);
+
+    box-shadow: none;
+
+}
+
+
+.lesson-card.disabled .open-text {
+
+    color: var(--text-muted);
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-area {
+
+    text-align: center;
+
+    margin-top: 30px;
+
+}
+
+
+.back-button {
+
+    display: inline-block;
+
+    padding:
+        12px
+        22px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid rgba(232,197,106,0.25);
+
+    background:
+        rgba(232,197,106,0.055);
+
+    color: var(--gold);
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    transition: .25s ease;
+
+}
+
+
+.back-button:hover {
+
+    background:
+        rgba(232,197,106,0.12);
+
+    border-color:
+        var(--gold);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    text-align: center;
+
+    padding:
+        50px
+        20px
+        30px;
+
+    color: #687b8d;
+
+    font-size: 10px;
+
+}
+
+
+footer strong {
+
+    color: var(--gold);
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .lesson-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .lesson-section {
+
+        padding: 20px;
+
+    }
+
+    .header {
+
+        padding-top: 50px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <div class="brand">
+        ALL ABOUT ENGLISH
+    </div>
+
+
+    <div class="unit-label">
+        HSC English 1st Paper
+    </div>
+
+
+    <div class="unit-title">
+        UNIT 12
+    </div>
+
+
+    <div class="divider"></div>
+
+
+    <div class="subtitle">
+        Explore the lessons of Unit 12
+        and learn English through interactive lessons.
+    </div>
+
+</header>
+
+
+
+<div class="container">
+
+
+<!-- =========================================================
+     LESSON SECTION
+========================================================= -->
+
+<section class="lesson-section">
+
+
+    <div class="section-heading">
+
+        <h2>
+            📚 Unit 12 Lessons
+        </h2>
+
+        <p>
+            Select a lesson to begin learning
+        </p>
+
+    </div>
+
+
+
+    <div class="lesson-grid">
+
+
+        <!-- =================================================
+             LESSON 1
+        ================================================== -->
+
+        <a
+            href="lesson-1/"
+            class="lesson-card"
+            style="--lesson-color:#69b7d8;"
+        >
+
+            <div class="lesson-icon">
+                📖
+            </div>
+
+            <h3>
+                Lesson 1
+            </h3>
+
+            <p>
+                Explore the interactive lesson,
+                vocabulary and learning materials.
+            </p>
+
+            <div class="open-text">
+                OPEN LESSON →
+            </div>
+
+        </a>
+
+
+
+        <!-- =================================================
+             LESSON 2
+        ================================================== -->
+
+        <div
+            class="lesson-card disabled"
+            style="--lesson-color:#70c9a3;"
+        >
+
+            <div class="lesson-icon">
+                📖
+            </div>
+
+            <h3>
+                Lesson 2
+            </h3>
+
+            <p>
+                This lesson will be available soon.
+            </p>
+
+            <div class="open-text">
+                COMING SOON
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             LESSON 3
+        ================================================== -->
+
+        <div
+            class="lesson-card disabled"
+            style="--lesson-color:#a99bd8;"
+        >
+
+            <div class="lesson-icon">
+                📖
+            </div>
+
+            <h3>
+                Lesson 3
+            </h3>
+
+            <p>
+                This lesson will be available soon.
+            </p>
+
+            <div class="open-text">
+                COMING SOON
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             LESSON 4
+        ================================================== -->
+
+        <div
+            class="lesson-card disabled"
+            style="--lesson-color:#d89ab8;"
+        >
+
+            <div class="lesson-icon">
+                📖
+            </div>
+
+            <h3>
+                Lesson 4
+            </h3>
+
+            <p>
+                This lesson will be available soon.
+            </p>
+
+            <div class="open-text">
+                COMING SOON
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     BACK TO HOMEPAGE
+========================================================= -->
+
+<div class="back-area">
+
+    <a
+        href="../../../"
+        class="back-button"
+    >
+        ← BACK TO HOMEPAGE
+    </a>
+
+</div>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div>
+        <strong>
+            ALL ABOUT ENGLISH
+        </strong>
+    </div>
+
+
+    <div style="margin-top:8px;">
+        A Complete Digitalized Smart English Learning Ecosystem
+    </div>
+
+
+    <div style="margin-top:8px;">
+        © 2026 Shaheen Sir. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+</div>
+
+
+</body>
+</html>
