@@ -1,0 +1,3206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>All About English</title>
+
+
+<!-- =========================================================
+     FONTS
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef4f8,
+            #f8f5fb
+        );
+
+    color: #17202a;
+
+    font-family: "Montserrat", sans-serif;
+
+    line-height: 1.7;
+
+    /* 🔐 TEXT SELECTION PROTECTION */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.top-box {
+
+    width: 100%;
+
+    padding: 38px 20px 34px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071e3d 0%,
+            #0b3d5c 35%,
+            #146c78 65%,
+            #0a2a43 100%
+        );
+
+    border-radius: 0 0 24px 24px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.18);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.top-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    top: -120px;
+    left: -80px;
+
+    background:
+        rgba(70,220,255,0.18);
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+
+.top-box::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    right: -80px;
+    bottom: -110px;
+
+    background:
+        rgba(190,80,255,0.18);
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+
+.site-title {
+
+    margin: 0 0 8px;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(30px, 6vw, 52px);
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,0.35),
+        0 0 18px rgba(100,220,255,0.25);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.author-name {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size:
+        clamp(17px, 3.5vw, 23px);
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    letter-spacing: 1.5px;
+
+    color: #d9f8ff;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.teacher-info {
+
+    max-width: 900px;
+
+    margin: 4px auto;
+
+    font-size:
+        clamp(13px, 2.5vw, 16px);
+
+    line-height: 1.7;
+
+    font-weight: 500;
+
+    color: #f4fcff;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.contact-info {
+
+    margin-top: 10px;
+
+    font-size:
+        clamp(13px, 2.5vw, 16px);
+
+    font-weight: 600;
+
+    color: white;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.facebook-link {
+
+    display: inline-block;
+
+    margin-top: 8px;
+
+    padding: 8px 16px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    border:
+        1px solid rgba(255,255,255,0.22);
+
+    color: #dff9ff;
+
+    text-decoration: none;
+
+    font-size:
+        clamp(12px, 2.4vw, 15px);
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.facebook-link:hover {
+
+    background:
+        rgba(255,255,255,0.23);
+
+    color: white;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.20);
+}
+
+
+/* =========================================================
+   PASSAGE HEADING
+========================================================= */
+
+.passage-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 30px auto 12px;
+
+    padding: 15px 20px;
+
+    text-align: center;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(25px, 5vw, 38px);
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #183b56,
+            #287c8e,
+            #633b78
+        );
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,0.18);
+}
+
+
+/* =========================================================
+   UNIT / LESSON
+========================================================= */
+
+.lesson-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 18px;
+
+    padding: 17px 20px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #633b78,
+            #365c9b
+        );
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.15);
+}
+
+
+.lesson-heading .unit {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+
+.lesson-heading .lesson {
+
+    margin-top: 5px;
+
+    font-size:
+        clamp(17px, 3vw, 24px);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PASSAGE
+========================================================= */
+
+#passage {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 45px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.10);
+}
+
+
+.passage-sentence {
+
+    padding: 13px 12px;
+
+    margin-bottom: 6px;
+
+    border-radius: 10px;
+
+    line-height: 2;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.passage-sentence.active-sentence {
+
+    background: #fff3a8;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.35);
+}
+
+
+/* =========================================================
+   MARKED VOCABULARY
+========================================================= */
+
+.marked-word {
+
+    color: #b21f4b;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    padding: 2px 5px;
+
+    border-radius: 5px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.marked-word:hover {
+
+    background: #ffe16b;
+
+    color: #6b1740;
+}
+
+
+.marked-word.active-word {
+
+    background: #ffcc33;
+
+    color: #5a3100;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.40);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.action-button {
+
+    display: inline-block;
+
+    margin-left: 8px;
+
+    margin-top: 4px;
+
+    padding: 4px 9px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: 0.25s ease;
+}
+
+
+.see-full {
+
+    background: #315c9b;
+
+    color: white;
+}
+
+
+.pronounce {
+
+    background: #27856f;
+
+    color: white;
+}
+
+
+/* =========================================================
+   VOCABULARY
+========================================================= */
+
+.vocabulary-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 20px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(23px, 4vw, 32px);
+
+    font-weight: 700;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b3d67,
+            #405fa3
+        );
+
+    border-radius: 17px;
+}
+
+
+.vocab-sentence {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 25px;
+
+    padding: 22px;
+
+    background: white;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.09);
+}
+
+
+.vocab-sentence.active-sentence {
+
+    background: #fff9d9;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.35);
+}
+
+
+.vocab-english {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.8;
+
+    margin-bottom: 8px;
+}
+
+
+.bangla-meaning {
+
+    font-family:
+        "Noto Sans Bengali",
+        sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    padding: 12px;
+
+    margin: 0 0 18px;
+
+    border-left:
+        4px solid #6c63a8;
+
+    background: #f4f1fa;
+
+    border-radius: 8px;
+}
+
+
+.sentence-back-button {
+
+    display: inline-block;
+
+    margin-left: 7px;
+
+    padding: 4px 9px;
+
+    border-radius: 7px;
+
+    background: #e7eefb;
+
+    color: #315c9b;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.word-card {
+
+    margin-top: 14px;
+
+    padding: 16px;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fbff,
+            #f2f4fb
+        );
+
+    border:
+        1px solid #dce3ef;
+}
+
+
+.word-title {
+
+    display: inline-block;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #8b2855;
+
+    margin-bottom: 8px;
+}
+
+
+.word-title.active-word {
+
+    background: #ffcc33;
+
+    color: #5a3100;
+
+    padding: 3px 7px;
+
+    border-radius: 6px;
+}
+
+
+.word-details {
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+.back-to-passage {
+
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 5px 10px;
+
+    border-radius: 7px;
+
+    background: #e7eefb;
+
+    color: #315c9b;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   WARNING
+========================================================= */
+
+.data-warning {
+
+    width: min(94%, 1050px);
+
+    margin: 20px auto;
+
+    padding: 15px;
+
+    background: #fff1f1;
+
+    border-left: 5px solid #c0392b;
+
+    border-radius: 8px;
+
+    color: #7b241c;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .top-box {
+
+        padding:
+            28px 14px 25px;
+    }
+
+    #passage,
+    .vocab-sentence {
+
+        padding: 16px;
+    }
+
+    .passage-sentence {
+
+        padding: 10px 5px;
+
+        line-height: 1.9;
+    }
+
+    .action-button {
+
+        margin-top: 7px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<div class="top-box">
+
+    <h1 class="site-title">
+        All About ENGLISH
+    </h1>
+
+    <div class="author-name">
+
+        <span>by</span>
+
+        <span>Shaheen Sir</span>
+
+    </div>
+
+    <div class="teacher-info">
+        Assistant Professor &amp; Head of the English Department
+    </div>
+
+    <div class="teacher-info">
+        Bangladesh Air Force Shaheen College Kurmitola
+    </div>
+
+    <div class="contact-info">
+
+        Contact: 01671642358
+
+        &nbsp; | &nbsp;
+
+        WhatsApp: 01671642358
+
+    </div>
+
+    <a
+        class="facebook-link"
+        href="https://www.facebook.com/profile.php?id=61553493074328"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Facebook Page
+    </a>
+
+</div>
+
+
+<!-- =========================================================
+     PASSAGE
+========================================================= -->
+
+<div class="passage-heading">
+    PASSAGE
+</div>
+
+
+<div class="lesson-heading">
+
+    <div class="unit">
+        UNIT 12
+    </div>
+
+    <div class="lesson">
+        LESSON 5 "Limits of the Scientific Method" (SECOND HALF)
+    </div>
+
+</div>
+
+
+<div id="passage"></div>
+
+
+<!-- =========================================================
+     VOCABULARY
+========================================================= -->
+
+<div class="vocabulary-heading">
+    VOCABULARY
+</div>
+
+
+<div id="vocabulary"></div>
+
+
+<script>
+
+
+/* =========================================================
+   🔐 PROTECTION SYSTEM
+   ---------------------------------------------------------
+   IMPORTANT:
+   This prevents casual copying only.
+   It is NOT absolute security.
+========================================================= */
+
+
+/* Disable right click */
+
+document.addEventListener(
+    "contextmenu",
+    function(event) {
+
+        event.preventDefault();
+
+    },
+    true
+);
+
+
+/* Disable copy */
+
+document.addEventListener(
+    "copy",
+    function(event) {
+
+        event.preventDefault();
+
+    },
+    true
+);
+
+
+/* Disable cut */
+
+document.addEventListener(
+    "cut",
+    function(event) {
+
+        event.preventDefault();
+
+    },
+    true
+);
+
+
+/* Disable text selection */
+
+document.addEventListener(
+    "selectstart",
+    function(event) {
+
+        event.preventDefault();
+
+    },
+    true
+);
+
+
+/* Disable dragging */
+
+document.addEventListener(
+    "dragstart",
+    function(event) {
+
+        event.preventDefault();
+
+    },
+    true
+);
+
+
+/* =========================================================
+   KEYBOARD PROTECTION
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        const key =
+            String(event.key || "").toLowerCase();
+
+
+        /* F12 */
+
+        if (event.key === "F12") {
+
+            event.preventDefault();
+
+            return;
+        }
+
+
+        /* CTRL / CMD */
+
+        if (
+            event.ctrlKey ||
+            event.metaKey
+        ) {
+
+
+            /* Copy */
+
+            if (key === "c") {
+
+                event.preventDefault();
+
+                return;
+            }
+
+
+            /* Select all */
+
+            if (key === "a") {
+
+                event.preventDefault();
+
+                return;
+            }
+
+
+            /* Save */
+
+            if (key === "s") {
+
+                event.preventDefault();
+
+                return;
+            }
+
+
+            /* View source */
+
+            if (key === "u") {
+
+                event.preventDefault();
+
+                return;
+            }
+
+
+            /* Developer tools */
+
+            if (
+                event.shiftKey &&
+                (
+                    key === "i" ||
+                    key === "j" ||
+                    key === "c"
+                )
+            ) {
+
+                event.preventDefault();
+
+                return;
+            }
+
+        }
+
+    },
+    true
+);
+
+
+/* =========================================================
+   =========================================================
+   
+   ⭐⭐⭐⭐⭐ EDITABLE CONTENT AREA ⭐⭐⭐⭐⭐
+   
+   আপনার মূল content শুধু নিচের দুই জায়গায় বসাবেন।
+   
+   1. passageText
+   2. vocabularyData
+   
+   =========================================================
+   ========================================================= */
+
+
+/* =========================================================
+   PASSAGE
+   
+   এখানে সম্পূর্ণ Passage paste করবেন।
+
+   Example:
+
+   const passageText = `
+   First sentence.
+   Second sentence.
+   Third sentence.
+   `;
+
+========================================================= */
+
+
+const passageText = `
+Arundhati Roy (born November 24, 1961, in Shillong, India) is an Indian ‘author’ and ‘political’ ‘activist’. 
+She ‘gained’ ‘international’ ‘fame’ with her ‘debut’ novel The God of Small Things (1997), which ‘won’ the Booker Prize. 
+Alongside her ‘literary’ ‘success’, Roy is ‘known’ for her ‘outspoken’ ‘activism’ on environmental and human rights issues, often ‘criticizing’ government ‘policies’. 
+Her activism has led to legal ‘challenges’, but she ‘continues’ to be a ‘prominent’ voice in both ‘literature’ and ‘social’ ‘justice’ ‘movements’.
+We will now read an ‘excerpt’ from Arundhati Roy' ‘powerful’ and ‘passionately’ written essay "Greater Common Good".
+According to a ‘detailed’ ‘study’ of the 54 Large Dams done by the Indian Institute of Public Administration, the ‘average’ number of people ‘displaced’ by a Large Dam is 44,182. 
+‘Admittedly’, 54 dams out of 3,300 is not a big enough sample. 
+But since it's all we have, let's try and do some ‘rough’ ‘arithmetic’. 
+A first ‘draft’. 
+To err on the side of ‘caution’, let's ‘halve’ the number of people. 
+Or, let's err on the side of ‘abundant’ caution and take an average of just 10,000 people per Large Dam. 
+It's an ‘improbably’ low figure, I know, but ... never mind. 
+‘Whip out’ your calculators. 
+3,300 x 10,000 33 million. 
+That's what it works out to. 
+Thirty-three million people. 
+‘Displaced’ by big dams alone in the last fifty years. 
+What about those that have been displaced by the thousands of other Development Projects? 
+At a private lecture, N C Saxena, Secretary to the Planning Commission, said he thought the number was in the region of so million (of which go million were displaced by dams). 
+We daren't say so, because it isn't official. 
+It isn't official because we daren't say so. 
+You have to ‘murmur’ it for ‘fear’ of being ‘accused’ of ‘hyperbole’. 
+You have to ‘whisper’ it to yourself, because it really does ‘sound’ ‘unbelievable’. 
+It can't be, I've been telling myself. 
+I must have got the zeroes ‘muddled’. 
+It can't be true. I ‘barely’ have the ‘courage’ to say it ‘aloud’.
+Fifty million people.
+I feel like someone who's just ‘stumbled’ on a ‘mass’ ‘grave’. 
+Fifty million is more than the population of Gujarat. 
+Almost three times the population of Australia.
+More than three times the number of ‘refugees’ that ‘Partition’ created in India. 
+Ten times the number of Palestinian refugees. 
+The Western world today is ‘convulsed’ over the future of one million people who have ‘fled’ from Kosovo.
+
+`;
+
+
+
+/* =========================================================
+   VOCABULARY DATA
+
+   প্রতিটি Passage sentence-এর জন্য একটি object।
+
+   Example:
+
+   {
+       sentence:
+       "First sentence.",
+
+       meaning:
+       "প্রথম বাক্যের বাংলা অর্থ।",
+
+       vocabulary: [
+
+           {
+               word: "important",
+               pos: "Adjective",
+               meaning: "গুরুত্বপূর্ণ",
+               ipa: "/ɪmˈpɔːrtənt/",
+               pronunciation: "ইমপোর্ট্যান্ট",
+               synonyms: "significant, vital, essential, crucial",
+               antonyms: "unimportant, trivial, minor, insignificant"
+           }
+
+       ]
+   }
+
+========================================================= */
+
+
+const vocabularyData = [
+
+    {
+        sentence:
+        "Arundhati Roy (born November 24, 1961, in Shillong, India) is an Indian ‘author’ and ‘political’ ‘activist’.",
+
+        meaning:
+        "অরুন্ধতী রায় (জন্ম ২৪ নভেম্বর, ১৯৬১, শিলং, ভারত) একজন ভারতীয় লেখক এবং রাজনৈতিক কর্মী।",
+
+        vocabulary: [
+
+            {
+                word: "author",
+                pos: "Noun",
+                meaning: "লেখক",
+                ipa: "/ˈɔːθər/",
+                pronunciation: "অথর",
+                synonyms: "writer, novelist, writer, creator",
+                antonyms: "reader, audience, critic, illiterate"
+            },
+
+            {
+                word: "political",
+                pos: "Adjective",
+                meaning: "রাজনৈতিক",
+                ipa: "/pəˈlɪtɪkəl/",
+                pronunciation: "পলিটিক্যাল",
+                synonyms: "governmental, civic, public, partisan",
+                antonyms: "nonpolitical, private, personal, neutral"
+            },
+
+            {
+                word: "activist",
+                pos: "Noun",
+                meaning: "সক্রিয় কর্মী; আন্দোলনকারী",
+                ipa: "/ˈæktɪvɪst/",
+                pronunciation: "অ্যাক্টিভিস্ট",
+                synonyms: "campaigner, advocate, reformer, protester",
+                antonyms: "inactive, bystander, opponent, nonparticipant"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "She ‘gained’ ‘international’ ‘fame’ with her ‘debut’ novel The God of Small Things (1997), which ‘won’ the Booker Prize.",
+
+        meaning:
+        "তিনি তাঁর প্রথম উপন্যাস The God of Small Things (1997)-এর মাধ্যমে আন্তর্জাতিক খ্যাতি অর্জন করেন, যা বুকার পুরস্কার জিতেছিল।",
+
+        vocabulary: [
+
+            {
+                word: "gained",
+                pos: "Verb",
+                meaning: "অর্জন করেছিলেন; লাভ করেছিলেন",
+                ipa: "/ɡeɪnd/",
+                pronunciation: "গেইনড",
+                synonyms: "obtained, acquired, achieved, earned",
+                antonyms: "lost, forfeited, surrendered, abandoned"
+            },
+
+            {
+                word: "international",
+                pos: "Adjective",
+                meaning: "আন্তর্জাতিক",
+                ipa: "/ˌɪntəˈnæʃənəl/",
+                pronunciation: "ইন্টারন্যাশনাল",
+                synonyms: "global, worldwide, universal, foreign",
+                antonyms: "national, domestic, local, internal"
+            },
+
+            {
+                word: "fame",
+                pos: "Noun",
+                meaning: "খ্যাতি; সুনাম",
+                ipa: "/feɪm/",
+                pronunciation: "ফেইম",
+                synonyms: "renown, celebrity, reputation, prominence",
+                antonyms: "obscurity, anonymity, disgrace, dishonor"
+            },
+
+            {
+                word: "debut",
+                pos: "Noun",
+                meaning: "প্রথম আত্মপ্রকাশ",
+                ipa: "/ˈdeɪbjuː/",
+                pronunciation: "ডেইবিউ",
+                synonyms: "first appearance, introduction, launch, opening",
+                antonyms: "farewell, withdrawal, departure, ending"
+            },
+
+            {
+                word: "won",
+                pos: "Verb",
+                meaning: "জিতেছিল",
+                ipa: "/wʌn/",
+                pronunciation: "ওয়ান",
+                synonyms: "conquered, defeated, succeeded, triumphed",
+                antonyms: "lost, failed, surrendered, yielded"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "Alongside her ‘literary’ ‘success’, Roy is ‘known’ for her ‘outspoken’ ‘activism’ on environmental and human rights issues, often ‘criticizing’ government ‘policies’.",
+
+        meaning:
+        "তাঁর সাহিত্যিক সাফল্যের পাশাপাশি, রায় পরিবেশ ও মানবাধিকার বিষয়ক তাঁর স্পষ্টবাদী সক্রিয়তার জন্য পরিচিত এবং তিনি প্রায়ই সরকারি নীতির সমালোচনা করেন।",
+
+        vocabulary: [
+
+            {
+                word: "literary",
+                pos: "Adjective",
+                meaning: "সাহিত্যিক",
+                ipa: "/ˈlɪtəreri/",
+                pronunciation: "লিটারারি",
+                synonyms: "written, poetic, artistic, scholarly",
+                antonyms: "nonliterary, ordinary, unartistic, practical"
+            },
+
+            {
+                word: "success",
+                pos: "Noun",
+                meaning: "সাফল্য",
+                ipa: "/səkˈses/",
+                pronunciation: "সাকসেস",
+                synonyms: "achievement, victory, accomplishment, triumph",
+                antonyms: "failure, defeat, loss, disappointment"
+            },
+
+            {
+                word: "known",
+                pos: "Adjective",
+                meaning: "পরিচিত; বিখ্যাত",
+                ipa: "/noʊn/",
+                pronunciation: "নোন",
+                synonyms: "recognized, familiar, famous, renowned",
+                antonyms: "unknown, unfamiliar, obscure, unnoticed"
+            },
+
+            {
+                word: "outspoken",
+                pos: "Adjective",
+                meaning: "স্পষ্টবাদী; অকপট",
+                ipa: "/ˌaʊtˈspoʊkən/",
+                pronunciation: "আউটস্পোকেন",
+                synonyms: "frank, candid, outspoken, direct",
+                antonyms: "reserved, silent, timid, restrained"
+            },
+
+            {
+                word: "activism",
+                pos: "Noun",
+                meaning: "সক্রিয়তাবাদ; আন্দোলনমূলক কার্যক্রম",
+                ipa: "/ˈæktɪvɪzəm/",
+                pronunciation: "অ্যাক্টিভিজম",
+                synonyms: "advocacy, campaigning, agitation, militancy",
+                antonyms: "inactivity, passivity, neutrality, indifference"
+            },
+
+            {
+                word: "criticizing",
+                pos: "Verb",
+                meaning: "সমালোচনা করা",
+                ipa: "/ˈkrɪtɪsaɪzɪŋ/",
+                pronunciation: "ক্রিটিসাইজিং",
+                synonyms: "condemning, judging, censuring, faulting",
+                antonyms: "praising, approving, supporting, commending"
+            },
+
+            {
+                word: "policies",
+                pos: "Noun",
+                meaning: "নীতিমালা",
+                ipa: "/ˈpɒləsiz/",
+                pronunciation: "পলিসিজ",
+                synonyms: "plans, strategies, principles, guidelines",
+                antonyms: "disorder, improvisation, randomness, neglect"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "Her activism has led to legal ‘challenges’, but she ‘continues’ to be a ‘prominent’ voice in both ‘literature’ and ‘social’ ‘justice’ ‘movements’.",
+
+        meaning:
+        "তাঁর সক্রিয়তাবাদ আইনি চ্যালেঞ্জের সৃষ্টি করেছে, কিন্তু তিনি সাহিত্য এবং সামাজিক ন্যায়বিচার আন্দোলন—উভয় ক্ষেত্রেই একজন বিশিষ্ট কণ্ঠস্বর হিসেবে কাজ করে চলেছেন।",
+
+        vocabulary: [
+
+            {
+                word: "challenges",
+                pos: "Noun",
+                meaning: "চ্যালেঞ্জ; বাধা",
+                ipa: "/ˈtʃælɪndʒɪz/",
+                pronunciation: "চ্যালেঞ্জিজ",
+                synonyms: "difficulties, obstacles, problems, trials",
+                antonyms: "solutions, advantages, aids, opportunities"
+            },
+
+            {
+                word: "continues",
+                pos: "Verb",
+                meaning: "চালিয়ে যায়; অব্যাহত রাখে",
+                ipa: "/kənˈtɪnjuːz/",
+                pronunciation: "কনটিনিউজ",
+                synonyms: "persists, remains, proceeds, carries on",
+                antonyms: "stops, ends, ceases, quits"
+            },
+
+            {
+                word: "prominent",
+                pos: "Adjective",
+                meaning: "বিশিষ্ট; গুরুত্বপূর্ণ",
+                ipa: "/ˈprɒmɪnənt/",
+                pronunciation: "প্রমিনেন্ট",
+                synonyms: "important, notable, eminent, distinguished",
+                antonyms: "insignificant, obscure, unknown, minor"
+            },
+
+            {
+                word: "literature",
+                pos: "Noun",
+                meaning: "সাহিত্য",
+                ipa: "/ˈlɪtərətʃər/",
+                pronunciation: "লিটারেচার",
+                synonyms: "writing, books, works, texts",
+                antonyms: "illiteracy, silence, speech, nonliterary work"
+            },
+
+            {
+                word: "social",
+                pos: "Adjective",
+                meaning: "সামাজিক",
+                ipa: "/ˈsoʊʃəl/",
+                pronunciation: "সোশ্যাল",
+                synonyms: "societal, communal, public, collective",
+                antonyms: "antisocial, individual, private, personal"
+            },
+
+            {
+                word: "justice",
+                pos: "Noun",
+                meaning: "ন্যায়বিচার",
+                ipa: "/ˈdʒʌstɪs/",
+                pronunciation: "জাস্টিস",
+                synonyms: "fairness, equity, impartiality, righteousness",
+                antonyms: "injustice, unfairness, bias, inequality"
+            },
+
+            {
+                word: "movements",
+                pos: "Noun",
+                meaning: "আন্দোলনসমূহ",
+                ipa: "/ˈmuːvmənts/",
+                pronunciation: "মুভমেন্টস",
+                synonyms: "campaigns, activities, initiatives, struggles",
+                antonyms: "inactivity, stillness, stagnation, passivity"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "We will now read an ‘excerpt’ from Arundhati Roy' ‘powerful’ and ‘passionately’ written essay \"Greater Common Good\".",
+
+        meaning:
+        "এখন আমরা অরুন্ধতী রায়ের শক্তিশালী ও আবেগপূর্ণভাবে লেখা প্রবন্ধ \"Greater Common Good\"-এর একটি অংশ পড়ব।",
+
+        vocabulary: [
+
+            {
+                word: "excerpt",
+                pos: "Noun",
+                meaning: "উদ্ধৃত অংশ; অংশবিশেষ",
+                ipa: "/ˈeksɜːrpt/",
+                pronunciation: "এক্সার্প্ট",
+                synonyms: "extract, passage, section, selection",
+                antonyms: "whole, entirety, complete work, totality"
+            },
+
+            {
+                word: "powerful",
+                pos: "Adjective",
+                meaning: "শক্তিশালী; প্রভাবশালী",
+                ipa: "/ˈpaʊərfəl/",
+                pronunciation: "পাওয়ারফুল",
+                synonyms: "strong, influential, forceful, potent",
+                antonyms: "weak, powerless, ineffective, feeble"
+            },
+
+            {
+                word: "passionately",
+                pos: "Adverb",
+                meaning: "আবেগপূর্ণভাবে",
+                ipa: "/ˈpæʃənətli/",
+                pronunciation: "প্যাশনেটলি",
+                synonyms: "ardently, intensely, emotionally, fervently",
+                antonyms: "calmly, indifferently, apathetically, coldly"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "According to a ‘detailed’ ‘study’ of the 54 Large Dams done by the Indian Institute of Public Administration, the ‘average’ number of people ‘displaced’ by a Large Dam is 44,182.",
+
+        meaning:
+        "ইন্ডিয়ান ইনস্টিটিউট অব পাবলিক অ্যাডমিনিস্ট্রেশনের করা ৫৪টি বড় বাঁধের বিস্তারিত গবেষণা অনুযায়ী, একটি বড় বাঁধের কারণে বাস্তুচ্যুত মানুষের গড় সংখ্যা ৪৪,১৮২ জন।",
+
+        vocabulary: [
+
+            {
+                word: "detailed",
+                pos: "Adjective",
+                meaning: "বিস্তারিত",
+                ipa: "/ˈdiːteɪld/",
+                pronunciation: "ডিটেইলড",
+                synonyms: "thorough, comprehensive, elaborate, specific",
+                antonyms: "brief, general, vague, superficial"
+            },
+
+            {
+                word: "study",
+                pos: "Noun",
+                meaning: "গবেষণা; অধ্যয়ন",
+                ipa: "/ˈstʌdi/",
+                pronunciation: "স্টাডি",
+                synonyms: "research, investigation, examination, analysis",
+                antonyms: "ignorance, neglect, disregard, inattention"
+            },
+
+            {
+                word: "average",
+                pos: "Adjective",
+                meaning: "গড়",
+                ipa: "/ˈævərɪdʒ/",
+                pronunciation: "অ্যাভারেজ",
+                synonyms: "mean, ordinary, normal, typical",
+                antonyms: "extreme, exceptional, unusual, extraordinary"
+            },
+
+            {
+                word: "displaced",
+                pos: "Verb",
+                meaning: "বাস্তুচ্যুত; স্থানচ্যুত",
+                ipa: "/dɪsˈpleɪst/",
+                pronunciation: "ডিসপ্লেইস্ট",
+                synonyms: "relocated, removed, uprooted, expelled",
+                antonyms: "settled, established, installed, retained"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "‘Admittedly’, 54 dams out of 3,300 is not a big enough sample.",
+
+        meaning:
+        "স্বীকার করতেই হয়, ৩,৩০০টি বাঁধের মধ্যে ৫৪টি যথেষ্ট বড় নমুনা নয়।",
+
+        vocabulary: [
+
+            {
+                word: "Admittedly",
+                pos: "Adverb",
+                meaning: "স্বীকার করতেই হয়; স্বীকার্যভাবে",
+                ipa: "/ədˈmɪtɪdli/",
+                pronunciation: "অ্যাডমিটিডলি",
+                synonyms: "certainly, undeniably, confessedly, admittedly",
+                antonyms: "deniably, doubtfully, falsely, deceptively"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "But since it's all we have, let's try and do some ‘rough’ ‘arithmetic’.",
+
+        meaning:
+        "কিন্তু যেহেতু আমাদের কাছে এটুকুই আছে, তাই চলুন কিছু আনুমানিক হিসাব করার চেষ্টা করি।",
+
+        vocabulary: [
+
+            {
+                word: "rough",
+                pos: "Adjective",
+                meaning: "আনুমানিক; মোটামুটি",
+                ipa: "/rʌf/",
+                pronunciation: "রাফ",
+                synonyms: "approximate, estimated, crude, inexact",
+                antonyms: "exact, precise, accurate, definite"
+            },
+
+            {
+                word: "arithmetic",
+                pos: "Noun",
+                meaning: "পাটিগণিত; হিসাব",
+                ipa: "/əˈrɪθmətɪk/",
+                pronunciation: "অ্যারিথমেটিক",
+                synonyms: "calculation, computation, mathematics, reckoning",
+                antonyms: "guesswork, estimation, ignorance, miscalculation"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "A first ‘draft’.",
+
+        meaning:
+        "একটি প্রাথমিক খসড়া।",
+
+        vocabulary: [
+
+            {
+                word: "draft",
+                pos: "Noun",
+                meaning: "খসড়া; প্রাথমিক রূপ",
+                ipa: "/drɑːft/",
+                pronunciation: "ড্রাফট",
+                synonyms: "outline, sketch, version, plan",
+                antonyms: "final, completion, original, finished version"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "To err on the side of ‘caution’, let's ‘halve’ the number of people.",
+
+        meaning:
+        "সতর্কতার দিক বিবেচনা করে, চলুন মানুষের সংখ্যাটি অর্ধেক করে নিই।",
+
+        vocabulary: [
+
+            {
+                word: "caution",
+                pos: "Noun",
+                meaning: "সতর্কতা",
+                ipa: "/ˈkɔːʃən/",
+                pronunciation: "কশন",
+                synonyms: "care, prudence, vigilance, wariness",
+                antonyms: "carelessness, recklessness, negligence, rashness"
+            },
+
+            {
+                word: "halve",
+                pos: "Verb",
+                meaning: "অর্ধেক করা",
+                ipa: "/hɑːv/",
+                pronunciation: "হাভ",
+                synonyms: "divide, reduce, split, cut in half",
+                antonyms: "double, increase, multiply, enlarge"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "Or, let's err on the side of ‘abundant’ caution and take an average of just 10,000 people per Large Dam.",
+
+        meaning:
+        "অথবা, চলুন অতিরিক্ত সতর্কতা অবলম্বন করে প্রতি বড় বাঁধের জন্য মাত্র ১০,০০০ মানুষের গড় ধরি।",
+
+        vocabulary: [
+
+            {
+                word: "abundant",
+                pos: "Adjective",
+                meaning: "প্রচুর; প্রাচুর্যপূর্ণ",
+                ipa: "/əˈbʌndənt/",
+                pronunciation: "অ্যাবান্ড্যান্ট",
+                synonyms: "plentiful, ample, copious, plentiful",
+                antonyms: "scarce, insufficient, limited, meager"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "It's an ‘improbably’ low figure, I know, but ... never mind.",
+
+        meaning:
+        "আমি জানি, এটি অবিশ্বাস্য রকমের কম একটি সংখ্যা, কিন্তু... থাক।",
+
+        vocabulary: [
+
+            {
+                word: "improbably",
+                pos: "Adverb",
+                meaning: "অসম্ভাব্যভাবে; অবিশ্বাস্যভাবে",
+                ipa: "/ɪmˈprɒbəbli/",
+                pronunciation: "ইমপ্রবাবলি",
+                synonyms: "unlikely, implausibly, unbelievably, improbably",
+                antonyms: "probably, plausibly, likely, reasonably"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "‘Whip out’ your calculators.",
+
+        meaning:
+        "তোমাদের ক্যালকুলেটর বের করো।",
+
+        vocabulary: [
+
+            {
+                word: "Whip out",
+                pos: "Phrasal Verb",
+                meaning: "দ্রুত বের করা",
+                ipa: "/wɪp aʊt/",
+                pronunciation: "হুইপ আউট",
+                synonyms: "produce, pull out, bring out, take out",
+                antonyms: "put away, hide, conceal, store"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "3,300 x 10,000 33 million.",
+
+        meaning:
+        "৩,৩০০ × ১০,০০০ = ৩ কোটি ৩০ লাখ।",
+
+        vocabulary: []
+    },
+
+    {
+        sentence:
+        "That's what it works out to.",
+
+        meaning:
+        "হিসাব করলে এটাই পাওয়া যায়।",
+
+        vocabulary: []
+    },
+
+    {
+        sentence:
+        "Thirty-three million people.",
+
+        meaning:
+        "তেত্রিশ মিলিয়ন মানুষ বা ৩ কোটি ৩০ লাখ মানুষ।",
+
+        vocabulary: []
+    },
+
+    {
+        sentence:
+        "‘Displaced’ by big dams alone in the last fifty years.",
+
+        meaning:
+        "শুধু বড় বাঁধের কারণেই গত পঞ্চাশ বছরে বাস্তুচ্যুত হয়েছে।",
+
+        vocabulary: [
+
+            {
+                word: "Displaced",
+                pos: "Verb",
+                meaning: "বাস্তুচ্যুত; স্থানচ্যুত",
+                ipa: "/dɪsˈpleɪst/",
+                pronunciation: "ডিসপ্লেইস্ট",
+                synonyms: "relocated, uprooted, removed, expelled",
+                antonyms: "settled, established, installed, retained"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "What about those that have been displaced by the thousands of other Development Projects?",
+
+        meaning:
+        "হাজার হাজার অন্যান্য উন্নয়ন প্রকল্পের কারণে যারা বাস্তুচ্যুত হয়েছে, তাদের কী হবে?",
+
+        vocabulary: []
+    },
+
+    {
+        sentence:
+        "At a private lecture, N C Saxena, Secretary to the Planning Commission, said he thought the number was in the region of so million (of which go million were displaced by dams).",
+
+        meaning:
+        "একটি ব্যক্তিগত বক্তৃতায় পরিকল্পনা কমিশনের সচিব এন সি সাক্সেনা বলেন, তাঁর ধারণা সংখ্যাটি কয়েক মিলিয়নের কাছাকাছি (যার মধ্যে কয়েক মিলিয়ন বাঁধের কারণে বাস্তুচ্যুত হয়েছে)।",
+
+        vocabulary: []
+    },
+
+    {
+        sentence:
+        "We daren't say so, because it isn't official.",
+
+        meaning:
+        "আমরা তা বলার সাহস করি না, কারণ এটি সরকারি বা আনুষ্ঠানিক তথ্য নয়।",
+
+        vocabulary: []
+    },
+
+    {
+        sentence:
+        "It isn't official because we daren't say so.",
+
+        meaning:
+        "এটি সরকারি নয়, কারণ আমরা তা বলার সাহস করি না।",
+
+        vocabulary: []
+    },
+
+    {
+        sentence:
+        "You have to ‘murmur’ it for ‘fear’ of being ‘accused’ of ‘hyperbole’.",
+
+        meaning:
+        "অতিরঞ্জনের অভিযোগে অভিযুক্ত হওয়ার ভয়ে তোমাকে এটি ফিসফিস করে বলতে হয়।",
+
+        vocabulary: [
+
+            {
+                word: "murmur",
+                pos: "Verb",
+                meaning: "বিড়বিড় করে বলা; অস্পষ্টভাবে বলা",
+                ipa: "/ˈmɜːrmər/",
+                pronunciation: "মারমার",
+                synonyms: "whisper, mutter, mumble, mutter",
+                antonyms: "shout, yell, announce, proclaim"
+            },
+
+            {
+                word: "fear",
+                pos: "Noun",
+                meaning: "ভয়",
+                ipa: "/fɪər/",
+                pronunciation: "ফিয়ার",
+                synonyms: "fright, terror, anxiety, dread",
+                antonyms: "courage, confidence, bravery, calmness"
+            },
+
+            {
+                word: "accused",
+                pos: "Verb",
+                meaning: "অভিযুক্ত করা",
+                ipa: "/əˈkjuːzd/",
+                pronunciation: "অ্যাকিউজড",
+                synonyms: "charged, blamed, indicted, alleged against",
+                antonyms: "acquitted, cleared, exonerated, praised"
+            },
+
+            {
+                word: "hyperbole",
+                pos: "Noun",
+                meaning: "অতিরঞ্জন",
+                ipa: "/haɪˈpɜːrbəli/",
+                pronunciation: "হাইপারবলি",
+                synonyms: "exaggeration, overstatement, amplification, embellishment",
+                antonyms: "understatement, restraint, moderation, accuracy"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "You have to ‘whisper’ it to yourself, because it really does ‘sound’ ‘unbelievable’.",
+
+        meaning:
+        "তোমাকে নিজের কাছেই এটি ফিসফিস করে বলতে হয়, কারণ এটি সত্যিই অবিশ্বাস্য শোনায়।",
+
+        vocabulary: [
+
+            {
+                word: "whisper",
+                pos: "Verb",
+                meaning: "ফিসফিস করে বলা",
+                ipa: "/ˈwɪspər/",
+                pronunciation: "হুইস্পার",
+                synonyms: "murmur, mutter, breathe, speak softly",
+                antonyms: "shout, yell, scream, roar"
+            },
+
+            {
+                word: "sound",
+                pos: "Verb",
+                meaning: "শোনানো; মনে হওয়া",
+                ipa: "/saʊnd/",
+                pronunciation: "সাউন্ড",
+                synonyms: "seem, appear, resonate, seem to be",
+                antonyms: "silence, conceal, hide, suppress"
+            },
+
+            {
+                word: "unbelievable",
+                pos: "Adjective",
+                meaning: "অবিশ্বাস্য",
+                ipa: "/ˌʌnbɪˈliːvəbəl/",
+                pronunciation: "আনবিলিভেবল",
+                synonyms: "incredible, astonishing, implausible, amazing",
+                antonyms: "believable, credible, plausible, convincing"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "It can't be, I've been telling myself.",
+
+        meaning:
+        "এটা হতে পারে না—আমি নিজেকেই বলে আসছি।",
+
+        vocabulary: []
+    },
+
+    {
+        sentence:
+        "I must have got the zeroes ‘muddled’.",
+
+        meaning:
+        "আমি নিশ্চয়ই শূন্যগুলোর হিসাব গুলিয়ে ফেলেছি।",
+
+        vocabulary: [
+
+            {
+                word: "muddled",
+                pos: "Adjective",
+                meaning: "এলোমেলো; গুলিয়ে ফেলা",
+                ipa: "/ˈmʌdəld/",
+                pronunciation: "মাডল্ড",
+                synonyms: "confused, mixed-up, disordered, unclear",
+                antonyms: "clear, organized, orderly, systematic"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "It can't be true.",
+
+        meaning:
+        "এটা সত্য হতে পারে না।",
+
+        vocabulary: []
+    },
+
+    {
+        sentence:
+        "I ‘barely’ have the ‘courage’ to say it ‘aloud’.",
+
+        meaning:
+        "আমি এটি উচ্চস্বরে বলার মতো সামান্য সাহসও কষ্টে পাই।",
+
+        vocabulary: [
+
+            {
+                word: "barely",
+                pos: "Adverb",
+                meaning: "কেবলমাত্র; কোনোমতে",
+                ipa: "/ˈberli/",
+                pronunciation: "বেয়ারলি",
+                synonyms: "hardly, scarcely, just, only",
+                antonyms: "easily, fully, completely, abundantly"
+            },
+
+            {
+                word: "courage",
+                pos: "Noun",
+                meaning: "সাহস",
+                ipa: "/ˈkʌrɪdʒ/",
+                pronunciation: "কারিজ",
+                synonyms: "bravery, boldness, valor, fearlessness",
+                antonyms: "cowardice, fear, timidity, weakness"
+            },
+
+            {
+                word: "aloud",
+                pos: "Adverb",
+                meaning: "উচ্চস্বরে",
+                ipa: "/əˈlaʊd/",
+                pronunciation: "অ্যালাউড",
+                synonyms: "audibly, loudly, vocally, out loud",
+                antonyms: "silently, quietly, inaudibly, mutely"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "Fifty million people.",
+
+        meaning:
+        "পঞ্চাশ মিলিয়ন মানুষ বা পাঁচ কোটি মানুষ।",
+
+        vocabulary: []
+    },
+
+    {
+        sentence:
+        "I feel like someone who's just ‘stumbled’ on a ‘mass’ ‘grave’.",
+
+        meaning:
+        "আমার মনে হচ্ছে যেন আমি এইমাত্র একটি গণকবরে হোঁচট খেয়ে পড়েছি।",
+
+        vocabulary: [
+
+            {
+                word: "stumbled",
+                pos: "Verb",
+                meaning: "হোঁচট খেয়েছে; হঠাৎ আবিষ্কার করেছে",
+                ipa: "/ˈstʌmbəld/",
+                pronunciation: "স্টাম্বল্ড",
+                synonyms: "tripped, faltered, encountered, discovered",
+                antonyms: "walked steadily, succeeded, avoided, missed"
+            },
+
+            {
+                word: "mass",
+                pos: "Adjective",
+                meaning: "বৃহৎ সংখ্যক; গণ",
+                ipa: "/mæs/",
+                pronunciation: "ম্যাস",
+                synonyms: "large-scale, extensive, numerous, collective",
+                antonyms: "individual, small, limited, few"
+            },
+
+            {
+                word: "grave",
+                pos: "Noun",
+                meaning: "কবর",
+                ipa: "/ɡreɪv/",
+                pronunciation: "গ্রেইভ",
+                synonyms: "tomb, burial place, sepulcher, cemetery",
+                antonyms: "birthplace, cradle, home, life"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "Fifty million is more than the population of Gujarat.",
+
+        meaning:
+        "পঞ্চাশ মিলিয়ন গুজরাটের জনসংখ্যার চেয়েও বেশি।",
+
+        vocabulary: []
+    },
+
+    {
+        sentence:
+        "Almost three times the population of Australia.",
+
+        meaning:
+        "অস্ট্রেলিয়ার জনসংখ্যার প্রায় তিন গুণ।",
+
+        vocabulary: []
+    },
+
+    {
+        sentence:
+        "More than three times the number of ‘refugees’ that ‘Partition’ created in India.",
+
+        meaning:
+        "ভারতে দেশভাগের কারণে সৃষ্ট শরণার্থীর সংখ্যার তিন গুণেরও বেশি।",
+
+        vocabulary: [
+
+            {
+                word: "refugees",
+                pos: "Noun",
+                meaning: "শরণার্থীরা",
+                ipa: "/ˌrefjuˈdʒiːz/",
+                pronunciation: "রেফিউজিজ",
+                synonyms: "displaced persons, exiles, evacuees, asylum seekers",
+                antonyms: "residents, citizens, natives, settlers"
+            },
+
+            {
+                word: "Partition",
+                pos: "Noun",
+                meaning: "দেশভাগ",
+                ipa: "/pɑːrˈtɪʃən/",
+                pronunciation: "পার্টিশন",
+                synonyms: "division, separation, split, division of territory",
+                antonyms: "union, unity, integration, merger"
+            }
+
+        ]
+    },
+
+    {
+        sentence:
+        "Ten times the number of Palestinian refugees.",
+
+        meaning:
+        "ফিলিস্তিনি শরণার্থীদের সংখ্যার দশ গুণ।",
+
+        vocabulary: []
+    },
+
+    {
+        sentence:
+        "The Western world today is ‘convulsed’ over the future of one million people who have ‘fled’ from Kosovo.",
+
+        meaning:
+        "কসোভো থেকে পালিয়ে আসা এক মিলিয়ন মানুষের ভবিষ্যৎ নিয়ে আজ পশ্চিমা বিশ্ব গভীরভাবে উদ্বিগ্ন ও বিচলিত।",
+
+        vocabulary: [
+
+            {
+                word: "convulsed",
+                pos: "Verb",
+                meaning: "তীব্রভাবে বিচলিত হওয়া; আলোড়িত হওয়া",
+                ipa: "/kənˈvʌlst/",
+                pronunciation: "কনভাল্স্ট",
+                synonyms: "shaken, disturbed, agitated, upheaved",
+                antonyms: "calmed, settled, soothed, stabilized"
+            },
+
+            {
+                word: "fled",
+                pos: "Verb",
+                meaning: "পালিয়ে গেছে",
+                ipa: "/fled/",
+                pronunciation: "ফ্লেড",
+                synonyms: "escaped, ran away, departed, retreated",
+                antonyms: "stayed, remained, arrived, approached"
+            }
+
+        ]
+    }
+
+];
+
+
+
+/* =========================================================
+   ⭐⭐⭐⭐⭐ END OF EDITABLE CONTENT ⭐⭐⭐⭐⭐
+
+   এখান থেকে সাধারণত কিছু edit করবেন না।
+========================================================= */
+
+
+/* =========================================================
+   GET ELEMENTS
+========================================================= */
+
+const passageContainer =
+    document.getElementById("passage");
+
+
+const vocabularyContainer =
+    document.getElementById("vocabulary");
+
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(text) {
+
+    return String(text)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+}
+
+
+
+/* =========================================================
+   SPLIT SENTENCES
+========================================================= */
+
+function splitIntoSentences(text) {
+
+    const lines =
+        text
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(
+            line => line.length > 0
+        );
+
+
+    const sentences = [];
+
+
+    lines.forEach(line => {
+
+        const parts =
+            line
+            .split(
+                /(?<=[.!?])\s+(?=[A-Z“"‘'])/
+            )
+            .map(
+                sentence =>
+                sentence.trim()
+            )
+            .filter(
+                sentence =>
+                sentence.length > 0
+            );
+
+
+        parts.forEach(sentence => {
+
+            sentences.push(sentence);
+
+        });
+
+    });
+
+
+    return sentences;
+}
+
+
+
+/* =========================================================
+   SENTENCE NORMALIZATION
+========================================================= */
+
+function normalizeSentenceForMatching(text) {
+
+    return String(text || "")
+
+        .toLowerCase()
+
+        .replace(
+            /^\s*\d+\)\s*/g,
+            ""
+        )
+
+        .replace(
+            /[^a-z0-9\u0980-\u09ff]+/g,
+            ""
+        )
+
+        .trim();
+}
+
+
+
+/* =========================================================
+   MATCH VOCABULARY
+========================================================= */
+
+function buildVocabularyMatches(sentences) {
+
+    const usedPassageIndexes =
+        new Set();
+
+
+    return vocabularyData.map(
+
+        (data, vocabularyIndex) => {
+
+
+            const target =
+                normalizeSentenceForMatching(
+                    data.sentence
+                );
+
+
+            let passageIndex = -1;
+
+
+            for (
+                let i = 0;
+                i < sentences.length;
+                i++
+            ) {
+
+
+                if (
+                    usedPassageIndexes
+                    .has(i)
+                ) {
+
+                    continue;
+
+                }
+
+
+                if (
+
+                    normalizeSentenceForMatching(
+                        sentences[i]
+                    )
+                    ===
+                    target
+
+                ) {
+
+                    passageIndex = i;
+
+                    usedPassageIndexes
+                        .add(i);
+
+                    break;
+                }
+
+            }
+
+
+            return {
+
+                data,
+
+                vocabularyIndex,
+
+                passageIndex
+
+            };
+
+        }
+
+    );
+
+}
+
+
+
+/* =========================================================
+   CREATE MAP
+========================================================= */
+
+function buildPassageVocabularyMap(
+    vocabularyMatches
+) {
+
+    const map =
+        new Map();
+
+
+    vocabularyMatches.forEach(
+        match => {
+
+            if (
+                match.passageIndex >= 0
+            ) {
+
+                map.set(
+                    match.passageIndex,
+                    match
+                );
+
+            }
+
+        }
+    );
+
+
+    return map;
+}
+
+
+
+/* =========================================================
+   CREATE IDS
+========================================================= */
+
+function sentenceID(index) {
+
+    return (
+        "passage-sentence-" +
+        index
+    );
+
+}
+
+
+function vocabularyID(index) {
+
+    return (
+        "vocabulary-sentence-" +
+        index
+    );
+
+}
+
+
+function wordID(
+    sentenceIndex,
+    wordIndex
+) {
+
+    return (
+        "passage-word-" +
+        sentenceIndex +
+        "-" +
+        wordIndex
+    );
+
+}
+
+
+
+/* =========================================================
+   MARK VOCABULARY WORDS
+========================================================= */
+
+function markVocabularyWords(
+    sentence,
+    vocabulary,
+    passageIndex
+) {
+
+    let result =
+        escapeHTML(sentence);
+
+
+    vocabulary.forEach(
+
+        (item, wordIndex) => {
+
+
+            const word =
+                escapeHTML(item.word);
+
+
+            const safeWord =
+                word.replace(
+                    /[.*+?^${}()|[\]\\]/g,
+                    "\\$&"
+                );
+
+
+            const regex =
+                new RegExp(
+
+                    "(?<![A-Za-z])" +
+                    safeWord +
+                    "(?![A-Za-z])",
+
+                    "gi"
+
+                );
+
+
+            result =
+                result.replace(
+
+                    regex,
+
+                    `<span
+                        id="${wordID(
+                            passageIndex,
+                            wordIndex
+                        )}"
+                        class="marked-word"
+                        onclick="goToVocabularyWord(
+                            ${passageIndex},
+                            ${wordIndex}
+                        )"
+                    >$&</span>`
+
+                );
+
+        }
+
+    );
+
+
+    return result;
+}
+
+
+
+/* =========================================================
+   CREATE PASSAGE
+========================================================= */
+
+function createPassage(
+    sentences,
+    passageVocabularyMap
+) {
+
+    passageContainer.innerHTML = "";
+
+
+    sentences.forEach(
+
+        (sentence, passageIndex) => {
+
+
+            const match =
+                passageVocabularyMap.get(
+                    passageIndex
+                );
+
+
+            const data =
+                match
+                ? match.data
+                : null;
+
+
+            const vocabulary =
+                data
+                ? data.vocabulary
+                : [];
+
+
+            const sentenceDiv =
+                document.createElement(
+                    "div"
+                );
+
+
+            sentenceDiv.className =
+                "passage-sentence";
+
+
+            sentenceDiv.id =
+                sentenceID(
+                    passageIndex
+                );
+
+
+            const sentenceHTML =
+                markVocabularyWords(
+
+                    sentence,
+
+                    vocabulary,
+
+                    passageIndex
+
+                );
+
+
+            let actions = "";
+
+
+            if (data) {
+
+                actions +=
+
+                    `
+                    <a
+                        href="#${vocabularyID(
+                            passageIndex
+                        )}"
+                        class="action-button see-full"
+                        onclick="
+                            highlightVocabularySentence(
+                                ${passageIndex}
+                            )
+                        "
+                    >
+                        SEE FULL
+                    </a>
+                    `;
+
+            }
+
+
+            actions +=
+
+                `
+                <button
+                    class="action-button pronounce"
+                    onclick="
+                        pronounceSentence(
+                            ${passageIndex}
+                        )
+                    "
+                >
+                    🔊 PRONOUNCE
+                </button>
+                `;
+
+
+            sentenceDiv.innerHTML =
+                sentenceHTML +
+                actions;
+
+
+            passageContainer.appendChild(
+                sentenceDiv
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   CREATE VOCABULARY
+========================================================= */
+
+function createVocabulary(
+    vocabularyMatches
+) {
+
+    vocabularyContainer.innerHTML = "";
+
+
+    vocabularyMatches.forEach(
+
+        match => {
+
+
+            const data =
+                match.data;
+
+
+            const passageIndex =
+                match.passageIndex;
+
+
+            const vocabularyIndex =
+                match.vocabularyIndex;
+
+
+            const box =
+                document.createElement(
+                    "div"
+                );
+
+
+            box.className =
+                "vocab-sentence";
+
+
+            if (
+                passageIndex >= 0
+            ) {
+
+                box.id =
+                    vocabularyID(
+                        passageIndex
+                    );
+
+            }
+            else {
+
+                box.id =
+                    "vocabulary-unmatched-" +
+                    vocabularyIndex;
+
+            }
+
+
+            let html =
+
+                `
+                <div class="vocab-english">
+
+                    ${escapeHTML(
+                        data.sentence
+                    )}
+
+                    ${
+                        passageIndex >= 0
+                        ?
+                        `
+                        <a
+                            class="sentence-back-button"
+                            onclick="
+                                goToPassageSentence(
+                                    ${passageIndex}
+                                )
+                            "
+                        >
+                            ↩ BACK TO PASSAGE
+                        </a>
+                        `
+                        :
+                        ""
+                    }
+
+                </div>
+
+
+                <div class="bangla-meaning">
+
+                    ${escapeHTML(
+                        data.meaning
+                    )}
+
+                    ${
+                        passageIndex >= 0
+                        ?
+                        `
+                        <a
+                            class="sentence-back-button"
+                            onclick="
+                                goToPassageSentence(
+                                    ${passageIndex}
+                                )
+                            "
+                        >
+                            ↩ BACK TO PASSAGE
+                        </a>
+                        `
+                        :
+                        ""
+                    }
+
+                </div>
+                `;
+
+
+            data.vocabulary.forEach(
+
+                (item, wordIndex) => {
+
+
+                    const cardID =
+
+                        passageIndex >= 0
+
+                        ?
+
+                        "vocab-word-" +
+                        passageIndex +
+                        "-" +
+                        wordIndex
+
+                        :
+
+                        "vocab-word-unmatched-" +
+                        vocabularyIndex +
+                        "-" +
+                        wordIndex;
+
+
+                    html +=
+
+                        `
+                        <div
+                            class="word-card"
+                            id="${cardID}"
+                        >
+
+                            <div class="word-title">
+
+                                ${escapeHTML(
+                                    item.word
+                                )}
+
+                            </div>
+
+
+                            <div class="word-details">
+
+                                <b>
+                                    Part of Speech:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.pos
+                                )}
+
+                                <br>
+
+
+                                <b>
+                                    Bangla Meaning:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.meaning
+                                )}
+
+                                <br>
+
+
+                                <b>
+                                    IPA:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.ipa
+                                )}
+
+                                <br>
+
+
+                                <b>
+                                    Pronunciation:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.pronunciation
+                                )}
+
+                                <br>
+
+
+                                <b>
+                                    Synonyms:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.synonyms
+                                )}
+
+                                <br>
+
+
+                                <b>
+                                    Antonyms:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.antonyms
+                                )}
+
+                                <br>
+
+
+                                ${
+                                    passageIndex >= 0
+                                    ?
+                                    `
+                                    <a
+                                        class="back-to-passage"
+                                        onclick="
+                                            goToPassageWord(
+                                                ${passageIndex},
+                                                ${wordIndex}
+                                            )
+                                        "
+                                    >
+                                        ↩ BACK TO PASSAGE
+                                    </a>
+                                    `
+                                    :
+                                    ""
+                                }
+
+                            </div>
+
+                        </div>
+                        `;
+
+                }
+            );
+
+
+            box.innerHTML =
+                html;
+
+
+            vocabularyContainer.appendChild(
+                box
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   GO TO VOCABULARY SENTENCE — INSTANT
+========================================================= */
+
+function goToVocabularySentence(sentenceIndex) {
+
+    const target =
+        document.getElementById(
+            vocabularyID(sentenceIndex)
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling সম্পূর্ণ বন্ধ।
+       এক লাফে destination-এ যাবে।
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center"
+    });
+
+    target.classList.add("active-sentence");
+
+    setTimeout(() => {
+
+        target.classList.remove("active-sentence");
+
+    }, 2200);
+}
+
+
+/* =========================================================
+   GO TO VOCABULARY WORD — INSTANT
+========================================================= */
+
+function goToVocabularyWord(
+    sentenceIndex,
+    wordIndex
+) {
+
+    const target =
+        document.getElementById(
+            "vocab-word-" +
+            sentenceIndex +
+            "-" +
+            wordIndex
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling বন্ধ
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+
+    /*
+       ⭐ মূল correction ⭐
+
+       আগে এখানে পুরো vocabulary sentence
+       scroll করা হচ্ছিল।
+
+       এখন সরাসরি clicked vocabulary
+       WORD CARD-কে screen-এর মাঝখানে
+       আনা হবে।
+    */
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "nearest"
+    });
+
+
+    /*
+       Exact vocabulary word highlight
+    */
+
+    const wordTitle =
+        target.querySelector(".word-title");
+
+
+    if (wordTitle) {
+
+        wordTitle.classList.add(
+            "active-word"
+        );
+
+    }
+
+
+    /*
+       2.5 seconds পরে highlight remove
+    */
+
+    setTimeout(() => {
+
+        if (wordTitle) {
+
+            wordTitle.classList.remove(
+                "active-word"
+            );
+
+        }
+
+    }, 2500);
+
+}
+
+/* =========================================================
+   GO TO PASSAGE SENTENCE — INSTANT
+========================================================= */
+
+function goToPassageSentence(sentenceIndex) {
+
+    const target =
+        document.getElementById(
+            sentenceID(sentenceIndex)
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling সম্পূর্ণ বন্ধ।
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center"
+    });
+
+    target.classList.add("active-sentence");
+
+    setTimeout(() => {
+
+        target.classList.remove("active-sentence");
+
+    }, 2200);
+}
+
+
+/* =========================================================
+   GO TO EXACT PASSAGE WORD — INSTANT
+========================================================= */
+
+function goToPassageWord(
+    sentenceIndex,
+    wordIndex
+) {
+
+    const target =
+        document.getElementById(
+            wordID(
+                sentenceIndex,
+                wordIndex
+            )
+        );
+
+    if (!target) {
+        return;
+    }
+
+
+    /*
+       Smooth scrolling বন্ধ
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+
+    /*
+       ⭐ সরাসরি নির্দিষ্ট marked word-কে
+       screen-এর মাঝখানে আনা হবে
+    */
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "nearest"
+    });
+
+
+    /*
+       Exact passage word highlight
+    */
+
+    target.classList.add(
+        "active-word"
+    );
+
+
+    /*
+       2.5 seconds পরে highlight remove
+    */
+
+    setTimeout(() => {
+
+        target.classList.remove(
+            "active-word"
+        );
+
+    }, 2500);
+
+}
+
+/* =========================================================
+   PRONUNCIATION
+========================================================= */
+
+function pronounceSentence(index) {
+
+    const sentences =
+        splitIntoSentences(
+            passageText
+        );
+
+
+    const text =
+        sentences[index];
+
+
+    if (
+        !("speechSynthesis" in window)
+    ) {
+
+        alert(
+            "Your browser does not support speech pronunciation."
+        );
+
+        return;
+
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+        new SpeechSynthesisUtterance(
+            text
+        );
+
+
+    speech.lang =
+        "en-US";
+
+
+    speech.rate =
+        0.85;
+
+
+    speech.pitch =
+        1;
+
+
+    window.speechSynthesis.speak(
+        speech
+    );
+
+}
+
+
+
+/* =========================================================
+   DATA CHECK
+========================================================= */
+
+function checkData(
+    sentences,
+    vocabularyMatches
+) {
+
+    const unmatched =
+        vocabularyMatches.filter(
+
+            match =>
+                match.passageIndex < 0
+
+        );
+
+
+    if (
+        unmatched.length > 0
+    ) {
+
+        const warning =
+            document.createElement(
+                "div"
+            );
+
+
+        warning.className =
+            "data-warning";
+
+
+        warning.innerHTML =
+
+            `
+            <b>Content warning:</b>
+
+            ${unmatched.length}
+
+            vocabulary sentence
+            Passage-এ
+            খুঁজে পাওয়া যায়নি।
+
+            <br><br>
+
+            Vocabulary-এর
+            <b>sentence</b>
+            Passage-এর sentence-এর
+            সঙ্গে মিলিয়ে দিন।
+            `;
+
+
+        document.body.insertBefore(
+
+            warning,
+
+            document.getElementById(
+                "passage"
+            )
+
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   START
+========================================================= */
+
+const sentences =
+    splitIntoSentences(
+        passageText
+    );
+
+
+const vocabularyMatches =
+    buildVocabularyMatches(
+        sentences
+    );
+
+
+const passageVocabularyMap =
+    buildPassageVocabularyMap(
+        vocabularyMatches
+    );
+
+
+checkData(
+    sentences,
+    vocabularyMatches
+);
+
+
+createPassage(
+    sentences,
+    passageVocabularyMap
+);
+
+
+createVocabulary(
+    vocabularyMatches
+);
+
+
+</script>
+
+
+<!-- =========================================================
+     PROTECTED VERSION
+========================================================= -->
+
+</body>
+
+</html>
