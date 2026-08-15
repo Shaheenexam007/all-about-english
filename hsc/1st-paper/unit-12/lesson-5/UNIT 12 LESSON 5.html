@@ -1,0 +1,3942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>All About English</title>
+
+
+<!-- =========================================================
+     FONTS
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef4f8,
+            #f8f5fb
+        );
+
+    color: #17202a;
+
+    font-family: "Montserrat", sans-serif;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SECTION 1
+   TOP HEADER
+========================================================= */
+
+.top-box {
+
+    width: 100%;
+
+    padding: 38px 20px 34px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071e3d 0%,
+            #0b3d5c 35%,
+            #146c78 65%,
+            #0a2a43 100%
+        );
+
+    border-radius: 0 0 24px 24px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.18);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.top-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    top: -120px;
+    left: -80px;
+
+    background:
+        rgba(70,220,255,0.18);
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+
+.top-box::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    right: -80px;
+    bottom: -110px;
+
+    background:
+        rgba(190,80,255,0.18);
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+
+.site-title {
+
+    margin: 0 0 8px;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(30px, 6vw, 52px);
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,0.35),
+        0 0 18px rgba(100,220,255,0.25);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.author-name {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size:
+        clamp(17px, 3.5vw, 23px);
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    letter-spacing: 1.5px;
+
+    color: #d9f8ff;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.teacher-info {
+
+    max-width: 900px;
+
+    margin: 4px auto;
+
+    font-size:
+        clamp(13px, 2.5vw, 16px);
+
+    line-height: 1.7;
+
+    font-weight: 500;
+
+    color: #f4fcff;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.contact-info {
+
+    margin-top: 10px;
+
+    font-size:
+        clamp(13px, 2.5vw, 16px);
+
+    font-weight: 600;
+
+    color: white;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.facebook-link {
+
+    display: inline-block;
+
+    margin-top: 8px;
+
+    padding: 8px 16px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    border:
+        1px solid rgba(255,255,255,0.22);
+
+    color: #dff9ff;
+
+    text-decoration: none;
+
+    font-size:
+        clamp(12px, 2.4vw, 15px);
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.facebook-link:hover {
+
+    background:
+        rgba(255,255,255,0.23);
+
+    color: white;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.20);
+}
+
+
+/* =========================================================
+   SECTION 2
+   PASSAGE HEADING
+========================================================= */
+
+.passage-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 30px auto 12px;
+
+    padding: 15px 20px;
+
+    text-align: center;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(25px, 5vw, 38px);
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #183b56,
+            #287c8e,
+            #633b78
+        );
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,0.18);
+}
+
+
+/* =========================================================
+   UNIT / LESSON
+========================================================= */
+
+.lesson-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 18px;
+
+    padding: 17px 20px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #633b78,
+            #365c9b
+        );
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.15);
+}
+
+
+.lesson-heading .unit {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+
+.lesson-heading .lesson {
+
+    margin-top: 5px;
+
+    font-size:
+        clamp(17px, 3vw, 24px);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PASSAGE CONTAINER
+========================================================= */
+
+#passage {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 45px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.10);
+}
+
+
+/* =========================================================
+   EACH PASSAGE SENTENCE
+========================================================= */
+
+.passage-sentence {
+
+    padding: 13px 12px;
+
+    margin-bottom: 6px;
+
+    border-radius: 10px;
+
+    line-height: 2;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Sentence highlight */
+
+.passage-sentence.active-sentence {
+
+    background: #fff3a8;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.35);
+}
+
+
+/* =========================================================
+   MARKED VOCABULARY WORD
+========================================================= */
+
+.marked-word {
+
+    color: #b21f4b;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    padding: 2px 5px;
+
+    border-radius: 5px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.marked-word:hover {
+
+    background: #ffe16b;
+
+    color: #6b1740;
+}
+
+
+.marked-word.active-word {
+
+    background: #ffcc33;
+
+    color: #5a3100;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.40);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.action-button {
+
+    display: inline-block;
+
+    margin-left: 8px;
+
+    margin-top: 4px;
+
+    padding: 4px 9px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: 0.25s ease;
+}
+
+
+.see-full {
+
+    background: #315c9b;
+
+    color: white;
+}
+
+
+.see-full:hover {
+
+    background: #1d3d70;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.pronounce {
+
+    background: #27856f;
+
+    color: white;
+}
+
+
+.pronounce:hover {
+
+    background: #17614f;
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   SECTION 3
+   VOCABULARY HEADING
+========================================================= */
+
+.vocabulary-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 20px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(23px, 4vw, 32px);
+
+    font-weight: 700;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b3d67,
+            #405fa3
+        );
+
+    border-radius: 17px;
+}
+
+
+/* =========================================================
+   VOCABULARY SENTENCE BOX
+========================================================= */
+
+.vocab-sentence {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 25px;
+
+    padding: 22px;
+
+    background: white;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.09);
+
+    transition: 0.3s ease;
+}
+
+
+.vocab-sentence.active-sentence {
+
+    background: #fff9d9;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.35);
+}
+
+
+/* =========================================================
+   VOCABULARY ENGLISH SENTENCE
+========================================================= */
+
+.vocab-english {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.8;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   BANGLA MEANING
+========================================================= */
+
+.bangla-meaning {
+
+    font-family:
+        "Noto Sans Bengali",
+        sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    padding: 12px;
+
+    margin: 0 0 18px;
+
+    border-left:
+        4px solid #6c63a8;
+
+    background: #f4f1fa;
+
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   BACK TO PASSAGE
+   FOR SENTENCE + MEANING
+========================================================= */
+
+.sentence-back-button {
+
+    display: inline-block;
+
+    margin-left: 7px;
+
+    padding: 4px 9px;
+
+    border-radius: 7px;
+
+    background: #e7eefb;
+
+    color: #315c9b;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.sentence-back-button:hover {
+
+    background: #315c9b;
+
+    color: white;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 3px 10px rgba(49,92,155,0.25);
+}
+
+
+/* =========================================================
+   WORD CARD
+========================================================= */
+
+.word-card {
+
+    margin-top: 14px;
+
+    padding: 16px;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fbff,
+            #f2f4fb
+        );
+
+    border:
+        1px solid #dce3ef;
+}
+
+
+/* =========================================================
+   WORD TITLE
+========================================================= */
+
+.word-title {
+
+    display: inline-block;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #8b2855;
+
+    margin-bottom: 8px;
+}
+.word-title.active-word {
+
+    background: #ffcc33;
+
+    color: #5a3100;
+
+    padding: 3px 7px;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.35);
+
+    transition: 0.25s ease;
+}
+
+/* =========================================================
+   WORD DETAILS
+========================================================= */
+
+.word-details {
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   WORD BACK TO PASSAGE
+========================================================= */
+
+.back-to-passage {
+
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 5px 10px;
+
+    border-radius: 7px;
+
+    background: #e7eefb;
+
+    color: #315c9b;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.back-to-passage:hover {
+
+    background: #315c9b;
+
+    color: white;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 3px 10px rgba(49,92,155,0.25);
+}
+
+
+/* =========================================================
+   ERROR / WARNING
+========================================================= */
+
+.data-warning {
+
+    width: min(94%, 1050px);
+
+    margin: 20px auto;
+
+    padding: 15px;
+
+    background: #fff1f1;
+
+    border-left: 5px solid #c0392b;
+
+    border-radius: 8px;
+
+    color: #7b241c;
+
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .top-box {
+
+        padding:
+            28px 14px 25px;
+    }
+
+    #passage,
+    .vocab-sentence {
+
+        padding: 16px;
+    }
+
+    .passage-sentence {
+
+        padding: 10px 5px;
+
+        line-height: 1.9;
+    }
+
+    .action-button {
+
+        margin-top: 7px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     SECTION 1
+     HEADER
+     
+     তুমি এখানে শুধু text পরিবর্তন করতে পারবে।
+========================================================= -->
+
+<div class="top-box">
+
+    <h1 class="site-title">
+        All About ENGLISH
+    </h1>
+
+
+    <div class="author-name">
+
+        <span>by</span>
+
+        <span>Shaheen Sir</span>
+
+    </div>
+
+
+    <div class="teacher-info">
+        Assistant Professor &amp; Head of the English Department
+    </div>
+
+
+    <div class="teacher-info">
+        Bangladesh Air Force Shaheen College Kurmitola
+    </div>
+
+
+    <div class="contact-info">
+
+        Contact: 01671642358
+
+        &nbsp; | &nbsp;
+
+        WhatsApp: 01671642358
+
+    </div>
+
+
+    <a
+        class="facebook-link"
+        href="https://www.facebook.com/profile.php?id=61553493074328"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Facebook Page
+    </a>
+
+</div>
+
+
+
+<!-- =========================================================
+     SECTION 2
+========================================================= -->
+
+<div class="passage-heading">
+    PASSAGE
+</div>
+
+
+<div class="lesson-heading">
+
+    <div class="unit">
+        UNIT 12
+    </div>
+
+    <div class="lesson">
+        LESSON 4 — "What is Environmental Justice? (second part)"
+    </div>
+
+</div>
+
+
+<div id="passage"></div>
+
+
+
+<!-- =========================================================
+     SECTION 3
+========================================================= -->
+
+<div class="vocabulary-heading">
+    VOCABULARY
+</div>
+
+
+<div id="vocabulary"></div>
+
+
+
+<script>
+
+
+/* =========================================================
+   =========================================================
+   
+   ⭐⭐⭐⭐⭐  EDITABLE CONTENT AREA  ⭐⭐⭐⭐⭐
+   
+   তোমার মূল editing মূলত এখানেই হবে।
+   
+   =========================================================
+   ========================================================= */
+
+
+/* =========================================================
+   SECTION 2
+   পুরো passage একবারে এখানে paste করবে।
+   
+   প্রতিটি sentence আলাদা করে লিখতে হবে না।
+========================================================= */
+
+
+const passageText = `
+Masanobu Fukuoka (1913-2008) was ‘born’ on the Japanese island of Shikoku, the ‘eldest’ son of a rice farmer and ‘local’ mayor. After ‘studying’ plant ‘diseases’ and working as a ‘produce’ ‘inspector’, he ‘returned’ to his village in 1938 to ‘focus’ on natural farming. During World War II, he worked as a food ‘production’ ‘researcher’ for the Japanese government but ‘avoided’ military service until the war's final months. After the war, he ‘dedicated’ himself to farming and, in 1975, wrote The One-Straw Revolution, ‘expressing’ his ‘concerns’ about Japan's ‘modernization’. Later, Fukuoka worked on projects to ‘fight’ ‘desertification’ and ‘continued’ farming into his eighties. He also wrote The Natural Way of Farming and The Road Back to Nature, In 1988, he ‘received’ the Magsaysay Award for Public Service. Let us read an ‘excerpt’ from Japanese natural farming ‘practitioner’ and ‘philosopher’ Masanobu Fukuoka's ‘celebrated’ book One Straw Revolution. Before researchers ‘become’ researchers they should become philosophers. They should ‘consider’ what the human ‘goal’ is, what it is that ‘humanity’ should ‘create’. Doctors should first ‘determine’ at the ‘fundamental’ level what it is that human beings ‘depend’ on for life. In ‘applying’ my theories to farming, I have been ‘experimenting’ in growing my crops in various ways, always with the idea of ‘developing’ a ‘method’ close to nature. I have done this by ‘whittling’ away ‘unnecessary’ ‘agricultural’ ‘practices’. ‘Modern’ scientific agriculture, on the other hand, has no such ‘vision’. Research ‘wanders’ about ‘aimlessly’, each researcher seeing just one part of the ‘infinite’ ‘array’ of natural factors which ‘affect’ ‘harvest’ ‘yields’. Furthermore, these natural factors ‘change’ from place to place and from year to year. Even though it is the same quarter acre, the farmer must ‘grow’ his ‘crops’ ‘differently’ each year ‘in accordance with’ ‘variations’ in ‘weather’, ‘insect’ ‘populations’, the ‘condition’ of the soil, and many other natural factors. Nature is everywhere in ‘perpetual’ ‘motion’; conditions are never ‘exactly’ the same in any two years. Modern research ‘divides’ nature into tiny pieces and ‘conducts’ ‘tests’ that ‘conform’ neither with natural law nor with practical experiences. The ‘results’ are ‘arranged’ for the ‘convenience’ of research, not according to the needs of the farmer. To ‘think’ that these ‘conclusions’ can be put to use with ‘invariable’ ‘success’ in the farmer's field is a big mistake. ‘Recently’ Professor Tsuno of Ehime University wrote a ‘lengthy’ book on the ‘relationship’ of plant metabolism to rice harvests. This professor often comes to my field, ‘digs’ down a few feet to ‘check’ the soil, ‘brings’ students along to ‘measure’ the angle of sunlight and ‘shade’ and whatnot, and takes plant ‘specimens’ back to the lab for ‘analysis’. I often ask him, "When you go back, are you going to try non-cultivation direct ‘seeding’?" He laughingly answers, "No, I'll ‘leave’ the applications to you, I'm going to ‘stick’ to research," So that is how it is. You study the function of the plant's metabolism and its ‘ability’ to ‘absorb’ ‘nutrients’ from the soil, write a book, and get a ‘doctorate’ in ‘agricultural’ science. But do not ask if your ‘theory’ of ‘assimilation’ is going to be ‘relevant’ to the ‘yield’. Even if you can ‘explain’ how metabolism ‘affects’ the ‘productivity’ of the top leaf when the ‘average’ ‘temperature’ is eighty-four degrees (Fahrenheit), there are places where the temperature is not eighty-four degrees. And if the temperature is eighty-four degrees in Ehime this year, next year it may only be seventy-five degrees. To say that simply ‘stepping up’ metabolism will ‘increase’ ‘starch’ ‘formation’ and ‘produce’ a large harvest is a mistake. The ‘geography’ and ‘topography’ of the land, the condition of the soil, its structure, ‘texture’, and ‘drainage’, ‘exposure’ to sunlight, insect relationships, the ‘variety’ of seed used, the method of ‘cultivation’ truly an infinite variety of factors-must all be considered. A scientific testing method which takes all ‘relevant’ factors into account is an ‘impossibility’. You hear a lot of talk these days about the ‘benefits’ of the 'Good Rice Movement' and the 'Green Revolution'. Because these ‘methods’ ‘depend’ on ‘weak’, ‘improved’ seed varieties, it becomes ‘necessary’ for the farmer to apply ‘chemicals’ and ‘insecticides’ eight or ten times during the growing season. In a short time the soil is ‘burned’ clean of microorganisms and organic ‘matter’. The life of the soil is ‘destroyed’ and ‘crops’ come to be ‘dependent’ on ‘nutrients’ added from the outside in the form of chemical fertilizer. It ‘appears’ that things go better when the farmer ‘applies’ "scientific" techniques, but this does not ‘mean’ that science must come to the ‘rescue’ because the natural ‘fertility’ is ‘inherently’ ‘insufficient’. It means that rescue is necessary because the natural fertility has been ‘destroyed’. By ‘spreading’ ‘straw’, ‘growing’ ‘clover’, and returning to the soil all ‘organic’ ‘residues’, the earth comes to ‘possess’ all the ‘nutrients’ needed to grow rice and winter ‘grain’ in the same field year after year. By ‘natural’ farming, fields that have already been ‘damaged’ by ‘cultivation’ or the use of agricultural chemicals can be ‘effectively’ ‘rehabilitated’.
+`;
+
+/* =========================================================
+   SECTION 3
+   এখানে sentence অনুযায়ী:
+   
+   1. বাংলা meaning
+   2. marked vocabulary
+   3. vocabulary particulars
+   
+   দিতে হবে।
+   
+   IMPORTANT:
+   প্রথম object = Passage-এর 1st sentence
+   দ্বিতীয় object = Passage-এর 2nd sentence
+   তৃতীয় object = Passage-এর 3rd sentence
+   
+   English sentence এখানে আবার লিখতে হবে না।
+========================================================= */
+
+
+const vocabularyData = [
+
+  {
+    sentence:
+    "Masanobu Fukuoka (1913-2008) was ‘born’ on the Japanese island of Shikoku, the ‘eldest’ son of a rice farmer and ‘local’ mayor.",
+
+    meaning:
+    "মাসানোবু ফুকুওকা (১৯১৩-২০০৮) জাপানের শিকোকু দ্বীপে জন্মগ্রহণ করেন। তিনি একজন ধানচাষি ও স্থানীয় মেয়রের জ্যেষ্ঠ সন্তান ছিলেন।",
+
+    vocabulary: [
+
+        {
+            word: "born",
+            pos: "Verb",
+            meaning: "জন্মগ্রহণ করেছিল",
+            ipa: "/bɔːrn/",
+            pronunciation: "বর্ন",
+            synonyms: "delivered, brought forth, originated, emerged",
+            antonyms: "died, perished, disappeared, ended"
+        },
+
+        {
+            word: "eldest",
+            pos: "Adjective",
+            meaning: "জ্যেষ্ঠ; সবচেয়ে বড়",
+            ipa: "/ˈeldɪst/",
+            pronunciation: "এলডিস্ট",
+            synonyms: "oldest, senior, firstborn, foremost",
+            antonyms: "youngest, junior, lastborn, newest"
+        },
+
+        {
+            word: "local",
+            pos: "Adjective",
+            meaning: "স্থানীয়",
+            ipa: "/ˈləʊkəl/",
+            pronunciation: "লোকাল",
+            synonyms: "regional, native, nearby, community",
+            antonyms: "foreign, national, international, distant"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "After ‘studying’ plant ‘diseases’ and working as a ‘produce’ ‘inspector’, he ‘returned’ to his village in 1938 to ‘focus’ on natural farming.",
+
+    meaning:
+    "উদ্ভিদের রোগ নিয়ে পড়াশোনা করার এবং কৃষিপণ্য পরিদর্শক হিসেবে কাজ করার পর, তিনি ১৯৩৮ সালে প্রাকৃতিক কৃষিকাজের দিকে মনোযোগ দেওয়ার জন্য তাঁর গ্রামে ফিরে আসেন।",
+
+    vocabulary: [
+
+        {
+            word: "studying",
+            pos: "Verb",
+            meaning: "অধ্যয়ন করা",
+            ipa: "/ˈstʌdiɪŋ/",
+            pronunciation: "স্টাডিইং",
+            synonyms: "learning, examining, researching, investigating",
+            antonyms: "ignoring, neglecting, overlooking, disregarding"
+        },
+
+        {
+            word: "diseases",
+            pos: "Noun",
+            meaning: "রোগসমূহ",
+            ipa: "/dɪˈziːzɪz/",
+            pronunciation: "ডিজিজিজ",
+            synonyms: "illnesses, ailments, disorders, sicknesses",
+            antonyms: "health, wellness, fitness, soundness"
+        },
+
+        {
+            word: "produce",
+            pos: "Noun",
+            meaning: "কৃষিপণ্য",
+            ipa: "/ˈprəʊdjuːs/",
+            pronunciation: "প্রোডিউস",
+            synonyms: "crops, products, harvest, agricultural goods",
+            antonyms: "waste, refuse, discard, by-product"
+        },
+
+        {
+            word: "inspector",
+            pos: "Noun",
+            meaning: "পরিদর্শক",
+            ipa: "/ɪnˈspektər/",
+            pronunciation: "ইনস্পেক্টর",
+            synonyms: "examiner, investigator, checker, supervisor",
+            antonyms: "participant, worker, subordinate, employee"
+        },
+
+        {
+            word: "returned",
+            pos: "Verb",
+            meaning: "ফিরে এসেছিল",
+            ipa: "/rɪˈtɜːrnd/",
+            pronunciation: "রিটার্নড",
+            synonyms: "came back, went back, reverted, revisited",
+            antonyms: "left, departed, escaped, withdrew"
+        },
+
+        {
+            word: "focus",
+            pos: "Verb",
+            meaning: "মনোযোগ দেওয়া",
+            ipa: "/ˈfəʊkəs/",
+            pronunciation: "ফোকাস",
+            synonyms: "concentrate, center, attend, direct",
+            antonyms: "ignore, neglect, distract, disregard"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "During World War II, he worked as a food ‘production’ ‘researcher’ for the Japanese government but ‘avoided’ military service until the war's final months.",
+
+    meaning:
+    "দ্বিতীয় বিশ্বযুদ্ধের সময় তিনি জাপান সরকারের খাদ্য উৎপাদন গবেষক হিসেবে কাজ করেন, কিন্তু যুদ্ধের শেষ কয়েক মাস পর্যন্ত সামরিক সেবা এড়িয়ে চলেন।",
+
+    vocabulary: [
+
+        {
+            word: "production",
+            pos: "Noun",
+            meaning: "উৎপাদন",
+            ipa: "/prəˈdʌkʃən/",
+            pronunciation: "প্রোডাকশন",
+            synonyms: "manufacture, creation, output, generation",
+            antonyms: "destruction, consumption, reduction, waste"
+        },
+
+        {
+            word: "researcher",
+            pos: "Noun",
+            meaning: "গবেষক",
+            ipa: "/rɪˈsɜːrtʃər/",
+            pronunciation: "রিসার্চার",
+            synonyms: "investigator, scholar, scientist, analyst",
+            antonyms: "amateur, ignoramus, layperson, nonresearcher"
+        },
+
+        {
+            word: "avoided",
+            pos: "Verb",
+            meaning: "এড়িয়ে চলেছিল",
+            ipa: "/əˈvɔɪdɪd/",
+            pronunciation: "অ্যাভয়ডেড",
+            synonyms: "evaded, escaped, shunned, prevented",
+            antonyms: "faced, confronted, approached, accepted"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "After the war, he ‘dedicated’ himself to farming and, in 1975, wrote The One-Straw Revolution, ‘expressing’ his ‘concerns’ about Japan's ‘modernization’.",
+
+    meaning:
+    "যুদ্ধের পর তিনি নিজেকে কৃষিকাজে নিয়োজিত করেন এবং ১৯৭৫ সালে The One-Straw Revolution বইটি লেখেন, যেখানে তিনি জাপানের আধুনিকায়ন সম্পর্কে তাঁর উদ্বেগ প্রকাশ করেন।",
+
+    vocabulary: [
+
+        {
+            word: "dedicated",
+            pos: "Verb",
+            meaning: "নিয়োজিত করেছিল; উৎসর্গ করেছিল",
+            ipa: "/ˈdedɪkeɪtɪd/",
+            pronunciation: "ডেডিকেটেড",
+            synonyms: "devoted, committed, consecrated, devoted oneself",
+            antonyms: "neglected, abandoned, ignored, deserted"
+        },
+
+        {
+            word: "expressing",
+            pos: "Verb",
+            meaning: "প্রকাশ করা",
+            ipa: "/ɪkˈspresɪŋ/",
+            pronunciation: "এক্সপ্রেসিং",
+            synonyms: "stating, conveying, communicating, revealing",
+            antonyms: "concealing, hiding, suppressing, withholding"
+        },
+
+        {
+            word: "concerns",
+            pos: "Noun",
+            meaning: "উদ্বেগ; আশঙ্কা",
+            ipa: "/kənˈsɜːrnz/",
+            pronunciation: "কনসার্নস",
+            synonyms: "worries, anxieties, fears, apprehensions",
+            antonyms: "confidence, assurance, calmness, certainty"
+        },
+
+        {
+            word: "modernization",
+            pos: "Noun",
+            meaning: "আধুনিকায়ন",
+            ipa: "/ˌmɒdənaɪˈzeɪʃən/",
+            pronunciation: "মডার্নাইজেশন",
+            synonyms: "development, advancement, renovation, updating",
+            antonyms: "traditionalism, backwardness, stagnation, deterioration"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "Later, Fukuoka worked on projects to ‘fight’ ‘desertification’ and ‘continued’ farming into his eighties.",
+
+    meaning:
+    "পরবর্তীতে ফুকুওকা মরুকরণের বিরুদ্ধে লড়াই করার প্রকল্পে কাজ করেন এবং আশির দশক পর্যন্ত কৃষিকাজ চালিয়ে যান।",
+
+    vocabulary: [
+
+        {
+            word: "fight",
+            pos: "Verb",
+            meaning: "লড়াই করা",
+            ipa: "/faɪt/",
+            pronunciation: "ফাইট",
+            synonyms: "combat, battle, oppose, resist",
+            antonyms: "surrender, submit, yield, accept"
+        },
+
+        {
+            word: "desertification",
+            pos: "Noun",
+            meaning: "মরুকরণ",
+            ipa: "/dɪˌzɜːrtɪfɪˈkeɪʃən/",
+            pronunciation: "ডিজার্টিফিকেশন",
+            synonyms: "land degradation, aridification, drying, barrenness",
+            antonyms: "greening, cultivation, irrigation, regeneration"
+        },
+
+        {
+            word: "continued",
+            pos: "Verb",
+            meaning: "চালিয়ে গিয়েছিল",
+            ipa: "/kənˈtɪnjuːd/",
+            pronunciation: "কনটিনিউড",
+            synonyms: "persisted, proceeded, remained, carried on",
+            antonyms: "stopped, ceased, ended, discontinued"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "He also wrote The Natural Way of Farming and The Road Back to Nature, In 1988, he ‘received’ the Magsaysay Award for Public Service.",
+
+    meaning:
+    "তিনি The Natural Way of Farming এবং The Road Back to Nature বইও লেখেন। ১৯৮৮ সালে তিনি জনসেবার জন্য ম্যাগসেসে পুরস্কার লাভ করেন।",
+
+    vocabulary: [
+
+        {
+            word: "received",
+            pos: "Verb",
+            meaning: "পেয়েছিলেন; গ্রহণ করেছিলেন",
+            ipa: "/rɪˈsiːvd/",
+            pronunciation: "রিসিভড",
+            synonyms: "obtained, got, accepted, acquired",
+            antonyms: "gave, sent, rejected, refused"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "Let us read an ‘excerpt’ from Japanese natural farming ‘practitioner’ and ‘philosopher’ Masanobu Fukuoka's ‘celebrated’ book One Straw Revolution.",
+
+    meaning:
+    "চলুন জাপানি প্রাকৃতিক কৃষিকাজের অনুশীলনকারী ও দার্শনিক মাসানোবু ফুকুওকার বিখ্যাত বই One Straw Revolution-এর একটি অংশ পড়ি।",
+
+    vocabulary: [
+
+        {
+            word: "excerpt",
+            pos: "Noun",
+            meaning: "উদ্ধৃত অংশ; সংক্ষিপ্ত অংশ",
+            ipa: "/ˈeksɜːrpt/",
+            pronunciation: "এক্সার্প্ট",
+            synonyms: "extract, passage, selection, quotation",
+            antonyms: "whole, entirety, complete text, full version"
+        },
+
+        {
+            word: "practitioner",
+            pos: "Noun",
+            meaning: "অনুশীলনকারী",
+            ipa: "/prækˈtɪʃənər/",
+            pronunciation: "প্র্যাকটিশনার",
+            synonyms: "professional, expert, worker, specialist",
+            antonyms: "amateur, beginner, novice, nonprofessional"
+        },
+
+        {
+            word: "philosopher",
+            pos: "Noun",
+            meaning: "দার্শনিক",
+            ipa: "/fəˈlɒsəfər/",
+            pronunciation: "ফিলসফার",
+            synonyms: "thinker, sage, theorist, intellectual",
+            antonyms: "nonthinker, ignoramus, fool, pragmatist"
+        },
+
+        {
+            word: "celebrated",
+            pos: "Adjective",
+            meaning: "বিখ্যাত; প্রসিদ্ধ",
+            ipa: "/ˈseləbreɪtɪd/",
+            pronunciation: "সেলিব্রেটেড",
+            synonyms: "famous, renowned, eminent, acclaimed",
+            antonyms: "unknown, obscure, unnoticed, insignificant"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "Before researchers ‘become’ researchers they should become philosophers.",
+
+    meaning:
+    "গবেষকরা গবেষক হওয়ার আগে তাদের দার্শনিক হওয়া উচিত।",
+
+    vocabulary: [
+
+        {
+            word: "become",
+            pos: "Verb",
+            meaning: "হওয়া",
+            ipa: "/bɪˈkʌm/",
+            pronunciation: "বিকাম",
+            synonyms: "turn into, grow into, develop into, transform into",
+            antonyms: "remain, stay, cease, stop being"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "They should ‘consider’ what the human ‘goal’ is, what it is that ‘humanity’ should ‘create’.",
+
+    meaning:
+    "মানবজাতির লক্ষ্য কী এবং মানবতার কী সৃষ্টি করা উচিত, তা তাদের বিবেচনা করা উচিত।",
+
+    vocabulary: [
+
+        {
+            word: "consider",
+            pos: "Verb",
+            meaning: "বিবেচনা করা",
+            ipa: "/kənˈsɪdər/",
+            pronunciation: "কনসিডার",
+            synonyms: "think about, contemplate, examine, reflect on",
+            antonyms: "ignore, disregard, neglect, overlook"
+        },
+
+        {
+            word: "goal",
+            pos: "Noun",
+            meaning: "লক্ষ্য",
+            ipa: "/ɡəʊl/",
+            pronunciation: "গোল",
+            synonyms: "aim, objective, target, purpose",
+            antonyms: "aimlessness, failure, loss, deviation"
+        },
+
+        {
+            word: "humanity",
+            pos: "Noun",
+            meaning: "মানবতা; মানবজাতি",
+            ipa: "/hjuːˈmænəti/",
+            pronunciation: "হিউম্যানিটি",
+            synonyms: "mankind, humankind, people, human race",
+            antonyms: "inhumanity, cruelty, brutality, barbarism"
+        },
+
+        {
+            word: "create",
+            pos: "Verb",
+            meaning: "সৃষ্টি করা",
+            ipa: "/kriˈeɪt/",
+            pronunciation: "ক্রিয়েট",
+            synonyms: "make, produce, generate, construct",
+            antonyms: "destroy, demolish, ruin, eliminate"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "Doctors should first ‘determine’ at the ‘fundamental’ level what it is that human beings ‘depend’ on for life.",
+
+    meaning:
+    "মানুষ জীবনধারণের জন্য কোন বিষয়ের ওপর নির্ভরশীল, তা চিকিৎসকদের প্রথমে মৌলিক পর্যায়ে নির্ধারণ করা উচিত।",
+
+    vocabulary: [
+
+        {
+            word: "determine",
+            pos: "Verb",
+            meaning: "নির্ধারণ করা",
+            ipa: "/dɪˈtɜːrmɪn/",
+            pronunciation: "ডিটারমিন",
+            synonyms: "decide, establish, identify, ascertain",
+            antonyms: "doubt, confuse, question, ignore"
+        },
+
+        {
+            word: "fundamental",
+            pos: "Adjective",
+            meaning: "মৌলিক; ভিত্তিগত",
+            ipa: "/ˌfʌndəˈmentəl/",
+            pronunciation: "ফান্ডামেন্টাল",
+            synonyms: "basic, essential, primary, foundational",
+            antonyms: "secondary, minor, superficial, insignificant"
+        },
+
+        {
+            word: "depend",
+            pos: "Verb",
+            meaning: "নির্ভর করা",
+            ipa: "/dɪˈpend/",
+            pronunciation: "ডিপেন্ড",
+            synonyms: "rely, trust, count on, rest on",
+            antonyms: "independ, reject, distrust, disregard"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "In ‘applying’ my theories to farming, I have been ‘experimenting’ in growing my crops in various ways, always with the idea of ‘developing’ a ‘method’ close to nature.",
+
+    meaning:
+    "কৃষিকাজে আমার তত্ত্বগুলো প্রয়োগ করতে গিয়ে আমি বিভিন্ন উপায়ে ফসল উৎপাদনের পরীক্ষা-নিরীক্ষা করে আসছি, সবসময় প্রকৃতির কাছাকাছি একটি পদ্ধতি উন্নয়নের ধারণা নিয়ে।",
+
+    vocabulary: [
+
+        {
+            word: "applying",
+            pos: "Verb",
+            meaning: "প্রয়োগ করা",
+            ipa: "/əˈplaɪɪŋ/",
+            pronunciation: "অ্যাপ্লাইং",
+            synonyms: "using, implementing, employing, utilizing",
+            antonyms: "ignoring, avoiding, abandoning, rejecting"
+        },
+
+        {
+            word: "experimenting",
+            pos: "Verb",
+            meaning: "পরীক্ষা-নিরীক্ষা করা",
+            ipa: "/ɪkˈsperɪmentɪŋ/",
+            pronunciation: "এক্সপেরিমেন্টিং",
+            synonyms: "testing, trying, investigating, exploring",
+            antonyms: "neglecting, ignoring, avoiding, abandoning"
+        },
+
+        {
+            word: "developing",
+            pos: "Verb",
+            meaning: "উন্নয়ন করা",
+            ipa: "/dɪˈveləpɪŋ/",
+            pronunciation: "ডেভেলপিং",
+            synonyms: "improving, creating, advancing, evolving",
+            antonyms: "destroying, declining, deteriorating, weakening"
+        },
+
+        {
+            word: "method",
+            pos: "Noun",
+            meaning: "পদ্ধতি",
+            ipa: "/ˈmeθəd/",
+            pronunciation: "মেথড",
+            synonyms: "way, approach, technique, procedure",
+            antonyms: "disorder, randomness, confusion, chaos"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "I have done this by ‘whittling’ away ‘unnecessary’ ‘agricultural’ ‘practices’.",
+
+    meaning:
+    "আমি অপ্রয়োজনীয় কৃষি-পদ্ধতিগুলো ধীরে ধীরে বাদ দিয়ে এটি করেছি।",
+
+    vocabulary: [
+
+        {
+            word: "whittling",
+            pos: "Verb",
+            meaning: "ধীরে ধীরে কমানো বা বাদ দেওয়া",
+            ipa: "/ˈwɪtlɪŋ/",
+            pronunciation: "হুইটলিং",
+            synonyms: "reducing, cutting, trimming, diminishing",
+            antonyms: "increasing, adding, expanding, enlarging"
+        },
+
+        {
+            word: "unnecessary",
+            pos: "Adjective",
+            meaning: "অপ্রয়োজনীয়",
+            ipa: "/ʌnˈnesəsəri/",
+            pronunciation: "আননেসেসারি",
+            synonyms: "needless, redundant, excessive, avoidable",
+            antonyms: "necessary, essential, vital, required"
+        },
+
+        {
+            word: "agricultural",
+            pos: "Adjective",
+            meaning: "কৃষি-সংক্রান্ত",
+            ipa: "/ˌæɡrɪˈkʌltʃərəl/",
+            pronunciation: "অ্যাগ্রিকালচারাল",
+            synonyms: "farming, agrarian, rural, agricultural-related",
+            antonyms: "industrial, urban, nonagricultural, commercial"
+        },
+
+        {
+            word: "practices",
+            pos: "Noun",
+            meaning: "পদ্ধতিসমূহ; চর্চাসমূহ",
+            ipa: "/ˈpræktɪsɪz/",
+            pronunciation: "প্র্যাকটিসিজ",
+            synonyms: "methods, techniques, procedures, customs",
+            antonyms: "theory, inactivity, neglect, abandonment"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "‘Modern’ scientific agriculture, on the other hand, has no such ‘vision’.",
+
+    meaning:
+    "অন্যদিকে আধুনিক বৈজ্ঞানিক কৃষির এমন কোনো দৃষ্টিভঙ্গি নেই।",
+
+    vocabulary: [
+
+        {
+            word: "Modern",
+            pos: "Adjective",
+            meaning: "আধুনিক",
+            ipa: "/ˈmɒdən/",
+            pronunciation: "মডার্ন",
+            synonyms: "contemporary, current, present-day, recent",
+            antonyms: "ancient, traditional, old-fashioned, primitive"
+        },
+
+        {
+            word: "vision",
+            pos: "Noun",
+            meaning: "দৃষ্টিভঙ্গি; ভবিষ্যৎ পরিকল্পনা",
+            ipa: "/ˈvɪʒən/",
+            pronunciation: "ভিশন",
+            synonyms: "foresight, perspective, outlook, insight",
+            antonyms: "blindness, ignorance, shortsightedness, confusion"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "Research ‘wanders’ about ‘aimlessly’, each researcher seeing just one part of the ‘infinite’ ‘array’ of natural factors which ‘affect’ ‘harvest’ ‘yields’.",
+
+    meaning:
+    "গবেষণা উদ্দেশ্যহীনভাবে ঘুরপাক খায়; প্রত্যেক গবেষক প্রাকৃতিক কারণগুলোর অসীম সমাহারের কেবল একটি অংশ দেখতে পান, যেগুলো ফসলের উৎপাদনকে প্রভাবিত করে।",
+
+    vocabulary: [
+
+        {
+            word: "wanders",
+            pos: "Verb",
+            meaning: "ঘুরে বেড়ায়; উদ্দেশ্যহীনভাবে ঘোরে",
+            ipa: "/ˈwɒndərz/",
+            pronunciation: "ওয়ান্ডার্স",
+            synonyms: "roams, drifts, strays, meanders",
+            antonyms: "stays, settles, remains, focuses"
+        },
+
+        {
+            word: "aimlessly",
+            pos: "Adverb",
+            meaning: "উদ্দেশ্যহীনভাবে",
+            ipa: "/ˈeɪmləsli/",
+            pronunciation: "এইমলেসলি",
+            synonyms: "purposelessly, randomly, idly, directionlessly",
+            antonyms: "purposefully, deliberately, intentionally, systematically"
+        },
+
+        {
+            word: "infinite",
+            pos: "Adjective",
+            meaning: "অসীম",
+            ipa: "/ˈɪnfɪnət/",
+            pronunciation: "ইনফিনিট",
+            synonyms: "endless, limitless, boundless, immeasurable",
+            antonyms: "finite, limited, restricted, bounded"
+        },
+
+        {
+            word: "array",
+            pos: "Noun",
+            meaning: "সমাহার; বিন্যাস",
+            ipa: "/əˈreɪ/",
+            pronunciation: "অ্যারেই",
+            synonyms: "range, collection, assortment, variety",
+            antonyms: "few, scarcity, lack, shortage"
+        },
+
+        {
+            word: "affect",
+            pos: "Verb",
+            meaning: "প্রভাবিত করা",
+            ipa: "/əˈfekt/",
+            pronunciation: "অ্যাফেক্ট",
+            synonyms: "influence, impact, alter, modify",
+            antonyms: "ignore, neglect, leave unchanged, preserve"
+        },
+
+        {
+            word: "harvest",
+            pos: "Noun",
+            meaning: "ফসল; ফসল সংগ্রহ",
+            ipa: "/ˈhɑːrvɪst/",
+            pronunciation: "হারভেস্ট",
+            synonyms: "crop, yield, produce, gathering",
+            antonyms: "sowing, planting, loss, failure"
+        },
+
+        {
+            word: "yields",
+            pos: "Noun",
+            meaning: "উৎপাদন; ফলন",
+            ipa: "/jiːldz/",
+            pronunciation: "ইল্ডস",
+            synonyms: "outputs, harvests, returns, proceeds",
+            antonyms: "losses, deficits, failures, shortages"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "Furthermore, these natural factors ‘change’ from place to place and from year to year.",
+
+    meaning:
+    "তদুপরি, এসব প্রাকৃতিক কারণ স্থানভেদে এবং বছরভেদে পরিবর্তিত হয়।",
+
+    vocabulary: [
+
+        {
+            word: "change",
+            pos: "Verb",
+            meaning: "পরিবর্তিত হওয়া",
+            ipa: "/tʃeɪndʒ/",
+            pronunciation: "চেইঞ্জ",
+            synonyms: "alter, vary, transform, modify",
+            antonyms: "remain, preserve, maintain, stabilize"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "Even though it is the same quarter acre, the farmer must ‘grow’ his ‘crops’ ‘differently’ each year ‘in accordance with’ ‘variations’ in ‘weather’, ‘insect’ ‘populations’, the ‘condition’ of the soil, and many other natural factors.",
+
+    meaning:
+    "যদিও জমিটি একই এক-চতুর্থাংশ একর, তবুও আবহাওয়া, পোকামাকড়ের সংখ্যা, মাটির অবস্থা এবং অন্যান্য প্রাকৃতিক কারণের পরিবর্তনের সঙ্গে সামঞ্জস্য রেখে কৃষককে প্রতি বছর ভিন্নভাবে তার ফসল ফলাতে হয়।",
+
+    vocabulary: [
+
+        {
+            word: "grow",
+            pos: "Verb",
+            meaning: "ফলানো; উৎপাদন করা",
+            ipa: "/ɡrəʊ/",
+            pronunciation: "গ্রো",
+            synonyms: "cultivate, raise, produce, develop",
+            antonyms: "destroy, uproot, kill, wither"
+        },
+
+        {
+            word: "crops",
+            pos: "Noun",
+            meaning: "ফসলসমূহ",
+            ipa: "/krɒps/",
+            pronunciation: "ক্রপস",
+            synonyms: "plants, produce, harvest, yield",
+            antonyms: "weeds, waste, barren land, failure"
+        },
+
+        {
+            word: "differently",
+            pos: "Adverb",
+            meaning: "ভিন্নভাবে",
+            ipa: "/ˈdɪfrəntli/",
+            pronunciation: "ডিফারেন্টলি",
+            synonyms: "distinctly, variously, differently, alternatively",
+            antonyms: "similarly, equally, identically, alike"
+        },
+
+        {
+            word: "in accordance with",
+            pos: "Phrase",
+            meaning: "অনুযায়ী; সামঞ্জস্য রেখে",
+            ipa: "/ɪn əˈkɔːrdəns wɪð/",
+            pronunciation: "ইন অ্যাকর্ড্যান্স উইথ",
+            synonyms: "according to, consistent with, in agreement with, conforming to",
+            antonyms: "contrary to, against, inconsistent with, opposed to"
+        },
+
+        {
+            word: "variations",
+            pos: "Noun",
+            meaning: "পরিবর্তনসমূহ; ভিন্নতাসমূহ",
+            ipa: "/ˌveəriˈeɪʃənz/",
+            pronunciation: "ভেরিয়েশনস",
+            synonyms: "changes, differences, fluctuations, alterations",
+            antonyms: "uniformity, consistency, similarity, stability"
+        },
+
+        {
+            word: "weather",
+            pos: "Noun",
+            meaning: "আবহাওয়া",
+            ipa: "/ˈweðər/",
+            pronunciation: "ওয়েদার",
+            synonyms: "climate, conditions, atmosphere, elements",
+            antonyms: "—",
+            antonyms: "—"
+        },
+
+        {
+            word: "insect",
+            pos: "Noun",
+            meaning: "পোকামাকড়",
+            ipa: "/ˈɪnsekt/",
+            pronunciation: "ইনসেক্ট",
+            synonyms: "bug, pest, arthropod, creature",
+            antonyms: "—"
+        },
+
+        {
+            word: "populations",
+            pos: "Noun",
+            meaning: "জনসংখ্যা; সংখ্যা",
+            ipa: "/ˌpɒpjəˈleɪʃənz/",
+            pronunciation: "পপুলেশনস",
+            synonyms: "numbers, communities, groups, inhabitants",
+            antonyms: "individuals, minorities, scarcity, emptiness"
+        },
+
+        {
+            word: "condition",
+            pos: "Noun",
+            meaning: "অবস্থা",
+            ipa: "/kənˈdɪʃən/",
+            pronunciation: "কনডিশন",
+            synonyms: "state, situation, circumstance, status",
+            antonyms: "disorder, deterioration, failure, chaos"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "Nature is everywhere in ‘perpetual’ ‘motion’; conditions are never ‘exactly’ the same in any two years.",
+
+    meaning:
+    "প্রকৃতি সর্বত্র অবিরাম গতিশীল; কোনো দুই বছরে পরিস্থিতি কখনোই ঠিক একই রকম থাকে না।",
+
+    vocabulary: [
+
+        {
+            word: "perpetual",
+            pos: "Adjective",
+            meaning: "চিরস্থায়ী; অবিরাম",
+            ipa: "/pəˈpetʃuəl/",
+            pronunciation: "পারপেচুয়াল",
+            synonyms: "continuous, constant, everlasting, endless",
+            antonyms: "temporary, occasional, intermittent, brief"
+        },
+
+        {
+            word: "motion",
+            pos: "Noun",
+            meaning: "গতি",
+            ipa: "/ˈməʊʃən/",
+            pronunciation: "মোশন",
+            synonyms: "movement, movement, action, activity",
+            antonyms: "stillness, rest, inactivity, stagnation"
+        },
+
+        {
+            word: "exactly",
+            pos: "Adverb",
+            meaning: "ঠিক; হুবহু",
+            ipa: "/ɪɡˈzæktli/",
+            pronunciation: "ইগজ্যাক্টলি",
+            synonyms: "precisely, accurately, perfectly, literally",
+            antonyms: "approximately, roughly, vaguely, inaccurately"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "Modern research ‘divides’ nature into tiny pieces and ‘conducts’ ‘tests’ that ‘conform’ neither with natural law nor with practical experiences.",
+
+    meaning:
+    "আধুনিক গবেষণা প্রকৃতিকে ক্ষুদ্র ক্ষুদ্র অংশে ভাগ করে এবং এমন পরীক্ষা পরিচালনা করে যা প্রাকৃতিক নিয়ম বা বাস্তব অভিজ্ঞতার কোনোটির সঙ্গেই সামঞ্জস্যপূর্ণ নয়।",
+
+    vocabulary: [
+
+        {
+            word: "divides",
+            pos: "Verb",
+            meaning: "ভাগ করে",
+            ipa: "/dɪˈvaɪdz/",
+            pronunciation: "ডিভাইডস",
+            synonyms: "separates, splits, partitions, distributes",
+            antonyms: "unites, combines, joins, connects"
+        },
+
+        {
+            word: "conducts",
+            pos: "Verb",
+            meaning: "পরিচালনা করে",
+            ipa: "/kənˈdʌkts/",
+            pronunciation: "কনডাক্টস",
+            synonyms: "performs, carries out, manages, directs",
+            antonyms: "abandons, stops, neglects, prevents"
+        },
+
+        {
+            word: "tests",
+            pos: "Noun",
+            meaning: "পরীক্ষাসমূহ",
+            ipa: "/tests/",
+            pronunciation: "টেস্টস",
+            synonyms: "examinations, trials, experiments, assessments",
+            antonyms: "answers, certainty, assumptions, conclusions"
+        },
+
+        {
+            word: "conform",
+            pos: "Verb",
+            meaning: "সামঞ্জস্যপূর্ণ হওয়া",
+            ipa: "/kənˈfɔːrm/",
+            pronunciation: "কনফর্ম",
+            synonyms: "comply, agree, correspond, adapt",
+            antonyms: "differ, disagree, resist, oppose"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "The ‘results’ are ‘arranged’ for the ‘convenience’ of research, not according to the needs of the farmer.",
+
+    meaning:
+    "ফলাফলগুলো কৃষকের প্রয়োজন অনুযায়ী নয়, বরং গবেষণার সুবিধার জন্য সাজানো হয়।",
+
+    vocabulary: [
+
+        {
+            word: "results",
+            pos: "Noun",
+            meaning: "ফলাফল",
+            ipa: "/rɪˈzʌlts/",
+            pronunciation: "রিজাল্টস",
+            synonyms: "outcomes, findings, consequences, effects",
+            antonyms: "causes, beginnings, sources, origins"
+        },
+
+        {
+            word: "arranged",
+            pos: "Verb",
+            meaning: "সাজানো; বিন্যস্ত করা",
+            ipa: "/əˈreɪndʒd/",
+            pronunciation: "অ্যারেঞ্জড",
+            synonyms: "organized, ordered, structured, positioned",
+            antonyms: "disorganized, scattered, confused, disordered"
+        },
+
+        {
+            word: "convenience",
+            pos: "Noun",
+            meaning: "সুবিধা",
+            ipa: "/kənˈviːniəns/",
+            pronunciation: "কনভিনিয়েন্স",
+            synonyms: "ease, comfort, advantage, benefit",
+            antonyms: "inconvenience, difficulty, hardship, discomfort"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "To ‘think’ that these ‘conclusions’ can be put to use with ‘invariable’ ‘success’ in the farmer's field is a big mistake.",
+
+    meaning:
+    "এই সিদ্ধান্তগুলো কৃষকের মাঠে অপরিবর্তনীয় সাফল্যের সঙ্গে ব্যবহার করা যাবে—এমনটা ভাবা একটি বড় ভুল।",
+
+    vocabulary: [
+
+        {
+            word: "think",
+            pos: "Verb",
+            meaning: "চিন্তা করা; মনে করা",
+            ipa: "/θɪŋk/",
+            pronunciation: "থিঙ্ক",
+            synonyms: "consider, believe, suppose, imagine",
+            antonyms: "ignore, forget, disregard, doubt"
+        },
+
+        {
+            word: "conclusions",
+            pos: "Noun",
+            meaning: "সিদ্ধান্তসমূহ",
+            ipa: "/kənˈkluːʒənz/",
+            pronunciation: "কনক্লুশনস",
+            synonyms: "findings, decisions, judgments, deductions",
+            antonyms: "questions, beginnings, assumptions, uncertainties"
+        },
+
+        {
+            word: "invariable",
+            pos: "Adjective",
+            meaning: "অপরিবর্তনীয়",
+            ipa: "/ɪnˈveəriəbəl/",
+            pronunciation: "ইনভেরিয়েবল",
+            synonyms: "constant, unchanging, fixed, uniform",
+            antonyms: "variable, changing, flexible, fluctuating"
+        },
+
+        {
+            word: "success",
+            pos: "Noun",
+            meaning: "সাফল্য",
+            ipa: "/səkˈses/",
+            pronunciation: "সাকসেস",
+            synonyms: "achievement, accomplishment, triumph, victory",
+            antonyms: "failure, defeat, loss, disappointment"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "‘Recently’ Professor Tsuno of Ehime University wrote a ‘lengthy’ book on the ‘relationship’ of plant metabolism to rice harvests.",
+
+    meaning:
+    "সম্প্রতি এহিমে বিশ্ববিদ্যালয়ের অধ্যাপক সুনো উদ্ভিদের বিপাকক্রিয়ার সঙ্গে ধান উৎপাদনের সম্পর্ক নিয়ে একটি দীর্ঘ বই লিখেছেন।",
+
+    vocabulary: [
+
+        {
+            word: "Recently",
+            pos: "Adverb",
+            meaning: "সম্প্রতি",
+            ipa: "/ˈriːsəntli/",
+            pronunciation: "রিসেন্টলি",
+            synonyms: "lately, lately, newly, of late",
+            antonyms: "formerly, previously, long ago, earlier"
+        },
+
+        {
+            word: "lengthy",
+            pos: "Adjective",
+            meaning: "দীর্ঘ",
+            ipa: "/ˈleŋθi/",
+            pronunciation: "লেংথি",
+            synonyms: "long, extended, prolonged, extensive",
+            antonyms: "short, brief, concise, compact"
+        },
+
+        {
+            word: "relationship",
+            pos: "Noun",
+            meaning: "সম্পর্ক",
+            ipa: "/rɪˈleɪʃənʃɪp/",
+            pronunciation: "রিলেশনশিপ",
+            synonyms: "connection, association, link, correlation",
+            antonyms: "disconnection, separation, isolation, opposition"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "This professor often comes to my field, ‘digs’ down a few feet to ‘check’ the soil, ‘brings’ students along to ‘measure’ the angle of sunlight and ‘shade’ and whatnot, and takes plant ‘specimens’ back to the lab for ‘analysis’.",
+
+    meaning:
+    "এই অধ্যাপক প্রায়ই আমার জমিতে আসেন, মাটি পরীক্ষা করার জন্য কয়েক ফুট নিচে খনন করেন, সূর্যের আলো ও ছায়ার কোণ মাপার জন্য শিক্ষার্থীদের সঙ্গে আনেন এবং উদ্ভিদের নমুনা বিশ্লেষণের জন্য গবেষণাগারে নিয়ে যান।",
+
+    vocabulary: [
+
+        {
+            word: "digs",
+            pos: "Verb",
+            meaning: "খনন করে",
+            ipa: "/dɪɡz/",
+            pronunciation: "ডিগস",
+            synonyms: "excavates, burrows, tunnels, scoops",
+            antonyms: "fills, covers, buries, closes"
+        },
+
+        {
+            word: "check",
+            pos: "Verb",
+            meaning: "পরীক্ষা করা",
+            ipa: "/tʃek/",
+            pronunciation: "চেক",
+            synonyms: "examine, inspect, verify, test",
+            antonyms: "ignore, neglect, overlook, disregard"
+        },
+
+        {
+            word: "brings",
+            pos: "Verb",
+            meaning: "নিয়ে আসে",
+            ipa: "/brɪŋz/",
+            pronunciation: "ব্রিংস",
+            synonyms: "carries, fetches, delivers, transports",
+            antonyms: "takes, removes, sends away, carries off"
+        },
+
+        {
+            word: "measure",
+            pos: "Verb",
+            meaning: "পরিমাপ করা",
+            ipa: "/ˈmeʒər/",
+            pronunciation: "মেজার",
+            synonyms: "calculate, assess, gauge, quantify",
+            antonyms: "estimate, guess, ignore, overlook"
+        },
+
+        {
+            word: "shade",
+            pos: "Noun",
+            meaning: "ছায়া",
+            ipa: "/ʃeɪd/",
+            pronunciation: "শেইড",
+            synonyms: "shadow, darkness, shelter, cover",
+            antonyms: "sunlight, brightness, light, exposure"
+        },
+
+        {
+            word: "specimens",
+            pos: "Noun",
+            meaning: "নমুনাসমূহ",
+            ipa: "/ˈspesɪmənz/",
+            pronunciation: "স্পেসিমেনস",
+            synonyms: "samples, examples, models, representatives",
+            antonyms: "whole, entirety, masses, populations"
+        },
+
+        {
+            word: "analysis",
+            pos: "Noun",
+            meaning: "বিশ্লেষণ",
+            ipa: "/əˈnæləsɪs/",
+            pronunciation: "অ্যানালিসিস",
+            synonyms: "examination, investigation, study, evaluation",
+            antonyms: "synthesis, ignorance, neglect, disregard"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "I often ask him, \"When you go back, are you going to try non-cultivation direct ‘seeding’?\" He laughingly answers, \"No, I'll ‘leave’ the applications to you, I'm going to ‘stick’ to research,\" So that is how it is.",
+
+    meaning:
+    "আমি প্রায়ই তাকে জিজ্ঞেস করি, ‘আপনি যখন ফিরে যাবেন, তখন কি সরাসরি চাষবিহীন বীজ বপনের পদ্ধতি চেষ্টা করবেন?’ তিনি হেসে উত্তর দেন, ‘না, প্রয়োগের কাজ তোমার ওপর ছেড়ে দেব, আমি গবেষণাতেই থাকব।’ এভাবেই বিষয়টি চলে।",
+
+    vocabulary: [
+
+        {
+            word: "seeding",
+            pos: "Noun",
+            meaning: "বীজ বপন",
+            ipa: "/ˈsiːdɪŋ/",
+            pronunciation: "সিডিং",
+            synonyms: "sowing, planting, broadcasting, scattering",
+            antonyms: "harvesting, uprooting, removing, clearing"
+        },
+
+        {
+            word: "leave",
+            pos: "Verb",
+            meaning: "ছেড়ে দেওয়া",
+            ipa: "/liːv/",
+            pronunciation: "লিভ",
+            synonyms: "abandon, depart, entrust, quit",
+            antonyms: "stay, remain, retain, keep"
+        },
+
+        {
+            word: "stick",
+            pos: "Verb",
+            meaning: "লেগে থাকা; অবিচল থাকা",
+            ipa: "/stɪk/",
+            pronunciation: "স্টিক",
+            synonyms: "adhere, remain, persist, continue",
+            antonyms: "abandon, quit, leave, change"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "You study the function of the plant's metabolism and its ‘ability’ to ‘absorb’ ‘nutrients’ from the soil, write a book, and get a ‘doctorate’ in ‘agricultural’ science.",
+
+    meaning:
+    "তুমি উদ্ভিদের বিপাকক্রিয়ার কার্যকারিতা এবং মাটি থেকে পুষ্টি শোষণ করার ক্ষমতা নিয়ে পড়াশোনা করো, একটি বই লেখো এবং কৃষিবিজ্ঞানে ডক্টরেট অর্জন করো।",
+
+    vocabulary: [
+
+        {
+            word: "ability",
+            pos: "Noun",
+            meaning: "ক্ষমতা",
+            ipa: "/əˈbɪləti/",
+            pronunciation: "অ্যাবিলিটি",
+            synonyms: "capacity, capability, competence, skill",
+            antonyms: "inability, incapacity, weakness, incompetence"
+        },
+
+        {
+            word: "absorb",
+            pos: "Verb",
+            meaning: "শোষণ করা",
+            ipa: "/əbˈzɔːrb/",
+            pronunciation: "অ্যাবজর্ব",
+            synonyms: "soak up, take in, assimilate, ingest",
+            antonyms: "release, emit, expel, discharge"
+        },
+
+        {
+            word: "nutrients",
+            pos: "Noun",
+            meaning: "পুষ্টি উপাদান",
+            ipa: "/ˈnjuːtriənts/",
+            pronunciation: "নিউট্রিয়েন্টস",
+            synonyms: "nourishment, sustenance, nutrition, food elements",
+            antonyms: "toxins, poisons, contaminants, waste"
+        },
+
+        {
+            word: "doctorate",
+            pos: "Noun",
+            meaning: "ডক্টরেট ডিগ্রি",
+            ipa: "/ˈdɒktərət/",
+            pronunciation: "ডক্টরেট",
+            synonyms: "doctoral degree, PhD, advanced degree, qualification",
+            antonyms: "undergraduate degree, ignorance, illiteracy, disqualification"
+        },
+
+        {
+            word: "agricultural",
+            pos: "Adjective",
+            meaning: "কৃষি-সংক্রান্ত",
+            ipa: "/ˌæɡrɪˈkʌltʃərəl/",
+            pronunciation: "অ্যাগ্রিকালচারাল",
+            synonyms: "farming, agrarian, rural, cultivation-related",
+            antonyms: "industrial, urban, nonagricultural, commercial"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "But do not ask if your ‘theory’ of ‘assimilation’ is going to be ‘relevant’ to the ‘yield’.",
+
+    meaning:
+    "কিন্তু তোমার আত্তীকরণ তত্ত্ব ফলনের ক্ষেত্রে প্রাসঙ্গিক হবে কি না, তা জিজ্ঞেস করো না।",
+
+    vocabulary: [
+
+        {
+            word: "theory",
+            pos: "Noun",
+            meaning: "তত্ত্ব",
+            ipa: "/ˈθɪəri/",
+            pronunciation: "থিয়োরি",
+            synonyms: "hypothesis, concept, principle, explanation",
+            antonyms: "fact, practice, reality, certainty"
+        },
+
+        {
+            word: "assimilation",
+            pos: "Noun",
+            meaning: "আত্তীকরণ; শোষণ করে গ্রহণ",
+            ipa: "/əˌsɪməˈleɪʃən/",
+            pronunciation: "অ্যাসিমিলেশন",
+            synonyms: "absorption, incorporation, integration, adoption",
+            antonyms: "rejection, exclusion, separation, isolation"
+        },
+
+        {
+            word: "relevant",
+            pos: "Adjective",
+            meaning: "প্রাসঙ্গিক",
+            ipa: "/ˈreləvənt/",
+            pronunciation: "রেলেভ্যান্ট",
+            synonyms: "pertinent, related, applicable, appropriate",
+            antonyms: "irrelevant, unrelated, inappropriate, unsuitable"
+        },
+
+        {
+            word: "yield",
+            pos: "Noun",
+            meaning: "ফলন; উৎপাদন",
+            ipa: "/jiːld/",
+            pronunciation: "ইল্ড",
+            synonyms: "harvest, output, produce, return",
+            antonyms: "loss, failure, deficit, shortage"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "Even if you can ‘explain’ how metabolism ‘affects’ the ‘productivity’ of the top leaf when the ‘average’ ‘temperature’ is eighty-four degrees (Fahrenheit), there are places where the temperature is not eighty-four degrees.",
+
+    meaning:
+    "এমনকি যদি তুমি ব্যাখ্যা করতে পারো যে গড় তাপমাত্রা ৮৪ ডিগ্রি ফারেনহাইট হলে বিপাকক্রিয়া কীভাবে উপরের পাতার উৎপাদনশীলতাকে প্রভাবিত করে, তবুও এমন স্থান রয়েছে যেখানে তাপমাত্রা ৮৪ ডিগ্রি নয়।",
+
+    vocabulary: [
+
+        {
+            word: "explain",
+            pos: "Verb",
+            meaning: "ব্যাখ্যা করা",
+            ipa: "/ɪkˈspleɪn/",
+            pronunciation: "এক্সপ্লেইন",
+            synonyms: "clarify, describe, interpret, elucidate",
+            antonyms: "confuse, obscure, conceal, complicate"
+        },
+
+        {
+            word: "affects",
+            pos: "Verb",
+            meaning: "প্রভাবিত করে",
+            ipa: "/əˈfekts/",
+            pronunciation: "অ্যাফেক্টস",
+            synonyms: "influences, impacts, alters, modifies",
+            antonyms: "ignores, neglects, preserves, leaves unchanged"
+        },
+
+        {
+            word: "productivity",
+            pos: "Noun",
+            meaning: "উৎপাদনশীলতা",
+            ipa: "/ˌprɒdʌkˈtɪvəti/",
+            pronunciation: "প্রোডাক্টিভিটি",
+            synonyms: "efficiency, output, performance, yield",
+            antonyms: "inefficiency, inactivity, idleness, unproductivity"
+        },
+
+        {
+            word: "average",
+            pos: "Adjective",
+            meaning: "গড়",
+            ipa: "/ˈævərɪdʒ/",
+            pronunciation: "অ্যাভারেজ",
+            synonyms: "mean, normal, typical, ordinary",
+            antonyms: "exceptional, extreme, unusual, extraordinary"
+        },
+
+        {
+            word: "temperature",
+            pos: "Noun",
+            meaning: "তাপমাত্রা",
+            ipa: "/ˈtemprətʃər/",
+            pronunciation: "টেম্পারেচার",
+            synonyms: "heat, degree, warmth, climate",
+            antonyms: "coldness, chill, freezing, coolness"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "And if the temperature is eighty-four degrees in Ehime this year, next year it may only be seventy-five degrees.",
+
+    meaning:
+    "এবং যদি এ বছর এহিমেতে তাপমাত্রা ৮৪ ডিগ্রি হয়, তাহলে পরের বছর তা মাত্র ৭৫ ডিগ্রি হতে পারে।",
+
+    vocabulary: []
+},
+
+{
+    sentence:
+    "To say that simply ‘stepping up’ metabolism will ‘increase’ ‘starch’ ‘formation’ and ‘produce’ a large harvest is a mistake.",
+
+    meaning:
+    "শুধু বিপাকক্রিয়া বৃদ্ধি করলে শ্বেতসার গঠন বাড়বে এবং প্রচুর ফসল উৎপন্ন হবে—এমন কথা বলা ভুল।",
+
+    vocabulary: [
+
+        {
+            word: "stepping up",
+            pos: "Phrasal Verb",
+            meaning: "বৃদ্ধি করা; তীব্র করা",
+            ipa: "/ˈstepɪŋ ʌp/",
+            pronunciation: "স্টেপিং আপ",
+            synonyms: "increasing, intensifying, boosting, accelerating",
+            antonyms: "reducing, decreasing, slowing, weakening"
+        },
+
+        {
+            word: "increase",
+            pos: "Verb",
+            meaning: "বৃদ্ধি করা",
+            ipa: "/ɪnˈkriːs/",
+            pronunciation: "ইনক্রিস",
+            synonyms: "raise, grow, boost, enlarge",
+            antonyms: "decrease, reduce, lessen, diminish"
+        },
+
+        {
+            word: "starch",
+            pos: "Noun",
+            meaning: "শ্বেতসার",
+            ipa: "/stɑːrtʃ/",
+            pronunciation: "স্টার্চ",
+            synonyms: "carbohydrate, polysaccharide, food starch, carbohydrate reserve",
+            antonyms: "—"
+        },
+
+        {
+            word: "formation",
+            pos: "Noun",
+            meaning: "গঠন",
+            ipa: "/fɔːrˈmeɪʃən/",
+            pronunciation: "ফরমেশন",
+            synonyms: "creation, development, construction, establishment",
+            antonyms: "destruction, dissolution, breakdown, disintegration"
+        },
+
+        {
+            word: "produce",
+            pos: "Verb",
+            meaning: "উৎপাদন করা",
+            ipa: "/prəˈdjuːs/",
+            pronunciation: "প্রোডিউস",
+            synonyms: "make, create, generate, manufacture",
+            antonyms: "destroy, consume, eliminate, waste"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "The ‘geography’ and ‘topography’ of the land, the condition of the soil, its structure, ‘texture’, and ‘drainage’, ‘exposure’ to sunlight, insect relationships, the ‘variety’ of seed used, the method of ‘cultivation’ truly an infinite variety of factors-must all be considered.",
+
+    meaning:
+    "জমির ভূগোল ও ভূ-প্রকৃতি, মাটির অবস্থা, এর গঠন, বুনট ও নিষ্কাশনব্যবস্থা, সূর্যালোকের প্রতি উন্মুক্ততা, পোকামাকড়ের সঙ্গে সম্পর্ক, ব্যবহৃত বীজের বৈচিত্র্য এবং চাষাবাদের পদ্ধতি—সত্যিই অসংখ্য কারণ—সবই বিবেচনা করতে হবে।",
+
+    vocabulary: [
+
+        {
+            word: "geography",
+            pos: "Noun",
+            meaning: "ভূগোল",
+            ipa: "/dʒiˈɒɡrəfi/",
+            pronunciation: "জিওগ্রাফি",
+            synonyms: "landscape, terrain, physical features, earth science",
+            antonyms: "—"
+        },
+
+        {
+            word: "topography",
+            pos: "Noun",
+            meaning: "ভূ-প্রকৃতি",
+            ipa: "/təˈpɒɡrəfi/",
+            pronunciation: "টপোগ্রাফি",
+            synonyms: "terrain, landscape, relief, surface features",
+            antonyms: "—"
+        },
+
+        {
+            word: "texture",
+            pos: "Noun",
+            meaning: "বুনট; গঠন",
+            ipa: "/ˈtekstʃər/",
+            pronunciation: "টেক্সচার",
+            synonyms: "surface, consistency, feel, structure",
+            antonyms: "smoothness, uniformity, plainness, softness"
+        },
+
+        {
+            word: "drainage",
+            pos: "Noun",
+            meaning: "পানি নিষ্কাশন",
+            ipa: "/ˈdreɪnɪdʒ/",
+            pronunciation: "ড্রেইনেজ",
+            synonyms: "water removal, irrigation, runoff, discharge",
+            antonyms: "waterlogging, flooding, retention, stagnation"
+        },
+
+        {
+            word: "exposure",
+            pos: "Noun",
+            meaning: "উন্মুক্ততা; সংস্পর্শ",
+            ipa: "/ɪkˈspəʊʒər/",
+            pronunciation: "এক্সপোজার",
+            synonyms: "contact, openness, vulnerability, presentation",
+            antonyms: "protection, concealment, shelter, covering"
+        },
+
+        {
+            word: "variety",
+            pos: "Noun",
+            meaning: "বৈচিত্র্য; বিভিন্নতা",
+            ipa: "/vəˈraɪəti/",
+            pronunciation: "ভ্যারাইটি",
+            synonyms: "diversity, range, assortment, selection",
+            antonyms: "uniformity, sameness, similarity, consistency"
+        },
+
+        {
+            word: "cultivation",
+            pos: "Noun",
+            meaning: "চাষাবাদ",
+            ipa: "/ˌkʌltɪˈveɪʃən/",
+            pronunciation: "কালটিভেশন",
+            synonyms: "farming, agriculture, tillage, growing",
+            antonyms: "neglect, abandonment, wasteland, uncultivation"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "A scientific testing method which takes all ‘relevant’ factors into account is an ‘impossibility’.",
+
+    meaning:
+    "যে বৈজ্ঞানিক পরীক্ষার পদ্ধতি সব প্রাসঙ্গিক বিষয়কে বিবেচনায় নেয়, তা অসম্ভব।",
+
+    vocabulary: [
+
+        {
+            word: "relevant",
+            pos: "Adjective",
+            meaning: "প্রাসঙ্গিক",
+            ipa: "/ˈreləvənt/",
+            pronunciation: "রেলেভ্যান্ট",
+            synonyms: "pertinent, related, applicable, appropriate",
+            antonyms: "irrelevant, unrelated, inappropriate, unsuitable"
+        },
+
+        {
+            word: "impossibility",
+            pos: "Noun",
+            meaning: "অসম্ভবতা",
+            ipa: "/ɪmˌpɒsəˈbɪləti/",
+            pronunciation: "ইমপসিবিলিটি",
+            synonyms: "unfeasibility, impracticability, absurdity, impossibleness",
+            antonyms: "possibility, feasibility, practicality, likelihood"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "You hear a lot of talk these days about the ‘benefits’ of the 'Good Rice Movement' and the 'Green Revolution'.",
+
+    meaning:
+    "বর্তমানে 'Good Rice Movement' এবং 'Green Revolution'-এর সুবিধা সম্পর্কে অনেক কথা শোনা যায়।",
+
+    vocabulary: [
+
+        {
+            word: "benefits",
+            pos: "Noun",
+            meaning: "সুবিধাসমূহ; উপকারিতা",
+            ipa: "/ˈbenɪfɪts/",
+            pronunciation: "বেনিফিটস",
+            synonyms: "advantages, gains, profits, rewards",
+            antonyms: "disadvantages, harms, losses, drawbacks"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "Because these ‘methods’ ‘depend’ on ‘weak’, ‘improved’ seed varieties, it becomes ‘necessary’ for the farmer to apply ‘chemicals’ and ‘insecticides’ eight or ten times during the growing season.",
+
+    meaning:
+    "কারণ এসব পদ্ধতি দুর্বল কিন্তু উন্নত বীজের জাতের ওপর নির্ভরশীল, তাই কৃষকের জন্য ফসল উৎপাদনের মৌসুমে আট বা দশবার রাসায়নিক ও কীটনাশক প্রয়োগ করা প্রয়োজন হয়ে পড়ে।",
+
+    vocabulary: [
+
+        {
+            word: "methods",
+            pos: "Noun",
+            meaning: "পদ্ধতিসমূহ",
+            ipa: "/ˈmeθədz/",
+            pronunciation: "মেথডস",
+            synonyms: "ways, techniques, approaches, procedures",
+            antonyms: "disorder, randomness, chaos, confusion"
+        },
+
+        {
+            word: "depend",
+            pos: "Verb",
+            meaning: "নির্ভর করা",
+            ipa: "/dɪˈpend/",
+            pronunciation: "ডিপেন্ড",
+            synonyms: "rely, count on, trust, rest on",
+            antonyms: "independ, reject, distrust, disregard"
+        },
+
+        {
+            word: "weak",
+            pos: "Adjective",
+            meaning: "দুর্বল",
+            ipa: "/wiːk/",
+            pronunciation: "উইক",
+            synonyms: "feeble, frail, fragile, powerless",
+            antonyms: "strong, powerful, robust, sturdy"
+        },
+
+        {
+            word: "improved",
+            pos: "Adjective",
+            meaning: "উন্নত",
+            ipa: "/ɪmˈpruːvd/",
+            pronunciation: "ইমপ্রুভড",
+            synonyms: "enhanced, upgraded, advanced, developed",
+            antonyms: "worsened, degraded, damaged, deteriorated"
+        },
+
+        {
+            word: "necessary",
+            pos: "Adjective",
+            meaning: "প্রয়োজনীয়",
+            ipa: "/ˈnesəsəri/",
+            pronunciation: "নেসেসারি",
+            synonyms: "essential, required, vital, indispensable",
+            antonyms: "unnecessary, optional, needless, avoidable"
+        },
+
+        {
+            word: "chemicals",
+            pos: "Noun",
+            meaning: "রাসায়নিক পদার্থ",
+            ipa: "/ˈkemɪkəlz/",
+            pronunciation: "কেমিক্যালস",
+            synonyms: "substances, compounds, reagents, materials",
+            antonyms: "natural substances, organics, natural materials, matter"
+        },
+
+        {
+            word: "insecticides",
+            pos: "Noun",
+            meaning: "কীটনাশক",
+            ipa: "/ɪnˈsektɪsaɪdz/",
+            pronunciation: "ইনসেক্টিসাইডস",
+            synonyms: "pesticides, bug killers, pest controls, insect killers",
+            antonyms: "fertilizers, nutrients, beneficial organisms, natural controls"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "In a short time the soil is ‘burned’ clean of microorganisms and organic ‘matter’.",
+
+    meaning:
+    "অল্প সময়ের মধ্যে মাটি অণুজীব ও জৈব পদার্থ থেকে সম্পূর্ণরূপে নিঃশেষ হয়ে যায়।",
+
+    vocabulary: [
+
+        {
+            word: "burned",
+            pos: "Verb",
+            meaning: "পুড়ে যাওয়া; ধ্বংস হয়ে যাওয়া",
+            ipa: "/bɜːrnd/",
+            pronunciation: "বার্নড",
+            synonyms: "scorched, consumed, destroyed, charred",
+            antonyms: "protected, preserved, restored, nourished"
+        },
+
+        {
+            word: "matter",
+            pos: "Noun",
+            meaning: "পদার্থ",
+            ipa: "/ˈmætər/",
+            pronunciation: "ম্যাটার",
+            synonyms: "substance, material, materiality, content",
+            antonyms: "nothingness, emptiness, void, nonexistence"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "The life of the soil is ‘destroyed’ and ‘crops’ come to be ‘dependent’ on ‘nutrients’ added from the outside in the form of chemical fertilizer.",
+
+    meaning:
+    "মাটির প্রাণশক্তি ধ্বংস হয়ে যায় এবং ফসল রাসায়নিক সারের মাধ্যমে বাইরে থেকে যোগ করা পুষ্টি উপাদানের ওপর নির্ভরশীল হয়ে পড়ে।",
+
+    vocabulary: [
+
+        {
+            word: "destroyed",
+            pos: "Verb",
+            meaning: "ধ্বংস হয়েছে",
+            ipa: "/dɪˈstrɔɪd/",
+            pronunciation: "ডিস্ট্রয়েড",
+            synonyms: "ruined, demolished, devastated, eliminated",
+            antonyms: "created, built, preserved, restored"
+        },
+
+        {
+            word: "crops",
+            pos: "Noun",
+            meaning: "ফসলসমূহ",
+            ipa: "/krɒps/",
+            pronunciation: "ক্রপস",
+            synonyms: "plants, produce, harvest, yield",
+            antonyms: "weeds, waste, barren land, failure"
+        },
+
+        {
+            word: "dependent",
+            pos: "Adjective",
+            meaning: "নির্ভরশীল",
+            ipa: "/dɪˈpendənt/",
+            pronunciation: "ডিপেন্ডেন্ট",
+            synonyms: "reliant, subordinate, conditional, needy",
+            antonyms: "independent, self-reliant, autonomous, free"
+        },
+
+        {
+            word: "nutrients",
+            pos: "Noun",
+            meaning: "পুষ্টি উপাদান",
+            ipa: "/ˈnjuːtriənts/",
+            pronunciation: "নিউট্রিয়েন্টস",
+            synonyms: "nourishment, sustenance, nutrition, food elements",
+            antonyms: "toxins, poisons, contaminants, waste"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "It ‘appears’ that things go better when the farmer ‘applies’ \"scientific\" techniques, but this does not ‘mean’ that science must come to the ‘rescue’ because the natural ‘fertility’ is ‘inherently’ ‘insufficient’.",
+
+    meaning:
+    "দেখে মনে হয় যে কৃষক যখন বৈজ্ঞানিক কৌশল প্রয়োগ করেন তখন বিষয়গুলো ভালোভাবে চলে, কিন্তু এর অর্থ এই নয় যে প্রাকৃতিক উর্বরতা স্বভাবতই অপর্যাপ্ত হওয়ায় বিজ্ঞানের সাহায্যে এগিয়ে আসতে হবে।",
+
+    vocabulary: [
+
+        {
+            word: "appears",
+            pos: "Verb",
+            meaning: "মনে হয়; প্রতীয়মান হয়",
+            ipa: "/əˈpɪrz/",
+            pronunciation: "অ্যাপিয়ার্স",
+            synonyms: "seems, looks, emerges, manifests",
+            antonyms: "disappears, vanishes, hides, conceals"
+        },
+
+        {
+            word: "applies",
+            pos: "Verb",
+            meaning: "প্রয়োগ করে",
+            ipa: "/əˈplaɪz/",
+            pronunciation: "অ্যাপ্লাইজ",
+            synonyms: "uses, employs, implements, utilizes",
+            antonyms: "ignores, avoids, rejects, abandons"
+        },
+
+        {
+            word: "mean",
+            pos: "Verb",
+            meaning: "বোঝানো",
+            ipa: "/miːn/",
+            pronunciation: "মিন",
+            synonyms: "signify, indicate, imply, denote",
+            antonyms: "conceal, hide, contradict, obscure"
+        },
+
+        {
+            word: "rescue",
+            pos: "Noun",
+            meaning: "উদ্ধার; সাহায্য",
+            ipa: "/ˈreskjuː/",
+            pronunciation: "রেস্কিউ",
+            synonyms: "aid, salvation, recovery, assistance",
+            antonyms: "abandonment, neglect, danger, loss"
+        },
+
+        {
+            word: "fertility",
+            pos: "Noun",
+            meaning: "উর্বরতা",
+            ipa: "/fərˈtɪləti/",
+            pronunciation: "ফার্টিলিটি",
+            synonyms: "productiveness, richness, fecundity, productivity",
+            antonyms: "infertility, barrenness, sterility, unproductiveness"
+        },
+
+        {
+            word: "inherently",
+            pos: "Adverb",
+            meaning: "স্বভাবতই; সহজাতভাবে",
+            ipa: "/ɪnˈherəntli/",
+            pronunciation: "ইনহেরেন্টলি",
+            synonyms: "intrinsically, naturally, essentially, innately",
+            antonyms: "artificially, externally, superficially, accidentally"
+        },
+
+        {
+            word: "insufficient",
+            pos: "Adjective",
+            meaning: "অপর্যাপ্ত",
+            ipa: "/ˌɪnsəˈfɪʃənt/",
+            pronunciation: "ইনসাফিশেন্ট",
+            synonyms: "inadequate, deficient, lacking, scarce",
+            antonyms: "sufficient, adequate, enough, ample"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "It means that rescue is necessary because the natural fertility has been ‘destroyed’.",
+
+    meaning:
+    "এর অর্থ হলো প্রাকৃতিক উর্বরতা ধ্বংস হয়ে যাওয়ার কারণে উদ্ধার বা সাহায্য প্রয়োজন।",
+
+    vocabulary: [
+
+        {
+            word: "destroyed",
+            pos: "Verb",
+            meaning: "ধ্বংস হয়েছে",
+            ipa: "/dɪˈstrɔɪd/",
+            pronunciation: "ডিস্ট্রয়েড",
+            synonyms: "ruined, demolished, devastated, eliminated",
+            antonyms: "created, built, preserved, restored"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "By ‘spreading’ ‘straw’, ‘growing’ ‘clover’, and returning to the soil all ‘organic’ ‘residues’, the earth comes to ‘possess’ all the ‘nutrients’ needed to grow rice and winter ‘grain’ in the same field year after year.",
+
+    meaning:
+    "খড় ছড়িয়ে, ক্লোভার চাষ করে এবং সব জৈব অবশিষ্টাংশ মাটিতে ফিরিয়ে দিয়ে, পৃথিবী একই জমিতে বছরের পর বছর ধান ও শীতকালীন শস্য উৎপাদনের জন্য প্রয়োজনীয় সব পুষ্টি উপাদানের অধিকারী হয়ে ওঠে।",
+
+    vocabulary: [
+
+        {
+            word: "spreading",
+            pos: "Verb",
+            meaning: "ছড়িয়ে দেওয়া",
+            ipa: "/ˈspredɪŋ/",
+            pronunciation: "স্প্রেডিং",
+            synonyms: "scattering, distributing, extending, dispersing",
+            antonyms: "gathering, collecting, concentrating, narrowing"
+        },
+
+        {
+            word: "straw",
+            pos: "Noun",
+            meaning: "খড়",
+            ipa: "/strɔː/",
+            pronunciation: "স্ট্র",
+            synonyms: "hay, stalks, dry grass, chaff",
+            antonyms: "—"
+        },
+
+        {
+            word: "growing",
+            pos: "Verb",
+            meaning: "চাষ করা; বৃদ্ধি করা",
+            ipa: "/ˈɡrəʊɪŋ/",
+            pronunciation: "গ্রোইং",
+            synonyms: "cultivating, raising, producing, developing",
+            antonyms: "destroying, uprooting, reducing, killing"
+        },
+
+        {
+            word: "clover",
+            pos: "Noun",
+            meaning: "ক্লোভার গাছ",
+            ipa: "/ˈkləʊvər/",
+            pronunciation: "ক্লোভার",
+            synonyms: "legume, forage plant, pasture plant, fodder plant",
+            antonyms: "—"
+        },
+
+        {
+            word: "organic",
+            pos: "Adjective",
+            meaning: "জৈব",
+            ipa: "/ɔːrˈɡænɪk/",
+            pronunciation: "অর্গ্যানিক",
+            synonyms: "natural, biological, living, carbon-based",
+            antonyms: "inorganic, synthetic, artificial, chemical"
+        },
+
+        {
+            word: "residues",
+            pos: "Noun",
+            meaning: "অবশিষ্টাংশ",
+            ipa: "/ˈrezɪduːz/",
+            pronunciation: "রেজিডিউজ",
+            synonyms: "remains, remnants, leftovers, traces",
+            antonyms: "whole, entirety, complete amount, total"
+        },
+
+        {
+            word: "possess",
+            pos: "Verb",
+            meaning: "অধিকারী হওয়া",
+            ipa: "/pəˈzes/",
+            pronunciation: "পজেস",
+            synonyms: "have, own, hold, contain",
+            antonyms: "lack, lose, surrender, relinquish"
+        },
+
+        {
+            word: "nutrients",
+            pos: "Noun",
+            meaning: "পুষ্টি উপাদান",
+            ipa: "/ˈnjuːtriənts/",
+            pronunciation: "নিউট্রিয়েন্টস",
+            synonyms: "nourishment, sustenance, nutrition, food elements",
+            antonyms: "toxins, poisons, contaminants, waste"
+        },
+
+        {
+            word: "grain",
+            pos: "Noun",
+            meaning: "শস্য",
+            ipa: "/ɡreɪn/",
+            pronunciation: "গ্রেইন",
+            synonyms: "cereal, seed, crop, kernel",
+            antonyms: "—"
+        }
+
+    ]
+},
+
+{
+    sentence:
+    "By ‘natural’ farming, fields that have already been ‘damaged’ by ‘cultivation’ or the use of agricultural chemicals can be ‘effectively’ ‘rehabilitated’.",
+
+    meaning:
+    "প্রাকৃতিক কৃষিকাজের মাধ্যমে চাষাবাদ বা কৃষি রাসায়নিক ব্যবহারের কারণে ইতোমধ্যে ক্ষতিগ্রস্ত জমিগুলো কার্যকরভাবে পুনরুদ্ধার করা যেতে পারে।",
+
+    vocabulary: [
+
+        {
+            word: "natural",
+            pos: "Adjective",
+            meaning: "প্রাকৃতিক",
+            ipa: "/ˈnætʃərəl/",
+            pronunciation: "ন্যাচারাল",
+            synonyms: "organic, native, genuine, environmental",
+            antonyms: "artificial, synthetic, unnatural, man-made"
+        },
+
+        {
+            word: "damaged",
+            pos: "Verb",
+            meaning: "ক্ষতিগ্রস্ত করা হয়েছে",
+            ipa: "/ˈdæmɪdʒd/",
+            pronunciation: "ড্যামেজড",
+            synonyms: "harmed, injured, impaired, spoiled",
+            antonyms: "repaired, restored, protected, preserved"
+        },
+
+        {
+            word: "cultivation",
+            pos: "Noun",
+            meaning: "চাষাবাদ",
+            ipa: "/ˌkʌltɪˈveɪʃən/",
+            pronunciation: "কালটিভেশন",
+            synonyms: "farming, agriculture, tillage, growing",
+            antonyms: "neglect, abandonment, uncultivation, wasteland"
+        },
+
+        {
+            word: "effectively",
+            pos: "Adverb",
+            meaning: "কার্যকরভাবে",
+            ipa: "/ɪˈfektɪvli/",
+            pronunciation: "ইফেক্টিভলি",
+            synonyms: "successfully, efficiently, productively, adequately",
+            antonyms: "ineffectively, unsuccessfully, inefficiently, inadequately"
+        },
+
+        {
+            word: "rehabilitated",
+            pos: "Verb",
+            meaning: "পুনরুদ্ধার করা হয়েছে",
+            ipa: "/ˌriːhəˈbɪləteɪtɪd/",
+            pronunciation: "রিহ্যাবিলিটেটেড",
+            synonyms: "restored, renewed, repaired, recovered",
+            antonyms: "damaged, ruined, destroyed, degraded"
+        }
+
+    ]
+}
+
+];
+
+
+/* =========================================================
+   ⭐⭐⭐⭐⭐ END OF EDITABLE CONTENT ⭐⭐⭐⭐⭐
+   
+   এখান থেকে নিচের code সাধারণত edit করবে না।
+========================================================= */
+
+
+/* =========================================================
+   GET ELEMENTS
+========================================================= */
+
+const passageContainer =
+    document.getElementById("passage");
+
+
+const vocabularyContainer =
+    document.getElementById("vocabulary");
+
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(text) {
+
+    return String(text)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+}
+
+
+
+/* =========================================================
+   SPLIT FULL PASSAGE INTO SENTENCES
+========================================================= */
+
+function splitIntoSentences(text) {
+
+    const lines = text
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(line => line.length > 0);
+
+    const cleanLines = lines.filter(line => {
+
+        if (/^\d+\s+.+,\s*Born\s+\d{4}$/i.test(line)) {
+            return false;
+        }
+
+        if (/^Ash Sheikh Radwan$/i.test(line)) {
+            return false;
+        }
+
+        return true;
+    });
+
+    const sentences = [];
+
+    cleanLines.forEach(line => {
+
+        const parts = line
+            .split(/(?<=[.!?])\s+(?=[A-Z“"‘'])/)
+            .map(sentence => sentence.trim())
+            .filter(sentence => sentence.length > 0);
+
+        parts.forEach(sentence => {
+            sentences.push(sentence);
+        });
+
+    });
+
+    return sentences;
+}
+
+
+/* =========================================================
+   SENTENCE TEXT MATCHING
+   ---------------------------------------------------------
+   Passage-এর sentence number এবং
+   vocabulary entry number একই হওয়া আর
+   বাধ্যতামূলক নয়।
+========================================================= */
+
+function normalizeSentenceForMatching(text) {
+
+    return String(text || "")
+        .toLowerCase()
+        .replace(/^\s*\d+\)\s*/g, "")
+        .replace(/[^a-z0-9\u0980-\u09ff]+/g, "")
+        .trim();
+
+}
+
+
+function buildVocabularyMatches(sentences) {
+
+    const usedPassageIndexes = new Set();
+
+    return vocabularyData.map(
+        (data, vocabularyIndex) => {
+
+            const target =
+                normalizeSentenceForMatching(
+                    data.sentence
+                );
+
+            let passageIndex = -1;
+
+            for (
+                let i = 0;
+                i < sentences.length;
+                i++
+            ) {
+
+                if (usedPassageIndexes.has(i)) {
+                    continue;
+                }
+
+                if (
+                    normalizeSentenceForMatching(
+                        sentences[i]
+                    ) === target
+                ) {
+
+                    passageIndex = i;
+                    usedPassageIndexes.add(i);
+                    break;
+
+                }
+
+            }
+
+            return {
+                data,
+                vocabularyIndex,
+                passageIndex
+            };
+
+        }
+    );
+
+}
+
+
+function buildPassageVocabularyMap(
+    vocabularyMatches
+) {
+
+    const map = new Map();
+
+    vocabularyMatches.forEach(match => {
+
+        if (match.passageIndex >= 0) {
+            map.set(
+                match.passageIndex,
+                match
+            );
+        }
+
+    });
+
+    return map;
+}
+
+
+/* =========================================================
+   CREATE IDS
+========================================================= */
+
+function sentenceID(index) {
+    return "passage-sentence-" + index;
+}
+
+
+function vocabularyID(index) {
+    return "vocabulary-sentence-" + index;
+}
+
+
+function wordID(sentenceIndex, wordIndex) {
+
+    return (
+        "passage-word-" +
+        sentenceIndex +
+        "-" +
+        wordIndex
+    );
+
+}
+
+
+/* =========================================================
+   MARK VOCABULARY WORDS
+========================================================= */
+
+function markVocabularyWords(
+    sentence,
+    vocabulary,
+    passageIndex
+) {
+
+    let result = escapeHTML(sentence);
+
+    vocabulary.forEach(
+        (item, wordIndex) => {
+
+            const word =
+                escapeHTML(item.word);
+
+            const safeWord =
+                word.replace(
+                    /[.*+?^${}()|[\]\\]/g,
+                    "\\$&"
+                );
+
+            const regex =
+                new RegExp(
+                    "(?<![A-Za-z])" +
+                    safeWord +
+                    "(?![A-Za-z])",
+                    "gi"
+                );
+
+            result =
+                result.replace(
+                    regex,
+
+                    `<span
+                        id="${wordID(passageIndex, wordIndex)}"
+                        class="marked-word"
+                        onclick="goToVocabularyWord(${passageIndex}, ${wordIndex})"
+                    >$&</span>`
+                );
+
+        }
+    );
+
+    return result;
+}
+
+
+/* =========================================================
+   CREATE PASSAGE
+========================================================= */
+
+function createPassage(
+    sentences,
+    passageVocabularyMap
+) {
+
+    passageContainer.innerHTML = "";
+
+    sentences.forEach(
+        (sentence, passageIndex) => {
+
+            const match =
+                passageVocabularyMap.get(
+                    passageIndex
+                );
+
+            const data =
+                match
+                    ? match.data
+                    : null;
+
+            const vocabulary =
+                data
+                    ? data.vocabulary
+                    : [];
+
+
+            const sentenceDiv =
+                document.createElement("div");
+
+            sentenceDiv.className =
+                "passage-sentence";
+
+            sentenceDiv.id =
+                sentenceID(passageIndex);
+
+
+            const sentenceHTML =
+                markVocabularyWords(
+                    sentence,
+                    vocabulary,
+                    passageIndex
+                );
+
+
+            let actions = "";
+
+
+            if (data) {
+
+                actions +=
+                    `
+                    <a
+                        href="#${vocabularyID(passageIndex)}"
+                        class="action-button see-full"
+                        onclick="highlightVocabularySentence(${passageIndex})"
+                    >
+                        SEE FULL
+                    </a>
+                    `;
+
+            }
+
+
+            actions +=
+                `
+                <button
+                    class="action-button pronounce"
+                    onclick="pronounceSentence(${passageIndex})"
+                >
+                    🔊 PRONOUNCE
+                </button>
+                `;
+
+
+            sentenceDiv.innerHTML =
+                sentenceHTML +
+                actions;
+
+            passageContainer.appendChild(
+                sentenceDiv
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CREATE VOCABULARY
+   ---------------------------------------------------------
+   Vocabulary entry নিজেই তার English sentence
+   দিয়ে Passage-এর matching sentence খুঁজে নেয়।
+========================================================= */
+
+function createVocabulary(
+    vocabularyMatches
+) {
+
+    vocabularyContainer.innerHTML = "";
+
+    vocabularyMatches.forEach(
+        match => {
+
+            const data =
+                match.data;
+
+            const passageIndex =
+                match.passageIndex;
+
+            const vocabularyIndex =
+                match.vocabularyIndex;
+
+
+            const box =
+                document.createElement("div");
+
+            box.className =
+                "vocab-sentence";
+
+
+            if (passageIndex >= 0) {
+
+                box.id =
+                    vocabularyID(
+                        passageIndex
+                    );
+
+            } else {
+
+                box.id =
+                    "vocabulary-unmatched-" +
+                    vocabularyIndex;
+
+            }
+
+
+            let html =
+                `
+                <div class="vocab-english">
+
+                    ${escapeHTML(
+                        data.sentence
+                    )}
+
+                    ${
+                        passageIndex >= 0
+                            ?
+                            `
+                            <a
+                                class="sentence-back-button"
+                                onclick="goToPassageSentence(${passageIndex})"
+                            >
+                                ↩ BACK TO PASSAGE
+                            </a>
+                            `
+                            :
+                            `
+                            <span
+                                class="sentence-back-button"
+                                style="opacity:.55;cursor:default;"
+                            >
+                                ⚠ PASSAGE SENTENCE NOT FOUND
+                            </span>
+                            `
+                    }
+
+                </div>
+
+
+                <div class="bangla-meaning">
+
+                    ${escapeHTML(
+                        data.meaning
+                    )}
+
+                    ${
+                        passageIndex >= 0
+                            ?
+                            `
+                            <a
+                                class="sentence-back-button"
+                                onclick="goToPassageSentence(${passageIndex})"
+                            >
+                                ↩ BACK TO PASSAGE
+                            </a>
+                            `
+                            :
+                            ``
+                    }
+
+                </div>
+                `;
+
+
+            data.vocabulary.forEach(
+                (item, wordIndex) => {
+
+                    const cardID =
+                        passageIndex >= 0
+                            ?
+                            "vocab-word-" +
+                            passageIndex +
+                            "-" +
+                            wordIndex
+                            :
+                            "vocab-word-unmatched-" +
+                            vocabularyIndex +
+                            "-" +
+                            wordIndex;
+
+
+                    html +=
+                        `
+                        <div
+                            class="word-card"
+                            id="${cardID}"
+                        >
+
+                            <div class="word-title">
+                                ${escapeHTML(
+                                    item.word
+                                )}
+                            </div>
+
+
+                            <div class="word-details">
+
+                                <b>
+                                    Part of Speech:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.pos
+                                )}
+
+                                <br>
+
+                                <b>
+                                    Bangla Meaning:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.meaning
+                                )}
+
+                                <br>
+
+                                <b>
+                                    IPA:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.ipa
+                                )}
+
+                                <br>
+
+                                <b>
+                                    Pronunciation:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.pronunciation
+                                )}
+
+                                <br>
+
+                                <b>
+                                    Synonyms:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.synonyms
+                                )}
+
+                                <br>
+
+                                <b>
+                                    Antonyms:
+                                </b>
+
+                                ${escapeHTML(
+                                    item.antonyms
+                                )}
+
+                                <br>
+
+                                ${
+                                    passageIndex >= 0
+                                        ?
+                                        `
+                                        <a
+                                            class="back-to-passage"
+                                            onclick="
+                                                goToPassageWord(
+                                                    ${passageIndex},
+                                                    ${wordIndex}
+                                                )
+                                            "
+                                        >
+                                            ↩ BACK TO PASSAGE
+                                        </a>
+                                        `
+                                        :
+                                        ``
+                                }
+
+                            </div>
+
+                        </div>
+                        `;
+
+                }
+            );
+
+
+            box.innerHTML =
+                html;
+
+            vocabularyContainer.appendChild(
+                box
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   HIGHLIGHT VOCABULARY SENTENCE
+========================================================= */
+
+function highlightVocabularySentence(
+    sentenceIndex
+) {
+
+    const target =
+        document.getElementById(
+            vocabularyID(sentenceIndex)
+        );
+
+
+    if (!target) {
+
+        return;
+
+    }
+
+
+    setTimeout(() => {
+
+        target.classList.add(
+            "active-sentence"
+        );
+
+
+        setTimeout(() => {
+
+            target.classList.remove(
+                "active-sentence"
+            );
+
+        }, 2200);
+
+    }, 250);
+
+}
+
+/* =========================================================
+   GO TO VOCABULARY SENTENCE — INSTANT
+========================================================= */
+
+function goToVocabularySentence(sentenceIndex) {
+
+    const target =
+        document.getElementById(
+            vocabularyID(sentenceIndex)
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling সম্পূর্ণ বন্ধ।
+       এক লাফে destination-এ যাবে।
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center"
+    });
+
+    target.classList.add("active-sentence");
+
+    setTimeout(() => {
+
+        target.classList.remove("active-sentence");
+
+    }, 2200);
+}
+
+
+/* =========================================================
+   GO TO VOCABULARY WORD — INSTANT
+========================================================= */
+
+function goToVocabularyWord(
+    sentenceIndex,
+    wordIndex
+) {
+
+    const target =
+        document.getElementById(
+            "vocab-word-" +
+            sentenceIndex +
+            "-" +
+            wordIndex
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling বন্ধ
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+
+    /*
+       ⭐ মূল correction ⭐
+
+       আগে এখানে পুরো vocabulary sentence
+       scroll করা হচ্ছিল।
+
+       এখন সরাসরি clicked vocabulary
+       WORD CARD-কে screen-এর মাঝখানে
+       আনা হবে।
+    */
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "nearest"
+    });
+
+
+    /*
+       Exact vocabulary word highlight
+    */
+
+    const wordTitle =
+        target.querySelector(".word-title");
+
+
+    if (wordTitle) {
+
+        wordTitle.classList.add(
+            "active-word"
+        );
+
+    }
+
+
+    /*
+       2.5 seconds পরে highlight remove
+    */
+
+    setTimeout(() => {
+
+        if (wordTitle) {
+
+            wordTitle.classList.remove(
+                "active-word"
+            );
+
+        }
+
+    }, 2500);
+
+}
+
+/* =========================================================
+   GO TO PASSAGE SENTENCE — INSTANT
+========================================================= */
+
+function goToPassageSentence(sentenceIndex) {
+
+    const target =
+        document.getElementById(
+            sentenceID(sentenceIndex)
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling সম্পূর্ণ বন্ধ।
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center"
+    });
+
+    target.classList.add("active-sentence");
+
+    setTimeout(() => {
+
+        target.classList.remove("active-sentence");
+
+    }, 2200);
+}
+
+
+/* =========================================================
+   GO TO EXACT PASSAGE WORD — INSTANT
+========================================================= */
+
+function goToPassageWord(
+    sentenceIndex,
+    wordIndex
+) {
+
+    const target =
+        document.getElementById(
+            wordID(
+                sentenceIndex,
+                wordIndex
+            )
+        );
+
+    if (!target) {
+        return;
+    }
+
+
+    /*
+       Smooth scrolling বন্ধ
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+
+    /*
+       ⭐ সরাসরি নির্দিষ্ট marked word-কে
+       screen-এর মাঝখানে আনা হবে
+    */
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "nearest"
+    });
+
+
+    /*
+       Exact passage word highlight
+    */
+
+    target.classList.add(
+        "active-word"
+    );
+
+
+    /*
+       2.5 seconds পরে highlight remove
+    */
+
+    setTimeout(() => {
+
+        target.classList.remove(
+            "active-word"
+        );
+
+    }, 2500);
+
+}
+
+/* =========================================================
+   PRONUNCIATION
+========================================================= */
+
+function pronounceSentence(index) {
+
+    const sentences =
+        splitIntoSentences(
+            passageText
+        );
+
+
+    const text =
+        sentences[index];
+
+
+    if (
+        !("speechSynthesis" in window)
+    ) {
+
+        alert(
+            "Your browser does not support speech pronunciation."
+        );
+
+        return;
+
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+        new SpeechSynthesisUtterance(
+            text
+        );
+
+
+    speech.lang = "en-US";
+
+    speech.rate = 0.85;
+
+    speech.pitch = 1;
+
+
+    window.speechSynthesis.speak(
+        speech
+    );
+
+}
+
+
+
+/* =========================================================
+   DATA CHECK
+========================================================= */
+
+function checkData(
+    sentences,
+    vocabularyMatches
+) {
+
+    const unmatched =
+        vocabularyMatches.filter(
+            match =>
+                match.passageIndex < 0
+        );
+
+    if (unmatched.length > 0) {
+
+        const warning =
+            document.createElement("div");
+
+        warning.className =
+            "data-warning";
+
+        warning.innerHTML =
+            `
+            <b>Content warning:</b>
+            ${unmatched.length}
+            টি vocabulary sentence Passage-এ
+            খুঁজে পাওয়া যায়নি।
+            <br><br>
+            উপরের Vocabulary entry-গুলোর
+            <b>sentence</b> text Passage-এর
+            sentence-এর সঙ্গে মিলিয়ে দিন।
+            `;
+
+        document.body.insertBefore(
+            warning,
+            document.getElementById("passage")
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+const sentences =
+    splitIntoSentences(
+        passageText
+    );
+
+
+const vocabularyMatches =
+    buildVocabularyMatches(
+        sentences
+    );
+
+
+const passageVocabularyMap =
+    buildPassageVocabularyMap(
+        vocabularyMatches
+    );
+
+
+checkData(
+    sentences,
+    vocabularyMatches
+);
+
+
+createPassage(
+    sentences,
+    passageVocabularyMap
+);
+
+
+createVocabulary(
+    vocabularyMatches
+);
+
+</script>
+
+
+</body>
+</html>
