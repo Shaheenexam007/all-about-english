@@ -1,0 +1,3612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>All About English</title>
+
+
+<!-- =========================================================
+     FONTS
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef4f8,
+            #f8f5fb
+        );
+
+    color: #17202a;
+
+    font-family: "Montserrat", sans-serif;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SECTION 1
+   TOP HEADER
+========================================================= */
+
+.top-box {
+
+    width: 100%;
+
+    padding: 38px 20px 34px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071e3d 0%,
+            #0b3d5c 35%,
+            #146c78 65%,
+            #0a2a43 100%
+        );
+
+    border-radius: 0 0 24px 24px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.18);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.top-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    top: -120px;
+    left: -80px;
+
+    background:
+        rgba(70,220,255,0.18);
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+
+.top-box::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    right: -80px;
+    bottom: -110px;
+
+    background:
+        rgba(190,80,255,0.18);
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+
+.site-title {
+
+    margin: 0 0 8px;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(30px, 6vw, 52px);
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,0.35),
+        0 0 18px rgba(100,220,255,0.25);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.author-name {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size:
+        clamp(17px, 3.5vw, 23px);
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    letter-spacing: 1.5px;
+
+    color: #d9f8ff;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.teacher-info {
+
+    max-width: 900px;
+
+    margin: 4px auto;
+
+    font-size:
+        clamp(13px, 2.5vw, 16px);
+
+    line-height: 1.7;
+
+    font-weight: 500;
+
+    color: #f4fcff;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.contact-info {
+
+    margin-top: 10px;
+
+    font-size:
+        clamp(13px, 2.5vw, 16px);
+
+    font-weight: 600;
+
+    color: white;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.facebook-link {
+
+    display: inline-block;
+
+    margin-top: 8px;
+
+    padding: 8px 16px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    border:
+        1px solid rgba(255,255,255,0.22);
+
+    color: #dff9ff;
+
+    text-decoration: none;
+
+    font-size:
+        clamp(12px, 2.4vw, 15px);
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.facebook-link:hover {
+
+    background:
+        rgba(255,255,255,0.23);
+
+    color: white;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.20);
+}
+
+
+/* =========================================================
+   SECTION 2
+   PASSAGE HEADING
+========================================================= */
+
+.passage-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 30px auto 12px;
+
+    padding: 15px 20px;
+
+    text-align: center;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(25px, 5vw, 38px);
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #183b56,
+            #287c8e,
+            #633b78
+        );
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,0.18);
+}
+
+
+/* =========================================================
+   UNIT / LESSON
+========================================================= */
+
+.lesson-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 18px;
+
+    padding: 17px 20px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #633b78,
+            #365c9b
+        );
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.15);
+}
+
+
+.lesson-heading .unit {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+
+.lesson-heading .lesson {
+
+    margin-top: 5px;
+
+    font-size:
+        clamp(17px, 3vw, 24px);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PASSAGE CONTAINER
+========================================================= */
+
+#passage {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 45px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.10);
+}
+
+
+/* =========================================================
+   EACH PASSAGE SENTENCE
+========================================================= */
+
+.passage-sentence {
+
+    padding: 13px 12px;
+
+    margin-bottom: 6px;
+
+    border-radius: 10px;
+
+    line-height: 2;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Sentence highlight */
+
+.passage-sentence.active-sentence {
+
+    background: #fff3a8;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.35);
+}
+
+
+/* =========================================================
+   MARKED VOCABULARY WORD
+========================================================= */
+
+.marked-word {
+
+    color: #b21f4b;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    padding: 2px 5px;
+
+    border-radius: 5px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.marked-word:hover {
+
+    background: #ffe16b;
+
+    color: #6b1740;
+}
+
+
+.marked-word.active-word {
+
+    background: #ffcc33;
+
+    color: #5a3100;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.40);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.action-button {
+
+    display: inline-block;
+
+    margin-left: 8px;
+
+    margin-top: 4px;
+
+    padding: 4px 9px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: 0.25s ease;
+}
+
+
+.see-full {
+
+    background: #315c9b;
+
+    color: white;
+}
+
+
+.see-full:hover {
+
+    background: #1d3d70;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.pronounce {
+
+    background: #27856f;
+
+    color: white;
+}
+
+
+.pronounce:hover {
+
+    background: #17614f;
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   SECTION 3
+   VOCABULARY HEADING
+========================================================= */
+
+.vocabulary-heading {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 20px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(23px, 4vw, 32px);
+
+    font-weight: 700;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b3d67,
+            #405fa3
+        );
+
+    border-radius: 17px;
+}
+
+
+/* =========================================================
+   VOCABULARY SENTENCE BOX
+========================================================= */
+
+.vocab-sentence {
+
+    width: min(94%, 1050px);
+
+    margin: 0 auto 25px;
+
+    padding: 22px;
+
+    background: white;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.09);
+
+    transition: 0.3s ease;
+}
+
+
+.vocab-sentence.active-sentence {
+
+    background: #fff9d9;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.35);
+}
+
+
+/* =========================================================
+   VOCABULARY ENGLISH SENTENCE
+========================================================= */
+
+.vocab-english {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.8;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   BANGLA MEANING
+========================================================= */
+
+.bangla-meaning {
+
+    font-family:
+        "Noto Sans Bengali",
+        sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    padding: 12px;
+
+    margin: 0 0 18px;
+
+    border-left:
+        4px solid #6c63a8;
+
+    background: #f4f1fa;
+
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   BACK TO PASSAGE
+   FOR SENTENCE + MEANING
+========================================================= */
+
+.sentence-back-button {
+
+    display: inline-block;
+
+    margin-left: 7px;
+
+    padding: 4px 9px;
+
+    border-radius: 7px;
+
+    background: #e7eefb;
+
+    color: #315c9b;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.sentence-back-button:hover {
+
+    background: #315c9b;
+
+    color: white;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 3px 10px rgba(49,92,155,0.25);
+}
+
+
+/* =========================================================
+   WORD CARD
+========================================================= */
+
+.word-card {
+
+    margin-top: 14px;
+
+    padding: 16px;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fbff,
+            #f2f4fb
+        );
+
+    border:
+        1px solid #dce3ef;
+}
+
+
+/* =========================================================
+   WORD TITLE
+========================================================= */
+
+.word-title {
+
+    display: inline-block;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #8b2855;
+
+    margin-bottom: 8px;
+}
+.word-title.active-word {
+
+    background: #ffcc33;
+
+    color: #5a3100;
+
+    padding: 3px 7px;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 0 0 3px rgba(255,190,0,0.35);
+
+    transition: 0.25s ease;
+}
+
+/* =========================================================
+   WORD DETAILS
+========================================================= */
+
+.word-details {
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   WORD BACK TO PASSAGE
+========================================================= */
+
+.back-to-passage {
+
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 5px 10px;
+
+    border-radius: 7px;
+
+    background: #e7eefb;
+
+    color: #315c9b;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.back-to-passage:hover {
+
+    background: #315c9b;
+
+    color: white;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 3px 10px rgba(49,92,155,0.25);
+}
+
+
+/* =========================================================
+   ERROR / WARNING
+========================================================= */
+
+.data-warning {
+
+    width: min(94%, 1050px);
+
+    margin: 20px auto;
+
+    padding: 15px;
+
+    background: #fff1f1;
+
+    border-left: 5px solid #c0392b;
+
+    border-radius: 8px;
+
+    color: #7b241c;
+
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .top-box {
+
+        padding:
+            28px 14px 25px;
+    }
+
+    #passage,
+    .vocab-sentence {
+
+        padding: 16px;
+    }
+
+    .passage-sentence {
+
+        padding: 10px 5px;
+
+        line-height: 1.9;
+    }
+
+    .action-button {
+
+        margin-top: 7px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     SECTION 1
+     HEADER
+     
+     তুমি এখানে শুধু text পরিবর্তন করতে পারবে।
+========================================================= -->
+
+<div class="top-box">
+
+    <h1 class="site-title">
+        All About ENGLISH
+    </h1>
+
+
+    <div class="author-name">
+
+        <span>by</span>
+
+        <span>Shaheen Sir</span>
+
+    </div>
+
+
+    <div class="teacher-info">
+        Assistant Professor &amp; Head of the English Department
+    </div>
+
+
+    <div class="teacher-info">
+        Bangladesh Air Force Shaheen College Kurmitola
+    </div>
+
+
+    <div class="contact-info">
+
+        Contact: 01671642358
+
+        &nbsp; | &nbsp;
+
+        WhatsApp: 01671642358
+
+    </div>
+
+
+    <a
+        class="facebook-link"
+        href="https://www.facebook.com/profile.php?id=61553493074328"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Facebook Page
+    </a>
+
+</div>
+
+
+
+<!-- =========================================================
+     SECTION 2
+========================================================= -->
+
+<div class="passage-heading">
+    PASSAGE
+</div>
+
+
+<div class="lesson-heading">
+
+    <div class="unit">
+        UNIT 11
+    </div>
+
+    <div class="lesson">
+        LESSON 3 — "STORIES FROM GAZA"
+    </div>
+
+</div>
+
+
+<div id="passage"></div>
+
+
+
+<!-- =========================================================
+     SECTION 3
+========================================================= -->
+
+<div class="vocabulary-heading">
+    VOCABULARY
+</div>
+
+
+<div id="vocabulary"></div>
+
+
+
+<script>
+
+
+/* =========================================================
+   =========================================================
+   
+   ⭐⭐⭐⭐⭐  EDITABLE CONTENT AREA  ⭐⭐⭐⭐⭐
+   
+   তোমার মূল editing মূলত এখানেই হবে।
+   
+   =========================================================
+   ========================================================= */
+
+
+/* =========================================================
+   SECTION 2
+   পুরো passage একবারে এখানে paste করবে।
+   
+   প্রতিটি sentence আলাদা করে লিখতে হবে না।
+========================================================= */
+
+
+const passageText = `
+
+I ‘want’ to write the most ‘beautiful’ words about Gaza but I can't. 
+I can't not see the ‘poverty’, ‘siege’ and ‘famine’, ‘especially’ when all Gaza city ‘flooded’ into Al-Areesh and ‘emptied’ it from all ‘goods’ in two hours. 
+I can't not see the ‘deprivation’ in every house, the ‘fear’ and the ‘sickness’.
+What do you want me to say about Gaza? 
+From when I became ‘aware’ of it, I was sad about everything inside it. 
+Especially the ‘kids’ and even the ‘adults’, ‘youth’, women, girls, animals, ‘stones’ and trees, everything in it is ‘crying..’ I'm ‘looking for’ nice words to say and I can't find them.
+The sea is the only thing that helps me ‘dream’. 
+When I stand on the ‘shore’ I can ‘imagine’ Cyprus, travel to Paris, fly to Rome, ‘all while’ standing in the same spot. 
+I go around the ‘whole’ world and in the ‘end’ I ‘land’ on my bed in our house, in the ‘middle’ of the ‘refugee’ ‘camp’. 
+I go back to the ‘reality’ of Gaza, the ‘dirty’ ‘market’, ‘overflowing’ ‘sewage’, the ‘carts’, and what's on top of the carts, the ‘suffocating’ ‘smell’, and the ‘silent’ people who can't speak.
+When I look at the clock and it's 11:55. 
+I start ‘shaking’ and my heart ‘beats’ faster, I ‘feel’ that the ‘war’ ‘started’ again. 
+Not only the clock ‘scares’ me -- everything that flies does, even the flies. 
+I can't tell anyone about my fear so they don't call me a ‘wimp’ or a ‘sissy’. 
+I'm most ‘scared’ for my older brothers. 
+When a fly lands on any of them, I feel it's going to kill him. 
+I start ‘shouting’ and I ‘run away’ from the place. 
+That's why I'm now ‘escaping’ outside the house all the time, because of the many flies.
+
+For the first time the streets of Gaza were ‘clean’, there wasn't a paper or a ‘cardboard’.
+People were ‘collecting’ the paper from the streets to use it for ‘baking’, because the electricity was ‘disconnected’. 
+My mum didn't want to bake and she asked me to ‘bring’ bread from the ‘oven’. 
+The ‘queue’ at the oven ‘stretched’ from Gaza to the West Bank. 
+People would line up for 8 hours to get to their turn and take half a pack of bread.
+In seconds, a Palestinian rocket ‘launcher’ was ‘erected’ in the area and in less than one second the Israeli planes started ‘bombing’ it. 
+People ‘began’ running in all ‘directions’ and the ambulances came.
+People started falling ‘dead’... others were ‘injured’. 
+I was in shock, and people in the street started telling me thank God you're safe. 
+Anyway I went back home without the ‘loaf’ of bread. 
+And my mum ‘yelled’ at me... but till today, she doesn't know why I didn't bring the bread.
+When the war ‘started’, my mum, my brothers and sisters and I were in Russia, which made me always ‘worried’ about Dad. 
+We wanted to ‘leave’ Russia and ‘return’ to Gaza among our family to live the ‘events’ with them. 
+As soon as the war ‘ended’ and the ‘crossings’ ‘opened’, we returned to Gaza, and from then till today we've been hearing stories of the ‘war’.
+I couldn't sleep in Russia because of my worry about Dad. 
+Before the war, when the mobile used to ring and it would be from Gaza, we'd be happy and ‘race’ to answer it. 
+But in the war, every time the mobile rang from Gaza, any number whether we knew it or not, we'd say: "Dear God..." and start ‘looking’ at each other to see who will answer.
+After the war, a lot of things ‘changed’ in me. 
+I started seeing things ‘differently’. 
+I began to like the city, life became more ‘beautiful’ and so did I. 
+My friends changed, and I made older and more ‘mature’ ones. 
+I became very ‘outspoken’ and ‘brave’ even ‘in front of’ Dad, and I could ‘face’ anyone. 
+Mum and I became friends, a lot of times we stay up at night and talk about everything.
+In the future if I ‘grow up’, and in Gaza it's an ‘achievement’ to grow up, because ‘death’ is standing at your ‘doorstep’, I want to be a children's ‘caretaker’ and ‘defend’ their rights; because I ‘feel’ that the ‘children’ of Palestine are born as old people, a kid can be 6 years old and yet ‘supporting’ a ‘family’.
+
+`;
+
+/* =========================================================
+   SECTION 3
+   এখানে sentence অনুযায়ী:
+   
+   1. বাংলা meaning
+   2. marked vocabulary
+   3. vocabulary particulars
+   
+   দিতে হবে।
+   
+   IMPORTANT:
+   প্রথম object = Passage-এর 1st sentence
+   দ্বিতীয় object = Passage-এর 2nd sentence
+   তৃতীয় object = Passage-এর 3rd sentence
+   
+   English sentence এখানে আবার লিখতে হবে না।
+========================================================= */
+
+
+const vocabularyData = [
+/* =====================================================
+I ‘want’ to write the most ‘beautiful’ words about Gaza but I can't.
+===================================================== */
+
+{
+meaning:
+"আমি গাজা সম্পর্কে সবচেয়ে ‘সুন্দর’ কথাগুলো লিখতে চাই, কিন্তু আমি পারি না।",
+
+vocabulary: [
+
+    {
+        word: "want",
+        pos: "Verb",
+        meaning: "চাইতে",
+        ipa: "/wɒnt/",
+        pronunciation: "ওয়ান্ট",
+        synonyms:
+        "desire, wish, need, crave",
+        antonyms:
+        "dislike, reject, refuse, avoid"
+    },
+
+    {
+        word: "beautiful",
+        pos: "Adjective",
+        meaning: "সুন্দর",
+        ipa: "/ˈbjuːtɪfəl/",
+        pronunciation: "বিউটিফুল",
+        synonyms:
+        "lovely, attractive, gorgeous, charming",
+        antonyms:
+        "ugly, unattractive, hideous, unpleasant"
+    }
+
+]
+},
+
+/* =====================================================
+I can't not see the ‘poverty’, ‘siege’ and ‘famine’, ‘especially’ when all Gaza city ‘flooded’ into Al-Areesh and ‘emptied’ it from all ‘goods’ in two hours.
+===================================================== */
+
+{
+meaning:
+"আমি দারিদ্র্য, অবরোধ ও দুর্ভিক্ষ দেখতে না পেরে পারি না, বিশেষ করে যখন পুরো গাজা শহর আল-আরিশে ঢলে পড়েছিল এবং দুই ঘণ্টার মধ্যে সেখানকার সব পণ্য খালি করে দিয়েছিল।",
+
+vocabulary: [
+
+    {
+        word: "poverty",
+        pos: "Noun",
+        meaning: "দারিদ্র্য",
+        ipa: "/ˈpɒvəti/",
+        pronunciation: "পভার্টি",
+        synonyms:
+        "destitution, hardship, deprivation, need",
+        antonyms:
+        "wealth, prosperity, affluence, richness"
+    },
+
+    {
+        word: "siege",
+        pos: "Noun",
+        meaning: "অবরোধ",
+        ipa: "/siːdʒ/",
+        pronunciation: "সীজ",
+        synonyms:
+        "blockade, encirclement, investment, containment",
+        antonyms:
+        "opening, freedom, release, access"
+    },
+
+    {
+        word: "famine",
+        pos: "Noun",
+        meaning: "দুর্ভিক্ষ",
+        ipa: "/ˈfæmɪn/",
+        pronunciation: "ফ্যামিন",
+        synonyms:
+        "starvation, hunger, food shortage, scarcity",
+        antonyms:
+        "abundance, plenty, surplus, prosperity"
+    },
+
+    {
+        word: "especially",
+        pos: "Adverb",
+        meaning: "বিশেষ করে",
+        ipa: "/ɪˈspeʃəli/",
+        pronunciation: "এসপেশালি",
+        synonyms:
+        "particularly, notably, chiefly, mainly",
+        antonyms:
+        "generally, ordinarily, commonly, equally"
+    },
+
+    {
+        word: "flooded",
+        pos: "Verb",
+        meaning: "প্লাবিত করেছিল / ঢলে পড়েছিল",
+        ipa: "/ˈflʌdɪd/",
+        pronunciation: "ফ্লাডেড",
+        synonyms:
+        "swamped, overwhelmed, inundated, deluged",
+        antonyms:
+        "drained, emptied, dried, reduced"
+    },
+
+    {
+        word: "emptied",
+        pos: "Verb",
+        meaning: "খালি করেছিল",
+        ipa: "/ˈemptid/",
+        pronunciation: "এম্পটিড",
+        synonyms:
+        "cleared, drained, evacuated, exhausted",
+        antonyms:
+        "filled, loaded, stocked, supplied"
+    },
+
+    {
+        word: "goods",
+        pos: "Noun",
+        meaning: "পণ্যসামগ্রী",
+        ipa: "/ɡʊdz/",
+        pronunciation: "গুডজ",
+        synonyms:
+        "products, merchandise, commodities, items",
+        antonyms:
+        "waste, rubbish, trash, nothing"
+    }
+
+]
+},
+
+/* =====================================================
+I can't not see the ‘deprivation’ in every house, the ‘fear’ and the ‘sickness’.
+===================================================== */
+
+{
+meaning:
+"আমি প্রতিটি ঘরের বঞ্চনা, ভয় এবং অসুস্থতা দেখতে না পেরে পারি না।",
+
+vocabulary: [
+
+    {
+        word: "deprivation",
+        pos: "Noun",
+        meaning: "বঞ্চনা",
+        ipa: "/ˌdeprɪˈveɪʃən/",
+        pronunciation: "ডেপ্রিভেইশন",
+        synonyms:
+        "denial, lack, shortage, hardship",
+        antonyms:
+        "abundance, provision, possession, fulfillment"
+    },
+
+    {
+        word: "fear",
+        pos: "Noun",
+        meaning: "ভয়",
+        ipa: "/fɪə/",
+        pronunciation: "ফিয়ার",
+        synonyms:
+        "fright, terror, anxiety, dread",
+        antonyms:
+        "courage, confidence, bravery, calmness"
+    },
+
+    {
+        word: "sickness",
+        pos: "Noun",
+        meaning: "অসুস্থতা",
+        ipa: "/ˈsɪknəs/",
+        pronunciation: "সিকনেস",
+        synonyms:
+        "illness, disease, ailment, disorder",
+        antonyms:
+        "health, fitness, wellness, soundness"
+    }
+
+]
+},
+
+/* =====================================================
+What do you want me to say about Gaza?
+===================================================== */
+
+{
+meaning:
+"গাজা সম্পর্কে তুমি আমাকে কী বলতে চাও?",
+
+vocabulary: []
+},
+
+/* =====================================================
+From when I became ‘aware’ of it, I was sad about everything inside it.
+===================================================== */
+
+{
+meaning:
+"যখন থেকে আমি এটি সম্পর্কে সচেতন হয়েছি, তখন থেকেই এর ভেতরের সবকিছু নিয়ে আমি দুঃখিত ছিলাম।",
+
+vocabulary: [
+
+    {
+        word: "aware",
+        pos: "Adjective",
+        meaning: "সচেতন / অবগত",
+        ipa: "/əˈweə/",
+        pronunciation: "অ্যাওয়্যার",
+        synonyms:
+        "conscious, informed, knowledgeable, mindful",
+        antonyms:
+        "unaware, ignorant, uninformed, unconscious"
+    }
+
+]
+},
+
+/* =====================================================
+Especially the ‘kids’ and even the ‘adults’, ‘youth’, women, girls, animals, ‘stones’ and trees, everything in it is ‘crying’... I'm ‘looking for’ nice words to say and I can't find them.
+===================================================== */
+
+{
+meaning:
+"বিশেষ করে শিশুরা এবং এমনকি প্রাপ্তবয়স্ক, যুবক, নারী, মেয়ে, প্রাণী, পাথর ও গাছ—এর সবকিছুই কাঁদছে... আমি বলার মতো সুন্দর শব্দ খুঁজছি, কিন্তু সেগুলো খুঁজে পাচ্ছি না।",
+
+vocabulary: [
+
+    {
+        word: "kids",
+        pos: "Noun",
+        meaning: "শিশুরা",
+        ipa: "/kɪdz/",
+        pronunciation: "কিডজ",
+        synonyms:
+        "children, youngsters, minors, youngsters",
+        antonyms:
+        "adults, elders, grown-ups, seniors"
+    },
+
+    {
+        word: "adults",
+        pos: "Noun",
+        meaning: "প্রাপ্তবয়স্করা",
+        ipa: "/əˈdʌlts/",
+        pronunciation: "অ্যাডাল্টস",
+        synonyms:
+        "grown-ups, mature people, elders, seniors",
+        antonyms:
+        "children, kids, minors, infants"
+    },
+
+    {
+        word: "youth",
+        pos: "Noun",
+        meaning: "যুবসমাজ / তরুণরা",
+        ipa: "/juːθ/",
+        pronunciation: "ইউথ",
+        synonyms:
+        "young people, youngsters, adolescents, teenagers",
+        antonyms:
+        "old age, elders, seniors, aged people"
+    },
+
+    {
+        word: "stones",
+        pos: "Noun",
+        meaning: "পাথর",
+        ipa: "/stəʊnz/",
+        pronunciation: "স্টোনজ",
+        synonyms:
+        "rocks, pebbles, boulders, rocks",
+        antonyms:
+        "liquids, gases, water, fluids"
+    },
+
+    {
+        word: "crying",
+        pos: "Verb",
+        meaning: "কাঁদছে",
+        ipa: "/ˈkraɪɪŋ/",
+        pronunciation: "ক্রাইয়িং",
+        synonyms:
+        "weeping, sobbing, wailing, lamenting",
+        antonyms:
+        "laughing, smiling, rejoicing, cheering"
+    },
+
+    {
+        word: "looking for",
+        pos: "Phrasal Verb",
+        meaning: "খুঁজছি",
+        ipa: "/ˈlʊkɪŋ fɔːr/",
+        pronunciation: "লুকিং ফর",
+        synonyms:
+        "searching for, seeking, hunting for, pursuing",
+        antonyms:
+        "finding, ignoring, abandoning, overlooking"
+    }
+
+]
+},
+
+/* =====================================================
+The sea is the only thing that helps me ‘dream’.
+===================================================== */
+
+{
+meaning:
+"সমুদ্রই একমাত্র জিনিস যা আমাকে স্বপ্ন দেখতে সাহায্য করে।",
+
+vocabulary: [
+
+    {
+        word: "dream",
+        pos: "Verb",
+        meaning: "স্বপ্ন দেখা",
+        ipa: "/driːm/",
+        pronunciation: "ড্রিম",
+        synonyms:
+        "imagine, fantasize, envision, aspire",
+        antonyms:
+        "doubt, despair, distrust, disregard"
+    }
+
+]
+},
+
+/* =====================================================
+When I stand on the ‘shore’ I can ‘imagine’ Cyprus, travel to Paris, fly to Rome, ‘all while’ standing in the same spot.
+===================================================== */
+
+{
+meaning:
+"যখন আমি সমুদ্রতীরে দাঁড়াই, তখন আমি সাইপ্রাসকে কল্পনা করতে পারি, প্যারিসে ভ্রমণ করতে পারি, রোমে উড়ে যেতে পারি—সবকিছু একই জায়গায় দাঁড়িয়েই।",
+
+vocabulary: [
+
+    {
+        word: "shore",
+        pos: "Noun",
+        meaning: "তীর / সমুদ্রতীর",
+        ipa: "/ʃɔːr/",
+        pronunciation: "শোর",
+        synonyms:
+        "coast, beach, seaside, waterfront",
+        antonyms:
+        "inland, interior, center, mainland"
+    },
+
+    {
+        word: "imagine",
+        pos: "Verb",
+        meaning: "কল্পনা করা",
+        ipa: "/ɪˈmædʒɪn/",
+        pronunciation: "ইম্যাজিন",
+        synonyms:
+        "visualize, conceive, envision, picture",
+        antonyms:
+        "ignore, forget, disregard, overlook"
+    },
+
+    {
+        word: "all while",
+        pos: "Phrase",
+        meaning: "একই সময়ে",
+        ipa: "/ɔːl waɪl/",
+        pronunciation: "অল হোয়াইল",
+        synonyms:
+        "at the same time, simultaneously, meanwhile, concurrently",
+        antonyms:
+        "separately, afterward, later, independently"
+    }
+
+]
+},
+
+/* =====================================================
+I go around the ‘whole’ world and in the ‘end’ I ‘land’ on my bed in our house, in the ‘middle’ of the ‘refugee’ ‘camp’.
+===================================================== */
+
+{
+meaning:
+"আমি পুরো পৃথিবী ঘুরে বেড়াই এবং শেষে আমাদের বাড়ির আমার বিছানায়, শরণার্থী শিবিরের মাঝখানে এসে পৌঁছাই।",
+
+vocabulary: [
+
+    {
+        word: "whole",
+        pos: "Adjective",
+        meaning: "সমগ্র / পুরো",
+        ipa: "/həʊl/",
+        pronunciation: "হোল",
+        synonyms:
+        "entire, complete, full, total",
+        antonyms:
+        "partial, incomplete, limited, divided"
+    },
+
+    {
+        word: "end",
+        pos: "Noun",
+        meaning: "শেষ",
+        ipa: "/end/",
+        pronunciation: "এন্ড",
+        synonyms:
+        "finish, conclusion, termination, close",
+        antonyms:
+        "beginning, start, opening, commencement"
+    },
+
+    {
+        word: "land",
+        pos: "Verb",
+        meaning: "এসে পৌঁছানো / অবতরণ করা",
+        ipa: "/lænd/",
+        pronunciation: "ল্যান্ড",
+        synonyms:
+        "arrive, reach, settle, descend",
+        antonyms:
+        "depart, leave, take off, rise"
+    },
+
+    {
+        word: "middle",
+        pos: "Noun",
+        meaning: "মধ্যভাগ",
+        ipa: "/ˈmɪdl/",
+        pronunciation: "মিডল",
+        synonyms:
+        "center, midpoint, heart, core",
+        antonyms:
+        "edge, border, exterior, outskirts"
+    },
+
+    {
+        word: "refugee",
+        pos: "Noun",
+        meaning: "শরণার্থী",
+        ipa: "/ˌrefjʊˈdʒiː/",
+        pronunciation: "রেফিউজী",
+        synonyms:
+        "displaced person, exile, evacuee, migrant",
+        antonyms:
+        "resident, citizen, native, settler"
+    },
+
+    {
+        word: "camp",
+        pos: "Noun",
+        meaning: "শিবির",
+        ipa: "/kæmp/",
+        pronunciation: "ক্যাম্প",
+        synonyms:
+        "settlement, encampment, shelter, base",
+        antonyms:
+        "home, residence, mansion, permanent settlement"
+    }
+
+]
+},
+
+/* =====================================================
+I go back to the ‘reality’ of Gaza, the ‘dirty’ ‘market’, ‘overflowing’ ‘sewage’, the ‘carts’, and what's on top of the carts, the ‘suffocating’ ‘smell’, and the ‘silent’ people who can't speak.
+===================================================== */
+
+{
+meaning:
+"আমি গাজার বাস্তবতায় ফিরে যাই—নোংরা বাজার, উপচে পড়া পয়ঃনিষ্কাশন, গাড়ি, গাড়ির ওপর থাকা জিনিসপত্র, দমবন্ধ করা গন্ধ এবং নীরব মানুষ, যারা কথা বলতে পারে না।",
+
+vocabulary: [
+
+    {
+        word: "reality",
+        pos: "Noun",
+        meaning: "বাস্তবতা",
+        ipa: "/riˈæləti/",
+        pronunciation: "রিয়্যালিটি",
+        synonyms:
+        "truth, actuality, fact, existence",
+        antonyms:
+        "illusion, fantasy, fiction, unreality"
+    },
+
+    {
+        word: "dirty",
+        pos: "Adjective",
+        meaning: "নোংরা",
+        ipa: "/ˈdɜːti/",
+        pronunciation: "ডার্টি",
+        synonyms:
+        "filthy, unclean, muddy, polluted",
+        antonyms:
+        "clean, pure, spotless, hygienic"
+    },
+
+    {
+        word: "market",
+        pos: "Noun",
+        meaning: "বাজার",
+        ipa: "/ˈmɑːkɪt/",
+        pronunciation: "মার্কেট",
+        synonyms:
+        "bazaar, marketplace, fair, commercial center",
+        antonyms:
+        "home, residence, countryside, wilderness"
+    },
+
+    {
+        word: "overflowing",
+        pos: "Adjective",
+        meaning: "উপচে পড়া",
+        ipa: "/ˌəʊvəˈfləʊɪŋ/",
+        pronunciation: "ওভারফ্লোয়িং",
+        synonyms:
+        "spilling, flooding, brimming, overflowing",
+        antonyms:
+        "empty, dry, drained, scarce"
+    },
+
+    {
+        word: "sewage",
+        pos: "Noun",
+        meaning: "পয়ঃনিষ্কাশনের ময়লা",
+        ipa: "/ˈsuːɪdʒ/",
+        pronunciation: "সুইজ",
+        synonyms:
+        "wastewater, waste, drainage, effluent",
+        antonyms:
+        "clean water, freshwater, purity, sanitation"
+    },
+
+    {
+        word: "carts",
+        pos: "Noun",
+        meaning: "ঠেলাগাড়ি / গাড়ি",
+        ipa: "/kɑːrts/",
+        pronunciation: "কার্টস",
+        synonyms:
+        "trolleys, wagons, carriages, handcarts",
+        antonyms:
+        "stationary objects, buildings, structures, homes"
+    },
+
+    {
+        word: "suffocating",
+        pos: "Adjective",
+        meaning: "দমবন্ধ করা",
+        ipa: "/ˈsʌfəkeɪtɪŋ/",
+        pronunciation: "সাফোকেটিং",
+        synonyms:
+        "choking, stifling, smothering, oppressive",
+        antonyms:
+        "refreshing, breathable, airy, comfortable"
+    },
+
+    {
+        word: "smell",
+        pos: "Noun",
+        meaning: "গন্ধ",
+        ipa: "/smel/",
+        pronunciation: "স্মেল",
+        synonyms:
+        "odor, scent, aroma, fragrance",
+        antonyms:
+        "odorlessness, freshness, neutrality, cleanliness"
+    },
+
+    {
+        word: "silent",
+        pos: "Adjective",
+        meaning: "নীরব",
+        ipa: "/ˈsaɪlənt/",
+        pronunciation: "সাইলেন্ট",
+        synonyms:
+        "quiet, speechless, mute, still",
+        antonyms:
+        "noisy, loud, vocal, talkative"
+    }
+
+]
+},
+
+/* =====================================================
+When I look at the clock and it's 11:55.
+===================================================== */
+
+{
+meaning:
+"যখন আমি ঘড়ির দিকে তাকাই এবং দেখি যে সময় ১১টা ৫৫ মিনিট।",
+
+vocabulary: []
+},
+
+/* =====================================================
+I start ‘shaking’ and my heart ‘beats’ faster, I ‘feel’ that the ‘war’ ‘started’ again.
+===================================================== */
+
+{
+meaning:
+"আমি কাঁপতে শুরু করি এবং আমার হৃদস্পন্দন দ্রুত হয়; আমি অনুভব করি যে যুদ্ধ আবার শুরু হয়েছে।",
+
+vocabulary: [
+
+    {
+        word: "shaking",
+        pos: "Verb",
+        meaning: "কাঁপা",
+        ipa: "/ˈʃeɪkɪŋ/",
+        pronunciation: "শেইকিং",
+        synonyms:
+        "trembling, quivering, shivering, vibrating",
+        antonyms:
+        "steadying, stabilizing, calming, stilling"
+    },
+
+    {
+        word: "beats",
+        pos: "Verb",
+        meaning: "স্পন্দিত হয়",
+        ipa: "/biːts/",
+        pronunciation: "বিটস",
+        synonyms:
+        "pulsates, throbs, pounds, palpitates",
+        antonyms:
+        "stops, rests, pauses, ceases"
+    },
+
+    {
+        word: "feel",
+        pos: "Verb",
+        meaning: "অনুভব করা",
+        ipa: "/fiːl/",
+        pronunciation: "ফিল",
+        synonyms:
+        "sense, perceive, experience, detect",
+        antonyms:
+        "ignore, overlook, disregard, misunderstand"
+    },
+
+    {
+        word: "war",
+        pos: "Noun",
+        meaning: "যুদ্ধ",
+        ipa: "/wɔːr/",
+        pronunciation: "ওয়ার",
+        synonyms:
+        "conflict, battle, warfare, combat",
+        antonyms:
+        "peace, harmony, truce, reconciliation"
+    },
+
+    {
+        word: "started",
+        pos: "Verb",
+        meaning: "শুরু হয়েছিল",
+        ipa: "/ˈstɑːtɪd/",
+        pronunciation: "স্টার্টেড",
+        synonyms:
+        "began, commenced, initiated, launched",
+        antonyms:
+        "ended, stopped, concluded, finished"
+    }
+
+]
+},
+
+/* =====================================================
+Not only the clock ‘scares’ me -- everything that flies does, even the flies.
+===================================================== */
+
+{
+meaning:
+"শুধু ঘড়িই আমাকে ভয় দেখায় না—যা কিছু উড়ে বেড়ায় সেগুলোও আমাকে ভয় দেখায়, এমনকি মাছিও।",
+
+vocabulary: [
+
+    {
+        word: "scares",
+        pos: "Verb",
+        meaning: "ভয় দেখায়",
+        ipa: "/skeəz/",
+        pronunciation: "স্কেয়ার্স",
+        synonyms:
+        "frightens, terrifies, alarms, intimidates",
+        antonyms:
+        "calms, reassures, comforts, encourages"
+    }
+
+]
+},
+
+/* =====================================================
+I can't tell anyone about my fear so they don't call me a ‘wimp’ or a ‘sissy’.
+===================================================== */
+
+{
+meaning:
+"আমি কাউকে আমার ভয়ের কথা বলতে পারি না, যাতে তারা আমাকে ভীতু বা দুর্বল না বলে।",
+
+vocabulary: [
+
+    {
+        word: "wimp",
+        pos: "Noun",
+        meaning: "ভীতু / দুর্বল ব্যক্তি",
+        ipa: "/wɪmp/",
+        pronunciation: "উইম্প",
+        synonyms:
+        "weakling, coward, milquetoast, pushover",
+        antonyms:
+        "brave person, strong person, hero, tough person"
+    },
+
+    {
+        word: "sissy",
+        pos: "Noun",
+        meaning: "ভীতু / নরম স্বভাবের ব্যক্তি",
+        ipa: "/ˈsɪsi/",
+        pronunciation: "সিসি",
+        synonyms:
+        "coward, weakling, timid person, softy",
+        antonyms:
+        "brave person, tough person, hero, strong person"
+    }
+
+]
+},
+
+/* =====================================================
+I'm most ‘scared’ for my older brothers.
+===================================================== */
+
+{
+meaning:
+"আমি আমার বড় ভাইদের জন্য সবচেয়ে বেশি ভয় পাই।",
+
+vocabulary: [
+
+    {
+        word: "scared",
+        pos: "Adjective",
+        meaning: "ভীত / আতঙ্কিত",
+        ipa: "/skeəd/",
+        pronunciation: "স্কেয়ার্ড",
+        synonyms:
+        "afraid, frightened, terrified, fearful",
+        antonyms:
+        "brave, fearless, confident, calm"
+    }
+
+]
+},
+
+/* =====================================================
+When a fly lands on any of them, I feel it's going to kill him.
+===================================================== */
+
+{
+meaning:
+"যখন কোনো মাছি তাদের কারও ওপর বসে, তখন আমার মনে হয় সেটি তাকে মেরে ফেলবে।",
+
+vocabulary: []
+},
+
+/* =====================================================
+I start ‘shouting’ and I ‘run away’ from the place.
+===================================================== */
+
+{
+meaning:
+"আমি চিৎকার করতে শুরু করি এবং সেখান থেকে দৌড়ে পালিয়ে যাই।",
+
+vocabulary: [
+
+    {
+        word: "shouting",
+        pos: "Verb",
+        meaning: "চিৎকার করা",
+        ipa: "/ˈʃaʊtɪŋ/",
+        pronunciation: "শাউটিং",
+        synonyms:
+        "yelling, screaming, crying out, calling",
+        antonyms:
+        "whispering, murmuring, muttering, remaining silent"
+    },
+
+    {
+        word: "run away",
+        pos: "Phrasal Verb",
+        meaning: "দৌড়ে পালিয়ে যাওয়া",
+        ipa: "/rʌn əˈweɪ/",
+        pronunciation: "রান অ্যাওয়ে",
+        synonyms:
+        "flee, escape, retreat, bolt",
+        antonyms:
+        "stay, remain, approach, confront"
+    }
+
+]
+},
+
+/* =====================================================
+That's why I'm now ‘escaping’ outside the house all the time, because of the many flies.
+===================================================== */
+
+{
+meaning:
+"এই কারণেই এখন আমি সব সময় অনেক মাছির কারণে বাড়ির বাইরে পালিয়ে যাই।",
+
+vocabulary: [
+
+    {
+        word: "escaping",
+        pos: "Verb",
+        meaning: "পালিয়ে যাওয়া",
+        ipa: "/ɪˈskeɪpɪŋ/",
+        pronunciation: "এস্কেপিং",
+        synonyms:
+        "fleeing, escaping, retreating, getting away",
+        antonyms:
+        "staying, remaining, confronting, approaching"
+    }
+
+]
+},
+
+/* =====================================================
+For the first time the streets of Gaza were ‘clean’, there wasn't a paper or a ‘cardboard’.
+===================================================== */
+
+{
+meaning:
+"প্রথমবারের মতো গাজার রাস্তাগুলো পরিষ্কার ছিল; সেখানে কোনো কাগজ বা কার্ডবোর্ড ছিল না।",
+
+vocabulary: [
+
+    {
+        word: "clean",
+        pos: "Adjective",
+        meaning: "পরিষ্কার",
+        ipa: "/kliːn/",
+        pronunciation: "ক্লিন",
+        synonyms:
+        "tidy, spotless, pure, hygienic",
+        antonyms:
+        "dirty, filthy, polluted, untidy"
+    },
+
+    {
+        word: "cardboard",
+        pos: "Noun",
+        meaning: "কার্ডবোর্ড",
+        ipa: "/ˈkɑːdbɔːd/",
+        pronunciation: "কার্ডবোর্ড",
+        synonyms:
+        "paperboard, pasteboard, carton, board",
+        antonyms:
+        "metal, glass, plastic, stone"
+    }
+
+]
+},
+
+/* =====================================================
+People were ‘collecting’ the paper from the streets to use it for ‘baking’, because the electricity was ‘disconnected’.
+===================================================== */
+
+{
+meaning:
+"বিদ্যুৎ সংযোগ বিচ্ছিন্ন থাকায় মানুষ রাস্তায় পড়ে থাকা কাগজ সংগ্রহ করে তা বেকিংয়ের কাজে ব্যবহার করছিল।",
+
+vocabulary: [
+
+    {
+        word: "collecting",
+        pos: "Verb",
+        meaning: "সংগ্রহ করা",
+        ipa: "/kəˈlektɪŋ/",
+        pronunciation: "কলেক্টিং",
+        synonyms:
+        "gathering, accumulating, assembling, picking up",
+        antonyms:
+        "dispersing, scattering, distributing, abandoning"
+    },
+
+    {
+        word: "baking",
+        pos: "Verb",
+        meaning: "বেক করা",
+        ipa: "/ˈbeɪkɪŋ/",
+        pronunciation: "বেইকিং",
+        synonyms:
+        "cooking, roasting, heating, preparing",
+        antonyms:
+        "freezing, cooling, chilling, raw preparation"
+    },
+
+    {
+        word: "disconnected",
+        pos: "Adjective",
+        meaning: "সংযোগ বিচ্ছিন্ন",
+        ipa: "/ˌdɪskəˈnektɪd/",
+        pronunciation: "ডিসকানেক্টেড",
+        synonyms:
+        "cut off, detached, separated, interrupted",
+        antonyms:
+        "connected, linked, attached, restored"
+    }
+
+]
+},
+
+/* =====================================================
+My mum didn't want to bake and she asked me to ‘bring’ bread from the ‘oven’.
+===================================================== */
+
+{
+meaning:
+"আমার মা বেক করতে চাননি এবং তিনি আমাকে ওভেন থেকে রুটি আনতে বলেছিলেন।",
+
+vocabulary: [
+
+    {
+        word: "bring",
+        pos: "Verb",
+        meaning: "নিয়ে আসা",
+        ipa: "/brɪŋ/",
+        pronunciation: "ব্রিং",
+        synonyms:
+        "carry, fetch, deliver, transport",
+        antonyms:
+        "take away, remove, carry away, leave"
+    },
+
+    {
+        word: "oven",
+        pos: "Noun",
+        meaning: "চুলা / ওভেন",
+        ipa: "/ˈʌvən/",
+        pronunciation: "আভেন",
+        synonyms:
+        "cooker, furnace, kiln, stove",
+        antonyms:
+        "freezer, refrigerator, cooler, icebox"
+    }
+
+]
+},
+
+/* =====================================================
+The ‘queue’ at the oven ‘stretched’ from Gaza to the West Bank.
+===================================================== */
+
+{
+meaning:
+"ওভেনের সামনে মানুষের সারি গাজা থেকে পশ্চিম তীর পর্যন্ত বিস্তৃত হয়েছিল।",
+
+vocabulary: [
+
+    {
+        word: "queue",
+        pos: "Noun",
+        meaning: "সারি",
+        ipa: "/kjuː/",
+        pronunciation: "কিউ",
+        synonyms:
+        "line, row, file, waiting line",
+        antonyms:
+        "disorder, crowd, scattering, separation"
+    },
+
+    {
+        word: "stretched",
+        pos: "Verb",
+        meaning: "বিস্তৃত হয়েছিল",
+        ipa: "/stretʃt/",
+        pronunciation: "স্ট্রেচ্ট",
+        synonyms:
+        "extended, spread, expanded, lengthened",
+        antonyms:
+        "contracted, shortened, reduced, compressed"
+    }
+
+]
+},
+
+/* =====================================================
+People would line up for 8 hours to get to their turn and take half a pack of bread.
+===================================================== */
+
+{
+meaning:
+"মানুষ তাদের পালা আসা এবং আধা প্যাকেট রুটি নেওয়ার জন্য ৮ ঘণ্টা লাইনে দাঁড়িয়ে থাকত।",
+
+vocabulary: []
+},
+
+/* =====================================================
+In seconds, a Palestinian rocket ‘launcher’ was ‘erected’ in the area and in less than one second the Israeli planes started ‘bombing’ it.
+===================================================== */
+
+{
+meaning:
+"কয়েক সেকেন্ডের মধ্যে এলাকায় একটি ফিলিস্তিনি রকেট উৎক্ষেপণযন্ত্র স্থাপন করা হয়েছিল এবং এক সেকেন্ডেরও কম সময়ের মধ্যে ইসরায়েলি বিমানগুলো সেটিতে বোমাবর্ষণ শুরু করে।",
+
+vocabulary: [
+
+    {
+        word: "launcher",
+        pos: "Noun",
+        meaning: "উৎক্ষেপণযন্ত্র",
+        ipa: "/ˈlɔːntʃə/",
+        pronunciation: "লঞ্চার",
+        synonyms:
+        "projector, firing device, launching device, platform",
+        antonyms:
+        "receiver, catcher, stopper, restrainer"
+    },
+
+    {
+        word: "erected",
+        pos: "Verb",
+        meaning: "স্থাপন করা হয়েছিল",
+        ipa: "/ɪˈrektɪd/",
+        pronunciation: "ইরেক্টেড",
+        synonyms:
+        "built, constructed, installed, raised",
+        antonyms:
+        "demolished, destroyed, removed, dismantled"
+    },
+
+    {
+        word: "bombing",
+        pos: "Verb",
+        meaning: "বোমাবর্ষণ করা",
+        ipa: "/ˈbɒmɪŋ/",
+        pronunciation: "বমিং",
+        synonyms:
+        "attacking, shelling, striking, bombarding",
+        antonyms:
+        "protecting, defending, preserving, sparing"
+    }
+
+]
+},
+
+/* =====================================================
+People ‘began’ running in all ‘directions’ and the ambulances came.
+===================================================== */
+
+{
+meaning:
+"মানুষ সবদিকে দৌড়াতে শুরু করল এবং অ্যাম্বুলেন্সগুলো এসে পৌঁছাল।",
+
+vocabulary: [
+
+    {
+        word: "began",
+        pos: "Verb",
+        meaning: "শুরু করল",
+        ipa: "/bɪˈɡæn/",
+        pronunciation: "বিগ্যান",
+        synonyms:
+        "started, commenced, initiated, launched",
+        antonyms:
+        "ended, stopped, concluded, finished"
+    },
+
+    {
+        word: "directions",
+        pos: "Noun",
+        meaning: "দিকসমূহ",
+        ipa: "/dəˈrekʃənz/",
+        pronunciation: "ডিরেকশন্স",
+        synonyms:
+        "ways, routes, paths, courses",
+        antonyms:
+        "stagnation, stillness, center, immobility"
+    }
+
+]
+},
+
+/* =====================================================
+People started falling ‘dead’... others were ‘injured’.
+===================================================== */
+
+{
+meaning:
+"মানুষ মারা যেতে শুরু করল... অন্যরা আহত হলো।",
+
+vocabulary: [
+
+    {
+        word: "dead",
+        pos: "Adjective",
+        meaning: "মৃত",
+        ipa: "/ded/",
+        pronunciation: "ডেড",
+        synonyms:
+        "lifeless, deceased, departed, expired",
+        antonyms:
+        "alive, living, active, breathing"
+    },
+
+    {
+        word: "injured",
+        pos: "Adjective",
+        meaning: "আহত",
+        ipa: "/ˈɪndʒəd/",
+        pronunciation: "ইনজার্ড",
+        synonyms:
+        "hurt, wounded, harmed, damaged",
+        antonyms:
+        "healthy, unharmed, safe, sound"
+    }
+
+]
+},
+
+/* =====================================================
+I was in shock, and people in the street started telling me thank God you're safe.
+===================================================== */
+
+{
+meaning:
+"আমি হতবাক হয়ে গিয়েছিলাম এবং রাস্তায় লোকেরা আমাকে বলতে শুরু করল, আল্লাহর শুকরিয়া তুমি নিরাপদ আছ।",
+
+vocabulary: []
+},
+
+/* =====================================================
+Anyway I went back home without the ‘loaf’ of bread.
+===================================================== */
+
+{
+meaning:
+"যাই হোক, আমি রুটির লোফ ছাড়াই বাড়ি ফিরে গেলাম।",
+
+vocabulary: [
+
+    {
+        word: "loaf",
+        pos: "Noun",
+        meaning: "রুটির একটি সম্পূর্ণ টুকরা / লোফ",
+        ipa: "/ləʊf/",
+        pronunciation: "লোফ",
+        synonyms:
+        "bread, bread portion, bread piece, bun",
+        antonyms:
+        "crumb, fragment, piece, slice"
+    }
+
+]
+},
+
+/* =====================================================
+And my mum ‘yelled’ at me... but till today, she doesn't know why I didn't bring the bread.
+===================================================== */
+
+{
+meaning:
+"আর আমার মা আমাকে চিৎকার করে বকেছিলেন... কিন্তু আজ পর্যন্ত তিনি জানেন না কেন আমি রুটি আনিনি।",
+
+vocabulary: [
+
+    {
+        word: "yelled",
+        pos: "Verb",
+        meaning: "চিৎকার করে বকা",
+        ipa: "/jeld/",
+        pronunciation: "ইয়েল্ড",
+        synonyms:
+        "shouted, screamed, shouted angrily, cried out",
+        antonyms:
+        "whispered, praised, soothed, comforted"
+    }
+
+]
+},
+
+/* =====================================================
+When the war ‘started’, my mum, my brothers and sisters and I were in Russia, which made me always ‘worried’ about Dad.
+===================================================== */
+
+{
+meaning:
+"যখন যুদ্ধ শুরু হয়েছিল, তখন আমি, আমার মা, ভাই-বোনেরা রাশিয়ায় ছিলাম, যা আমাকে সবসময় বাবার জন্য উদ্বিগ্ন করে রাখত।",
+
+vocabulary: [
+
+    {
+        word: "started",
+        pos: "Verb",
+        meaning: "শুরু হয়েছিল",
+        ipa: "/ˈstɑːtɪd/",
+        pronunciation: "স্টার্টেড",
+        synonyms:
+        "began, commenced, initiated, launched",
+        antonyms:
+        "ended, stopped, concluded, finished"
+    },
+
+    {
+        word: "worried",
+        pos: "Adjective",
+        meaning: "উদ্বিগ্ন",
+        ipa: "/ˈwʌrid/",
+        pronunciation: "ওয়ারিড",
+        synonyms:
+        "anxious, concerned, uneasy, troubled",
+        antonyms:
+        "calm, relaxed, confident, reassured"
+    }
+
+]
+},
+
+/* =====================================================
+We wanted to ‘leave’ Russia and ‘return’ to Gaza among our family to live the ‘events’ with them.
+===================================================== */
+
+{
+meaning:
+"আমরা রাশিয়া ছেড়ে গাজায় ফিরে আমাদের পরিবারের সঙ্গে থেকে তাদের সঙ্গে ঘটনাগুলো অনুভব করতে চেয়েছিলাম।",
+
+vocabulary: [
+
+    {
+        word: "leave",
+        pos: "Verb",
+        meaning: "ত্যাগ করা / চলে যাওয়া",
+        ipa: "/liːv/",
+        pronunciation: "লিভ",
+        synonyms:
+        "depart, exit, quit, abandon",
+        antonyms:
+        "stay, remain, arrive, enter"
+    },
+
+    {
+        word: "return",
+        pos: "Verb",
+        meaning: "ফিরে আসা",
+        ipa: "/rɪˈtɜːn/",
+        pronunciation: "রিটার্ন",
+        synonyms:
+        "come back, go back, revisit, restore",
+        antonyms:
+        "leave, depart, go away, abandon"
+    },
+
+    {
+        word: "events",
+        pos: "Noun",
+        meaning: "ঘটনাবলি",
+        ipa: "/ɪˈvents/",
+        pronunciation: "ইভেন্টস",
+        synonyms:
+        "incidents, occurrences, happenings, episodes",
+        antonyms:
+        "inaction, inactivity, nonoccurrence, stillness"
+    }
+
+]
+},
+
+/* =====================================================
+As soon as the war ‘ended’ and the ‘crossings’ ‘opened’, we returned to Gaza, and from then till today we've been hearing stories of the ‘war’.
+===================================================== */
+
+{
+meaning:
+"যুদ্ধ শেষ হওয়া এবং সীমান্তপথগুলো খুলে যাওয়ার সঙ্গে সঙ্গেই আমরা গাজায় ফিরে আসি এবং তখন থেকে আজ পর্যন্ত আমরা যুদ্ধের গল্প শুনে আসছি।",
+
+vocabulary: [
+
+    {
+        word: "ended",
+        pos: "Verb",
+        meaning: "শেষ হয়েছিল",
+        ipa: "/ˈendɪd/",
+        pronunciation: "এন্ডেড",
+        synonyms:
+        "finished, concluded, ceased, terminated",
+        antonyms:
+        "started, began, commenced, continued"
+    },
+
+    {
+        word: "crossings",
+        pos: "Noun",
+        meaning: "সীমান্ত পারাপারের পথ",
+        ipa: "/ˈkrɒsɪŋz/",
+        pronunciation: "ক্রসিংস",
+        synonyms:
+        "passages, gateways, crossings points, border gates",
+        antonyms:
+        "barriers, blockades, closures, obstacles"
+    },
+
+    {
+        word: "opened",
+        pos: "Verb",
+        meaning: "খুলেছিল",
+        ipa: "/ˈəʊpənd/",
+        pronunciation: "ওপেন্ড",
+        synonyms:
+        "unlocked, unsealed, uncovered, accessible",
+        antonyms:
+        "closed, shut, blocked, sealed"
+    },
+
+    {
+        word: "war",
+        pos: "Noun",
+        meaning: "যুদ্ধ",
+        ipa: "/wɔːr/",
+        pronunciation: "ওয়ার",
+        synonyms:
+        "conflict, battle, warfare, combat",
+        antonyms:
+        "peace, harmony, truce, reconciliation"
+    }
+
+]
+},
+
+/* =====================================================
+I couldn't sleep in Russia because of my worry about Dad.
+===================================================== */
+
+{
+meaning:
+"বাবার জন্য দুশ্চিন্তার কারণে আমি রাশিয়ায় ঘুমাতে পারতাম না।",
+
+vocabulary: []
+},
+
+/* =====================================================
+Before the war, when the mobile used to ring and it would be from Gaza, we'd be happy and ‘race’ to answer it.
+===================================================== */
+
+{
+meaning:
+"যুদ্ধের আগে, যখন মোবাইল ফোন বেজে উঠত এবং সেটি গাজা থেকে আসত, তখন আমরা খুশি হয়ে ফোন ধরার জন্য ছুটে যেতাম।",
+
+vocabulary: [
+
+    {
+        word: "race",
+        pos: "Verb",
+        meaning: "দ্রুত ছুটে যাওয়া",
+        ipa: "/reɪs/",
+        pronunciation: "রেইস",
+        synonyms:
+        "rush, hurry, dash, speed",
+        antonyms:
+        "delay, wait, dawdle, linger"
+    }
+
+]
+},
+
+/* =====================================================
+But in the war, every time the mobile rang from Gaza, any number whether we knew it or not, we'd say: "Dear God..." and start ‘looking’ at each other to see who will answer.
+===================================================== */
+
+{
+meaning:
+"কিন্তু যুদ্ধের সময়, গাজা থেকে প্রতিবার মোবাইল ফোন বাজলে, নম্বরটি পরিচিত হোক বা না হোক, আমরা বলতাম, ‘হে আল্লাহ...’ এবং কে ফোনটি ধরবে তা দেখার জন্য একে অপরের দিকে তাকাতে শুরু করতাম।",
+
+vocabulary: [
+
+    {
+        word: "looking",
+        pos: "Verb",
+        meaning: "তাকানো",
+        ipa: "/ˈlʊkɪŋ/",
+        pronunciation: "লুকিং",
+        synonyms:
+        "watching, observing, viewing, staring",
+        antonyms:
+        "ignoring, overlooking, avoiding, disregarding"
+    }
+
+]
+},
+
+/* =====================================================
+After the war, a lot of things ‘changed’ in me.
+===================================================== */
+
+{
+meaning:
+"যুদ্ধের পরে আমার মধ্যে অনেক কিছু পরিবর্তিত হয়েছিল।",
+
+vocabulary: [
+
+    {
+        word: "changed",
+        pos: "Verb",
+        meaning: "পরিবর্তিত হয়েছিল",
+        ipa: "/tʃeɪndʒd/",
+        pronunciation: "চেইঞ্জড",
+        synonyms:
+        "altered, transformed, modified, varied",
+        antonyms:
+        "remained, preserved, maintained, stabilized"
+    }
+
+]
+},
+
+/* =====================================================
+I started seeing things ‘differently’.
+===================================================== */
+
+{
+meaning:
+"আমি বিষয়গুলো ভিন্নভাবে দেখতে শুরু করলাম।",
+
+vocabulary: [
+
+    {
+        word: "differently",
+        pos: "Adverb",
+        meaning: "ভিন্নভাবে",
+        ipa: "/ˈdɪfrəntli/",
+        pronunciation: "ডিফারেন্টলি",
+        synonyms:
+        "distinctly, alternatively, uniquely, separately",
+        antonyms:
+        "similarly, likewise, identically, equally"
+    }
+
+]
+},
+
+/* =====================================================
+I began to like the city, life became more ‘beautiful’ and so did I.
+===================================================== */
+
+{
+meaning:
+"আমি শহরকে পছন্দ করতে শুরু করলাম, জীবন আরও সুন্দর হয়ে উঠল এবং আমিও তেমনই হয়ে উঠলাম।",
+
+vocabulary: [
+
+    {
+        word: "beautiful",
+        pos: "Adjective",
+        meaning: "সুন্দর",
+        ipa: "/ˈbjuːtɪfəl/",
+        pronunciation: "বিউটিফুল",
+        synonyms:
+        "lovely, attractive, gorgeous, charming",
+        antonyms:
+        "ugly, unattractive, hideous, unpleasant"
+    }
+
+]
+},
+
+/* =====================================================
+My friends changed, and I made older and more ‘mature’ ones.
+===================================================== */
+
+{
+meaning:
+"আমার বন্ধুরা পরিবর্তিত হলো এবং আমি আরও বয়স্ক ও পরিণত বন্ধু তৈরি করলাম।",
+
+vocabulary: [
+
+    {
+        word: "mature",
+        pos: "Adjective",
+        meaning: "পরিণত",
+        ipa: "/məˈtʃʊə/",
+        pronunciation: "ম্যাচিউর",
+        synonyms:
+        "grown-up, sensible, responsible, developed",
+        antonyms:
+        "immature, childish, juvenile, irresponsible"
+    }
+
+]
+},
+
+/* =====================================================
+I became very ‘outspoken’ and ‘brave’ even ‘in front of’ Dad, and I could ‘face’ anyone.
+===================================================== */
+
+{
+meaning:
+"আমি খুব স্পষ্টভাষী ও সাহসী হয়ে উঠলাম, এমনকি বাবার সামনেও, এবং আমি যে কাউকে মোকাবিলা করতে পারতাম।",
+
+vocabulary: [
+
+    {
+        word: "outspoken",
+        pos: "Adjective",
+        meaning: "স্পষ্টভাষী",
+        ipa: "/ˌaʊtˈspəʊkən/",
+        pronunciation: "আউটস্পোকেন",
+        synonyms:
+        "frank, candid, direct, forthright",
+        antonyms:
+        "reserved, quiet, reticent, secretive"
+    },
+
+    {
+        word: "brave",
+        pos: "Adjective",
+        meaning: "সাহসী",
+        ipa: "/breɪv/",
+        pronunciation: "ব্রেভ",
+        synonyms:
+        "courageous, fearless, bold, heroic",
+        antonyms:
+        "cowardly, timid, fearful, weak"
+    },
+
+    {
+        word: "in front of",
+        pos: "Phrase",
+        meaning: "সামনে",
+        ipa: "/ɪn frʌnt əv/",
+        pronunciation: "ইন ফ্রন্ট অভ",
+        synonyms:
+        "before, ahead of, facing, opposite",
+        antonyms:
+        "behind, at the back of, after, beyond"
+    },
+
+    {
+        word: "face",
+        pos: "Verb",
+        meaning: "মোকাবিলা করা",
+        ipa: "/feɪs/",
+        pronunciation: "ফেইস",
+        synonyms:
+        "confront, encounter, challenge, meet",
+        antonyms:
+        "avoid, evade, escape, ignore"
+    }
+
+]
+},
+
+/* =====================================================
+Mum and I became friends, a lot of times we stay up at night and talk about everything.
+===================================================== */
+
+{
+meaning:
+"মা এবং আমি বন্ধু হয়ে গেলাম; অনেক সময় আমরা রাতে জেগে থাকি এবং সবকিছু নিয়ে কথা বলি।",
+
+vocabulary: []
+},
+
+/* =====================================================
+In the future if I ‘grow up’, and in Gaza it's an ‘achievement’ to grow up, because ‘death’ is standing at your ‘doorstep’, I want to be a children's ‘caretaker’ and ‘defend’ their rights; because I ‘feel’ that the ‘children’ of Palestine are born as old people, a kid can be 6 years old and yet ‘supporting’ a ‘family’.
+===================================================== */
+
+{
+meaning:
+"ভবিষ্যতে যদি আমি বড় হয়ে উঠি—আর গাজায় বড় হয়ে ওঠাটাই একটি অর্জন, কারণ মৃত্যু তোমার দরজায় দাঁড়িয়ে থাকে—তাহলে আমি শিশুদের একজন তত্ত্বাবধায়ক হতে চাই এবং তাদের অধিকার রক্ষা করতে চাই; কারণ আমি অনুভব করি যে ফিলিস্তিনের শিশুরা বৃদ্ধ মানুষ হিসেবে জন্মায়, একটি শিশু মাত্র ৬ বছর বয়সী হয়েও একটি পরিবারকে সহায়তা করতে পারে।",
+
+vocabulary: [
+
+    {
+        word: "grow up",
+        pos: "Phrasal Verb",
+        meaning: "বড় হয়ে ওঠা",
+        ipa: "/ɡrəʊ ʌp/",
+        pronunciation: "গ্রো আপ",
+        synonyms:
+        "mature, develop, become an adult, age",
+        antonyms:
+        "remain a child, regress, decline, become immature"
+    },
+
+    {
+        word: "achievement",
+        pos: "Noun",
+        meaning: "অর্জন",
+        ipa: "/əˈtʃiːvmənt/",
+        pronunciation: "অচিভমেন্ট",
+        synonyms:
+        "accomplishment, success, attainment, feat",
+        antonyms:
+        "failure, defeat, loss, disappointment"
+    },
+
+    {
+        word: "death",
+        pos: "Noun",
+        meaning: "মৃত্যু",
+        ipa: "/deθ/",
+        pronunciation: "ডেথ",
+        synonyms:
+        "demise, passing, demise, expiration",
+        antonyms:
+        "life, birth, existence, survival"
+    },
+
+    {
+        word: "doorstep",
+        pos: "Noun",
+        meaning: "দরজার সামনের স্থান / দোরগোড়া",
+        ipa: "/ˈdɔːstep/",
+        pronunciation: "ডোরস্টেপ",
+        synonyms:
+        "threshold, entrance, doorway, doorstep",
+        antonyms:
+        "distance, interior, elsewhere, faraway place"
+    },
+
+    {
+        word: "caretaker",
+        pos: "Noun",
+        meaning: "তত্ত্বাবধায়ক",
+        ipa: "/ˈkeəteɪkə/",
+        pronunciation: "কেয়ারটেকার",
+        synonyms:
+        "guardian, custodian, carer, keeper",
+        antonyms:
+        "neglector, abuser, destroyer, abandoner"
+    },
+
+    {
+        word: "defend",
+        pos: "Verb",
+        meaning: "রক্ষা করা",
+        ipa: "/dɪˈfend/",
+        pronunciation: "ডিফেন্ড",
+        synonyms:
+        "protect, guard, shield, safeguard",
+        antonyms:
+        "attack, harm, endanger, abandon"
+    },
+
+    {
+        word: "feel",
+        pos: "Verb",
+        meaning: "অনুভব করা",
+        ipa: "/fiːl/",
+        pronunciation: "ফিল",
+        synonyms:
+        "sense, perceive, experience, detect",
+        antonyms:
+        "ignore, overlook, disregard, misunderstand"
+    },
+
+    {
+        word: "children",
+        pos: "Noun",
+        meaning: "শিশুরা",
+        ipa: "/ˈtʃɪldrən/",
+        pronunciation: "চিলড্রেন",
+        synonyms:
+        "kids, youngsters, minors, juveniles",
+        antonyms:
+        "adults, grown-ups, elders, seniors"
+    },
+
+    {
+        word: "supporting",
+        pos: "Verb",
+        meaning: "সহায়তা করা",
+        ipa: "/səˈpɔːtɪŋ/",
+        pronunciation: "সাপোর্টিং",
+        synonyms:
+        "helping, assisting, aiding, backing",
+        antonyms:
+        "hindering, opposing, obstructing, discouraging"
+    },
+
+    {
+        word: "family",
+        pos: "Noun",
+        meaning: "পরিবার",
+        ipa: "/ˈfæməli/",
+        pronunciation: "ফ্যামিলি",
+        synonyms:
+        "household, relatives, kin, clan",
+        antonyms:
+        "strangers, outsiders, enemies, foreigners"
+    }
+
+]
+}
+
+];
+
+
+/* =========================================================
+   ⭐⭐⭐⭐⭐ END OF EDITABLE CONTENT ⭐⭐⭐⭐⭐
+   
+   এখান থেকে নিচের code সাধারণত edit করবে না।
+========================================================= */
+
+
+/* =========================================================
+   GET ELEMENTS
+========================================================= */
+
+const passageContainer =
+    document.getElementById("passage");
+
+
+const vocabularyContainer =
+    document.getElementById("vocabulary");
+
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(text) {
+
+    return String(text)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+}
+
+
+
+/* =========================================================
+   SPLIT FULL PASSAGE INTO SENTENCES
+========================================================= */
+
+function splitIntoSentences(text) {
+
+    /*
+       প্রথমে passage-এর line break ধরে
+       speaker information আলাদা করা হবে।
+    */
+
+    const lines = text
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(line => line.length > 0);
+
+
+    /*
+       এগুলো sentence নয়।
+       এগুলো শুধু speaker / location information।
+    */
+
+    const cleanLines = lines.filter(line => {
+
+        // Example:
+        // 26 Mahmud Najem, Born 1994
+        // 31 Yasmeen Katbeh, Born 1996
+
+        if (
+            /^\d+\s+.+,\s*Born\s+\d{4}$/i.test(line)
+        ) {
+            return false;
+        }
+
+
+        // Example:
+        // Ash Sheikh Radwan
+
+        if (
+            /^Ash Sheikh Radwan$/i.test(line)
+        ) {
+            return false;
+        }
+
+
+        return true;
+
+    });
+
+
+    /*
+       এখন প্রতিটি paragraph-এর sentence
+       আলাদা করা হবে।
+    */
+
+    const sentences = [];
+
+
+    cleanLines.forEach(line => {
+
+        const parts = line
+            .split(
+                /(?<=[.!?])\s+(?=[A-Z“"'])/
+            )
+            .map(sentence => sentence.trim())
+            .filter(sentence => sentence.length > 0);
+
+
+        parts.forEach(sentence => {
+
+            sentences.push(sentence);
+
+        });
+
+    });
+
+
+    return sentences;
+
+}
+
+
+
+/* =========================================================
+   CREATE IDS
+========================================================= */
+
+function sentenceID(index) {
+
+    return "passage-sentence-" + index;
+
+}
+
+
+function vocabularyID(index) {
+
+    return "vocabulary-sentence-" + index;
+
+}
+
+
+function wordID(sentenceIndex, wordIndex) {
+
+    return (
+        "passage-word-" +
+        sentenceIndex +
+        "-" +
+        wordIndex
+    );
+
+}
+
+
+
+/* =========================================================
+   MARK VOCABULARY WORDS
+========================================================= */
+
+function markVocabularyWords(
+    sentence,
+    vocabulary,
+    sentenceIndex
+) {
+
+    let result = escapeHTML(sentence);
+
+    vocabulary.forEach(
+        (item, wordIndex) => {
+
+            const word =
+                escapeHTML(item.word);
+
+            const safeWord =
+                word.replace(
+                    /[.*+?^${}()|[\]\\]/g,
+                    "\\$&"
+                );
+
+            const regex =
+                new RegExp(
+                    "(?<![A-Za-z])" +
+                    safeWord +
+                    "(?![A-Za-z])",
+                    "gi"
+                );
+
+            result =
+                result.replace(
+                    regex,
+
+                    `<span
+                        id="${wordID(sentenceIndex, wordIndex)}"
+                        class="marked-word"
+                        onclick="goToVocabularyWord(${sentenceIndex}, ${wordIndex})"
+                    >$&</span>`
+                );
+
+        }
+    );
+
+    return result;
+}
+
+
+
+/* =========================================================
+   CREATE PASSAGE
+========================================================= */
+
+function createPassage(sentences) {
+
+    passageContainer.innerHTML = "";
+
+
+    sentences.forEach(
+        (sentence, sentenceIndex) => {
+
+            const data =
+                vocabularyData[sentenceIndex];
+
+
+            const vocabulary =
+                data ? data.vocabulary : [];
+
+
+            const sentenceDiv =
+                document.createElement("div");
+
+
+            sentenceDiv.className =
+                "passage-sentence";
+
+
+            sentenceDiv.id =
+                sentenceID(sentenceIndex);
+
+
+            const sentenceHTML =
+                markVocabularyWords(
+                    sentence,
+                    vocabulary,
+                    sentenceIndex
+                );
+
+
+            sentenceDiv.innerHTML =
+
+                sentenceHTML +
+
+                `
+
+                <a
+                    href="#${vocabularyID(sentenceIndex)}"
+                    class="action-button see-full"
+                    onclick="highlightVocabularySentence(${sentenceIndex})"
+                >
+                    SEE FULL
+                </a>
+
+
+                <button
+                    class="action-button pronounce"
+                    onclick="pronounceSentence(${sentenceIndex})"
+                >
+                    🔊 PRONOUNCE
+                </button>
+
+                `;
+
+
+            passageContainer.appendChild(
+                sentenceDiv
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   CREATE VOCABULARY
+========================================================= */
+
+function createVocabulary(sentences) {
+
+    vocabularyContainer.innerHTML = "";
+
+
+    sentences.forEach(
+        (sentence, sentenceIndex) => {
+
+            const data =
+                vocabularyData[sentenceIndex];
+
+
+            if (!data) {
+
+                return;
+
+            }
+
+
+            const box =
+                document.createElement("div");
+
+
+            box.className =
+                "vocab-sentence";
+
+
+            box.id =
+                vocabularyID(sentenceIndex);
+
+
+            let html =
+
+                `
+
+                <!-- ENGLISH SENTENCE -->
+
+                <div class="vocab-english">
+
+                    ${escapeHTML(sentence)}
+
+                    <a
+                        class="sentence-back-button"
+                        onclick="goToPassageSentence(${sentenceIndex})"
+                    >
+                        ↩ BACK TO PASSAGE
+                    </a>
+
+                </div>
+
+
+                <!-- BANGLA MEANING -->
+
+                <div class="bangla-meaning">
+
+                    ${escapeHTML(data.meaning)}
+
+                    <a
+                        class="sentence-back-button"
+                        onclick="goToPassageSentence(${sentenceIndex})"
+                    >
+                        ↩ BACK TO PASSAGE
+                    </a>
+
+                </div>
+
+                `;
+
+
+            /* =================================================
+               WORD CARDS
+            ================================================= */
+
+
+            data.vocabulary.forEach(
+                (item, wordIndex) => {
+
+                    html +=
+
+                        `
+
+                        <div
+                            class="word-card"
+                            id="vocab-word-${sentenceIndex}-${wordIndex}"
+                        >
+
+                            <div class="word-title">
+
+                                ${escapeHTML(item.word)}
+
+                            </div>
+
+
+                            <div class="word-details">
+
+                                <b>
+                                    Part of Speech:
+                                </b>
+
+                                ${escapeHTML(item.pos)}
+
+                                <br>
+
+
+                                <b>
+                                    Bangla Meaning:
+                                </b>
+
+                                ${escapeHTML(item.meaning)}
+
+                                <br>
+
+
+                                <b>
+                                    IPA:
+                                </b>
+
+                                ${escapeHTML(item.ipa)}
+
+                                <br>
+
+
+                                <b>
+                                    Pronunciation:
+                                </b>
+
+                                ${escapeHTML(item.pronunciation)}
+
+                                <br>
+
+
+                                <b>
+                                    Synonyms:
+                                </b>
+
+                                ${escapeHTML(item.synonyms)}
+
+                                <br>
+
+
+                                <b>
+                                    Antonyms:
+                                </b>
+
+                                ${escapeHTML(item.antonyms)}
+
+                                <br>
+
+
+                                <a
+                                    class="back-to-passage"
+                                    onclick="
+                                        goToPassageWord(
+                                            ${sentenceIndex},
+                                            ${wordIndex}
+                                        )
+                                    "
+                                >
+                                    ↩ BACK TO PASSAGE
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                        `;
+
+                }
+            );
+
+
+            box.innerHTML = html;
+
+
+            vocabularyContainer.appendChild(
+                box
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   HIGHLIGHT VOCABULARY SENTENCE
+========================================================= */
+
+function highlightVocabularySentence(
+    sentenceIndex
+) {
+
+    const target =
+        document.getElementById(
+            vocabularyID(sentenceIndex)
+        );
+
+
+    if (!target) {
+
+        return;
+
+    }
+
+
+    setTimeout(() => {
+
+        target.classList.add(
+            "active-sentence"
+        );
+
+
+        setTimeout(() => {
+
+            target.classList.remove(
+                "active-sentence"
+            );
+
+        }, 2200);
+
+    }, 250);
+
+}
+
+/* =========================================================
+   GO TO VOCABULARY SENTENCE — INSTANT
+========================================================= */
+
+function goToVocabularySentence(sentenceIndex) {
+
+    const target =
+        document.getElementById(
+            vocabularyID(sentenceIndex)
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling সম্পূর্ণ বন্ধ।
+       এক লাফে destination-এ যাবে।
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center"
+    });
+
+    target.classList.add("active-sentence");
+
+    setTimeout(() => {
+
+        target.classList.remove("active-sentence");
+
+    }, 2200);
+}
+
+
+/* =========================================================
+   GO TO VOCABULARY WORD — INSTANT
+========================================================= */
+
+function goToVocabularyWord(
+    sentenceIndex,
+    wordIndex
+) {
+
+    const target =
+        document.getElementById(
+            "vocab-word-" +
+            sentenceIndex +
+            "-" +
+            wordIndex
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling বন্ধ
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+
+    /*
+       ⭐ মূল correction ⭐
+
+       আগে এখানে পুরো vocabulary sentence
+       scroll করা হচ্ছিল।
+
+       এখন সরাসরি clicked vocabulary
+       WORD CARD-কে screen-এর মাঝখানে
+       আনা হবে।
+    */
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "nearest"
+    });
+
+
+    /*
+       Exact vocabulary word highlight
+    */
+
+    const wordTitle =
+        target.querySelector(".word-title");
+
+
+    if (wordTitle) {
+
+        wordTitle.classList.add(
+            "active-word"
+        );
+
+    }
+
+
+    /*
+       2.5 seconds পরে highlight remove
+    */
+
+    setTimeout(() => {
+
+        if (wordTitle) {
+
+            wordTitle.classList.remove(
+                "active-word"
+            );
+
+        }
+
+    }, 2500);
+
+}
+
+/* =========================================================
+   GO TO PASSAGE SENTENCE — INSTANT
+========================================================= */
+
+function goToPassageSentence(sentenceIndex) {
+
+    const target =
+        document.getElementById(
+            sentenceID(sentenceIndex)
+        );
+
+    if (!target) {
+        return;
+    }
+
+    /*
+       Smooth scrolling সম্পূর্ণ বন্ধ।
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center"
+    });
+
+    target.classList.add("active-sentence");
+
+    setTimeout(() => {
+
+        target.classList.remove("active-sentence");
+
+    }, 2200);
+}
+
+
+/* =========================================================
+   GO TO EXACT PASSAGE WORD — INSTANT
+========================================================= */
+
+function goToPassageWord(
+    sentenceIndex,
+    wordIndex
+) {
+
+    const target =
+        document.getElementById(
+            wordID(
+                sentenceIndex,
+                wordIndex
+            )
+        );
+
+    if (!target) {
+        return;
+    }
+
+
+    /*
+       Smooth scrolling বন্ধ
+    */
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+
+    /*
+       ⭐ সরাসরি নির্দিষ্ট marked word-কে
+       screen-এর মাঝখানে আনা হবে
+    */
+
+    target.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "nearest"
+    });
+
+
+    /*
+       Exact passage word highlight
+    */
+
+    target.classList.add(
+        "active-word"
+    );
+
+
+    /*
+       2.5 seconds পরে highlight remove
+    */
+
+    setTimeout(() => {
+
+        target.classList.remove(
+            "active-word"
+        );
+
+    }, 2500);
+
+}
+
+/* =========================================================
+   PRONUNCIATION
+========================================================= */
+
+function pronounceSentence(index) {
+
+    const sentences =
+        splitIntoSentences(
+            passageText
+        );
+
+
+    const text =
+        sentences[index];
+
+
+    if (
+        !("speechSynthesis" in window)
+    ) {
+
+        alert(
+            "Your browser does not support speech pronunciation."
+        );
+
+        return;
+
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+        new SpeechSynthesisUtterance(
+            text
+        );
+
+
+    speech.lang = "en-US";
+
+    speech.rate = 0.85;
+
+    speech.pitch = 1;
+
+
+    window.speechSynthesis.speak(
+        speech
+    );
+
+}
+
+
+
+/* =========================================================
+   CHECK DATA
+========================================================= */
+
+function checkData(sentences) {
+
+    if (
+        sentences.length !==
+        vocabularyData.length
+    ) {
+
+        const warning =
+            document.createElement("div");
+
+
+        warning.className =
+            "data-warning";
+
+
+        warning.innerHTML =
+
+            `
+
+            <b>Content warning:</b>
+
+            Passage-এ
+
+            <b>${sentences.length}</b>
+
+            টি sentence পাওয়া গেছে,
+
+            কিন্তু Vocabulary data-তে
+
+            <b>${vocabularyData.length}</b>
+
+            টি entry আছে।
+
+            <br><br>
+
+            প্রতিটি Passage sentence-এর জন্য
+            Vocabulary section-এ একটি করে
+            data object থাকতে হবে।
+
+            `;
+
+
+        document.body.insertBefore(
+            warning,
+            document.getElementById(
+                "passage"
+            )
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   START
+========================================================= */
+
+const sentences =
+    splitIntoSentences(
+        passageText
+    );
+
+
+checkData(sentences);
+
+
+createPassage(
+    sentences
+);
+
+
+createVocabulary(
+    sentences
+);
+
+
+</script>
+
+
+</body>
+</html>
