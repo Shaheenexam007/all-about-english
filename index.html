@@ -159,6 +159,90 @@ body::before {
 
 
 /* =========================================================
+   STUDENT ACCOUNT BAR
+========================================================= */
+
+.account-bar {
+
+    position: absolute;
+
+    top: 22px;
+
+    right: 24px;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.auth-btn {
+
+    border: 1px solid rgba(232,197,106,0.35);
+
+    background:
+        rgba(7,20,33,0.75);
+
+    color: var(--gold);
+
+    padding: 9px 16px;
+
+    border-radius: 30px;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+
+    transition: .25s ease;
+}
+
+
+.auth-btn:hover {
+
+    background:
+        rgba(232,197,106,0.12);
+
+    border-color:
+        var(--gold);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.user-name-display {
+
+    display: none;
+
+    color: var(--green);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    padding: 8px 12px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(112,201,163,0.08);
+
+    border:
+        1px solid rgba(112,201,163,0.18);
+}
+
+
+/* =========================================================
    HERO
 ========================================================= */
 
@@ -904,7 +988,7 @@ footer strong {
 
     .hero {
 
-        padding-top: 50px;
+        padding-top: 75px;
     }
 
     .main-grid {
@@ -932,6 +1016,20 @@ footer strong {
         font-size: 13px;
     }
 
+    .account-bar {
+
+        top: 15px;
+
+        right: 15px;
+    }
+
+    .auth-btn {
+
+        font-size: 10px;
+
+        padding: 8px 13px;
+    }
+
 }
 
 
@@ -944,12 +1042,663 @@ footer strong {
     display: none !important;
 }
 
+
+/* =========================================================
+   AUTH MODAL
+========================================================= */
+
+.auth-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,0.72);
+
+    backdrop-filter:
+        blur(8px);
+}
+
+
+.auth-overlay.show {
+
+    display: flex;
+}
+
+
+.auth-modal {
+
+    width: min(440px, 100%);
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    border-radius: 24px;
+
+    border:
+        1px solid rgba(232,197,106,0.20);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #0b1b2b,
+            #071421
+        );
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.60);
+
+    padding: 28px;
+
+    position: relative;
+
+    animation:
+        authModalIn .25s ease;
+}
+
+
+@keyframes authModalIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(.97);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+.auth-close {
+
+    position: absolute;
+
+    top: 14px;
+
+    right: 17px;
+
+    width: 32px;
+
+    height: 32px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(255,255,255,0.10);
+
+    background:
+        rgba(255,255,255,0.05);
+
+    color:
+        var(--text-soft);
+
+    cursor: pointer;
+
+    font-size: 17px;
+}
+
+
+.auth-close:hover {
+
+    color: white;
+
+    background:
+        rgba(255,255,255,0.10);
+}
+
+
+.auth-logo {
+
+    text-align: center;
+
+    font-family: 'Cinzel', serif;
+
+    color: var(--gold);
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 5px;
+}
+
+
+.auth-subtitle {
+
+    text-align: center;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+
+    margin-bottom: 22px;
+}
+
+
+.auth-tabs {
+
+    display: flex;
+
+    gap: 7px;
+
+    padding: 5px;
+
+    background:
+        rgba(255,255,255,0.04);
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+.auth-tab {
+
+    flex: 1;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--text-muted);
+
+    padding: 10px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+.auth-tab.active {
+
+    background:
+        rgba(232,197,106,0.12);
+
+    color:
+        var(--gold);
+}
+
+
+.auth-form {
+
+    display: none;
+}
+
+
+.auth-form.active {
+
+    display: block;
+}
+
+
+.auth-field {
+
+    margin-bottom: 13px;
+}
+
+
+.auth-field label {
+
+    display: block;
+
+    color: var(--text-soft);
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    margin-bottom: 6px;
+}
+
+
+.auth-field input {
+
+    width: 100%;
+
+    padding: 12px 13px;
+
+    border-radius: 11px;
+
+    border:
+        1px solid rgba(255,255,255,0.10);
+
+    background:
+        rgba(255,255,255,0.045);
+
+    color: white;
+
+    outline: none;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 12px;
+
+    transition: .2s ease;
+}
+
+
+.auth-field input:focus {
+
+    border-color:
+        rgba(105,183,216,0.55);
+
+    background:
+        rgba(255,255,255,0.065);
+
+    box-shadow:
+        0 0 18px rgba(105,183,216,0.06);
+}
+
+
+.auth-field input::placeholder {
+
+    color:
+        #66798b;
+}
+
+
+.auth-submit {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d9b85e,
+            #e8c56a
+        );
+
+    color:
+        #071421;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    margin-top: 6px;
+
+    transition: .25s ease;
+}
+
+
+.auth-submit:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(232,197,106,0.16);
+}
+
+
+.auth-submit:disabled {
+
+    opacity: .55;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+.auth-message {
+
+    display: none;
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    margin-bottom: 13px;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+.auth-message.success {
+
+    display: block;
+
+    color: #9de0bf;
+
+    background:
+        rgba(112,201,163,0.08);
+
+    border:
+        1px solid rgba(112,201,163,0.18);
+}
+
+
+.auth-message.error {
+
+    display: block;
+
+    color: #f1a9a9;
+
+    background:
+        rgba(220,80,80,0.08);
+
+    border:
+        1px solid rgba(220,80,80,0.18);
+}
+
+
+.forgot-password {
+
+    display: block;
+
+    text-align: right;
+
+    color: var(--blue-soft);
+
+    font-size: 10px;
+
+    text-decoration: none;
+
+    margin-top: 9px;
+
+    cursor: pointer;
+}
+
+
+.forgot-password:hover {
+
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   ACCOUNT PANEL
+========================================================= */
+
+.account-panel {
+
+    display: none;
+
+    width: min(440px, 100%);
+
+    border-radius: 24px;
+
+    border:
+        1px solid rgba(112,201,163,0.20);
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b1b2b,
+            #071421
+        );
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.60);
+
+    padding: 30px;
+
+    position: relative;
+}
+
+
+.account-panel.show {
+
+    display: block;
+}
+
+
+.account-avatar {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 14px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(112,201,163,0.10);
+
+    border:
+        1px solid rgba(112,201,163,0.22);
+
+    font-size: 28px;
+}
+
+
+.account-title {
+
+    text-align: center;
+
+    font-family: 'Cinzel', serif;
+
+    color: var(--gold);
+
+    font-size: 21px;
+}
+
+
+.account-email {
+
+    text-align: center;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+
+    margin-top: 4px;
+
+    margin-bottom: 20px;
+}
+
+
+.account-info {
+
+    border:
+        1px solid rgba(255,255,255,0.07);
+
+    border-radius: 14px;
+
+    padding: 15px;
+
+    background:
+        rgba(255,255,255,0.03);
+
+    margin-bottom: 18px;
+}
+
+
+.account-info-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 8px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.05);
+
+    font-size: 10px;
+}
+
+
+.account-info-row:last-child {
+
+    border-bottom: none;
+}
+
+
+.account-info-label {
+
+    color: var(--text-muted);
+}
+
+
+.account-info-value {
+
+    color: var(--text-soft);
+
+    text-align: right;
+}
+
+
+.logout-btn {
+
+    width: 100%;
+
+    border:
+        1px solid rgba(220,100,100,0.25);
+
+    background:
+        rgba(220,100,100,0.07);
+
+    color:
+        #e8a5a5;
+
+    padding: 12px;
+
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-weight: 700;
+
+    font-size: 11px;
+}
+
+
+.logout-btn:hover {
+
+    background:
+        rgba(220,100,100,0.12);
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.auth-loading {
+
+    display: none;
+
+    text-align: center;
+
+    color: var(--blue-soft);
+
+    font-size: 10px;
+
+    margin-top: 10px;
+}
+
+
+.auth-loading.show {
+
+    display: block;
+}
+
+
+/* =========================================================
+   MOBILE MODAL
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .auth-overlay {
+
+        padding: 10px;
+    }
+
+    .auth-modal,
+    .account-panel {
+
+        padding: 23px;
+
+        border-radius: 20px;
+    }
+
+}
+
 </style>
 
 </head>
 
 
 <body>
+
+
+<!-- =========================================================
+     STUDENT ACCOUNT BUTTON
+========================================================= -->
+
+<div class="account-bar">
+
+    <span
+        id="userNameDisplay"
+        class="user-name-display"
+    ></span>
+
+    <button
+        id="authOpenBtn"
+        class="auth-btn"
+        onclick="openAuthModal()"
+    >
+        👤 Student Login
+    </button>
+
+</div>
 
 
 <!-- =========================================================
@@ -1417,12 +2166,6 @@ footer strong {
                 </a>
 
 
-                <!-- =================================================
-                     UNIT 12
-                     This opens:
-                     hsc/1st-paper/unit-12/index.html
-                ================================================== -->
-
                 <a
                     href="hsc/1st-paper/unit-12/"
                     class="folder"
@@ -1475,10 +2218,6 @@ footer strong {
             <div class="folder-grid">
 
 
-                <!-- =================================================
-                     GRAMMAR
-                ================================================== -->
-
                 <a
                     href="hsc/2nd-paper/grammar/"
                     class="folder"
@@ -1496,8 +2235,6 @@ footer strong {
                 </a>
 
 
-                <!-- VOCABULARY -->
-
                 <a
                     href="hsc/2nd-paper/vocabulary-reference/"
                     class="folder"
@@ -1514,8 +2251,6 @@ footer strong {
 
                 </a>
 
-
-                <!-- WRITTEN PART -->
 
                 <a
                     href="hsc/2nd-paper/written-part/"
@@ -1575,6 +2310,1418 @@ footer strong {
 
 
 <!-- =========================================================
+     AUTHENTICATION MODAL
+========================================================= -->
+
+<div
+    id="authOverlay"
+    class="auth-overlay"
+    onclick="closeAuthOutside(event)"
+>
+
+
+    <!-- =====================================================
+         AUTH MODAL
+    ====================================================== -->
+
+    <div
+        id="authModal"
+        class="auth-modal"
+    >
+
+        <button
+            class="auth-close"
+            onclick="closeAuthModal()"
+            type="button"
+        >
+            ×
+        </button>
+
+
+        <div class="auth-logo">
+            ALL ABOUT ENGLISH
+        </div>
+
+
+        <div class="auth-subtitle">
+            Student Registration &amp; Login
+        </div>
+
+
+        <div class="auth-tabs">
+
+            <button
+                id="loginTab"
+                class="auth-tab active"
+                onclick="showLogin()"
+                type="button"
+            >
+                LOGIN
+            </button>
+
+
+            <button
+                id="registerTab"
+                class="auth-tab"
+                onclick="showRegister()"
+                type="button"
+            >
+                REGISTER
+            </button>
+
+        </div>
+
+
+        <div
+            id="authMessage"
+            class="auth-message"
+        ></div>
+
+
+        <!-- =================================================
+             LOGIN FORM
+        ================================================== -->
+
+        <form
+            id="loginForm"
+            class="auth-form active"
+            onsubmit="loginStudent(event)"
+        >
+
+            <div class="auth-field">
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    id="loginEmail"
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                    autocomplete="email"
+                >
+
+            </div>
+
+
+            <div class="auth-field">
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    id="loginPassword"
+                    type="password"
+                    placeholder="Enter your password"
+                    required
+                    autocomplete="current-password"
+                >
+
+            </div>
+
+
+            <button
+                id="loginSubmit"
+                class="auth-submit"
+                type="submit"
+            >
+                🔐 LOGIN
+            </button>
+
+
+            <a
+                class="forgot-password"
+                onclick="resetPassword()"
+            >
+                Forgot Password?
+            </a>
+
+
+            <div
+                id="loginLoading"
+                class="auth-loading"
+            >
+                Please wait...
+            </div>
+
+        </form>
+
+
+
+        <!-- =================================================
+             REGISTRATION FORM
+        ================================================== -->
+
+        <form
+            id="registerForm"
+            class="auth-form"
+            onsubmit="registerStudent(event)"
+        >
+
+
+            <div class="auth-field">
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    id="registerName"
+                    type="text"
+                    placeholder="Enter your full name"
+                    required
+                    autocomplete="name"
+                >
+
+            </div>
+
+
+            <div class="auth-field">
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    id="registerEmail"
+                    type="email"
+                    placeholder="Enter your email address"
+                    required
+                    autocomplete="email"
+                >
+
+            </div>
+
+
+            <div class="auth-field">
+
+                <label>
+                    Mobile Number
+                </label>
+
+                <input
+                    id="registerMobile"
+                    type="tel"
+                    placeholder="01XXXXXXXXX"
+                    required
+                    inputmode="numeric"
+                    maxlength="11"
+                    autocomplete="tel"
+                >
+
+            </div>
+
+
+            <div class="auth-field">
+
+                <label>
+                    College / Institution
+                </label>
+
+                <input
+                    id="registerCollege"
+                    type="text"
+                    placeholder="Enter college/institution"
+                    required
+                    autocomplete="organization"
+                >
+
+            </div>
+
+
+            <div class="auth-field">
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    id="registerPassword"
+                    type="password"
+                    placeholder="Minimum 6 characters"
+                    required
+                    minlength="6"
+                    autocomplete="new-password"
+                >
+
+            </div>
+
+
+            <div class="auth-field">
+
+                <label>
+                    Confirm Password
+                </label>
+
+                <input
+                    id="registerConfirmPassword"
+                    type="password"
+                    placeholder="Re-enter your password"
+                    required
+                    minlength="6"
+                    autocomplete="new-password"
+                >
+
+            </div>
+
+
+            <button
+                id="registerSubmit"
+                class="auth-submit"
+                type="submit"
+            >
+                ✨ CREATE STUDENT ACCOUNT
+            </button>
+
+
+            <div
+                id="registerLoading"
+                class="auth-loading"
+            >
+                Creating your account...
+            </div>
+
+        </form>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ACCOUNT PANEL
+    ====================================================== -->
+
+    <div
+        id="accountPanel"
+        class="account-panel"
+    >
+
+        <button
+            class="auth-close"
+            onclick="closeAuthModal()"
+            type="button"
+        >
+            ×
+        </button>
+
+
+        <div class="account-avatar">
+            👨‍🎓
+        </div>
+
+
+        <div
+            id="accountName"
+            class="account-title"
+        >
+            Student
+        </div>
+
+
+        <div
+            id="accountEmail"
+            class="account-email"
+        >
+        </div>
+
+
+        <div class="account-info">
+
+
+            <div class="account-info-row">
+
+                <span class="account-info-label">
+                    Mobile
+                </span>
+
+                <span
+                    id="accountMobile"
+                    class="account-info-value"
+                >
+                </span>
+
+            </div>
+
+
+            <div class="account-info-row">
+
+                <span class="account-info-label">
+                    Institution
+                </span>
+
+                <span
+                    id="accountCollege"
+                    class="account-info-value"
+                >
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="logout-btn"
+            onclick="logoutStudent()"
+            type="button"
+        >
+            🚪 LOG OUT
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     FIREBASE + APPLICATION SCRIPT
+========================================================= -->
+
+<script type="module">
+
+/* =========================================================
+   FIREBASE IMPORTS
+========================================================= */
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
+
+
+import {
+    getAnalytics
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-analytics.js";
+
+
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged,
+    sendPasswordResetEmail,
+    updateProfile
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    doc,
+    setDoc,
+    getDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
+
+
+
+/* =========================================================
+   FIREBASE CONFIGURATION
+========================================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyB6xJFLJC9KReEJQAzHbOmB67DBg-zX4gE",
+
+    authDomain:
+        "all-about-english-007.firebaseapp.com",
+
+    databaseURL:
+        "https://all-about-english-007-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+    projectId:
+        "all-about-english-007",
+
+    storageBucket:
+        "all-about-english-007.firebasestorage.app",
+
+    messagingSenderId:
+        "251678333411",
+
+    appId:
+        "1:251678333411:web:889369210cb79442f0a8d6",
+
+    measurementId:
+        "G-RVFY5YEX6L"
+};
+
+
+
+/* =========================================================
+   INITIALIZE FIREBASE
+========================================================= */
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const analytics =
+    getAnalytics(app);
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+
+/* =========================================================
+   AUTH STATE
+========================================================= */
+
+onAuthStateChanged(
+    auth,
+    async function(user) {
+
+        const authButton =
+            document.getElementById("authOpenBtn");
+
+        const userDisplay =
+            document.getElementById("userNameDisplay");
+
+
+        if (user) {
+
+            let displayName =
+                user.displayName ||
+                "Student";
+
+
+            userDisplay.textContent =
+                "👋 " + displayName;
+
+
+            userDisplay.style.display =
+                "inline-block";
+
+
+            authButton.textContent =
+                "👤 My Account";
+
+
+            authButton.onclick =
+                function() {
+
+                    openAccountPanel();
+
+                };
+
+
+        }
+
+        else {
+
+            userDisplay.style.display =
+                "none";
+
+
+            authButton.textContent =
+                "👤 Student Login";
+
+
+            authButton.onclick =
+                function() {
+
+                    openAuthModal();
+
+                };
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   OPEN AUTH MODAL
+========================================================= */
+
+window.openAuthModal =
+function() {
+
+    document
+        .getElementById("authOverlay")
+        .classList.add("show");
+
+
+    document
+        .getElementById("authModal")
+        .style.display = "block";
+
+
+    document
+        .getElementById("accountPanel")
+        .classList.remove("show");
+
+
+    clearMessage();
+
+};
+
+
+
+/* =========================================================
+   OPEN ACCOUNT PANEL
+========================================================= */
+
+window.openAccountPanel =
+async function() {
+
+    const user =
+        auth.currentUser;
+
+
+    if (!user) {
+
+        openAuthModal();
+
+        return;
+
+    }
+
+
+    document
+        .getElementById("authOverlay")
+        .classList.add("show");
+
+
+    document
+        .getElementById("authModal")
+        .style.display = "none";
+
+
+    document
+        .getElementById("accountPanel")
+        .classList.add("show");
+
+
+    document
+        .getElementById("accountName")
+        .textContent =
+            user.displayName ||
+            "Student";
+
+
+    document
+        .getElementById("accountEmail")
+        .textContent =
+            user.email || "";
+
+
+    try {
+
+        const studentRef =
+            doc(
+                db,
+                "students",
+                user.uid
+            );
+
+
+        const studentSnap =
+            await getDoc(studentRef);
+
+
+        if (studentSnap.exists()) {
+
+            const data =
+                studentSnap.data();
+
+
+            document
+                .getElementById("accountMobile")
+                .textContent =
+                    data.mobile ||
+                    "Not provided";
+
+
+            document
+                .getElementById("accountCollege")
+                .textContent =
+                    data.college ||
+                    "Not provided";
+
+        }
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Could not load student data:",
+            error
+        );
+
+    }
+
+};
+
+
+
+/* =========================================================
+   CLOSE AUTH MODAL
+========================================================= */
+
+window.closeAuthModal =
+function() {
+
+    document
+        .getElementById("authOverlay")
+        .classList.remove("show");
+
+};
+
+
+
+/* =========================================================
+   CLOSE WHEN CLICK OUTSIDE
+========================================================= */
+
+window.closeAuthOutside =
+function(event) {
+
+    if (
+        event.target.id ===
+        "authOverlay"
+    ) {
+
+        closeAuthModal();
+
+    }
+
+};
+
+
+
+/* =========================================================
+   LOGIN TAB
+========================================================= */
+
+window.showLogin =
+function() {
+
+    document
+        .getElementById("loginTab")
+        .classList.add("active");
+
+
+    document
+        .getElementById("registerTab")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("loginForm")
+        .classList.add("active");
+
+
+    document
+        .getElementById("registerForm")
+        .classList.remove("active");
+
+
+    clearMessage();
+
+};
+
+
+
+/* =========================================================
+   REGISTER TAB
+========================================================= */
+
+window.showRegister =
+function() {
+
+    document
+        .getElementById("registerTab")
+        .classList.add("active");
+
+
+    document
+        .getElementById("loginTab")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("registerForm")
+        .classList.add("active");
+
+
+    document
+        .getElementById("loginForm")
+        .classList.remove("active");
+
+
+    clearMessage();
+
+};
+
+
+
+/* =========================================================
+   REGISTER STUDENT
+========================================================= */
+
+window.registerStudent =
+async function(event) {
+
+    event.preventDefault();
+
+
+    const name =
+        document
+        .getElementById("registerName")
+        .value
+        .trim();
+
+
+    const email =
+        document
+        .getElementById("registerEmail")
+        .value
+        .trim();
+
+
+    const mobile =
+        document
+        .getElementById("registerMobile")
+        .value
+        .trim();
+
+
+    const college =
+        document
+        .getElementById("registerCollege")
+        .value
+        .trim();
+
+
+    const password =
+        document
+        .getElementById("registerPassword")
+        .value;
+
+
+    const confirmPassword =
+        document
+        .getElementById("registerConfirmPassword")
+        .value;
+
+
+
+    /* =====================================================
+       BASIC VALIDATION
+    ====================================================== */
+
+    if (
+        name.length < 2
+    ) {
+
+        showMessage(
+            "Please enter your full name.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    if (
+        !/^[0-9]{11}$/.test(mobile)
+    ) {
+
+        showMessage(
+            "Please enter a valid 11-digit Bangladesh mobile number.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    if (
+        password.length < 6
+    ) {
+
+        showMessage(
+            "Password must contain at least 6 characters.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    if (
+        password !== confirmPassword
+    ) {
+
+        showMessage(
+            "Passwords do not match.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+
+    /* =====================================================
+       LOADING
+    ====================================================== */
+
+    const submitButton =
+        document
+        .getElementById("registerSubmit");
+
+
+    const loading =
+        document
+        .getElementById("registerLoading");
+
+
+    submitButton.disabled =
+        true;
+
+
+    loading.classList.add(
+        "show"
+    );
+
+
+    clearMessage();
+
+
+
+    try {
+
+        /* =================================================
+           CREATE FIREBASE AUTH USER
+        ================================================== */
+
+        const userCredential =
+            await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+
+        const user =
+            userCredential.user;
+
+
+
+        /* =================================================
+           SET DISPLAY NAME
+        ================================================== */
+
+        await updateProfile(
+            user,
+            {
+                displayName: name
+            }
+        );
+
+
+
+        /* =================================================
+           SAVE STUDENT DATA IN FIRESTORE
+        ================================================= */
+
+        await setDoc(
+
+            doc(
+                db,
+                "students",
+                user.uid
+            ),
+
+            {
+
+                uid:
+                    user.uid,
+
+                name:
+                    name,
+
+                email:
+                    email,
+
+                mobile:
+                    mobile,
+
+                college:
+                    college,
+
+                createdAt:
+                    serverTimestamp(),
+
+                accountStatus:
+                    "active"
+
+            }
+
+        );
+
+
+
+        /* =================================================
+           SUCCESS
+        ================================================== */
+
+        showMessage(
+            "Registration successful! Your student account has been created.",
+            "success"
+        );
+
+
+        setTimeout(
+            function() {
+
+                closeAuthModal();
+
+                openAccountPanel();
+
+            },
+            1200
+        );
+
+
+        document
+            .getElementById("registerForm")
+            .reset();
+
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Registration error:",
+            error
+        );
+
+
+        let message =
+            "Registration failed. Please try again.";
+
+
+        if (
+            error.code ===
+            "auth/email-already-in-use"
+        ) {
+
+            message =
+                "This email is already registered. Please login.";
+
+        }
+
+        else if (
+            error.code ===
+            "auth/invalid-email"
+        ) {
+
+            message =
+                "Please enter a valid email address.";
+
+        }
+
+        else if (
+            error.code ===
+            "auth/weak-password"
+        ) {
+
+            message =
+                "Password is too weak. Use at least 6 characters.";
+
+        }
+
+        else if (
+            error.code ===
+            "permission-denied"
+        ) {
+
+            message =
+                "Account created, but student information could not be saved to Firestore. Firestore Rules need to be configured.";
+
+        }
+
+
+        showMessage(
+            message,
+            "error"
+        );
+
+    }
+
+    finally {
+
+        submitButton.disabled =
+            false;
+
+        loading.classList.remove(
+            "show"
+        );
+
+    }
+
+};
+
+
+
+/* =========================================================
+   LOGIN STUDENT
+========================================================= */
+
+window.loginStudent =
+async function(event) {
+
+    event.preventDefault();
+
+
+    const email =
+        document
+        .getElementById("loginEmail")
+        .value
+        .trim();
+
+
+    const password =
+        document
+        .getElementById("loginPassword")
+        .value;
+
+
+    const submitButton =
+        document
+        .getElementById("loginSubmit");
+
+
+    const loading =
+        document
+        .getElementById("loginLoading");
+
+
+    submitButton.disabled =
+        true;
+
+
+    loading.classList.add(
+        "show"
+    );
+
+
+    clearMessage();
+
+
+
+    try {
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+
+        showMessage(
+            "Login successful!",
+            "success"
+        );
+
+
+        setTimeout(
+            function() {
+
+                closeAuthModal();
+
+                openAccountPanel();
+
+            },
+            700
+        );
+
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Login error:",
+            error
+        );
+
+
+        let message =
+            "Login failed. Please check your email and password.";
+
+
+        if (
+            error.code ===
+            "auth/invalid-credential"
+        ) {
+
+            message =
+                "Incorrect email or password.";
+
+        }
+
+        else if (
+            error.code ===
+            "auth/user-not-found"
+        ) {
+
+            message =
+                "No account found with this email.";
+
+        }
+
+        else if (
+            error.code ===
+            "auth/wrong-password"
+        ) {
+
+            message =
+                "Incorrect password.";
+
+        }
+
+        else if (
+            error.code ===
+            "auth/too-many-requests"
+        ) {
+
+            message =
+                "Too many unsuccessful attempts. Please try again later.";
+
+        }
+
+
+        showMessage(
+            message,
+            "error"
+        );
+
+    }
+
+    finally {
+
+        submitButton.disabled =
+            false;
+
+        loading.classList.remove(
+            "show"
+        );
+
+    }
+
+};
+
+
+
+/* =========================================================
+   PASSWORD RESET
+========================================================= */
+
+window.resetPassword =
+async function() {
+
+    const email =
+        document
+        .getElementById("loginEmail")
+        .value
+        .trim();
+
+
+    if (!email) {
+
+        showMessage(
+            "Please enter your email address first.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        await sendPasswordResetEmail(
+            auth,
+            email
+        );
+
+
+        showMessage(
+            "Password reset email has been sent. Please check your inbox.",
+            "success"
+        );
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Password reset error:",
+            error
+        );
+
+
+        showMessage(
+            "Could not send password reset email. Please check the email address.",
+            "error"
+        );
+
+    }
+
+};
+
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+window.logoutStudent =
+async function() {
+
+    try {
+
+        await signOut(auth);
+
+
+        closeAuthModal();
+
+
+        showTemporaryMessage(
+            "You have been logged out successfully."
+        );
+
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Logout error:",
+            error
+        );
+
+    }
+
+};
+
+
+
+/* =========================================================
+   MESSAGE SYSTEM
+========================================================= */
+
+function showMessage(
+    message,
+    type
+) {
+
+    const box =
+        document
+        .getElementById("authMessage");
+
+
+    box.textContent =
+        message;
+
+
+    box.className =
+        "auth-message " +
+        type;
+
+}
+
+
+function clearMessage() {
+
+    const box =
+        document
+        .getElementById("authMessage");
+
+
+    box.textContent =
+        "";
+
+
+    box.className =
+        "auth-message";
+
+}
+
+
+/* =========================================================
+   TEMPORARY MESSAGE
+========================================================= */
+
+function showTemporaryMessage(
+    message
+) {
+
+    const box =
+        document
+        .getElementById("authMessage");
+
+
+    box.textContent =
+        message;
+
+
+    box.className =
+        "auth-message success";
+
+
+    document
+        .getElementById("authOverlay")
+        .classList.add("show");
+
+
+    document
+        .getElementById("authModal")
+        .style.display = "block";
+
+
+    document
+        .getElementById("accountPanel")
+        .classList.remove("show");
+
+
+    setTimeout(
+        function() {
+
+            closeAuthModal();
+
+        },
+        1500
+    );
+
+}
+
+</script>
+
+
+
+<!-- =========================================================
      SEARCH SCRIPT
 ========================================================= -->
 
@@ -1596,28 +3743,34 @@ function searchContent() {
         );
 
 
-    items.forEach(function(item) {
+    items.forEach(
+        function(item) {
 
-        const text =
-            item.innerText.toLowerCase();
+            const text =
+                item.innerText.toLowerCase();
 
 
-        if (
-            input === "" ||
-            text.includes(input)
-        ) {
+            if (
+                input === "" ||
+                text.includes(input)
+            ) {
 
-            item.classList.remove("hidden");
+                item.classList.remove(
+                    "hidden"
+                );
+
+            }
+
+            else {
+
+                item.classList.add(
+                    "hidden"
+                );
+
+            }
 
         }
-
-        else {
-
-            item.classList.add("hidden");
-
-        }
-
-    });
+    );
 
 }
 
