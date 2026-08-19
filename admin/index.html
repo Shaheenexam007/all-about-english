@@ -1,1 +1,1942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard | All About English</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<style>
+
+:root {
+    --bg:#06121d;
+    --card:#0b1b2b;
+    --card2:#102438;
+    --gold:#e8c56a;
+    --blue:#69b7d8;
+    --green:#70c9a3;
+    --red:#df8f8f;
+    --text:#f5f8fb;
+    --soft:#aebdcb;
+    --muted:#718496;
+    --border:rgba(255,255,255,.10);
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    min-height:100vh;
+    font-family:Poppins,sans-serif;
+    color:var(--text);
+
+    background:
+        radial-gradient(
+            circle at 10% 5%,
+            rgba(105,183,216,.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 5%,
+            rgba(232,197,106,.08),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #06121d,
+            #091a29,
+            #06121d
+        );
+
+    padding-bottom:50px;
+}
+
+.container {
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.admin-header {
+    padding:35px 0 25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+
+    border-bottom:1px solid var(--border);
+}
+
+.brand {
+    font-family:Cinzel,serif;
+    color:var(--gold);
+    font-size:28px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.admin-subtitle {
+    color:var(--soft);
+    font-size:11px;
+    margin-top:5px;
+}
+
+.admin-user {
+    text-align:right;
+}
+
+.admin-name {
+    color:var(--green);
+    font-size:12px;
+    font-weight:700;
+}
+
+.admin-email {
+    color:var(--muted);
+    font-size:9px;
+    margin-top:3px;
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.loading-screen {
+    position:fixed;
+    inset:0;
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#06121d;
+}
+
+.loading-box {
+    text-align:center;
+}
+
+.loading-box h2 {
+    font-family:Cinzel,serif;
+    color:var(--gold);
+    font-size:24px;
+}
+
+.loading-box p {
+    color:var(--muted);
+    font-size:11px;
+    margin-top:8px;
+}
+
+
+/* =========================
+   ACCESS DENIED
+========================= */
+
+.access-denied {
+    display:none;
+
+    min-height:80vh;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+}
+
+.access-denied.show {
+    display:flex;
+}
+
+.denied-box {
+    width:min(500px,100%);
+    padding:40px 25px;
+
+    border:1px solid rgba(220,100,100,.20);
+    border-radius:22px;
+
+    background:rgba(255,255,255,.035);
+}
+
+.denied-icon {
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.denied-box h2 {
+    color:var(--red);
+    font-family:Cinzel,serif;
+}
+
+.denied-box p {
+    color:var(--soft);
+    font-size:11px;
+    line-height:1.7;
+    margin-top:10px;
+}
+
+.back-btn {
+    display:inline-block;
+    margin-top:20px;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    color:#071421;
+    background:var(--gold);
+
+    font-size:11px;
+    font-weight:700;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+    display:none;
+}
+
+.dashboard.show {
+    display:block;
+}
+
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome {
+    padding:30px 0 20px;
+}
+
+.welcome h1 {
+    font-family:Cinzel,serif;
+    font-size:25px;
+    color:white;
+}
+
+.welcome p {
+    color:var(--soft);
+    font-size:11px;
+    margin-top:5px;
+}
+
+
+/* =========================
+   STAT GRID
+========================= */
+
+.stats {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.stat-card {
+    padding:22px;
+
+    border-radius:18px;
+
+    border:1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.025)
+        );
+}
+
+.stat-icon {
+    font-size:25px;
+}
+
+.stat-title {
+    color:var(--muted);
+    font-size:10px;
+    margin-top:10px;
+}
+
+.stat-number {
+    font-size:25px;
+    font-weight:800;
+    margin-top:3px;
+}
+
+.stat-card.students .stat-number {
+    color:var(--blue);
+}
+
+.stat-card.pending .stat-number {
+    color:var(--gold);
+}
+
+.stat-card.approved .stat-number {
+    color:var(--green);
+}
+
+.stat-card.denied .stat-number {
+    color:var(--red);
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    margin-top:30px;
+
+    border-radius:20px;
+
+    border:1px solid var(--border);
+
+    background:
+        rgba(255,255,255,.035);
+
+    overflow:hidden;
+}
+
+.section-header {
+    padding:20px 22px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    border-bottom:1px solid var(--border);
+}
+
+.section-header h2 {
+    font-family:Cinzel,serif;
+    font-size:18px;
+    color:var(--gold);
+}
+
+.section-header p {
+    color:var(--muted);
+    font-size:9px;
+}
+
+
+/* =========================
+   STUDENT LIST
+========================= */
+
+.student-list {
+    padding:15px;
+}
+
+.student-card {
+    padding:15px;
+
+    margin-bottom:10px;
+
+    border-radius:13px;
+
+    background:rgba(255,255,255,.035);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    display:grid;
+
+    grid-template-columns:
+        1.3fr
+        1.3fr
+        1fr
+        1.3fr;
+
+    gap:15px;
+
+    align-items:center;
+}
+
+.student-card:last-child {
+    margin-bottom:0;
+}
+
+.student-label {
+    display:block;
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    margin-bottom:3px;
+}
+
+.student-value {
+    color:var(--soft);
+
+    font-size:10px;
+
+    word-break:break-word;
+}
+
+.student-name {
+    color:white;
+    font-weight:700;
+}
+
+
+/* =========================
+   CONTENT APPROVAL
+========================= */
+
+.content-form {
+    padding:20px;
+}
+
+.form-grid {
+    display:grid;
+    grid-template-columns:
+        1.5fr
+        1.5fr
+        1fr
+        auto;
+
+    gap:10px;
+}
+
+.input {
+    width:100%;
+
+    padding:11px 12px;
+
+    border-radius:10px;
+
+    border:1px solid var(--border);
+
+    background:rgba(255,255,255,.045);
+
+    color:white;
+
+    outline:none;
+
+    font-family:Poppins,sans-serif;
+
+    font-size:10px;
+}
+
+.input:focus {
+    border-color:var(--blue);
+}
+
+select.input {
+    cursor:pointer;
+}
+
+.add-btn {
+    padding:11px 16px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:var(--gold);
+
+    color:#071421;
+
+    font-weight:800;
+
+    font-size:10px;
+
+    cursor:pointer;
+}
+
+.add-btn:hover {
+    transform:translateY(-1px);
+}
+
+
+/* =========================
+   CONTENT CARD
+========================= */
+
+.content-list {
+    padding:15px;
+}
+
+.content-card {
+    padding:17px;
+
+    margin-bottom:10px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.035);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr
+        1.3fr
+        100px
+        180px;
+
+    gap:15px;
+
+    align-items:center;
+}
+
+.content-card:last-child {
+    margin-bottom:0;
+}
+
+.content-title {
+    color:white;
+    font-size:11px;
+    font-weight:700;
+}
+
+.content-meta {
+    color:var(--muted);
+    font-size:9px;
+    margin-top:3px;
+}
+
+.status {
+    display:inline-block;
+
+    padding:5px 9px;
+
+    border-radius:20px;
+
+    font-size:8px;
+
+    font-weight:800;
+}
+
+.status.pending {
+    color:var(--gold);
+    background:rgba(232,197,106,.08);
+}
+
+.status.approved {
+    color:var(--green);
+    background:rgba(112,201,163,.08);
+}
+
+.status.denied {
+    color:var(--red);
+    background:rgba(220,100,100,.08);
+}
+
+.actions {
+    display:flex;
+    gap:7px;
+}
+
+.action-btn {
+    padding:7px 9px;
+
+    border-radius:8px;
+
+    border:1px solid;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    font-family:Poppins,sans-serif;
+
+    font-size:8px;
+
+    font-weight:700;
+}
+
+.approve-btn {
+    color:var(--green);
+    border-color:rgba(112,201,163,.25);
+}
+
+.approve-btn:hover {
+    background:rgba(112,201,163,.10);
+}
+
+.deny-btn {
+    color:var(--red);
+    border-color:rgba(220,100,100,.25);
+}
+
+.deny-btn:hover {
+    background:rgba(220,100,100,.10);
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty {
+    padding:30px;
+    text-align:center;
+    color:var(--muted);
+    font-size:10px;
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+.logout {
+    margin-top:30px;
+
+    display:flex;
+    justify-content:flex-end;
+}
+
+.logout-btn {
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    border:1px solid rgba(220,100,100,.25);
+
+    background:rgba(220,100,100,.07);
+
+    color:#e8a5a5;
+
+    font-family:Poppins,sans-serif;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    display:none;
+
+    margin-top:15px;
+
+    padding:11px;
+
+    border-radius:10px;
+
+    font-size:10px;
+}
+
+.message.show {
+    display:block;
+}
+
+.message.success {
+    color:#9de0bf;
+    background:rgba(112,201,163,.08);
+}
+
+.message.error {
+    color:#f1a9a9;
+    background:rgba(220,80,80,.08);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px) {
+
+    .stats {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .student-card {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .content-card {
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .admin-header {
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .admin-user {
+        text-align:left;
+    }
+
+    .stats {
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .stat-card {
+        padding:17px;
+    }
+
+    .form-grid {
+        grid-template-columns:1fr;
+    }
+
+    .student-card {
+        grid-template-columns:1fr;
+    }
+
+    .content-card {
+        grid-template-columns:1fr;
+    }
+
+    .actions {
+        flex-wrap:wrap;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     LOADING
+========================= -->
+
+<div
+    id="loadingScreen"
+    class="loading-screen"
+>
+
+    <div class="loading-box">
+
+        <h2>
+            ALL ABOUT ENGLISH
+        </h2>
+
+        <p>
+            Verifying administrator access...
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     ACCESS DENIED
+========================= -->
+
+<div
+    id="accessDenied"
+    class="access-denied"
+>
+
+    <div class="denied-box">
+
+        <div class="denied-icon">
+            🔒
+        </div>
+
+        <h2>
+            Access Denied
+        </h2>
+
+        <p>
+            You do not have administrator permission
+            to access this dashboard.
+        </p>
+
+        <a
+            href="../"
+            class="back-btn"
+        >
+            ← Back to Homepage
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     DASHBOARD
+========================= -->
+
+<div
+    id="dashboard"
+    class="dashboard"
+>
+
+    <div class="container">
+
+
+        <!-- HEADER -->
+
+        <header class="admin-header">
+
+            <div>
+
+                <div class="brand">
+                    ALL ABOUT ENGLISH
+                </div>
+
+                <div class="admin-subtitle">
+                    Administrator Dashboard
+                </div>
+
+            </div>
+
+
+            <div class="admin-user">
+
+                <div
+                    id="adminName"
+                    class="admin-name"
+                >
+                    Admin
+                </div>
+
+                <div
+                    id="adminEmail"
+                    class="admin-email"
+                >
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- WELCOME -->
+
+        <div class="welcome">
+
+            <h1>
+                Welcome, Shaheen Sir 👋
+            </h1>
+
+            <p>
+                Manage students and control learning content.
+            </p>
+
+        </div>
+
+
+
+        <!-- STATISTICS -->
+
+        <div class="stats">
+
+
+            <div class="stat-card students">
+
+                <div class="stat-icon">
+                    👨‍🎓
+                </div>
+
+                <div class="stat-title">
+                    TOTAL STUDENTS
+                </div>
+
+                <div
+                    id="totalStudents"
+                    class="stat-number"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="stat-card pending">
+
+                <div class="stat-icon">
+                    ⏳
+                </div>
+
+                <div class="stat-title">
+                    PENDING CONTENT
+                </div>
+
+                <div
+                    id="pendingContent"
+                    class="stat-number"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="stat-card approved">
+
+                <div class="stat-icon">
+                    ✅
+                </div>
+
+                <div class="stat-title">
+                    APPROVED CONTENT
+                </div>
+
+                <div
+                    id="approvedContent"
+                    class="stat-number"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="stat-card denied">
+
+                <div class="stat-icon">
+                    ❌
+                </div>
+
+                <div class="stat-title">
+                    DENIED CONTENT
+                </div>
+
+                <div
+                    id="deniedContent"
+                    class="stat-number"
+                >
+                    0
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             STUDENTS
+        ========================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        👨‍🎓 Students
+                    </h2>
+
+                    <p>
+                        Registered student accounts
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="studentList"
+                class="student-list"
+            >
+
+                <div class="empty">
+                    Loading students...
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CONTENT
+        ========================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        📚 Content Management
+                    </h2>
+
+                    <p>
+                        Approve or deny learning content
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="content-form">
+
+                <div class="form-grid">
+
+                    <input
+                        id="contentTitle"
+                        class="input"
+                        type="text"
+                        placeholder="Content title"
+                    >
+
+
+                    <input
+                        id="contentPath"
+                        class="input"
+                        type="text"
+                        placeholder="Content path / URL"
+                    >
+
+
+                    <select
+                        id="contentStatus"
+                        class="input"
+                    >
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                        <option value="approved">
+                            Approved
+                        </option>
+
+                        <option value="denied">
+                            Denied
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        class="add-btn"
+                        onclick="addContent()"
+                        type="button"
+                    >
+                        + ADD CONTENT
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="adminMessage"
+                    class="message"
+                ></div>
+
+            </div>
+
+
+
+            <div
+                id="contentList"
+                class="content-list"
+            >
+
+                <div class="empty">
+                    Loading content...
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- LOGOUT -->
+
+        <div class="logout">
+
+            <button
+                class="logout-btn"
+                onclick="adminLogout()"
+                type="button"
+            >
+                🚪 ADMIN LOGOUT
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<script type="module">
+
+/* =========================================================
+   FIREBASE IMPORTS
+========================================================= */
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    collection,
+    getDocs,
+    setDoc,
+    updateDoc,
+    deleteDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
+
+
+/* =========================================================
+   FIREBASE CONFIG
+========================================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyB6xJFLJC9KReEJQAzHbOmB67DBg-zX4gE",
+
+    authDomain:
+        "all-about-english-007.firebaseapp.com",
+
+    databaseURL:
+        "https://all-about-english-007-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+    projectId:
+        "all-about-english-007",
+
+    storageBucket:
+        "all-about-english-007.firebasestorage.app",
+
+    messagingSenderId:
+        "251678333411",
+
+    appId:
+        "1:251678333411:web:889369210cb79442f0a8d6",
+
+    measurementId:
+        "G-RVFY5YEX6L"
+};
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+const app =
+    initializeApp(firebaseConfig);
+
+const auth =
+    getAuth(app);
+
+const db =
+    getFirestore(app);
+
+
+/* =========================================================
+   AUTH STATE
+========================================================= */
+
+onAuthStateChanged(
+    auth,
+    async function(user) {
+
+        if (!user) {
+
+            showAccessDenied();
+
+            return;
+
+        }
+
+
+        try {
+
+            const adminRef =
+                doc(
+                    db,
+                    "admins",
+                    user.uid
+                );
+
+
+            const adminSnap =
+                await getDoc(adminRef);
+
+
+            if (
+                !adminSnap.exists()
+            ) {
+
+                showAccessDenied();
+
+                return;
+
+            }
+
+
+            const adminData =
+                adminSnap.data();
+
+
+            if (
+                adminData.role !== "admin" ||
+                adminData.status !== "active"
+            ) {
+
+                showAccessDenied();
+
+                return;
+
+            }
+
+
+            /* =========================
+               ADMIN VERIFIED
+            ========================== */
+
+            document
+                .getElementById("adminName")
+                .textContent =
+                    adminData.name ||
+                    user.displayName ||
+                    "Admin";
+
+
+            document
+                .getElementById("adminEmail")
+                .textContent =
+                    user.email ||
+                    adminData.email ||
+                    "";
+
+
+            document
+                .getElementById("loadingScreen")
+                .style.display = "none";
+
+
+            document
+                .getElementById("dashboard")
+                .classList.add("show");
+
+
+            await loadStudents();
+
+            await loadContent();
+
+
+        }
+
+        catch(error) {
+
+            console.error(
+                "Admin verification error:",
+                error
+            );
+
+            showAccessDenied();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ACCESS DENIED
+========================================================= */
+
+function showAccessDenied() {
+
+    document
+        .getElementById("loadingScreen")
+        .style.display = "none";
+
+
+    document
+        .getElementById("dashboard")
+        .classList.remove("show");
+
+
+    document
+        .getElementById("accessDenied")
+        .classList.add("show");
+
+}
+
+
+/* =========================================================
+   LOAD STUDENTS
+========================================================= */
+
+async function loadStudents() {
+
+    const list =
+        document
+        .getElementById("studentList");
+
+
+    try {
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "students"
+                )
+            );
+
+
+        document
+            .getElementById("totalStudents")
+            .textContent =
+                snapshot.size;
+
+
+        if (
+            snapshot.empty
+        ) {
+
+            list.innerHTML =
+                `<div class="empty">
+                    No students registered yet.
+                </div>`;
+
+            return;
+
+        }
+
+
+        list.innerHTML = "";
+
+
+        snapshot.forEach(
+            function(studentDoc) {
+
+                const data =
+                    studentDoc.data();
+
+
+                const card =
+                    document.createElement("div");
+
+
+                card.className =
+                    "student-card";
+
+
+                card.innerHTML = `
+
+                    <div>
+
+                        <span class="student-label">
+                            NAME
+                        </span>
+
+                        <span class="student-value student-name">
+                            ${escapeHTML(data.name || "Student")}
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="student-label">
+                            EMAIL
+                        </span>
+
+                        <span class="student-value">
+                            ${escapeHTML(data.email || "-")}
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="student-label">
+                            MOBILE
+                        </span>
+
+                        <span class="student-value">
+                            ${escapeHTML(data.mobile || "-")}
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="student-label">
+                            COLLEGE / INSTITUTION
+                        </span>
+
+                        <span class="student-value">
+                            ${escapeHTML(data.college || "-")}
+                        </span>
+
+                    </div>
+
+                `;
+
+
+                list.appendChild(card);
+
+            }
+        );
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Student loading error:",
+            error
+        );
+
+
+        list.innerHTML =
+            `<div class="empty">
+                Could not load students.
+                Please check Firestore Rules.
+            </div>`;
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD CONTENT
+========================================================= */
+
+async function loadContent() {
+
+    const list =
+        document
+        .getElementById("contentList");
+
+
+    try {
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "contents"
+                )
+            );
+
+
+        let pending = 0;
+        let approved = 0;
+        let denied = 0;
+
+
+        if (
+            snapshot.empty
+        ) {
+
+            list.innerHTML =
+                `<div class="empty">
+                    No content has been added yet.
+                </div>`;
+
+            updateStats(
+                0,
+                0,
+                0
+            );
+
+            return;
+
+        }
+
+
+        list.innerHTML = "";
+
+
+        snapshot.forEach(
+            function(contentDoc) {
+
+                const data =
+                    contentDoc.data();
+
+
+                if (
+                    data.status ===
+                    "pending"
+                ) pending++;
+
+
+                if (
+                    data.status ===
+                    "approved"
+                ) approved++;
+
+
+                if (
+                    data.status ===
+                    "denied"
+                ) denied++;
+
+
+                const card =
+                    document.createElement("div");
+
+
+                card.className =
+                    "content-card";
+
+
+                const status =
+                    data.status ||
+                    "pending";
+
+
+                card.innerHTML = `
+
+                    <div>
+
+                        <div class="content-title">
+                            ${escapeHTML(data.title || "Untitled")}
+                        </div>
+
+                        <div class="content-meta">
+                            ${escapeHTML(data.path || "-")}
+                        </div>
+
+                    </div>
+
+
+                    <div class="content-meta">
+                        Added by:
+                        ${escapeHTML(data.createdBy || "Admin")}
+                    </div>
+
+
+                    <div>
+
+                        <span class="status ${status}">
+                            ${status.toUpperCase()}
+                        </span>
+
+                    </div>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="action-btn approve-btn"
+                            onclick="changeContentStatus('${contentDoc.id}','approved')"
+                            type="button"
+                        >
+                            ✓ APPROVE
+                        </button>
+
+
+                        <button
+                            class="action-btn deny-btn"
+                            onclick="changeContentStatus('${contentDoc.id}','denied')"
+                            type="button"
+                        >
+                            ✕ DENY
+                        </button>
+
+                    </div>
+
+                `;
+
+
+                list.appendChild(card);
+
+            }
+        );
+
+
+        updateStats(
+            pending,
+            approved,
+            denied
+        );
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Content loading error:",
+            error
+        );
+
+
+        list.innerHTML =
+            `<div class="empty">
+                Could not load content.
+                Please check Firestore Rules.
+            </div>`;
+
+    }
+
+}
+
+
+/* =========================================================
+   UPDATE CONTENT STATS
+========================================================= */
+
+function updateStats(
+    pending,
+    approved,
+    denied
+) {
+
+    document
+        .getElementById("pendingContent")
+        .textContent =
+            pending;
+
+
+    document
+        .getElementById("approvedContent")
+        .textContent =
+            approved;
+
+
+    document
+        .getElementById("deniedContent")
+        .textContent =
+            denied;
+
+}
+
+
+/* =========================================================
+   ADD CONTENT
+========================================================= */
+
+window.addContent =
+async function() {
+
+    const title =
+        document
+        .getElementById("contentTitle")
+        .value
+        .trim();
+
+
+    const path =
+        document
+        .getElementById("contentPath")
+        .value
+        .trim();
+
+
+    const status =
+        document
+        .getElementById("contentStatus")
+        .value;
+
+
+    if (
+        !title ||
+        !path
+    ) {
+
+        showAdminMessage(
+            "Please enter content title and path.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    const user =
+        auth.currentUser;
+
+
+    if (!user) {
+
+        showAdminMessage(
+            "Admin session expired.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        const contentRef =
+            doc(
+                collection(
+                    db,
+                    "contents"
+                )
+            );
+
+
+        await setDoc(
+            contentRef,
+            {
+
+                title:
+                    title,
+
+                path:
+                    path,
+
+                status:
+                    status,
+
+                createdBy:
+                    user.email ||
+                    "Admin",
+
+                createdByUid:
+                    user.uid,
+
+                createdAt:
+                    serverTimestamp()
+
+            }
+        );
+
+
+        document
+            .getElementById("contentTitle")
+            .value = "";
+
+
+        document
+            .getElementById("contentPath")
+            .value = "";
+
+
+        showAdminMessage(
+            "Content added successfully.",
+            "success"
+        );
+
+
+        await loadContent();
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Add content error:",
+            error
+        );
+
+
+        showAdminMessage(
+            "Could not add content. Check Firestore Rules.",
+            "error"
+        );
+
+    }
+
+};
+
+
+/* =========================================================
+   CHANGE CONTENT STATUS
+========================================================= */
+
+window.changeContentStatus =
+async function(
+    contentId,
+    newStatus
+) {
+
+    try {
+
+        await updateDoc(
+
+            doc(
+                db,
+                "contents",
+                contentId
+            ),
+
+            {
+
+                status:
+                    newStatus,
+
+                updatedAt:
+                    serverTimestamp()
+
+            }
+
+        );
+
+
+        showAdminMessage(
+            "Content status changed to " +
+            newStatus.toUpperCase() +
+            ".",
+            "success"
+        );
+
+
+        await loadContent();
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Status update error:",
+            error
+        );
+
+
+        showAdminMessage(
+            "Could not update content status.",
+            "error"
+        );
+
+    }
+
+};
+
+
+/* =========================================================
+   ADMIN LOGOUT
+========================================================= */
+
+window.adminLogout =
+async function() {
+
+    try {
+
+        await signOut(auth);
+
+        window.location.href =
+            "../";
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Logout error:",
+            error
+        );
+
+    }
+
+};
+
+
+/* =========================================================
+   ADMIN MESSAGE
+========================================================= */
+
+function showAdminMessage(
+    message,
+    type
+) {
+
+    const box =
+        document
+        .getElementById("adminMessage");
+
+
+    box.textContent =
+        message;
+
+
+    box.className =
+        "message show " +
+        type;
+
+
+    setTimeout(
+        function() {
+
+            box.className =
+                "message";
+
+        },
+        3000
+    );
+
+}
+
+
+/* =========================================================
+   BASIC HTML ESCAPE
+========================================================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
