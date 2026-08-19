@@ -12,13 +12,11 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-
 <style>
 
 :root {
     --bg:#06121d;
     --card:#0b1b2b;
-    --card2:#102438;
     --gold:#e8c56a;
     --blue:#69b7d8;
     --green:#70c9a3;
@@ -66,10 +64,7 @@ body {
     margin:auto;
 }
 
-
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .admin-header {
     padding:35px 0 25px;
@@ -112,10 +107,7 @@ body {
     margin-top:3px;
 }
 
-
-/* =========================
-   LOADING
-========================= */
+/* LOADING */
 
 .loading-screen {
     position:fixed;
@@ -145,20 +137,18 @@ body {
     margin-top:8px;
 }
 
-
-/* =========================
-   ACCESS DENIED
-========================= */
+/* ACCESS DENIED */
 
 .access-denied {
     display:none;
 
-    min-height:80vh;
+    min-height:100vh;
 
     align-items:center;
     justify-content:center;
 
     text-align:center;
+    padding:20px;
 }
 
 .access-denied.show {
@@ -166,7 +156,7 @@ body {
 }
 
 .denied-box {
-    width:min(500px,100%);
+    width:min(520px,100%);
     padding:40px 25px;
 
     border:1px solid rgba(220,100,100,.20);
@@ -192,6 +182,21 @@ body {
     margin-top:10px;
 }
 
+.denied-details {
+    margin-top:15px;
+    padding:12px;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.04);
+
+    color:var(--muted);
+    font-size:9px;
+    line-height:1.7;
+
+    word-break:break-word;
+}
+
 .back-btn {
     display:inline-block;
     margin-top:20px;
@@ -209,10 +214,7 @@ body {
     font-weight:700;
 }
 
-
-/* =========================
-   DASHBOARD
-========================= */
+/* DASHBOARD */
 
 .dashboard {
     display:none;
@@ -222,10 +224,7 @@ body {
     display:block;
 }
 
-
-/* =========================
-   WELCOME
-========================= */
+/* WELCOME */
 
 .welcome {
     padding:30px 0 20px;
@@ -243,10 +242,7 @@ body {
     margin-top:5px;
 }
 
-
-/* =========================
-   STAT GRID
-========================= */
+/* STAT GRID */
 
 .stats {
     display:grid;
@@ -301,10 +297,7 @@ body {
     color:var(--red);
 }
 
-
-/* =========================
-   SECTION
-========================= */
+/* SECTION */
 
 .section {
     margin-top:30px;
@@ -313,8 +306,7 @@ body {
 
     border:1px solid var(--border);
 
-    background:
-        rgba(255,255,255,.035);
+    background:rgba(255,255,255,.035);
 
     overflow:hidden;
 }
@@ -340,10 +332,7 @@ body {
     font-size:9px;
 }
 
-
-/* =========================
-   STUDENT LIST
-========================= */
+/* STUDENTS */
 
 .student-list {
     padding:15px;
@@ -400,10 +389,7 @@ body {
     font-weight:700;
 }
 
-
-/* =========================
-   CONTENT APPROVAL
-========================= */
+/* CONTENT */
 
 .content-form {
     padding:20px;
@@ -411,6 +397,7 @@ body {
 
 .form-grid {
     display:grid;
+
     grid-template-columns:
         1.5fr
         1.5fr
@@ -448,6 +435,11 @@ select.input {
     cursor:pointer;
 }
 
+select.input option {
+    background:#0b1b2b;
+    color:white;
+}
+
 .add-btn {
     padding:11px 16px;
 
@@ -470,10 +462,7 @@ select.input {
     transform:translateY(-1px);
 }
 
-
-/* =========================
-   CONTENT CARD
-========================= */
+/* CONTENT CARD */
 
 .content-list {
     padding:15px;
@@ -517,6 +506,8 @@ select.input {
     color:var(--muted);
     font-size:9px;
     margin-top:3px;
+
+    word-break:break-word;
 }
 
 .status {
@@ -587,10 +578,7 @@ select.input {
     background:rgba(220,100,100,.10);
 }
 
-
-/* =========================
-   EMPTY
-========================= */
+/* EMPTY */
 
 .empty {
     padding:30px;
@@ -599,10 +587,7 @@ select.input {
     font-size:10px;
 }
 
-
-/* =========================
-   LOGOUT
-========================= */
+/* LOGOUT */
 
 .logout {
     margin-top:30px;
@@ -631,10 +616,7 @@ select.input {
     cursor:pointer;
 }
 
-
-/* =========================
-   MESSAGE
-========================= */
+/* MESSAGE */
 
 .message {
     display:none;
@@ -662,10 +644,7 @@ select.input {
     background:rgba(220,80,80,.08);
 }
 
-
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:900px) {
 
@@ -725,63 +704,42 @@ select.input {
 
 </head>
 
-
 <body>
 
+<!-- LOADING -->
 
-<!-- =========================
-     LOADING
-========================= -->
-
-<div
-    id="loadingScreen"
-    class="loading-screen"
->
+<div id="loadingScreen" class="loading-screen">
 
     <div class="loading-box">
 
-        <h2>
-            ALL ABOUT ENGLISH
-        </h2>
+        <h2>ALL ABOUT ENGLISH</h2>
 
-        <p>
-            Verifying administrator access...
-        </p>
+        <p>Verifying administrator access...</p>
 
     </div>
 
 </div>
 
 
+<!-- ACCESS DENIED -->
 
-<!-- =========================
-     ACCESS DENIED
-========================= -->
-
-<div
-    id="accessDenied"
-    class="access-denied"
->
+<div id="accessDenied" class="access-denied">
 
     <div class="denied-box">
 
-        <div class="denied-icon">
-            🔒
-        </div>
+        <div class="denied-icon">🔒</div>
 
-        <h2>
-            Access Denied
-        </h2>
+        <h2>Access Denied</h2>
 
         <p>
-            You do not have administrator permission
-            to access this dashboard.
+            You are not currently verified as an administrator.
         </p>
 
-        <a
-            href="../"
-            class="back-btn"
-        >
+        <div id="deniedDetails" class="denied-details">
+            Checking administrator account...
+        </div>
+
+        <a href="../" class="back-btn">
             ← Back to Homepage
         </a>
 
@@ -790,18 +748,11 @@ select.input {
 </div>
 
 
+<!-- DASHBOARD -->
 
-<!-- =========================
-     DASHBOARD
-========================= -->
-
-<div
-    id="dashboard"
-    class="dashboard"
->
+<div id="dashboard" class="dashboard">
 
     <div class="container">
-
 
         <!-- HEADER -->
 
@@ -819,26 +770,17 @@ select.input {
 
             </div>
 
-
             <div class="admin-user">
 
-                <div
-                    id="adminName"
-                    class="admin-name"
-                >
+                <div id="adminName" class="admin-name">
                     Admin
                 </div>
 
-                <div
-                    id="adminEmail"
-                    class="admin-email"
-                >
-                </div>
+                <div id="adminEmail" class="admin-email"></div>
 
             </div>
 
         </header>
-
 
 
         <!-- WELCOME -->
@@ -856,26 +798,19 @@ select.input {
         </div>
 
 
-
         <!-- STATISTICS -->
 
         <div class="stats">
 
-
             <div class="stat-card students">
 
-                <div class="stat-icon">
-                    👨‍🎓
-                </div>
+                <div class="stat-icon">👨‍🎓</div>
 
                 <div class="stat-title">
                     TOTAL STUDENTS
                 </div>
 
-                <div
-                    id="totalStudents"
-                    class="stat-number"
-                >
+                <div id="totalStudents" class="stat-number">
                     0
                 </div>
 
@@ -884,18 +819,13 @@ select.input {
 
             <div class="stat-card pending">
 
-                <div class="stat-icon">
-                    ⏳
-                </div>
+                <div class="stat-icon">⏳</div>
 
                 <div class="stat-title">
                     PENDING CONTENT
                 </div>
 
-                <div
-                    id="pendingContent"
-                    class="stat-number"
-                >
+                <div id="pendingContent" class="stat-number">
                     0
                 </div>
 
@@ -904,18 +834,13 @@ select.input {
 
             <div class="stat-card approved">
 
-                <div class="stat-icon">
-                    ✅
-                </div>
+                <div class="stat-icon">✅</div>
 
                 <div class="stat-title">
                     APPROVED CONTENT
                 </div>
 
-                <div
-                    id="approvedContent"
-                    class="stat-number"
-                >
+                <div id="approvedContent" class="stat-number">
                     0
                 </div>
 
@@ -924,18 +849,13 @@ select.input {
 
             <div class="stat-card denied">
 
-                <div class="stat-icon">
-                    ❌
-                </div>
+                <div class="stat-icon">❌</div>
 
                 <div class="stat-title">
                     DENIED CONTENT
                 </div>
 
-                <div
-                    id="deniedContent"
-                    class="stat-number"
-                >
+                <div id="deniedContent" class="stat-number">
                     0
                 </div>
 
@@ -944,10 +864,7 @@ select.input {
         </div>
 
 
-
-        <!-- =========================
-             STUDENTS
-        ========================== -->
+        <!-- STUDENTS -->
 
         <section class="section">
 
@@ -955,9 +872,7 @@ select.input {
 
                 <div>
 
-                    <h2>
-                        👨‍🎓 Students
-                    </h2>
+                    <h2>👨‍🎓 Students</h2>
 
                     <p>
                         Registered student accounts
@@ -968,10 +883,7 @@ select.input {
             </div>
 
 
-            <div
-                id="studentList"
-                class="student-list"
-            >
+            <div id="studentList" class="student-list">
 
                 <div class="empty">
                     Loading students...
@@ -982,10 +894,7 @@ select.input {
         </section>
 
 
-
-        <!-- =========================
-             CONTENT
-        ========================== -->
+        <!-- CONTENT -->
 
         <section class="section">
 
@@ -993,9 +902,7 @@ select.input {
 
                 <div>
 
-                    <h2>
-                        📚 Content Management
-                    </h2>
+                    <h2>📚 Content Management</h2>
 
                     <p>
                         Approve or deny learning content
@@ -1004,7 +911,6 @@ select.input {
                 </div>
 
             </div>
-
 
 
             <div class="content-form">
@@ -1018,14 +924,12 @@ select.input {
                         placeholder="Content title"
                     >
 
-
                     <input
                         id="contentPath"
                         class="input"
                         type="text"
                         placeholder="Content path / URL"
                     >
-
 
                     <select
                         id="contentStatus"
@@ -1046,7 +950,6 @@ select.input {
 
                     </select>
 
-
                     <button
                         class="add-btn"
                         onclick="addContent()"
@@ -1066,7 +969,6 @@ select.input {
             </div>
 
 
-
             <div
                 id="contentList"
                 class="content-list"
@@ -1079,7 +981,6 @@ select.input {
             </div>
 
         </section>
-
 
 
         <!-- LOGOUT -->
@@ -1096,11 +997,9 @@ select.input {
 
         </div>
 
-
     </div>
 
 </div>
-
 
 
 <script type="module">
@@ -1113,13 +1012,11 @@ import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
 
-
 import {
     getAuth,
     onAuthStateChanged,
     signOut
 } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
-
 
 import {
     getFirestore,
@@ -1129,7 +1026,6 @@ import {
     getDocs,
     setDoc,
     updateDoc,
-    deleteDoc,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
 
@@ -1163,21 +1059,19 @@ const firebaseConfig = {
 
     measurementId:
         "G-RVFY5YEX6L"
+
 };
 
 
 /* =========================================================
-   INITIALIZE
+   INITIALIZE FIREBASE
 ========================================================= */
 
-const app =
-    initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const auth =
-    getAuth(app);
+const auth = getAuth(app);
 
-const db =
-    getFirestore(app);
+const db = getFirestore(app);
 
 
 /* =========================================================
@@ -1188,16 +1082,44 @@ onAuthStateChanged(
     auth,
     async function(user) {
 
+        console.log(
+            "Firebase Auth User:",
+            user
+        );
+
+
+        /* -----------------------------------------
+           NOT LOGGED IN
+        ----------------------------------------- */
+
         if (!user) {
 
-            showAccessDenied();
+            showAccessDenied(
+                "You are not logged in.",
+                "Please login from the main website first."
+            );
 
             return;
 
         }
 
 
+        console.log(
+            "Logged-in UID:",
+            user.uid
+        );
+
+        console.log(
+            "Logged-in Email:",
+            user.email
+        );
+
+
         try {
+
+            /* -----------------------------------------
+               FIND ADMIN DOCUMENT USING UID
+            ----------------------------------------- */
 
             const adminRef =
                 doc(
@@ -1211,11 +1133,22 @@ onAuthStateChanged(
                 await getDoc(adminRef);
 
 
-            if (
-                !adminSnap.exists()
-            ) {
+            console.log(
+                "Admin document exists:",
+                adminSnap.exists()
+            );
 
-                showAccessDenied();
+
+            /* -----------------------------------------
+               ADMIN DOCUMENT NOT FOUND
+            ----------------------------------------- */
+
+            if (!adminSnap.exists()) {
+
+                showAccessDenied(
+                    "Admin document not found.",
+                    "UID: " + user.uid
+                );
 
                 return;
 
@@ -1226,21 +1159,83 @@ onAuthStateChanged(
                 adminSnap.data();
 
 
+            console.log(
+                "Admin document:",
+                adminData
+            );
+
+
+            /* -----------------------------------------
+               VERIFY ROLE
+            ----------------------------------------- */
+
             if (
-                adminData.role !== "admin" ||
-                adminData.status !== "active"
+                adminData.role !== "admin"
             ) {
 
-                showAccessDenied();
+                showAccessDenied(
+                    "Invalid admin role.",
+                    "Your role is: " +
+                    (adminData.role || "undefined")
+                );
 
                 return;
 
             }
 
 
-            /* =========================
+            /* -----------------------------------------
+               VERIFY STATUS
+            ----------------------------------------- */
+
+            if (
+                adminData.status !== "active"
+            ) {
+
+                showAccessDenied(
+                    "Admin account is not active.",
+                    "Current status: " +
+                    (adminData.status || "undefined")
+                );
+
+                return;
+
+            }
+
+
+            /* -----------------------------------------
+               EMAIL CHECK
+            ----------------------------------------- */
+
+            if (
+                adminData.email &&
+                user.email &&
+                adminData.email.toLowerCase()
+                !==
+                user.email.toLowerCase()
+            ) {
+
+                showAccessDenied(
+                    "Admin email mismatch.",
+                    "Authentication: " +
+                    user.email +
+                    " | Admin document: " +
+                    adminData.email
+                );
+
+                return;
+
+            }
+
+
+            /* -----------------------------------------
                ADMIN VERIFIED
-            ========================== */
+            ----------------------------------------- */
+
+            console.log(
+                "ADMIN VERIFIED SUCCESSFULLY"
+            );
+
 
             document
                 .getElementById("adminName")
@@ -1260,7 +1255,13 @@ onAuthStateChanged(
 
             document
                 .getElementById("loadingScreen")
-                .style.display = "none";
+                .style.display =
+                    "none";
+
+
+            document
+                .getElementById("accessDenied")
+                .classList.remove("show");
 
 
             document
@@ -1268,21 +1269,30 @@ onAuthStateChanged(
                 .classList.add("show");
 
 
+            /* -----------------------------------------
+               LOAD DATA
+            ----------------------------------------- */
+
             await loadStudents();
 
             await loadContent();
-
 
         }
 
         catch(error) {
 
             console.error(
-                "Admin verification error:",
+                "ADMIN VERIFICATION ERROR:",
                 error
             );
 
-            showAccessDenied();
+
+            showAccessDenied(
+                "Admin verification failed.",
+                error.code ||
+                error.message ||
+                "Unknown Firebase error"
+            );
 
         }
 
@@ -1294,11 +1304,15 @@ onAuthStateChanged(
    ACCESS DENIED
 ========================================================= */
 
-function showAccessDenied() {
+function showAccessDenied(
+    title,
+    details
+) {
 
     document
         .getElementById("loadingScreen")
-        .style.display = "none";
+        .style.display =
+            "none";
 
 
     document
@@ -1309,6 +1323,18 @@ function showAccessDenied() {
     document
         .getElementById("accessDenied")
         .classList.add("show");
+
+
+    document
+        .querySelector(".denied-box h2")
+        .textContent =
+            title;
+
+
+    document
+        .getElementById("deniedDetails")
+        .textContent =
+            details;
 
 }
 
@@ -1346,9 +1372,11 @@ async function loadStudents() {
         ) {
 
             list.innerHTML =
-                `<div class="empty">
+                `
+                <div class="empty">
                     No students registered yet.
-                </div>`;
+                </div>
+                `;
 
             return;
 
@@ -1445,10 +1473,13 @@ async function loadStudents() {
 
 
         list.innerHTML =
-            `<div class="empty">
+            `
+            <div class="empty">
                 Could not load students.
-                Please check Firestore Rules.
-            </div>`;
+                <br>
+                ${escapeHTML(error.message || "")}
+            </div>
+            `;
 
     }
 
@@ -1482,14 +1513,19 @@ async function loadContent() {
         let denied = 0;
 
 
+        list.innerHTML = "";
+
+
         if (
             snapshot.empty
         ) {
 
             list.innerHTML =
-                `<div class="empty">
+                `
+                <div class="empty">
                     No content has been added yet.
-                </div>`;
+                </div>
+                `;
 
             updateStats(
                 0,
@@ -1502,9 +1538,6 @@ async function loadContent() {
         }
 
 
-        list.innerHTML = "";
-
-
         snapshot.forEach(
             function(contentDoc) {
 
@@ -1512,21 +1545,23 @@ async function loadContent() {
                     contentDoc.data();
 
 
+                const status =
+                    data.status ||
+                    "pending";
+
+
                 if (
-                    data.status ===
-                    "pending"
+                    status === "pending"
                 ) pending++;
 
 
                 if (
-                    data.status ===
-                    "approved"
+                    status === "approved"
                 ) approved++;
 
 
                 if (
-                    data.status ===
-                    "denied"
+                    status === "denied"
                 ) denied++;
 
 
@@ -1538,36 +1573,46 @@ async function loadContent() {
                     "content-card";
 
 
-                const status =
-                    data.status ||
-                    "pending";
-
-
                 card.innerHTML = `
 
                     <div>
 
                         <div class="content-title">
-                            ${escapeHTML(data.title || "Untitled")}
+                            ${escapeHTML(
+                                data.title ||
+                                "Untitled"
+                            )}
                         </div>
 
                         <div class="content-meta">
-                            ${escapeHTML(data.path || "-")}
+                            ${escapeHTML(
+                                data.path ||
+                                "-"
+                            )}
                         </div>
 
                     </div>
 
 
                     <div class="content-meta">
+
                         Added by:
-                        ${escapeHTML(data.createdBy || "Admin")}
+                        ${escapeHTML(
+                            data.createdBy ||
+                            "Admin"
+                        )}
+
                     </div>
 
 
                     <div>
 
-                        <span class="status ${status}">
-                            ${status.toUpperCase()}
+                        <span class="status ${escapeHTML(status)}">
+
+                            ${escapeHTML(
+                                status.toUpperCase()
+                            )}
+
                         </span>
 
                     </div>
@@ -1620,10 +1665,13 @@ async function loadContent() {
 
 
         list.innerHTML =
-            `<div class="empty">
+            `
+            <div class="empty">
                 Could not load content.
-                Please check Firestore Rules.
-            </div>`;
+                <br>
+                ${escapeHTML(error.message || "")}
+            </div>
+            `;
 
     }
 
@@ -1631,7 +1679,7 @@ async function loadContent() {
 
 
 /* =========================================================
-   UPDATE CONTENT STATS
+   UPDATE STATS
 ========================================================= */
 
 function updateStats(
@@ -1766,6 +1814,12 @@ async function() {
             .value = "";
 
 
+        document
+            .getElementById("contentStatus")
+            .value =
+                "pending";
+
+
         showAdminMessage(
             "Content added successfully.",
             "success"
@@ -1785,7 +1839,8 @@ async function() {
 
 
         showAdminMessage(
-            "Could not add content. Check Firestore Rules.",
+            "Could not add content. " +
+            (error.message || ""),
             "error"
         );
 
@@ -1804,6 +1859,22 @@ async function(
     newStatus
 ) {
 
+    const user =
+        auth.currentUser;
+
+
+    if (!user) {
+
+        showAdminMessage(
+            "Admin session expired.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
     try {
 
         await updateDoc(
@@ -1818,6 +1889,10 @@ async function(
 
                 status:
                     newStatus,
+
+                updatedBy:
+                    user.email ||
+                    "Admin",
 
                 updatedAt:
                     serverTimestamp()
@@ -1848,7 +1923,8 @@ async function(
 
 
         showAdminMessage(
-            "Could not update content status.",
+            "Could not update content status. " +
+            (error.message || ""),
             "error"
         );
 
@@ -1858,7 +1934,7 @@ async function(
 
 
 /* =========================================================
-   ADMIN LOGOUT
+   LOGOUT
 ========================================================= */
 
 window.adminLogout =
@@ -1867,6 +1943,7 @@ async function() {
     try {
 
         await signOut(auth);
+
 
         window.location.href =
             "../";
@@ -1915,24 +1992,39 @@ function showAdminMessage(
                 "message";
 
         },
-        3000
+        4000
     );
 
 }
 
 
 /* =========================================================
-   BASIC HTML ESCAPE
+   HTML ESCAPE
 ========================================================= */
 
 function escapeHTML(value) {
 
     return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
 
 }
 
