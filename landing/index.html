@@ -1,14 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>All About English by Shaheen Sir</title>
+<title>All About English | Shaheen Sir</title>
 
-<meta name="description" content="All About English by Shaheen Sir — HSC English, University Admission, Spoken English and IELTS preparation.">
+<meta name="description"
+content="All About English by Shaheen Sir — HSC English, University Admission, Spoken English ও IELTS-এর জন্য একটি complete English learning platform.">
+
+<meta name="theme-color" content="#082B4C">
+
+<!-- Basic browser/privacy/security-related metadata -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
 
 <style>
+
+/* =========================================================
+   SMART COLOR SYSTEM
+========================================================= */
+
+:root{
+    --navy:#082B4C;
+    --navy-2:#0D3B63;
+    --blue:#0876C9;
+    --blue-dark:#055A9D;
+    --blue-soft:#EAF5FF;
+
+    --teal:#08A27A;
+    --teal-dark:#087A5D;
+    --teal-soft:#EAFBF5;
+
+    --gold:#F2B84B;
+    --gold-soft:#FFF7E5;
+
+    --white:#FFFFFF;
+    --bg:#F6F9FC;
+    --bg-soft:#EEF5FA;
+
+    --text:#233548;
+    --muted:#647587;
+
+    --border:#DDE7EF;
+
+    --shadow:
+        0 18px 50px rgba(8,43,76,.09);
+
+    --shadow-hover:
+        0 22px 55px rgba(8,43,76,.15);
+
+    --radius:18px;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     margin:0;
@@ -21,567 +68,1769 @@ html{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f7f9fc;
-    color:#172033;
-    line-height:1.6;
+
+    font-family:
+        "Nirmala UI",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    line-height:1.65;
+
+    overflow-x:hidden;
+
+    -webkit-user-select:none;
+    user-select:none;
+
+    -webkit-touch-callout:none;
 }
 
-/* =========================
+/* Allow form fields if added later */
+input,
+textarea{
+    -webkit-user-select:text;
+    user-select:text;
+}
+
+img{
+    -webkit-user-drag:none;
+    user-drag:none;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+    -webkit-user-drag:none;
+}
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.top-bar{
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--navy),
+            var(--navy-2)
+        );
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:8px 15px;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+.top-bar span{
+    color:#75E0BD;
+}
+
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 header{
+
     position:sticky;
+
     top:0;
+
     z-index:1000;
-    background:rgba(255,255,255,0.96);
-    border-bottom:1px solid #e5e7eb;
-    backdrop-filter:blur(10px);
+
+    background:rgba(255,255,255,.97);
+
+    border-bottom:1px solid var(--border);
+
+    backdrop-filter:blur(12px);
 }
 
 .navbar{
-    max-width:1150px;
+
+    max-width:1180px;
+
     margin:auto;
-    padding:15px 20px;
+
+    padding:14px 20px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 }
 
 .logo{
-    font-size:22px;
-    font-weight:800;
-    color:#173b7a;
-    text-decoration:none;
+
+    color:var(--navy);
+
+    font-weight:900;
+
+    font-size:21px;
+
+    line-height:1.1;
 }
 
-.logo span{
+.logo small{
+
     display:block;
-    font-size:11px;
-    color:#777;
-    font-weight:500;
-    letter-spacing:1px;
+
+    font-size:9px;
+
+    letter-spacing:1.4px;
+
+    color:var(--blue);
+
+    margin-top:4px;
 }
 
 .nav-links{
+
     display:flex;
-    gap:25px;
+
     align-items:center;
+
+    gap:25px;
 }
 
 .nav-links a{
-    text-decoration:none;
-    color:#333;
+
+    color:#3C4D5F;
+
     font-size:14px;
-    font-weight:600;
+
+    font-weight:700;
 }
 
 .nav-links a:hover{
-    color:#1769aa;
+    color:var(--blue);
 }
 
-.nav-login{
-    border:1px solid #1769aa;
-    padding:8px 17px;
-    border-radius:8px;
-    color:#1769aa !important;
+.login-btn{
+
+    padding:9px 18px;
+
+    border:1.5px solid var(--blue);
+
+    border-radius:9px;
+
+    color:var(--blue)!important;
+
+    transition:.2s;
 }
 
-/* =========================
+.login-btn:hover{
+
+    background:var(--blue-soft);
+
+    transform:translateY(-1px);
+}
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero{
-    min-height:650px;
-    display:flex;
-    align-items:center;
+
+    position:relative;
+
+    padding:82px 20px 90px;
+
     background:
-    linear-gradient(135deg,#edf5ff 0%,#ffffff 50%,#eef8f5 100%);
-    padding:70px 20px;
+
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(8,118,201,.13),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 15% 85%,
+            rgba(8,162,122,.09),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            #EDF7FF 0%,
+            #FFFFFF 48%,
+            #F1FBF7 100%
+        );
+
+    overflow:hidden;
 }
 
 .hero-container{
-    max-width:1150px;
+
+    max-width:1180px;
+
     margin:auto;
-    width:100%;
+
     display:grid;
-    grid-template-columns:1.15fr .85fr;
-    gap:50px;
+
+    grid-template-columns:1.08fr .92fr;
+
+    gap:55px;
+
     align-items:center;
 }
 
-.badge{
-    display:inline-block;
-    background:#e5f0ff;
-    color:#1759a6;
-    padding:8px 15px;
+/* =========================================================
+   HERO LEFT
+========================================================= */
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    background:var(--blue-soft);
+
+    color:var(--blue-dark);
+
+    padding:8px 14px;
+
     border-radius:30px;
-    font-size:13px;
-    font-weight:700;
+
+    font-size:12px;
+
+    font-weight:900;
+
     margin-bottom:20px;
+
+    border:1px solid #D4E9F8;
 }
 
 .hero h1{
-    font-size:56px;
-    line-height:1.08;
+
+    font-size:55px;
+
+    line-height:1.1;
+
+    color:var(--navy);
+
     margin-bottom:20px;
-    color:#102d5c;
+
+    letter-spacing:-1.5px;
 }
 
-.hero h1 span{
-    color:#1769aa;
+.hero h1 .highlight{
+    color:var(--blue);
 }
 
-.hero p{
-    font-size:19px;
-    color:#536174;
+.hero h1 .green{
+    color:var(--teal-dark);
+}
+
+.hero-description{
+
+    font-size:18px;
+
+    color:#4F6375;
+
+    max-width:680px;
+
+    margin-bottom:15px;
+}
+
+.hero-sub{
+
+    font-size:15px;
+
+    color:var(--muted);
+
     max-width:650px;
+
     margin-bottom:30px;
 }
 
 .hero-buttons{
+
     display:flex;
-    gap:15px;
+
+    gap:13px;
+
     flex-wrap:wrap;
+
+    margin-bottom:22px;
 }
 
 .btn{
-    display:inline-block;
-    text-decoration:none;
-    padding:14px 25px;
-    border-radius:9px;
-    font-weight:700;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding:14px 24px;
+
+    border-radius:10px;
+
     font-size:15px;
+
+    font-weight:900;
+
     transition:.25s;
+
+    cursor:pointer;
 }
 
 .btn-primary{
-    background:#1769aa;
-    color:white;
-    box-shadow:0 8px 20px rgba(23,105,170,.2);
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue-dark)
+        );
+
+    box-shadow:
+        0 10px 25px rgba(8,118,201,.25);
 }
 
 .btn-primary:hover{
-    background:#0f548d;
-    transform:translateY(-2px);
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 32px rgba(8,118,201,.32);
 }
 
 .btn-secondary{
-    background:white;
-    color:#1769aa;
-    border:1px solid #cbd8e8;
+
+    color:var(--navy);
+
+    background:#fff;
+
+    border:1px solid #CFDDE8;
 }
 
 .btn-secondary:hover{
-    background:#f0f6ff;
+
+    background:var(--blue-soft);
+
+    border-color:#BBD8ED;
 }
 
-/* Hero visual */
+.hero-trust{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    color:#66788A;
+
+    font-size:12px;
+
+    flex-wrap:wrap;
+}
+
+.trust-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+}
+
+/* =========================================================
+   HERO CARD
+========================================================= */
+
+.hero-visual{
+    position:relative;
+}
 
 .hero-card{
-    background:white;
+
+    background:#fff;
+
+    border:1px solid #DDE8F1;
+
     border-radius:24px;
-    padding:30px;
-    box-shadow:0 20px 60px rgba(25,50,80,.12);
-    border:1px solid #e7edf5;
+
+    padding:28px;
+
+    box-shadow:
+        0 25px 70px rgba(8,43,76,.13);
 }
 
-.hero-card-title{
-    font-size:14px;
-    color:#68768a;
-    margin-bottom:10px;
+.card-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:22px;
+}
+
+.card-label{
+
+    font-size:11px;
+
+    color:var(--muted);
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:.9px;
+}
+
+.online-badge{
+
+    background:var(--teal-soft);
+
+    color:var(--teal-dark);
+
+    font-size:10px;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    font-weight:900;
 }
 
 .hero-card h2{
-    color:#102d5c;
-    font-size:28px;
+
+    color:var(--navy);
+
+    font-size:27px;
+
+    line-height:1.25;
+
+    margin-bottom:7px;
+}
+
+.card-description{
+
+    font-size:14px;
+
+    color:var(--muted);
+
     margin-bottom:20px;
 }
 
-.learning-item{
+.course-mini{
+
     display:flex;
+
     align-items:center;
-    gap:14px;
-    padding:14px 0;
-    border-bottom:1px solid #edf0f4;
+
+    gap:13px;
+
+    padding:13px 0;
+
+    border-bottom:1px solid #ECF1F5;
 }
 
-.learning-item:last-child{
+.course-mini:last-child{
     border-bottom:none;
 }
 
-.learning-icon{
+.course-icon{
+
     width:43px;
+
     height:43px;
-    border-radius:11px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    background:#eef5ff;
+
+    background:var(--blue-soft);
+
+    border-radius:11px;
+
     font-size:21px;
 }
 
-.learning-item strong{
+.course-mini strong{
+
     display:block;
-    font-size:15px;
+
+    color:var(--navy);
+
+    font-size:14px;
 }
 
-.learning-item small{
-    color:#788497;
+.course-mini small{
+
+    color:#7A8997;
+
+    font-size:12px;
 }
 
-/* =========================
-   GENERAL
-========================= */
+.hero-floating{
+
+    position:absolute;
+
+    right:-20px;
+
+    bottom:-22px;
+
+    background:#fff;
+
+    padding:13px 17px;
+
+    border-radius:13px;
+
+    box-shadow:var(--shadow);
+
+    border:1px solid var(--border);
+
+    font-size:11px;
+
+    font-weight:900;
+
+    color:var(--teal-dark);
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+
+    max-width:1050px;
+
+    margin:-35px auto 0;
+
+    position:relative;
+
+    z-index:5;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    box-shadow:var(--shadow);
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    overflow:hidden;
+}
+
+.stat{
+
+    text-align:center;
+
+    padding:20px;
+
+    border-right:1px solid var(--border);
+}
+
+.stat:last-child{
+    border-right:none;
+}
+
+.stat strong{
+
+    display:block;
+
+    font-size:22px;
+
+    color:var(--blue);
+}
+
+.stat span{
+
+    font-size:12px;
+
+    color:var(--muted);
+
+    font-weight:700;
+}
+
+/* =========================================================
+   SECTION
+========================================================= */
 
 section{
-    padding:80px 20px;
+    padding:85px 20px;
 }
 
 .container{
-    max-width:1150px;
+
+    max-width:1180px;
+
     margin:auto;
 }
 
-.section-heading{
+.section-title{
+
+    max-width:720px;
+
+    margin:0 auto 48px;
+
     text-align:center;
-    max-width:700px;
-    margin:0 auto 50px;
 }
 
-.section-heading h2{
+.section-title .eyebrow{
+
+    color:var(--blue);
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:1.4px;
+
+    text-transform:uppercase;
+
+    margin-bottom:8px;
+}
+
+.section-title h2{
+
+    color:var(--navy);
+
     font-size:36px;
-    color:#102d5c;
+
+    line-height:1.2;
+
     margin-bottom:12px;
 }
 
-.section-heading p{
-    color:#667085;
+.section-title p{
+
+    color:var(--muted);
+
+    font-size:15px;
 }
 
-/* =========================
+/* =========================================================
+   PROBLEM
+========================================================= */
+
+.problem{
+    background:#fff;
+}
+
+.problem-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+
+    max-width:950px;
+
+    margin:auto;
+}
+
+.problem-card{
+
+    padding:28px;
+
+    border-radius:17px;
+
+    border:1px solid var(--border);
+
+    background:#fff;
+}
+
+.problem-card h3{
+
+    color:var(--navy);
+
+    margin-bottom:15px;
+
+    font-size:20px;
+}
+
+.problem-card ul{
+    list-style:none;
+}
+
+.problem-card li{
+
+    padding:9px 0;
+
+    font-size:14px;
+
+    color:var(--text);
+
+    border-bottom:1px dashed #E5EBF0;
+}
+
+.problem-card li:last-child{
+    border-bottom:none;
+}
+
+.problem-card.bad{
+    background:#FFFBFB;
+}
+
+.problem-card.good{
+    background:#F7FFFC;
+}
+
+.problem-card.bad h3{
+    color:#A94848;
+}
+
+.problem-card.good h3{
+    color:var(--teal-dark);
+}
+
+/* =========================================================
    COURSES
-========================= */
+========================================================= */
 
 .courses{
-    background:white;
+    background:var(--bg-soft);
 }
 
 .course-grid{
+
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:20px;
 }
 
 .course-card{
-    padding:28px 22px;
-    border:1px solid #e5e9ef;
-    border-radius:16px;
+
     background:#fff;
+
+    padding:28px 23px;
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
     transition:.25s;
 }
 
 .course-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(30,50,80,.10);
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-hover);
+
+    border-color:#C8DDEA;
 }
 
-.course-icon{
-    font-size:34px;
+.course-card .big-icon{
+
+    font-size:36px;
+
     margin-bottom:15px;
 }
 
 .course-card h3{
-    color:#173b7a;
+
+    color:var(--navy);
+
+    font-size:19px;
+
     margin-bottom:9px;
 }
 
 .course-card p{
-    font-size:14px;
-    color:#68768a;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-bottom:15px;
 }
 
-/* =========================
+.course-tag{
+
+    display:inline-block;
+
+    padding:5px 9px;
+
+    border-radius:6px;
+
+    background:var(--blue-soft);
+
+    color:var(--blue-dark);
+
+    font-size:10px;
+
+    font-weight:900;
+}
+
+/* =========================================================
    FEATURES
-========================= */
+========================================================= */
+
+.features{
+    background:#fff;
+}
 
 .feature-grid{
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:20px;
 }
 
 .feature-card{
-    background:white;
+
     padding:25px;
-    border-radius:15px;
-    border:1px solid #e7ebf0;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    background:#fff;
+
+    transition:.2s;
+}
+
+.feature-card:hover{
+
+    box-shadow:var(--shadow);
+
+    transform:translateY(-3px);
+}
+
+.feature-number{
+
+    font-size:11px;
+
+    color:var(--blue);
+
+    font-weight:900;
+
+    margin-bottom:12px;
 }
 
 .feature-card h3{
+
     font-size:17px;
-    margin-bottom:8px;
-    color:#173b7a;
+
+    color:var(--navy);
+
+    margin-bottom:7px;
 }
 
 .feature-card p{
-    font-size:14px;
-    color:#68768a;
+
+    color:var(--muted);
+
+    font-size:13px;
 }
 
-/* =========================
-   HOW IT WORKS
-========================= */
+/* =========================================================
+   WHY
+========================================================= */
 
-.how{
-    background:#f0f5fb;
+.why{
+
+    background:
+        linear-gradient(
+            135deg,
+            #EDF7FF,
+            #F1FBF7
+        );
 }
 
-.steps{
+.why-grid{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
 
-.step{
-    text-align:center;
-    background:white;
-    padding:25px 18px;
-    border-radius:15px;
-    border:1px solid #e2e8f0;
-}
+    grid-template-columns:.9fr 1.1fr;
 
-.step-number{
-    width:48px;
-    height:48px;
-    margin:0 auto 15px;
-    border-radius:50%;
-    background:#1769aa;
-    color:white;
-    display:flex;
+    gap:50px;
+
     align-items:center;
-    justify-content:center;
-    font-size:18px;
-    font-weight:800;
 }
 
-.step h3{
-    margin-bottom:6px;
-    color:#173b7a;
-}
+.why-left h2{
 
-.step p{
-    font-size:14px;
-    color:#68768a;
-}
+    color:var(--navy);
 
-/* =========================
-   CTA
-========================= */
+    font-size:36px;
 
-.cta{
-    padding:90px 20px;
-    background:linear-gradient(135deg,#102d5c,#1769aa);
-    color:white;
-    text-align:center;
-}
+    line-height:1.2;
 
-.cta h2{
-    font-size:40px;
     margin-bottom:15px;
 }
 
-.cta p{
-    max-width:650px;
-    margin:0 auto 30px;
-    color:#e6eef8;
+.why-left p{
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    margin-bottom:25px;
 }
 
-.cta .btn-primary{
-    background:white;
-    color:#1769aa;
-    box-shadow:none;
+.why-list{
+
+    display:grid;
+
+    gap:12px;
 }
 
-.cta .btn-primary:hover{
-    background:#f0f4f8;
-}
+.why-item{
 
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    background:#0c1d38;
-    color:#d6deea;
-    padding:35px 20px;
-}
-
-.footer-container{
-    max-width:1150px;
-    margin:auto;
     display:flex;
-    justify-content:space-between;
-    gap:20px;
+
+    gap:12px;
+
+    align-items:flex-start;
+
+    background:#fff;
+
+    padding:14px;
+
+    border-radius:11px;
+
+    border:1px solid var(--border);
+}
+
+.check{
+
+    width:25px;
+
+    height:25px;
+
+    flex:none;
+
+    display:flex;
+
     align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--teal-soft);
+
+    color:var(--teal-dark);
+
+    font-weight:900;
 }
 
-.footer-title{
-    font-weight:800;
-    color:white;
-    margin-bottom:5px;
+.why-item strong{
+
+    display:block;
+
+    font-size:14px;
+
+    color:var(--navy);
 }
 
-.footer-text{
-    font-size:13px;
-    color:#aebbd0;
+.why-item span{
+
+    display:block;
+
+    font-size:12px;
+
+    color:var(--muted);
 }
 
-.footer-links{
+.teacher-card{
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:35px;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+}
+
+.teacher-label{
+
+    color:var(--blue);
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+    margin-bottom:10px;
+}
+
+.teacher-card h3{
+
+    font-size:27px;
+
+    color:var(--navy);
+
+    margin-bottom:8px;
+}
+
+.teacher-card p{
+
+    font-size:14px;
+
+    color:var(--muted);
+
+    margin-bottom:20px;
+}
+
+.teacher-points{
+
     display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+}
+
+.teacher-points span{
+
+    padding:7px 10px;
+
+    border-radius:7px;
+
+    background:#F1F6FA;
+
+    color:#43586B;
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+.how{
+    background:var(--bg-soft);
+}
+
+.steps{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
     gap:18px;
 }
 
-.footer-links a{
-    color:#c8d4e5;
-    text-decoration:none;
+.step{
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    padding:27px 18px;
+
+    text-align:center;
+}
+
+.step-number{
+
+    width:48px;
+
+    height:48px;
+
+    margin:0 auto 14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        var(--blue),
+        var(--blue-dark)
+    );
+
+    color:#fff;
+
+    font-weight:900;
+}
+
+.step h3{
+
+    color:var(--navy);
+
+    font-size:17px;
+
+    margin-bottom:6px;
+}
+
+.step p{
+
+    color:var(--muted);
+
     font-size:13px;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* =========================================================
+   ACCESS
+========================================================= */
 
-@media(max-width:900px){
+.access{
+    background:#fff;
+}
 
-    .nav-links{
-        gap:12px;
-    }
+.access-box{
 
-    .nav-links a:not(.nav-login){
-        display:none;
-    }
+    max-width:900px;
+
+    margin:auto;
+
+    background:
+        linear-gradient(
+            135deg,
+            #F0F8FF,
+            #F2FCF8
+        );
+
+    border:1px solid #D7E8F2;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    text-align:center;
+}
+
+.access-box h2{
+
+    color:var(--navy);
+
+    font-size:29px;
+
+    margin-bottom:10px;
+}
+
+.access-box p{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    max-width:680px;
+
+    margin:0 auto 25px;
+}
+
+.access-points{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:25px;
+}
+
+.access-points span{
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    padding:8px 12px;
+
+    border-radius:8px;
+
+    color:#43546A;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq{
+    background:var(--bg-soft);
+}
+
+.faq-container{
+
+    max-width:850px;
+
+    margin:auto;
+}
+
+details{
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    margin-bottom:12px;
+
+    overflow:hidden;
+}
+
+summary{
+
+    cursor:pointer;
+
+    padding:17px 19px;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    color:var(--navy);
+
+    list-style:none;
+
+    position:relative;
+
+    padding-right:45px;
+}
+
+summary::-webkit-details-marker{
+    display:none;
+}
+
+summary::after{
+
+    content:"+";
+
+    position:absolute;
+
+    right:18px;
+
+    top:13px;
+
+    font-size:23px;
+
+    color:var(--blue);
+}
+
+details[open] summary::after{
+    content:"−";
+}
+
+details p{
+
+    padding:0 19px 18px;
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.final-cta{
+
+    padding:90px 20px;
+
+    text-align:center;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,.10),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--blue-dark)
+        );
+
+    color:#fff;
+}
+
+.final-cta h2{
+
+    font-size:40px;
+
+    line-height:1.2;
+
+    margin-bottom:14px;
+}
+
+.final-cta p{
+
+    max-width:680px;
+
+    margin:0 auto 28px;
+
+    color:#E0EDF7;
+
+    font-size:15px;
+}
+
+.final-cta .btn-primary{
+
+    background:#fff;
+
+    color:var(--blue-dark);
+
+    box-shadow:none;
+}
+
+.final-cta .btn-primary:hover{
+    background:#F2F7FA;
+}
+
+.final-note{
+
+    margin-top:14px;
+
+    color:#C7DCEB;
+
+    font-size:11px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    background:#061D32;
+
+    color:#fff;
+
+    padding:38px 20px 75px;
+}
+
+.footer-container{
+
+    max-width:1180px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:25px;
+}
+
+.footer-logo{
+
+    font-size:18px;
+
+    font-weight:900;
+
+    margin-bottom:4px;
+}
+
+.footer-small{
+
+    color:#AEBECD;
+
+    font-size:12px;
+}
+
+.footer-links{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+.footer-links a{
+
+    color:#C8D5E2;
+
+    font-size:12px;
+}
+
+.footer-links a:hover{
+    color:#fff;
+}
+
+.copyright{
+
+    max-width:1180px;
+
+    margin:25px auto 0;
+
+    padding-top:20px;
+
+    border-top:1px solid rgba(255,255,255,.1);
+
+    color:#8296AA;
+
+    font-size:11px;
+
+    text-align:center;
+}
+
+/* =========================================================
+   MOBILE CTA
+========================================================= */
+
+.mobile-cta{
+
+    display:none;
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    right:0;
+
+    z-index:9999;
+
+    background:#fff;
+
+    padding:9px 12px;
+
+    border-top:1px solid #DCE4EC;
+
+    box-shadow:
+        0 -8px 25px rgba(0,0,0,.08);
+}
+
+.mobile-cta a{
+
+    display:block;
+
+    text-align:center;
+
+    padding:12px;
+
+    border-radius:9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue-dark)
+        );
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:900;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px){
 
     .hero-container{
         grid-template-columns:1fr;
+    }
+
+    .hero{
         text-align:center;
     }
 
-    .hero p{
+    .hero-description,
+    .hero-sub{
         margin-left:auto;
         margin-right:auto;
     }
 
-    .hero-buttons{
+    .hero-buttons,
+    .hero-trust{
         justify-content:center;
     }
 
-    .hero-card{
-        max-width:550px;
-        margin:auto;
+    .hero-visual{
+
+        max-width:600px;
+
         width:100%;
+
+        margin:auto;
     }
 
     .course-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .feature-grid{
+    .steps{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .steps{
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+
+    .why-left{
+        text-align:center;
+    }
+
+    .why-list{
+        max-width:650px;
+
+        margin:auto;
+    }
+
+    .feature-grid{
         grid-template-columns:repeat(2,1fr);
     }
 }
 
-@media(max-width:600px){
+@media(max-width:700px){
+
+    .top-bar{
+        font-size:11px;
+    }
 
     .navbar{
-        padding:13px 15px;
+        padding:12px 15px;
     }
 
     .logo{
         font-size:18px;
     }
 
-    .logo span{
-        font-size:9px;
+    .logo small{
+        font-size:8px;
+    }
+
+    .nav-links a:not(.login-btn){
+        display:none;
+    }
+
+    .login-btn{
+        padding:7px 13px;
+
+        font-size:12px!important;
     }
 
     .hero{
-        padding:55px 16px;
-        min-height:auto;
+
+        padding:55px 16px 65px;
     }
 
     .hero h1{
-        font-size:38px;
+
+        font-size:39px;
+
+        letter-spacing:-.8px;
     }
 
-    .hero p{
+    .hero-description{
         font-size:16px;
+    }
+
+    .hero-sub{
+        font-size:13px;
     }
 
     .hero-card{
         padding:22px;
     }
 
-    section{
-        padding:60px 16px;
+    .hero-card h2{
+        font-size:23px;
     }
 
-    .section-heading h2{
+    .hero-floating{
+
+        right:0;
+
+        bottom:-15px;
+    }
+
+    .stats{
+
+        margin:-20px 15px 0;
+
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stat{
+
+        border-right:none;
+
+        border-bottom:1px solid var(--border);
+    }
+
+    .stat:nth-child(odd){
+
+        border-right:1px solid var(--border);
+    }
+
+    .stat:nth-last-child(-n+2){
+
+        border-bottom:none;
+    }
+
+    section{
+        padding:65px 16px;
+    }
+
+    .section-title h2{
         font-size:29px;
     }
 
+    .problem-grid,
     .course-grid,
     .feature-grid,
     .steps{
         grid-template-columns:1fr;
     }
 
-    .cta h2{
-        font-size:30px;
+    .why-left h2{
+        font-size:29px;
+    }
+
+    .teacher-card{
+        padding:25px;
+    }
+
+    .teacher-card h3{
+        font-size:23px;
+    }
+
+    .access-box{
+        padding:25px 18px;
+    }
+
+    .access-box h2{
+        font-size:24px;
+    }
+
+    .final-cta{
+        padding:70px 16px;
+    }
+
+    .final-cta h2{
+        font-size:31px;
     }
 
     .footer-container{
+
         flex-direction:column;
+
         text-align:center;
     }
 
     .footer-links{
         justify-content:center;
-        flex-wrap:wrap;
+    }
+
+    .mobile-cta{
+        display:block;
+    }
+
+    footer{
+        padding-bottom:90px;
     }
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- =========================
+
+<!-- ======================================================
+     TOP BAR
+======================================================= -->
+
+<div class="top-bar">
+
+🎓 HSC & University Admission students-এর জন্য
+<span>Smart English Learning</span>
+
+</div>
+
+
+<!-- ======================================================
      HEADER
-========================= -->
+======================================================= -->
 
 <header>
 
 <nav class="navbar">
 
 <a href="#" class="logo">
-    ALL ABOUT ENGLISH
-    <span>BY SHAHEEN SIR</span>
+
+ALL ABOUT ENGLISH
+
+<small>
+BY SHAHEEN SIR
+</small>
+
 </a>
+
 
 <div class="nav-links">
 
-<a href="#courses">Courses</a>
-<a href="#features">Features</a>
-<a href="#how">How It Works</a>
+<a href="#courses">
+Courses
+</a>
 
-<!-- Future Login Page -->
-<a href="../login/" class="nav-login">Login</a>
+<a href="#features">
+Features
+</a>
+
+<a href="#how">
+How It Works
+</a>
+
+<a href="../login/" class="login-btn">
+Login
+</a>
 
 </div>
 
@@ -590,97 +1839,214 @@ footer{
 </header>
 
 
-<!-- =========================
+<!-- ======================================================
      HERO
-========================= -->
+======================================================= -->
 
 <section class="hero">
 
 <div class="hero-container">
 
+
 <div>
 
-<span class="badge">
-ENGLISH LEARNING PLATFORM
-</span>
+<div class="hero-badge">
+
+🇧🇩 Bangladesh-এর Students-এর জন্য
+
+</div>
+
 
 <h1>
-Learn English.<br>
-<span>Build Your Future.</span>
+
+English শেখা হোক
+
+<span class="highlight">
+Easy,
+</span>
+
+<span class="green">
+Smart & Effective.
+</span>
+
 </h1>
 
-<p>
-A complete English learning platform designed to help students improve their
-English for HSC, University Admission, Spoken English and IELTS.
+
+<p class="hero-description">
+
+HSC English, University Admission, Spoken English ও IELTS-এর জন্য
+একটি structured এবং interactive learning platform।
+
 </p>
+
+
+<p class="hero-sub">
+
+শুধু পড়া নয় —
+<strong>বোঝো, Practice করো, Apply করো এবং Improve করো।</strong>
+
+</p>
+
 
 <div class="hero-buttons">
 
-<!-- Future Registration Page -->
 <a href="../register/" class="btn btn-primary">
-🚀 JOIN NOW
+
+🚀 এখনই Join করুন
+
 </a>
+
 
 <a href="#courses" class="btn btn-secondary">
-📚 EXPLORE COURSES
+
+📚 Courses দেখুন
+
 </a>
 
 </div>
 
+
+<div class="hero-trust">
+
+<div class="trust-item">
+✓ Structured Learning
 </div>
 
+<div class="trust-item">
+✓ Interactive Practice
+</div>
+
+<div class="trust-item">
+✓ Student-focused
+</div>
+
+</div>
+
+</div>
+
+
+<!-- HERO CARD -->
+
+<div class="hero-visual">
 
 <div class="hero-card">
 
-<div class="hero-card-title">
-WHAT YOU CAN LEARN
+
+<div class="card-top">
+
+<div class="card-label">
+LEARNING PROGRAMS
 </div>
+
+<div class="online-badge">
+● ONLINE
+</div>
+
+</div>
+
 
 <h2>
-Your English Journey Starts Here
+এক জায়গায় আপনার English Learning Journey
 </h2>
 
-<div class="learning-item">
 
-<div class="learning-icon">📚</div>
+<p class="card-description">
+
+আপনার প্রয়োজন অনুযায়ী English শেখার সুযোগ।
+
+</p>
+
+
+<div class="course-mini">
+
+<div class="course-icon">
+📚
+</div>
 
 <div>
-<strong>HSC English</strong>
-<small>Exam-focused English learning</small>
-</div>
+
+<strong>
+HSC English
+</strong>
+
+<small>
+Board Exam-focused Learning
+</small>
 
 </div>
 
-<div class="learning-item">
+</div>
 
-<div class="learning-icon">🎯</div>
+
+<div class="course-mini">
+
+<div class="course-icon">
+🎯
+</div>
 
 <div>
-<strong>University Admission</strong>
-<small>Admission-focused preparation</small>
-</div>
+
+<strong>
+Varsity Admission
+</strong>
+
+<small>
+Admission Test Preparation
+</small>
 
 </div>
 
-<div class="learning-item">
+</div>
 
-<div class="learning-icon">🎤</div>
+
+<div class="course-mini">
+
+<div class="course-icon">
+🎤
+</div>
 
 <div>
-<strong>Spoken English</strong>
-<small>Improve confidence & communication</small>
-</div>
+
+<strong>
+Spoken English
+</strong>
+
+<small>
+Speaking & Communication
+</small>
 
 </div>
 
-<div class="learning-item">
+</div>
 
-<div class="learning-icon">🌎</div>
+
+<div class="course-mini">
+
+<div class="course-icon">
+🌎
+</div>
 
 <div>
-<strong>IELTS</strong>
-<small>Build your English skills</small>
+
+<strong>
+IELTS
+</strong>
+
+<small>
+IELTS Skill Development
+</small>
+
 </div>
+
+</div>
+
+
+</div>
+
+
+<div class="hero-floating">
+
+✓ Learn at Your Own Pace
 
 </div>
 
@@ -691,22 +2057,181 @@ Your English Journey Starts Here
 </section>
 
 
-<!-- =========================
+<!-- ======================================================
+     STATS
+======================================================= -->
+
+<div class="stats">
+
+<div class="stat">
+
+<strong>4+</strong>
+
+<span>
+Learning Programs
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>24/7</strong>
+
+<span>
+Online Access
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>Interactive</strong>
+
+<span>
+Learning System
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>Student</strong>
+
+<span>
+Focused Platform
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ======================================================
+     PROBLEM
+======================================================= -->
+
+<section class="problem">
+
+<div class="container">
+
+
+<div class="section-title">
+
+<div class="eyebrow">
+THE PROBLEM
+</div>
+
+<h2>
+English পড়েও কেন অনেক সময় Result আসে না?
+</h2>
+
+<p>
+কারণ শুধু পড়লেই English শেখা সম্পূর্ণ হয় না।
+</p>
+
+</div>
+
+
+<div class="problem-grid">
+
+
+<div class="problem-card bad">
+
+<h3>
+❌ সাধারণ সমস্যাগুলো
+</h3>
+
+<ul>
+
+<li>
+❌ Vocabulary মুখস্থ করা হয়, কিন্তু ব্যবহার করা যায় না
+</li>
+
+<li>
+❌ Grammar পড়া হয়, কিন্তু sentence-এ apply করা কঠিন
+</li>
+
+<li>
+❌ Passage পড়লেও important words বোঝা কঠিন
+</li>
+
+<li>
+❌ MCQ practice থাকলেও ভুলের কারণ বোঝা যায় না
+</li>
+
+<li>
+❌ Speaking-এর সময় confidence কমে যায়
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="problem-card good">
+
+<h3>
+✓ আমরা যেভাবে Help করব
+</h3>
+
+<ul>
+
+<li>
+✓ Concept বুঝে শেখার সুযোগ
+</li>
+
+<li>
+✓ Vocabulary-এর practical analysis
+</li>
+
+<li>
+✓ Sentence ও grammar-এর clear explanation
+</li>
+
+<li>
+✓ Interactive MCQ ও practice
+</li>
+
+<li>
+✓ Step-by-step English improvement
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
      COURSES
-========================= -->
+======================================================= -->
 
 <section class="courses" id="courses">
 
 <div class="container">
 
-<div class="section-heading">
+
+<div class="section-title">
+
+<div class="eyebrow">
+OUR PROGRAMS
+</div>
 
 <h2>
-Learn What You Need
+আপনার প্রয়োজনের জন্য আলাদা Learning Program
 </h2>
 
 <p>
-Focused English learning resources for different academic and communication goals.
+একজন student-এর সব English need একরকম নয়। তাই learning path-ও হবে প্রয়োজনভিত্তিক।
 </p>
 
 </div>
@@ -714,56 +2239,98 @@ Focused English learning resources for different academic and communication goal
 
 <div class="course-grid">
 
+
 <div class="course-card">
 
-<div class="course-icon">📚</div>
+<div class="big-icon">
+📚
+</div>
 
-<h3>HSC English</h3>
+<h3>
+HSC English
+</h3>
 
 <p>
-Grammar, vocabulary, reading, writing and interactive lessons designed for HSC students.
+
+HSC 1st & 2nd Paper-এর গুরুত্বপূর্ণ topics, vocabulary, grammar, passage এবং practice।
+
 </p>
+
+<span class="course-tag">
+HSC PREPARATION
+</span>
 
 </div>
 
 
 <div class="course-card">
 
-<div class="course-icon">🎯</div>
+<div class="big-icon">
+🎯
+</div>
 
-<h3>Varsity Admission</h3>
+<h3>
+Varsity Admission
+</h3>
 
 <p>
-Build the English skills needed for university admission tests and competitive exams.
+
+University admission test-এর জন্য vocabulary, grammar এবং MCQ-based preparation।
+
 </p>
+
+<span class="course-tag">
+ADMISSION
+</span>
 
 </div>
 
 
 <div class="course-card">
 
-<div class="course-icon">🎤</div>
+<div class="big-icon">
+🎤
+</div>
 
-<h3>Spoken English</h3>
+<h3>
+Spoken English
+</h3>
 
 <p>
-Improve speaking ability, pronunciation, vocabulary and confidence in communication.
+
+Daily communication, vocabulary, pronunciation এবং speaking confidence develop করার জন্য।
+
 </p>
+
+<span class="course-tag">
+COMMUNICATION
+</span>
 
 </div>
 
 
 <div class="course-card">
 
-<div class="course-icon">🌎</div>
+<div class="big-icon">
+🌎
+</div>
 
-<h3>IELTS</h3>
+<h3>
+IELTS
+</h3>
 
 <p>
-Develop the English skills necessary for effective IELTS preparation.
+
+IELTS-এর Listening, Reading, Writing ও Speaking skills develop করার structured preparation।
+
 </p>
 
+<span class="course-tag">
+IELTS PREPARATION
+</span>
+
 </div>
+
 
 </div>
 
@@ -772,22 +2339,27 @@ Develop the English skills necessary for effective IELTS preparation.
 </section>
 
 
-<!-- =========================
+<!-- ======================================================
      FEATURES
-========================= -->
+======================================================= -->
 
-<section id="features">
+<section class="features" id="features">
 
 <div class="container">
 
-<div class="section-heading">
+
+<div class="section-title">
+
+<div class="eyebrow">
+LEARNING FEATURES
+</div>
 
 <h2>
-More Than Just a Course
+শুধু Content নয় — একটি Complete Learning Experience
 </h2>
 
 <p>
-A learning experience designed to make English easier, clearer and more practical.
+Student যেন শুধু answer মুখস্থ না করে, বরং English বুঝে ব্যবহার করতে পারে।
 </p>
 
 </div>
@@ -795,12 +2367,21 @@ A learning experience designed to make English easier, clearer and more practica
 
 <div class="feature-grid">
 
+
 <div class="feature-card">
 
-<h3>📖 Interactive Lessons</h3>
+<div class="feature-number">
+01 — VOCABULARY
+</div>
+
+<h3>
+🔤 Smart Vocabulary Analysis
+</h3>
 
 <p>
-Learn through structured and interactive lessons instead of simply reading a textbook.
+
+Meaning, Parts of Speech, pronunciation, synonym, antonym এবং contextual use-এর মাধ্যমে vocabulary শেখা।
+
 </p>
 
 </div>
@@ -808,10 +2389,18 @@ Learn through structured and interactive lessons instead of simply reading a tex
 
 <div class="feature-card">
 
-<h3>🔤 Vocabulary Analysis</h3>
+<div class="feature-number">
+02 — GRAMMAR
+</div>
+
+<h3>
+🧠 Clear Grammar Explanation
+</h3>
 
 <p>
-Understand important words with meanings, pronunciation, parts of speech and related vocabulary.
+
+Grammar rules-এর সঙ্গে example এবং practice-এর মাধ্যমে concept clear করার ব্যবস্থা।
+
 </p>
 
 </div>
@@ -819,10 +2408,18 @@ Understand important words with meanings, pronunciation, parts of speech and rel
 
 <div class="feature-card">
 
-<h3>🧩 Grammar Practice</h3>
+<div class="feature-number">
+03 — PASSAGE
+</div>
+
+<h3>
+📖 Interactive Passage
+</h3>
 
 <p>
-Practice grammar through examples and targeted exercises.
+
+Important words, sentence analysis এবং explanation-এর সঙ্গে passage শেখার সুযোগ।
+
 </p>
 
 </div>
@@ -830,10 +2427,18 @@ Practice grammar through examples and targeted exercises.
 
 <div class="feature-card">
 
-<h3>📝 MCQ Practice</h3>
+<div class="feature-number">
+04 — PRACTICE
+</div>
+
+<h3>
+📝 MCQ & Practice
+</h3>
 
 <p>
-Test your understanding through carefully designed questions and practice activities.
+
+নিজেকে যাচাই করার জন্য বিভিন্ন ধরনের MCQ ও practice activities।
+
 </p>
 
 </div>
@@ -841,10 +2446,18 @@ Test your understanding through carefully designed questions and practice activi
 
 <div class="feature-card">
 
-<h3>🔊 Pronunciation</h3>
+<div class="feature-number">
+05 — SPEAKING
+</div>
+
+<h3>
+🎤 Speaking Practice
+</h3>
 
 <p>
-Develop better pronunciation and speaking confidence through guided practice.
+
+Pronunciation ও speaking practice-এর মাধ্যমে communication skill উন্নত করার সুযোগ।
+
 </p>
 
 </div>
@@ -852,13 +2465,22 @@ Develop better pronunciation and speaking confidence through guided practice.
 
 <div class="feature-card">
 
-<h3>📊 Student Progress</h3>
+<div class="feature-number">
+06 — PROGRESS
+</div>
+
+<h3>
+📈 Progress Tracking
+</h3>
 
 <p>
-Track your learning progress as the platform develops.
+
+ভবিষ্যতে নিজের learning progress ও performance track করার সুবিধা যুক্ত করা হবে।
+
 </p>
 
 </div>
+
 
 </div>
 
@@ -867,22 +2489,201 @@ Track your learning progress as the platform develops.
 </section>
 
 
-<!-- =========================
+<!-- ======================================================
+     WHY
+======================================================= -->
+
+<section class="why">
+
+<div class="container">
+
+<div class="why-grid">
+
+
+<div class="why-left">
+
+<div class="section-title"
+style="text-align:left;margin:0 0 25px;">
+
+<div class="eyebrow">
+WHY ALL ABOUT ENGLISH?
+</div>
+
+<h2>
+English শেখার জন্য একটি Organized System
+</h2>
+
+</div>
+
+
+<p>
+
+অনেক জায়গা থেকে আলাদা আলাদা English content খোঁজার পরিবর্তে,
+আপনার প্রয়োজনীয় learning materials একটি structured platform-এ পাওয়ার লক্ষ্যেই
+<strong>All About English</strong> তৈরি করা হচ্ছে।
+
+</p>
+
+
+<div class="why-list">
+
+
+<div class="why-item">
+
+<div class="check">
+✓
+</div>
+
+<div>
+
+<strong>
+Student-focused Content
+</strong>
+
+<span>
+Bangladesh-এর students-এর academic ও practical English needs মাথায় রেখে content।
+</span>
+
+</div>
+
+</div>
+
+
+<div class="why-item">
+
+<div class="check">
+✓
+</div>
+
+<div>
+
+<strong>
+Concept + Practice
+</strong>
+
+<span>
+শুধু theory নয় — বোঝার পর practice করার সুযোগ।
+</span>
+
+</div>
+
+</div>
+
+
+<div class="why-item">
+
+<div class="check">
+✓
+</div>
+
+<div>
+
+<strong>
+Easy-to-understand Explanation
+</strong>
+
+<span>
+প্রয়োজনে Bangla explanation-এর মাধ্যমে difficult English concept সহজ করা।
+</span>
+
+</div>
+
+</div>
+
+
+<div class="why-item">
+
+<div class="check">
+✓
+</div>
+
+<div>
+
+<strong>
+Continuous Development
+</strong>
+
+<span>
+Platform-এ নিয়মিত নতুন learning features ও content যোগ করা হবে।
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="teacher-card">
+
+<div class="teacher-label">
+BY SHAHEEN SIR
+</div>
+
+<h3>
+শেখার পদ্ধতিটা সহজ হলে English-ও সহজ হয়।
+</h3>
+
+<p>
+
+আমাদের লক্ষ্য শুধু পরীক্ষায় ভালো result নয়।
+Students যেন English-এর structure বুঝতে পারে, vocabulary ব্যবহার করতে পারে,
+grammar apply করতে পারে এবং বাস্তব জীবনে English confidently ব্যবহার করতে পারে—
+সেই লক্ষ্যেই learning materials তৈরি করা হচ্ছে।
+
+</p>
+
+
+<div class="teacher-points">
+
+<span>HSC English</span>
+
+<span>Admission English</span>
+
+<span>Vocabulary</span>
+
+<span>Grammar</span>
+
+<span>Spoken English</span>
+
+<span>IELTS</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
      HOW IT WORKS
-========================= -->
+======================================================= -->
 
 <section class="how" id="how">
 
 <div class="container">
 
-<div class="section-heading">
+
+<div class="section-title">
+
+<div class="eyebrow">
+GET STARTED
+</div>
 
 <h2>
-How It Works
+কীভাবে শুরু করবেন?
 </h2>
 
 <p>
-Getting started is simple.
+Registration থেকে learning শুরু করা পর্যন্ত process খুব সহজ।
 </p>
 
 </div>
@@ -890,14 +2691,19 @@ Getting started is simple.
 
 <div class="steps">
 
+
 <div class="step">
 
-<div class="step-number">1</div>
+<div class="step-number">
+1
+</div>
 
-<h3>Register</h3>
+<h3>
+Register
+</h3>
 
 <p>
-Create your student account.
+আপনার basic information দিয়ে student account তৈরি করুন।
 </p>
 
 </div>
@@ -905,12 +2711,16 @@ Create your student account.
 
 <div class="step">
 
-<div class="step-number">2</div>
+<div class="step-number">
+2
+</div>
 
-<h3>Get Approved</h3>
+<h3>
+Get Approved
+</h3>
 
 <p>
-Your account will be reviewed and approved.
+আপনার account review করে প্রয়োজন অনুযায়ী access দেওয়া হবে।
 </p>
 
 </div>
@@ -918,12 +2728,16 @@ Your account will be reviewed and approved.
 
 <div class="step">
 
-<div class="step-number">3</div>
+<div class="step-number">
+3
+</div>
 
-<h3>Login</h3>
+<h3>
+Login
+</h3>
 
 <p>
-Login to your student account.
+নিজের account দিয়ে secureভাবে platform-এ login করুন।
 </p>
 
 </div>
@@ -931,15 +2745,20 @@ Login to your student account.
 
 <div class="step">
 
-<div class="step-number">4</div>
+<div class="step-number">
+4
+</div>
 
-<h3>Start Learning</h3>
+<h3>
+Start Learning
+</h3>
 
 <p>
-Access the lessons available to you.
+আপনার জন্য available lessons ও learning materials access করুন।
 </p>
 
 </div>
+
 
 </div>
 
@@ -948,46 +2767,226 @@ Access the lessons available to you.
 </section>
 
 
-<!-- =========================
-     CTA
-========================= -->
+<!-- ======================================================
+     ACCESS
+======================================================= -->
 
-<section class="cta">
+<section class="access">
 
 <div class="container">
 
+
+<div class="access-box">
+
 <h2>
-Ready to Improve Your English?
+🔐 আপনার জন্য প্রয়োজনীয় Content, আপনার Access-এ
 </h2>
 
 <p>
-Join All About English and start building stronger English skills for your academic and future goals.
+
+Platform-এ বিভিন্ন ধরনের learning access থাকবে।
+Student-এর account অনুযায়ী নির্দিষ্ট content access দেওয়ার ব্যবস্থা থাকবে।
+
 </p>
 
+
+<div class="access-points">
+
+<span>✓ HSC English</span>
+
+<span>✓ Varsity Admission</span>
+
+<span>✓ Spoken English</span>
+
+<span>✓ IELTS</span>
+
+<span>✓ Premium Content</span>
+
+<span>✓ Student Dashboard</span>
+
+</div>
+
+
 <a href="../register/" class="btn btn-primary">
-🚀 JOIN ALL ABOUT ENGLISH
+
+🚀 Student Registration
+
 </a>
 
 </div>
 
+</div>
+
 </section>
 
 
-<!-- =========================
+<!-- ======================================================
+     FAQ
+======================================================= -->
+
+<section class="faq">
+
+<div class="container">
+
+
+<div class="section-title">
+
+<div class="eyebrow">
+FAQ
+</div>
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+<p>
+কিছু common প্রশ্নের সহজ উত্তর।
+</p>
+
+</div>
+
+
+<div class="faq-container">
+
+
+<details>
+
+<summary>
+এই platform কার জন্য?
+</summary>
+
+<p>
+
+মূলত HSC students, University Admission candidates এবং যারা Spoken English বা IELTS-এর জন্য English skill improve করতে চান তাদের জন্য।
+
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+আমি কি mobile থেকে ব্যবহার করতে পারব?
+</summary>
+
+<p>
+
+হ্যাঁ। Platform-টি mobile, tablet এবং desktop—সব ধরনের device-এর জন্য responsiveভাবে তৈরি করা হচ্ছে।
+
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Registration করলেই কি সব content পাওয়া যাবে?
+</summary>
+
+<p>
+
+না। Student account অনুযায়ী প্রয়োজনীয় access দেওয়া হবে। ভবিষ্যতে free এবং বিভিন্ন ধরনের premium access রাখা যেতে পারে।
+
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+আমি কি পরে আমার account দিয়ে আবার login করতে পারব?
+</summary>
+
+<p>
+
+হ্যাঁ। Student-এর জন্য secure Login এবং personal Dashboard system তৈরি করা হবে।
+
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+আমি কী কী শিখতে পারব?
+</summary>
+
+<p>
+
+HSC English, University Admission English, Vocabulary, Grammar, Spoken English এবং IELTS-এর বিভিন্ন learning resources ধাপে ধাপে যুক্ত করা হবে।
+
+</p>
+
+</details>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     FINAL CTA
+======================================================= -->
+
+<section class="final-cta">
+
+<div class="container">
+
+
+<h2>
+আপনার English Learning Journey আজই শুরু করুন
+</h2>
+
+
+<p>
+
+একটা strong English foundation আপনার HSC result, University Admission preparation,
+communication skill এবং future career—সবকিছুর জন্যই কাজে লাগতে পারে।
+
+</p>
+
+
+<a href="../register/" class="btn btn-primary">
+
+🚀 JOIN ALL ABOUT ENGLISH
+
+</a>
+
+
+<div class="final-note">
+
+Free registration • Student account • Secure login system
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
      FOOTER
-========================= -->
+======================================================= -->
 
 <footer>
 
 <div class="footer-container">
 
+
 <div>
 
-<div class="footer-title">
+<div class="footer-logo">
 ALL ABOUT ENGLISH
 </div>
 
-<div class="footer-text">
+<div class="footer-small">
 By Shaheen Sir
 </div>
 
@@ -996,19 +2995,242 @@ By Shaheen Sir
 
 <div class="footer-links">
 
-<a href="#courses">Courses</a>
+<a href="#courses">
+Courses
+</a>
 
-<a href="#features">Features</a>
+<a href="#features">
+Features
+</a>
 
-<a href="#how">How It Works</a>
+<a href="#how">
+How It Works
+</a>
 
-<a href="../login/">Login</a>
+<a href="../login/">
+Login
+</a>
+
+<a href="../register/">
+Register
+</a>
 
 </div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 All About English by Shaheen Sir. All rights reserved.
 
 </div>
 
 </footer>
+
+
+<!-- ======================================================
+     MOBILE CTA
+======================================================= -->
+
+<div class="mobile-cta">
+
+<a href="../register/">
+
+🚀 এখনই Register করুন
+
+</a>
+
+</div>
+
+
+<!-- ======================================================
+     BASIC ANTI-COPY / BROWSER DETERRENCE
+     NOTE:
+     This is NOT a replacement for Firebase Security Rules.
+======================================================= -->
+
+<script>
+
+/*
+    BASIC PROTECTION LAYER
+
+    This discourages casual:
+    - Right click
+    - Text selection
+    - Dragging
+    - Copy shortcut
+    - Save shortcut
+    - View-source shortcut
+    - DevTools shortcut
+
+    IMPORTANT:
+    No client-side HTML/JavaScript can provide
+    complete security for public web pages.
+*/
+
+
+/* Disable right click */
+
+document.addEventListener(
+    "contextmenu",
+    function(e){
+        e.preventDefault();
+    },
+    false
+);
+
+
+/* Disable text selection by mouse */
+
+document.addEventListener(
+    "selectstart",
+    function(e){
+        e.preventDefault();
+    },
+    false
+);
+
+
+/* Disable drag */
+
+document.addEventListener(
+    "dragstart",
+    function(e){
+        e.preventDefault();
+    },
+    false
+);
+
+
+/* Disable common keyboard shortcuts */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        const key = e.key.toLowerCase();
+
+        /* Ctrl + C */
+        if(e.ctrlKey && key === "c"){
+            e.preventDefault();
+            return false;
+        }
+
+        /* Ctrl + X */
+        if(e.ctrlKey && key === "x"){
+            e.preventDefault();
+            return false;
+        }
+
+        /* Ctrl + S */
+        if(e.ctrlKey && key === "s"){
+            e.preventDefault();
+            return false;
+        }
+
+        /* Ctrl + U */
+        if(e.ctrlKey && key === "u"){
+            e.preventDefault();
+            return false;
+        }
+
+        /* Ctrl + P */
+        if(e.ctrlKey && key === "p"){
+            e.preventDefault();
+            return false;
+        }
+
+        /* Ctrl + Shift + I */
+        if(e.ctrlKey && e.shiftKey && key === "i"){
+            e.preventDefault();
+            return false;
+        }
+
+        /* Ctrl + Shift + J */
+        if(e.ctrlKey && e.shiftKey && key === "j"){
+            e.preventDefault();
+            return false;
+        }
+
+        /* Ctrl + Shift + C */
+        if(e.ctrlKey && e.shiftKey && key === "c"){
+            e.preventDefault();
+            return false;
+        }
+
+        /* F12 */
+        if(e.key === "F12"){
+            e.preventDefault();
+            return false;
+        }
+
+    },
+    false
+);
+
+
+/* Prevent image dragging */
+
+document.querySelectorAll("img").forEach(
+    function(img){
+
+        img.addEventListener(
+            "dragstart",
+            function(e){
+                e.preventDefault();
+            }
+        );
+
+    }
+);
+
+
+/*
+    Iframe protection:
+    If the page is loaded inside another website's iframe,
+    redirect to the real page.
+*/
+
+if(window.top !== window.self){
+
+    try{
+
+        window.top.location =
+            window.self.location.href;
+
+    }catch(error){
+
+        console.log(
+            "Frame protection active."
+        );
+
+    }
+
+}
+
+
+/*
+    Basic external-navigation deterrence.
+
+    Keeps normal internal links working.
+*/
+
+document.querySelectorAll("a").forEach(
+    function(link){
+
+        link.addEventListener(
+            "dragstart",
+            function(e){
+                e.preventDefault();
+            }
+        );
+
+    }
+);
+
+</script>
 
 
 </body>
