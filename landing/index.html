@@ -1,1 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>All About English by Shaheen Sir</title>
+
+<meta name="description" content="All About English by Shaheen Sir — HSC English, University Admission, Spoken English and IELTS preparation.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f7f9fc;
+    color:#172033;
+    line-height:1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,0.96);
+    border-bottom:1px solid #e5e7eb;
+    backdrop-filter:blur(10px);
+}
+
+.navbar{
+    max-width:1150px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+    color:#173b7a;
+    text-decoration:none;
+}
+
+.logo span{
+    display:block;
+    font-size:11px;
+    color:#777;
+    font-weight:500;
+    letter-spacing:1px;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    align-items:center;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#333;
+    font-size:14px;
+    font-weight:600;
+}
+
+.nav-links a:hover{
+    color:#1769aa;
+}
+
+.nav-login{
+    border:1px solid #1769aa;
+    padding:8px 17px;
+    border-radius:8px;
+    color:#1769aa !important;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    background:
+    linear-gradient(135deg,#edf5ff 0%,#ffffff 50%,#eef8f5 100%);
+    padding:70px 20px;
+}
+
+.hero-container{
+    max-width:1150px;
+    margin:auto;
+    width:100%;
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:50px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    background:#e5f0ff;
+    color:#1759a6;
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:56px;
+    line-height:1.08;
+    margin-bottom:20px;
+    color:#102d5c;
+}
+
+.hero h1 span{
+    color:#1769aa;
+}
+
+.hero p{
+    font-size:19px;
+    color:#536174;
+    max-width:650px;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:14px 25px;
+    border-radius:9px;
+    font-weight:700;
+    font-size:15px;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:#1769aa;
+    color:white;
+    box-shadow:0 8px 20px rgba(23,105,170,.2);
+}
+
+.btn-primary:hover{
+    background:#0f548d;
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    background:white;
+    color:#1769aa;
+    border:1px solid #cbd8e8;
+}
+
+.btn-secondary:hover{
+    background:#f0f6ff;
+}
+
+/* Hero visual */
+
+.hero-card{
+    background:white;
+    border-radius:24px;
+    padding:30px;
+    box-shadow:0 20px 60px rgba(25,50,80,.12);
+    border:1px solid #e7edf5;
+}
+
+.hero-card-title{
+    font-size:14px;
+    color:#68768a;
+    margin-bottom:10px;
+}
+
+.hero-card h2{
+    color:#102d5c;
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.learning-item{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid #edf0f4;
+}
+
+.learning-item:last-child{
+    border-bottom:none;
+}
+
+.learning-icon{
+    width:43px;
+    height:43px;
+    border-radius:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eef5ff;
+    font-size:21px;
+}
+
+.learning-item strong{
+    display:block;
+    font-size:15px;
+}
+
+.learning-item small{
+    color:#788497;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+section{
+    padding:80px 20px;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.section-heading{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 50px;
+}
+
+.section-heading h2{
+    font-size:36px;
+    color:#102d5c;
+    margin-bottom:12px;
+}
+
+.section-heading p{
+    color:#667085;
+}
+
+/* =========================
+   COURSES
+========================= */
+
+.courses{
+    background:white;
+}
+
+.course-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.course-card{
+    padding:28px 22px;
+    border:1px solid #e5e9ef;
+    border-radius:16px;
+    background:#fff;
+    transition:.25s;
+}
+
+.course-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(30,50,80,.10);
+}
+
+.course-icon{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.course-card h3{
+    color:#173b7a;
+    margin-bottom:9px;
+}
+
+.course-card p{
+    font-size:14px;
+    color:#68768a;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.feature-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    border:1px solid #e7ebf0;
+}
+
+.feature-card h3{
+    font-size:17px;
+    margin-bottom:8px;
+    color:#173b7a;
+}
+
+.feature-card p{
+    font-size:14px;
+    color:#68768a;
+}
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.how{
+    background:#f0f5fb;
+}
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.step{
+    text-align:center;
+    background:white;
+    padding:25px 18px;
+    border-radius:15px;
+    border:1px solid #e2e8f0;
+}
+
+.step-number{
+    width:48px;
+    height:48px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    background:#1769aa;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:800;
+}
+
+.step h3{
+    margin-bottom:6px;
+    color:#173b7a;
+}
+
+.step p{
+    font-size:14px;
+    color:#68768a;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    padding:90px 20px;
+    background:linear-gradient(135deg,#102d5c,#1769aa);
+    color:white;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.cta p{
+    max-width:650px;
+    margin:0 auto 30px;
+    color:#e6eef8;
+}
+
+.cta .btn-primary{
+    background:white;
+    color:#1769aa;
+    box-shadow:none;
+}
+
+.cta .btn-primary:hover{
+    background:#f0f4f8;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#0c1d38;
+    color:#d6deea;
+    padding:35px 20px;
+}
+
+.footer-container{
+    max-width:1150px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    align-items:center;
+}
+
+.footer-title{
+    font-weight:800;
+    color:white;
+    margin-bottom:5px;
+}
+
+.footer-text{
+    font-size:13px;
+    color:#aebbd0;
+}
+
+.footer-links{
+    display:flex;
+    gap:18px;
+}
+
+.footer-links a{
+    color:#c8d4e5;
+    text-decoration:none;
+    font-size:13px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        gap:12px;
+    }
+
+    .nav-links a:not(.nav-login){
+        display:none;
+    }
+
+    .hero-container{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-card{
+        max-width:550px;
+        margin:auto;
+        width:100%;
+    }
+
+    .course-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .feature-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .steps{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    .navbar{
+        padding:13px 15px;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    .logo span{
+        font-size:9px;
+    }
+
+    .hero{
+        padding:55px 16px;
+        min-height:auto;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .hero-card{
+        padding:22px;
+    }
+
+    section{
+        padding:60px 16px;
+    }
+
+    .section-heading h2{
+        font-size:29px;
+    }
+
+    .course-grid,
+    .feature-grid,
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .cta h2{
+        font-size:30px;
+    }
+
+    .footer-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .footer-links{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<nav class="navbar">
+
+<a href="#" class="logo">
+    ALL ABOUT ENGLISH
+    <span>BY SHAHEEN SIR</span>
+</a>
+
+<div class="nav-links">
+
+<a href="#courses">Courses</a>
+<a href="#features">Features</a>
+<a href="#how">How It Works</a>
+
+<!-- Future Login Page -->
+<a href="../login/" class="nav-login">Login</a>
+
+</div>
+
+</nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="hero-container">
+
+<div>
+
+<span class="badge">
+ENGLISH LEARNING PLATFORM
+</span>
+
+<h1>
+Learn English.<br>
+<span>Build Your Future.</span>
+</h1>
+
+<p>
+A complete English learning platform designed to help students improve their
+English for HSC, University Admission, Spoken English and IELTS.
+</p>
+
+<div class="hero-buttons">
+
+<!-- Future Registration Page -->
+<a href="../register/" class="btn btn-primary">
+🚀 JOIN NOW
+</a>
+
+<a href="#courses" class="btn btn-secondary">
+📚 EXPLORE COURSES
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-card">
+
+<div class="hero-card-title">
+WHAT YOU CAN LEARN
+</div>
+
+<h2>
+Your English Journey Starts Here
+</h2>
+
+<div class="learning-item">
+
+<div class="learning-icon">📚</div>
+
+<div>
+<strong>HSC English</strong>
+<small>Exam-focused English learning</small>
+</div>
+
+</div>
+
+<div class="learning-item">
+
+<div class="learning-icon">🎯</div>
+
+<div>
+<strong>University Admission</strong>
+<small>Admission-focused preparation</small>
+</div>
+
+</div>
+
+<div class="learning-item">
+
+<div class="learning-icon">🎤</div>
+
+<div>
+<strong>Spoken English</strong>
+<small>Improve confidence & communication</small>
+</div>
+
+</div>
+
+<div class="learning-item">
+
+<div class="learning-icon">🌎</div>
+
+<div>
+<strong>IELTS</strong>
+<small>Build your English skills</small>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     COURSES
+========================= -->
+
+<section class="courses" id="courses">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>
+Learn What You Need
+</h2>
+
+<p>
+Focused English learning resources for different academic and communication goals.
+</p>
+
+</div>
+
+
+<div class="course-grid">
+
+<div class="course-card">
+
+<div class="course-icon">📚</div>
+
+<h3>HSC English</h3>
+
+<p>
+Grammar, vocabulary, reading, writing and interactive lessons designed for HSC students.
+</p>
+
+</div>
+
+
+<div class="course-card">
+
+<div class="course-icon">🎯</div>
+
+<h3>Varsity Admission</h3>
+
+<p>
+Build the English skills needed for university admission tests and competitive exams.
+</p>
+
+</div>
+
+
+<div class="course-card">
+
+<div class="course-icon">🎤</div>
+
+<h3>Spoken English</h3>
+
+<p>
+Improve speaking ability, pronunciation, vocabulary and confidence in communication.
+</p>
+
+</div>
+
+
+<div class="course-card">
+
+<div class="course-icon">🌎</div>
+
+<h3>IELTS</h3>
+
+<p>
+Develop the English skills necessary for effective IELTS preparation.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section id="features">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>
+More Than Just a Course
+</h2>
+
+<p>
+A learning experience designed to make English easier, clearer and more practical.
+</p>
+
+</div>
+
+
+<div class="feature-grid">
+
+<div class="feature-card">
+
+<h3>📖 Interactive Lessons</h3>
+
+<p>
+Learn through structured and interactive lessons instead of simply reading a textbook.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<h3>🔤 Vocabulary Analysis</h3>
+
+<p>
+Understand important words with meanings, pronunciation, parts of speech and related vocabulary.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<h3>🧩 Grammar Practice</h3>
+
+<p>
+Practice grammar through examples and targeted exercises.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<h3>📝 MCQ Practice</h3>
+
+<p>
+Test your understanding through carefully designed questions and practice activities.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<h3>🔊 Pronunciation</h3>
+
+<p>
+Develop better pronunciation and speaking confidence through guided practice.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<h3>📊 Student Progress</h3>
+
+<p>
+Track your learning progress as the platform develops.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<section class="how" id="how">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>
+How It Works
+</h2>
+
+<p>
+Getting started is simple.
+</p>
+
+</div>
+
+
+<div class="steps">
+
+<div class="step">
+
+<div class="step-number">1</div>
+
+<h3>Register</h3>
+
+<p>
+Create your student account.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">2</div>
+
+<h3>Get Approved</h3>
+
+<p>
+Your account will be reviewed and approved.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">3</div>
+
+<h3>Login</h3>
+
+<p>
+Login to your student account.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">4</div>
+
+<h3>Start Learning</h3>
+
+<p>
+Access the lessons available to you.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+Ready to Improve Your English?
+</h2>
+
+<p>
+Join All About English and start building stronger English skills for your academic and future goals.
+</p>
+
+<a href="../register/" class="btn btn-primary">
+🚀 JOIN ALL ABOUT ENGLISH
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="footer-container">
+
+<div>
+
+<div class="footer-title">
+ALL ABOUT ENGLISH
+</div>
+
+<div class="footer-text">
+By Shaheen Sir
+</div>
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="#courses">Courses</a>
+
+<a href="#features">Features</a>
+
+<a href="#how">How It Works</a>
+
+<a href="../login/">Login</a>
+
+</div>
+
+</div>
+
+</footer>
+
+
+</body>
+</html>
