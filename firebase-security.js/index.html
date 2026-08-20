@@ -13,16 +13,16 @@
    etc.
 
    Firestore structure:
+   students
+      └── USER UID
+           ├── accountStatus
+           └── approvedLessons
 console.log("CURRENT LESSON ID:", currentLessonID);
 console.log("APPROVED LESSONS:", approvedLessons);
 console.log(
     "LESSON 2 APPROVED:",
     approvedLessons["unit-11-lesson-2"]
 );
-   students
-      └── USER UID
-           ├── accountStatus
-           └── approvedLessons
                 ├── unit-11-lesson-1 : true
                 ├── unit-11-lesson-2 : true
                 └── unit-11-lesson-3 : true
