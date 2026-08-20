@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -76,7 +77,7 @@ body {
 }
 
 /* =========================
-   LESSON CARDS
+   LESSON GRID
 ========================= */
 
 .lessons {
@@ -84,6 +85,10 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
+
+/* =========================
+   LESSON CARD
+========================= */
 
 .lesson-card {
     background: white;
@@ -113,7 +118,7 @@ body {
 }
 
 /* =========================
-   LESSON BUTTON
+   BUTTON
 ========================= */
 
 .lesson-button {
@@ -126,9 +131,8 @@ body {
     font-size: 16px;
     font-weight: 700;
     transition: 0.2s;
-    border: none;
     cursor: pointer;
-    font-family: inherit;
+    border: none;
 }
 
 .lesson-button:hover {
@@ -140,50 +144,38 @@ body {
 ========================= */
 
 .lesson-button.locked {
-    background: #9aa4ad;
+    background: #999;
     cursor: not-allowed;
-    opacity: 0.9;
 }
 
 .lesson-button.locked:hover {
-    background: #9aa4ad;
+    background: #888;
 }
 
 /* =========================
    LOADING
 ========================= */
 
-.lesson-loading {
-    display: inline-block;
-    background: #e9eef3;
-    color: #5d6974;
-    padding: 11px 25px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 700;
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 17px;
 }
 
 /* =========================
-   STATUS
+   MESSAGE
 ========================= */
 
-.lesson-status {
-    margin-top: 12px;
-    min-height: 20px;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.status-open {
-    color: #16834d;
-}
-
-.status-locked {
-    color: #b05a00;
-}
-
-.status-login {
-    color: #b02a37;
+.message {
+    display: none;
+    text-align: center;
+    margin: 20px auto;
+    padding: 14px;
+    border-radius: 8px;
+    background: #fff3cd;
+    color: #856404;
+    max-width: 700px;
 }
 
 /* =========================
@@ -196,24 +188,6 @@ body {
     padding: 20px;
     color: #666;
     font-size: 14px;
-}
-
-/* =========================
-   LOGIN MESSAGE
-========================= */
-
-.login-message {
-    max-width: 600px;
-    margin: 0 auto 25px;
-    padding: 14px 18px;
-    background: #fff8e6;
-    border: 1px solid #f0d58a;
-    border-radius: 10px;
-    color: #795b00;
-    text-align: center;
-    font-size: 14px;
-    line-height: 1.6;
-    display: none;
 }
 
 /* =========================
@@ -265,7 +239,7 @@ body {
 
 
 <!-- =========================
-     MAIN CONTENT
+     MAIN
 ========================= -->
 
 <main class="container">
@@ -274,122 +248,85 @@ body {
 
         <h2>UNIT 11</h2>
 
-        <p>Select an approved lesson to continue</p>
+        <p>Select a lesson to continue</p>
 
     </div>
 
 
-    <!-- LOGIN MESSAGE -->
+    <div id="loading" class="loading">
 
-    <div
-        id="loginMessage"
-        class="login-message"
-    >
-        🔐 Please log in with your student account
-        to access approved lessons.
+        Checking your access...
+
     </div>
 
 
-    <div class="lessons">
+    <div id="message" class="message"></div>
 
 
-        <!-- =========================
-             LESSON 1
-        ========================= -->
+    <div id="lessons" class="lessons" style="display:none;">
 
-        <div
-            class="lesson-card"
-            id="lessonCard1"
-        >
+
+        <!-- LESSON 1 -->
+
+        <div class="lesson-card">
 
             <div class="lesson-number">
                 LESSON 1
             </div>
 
-            <h3>
-                Lesson 1
-            </h3>
+            <h3>Lesson 1</h3>
 
-            <div id="lessonButton1">
-
-                <span class="lesson-loading">
-                    Checking access...
-                </span>
-
-            </div>
-
-            <div
-                id="lessonStatus1"
-                class="lesson-status"
-            ></div>
+            <a
+                id="lesson1Button"
+                class="lesson-button"
+                href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-11/lesson-1/"
+            >
+                Checking...
+            </a>
 
         </div>
 
 
 
-        <!-- =========================
-             LESSON 2
-        ========================= -->
+        <!-- LESSON 2 -->
 
-        <div
-            class="lesson-card"
-            id="lessonCard2"
-        >
+        <div class="lesson-card">
 
             <div class="lesson-number">
                 LESSON 2
             </div>
 
-            <h3>
-                Lesson 2
-            </h3>
+            <h3>Lesson 2</h3>
 
-            <div id="lessonButton2">
-
-                <span class="lesson-loading">
-                    Checking access...
-                </span>
-
-            </div>
-
-            <div
-                id="lessonStatus2"
-                class="lesson-status"
-            ></div>
+            <a
+                id="lesson2Button"
+                class="lesson-button"
+                href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-11/lesson-2/"
+            >
+                Checking...
+            </a>
 
         </div>
 
 
 
-        <!-- =========================
-             LESSON 3
-        ========================= -->
+        <!-- LESSON 3 -->
 
-        <div
-            class="lesson-card"
-            id="lessonCard3"
-        >
+        <div class="lesson-card">
 
             <div class="lesson-number">
                 LESSON 3
             </div>
 
-            <h3>
-                Lesson 3
-            </h3>
+            <h3>Lesson 3</h3>
 
-            <div id="lessonButton3">
-
-                <span class="lesson-loading">
-                    Checking access...
-                </span>
-
-            </div>
-
-            <div
-                id="lessonStatus3"
-                class="lesson-status"
-            ></div>
+            <a
+                id="lesson3Button"
+                class="lesson-button"
+                href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-11/lesson-3/"
+            >
+                Checking...
+            </a>
 
         </div>
 
@@ -412,33 +349,34 @@ body {
 
 
 
-<!-- =========================================================
+<!-- =========================
      FIREBASE
-========================================================= -->
+========================= -->
 
 <script type="module">
 
-/* =========================================================
-   FIREBASE IMPORTS
-========================================================= */
+import { initializeApp }
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-    initializeApp
-} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
 
-
-import {
     getAuth,
     onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
 
+}
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
+
     getFirestore,
     doc,
     getDoc
-} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
 
+}
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
 /* =========================================================
@@ -470,7 +408,6 @@ const firebaseConfig = {
 
     measurementId:
         "G-RVFY5YEX6L"
-
 };
 
 
@@ -483,6 +420,10 @@ const app =
     initializeApp(firebaseConfig);
 
 
+const analytics =
+    getAnalytics(app);
+
+
 const auth =
     getAuth(app);
 
@@ -492,102 +433,173 @@ const db =
 
 
 
-/* =========================================================
-   LESSON CONFIGURATION
-========================================================= */
+
+/* =====================================================
+   LESSON DATA
+===================================================== */
 
 const lessons = [
 
     {
-        number: 1,
+        id: "unit-11-lesson-1",
 
-        documentId:
-            "unit-11-lesson-1",
-
-        path:
-            "hsc/1st-paper/unit-11/lesson-1/"
-
+        buttonId: "lesson1Button"
     },
 
-
     {
-        number: 2,
+        id: "unit-11-lesson-2",
 
-        documentId:
-            "unit-11-lesson-2",
-
-        path:
-            "hsc/1st-paper/unit-11/lesson-2/"
-
+        buttonId: "lesson2Button"
     },
 
-
     {
-        number: 3,
+        id: "unit-11-lesson-3",
 
-        documentId:
-            "unit-11-lesson-3",
-
-        path:
-            "hsc/1st-paper/unit-11/lesson-3/"
-
+        buttonId: "lesson3Button"
     }
 
 ];
 
 
+/* =====================================================
+   GET BUTTON
+===================================================== */
 
-/* =========================================================
+function getButton(id) {
+
+    return document.getElementById(id);
+
+}
+
+
+/* =====================================================
+   LOCK LESSON
+===================================================== */
+
+function lockLesson(button) {
+
+    button.textContent = "🔒 Locked";
+
+    button.classList.add("locked");
+
+    button.removeAttribute("href");
+
+    button.onclick = function(event) {
+
+        event.preventDefault();
+
+        alert("This lesson has not been approved for your account yet.");
+
+        return false;
+
+    };
+
+}
+
+
+/* =====================================================
+   OPEN LESSON
+===================================================== */
+
+function openLesson(button) {
+
+    button.textContent = "🔓 Open Lesson";
+
+    button.classList.remove("locked");
+
+}
+
+
+/* =====================================================
+   SHOW MESSAGE
+===================================================== */
+
+function showMessage(text) {
+
+    const message = document.getElementById("message");
+
+    message.textContent = text;
+
+    message.style.display = "block";
+
+}
+
+
+/* =====================================================
    AUTH STATE
-========================================================= */
+===================================================== */
 
-onAuthStateChanged(
-
-    auth,
-
-    async function(user) {
-
-        if (!user) {
-
-            showLoginRequired();
-
-            return;
-
-        }
+onAuthStateChanged(auth, async (user) => {
 
 
-        await checkStudentAccount(user);
+    const loading =
+        document.getElementById("loading");
+
+    const lessonContainer =
+        document.getElementById("lessons");
+
+
+    /* -----------------------------------------------
+       NOT LOGGED IN
+    ------------------------------------------------ */
+
+    if (!user) {
+
+        loading.style.display = "none";
+
+        lessonContainer.style.display = "grid";
+
+        lessons.forEach((lesson) => {
+
+            lockLesson(
+                getButton(lesson.buttonId)
+            );
+
+        });
+
+        showMessage(
+            "Please login to access your approved lessons."
+        );
+
+        return;
 
     }
 
-);
-
-
-
-/* =========================================================
-   CHECK STUDENT ACCOUNT
-========================================================= */
-
-async function checkStudentAccount(user) {
 
     try {
 
-        const studentRef =
-            doc(
-                db,
-                "students",
-                user.uid
-            );
 
+        /* -------------------------------------------
+           GET STUDENT DOCUMENT
+        -------------------------------------------- */
+
+        const studentRef =
+            doc(db, "students", user.uid);
 
         const studentSnap =
             await getDoc(studentRef);
 
 
+        /* -------------------------------------------
+           STUDENT DOCUMENT NOT FOUND
+        -------------------------------------------- */
+
         if (!studentSnap.exists()) {
 
-            showAccountLocked(
-                "Student account information not found."
+            loading.style.display = "none";
+
+            lessonContainer.style.display = "grid";
+
+            lessons.forEach((lesson) => {
+
+                lockLesson(
+                    getButton(lesson.buttonId)
+                );
+
+            });
+
+            showMessage(
+                "Student account information was not found."
             );
 
             return;
@@ -599,24 +611,34 @@ async function checkStudentAccount(user) {
             studentSnap.data();
 
 
+        /* -------------------------------------------
+           ACCOUNT STATUS
+        -------------------------------------------- */
+
         const accountStatus =
-            String(
-                studentData.accountStatus ||
-                ""
-            ).toLowerCase();
+            studentData.accountStatus;
 
 
-        /*
-         * ONLY ACTIVE STUDENTS
-         * CAN SEE APPROVED CONTENT
-         */
+        /* -------------------------------------------
+           PENDING / BLOCKED
+        -------------------------------------------- */
 
-        if (
-            accountStatus !== "active"
-        ) {
+        if (accountStatus !== "active") {
 
-            showAccountLocked(
-                "Your student account is not active yet."
+            loading.style.display = "none";
+
+            lessonContainer.style.display = "grid";
+
+            lessons.forEach((lesson) => {
+
+                lockLesson(
+                    getButton(lesson.buttonId)
+                );
+
+            });
+
+            showMessage(
+                "Your account is not active yet. Please wait for administrator approval."
             );
 
             return;
@@ -624,421 +646,84 @@ async function checkStudentAccount(user) {
         }
 
 
-        /*
-         * ACTIVE STUDENT
-         * CHECK EACH LESSON
-         */
+        /* -------------------------------------------
+           APPROVED LESSONS
+        -------------------------------------------- */
 
-        await checkAllLessons();
+        const approvedLessons =
+            studentData.approvedLessons || {};
 
-    }
 
-    catch(error) {
+        /* -------------------------------------------
+           CHECK EVERY LESSON
+        -------------------------------------------- */
 
-        console.error(
-            "Student verification error:",
-            error
-        );
-
-
-        showAccountLocked(
-            "Unable to verify your student account."
-        );
-
-    }
-
-}
-
-
-
-/* =========================================================
-   CHECK ALL LESSONS
-========================================================= */
-
-async function checkAllLessons() {
-
-    for (
-        const lesson of lessons
-    ) {
-
-        await checkLesson(
-            lesson
-        );
-
-    }
-
-}
-
-
-
-/* =========================================================
-   CHECK INDIVIDUAL LESSON
-========================================================= */
-
-async function checkLesson(
-    lesson
-) {
-
-    const buttonContainer =
-        document.getElementById(
-            "lessonButton" +
-            lesson.number
-        );
-
-
-    const statusElement =
-        document.getElementById(
-            "lessonStatus" +
-            lesson.number
-        );
-
-
-    try {
-
-        const contentRef =
-            doc(
-                db,
-                "content",
-                lesson.documentId
-            );
-
-
-        const contentSnap =
-            await getDoc(
-                contentRef
-            );
-
-
-        /*
-         * DOCUMENT DOES NOT EXIST
-         */
-
-        if (
-            !contentSnap.exists()
-        ) {
-
-            showLockedLesson(
-                buttonContainer,
-                statusElement,
-                "Content not published yet."
-            );
-
-            return;
-
-        }
-
-
-        const contentData =
-            contentSnap.data();
-
-
-        const contentStatus =
-            String(
-                contentData.status ||
-                ""
-            ).toLowerCase();
-
-
-        /*
-         * ONLY status = active
-         * WILL UNLOCK THE LESSON
-         */
-
-        if (
-            contentStatus === "active"
-        ) {
-
-            showOpenLesson(
-                buttonContainer,
-                statusElement,
-                lesson,
-                contentData
-            );
-
-        }
-
-        else {
-
-            showLockedLesson(
-                buttonContainer,
-                statusElement,
-                "This lesson is waiting for approval."
-            );
-
-        }
-
-    }
-
-    catch(error) {
-
-        console.error(
-            "Lesson access error:",
-            lesson.documentId,
-            error
-        );
-
-
-        showLockedLesson(
-            buttonContainer,
-            statusElement,
-            "Access could not be verified."
-        );
-
-    }
-
-}
-
-
-
-/* =========================================================
-   SHOW OPEN LESSON
-========================================================= */
-
-function showOpenLesson(
-    buttonContainer,
-    statusElement,
-    lesson,
-    contentData
-) {
-
-    const path =
-        contentData.path ||
-        lesson.path;
-
-
-    buttonContainer.innerHTML = "";
-
-
-    const link =
-        document.createElement("a");
-
-
-    link.className =
-        "lesson-button";
-
-
-    link.href =
-        "/" +
-        "all-about-english/" +
-        path;
-
-
-    link.textContent =
-        "🔓 Open Lesson";
-
-
-    buttonContainer.appendChild(
-        link
-    );
-
-
-    statusElement.textContent =
-        "✓ Approved — Available";
-
-
-    statusElement.className =
-        "lesson-status status-open";
-
-}
-
-
-
-/* =========================================================
-   SHOW LOCKED LESSON
-========================================================= */
-
-function showLockedLesson(
-    buttonContainer,
-    statusElement,
-    message
-) {
-
-    buttonContainer.innerHTML = "";
-
-
-    const button =
-        document.createElement("button");
-
-
-    button.type =
-        "button";
-
-
-    button.className =
-        "lesson-button locked";
-
-
-    button.textContent =
-        "🔒 Locked";
-
-
-    button.onclick =
-        function() {
-
-            alert(
-                message
-            );
-
-        };
-
-
-    buttonContainer.appendChild(
-        button
-    );
-
-
-    statusElement.textContent =
-        message;
-
-
-    statusElement.className =
-        "lesson-status status-locked";
-
-}
-
-
-
-/* =========================================================
-   LOGIN REQUIRED
-========================================================= */
-
-function showLoginRequired() {
-
-    document
-        .getElementById(
-            "loginMessage"
-        )
-        .style.display =
-            "block";
-
-
-    lessons.forEach(
-
-        function(lesson) {
-
-            const buttonContainer =
-                document.getElementById(
-                    "lessonButton" +
-                    lesson.number
-                );
-
-
-            const statusElement =
-                document.getElementById(
-                    "lessonStatus" +
-                    lesson.number
-                );
-
-
-            buttonContainer.innerHTML =
-                "";
+        lessons.forEach((lesson) => {
 
 
             const button =
-                document.createElement(
-                    "button"
-                );
+                getButton(lesson.buttonId);
 
 
-            button.type =
-                "button";
+            const approved =
+                approvedLessons[lesson.id] === true;
 
 
-            button.className =
-                "lesson-button locked";
+            if (approved) {
+
+                openLesson(button);
+
+            }
+
+            else {
+
+                lockLesson(button);
+
+            }
+
+        });
 
 
-            button.textContent =
-                "🔒 Login Required";
+        /* -------------------------------------------
+           SHOW PAGE
+        -------------------------------------------- */
+
+        loading.style.display = "none";
+
+        lessonContainer.style.display = "grid";
 
 
-            button.onclick =
-                function() {
+    }
 
-                    alert(
-                        "Please log in to your student account first."
-                    );
+    catch (error) {
 
-                };
+        console.error(error);
+
+        loading.style.display = "none";
+
+        lessonContainer.style.display = "grid";
 
 
-            buttonContainer.appendChild(
-                button
+        lessons.forEach((lesson) => {
+
+            lockLesson(
+                getButton(lesson.buttonId)
             );
 
-
-            statusElement.textContent =
-                "Student login required";
+        });
 
 
-            statusElement.className =
-                "lesson-status status-login";
+        showMessage(
+            "Unable to verify your lesson access."
+        );
 
-        }
+    }
 
-    );
-
-}
-
-
-
-/* =========================================================
-   ACCOUNT NOT ACTIVE
-========================================================= */
-
-function showAccountLocked(
-    message
-) {
-
-    document
-        .getElementById(
-            "loginMessage"
-        )
-        .style.display =
-            "block";
-
-
-    document
-        .getElementById(
-            "loginMessage"
-        )
-        .innerHTML =
-            "🔒 " +
-            message;
-
-
-    lessons.forEach(
-
-        function(lesson) {
-
-            const buttonContainer =
-                document.getElementById(
-                    "lessonButton" +
-                    lesson.number
-                );
-
-
-            const statusElement =
-                document.getElementById(
-                    "lessonStatus" +
-                    lesson.number
-                );
-
-
-            showLockedLesson(
-                buttonContainer,
-                statusElement,
-                message
-            );
-
-        }
-
-    );
-
-}
+});
 
 </script>
 
 
 </body>
+
 </html>
