@@ -1600,7 +1600,242 @@ body.modal-open {
 }
 
 </style>
+<script type="module">
+    import { initializeApp }
+        from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
+    import {
+        getAuth,
+        onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    import {
+        getFirestore,
+        doc,
+        getDoc
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+    /* =====================================================
+       FIREBASE CONFIG
+    ===================================================== */
+
+    const firebaseConfig = {
+
+        apiKey:
+            "AIzaSyB6xJFLJC9KReEJQAzHbOmB67DBg-zX4gE",
+
+        authDomain:
+            "all-about-english-007.firebaseapp.com",
+
+        databaseURL:
+            "https://all-about-english-007-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+        projectId:
+            "all-about-english-007",
+
+        storageBucket:
+            "all-about-english-007.firebasestorage.app",
+
+        messagingSenderId:
+            "251678333411",
+
+        appId:
+            "1:251678333411:web:889369210cb79442f0a8d6",
+
+        measurementId:
+            "G-RVFY5YEX6L"
+
+    };
+
+
+    /* =====================================================
+       INITIALIZE FIREBASE
+    ===================================================== */
+
+    const app =
+        initializeApp(firebaseConfig);
+
+    const auth =
+        getAuth(app);
+
+    const db =
+        getFirestore(app);
+
+
+    /* =====================================================
+       LESSON 1 SECURITY
+    ===================================================== */
+
+    const REQUIRED_LESSON =
+        "unit-11-lesson-1";
+
+
+    /* =====================================================
+       HIDE CONTENT BEFORE VERIFICATION
+    ===================================================== */
+
+    document.documentElement.style.visibility =
+        "hidden";
+
+
+    /* =====================================================
+       ACCESS CHECK
+    ===================================================== */
+
+    onAuthStateChanged(
+        auth,
+        async function(user) {
+
+            try {
+
+                /* -----------------------------------------
+                   NOT LOGGED IN
+                ----------------------------------------- */
+
+                if (!user) {
+
+                    alert(
+                        "Please log in first to access this lesson."
+                    );
+
+                    window.history.back();
+
+                    return;
+
+                }
+
+
+                /* -----------------------------------------
+                   STUDENT DOCUMENT
+                ----------------------------------------- */
+
+                const studentRef =
+                    doc(
+                        db,
+                        "students",
+                        user.uid
+                    );
+
+
+                const studentSnap =
+                    await getDoc(
+                        studentRef
+                    );
+
+
+                /* -----------------------------------------
+                   STUDENT NOT FOUND
+                ----------------------------------------- */
+
+                if (
+                    !studentSnap.exists()
+                ) {
+
+                    alert(
+                        "Student account information was not found."
+                    );
+
+                    window.history.back();
+
+                    return;
+
+                }
+
+
+                const studentData =
+                    studentSnap.data();
+
+
+                /* -----------------------------------------
+                   ACCOUNT STATUS
+                ----------------------------------------- */
+
+                const accountStatus =
+                    studentData.accountStatus;
+
+
+                if (
+                    accountStatus !== "active"
+                ) {
+
+                    alert(
+                        "Your account is not active yet. Please wait for administrator approval."
+                    );
+
+                    window.history.back();
+
+                    return;
+
+                }
+
+
+                /* -----------------------------------------
+                   APPROVED LESSONS
+                ----------------------------------------- */
+
+                const approvedLessons =
+                    studentData.approvedLessons || {};
+
+
+                /* -----------------------------------------
+                   CHECK LESSON 1
+                ----------------------------------------- */
+
+                const approved =
+                    approvedLessons[
+                        REQUIRED_LESSON
+                    ] === true;
+
+
+                /* -----------------------------------------
+                   LESSON NOT APPROVED
+                ----------------------------------------- */
+
+                if (!approved) {
+
+                    alert(
+                        "This lesson has not been approved for your account yet."
+                    );
+
+                    window.history.back();
+
+                    return;
+
+                }
+
+
+                /* -----------------------------------------
+                   ACCESS GRANTED
+                ----------------------------------------- */
+
+                document.documentElement.style.visibility =
+                    "visible";
+
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Lesson security verification error:",
+                    error
+                );
+
+
+                alert(
+                    "Unable to verify your lesson access."
+                );
+
+                window.history.back();
+
+            }
+
+        }
+    );
+
+</script>
+     
 </head>
 
 
