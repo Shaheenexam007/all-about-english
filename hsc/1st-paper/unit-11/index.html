@@ -21,10 +21,6 @@ body {
     color: #222;
 }
 
-/* =========================
-   HEADER
-========================= */
-
 .header {
     background: linear-gradient(135deg, #123c69, #1d6fa5);
     color: white;
@@ -50,10 +46,6 @@ body {
     font-size: 15px;
 }
 
-/* =========================
-   MAIN
-========================= */
-
 .container {
     max-width: 900px;
     margin: 35px auto;
@@ -76,19 +68,11 @@ body {
     color: #666;
 }
 
-/* =========================
-   LESSON GRID
-========================= */
-
 .lessons {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
-
-/* =========================
-   LESSON CARD
-========================= */
 
 .lesson-card {
     background: white;
@@ -117,10 +101,6 @@ body {
     color: #123c69;
 }
 
-/* =========================
-   BUTTON
-========================= */
-
 .lesson-button {
     display: inline-block;
     text-decoration: none;
@@ -139,10 +119,6 @@ body {
     background: #0b2948;
 }
 
-/* =========================
-   LOCKED BUTTON
-========================= */
-
 .lesson-button.locked {
     background: #999;
     cursor: not-allowed;
@@ -152,20 +128,12 @@ body {
     background: #888;
 }
 
-/* =========================
-   LOADING
-========================= */
-
 .loading {
     text-align: center;
     padding: 40px;
     color: #666;
     font-size: 17px;
 }
-
-/* =========================
-   MESSAGE
-========================= */
 
 .message {
     display: none;
@@ -178,10 +146,6 @@ body {
     max-width: 700px;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
 .footer {
     text-align: center;
     margin-top: 45px;
@@ -189,10 +153,6 @@ body {
     color: #666;
     font-size: 14px;
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media (max-width: 700px) {
 
@@ -222,10 +182,6 @@ body {
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
-
 <header class="header">
 
     <h1>ALL ABOUT ENGLISH</h1>
@@ -236,11 +192,6 @@ body {
 
 </header>
 
-
-
-<!-- =========================
-     MAIN
-========================= -->
 
 <main class="container">
 
@@ -336,11 +287,6 @@ body {
 </main>
 
 
-
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer class="footer">
 
     © All About English by Shaheen Sir
@@ -348,40 +294,30 @@ body {
 </footer>
 
 
-
-<!-- =========================
-     FIREBASE
-========================= -->
-
 <script type="module">
 
 import { initializeApp }
-
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-import {
 
+import {
     getAuth,
     onAuthStateChanged
-
 }
-
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-import {
 
+import {
     getFirestore,
     doc,
     getDoc
-
 }
-
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* =========================================================
-   FIREBASE CONFIGURATION
-========================================================= */
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
 
 const firebaseConfig = {
 
@@ -408,30 +344,26 @@ const firebaseConfig = {
 
     measurementId:
         "G-RVFY5YEX6L"
+
 };
 
 
-
-/* =========================================================
+/* =====================================================
    INITIALIZE FIREBASE
-========================================================= */
+===================================================== */
 
-const app =
-    initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
+const auth = getAuth(app);
 
-const analytics =
-    getAnalytics(app);
-
-
-const auth =
-    getAuth(app);
+const db = getFirestore(app);
 
 
-const db =
-    getFirestore(app);
-
-
+/*
+   IMPORTANT:
+   getAnalytics() এখানে ব্যবহার করছি না।
+   তাই analytics import করার প্রয়োজন নেই।
+*/
 
 
 /* =====================================================
@@ -442,19 +374,16 @@ const lessons = [
 
     {
         id: "unit-11-lesson-1",
-
         buttonId: "lesson1Button"
     },
 
     {
         id: "unit-11-lesson-2",
-
         buttonId: "lesson2Button"
     },
 
     {
         id: "unit-11-lesson-3",
-
         buttonId: "lesson3Button"
     }
 
@@ -488,7 +417,9 @@ function lockLesson(button) {
 
         event.preventDefault();
 
-        alert("This lesson has not been approved for your account yet.");
+        alert(
+            "This lesson has not been approved for your account yet."
+        );
 
         return false;
 
@@ -507,6 +438,8 @@ function openLesson(button) {
 
     button.classList.remove("locked");
 
+    button.onclick = null;
+
 }
 
 
@@ -516,7 +449,8 @@ function openLesson(button) {
 
 function showMessage(text) {
 
-    const message = document.getElementById("message");
+    const message =
+        document.getElementById("message");
 
     message.textContent = text;
 
@@ -539,15 +473,16 @@ onAuthStateChanged(auth, async (user) => {
         document.getElementById("lessons");
 
 
-    /* -----------------------------------------------
+    /* ================================================
        NOT LOGGED IN
-    ------------------------------------------------ */
+    ================================================ */
 
     if (!user) {
 
         loading.style.display = "none";
 
         lessonContainer.style.display = "grid";
+
 
         lessons.forEach((lesson) => {
 
@@ -556,6 +491,7 @@ onAuthStateChanged(auth, async (user) => {
             );
 
         });
+
 
         showMessage(
             "Please login to access your approved lessons."
@@ -569,26 +505,28 @@ onAuthStateChanged(auth, async (user) => {
     try {
 
 
-        /* -------------------------------------------
-           GET STUDENT DOCUMENT
-        -------------------------------------------- */
+        /* ============================================
+           STUDENT DOCUMENT
+        ============================================ */
 
         const studentRef =
             doc(db, "students", user.uid);
+
 
         const studentSnap =
             await getDoc(studentRef);
 
 
-        /* -------------------------------------------
-           STUDENT DOCUMENT NOT FOUND
-        -------------------------------------------- */
+        /* ============================================
+           STUDENT NOT FOUND
+        ============================================ */
 
         if (!studentSnap.exists()) {
 
             loading.style.display = "none";
 
             lessonContainer.style.display = "grid";
+
 
             lessons.forEach((lesson) => {
 
@@ -597,6 +535,7 @@ onAuthStateChanged(auth, async (user) => {
                 );
 
             });
+
 
             showMessage(
                 "Student account information was not found."
@@ -611,23 +550,20 @@ onAuthStateChanged(auth, async (user) => {
             studentSnap.data();
 
 
-        /* -------------------------------------------
+        /* ============================================
            ACCOUNT STATUS
-        -------------------------------------------- */
+        ============================================ */
 
         const accountStatus =
             studentData.accountStatus;
 
-
-        /* -------------------------------------------
-           PENDING / BLOCKED
-        -------------------------------------------- */
 
         if (accountStatus !== "active") {
 
             loading.style.display = "none";
 
             lessonContainer.style.display = "grid";
+
 
             lessons.forEach((lesson) => {
 
@@ -636,6 +572,7 @@ onAuthStateChanged(auth, async (user) => {
                 );
 
             });
+
 
             showMessage(
                 "Your account is not active yet. Please wait for administrator approval."
@@ -646,17 +583,17 @@ onAuthStateChanged(auth, async (user) => {
         }
 
 
-        /* -------------------------------------------
+        /* ============================================
            APPROVED LESSONS
-        -------------------------------------------- */
+        ============================================ */
 
         const approvedLessons =
             studentData.approvedLessons || {};
 
 
-        /* -------------------------------------------
-           CHECK EVERY LESSON
-        -------------------------------------------- */
+        /* ============================================
+           CHECK EACH LESSON
+        ============================================ */
 
         lessons.forEach((lesson) => {
 
@@ -684,9 +621,9 @@ onAuthStateChanged(auth, async (user) => {
         });
 
 
-        /* -------------------------------------------
-           SHOW PAGE
-        -------------------------------------------- */
+        /* ============================================
+           SHOW LESSONS
+        ============================================ */
 
         loading.style.display = "none";
 
@@ -697,7 +634,11 @@ onAuthStateChanged(auth, async (user) => {
 
     catch (error) {
 
-        console.error(error);
+        console.error(
+            "Access verification error:",
+            error
+        );
+
 
         loading.style.display = "none";
 
