@@ -2,38 +2,54 @@
    ALL ABOUT ENGLISH
    COMMON FIREBASE LESSON SECURITY
    ---------------------------------------------------------
-   This file is used by all protected lessons.
+   ONE COMMON SECURITY FILE FOR ALL LESSONS
 
-   It automatically detects:
+   Automatically detects:
 
    /unit-11/lesson-1/
    /unit-11/lesson-2/
+   /unit-11/lesson-3/
    /unit-12/lesson-1/
    etc.
 
-   Required Firestore structure:
+   Firestore structure:
 
    students
       └── USER UID
            ├── accountStatus
            └── approvedLessons
-                └── unit-X-lesson-Y : true
+                ├── unit-11-lesson-1 : true
+                ├── unit-11-lesson-2 : true
+                └── unit-11-lesson-3 : true
+
+========================================================= */
+
+
+/* =========================================================
+   FIREBASE IMPORT
 ========================================================= */
 
 import {
-    initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    initializeApp,
+    getApps,
+    getApp
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
 
 import {
     getAuth,
     onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
 
 import {
     getFirestore,
     doc,
     getDoc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
 /* =========================================================
@@ -70,14 +86,25 @@ const firebaseConfig = {
 
 
 /* =========================================================
-   INITIALIZE FIREBASE
+   INITIALIZE FIREBASE SAFELY
+   ---------------------------------------------------------
+   If Firebase is already initialized on the page,
+   use the existing app.
+
+   Otherwise create a new app.
+
+   This prevents duplicate Firebase initialization.
 ========================================================= */
 
 const app =
-    initializeApp(firebaseConfig);
+    getApps().length > 0
+        ? getApp()
+        : initializeApp(firebaseConfig);
+
 
 const auth =
     getAuth(app);
+
 
 const db =
     getFirestore(app);
@@ -92,15 +119,15 @@ document.documentElement.style.visibility =
 
 
 /* =========================================================
-   DETECT LESSON FROM URL
+   DETECT CURRENT LESSON FROM URL
    ---------------------------------------------------------
    Example:
 
-   /hsc/1st-paper/unit-11/lesson-1/index.html
+   /hsc/1st-paper/unit-11/lesson-2/
 
    becomes:
 
-   unit-11-lesson-1
+   unit-11-lesson-2
 ========================================================= */
 
 function getCurrentLessonID() {
@@ -125,6 +152,7 @@ function getCurrentLessonID() {
     const unitNumber =
         match[1];
 
+
     const lessonNumber =
         match[2];
 
@@ -140,7 +168,7 @@ function getCurrentLessonID() {
 
 
 /* =========================================================
-   GET CURRENT LESSON ID
+   CURRENT LESSON ID
 ========================================================= */
 
 const currentLessonID =
@@ -478,18 +506,33 @@ onAuthStateChanged(
 
             if (!user) {
 
-                document.addEventListener(
-                    "DOMContentLoaded",
-                    function() {
+                if (
+                    document.readyState ===
+                    "loading"
+                ) {
 
-                        showSecurityScreen();
+                    await new Promise(
+                        function(resolve) {
+
+                            document.addEventListener(
+                                "DOMContentLoaded",
+                                resolve,
+                                {
+                                    once: true
+                                }
+                            );
+
+                        }
+                    );
+
+                }
 
 
-                        denyAccess(
-                            "Please log in first to access this lesson."
-                        );
+                showSecurityScreen();
 
-                    }
+
+                denyAccess(
+                    "Please log in first to access this lesson."
                 );
 
 
@@ -647,6 +690,7 @@ onAuthStateChanged(
             allowAccess();
 
         }
+
 
         catch (error) {
 
