@@ -254,6 +254,30 @@ body {
 
 }
 
+.message {
+
+    display: none;
+
+    text-align: center;
+
+    margin: 20px auto;
+
+    padding: 14px 18px;
+
+    border-radius: 8px;
+
+    background: #fff3cd;
+
+    color: #856404;
+
+    max-width: 700px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+}
+    
 </style>
 
     <script type="module">
@@ -353,14 +377,21 @@ const db = getFirestore(app);
 
 }
 
-
 function lockLesson(button) {
-
-    button.textContent = "🔒 Locked";
 
     button.classList.add("locked");
 
     button.removeAttribute("href");
+
+    const openButton =
+        button.querySelector(".open-btn");
+
+    if (openButton) {
+
+        openButton.textContent =
+            "🔒 LOCKED";
+
+    }
 
     button.onclick = function(event) {
 
