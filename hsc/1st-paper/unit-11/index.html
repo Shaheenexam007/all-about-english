@@ -590,6 +590,10 @@ onAuthStateChanged(auth, async (user) => {
         const approvedLessons =
             studentData.approvedLessons || {};
 
+        console.log("LOGIN UID:", user.uid);
+console.log("STUDENT DATA:", studentData);
+console.log("APPROVED LESSONS:", approvedLessons);
+
 
         /* ============================================
            CHECK EACH LESSON
