@@ -388,6 +388,17 @@ function openLesson(button) {
 
 }
 
+        function showMessage(text) {
+
+    const message =
+        document.getElementById("message");
+
+    message.textContent = text;
+
+    message.style.display = "block";
+
+}
+
         onAuthStateChanged(auth, async (user) => {
 
     /* ============================================
@@ -435,6 +446,9 @@ function openLesson(button) {
                 );
 
             });
+            showMessage(
+    "Please login to access your approved lessons."
+);
 
             return;
 
@@ -583,6 +597,11 @@ function openLesson(button) {
 
 
         <!-- LESSON 1 -->
+
+        <div
+    id="message"
+    class="message"
+></div>
 
         <a
             id="lesson1Button"
