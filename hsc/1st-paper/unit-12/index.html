@@ -387,6 +387,149 @@ function openLesson(button) {
     button.onclick = null;
 
 }
+
+        onAuthStateChanged(auth, async (user) => {
+
+    /* ============================================
+       USER NOT LOGGED IN
+    ============================================ */
+
+    if (!user) {
+
+        lessons.forEach((lesson) => {
+
+            lockLesson(
+                getButton(lesson.buttonId)
+            );
+
+        });
+
+        return;
+
+    }
+
+
+    try {
+
+        /* ============================================
+           GET STUDENT DOCUMENT
+        ============================================ */
+
+        const studentRef =
+            doc(db, "students", user.uid);
+
+        const studentSnap =
+            await getDoc(studentRef);
+
+
+        /* ============================================
+           STUDENT NOT FOUND
+        ============================================ */
+
+        if (!studentSnap.exists()) {
+
+            lessons.forEach((lesson) => {
+
+                lockLesson(
+                    getButton(lesson.buttonId)
+                );
+
+            });
+
+            return;
+
+        }
+
+
+        /* ============================================
+           STUDENT DATA
+        ============================================ */
+
+        const studentData =
+            studentSnap.data();
+
+
+        /* ============================================
+           ACCOUNT STATUS
+        ============================================ */
+
+        const accountStatus =
+            studentData.accountStatus;
+
+
+        if (accountStatus !== "active") {
+
+            lessons.forEach((lesson) => {
+
+                lockLesson(
+                    getButton(lesson.buttonId)
+                );
+
+            });
+
+            return;
+
+        }
+
+
+        /* ============================================
+           APPROVED LESSONS
+        ============================================ */
+
+        const approvedLessons =
+            studentData.approvedLessons || {};
+
+
+        /* ============================================
+           CHECK EACH LESSON
+        ============================================ */
+
+        lessons.forEach((lesson) => {
+
+            const button =
+                getButton(lesson.buttonId);
+
+
+            const approved =
+                approvedLessons[lesson.id] === true;
+
+
+            if (approved) {
+
+                openLesson(button);
+
+            }
+
+            else {
+
+                lockLesson(button);
+
+            }
+
+        });
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "Unit 12 access verification error:",
+            error
+        );
+
+
+        lessons.forEach((lesson) => {
+
+            lockLesson(
+                getButton(lesson.buttonId)
+            );
+
+        });
+
+    }
+
+});
         
 </script>
 
