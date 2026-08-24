@@ -1,12 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Unit 11 | All About English</title>
+<title>Unit 11 | HSC English 1st Paper | All About English</title>
 
 <style>
 
@@ -16,296 +16,280 @@
 
 body {
     margin: 0;
-    font-family: "Nirmala UI", Arial, sans-serif;
-    background: #f4f7fb;
-    color: #222;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #eef4ff, #f8fbff);
+    color: #1d2939;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 .header {
-    background: linear-gradient(135deg, #123c69, #1d6fa5);
+    background: linear-gradient(135deg, #0b1f3a, #164e63);
     color: white;
     text-align: center;
-    padding: 30px 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    padding: 45px 20px 40px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.18);
+}
+
+.brand {
+    font-size: 15px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    opacity: 0.9;
+    margin-bottom: 12px;
 }
 
 .header h1 {
-    margin: 0;
-    font-size: 32px;
-    font-weight: 800;
+    margin: 5px 0;
+    font-size: clamp(32px, 6vw, 55px);
+    letter-spacing: 2px;
 }
 
 .header h2 {
-    margin: 8px 0 0;
-    font-size: 22px;
-    font-weight: 600;
+    margin: 10px 0 0;
+    font-size: clamp(17px, 3vw, 25px);
+    font-weight: normal;
+    opacity: 0.9;
 }
 
-.header p {
-    margin: 8px 0 0;
-    font-size: 15px;
-}
+/* =========================
+   MAIN CONTAINER
+========================= */
 
 .container {
-    max-width: 900px;
-    margin: 35px auto;
-    padding: 0 18px;
+    width: 92%;
+    max-width: 1100px;
+    margin: 45px auto;
 }
 
-.unit-title {
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
     text-align: center;
-    margin-bottom: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom: 35px;
 }
 
-.unit-title h2 {
-    margin: 0;
-    font-size: 28px;
-    color: #123c69;
+.intro h2 {
+    margin-top: 0;
+    color: #0b1f3a;
+    font-size: 30px;
 }
 
-.unit-title p {
-    margin-top: 8px;
-    color: #666;
+.intro p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #475467;
 }
 
-.lessons {
+/* =========================
+   LESSON GRID
+========================= */
+
+.lesson-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
 }
+
+/* =========================
+   LESSON CARD
+========================= */
 
 .lesson-card {
     background: white;
-    border-radius: 15px;
-    padding: 25px 18px;
-    text-align: center;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.10);
-    transition: 0.25s;
+    border-radius: 18px;
+    padding: 30px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border: 1px solid #e4e7ec;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.lesson-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 7px;
+    height: 100%;
+    background: #164e63;
 }
 
 .lesson-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.16);
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
 .lesson-number {
-    font-size: 18px;
-    font-weight: 700;
-    color: #777;
-    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #164e63;
+    text-transform: uppercase;
+    margin-bottom: 12px;
 }
 
 .lesson-card h3 {
-    margin: 5px 0 20px;
-    font-size: 22px;
-    color: #123c69;
+    margin: 0 0 12px;
+    font-size: 25px;
+    color: #0b1f3a;
 }
 
-.lesson-button {
+.lesson-card p {
+    margin: 0;
+    line-height: 1.6;
+    color: #667085;
+}
+
+.open-btn {
     display: inline-block;
-    text-decoration: none;
-    background: #123c69;
+    margin-top: 22px;
+    padding: 11px 20px;
+    background: #0b1f3a;
     color: white;
-    padding: 11px 25px;
     border-radius: 8px;
-    font-size: 16px;
-    font-weight: 700;
-    transition: 0.2s;
-    cursor: pointer;
-    border: none;
-}
-
-.lesson-button:hover {
-    background: #0b2948;
-}
-
-.lesson-button.locked {
-    background: #999;
-    cursor: not-allowed;
-}
-
-.lesson-button.locked:hover {
-    background: #888;
-}
-
-.loading {
-    text-align: center;
-    padding: 40px;
-    color: #666;
-    font-size: 17px;
-}
-
-.message {
-    display: none;
-    text-align: center;
-    margin: 20px auto;
-    padding: 14px;
-    border-radius: 8px;
-    background: #fff3cd;
-    color: #856404;
-    max-width: 700px;
-}
-
-.footer {
-    text-align: center;
-    margin-top: 45px;
-    padding: 20px;
-    color: #666;
+    font-weight: bold;
     font-size: 14px;
 }
 
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+    text-align: center;
+    margin: 45px 0 25px;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    background: white;
+    color: #0b1f3a;
+    border: 2px solid #0b1f3a;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #0b1f3a;
+    color: white;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: #0b1f3a;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 50px;
+}
+
+.footer strong {
+    letter-spacing: 1px;
+}
+
+.footer p {
+    margin: 8px 0 0;
+    font-size: 13px;
+    opacity: 0.75;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 700px) {
 
-    .header h1 {
+    .header {
+        padding: 35px 15px;
+    }
+
+    .container {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .intro {
+        padding: 23px 18px;
+    }
+
+    .intro h2 {
         font-size: 25px;
     }
 
-    .header h2 {
-        font-size: 19px;
+    .intro p {
+        font-size: 15px;
     }
 
-    .lessons {
+    .lesson-grid {
         grid-template-columns: 1fr;
+        gap: 18px;
     }
 
     .lesson-card {
-        padding: 23px 15px;
+        padding: 25px 22px;
+    }
+
+    .lesson-card h3 {
+        font-size: 22px;
     }
 
 }
 
+.message {
+
+    display: none;
+
+    text-align: center;
+
+    margin: 20px auto;
+
+    padding: 14px 18px;
+
+    border-radius: 8px;
+
+    background: #fff3cd;
+
+    color: #856404;
+
+    max-width: 700px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+}
+    
 </style>
 
-</head>
-
-
-<body>
-
-
-<header class="header">
-
-    <h1>ALL ABOUT ENGLISH</h1>
-
-    <h2>HSC English 1st Paper</h2>
-
-    <p>Unit 11</p>
-
-</header>
-
-
-<main class="container">
-
-    <div class="unit-title">
-
-        <h2>UNIT 11</h2>
-
-        <p>Select a lesson to continue</p>
-
-    </div>
-
-
-    <div id="loading" class="loading">
-
-        Checking your access...
-
-    </div>
-
-
-    <div id="message" class="message"></div>
-
-
-    <div id="lessons" class="lessons" style="display:none;">
-
-
-        <!-- LESSON 1 -->
-
-        <div class="lesson-card">
-
-            <div class="lesson-number">
-                LESSON 1
-            </div>
-
-            <h3>Lesson 1</h3>
-
-            <a
-                id="lesson1Button"
-                class="lesson-button"
-                href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-11/lesson-1/"
-            >
-                Checking...
-            </a>
-
-        </div>
-
-
-
-        <!-- LESSON 2 -->
-
-        <div class="lesson-card">
-
-            <div class="lesson-number">
-                LESSON 2
-            </div>
-
-            <h3>Lesson 2</h3>
-
-            <a
-                id="lesson2Button"
-                class="lesson-button"
-                href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-11/lesson-2/"
-            >
-                Checking...
-            </a>
-
-        </div>
-
-
-
-        <!-- LESSON 3 -->
-
-        <div class="lesson-card">
-
-            <div class="lesson-number">
-                LESSON 3
-            </div>
-
-            <h3>Lesson 3</h3>
-
-            <a
-                id="lesson3Button"
-                class="lesson-button"
-                href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-11/lesson-3/"
-            >
-                Checking...
-            </a>
-
-        </div>
-
-
-    </div>
-
-</main>
-
-
-<footer class="footer">
-
-    © All About English by Shaheen Sir
-
-</footer>
-
-
-<script type="module">
+    <script type="module">
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
 
 import {
     getAuth,
     onAuthStateChanged
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
 
 import {
     getFirestore,
@@ -315,11 +299,7 @@ import {
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* =====================================================
-   FIREBASE CONFIG
-===================================================== */
-
-const firebaseConfig = {
+        const firebaseConfig = {
 
     apiKey:
         "AIzaSyB6xJFLJC9KReEJQAzHbOmB67DBg-zX4gE",
@@ -347,30 +327,12 @@ const firebaseConfig = {
 
 };
 
-
-/* =====================================================
-   INITIALIZE FIREBASE
-===================================================== */
-
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
 const db = getFirestore(app);
-
-
-/*
-   IMPORTANT:
-   getAnalytics() এখানে ব্যবহার করছি না।
-   তাই analytics import করার প্রয়োজন নেই।
-*/
-
-
-/* =====================================================
-   LESSON DATA
-===================================================== */
-
-const lessons = [
+        const lessons = [
 
     {
         id: "unit-11-lesson-1",
@@ -385,33 +347,31 @@ const lessons = [
     {
         id: "unit-11-lesson-3",
         buttonId: "lesson3Button"
-    }
+    },
 
 ];
 
-
-/* =====================================================
-   GET BUTTON
-===================================================== */
-
-function getButton(id) {
+        function getButton(id) {
 
     return document.getElementById(id);
 
 }
 
-
-/* =====================================================
-   LOCK LESSON
-===================================================== */
-
 function lockLesson(button) {
-
-    button.textContent = "🔒 Locked";
 
     button.classList.add("locked");
 
     button.removeAttribute("href");
+
+    const openButton =
+        button.querySelector(".open-btn");
+
+    if (openButton) {
+
+        openButton.textContent =
+            "🔒 LOCKED";
+
+    }
 
     button.onclick = function(event) {
 
@@ -428,13 +388,10 @@ function lockLesson(button) {
 }
 
 
-/* =====================================================
-   OPEN LESSON
-===================================================== */
-
 function openLesson(button) {
 
-    button.textContent = "🔓 Open Lesson";
+    button.querySelector(".open-btn").textContent =
+        "🔓 OPEN LESSON →";
 
     button.classList.remove("locked");
 
@@ -442,12 +399,7 @@ function openLesson(button) {
 
 }
 
-
-/* =====================================================
-   SHOW MESSAGE
-===================================================== */
-
-function showMessage(text) {
+        function showMessage(text) {
 
     const message =
         document.getElementById("message");
@@ -458,31 +410,13 @@ function showMessage(text) {
 
 }
 
+        onAuthStateChanged(auth, async (user) => {
 
-/* =====================================================
-   AUTH STATE
-===================================================== */
-
-onAuthStateChanged(auth, async (user) => {
-
-
-    const loading =
-        document.getElementById("loading");
-
-    const lessonContainer =
-        document.getElementById("lessons");
-
-
-    /* ================================================
-       NOT LOGGED IN
-    ================================================ */
+    /* ============================================
+       USER NOT LOGGED IN
+    ============================================ */
 
     if (!user) {
-
-        loading.style.display = "none";
-
-        lessonContainer.style.display = "grid";
-
 
         lessons.forEach((lesson) => {
 
@@ -491,11 +425,10 @@ onAuthStateChanged(auth, async (user) => {
             );
 
         });
-
-
+        
         showMessage(
-            "Please login to access your approved lessons."
-        );
+        "Please login to access your approved lessons."
+    );
 
         return;
 
@@ -504,14 +437,12 @@ onAuthStateChanged(auth, async (user) => {
 
     try {
 
-
         /* ============================================
-           STUDENT DOCUMENT
+           GET STUDENT DOCUMENT
         ============================================ */
 
         const studentRef =
             doc(db, "students", user.uid);
-
 
         const studentSnap =
             await getDoc(studentRef);
@@ -523,11 +454,6 @@ onAuthStateChanged(auth, async (user) => {
 
         if (!studentSnap.exists()) {
 
-            loading.style.display = "none";
-
-            lessonContainer.style.display = "grid";
-
-
             lessons.forEach((lesson) => {
 
                 lockLesson(
@@ -536,15 +462,14 @@ onAuthStateChanged(auth, async (user) => {
 
             });
 
-
-            showMessage(
-                "Student account information was not found."
-            );
-
             return;
 
         }
 
+
+        /* ============================================
+           STUDENT DATA
+        ============================================ */
 
         const studentData =
             studentSnap.data();
@@ -560,11 +485,6 @@ onAuthStateChanged(auth, async (user) => {
 
         if (accountStatus !== "active") {
 
-            loading.style.display = "none";
-
-            lessonContainer.style.display = "grid";
-
-
             lessons.forEach((lesson) => {
 
                 lockLesson(
@@ -572,11 +492,6 @@ onAuthStateChanged(auth, async (user) => {
                 );
 
             });
-
-
-            showMessage(
-                "Your account is not active yet. Please wait for administrator approval."
-            );
 
             return;
 
@@ -590,17 +505,12 @@ onAuthStateChanged(auth, async (user) => {
         const approvedLessons =
             studentData.approvedLessons || {};
 
-        console.log("LOGIN UID:", user.uid);
-console.log("STUDENT DATA:", studentData);
-console.log("APPROVED LESSONS:", approvedLessons);
-
 
         /* ============================================
            CHECK EACH LESSON
         ============================================ */
 
         lessons.forEach((lesson) => {
-
 
             const button =
                 getButton(lesson.buttonId);
@@ -624,29 +534,15 @@ console.log("APPROVED LESSONS:", approvedLessons);
 
         });
 
-
-        /* ============================================
-           SHOW LESSONS
-        ============================================ */
-
-        loading.style.display = "none";
-
-        lessonContainer.style.display = "grid";
-
-
     }
+
 
     catch (error) {
 
         console.error(
-            "Access verification error:",
+            "Unit 11 access verification error:",
             error
         );
-
-
-        loading.style.display = "none";
-
-        lessonContainer.style.display = "grid";
 
 
         lessons.forEach((lesson) => {
@@ -657,18 +553,178 @@ console.log("APPROVED LESSONS:", approvedLessons);
 
         });
 
-
-        showMessage(
-            "Unable to verify your lesson access."
-        );
-
     }
 
 });
-
+        
 </script>
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="brand">
+        ALL ABOUT ENGLISH
+    </div>
+
+    <h1>UNIT 11</h1>
+
+    <h2>HSC English 1st Paper</h2>
+
+</header>
+
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<main class="container">
+
+
+    <!-- INTRO -->
+
+    <section class="intro">
+
+        <h2>Unit 11 Lessons</h2>
+
+        <p>
+            Welcome to Unit 11 of HSC English 1st Paper.
+            Select a lesson below to explore the complete lesson,
+            vocabulary, passage analysis and learning materials.
+        </p>
+
+    </section>
+
+
+    <!-- LESSONS -->
+
+    <section class="lesson-grid">
+
+
+        <!-- LESSON 1 -->
+
+        <div
+    id="message"
+    class="message"
+></div>
+
+        <a
+            id="lesson1Button"
+            class="lesson-card"
+            href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-11/lesson-1/"
+        >
+
+            <div class="lesson-number">
+                Lesson 01
+            </div>
+
+            <h3>Lesson 1</h3>
+
+            <p>
+                Explore the complete learning materials
+                of Unit 11, Lesson 1.
+            </p>
+
+            <span class="open-btn">
+                OPEN LESSON →
+            </span>
+
+        </a>
+
+
+        <!-- LESSON 2 -->
+
+        <a
+            id="lesson2Button"
+            class="lesson-card"
+            href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-11/lesson-2/"
+        >
+
+            <div class="lesson-number">
+                Lesson 02
+            </div>
+
+            <h3>Lesson 2</h3>
+
+            <p>
+                Explore the complete learning materials
+                of Unit 11, Lesson 2.
+            </p>
+
+            <span class="open-btn">
+                OPEN LESSON →
+            </span>
+
+        </a>
+
+
+        <!-- LESSON 3 -->
+
+        <a
+            id="lesson3Button"
+            class="lesson-card"
+            href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-11/lesson-3/"
+        >
+
+            <div class="lesson-number">
+                Lesson 03
+            </div>
+
+            <h3>Lesson 3</h3>
+
+            <p>
+                Explore the complete learning materials
+                of Unit 12, Lesson 3.
+            </p>
+
+            <span class="open-btn">
+                OPEN LESSON →
+            </span>
+
+        </a>
+
+    </section>
+
+
+    <!-- BACK BUTTON -->
+
+    <div class="navigation">
+
+        <a
+            class="back-btn"
+            href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/"
+        >
+            ← BACK TO HSC ENGLISH 1ST PAPER
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <strong>ALL ABOUT ENGLISH BY SHAHEEN SIR</strong>
+
+    <p>
+        HSC English 1st Paper | Unit 11
+    </p>
+
+</footer>
 
 
 </body>
-
 </html>
+```
