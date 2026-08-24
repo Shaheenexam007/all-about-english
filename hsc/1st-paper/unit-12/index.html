@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,6 +90,38 @@ body {
 }
 
 /* =========================
+   MESSAGE
+========================= */
+
+.message {
+
+    display: none;
+
+    text-align: center;
+
+    margin: 0 auto 25px;
+
+    padding: 14px 18px;
+
+    border-radius: 8px;
+
+    background: #fff3cd;
+
+    color: #856404;
+
+    max-width: 700px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+}
+
+.message.show {
+    display: block;
+}
+
+/* =========================
    LESSON GRID
 ========================= */
 
@@ -115,6 +146,12 @@ body {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+
+    /* IMPORTANT:
+       Initially locked.
+       This prevents OPEN → LOCKED flicker.
+    */
+    cursor: not-allowed;
 }
 
 .lesson-card::before {
@@ -124,13 +161,34 @@ body {
     top: 0;
     width: 7px;
     height: 100%;
-    background: #164e63;
+    background: #98a2b3;
 }
 
 .lesson-card:hover {
+    transform: none;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   OPEN LESSON STATE
+========================= */
+
+.lesson-card.open {
+    cursor: pointer;
+}
+
+.lesson-card.open::before {
+    background: #164e63;
+}
+
+.lesson-card.open:hover {
     transform: translateY(-7px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
+
+/* =========================
+   LESSON NUMBER
+========================= */
 
 .lesson-number {
     font-size: 14px;
@@ -141,10 +199,22 @@ body {
     margin-bottom: 12px;
 }
 
+.lesson-card.locked .lesson-number {
+    color: #98a2b3;
+}
+
+/* =========================
+   LESSON TITLE
+========================= */
+
 .lesson-card h3 {
     margin: 0 0 12px;
     font-size: 25px;
     color: #0b1f3a;
+}
+
+.lesson-card.locked h3 {
+    color: #667085;
 }
 
 .lesson-card p {
@@ -153,15 +223,23 @@ body {
     color: #667085;
 }
 
+/* =========================
+   OPEN BUTTON
+========================= */
+
 .open-btn {
     display: inline-block;
     margin-top: 22px;
     padding: 11px 20px;
-    background: #0b1f3a;
+    background: #98a2b3;
     color: white;
     border-radius: 8px;
     font-weight: bold;
     font-size: 14px;
+}
+
+.lesson-card.open .open-btn {
+    background: #0b1f3a;
 }
 
 /* =========================
@@ -254,33 +332,14 @@ body {
 
 }
 
-.message {
-
-    display: none;
-
-    text-align: center;
-
-    margin: 20px auto;
-
-    padding: 14px 18px;
-
-    border-radius: 8px;
-
-    background: #fff3cd;
-
-    color: #856404;
-
-    max-width: 700px;
-
-    font-size: 16px;
-
-    font-weight: 600;
-
-}
-    
 </style>
 
-    <script type="module">
+
+<!-- =========================================================
+     FIREBASE
+========================================================= -->
+
+<script type="module">
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -299,7 +358,11 @@ import {
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-        const firebaseConfig = {
+/* =========================================================
+   FIREBASE CONFIG
+========================================================= */
+
+const firebaseConfig = {
 
     apiKey:
         "AIzaSyB6xJFLJC9KReEJQAzHbOmB67DBg-zX4gE",
@@ -327,64 +390,110 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 };
 
-const app = initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
+/* =========================================================
+   INITIALIZE FIREBASE
+========================================================= */
 
-const db = getFirestore(app);
-        const lessons = [
+const app =
+    initializeApp(firebaseConfig);
+
+const auth =
+    getAuth(app);
+
+const db =
+    getFirestore(app);
+
+
+/* =========================================================
+   ⭐ MASTER UNIT ID
+=========================================================
+
+   ভবিষ্যতে অন্য Unit-এর index বানানোর সময়
+   মূলত এই value পরিবর্তন করলেই হবে।
+
+   Unit 12:
+*/
+
+const UNIT_ID = "unit-12";
+
+
+/* =========================================================
+   LESSON LIST
+========================================================= */
+
+const lessons = [
 
     {
-        id: "unit-12-lesson-1",
         buttonId: "lesson1Button"
     },
 
     {
-        id: "unit-12-lesson-2",
         buttonId: "lesson2Button"
     },
 
     {
-        id: "unit-12-lesson-3",
         buttonId: "lesson3Button"
     },
 
     {
-        id: "unit-12-lesson-4",
         buttonId: "lesson4Button"
     },
 
     {
-        id: "unit-12-lesson-4-second-half",
         buttonId: "lesson4SecondHalfButton"
     },
 
     {
-        id: "unit-12-lesson-5",
         buttonId: "lesson5Button"
     },
 
     {
-        id: "unit-12-lesson-5-second-half",
         buttonId: "lesson5SecondHalfButton"
     }
 
 ];
 
-        function getButton(id) {
+
+/* =========================================================
+   GET BUTTON
+========================================================= */
+
+function getButton(id) {
 
     return document.getElementById(id);
 
 }
 
+
+/* =========================================================
+   LOCK ALL LESSONS
+========================================================= */
+
 function lockLesson(button) {
+
+    if (!button) return;
+
+
+    button.classList.remove("open");
 
     button.classList.add("locked");
 
+
+    /*
+     * Remove actual link
+     */
+
     button.removeAttribute("href");
+
+
+    /*
+     * Change button text
+     */
 
     const openButton =
         button.querySelector(".open-btn");
+
 
     if (openButton) {
 
@@ -393,200 +502,452 @@ function lockLesson(button) {
 
     }
 
-    button.onclick = function(event) {
 
-        event.preventDefault();
+    /*
+     * Prevent clicking
+     */
 
-        alert(
-            "This lesson has not been approved for your account yet."
-        );
+    button.onclick =
+        function(event) {
 
-        return false;
+            event.preventDefault();
 
-    };
+            alert(
+                "This unit has not been approved for your account yet."
+            );
+
+            return false;
+
+        };
 
 }
 
 
+/* =========================================================
+   OPEN LESSON
+========================================================= */
+
 function openLesson(button) {
 
-    button.querySelector(".open-btn").textContent =
-        "🔓 OPEN LESSON →";
+    if (!button) return;
+
 
     button.classList.remove("locked");
+
+    button.classList.add("open");
+
+
+    /*
+     * Restore original lesson link
+     */
+
+    const originalHref =
+        button.dataset.href;
+
+
+    if (originalHref) {
+
+        button.setAttribute(
+            "href",
+            originalHref
+        );
+
+    }
+
+
+    /*
+     * Change button text
+     */
+
+    const openButton =
+        button.querySelector(".open-btn");
+
+
+    if (openButton) {
+
+        openButton.textContent =
+            "🔓 OPEN LESSON →";
+
+    }
+
+
+    /*
+     * Allow normal link click
+     */
 
     button.onclick = null;
 
 }
 
-        function showMessage(text) {
+
+/* =========================================================
+   SHOW MESSAGE
+========================================================= */
+
+function showMessage(text) {
 
     const message =
         document.getElementById("message");
 
-    message.textContent = text;
 
-    message.style.display = "block";
+    message.textContent =
+        text;
+
+
+    message.classList.add("show");
 
 }
 
-        onAuthStateChanged(auth, async (user) => {
 
-    /* ============================================
-       USER NOT LOGGED IN
-    ============================================ */
+/* =========================================================
+   HIDE MESSAGE
+========================================================= */
 
-    if (!user) {
+function hideMessage() {
 
-        lessons.forEach((lesson) => {
+    const message =
+        document.getElementById("message");
 
-            lockLesson(
-                getButton(lesson.buttonId)
-            );
 
-        });
-        
-        showMessage(
-        "Please login to access your approved lessons."
-    );
+    message.classList.remove("show");
 
-        return;
+}
+
+
+/* =========================================================
+   SAVE ORIGINAL LINKS
+=========================================================
+
+   Page load হওয়ার আগেই original href
+   data-href-এ রাখা হবে।
+
+   তারপর locked অবস্থায় href remove হবে।
+========================================================= */
+
+document
+.querySelectorAll(".lesson-card")
+.forEach(
+    function(button) {
+
+        const href =
+            button.getAttribute("href");
+
+
+        if (href) {
+
+            button.dataset.href =
+                href;
+
+        }
+
+
+        /*
+         * Initially locked
+         */
+
+        lockLesson(button);
 
     }
+);
 
 
-    try {
+/* =========================================================
+   FIREBASE AUTH STATE
+========================================================= */
 
-        /* ============================================
-           GET STUDENT DOCUMENT
-        ============================================ */
-
-        const studentRef =
-            doc(db, "students", user.uid);
-
-        const studentSnap =
-            await getDoc(studentRef);
+onAuthStateChanged(
+    auth,
+    async function(user) {
 
 
-        /* ============================================
-           STUDENT NOT FOUND
-        ============================================ */
+        /* =================================================
+           1. USER NOT LOGGED IN
+        ================================================= */
 
-        if (!studentSnap.exists()) {
+        if (!user) {
 
-            lessons.forEach((lesson) => {
+            lessons.forEach(
+                function(lesson) {
 
-                lockLesson(
-                    getButton(lesson.buttonId)
-                );
+                    lockLesson(
+                        getButton(
+                            lesson.buttonId
+                        )
+                    );
 
-            });
+                }
+            );
+
+
+            showMessage(
+                "Please login to access Unit 12."
+            );
+
 
             return;
 
         }
 
 
-        /* ============================================
-           STUDENT DATA
-        ============================================ */
-
-        const studentData =
-            studentSnap.data();
+        try {
 
 
-        /* ============================================
-           ACCOUNT STATUS
-        ============================================ */
+            /* =================================================
+               2. GET STUDENT DOCUMENT
+            ================================================= */
 
-        const accountStatus =
-            studentData.accountStatus;
-
-
-        if (accountStatus !== "active") {
-
-            lessons.forEach((lesson) => {
-
-                lockLesson(
-                    getButton(lesson.buttonId)
+            const studentRef =
+                doc(
+                    db,
+                    "students",
+                    user.uid
                 );
 
-            });
 
-            return;
-
-        }
-
-
-        /* ============================================
-           APPROVED LESSONS
-        ============================================ */
-
-        const approvedLessons =
-            studentData.approvedLessons || {};
+            const studentSnap =
+                await getDoc(
+                    studentRef
+                );
 
 
-        /* ============================================
-           CHECK EACH LESSON
-        ============================================ */
+            /* =================================================
+               3. STUDENT DOCUMENT NOT FOUND
+            ================================================= */
 
-        lessons.forEach((lesson) => {
+            if (!studentSnap.exists()) {
 
-            const button =
-                getButton(lesson.buttonId);
+                lessons.forEach(
+                    function(lesson) {
+
+                        lockLesson(
+                            getButton(
+                                lesson.buttonId
+                            )
+                        );
+
+                    }
+                );
 
 
-            const approved =
-                approvedLessons[lesson.id] === true;
+                showMessage(
+                    "Your student account information was not found."
+                );
 
 
-            if (approved) {
+                return;
 
-                openLesson(button);
+            }
+
+
+            /* =================================================
+               4. STUDENT DATA
+            ================================================= */
+
+            const studentData =
+                studentSnap.data();
+
+
+            console.log(
+                "Student data:",
+                studentData
+            );
+
+
+            /* =================================================
+               5. ACCOUNT STATUS
+            ================================================= */
+
+            const accountStatus =
+                studentData.accountStatus;
+
+
+            console.log(
+                "Account status:",
+                accountStatus
+            );
+
+
+            if (
+                accountStatus !== "active"
+            ) {
+
+
+                lessons.forEach(
+                    function(lesson) {
+
+                        lockLesson(
+                            getButton(
+                                lesson.buttonId
+                            )
+                        );
+
+                    }
+                );
+
+
+                showMessage(
+                    "Your account is not active yet. Please contact the administrator."
+                );
+
+
+                return;
+
+            }
+
+
+            /* =================================================
+               6. GET APPROVED UNITS
+            ================================================= */
+
+            const approvedUnits =
+                studentData.approvedUnits || {};
+
+
+            console.log(
+                "Approved Units:",
+                approvedUnits
+            );
+
+
+            /* =================================================
+               7. CHECK CURRENT UNIT
+            ================================================= */
+
+            const unitApproved =
+                approvedUnits[UNIT_ID] === true;
+
+
+            console.log(
+                "Current Unit:",
+                UNIT_ID
+            );
+
+
+            console.log(
+                "Unit Approved:",
+                unitApproved
+            );
+
+
+            /* =================================================
+               8. OPEN / LOCK ALL LESSONS
+            ================================================= */
+
+            lessons.forEach(
+                function(lesson) {
+
+                    const button =
+                        getButton(
+                            lesson.buttonId
+                        );
+
+
+                    if (
+                        unitApproved
+                    ) {
+
+                        openLesson(
+                            button
+                        );
+
+                    }
+
+                    else {
+
+                        lockLesson(
+                            button
+                        );
+
+                    }
+
+                }
+            );
+
+
+            /* =================================================
+               9. FINAL MESSAGE
+            ================================================= */
+
+            if (
+                unitApproved
+            ) {
+
+                hideMessage();
+
+                console.log(
+                    "UNIT ACCESS GRANTED:",
+                    UNIT_ID
+                );
 
             }
 
             else {
 
-                lockLesson(button);
+                showMessage(
+                    "Unit 12 has not been approved for your account yet."
+                );
+
+                console.log(
+                    "UNIT ACCESS DENIED:",
+                    UNIT_ID
+                );
 
             }
 
-        });
 
-    }
+        }
 
-
-    catch (error) {
-
-        console.error(
-            "Unit 12 access verification error:",
-            error
-        );
+        catch(error) {
 
 
-        lessons.forEach((lesson) => {
+            /* =================================================
+               FIREBASE ERROR
+            ================================================= */
 
-            lockLesson(
-                getButton(lesson.buttonId)
+            console.error(
+                "Unit access verification error:",
+                error
             );
 
-        });
+
+            /*
+             * Security principle:
+             * Firebase error হলে lesson OPEN হবে না।
+             */
+
+            lessons.forEach(
+                function(lesson) {
+
+                    lockLesson(
+                        getButton(
+                            lesson.buttonId
+                        )
+                    );
+
+                }
+            );
+
+
+            showMessage(
+                "Unable to verify your account. Please try again."
+            );
+
+        }
 
     }
+);
 
-});
-        
 </script>
 
 </head>
 
+
 <body>
 
 
-<!-- =========================
+<!-- =========================================================
      HEADER
-========================= -->
+========================================================= -->
 
 <header class="header">
 
@@ -594,25 +955,33 @@ function openLesson(button) {
         ALL ABOUT ENGLISH
     </div>
 
-    <h1>UNIT 12</h1>
+    <h1>
+        UNIT 12
+    </h1>
 
-    <h2>HSC English 1st Paper</h2>
+    <h2>
+        HSC English 1st Paper
+    </h2>
 
 </header>
 
 
-<!-- =========================
-     MAIN CONTENT
-========================= -->
+<!-- =========================================================
+     MAIN
+========================================================= -->
 
 <main class="container">
 
 
-    <!-- INTRO -->
+    <!-- =====================================================
+         INTRO
+    ====================================================== -->
 
     <section class="intro">
 
-        <h2>Unit 12 Lessons</h2>
+        <h2>
+            Unit 12 Lessons
+        </h2>
 
         <p>
             Welcome to Unit 12 of HSC English 1st Paper.
@@ -623,21 +992,30 @@ function openLesson(button) {
     </section>
 
 
-    <!-- LESSONS -->
+    <!-- =====================================================
+         ACCESS MESSAGE
+    ====================================================== -->
+
+    <div
+        id="message"
+        class="message"
+    ></div>
+
+
+    <!-- =====================================================
+         LESSON GRID
+    ====================================================== -->
 
     <section class="lesson-grid">
 
 
-        <!-- LESSON 1 -->
-
-        <div
-    id="message"
-    class="message"
-></div>
+        <!-- =================================================
+             LESSON 1
+        ================================================== -->
 
         <a
             id="lesson1Button"
-            class="lesson-card"
+            class="lesson-card locked"
             href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-12/lesson-1/"
         >
 
@@ -645,7 +1023,9 @@ function openLesson(button) {
                 Lesson 01
             </div>
 
-            <h3>Lesson 1</h3>
+            <h3>
+                Lesson 1
+            </h3>
 
             <p>
                 Explore the complete learning materials
@@ -653,17 +1033,19 @@ function openLesson(button) {
             </p>
 
             <span class="open-btn">
-                OPEN LESSON →
+                🔒 LOCKED
             </span>
 
         </a>
 
 
-        <!-- LESSON 2 -->
+        <!-- =================================================
+             LESSON 2
+        ================================================== -->
 
         <a
             id="lesson2Button"
-            class="lesson-card"
+            class="lesson-card locked"
             href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-12/lesson-2/"
         >
 
@@ -671,7 +1053,9 @@ function openLesson(button) {
                 Lesson 02
             </div>
 
-            <h3>Lesson 2</h3>
+            <h3>
+                Lesson 2
+            </h3>
 
             <p>
                 Explore the complete learning materials
@@ -679,17 +1063,19 @@ function openLesson(button) {
             </p>
 
             <span class="open-btn">
-                OPEN LESSON →
+                🔒 LOCKED
             </span>
 
         </a>
 
 
-        <!-- LESSON 3 -->
+        <!-- =================================================
+             LESSON 3
+        ================================================== -->
 
         <a
             id="lesson3Button"
-            class="lesson-card"
+            class="lesson-card locked"
             href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-12/lesson-3/"
         >
 
@@ -697,7 +1083,9 @@ function openLesson(button) {
                 Lesson 03
             </div>
 
-            <h3>Lesson 3</h3>
+            <h3>
+                Lesson 3
+            </h3>
 
             <p>
                 Explore the complete learning materials
@@ -705,17 +1093,19 @@ function openLesson(button) {
             </p>
 
             <span class="open-btn">
-                OPEN LESSON →
+                🔒 LOCKED
             </span>
 
         </a>
 
 
-        <!-- LESSON 4 -->
+        <!-- =================================================
+             LESSON 4
+        ================================================== -->
 
         <a
             id="lesson4Button"
-            class="lesson-card"
+            class="lesson-card locked"
             href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-12/lesson-4/"
         >
 
@@ -723,7 +1113,9 @@ function openLesson(button) {
                 Lesson 04
             </div>
 
-            <h3>Lesson 4</h3>
+            <h3>
+                Lesson 4
+            </h3>
 
             <p>
                 Explore the complete learning materials
@@ -731,17 +1123,19 @@ function openLesson(button) {
             </p>
 
             <span class="open-btn">
-                OPEN LESSON →
+                🔒 LOCKED
             </span>
 
         </a>
 
 
-         <!-- LESSON 4 SECOND HALF-->
+        <!-- =================================================
+             LESSON 4 SECOND HALF
+        ================================================== -->
 
         <a
             id="lesson4SecondHalfButton"
-            class="lesson-card"
+            class="lesson-card locked"
             href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-12/lesson-4-second-part/"
         >
 
@@ -749,32 +1143,39 @@ function openLesson(button) {
                 Lesson 04 Second Half
             </div>
 
-            <h3>Lesson 4 Second Half</h3>
+            <h3>
+                Lesson 4 Second Half
+            </h3>
 
             <p>
                 Explore the complete learning materials
-            of Unit 12, Lesson 4 Second Half.
+                of Unit 12, Lesson 4 Second Half.
             </p>
 
             <span class="open-btn">
-                OPEN LESSON →
+                🔒 LOCKED
             </span>
 
         </a>
 
-         <!-- LESSON 5 -->
+
+        <!-- =================================================
+             LESSON 5
+        ================================================== -->
 
         <a
             id="lesson5Button"
-            class="lesson-card"
+            class="lesson-card locked"
             href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-12/lesson-5/"
         >
 
             <div class="lesson-number">
-                Lesson 5
+                Lesson 05
             </div>
 
-            <h3>Lesson 5</h3>
+            <h3>
+                Lesson 5
+            </h3>
 
             <p>
                 Explore the complete learning materials
@@ -782,16 +1183,19 @@ function openLesson(button) {
             </p>
 
             <span class="open-btn">
-                OPEN LESSON →
+                🔒 LOCKED
             </span>
 
         </a>
 
-         <!-- LESSON 5 SECOND HALF-->
+
+        <!-- =================================================
+             LESSON 5 SECOND HALF
+        ================================================== -->
 
         <a
             id="lesson5SecondHalfButton"
-            class="lesson-card"
+            class="lesson-card locked"
             href="https://shaheenexam007.github.io/all-about-english/hsc/1st-paper/unit-12/lesson-5-second-half/"
         >
 
@@ -799,23 +1203,28 @@ function openLesson(button) {
                 Lesson 05 Second Half
             </div>
 
-            <h3>Lesson 5 Second Half</h3>
+            <h3>
+                Lesson 5 Second Half
+            </h3>
 
             <p>
                 Explore the complete learning materials
-            of Unit 12, Lesson 5 Second Half.
+                of Unit 12, Lesson 5 Second Half.
             </p>
 
             <span class="open-btn">
-                OPEN LESSON →
+                🔒 LOCKED
             </span>
 
         </a>
 
+
     </section>
 
 
-    <!-- BACK BUTTON -->
+    <!-- =====================================================
+         BACK BUTTON
+    ====================================================== -->
 
     <div class="navigation">
 
@@ -832,13 +1241,15 @@ function openLesson(button) {
 </main>
 
 
-<!-- =========================
+<!-- =========================================================
      FOOTER
-========================= -->
+========================================================= -->
 
 <footer class="footer">
 
-    <strong>ALL ABOUT ENGLISH BY SHAHEEN SIR</strong>
+    <strong>
+        ALL ABOUT ENGLISH BY SHAHEEN SIR
+    </strong>
 
     <p>
         HSC English 1st Paper | Unit 12
@@ -849,5 +1260,3 @@ function openLesson(button) {
 
 </body>
 </html>
-```
-
