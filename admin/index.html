@@ -1,54 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Admin Dashboard | All About English</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
 
 <style>
 
+/* =====================================================
+   ROOT
+===================================================== */
+
 :root {
+
     --bg:#06121d;
+
     --card:#0b1b2b;
+
     --gold:#e8c56a;
+
     --blue:#69b7d8;
+
     --green:#70c9a3;
+
     --red:#df8f8f;
+
     --text:#f5f8fb;
+
     --soft:#aebdcb;
+
     --muted:#718496;
+
     --border:rgba(255,255,255,.10);
+
 }
+
+
+/* =====================================================
+   RESET
+===================================================== */
 
 * {
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
 }
 
+
 body {
+
     min-height:100vh;
+
     font-family:Poppins,sans-serif;
+
     color:var(--text);
 
     background:
+
         radial-gradient(
             circle at 10% 5%,
             rgba(105,183,216,.10),
             transparent 30%
         ),
+
         radial-gradient(
             circle at 90% 5%,
             rgba(232,197,106,.08),
             transparent 30%
         ),
+
         linear-gradient(
             145deg,
             #06121d,
@@ -57,133 +106,225 @@ body {
         );
 
     padding-bottom:50px;
+
 }
+
 
 .container {
+
     width:min(1200px,92%);
+
     margin:auto;
+
 }
 
-/* HEADER */
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 .admin-header {
+
     padding:35px 0 25px;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     gap:20px;
 
     border-bottom:1px solid var(--border);
+
 }
+
 
 .brand {
+
     font-family:Cinzel,serif;
+
     color:var(--gold);
+
     font-size:28px;
+
     font-weight:800;
+
     letter-spacing:2px;
+
 }
+
 
 .admin-subtitle {
+
     color:var(--soft);
+
     font-size:11px;
+
     margin-top:5px;
+
 }
+
 
 .admin-user {
+
     text-align:right;
+
 }
+
 
 .admin-name {
+
     color:var(--green);
+
     font-size:12px;
+
     font-weight:700;
+
 }
+
 
 .admin-email {
+
     color:var(--muted);
+
     font-size:9px;
+
     margin-top:3px;
+
 }
 
-/* LOADING */
+
+/* =====================================================
+   LOADING
+===================================================== */
 
 .loading-screen {
+
     position:fixed;
+
     inset:0;
+
     z-index:9999;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     background:#06121d;
+
 }
+
 
 .loading-box {
+
     text-align:center;
+
 }
+
 
 .loading-box h2 {
+
     font-family:Cinzel,serif;
+
     color:var(--gold);
+
     font-size:24px;
+
 }
+
 
 .loading-box p {
+
     color:var(--muted);
+
     font-size:11px;
+
     margin-top:8px;
+
 }
 
-/* ACCESS DENIED */
+
+/* =====================================================
+   ACCESS DENIED
+===================================================== */
 
 .access-denied {
+
     display:none;
 
     min-height:100vh;
 
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
+
     padding:20px;
+
 }
+
 
 .access-denied.show {
+
     display:flex;
+
 }
 
+
 .denied-box {
+
     width:min(520px,100%);
+
     padding:40px 25px;
 
     border:1px solid rgba(220,100,100,.20);
+
     border-radius:22px;
 
     background:rgba(255,255,255,.035);
+
 }
+
 
 .denied-icon {
+
     font-size:50px;
+
     margin-bottom:15px;
+
 }
+
 
 .denied-box h2 {
+
     color:var(--red);
+
     font-family:Cinzel,serif;
+
 }
+
 
 .denied-box p {
+
     color:var(--soft);
+
     font-size:11px;
+
     line-height:1.7;
+
     margin-top:10px;
+
 }
 
+
 .denied-details {
+
     margin-top:15px;
+
     padding:12px;
 
     border-radius:10px;
@@ -191,14 +332,20 @@ body {
     background:rgba(255,255,255,.04);
 
     color:var(--muted);
+
     font-size:9px;
+
     line-height:1.7;
 
     word-break:break-word;
+
 }
 
+
 .back-btn {
+
     display:inline-block;
+
     margin-top:20px;
 
     padding:10px 18px;
@@ -208,49 +355,84 @@ body {
     text-decoration:none;
 
     color:#071421;
+
     background:var(--gold);
 
     font-size:11px;
+
     font-weight:700;
+
 }
 
-/* DASHBOARD */
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
 
 .dashboard {
+
     display:none;
+
 }
+
 
 .dashboard.show {
+
     display:block;
+
 }
 
-/* WELCOME */
+
+/* =====================================================
+   WELCOME
+===================================================== */
 
 .welcome {
+
     padding:30px 0 20px;
+
 }
+
 
 .welcome h1 {
+
     font-family:Cinzel,serif;
+
     font-size:25px;
+
     color:white;
+
 }
+
 
 .welcome p {
+
     color:var(--soft);
+
     font-size:11px;
+
     margin-top:5px;
+
 }
 
-/* STAT GRID */
+
+/* =====================================================
+   STATISTICS
+===================================================== */
 
 .stats {
+
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:16px;
+
 }
 
+
 .stat-card {
+
     padding:22px;
 
     border-radius:18px;
@@ -258,48 +440,79 @@ body {
     border:1px solid var(--border);
 
     background:
+
         linear-gradient(
             145deg,
             rgba(255,255,255,.065),
             rgba(255,255,255,.025)
         );
+
 }
+
 
 .stat-icon {
+
     font-size:25px;
+
 }
+
 
 .stat-title {
+
     color:var(--muted);
+
     font-size:10px;
+
     margin-top:10px;
+
 }
+
 
 .stat-number {
+
     font-size:25px;
+
     font-weight:800;
+
     margin-top:3px;
+
 }
+
 
 .stat-card.students .stat-number {
+
     color:var(--blue);
+
 }
 
-.stat-card.pending .stat-number {
-    color:var(--gold);
-}
 
-.stat-card.approved .stat-number {
+.stat-card.active .stat-number {
+
     color:var(--green);
+
 }
 
-.stat-card.denied .stat-number {
-    color:var(--red);
+
+.stat-card.unit11 .stat-number {
+
+    color:var(--gold);
+
 }
 
-/* SECTION */
+
+.stat-card.unit12 .stat-number {
+
+    color:#a8a1e6;
+
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
 
 .section {
+
     margin-top:30px;
 
     border-radius:20px;
@@ -309,166 +522,58 @@ body {
     background:rgba(255,255,255,.035);
 
     overflow:hidden;
+
 }
 
+
 .section-header {
+
     padding:20px 22px;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     border-bottom:1px solid var(--border);
+
 }
+
 
 .section-header h2 {
+
     font-family:Cinzel,serif;
+
     font-size:18px;
+
     color:var(--gold);
+
 }
+
 
 .section-header p {
+
     color:var(--muted);
+
     font-size:9px;
+
 }
 
-/* STUDENTS */
+
+/* =====================================================
+   STUDENT LIST
+===================================================== */
 
 .student-list {
+
     padding:15px;
+
 }
+
 
 .student-card {
-    padding:15px;
 
-    margin-bottom:10px;
-
-    border-radius:13px;
-
-    background:rgba(255,255,255,.035);
-
-    border:1px solid rgba(255,255,255,.06);
-
-    display:grid;
-
-    grid-template-columns:
-        1.3fr
-        1.3fr
-        1fr
-        1.3fr;
-
-    gap:15px;
-
-    align-items:center;
-}
-
-.student-card:last-child {
-    margin-bottom:0;
-}
-
-.student-label {
-    display:block;
-
-    color:var(--muted);
-
-    font-size:8px;
-
-    margin-bottom:3px;
-}
-
-.student-value {
-    color:var(--soft);
-
-    font-size:10px;
-
-    word-break:break-word;
-}
-
-.student-name {
-    color:white;
-    font-weight:700;
-}
-
-/* CONTENT */
-
-.content-form {
-    padding:20px;
-}
-
-.form-grid {
-    display:grid;
-
-    grid-template-columns:
-        1.5fr
-        1.5fr
-        1fr
-        auto;
-
-    gap:10px;
-}
-
-.input {
-    width:100%;
-
-    padding:11px 12px;
-
-    border-radius:10px;
-
-    border:1px solid var(--border);
-
-    background:rgba(255,255,255,.045);
-
-    color:white;
-
-    outline:none;
-
-    font-family:Poppins,sans-serif;
-
-    font-size:10px;
-}
-
-.input:focus {
-    border-color:var(--blue);
-}
-
-select.input {
-    cursor:pointer;
-}
-
-select.input option {
-    background:#0b1b2b;
-    color:white;
-}
-
-.add-btn {
-    padding:11px 16px;
-
-    border:0;
-
-    border-radius:10px;
-
-    background:var(--gold);
-
-    color:#071421;
-
-    font-weight:800;
-
-    font-size:10px;
-
-    cursor:pointer;
-}
-
-.add-btn:hover {
-    transform:translateY(-1px);
-}
-
-/* CONTENT CARD */
-
-.content-list {
-    padding:15px;
-}
-
-.content-card {
     padding:17px;
 
     margin-bottom:10px;
@@ -479,38 +584,73 @@ select.input option {
 
     border:1px solid rgba(255,255,255,.06);
 
+}
+
+
+.student-card:last-child {
+
+    margin-bottom:0;
+
+}
+
+
+.student-top {
+
     display:grid;
 
     grid-template-columns:
-        1.5fr
         1.3fr
-        100px
-        180px;
+        1.3fr
+        1fr
+        1fr
+        auto;
 
     gap:15px;
 
     align-items:center;
+
 }
 
-.content-card:last-child {
-    margin-bottom:0;
-}
 
-.content-title {
-    color:white;
-    font-size:11px;
-    font-weight:700;
-}
+.student-label {
 
-.content-meta {
+    display:block;
+
     color:var(--muted);
-    font-size:9px;
-    margin-top:3px;
+
+    font-size:8px;
+
+    margin-bottom:3px;
+
+}
+
+
+.student-value {
+
+    color:var(--soft);
+
+    font-size:10px;
 
     word-break:break-word;
+
 }
 
-.status {
+
+.student-name {
+
+    color:white;
+
+    font-weight:700;
+
+}
+
+
+/* =====================================================
+   ACCOUNT STATUS
+===================================================== */
+
+.account-status {
+
     display:inline-block;
 
     padding:5px 9px;
@@ -520,30 +660,35 @@ select.input option {
     font-size:8px;
 
     font-weight:800;
+
 }
 
-.status.pending {
-    color:var(--gold);
-    background:rgba(232,197,106,.08);
-}
 
-.status.approved {
+.account-status.active {
+
     color:var(--green);
-    background:rgba(112,201,163,.08);
+
+    background:rgba(112,201,163,.10);
+
 }
 
-.status.denied {
+
+.account-status.inactive {
+
     color:var(--red);
-    background:rgba(220,100,100,.08);
+
+    background:rgba(220,100,100,.10);
+
 }
 
-.actions {
-    display:flex;
-    gap:7px;
-}
 
-.action-btn {
-    padding:7px 9px;
+/* =====================================================
+   ACCOUNT BUTTON
+===================================================== */
+
+.account-btn {
+
+    padding:8px 11px;
 
     border-radius:8px;
 
@@ -557,46 +702,268 @@ select.input option {
 
     font-size:8px;
 
-    font-weight:700;
+    font-weight:800;
+
 }
 
-.approve-btn {
+
+.activate-btn {
+
     color:var(--green);
+
     border-color:rgba(112,201,163,.25);
+
 }
 
-.approve-btn:hover {
+
+.activate-btn:hover {
+
     background:rgba(112,201,163,.10);
+
 }
 
-.deny-btn {
+
+.deactivate-btn {
+
     color:var(--red);
+
     border-color:rgba(220,100,100,.25);
+
 }
 
-.deny-btn:hover {
+
+.deactivate-btn:hover {
+
     background:rgba(220,100,100,.10);
+
 }
 
-/* EMPTY */
+
+/* =====================================================
+   UNIT ACCESS
+===================================================== */
+
+.unit-access {
+
+    margin-top:15px;
+
+    padding-top:15px;
+
+    border-top:1px solid var(--border);
+
+}
+
+
+.unit-access-title {
+
+    color:var(--gold);
+
+    font-family:Cinzel,serif;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+
+.unit-row {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    padding:10px 12px;
+
+    margin-bottom:7px;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.025);
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+
+.unit-row:last-child {
+
+    margin-bottom:0;
+
+}
+
+
+.unit-name {
+
+    color:var(--soft);
+
+    font-size:10px;
+
+    font-weight:600;
+
+}
+
+
+.unit-status {
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+
+.unit-status.approved {
+
+    color:var(--green);
+
+}
+
+
+.unit-status.locked {
+
+    color:var(--muted);
+
+}
+
+
+.unit-action {
+
+    padding:6px 10px;
+
+    border-radius:7px;
+
+    border:1px solid;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    font-family:Poppins,sans-serif;
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+
+.unit-approve {
+
+    color:var(--green);
+
+    border-color:rgba(112,201,163,.25);
+
+}
+
+
+.unit-approve:hover {
+
+    background:rgba(112,201,163,.10);
+
+}
+
+
+.unit-revoke {
+
+    color:var(--red);
+
+    border-color:rgba(220,100,100,.25);
+
+}
+
+
+.unit-revoke:hover {
+
+    background:rgba(220,100,100,.10);
+
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.message {
+
+    display:none;
+
+    margin:15px;
+
+    padding:11px;
+
+    border-radius:10px;
+
+    font-size:10px;
+
+}
+
+
+.message.show {
+
+    display:block;
+
+}
+
+
+.message.success {
+
+    color:#9de0bf;
+
+    background:rgba(112,201,163,.08);
+
+}
+
+
+.message.error {
+
+    color:#f1a9a9;
+
+    background:rgba(220,80,80,.08);
+
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
 
 .empty {
+
     padding:30px;
+
     text-align:center;
+
     color:var(--muted);
+
     font-size:10px;
+
 }
 
-/* LOGOUT */
+
+/* =====================================================
+   LOGOUT
+===================================================== */
 
 .logout {
+
     margin-top:30px;
 
     display:flex;
+
     justify-content:flex-end;
+
 }
 
+
 .logout-btn {
+
     padding:10px 18px;
 
     border-radius:10px;
@@ -614,88 +981,77 @@ select.input option {
     font-weight:700;
 
     cursor:pointer;
+
 }
 
-/* MESSAGE */
 
-.message {
-    display:none;
-
-    margin-top:15px;
-
-    padding:11px;
-
-    border-radius:10px;
-
-    font-size:10px;
-}
-
-.message.show {
-    display:block;
-}
-
-.message.success {
-    color:#9de0bf;
-    background:rgba(112,201,163,.08);
-}
-
-.message.error {
-    color:#f1a9a9;
-    background:rgba(220,80,80,.08);
-}
-
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:900px) {
 
     .stats {
+
         grid-template-columns:repeat(2,1fr);
+
     }
 
-    .student-card {
-        grid-template-columns:repeat(2,1fr);
-    }
 
-    .content-card {
-        grid-template-columns:1fr 1fr;
+    .student-top {
+
+        grid-template-columns:repeat(2,1fr);
+
     }
 
 }
 
+
 @media(max-width:600px) {
 
     .admin-header {
+
         flex-direction:column;
+
         align-items:flex-start;
+
     }
+
 
     .admin-user {
+
         text-align:left;
+
     }
+
 
     .stats {
+
         grid-template-columns:1fr 1fr;
+
         gap:10px;
+
     }
+
 
     .stat-card {
+
         padding:17px;
+
     }
 
-    .form-grid {
+
+    .student-top {
+
         grid-template-columns:1fr;
+
     }
 
-    .student-card {
-        grid-template-columns:1fr;
-    }
 
-    .content-card {
-        grid-template-columns:1fr;
-    }
+    .unit-row {
 
-    .actions {
         flex-wrap:wrap;
+
     }
 
 }
@@ -704,42 +1060,72 @@ select.input option {
 
 </head>
 
+
 <body>
 
-<!-- LOADING -->
 
-<div id="loadingScreen" class="loading-screen">
+<!-- =====================================================
+     LOADING
+===================================================== -->
+
+<div
+    id="loadingScreen"
+    class="loading-screen"
+>
 
     <div class="loading-box">
 
-        <h2>ALL ABOUT ENGLISH</h2>
+        <h2>
+            ALL ABOUT ENGLISH
+        </h2>
 
-        <p>Verifying administrator access...</p>
+        <p>
+            Verifying administrator access...
+        </p>
 
     </div>
 
 </div>
 
 
-<!-- ACCESS DENIED -->
+<!-- =====================================================
+     ACCESS DENIED
+===================================================== -->
 
-<div id="accessDenied" class="access-denied">
+<div
+    id="accessDenied"
+    class="access-denied"
+>
 
     <div class="denied-box">
 
-        <div class="denied-icon">🔒</div>
+        <div class="denied-icon">
+            🔒
+        </div>
 
-        <h2>Access Denied</h2>
+
+        <h2>
+            Access Denied
+        </h2>
+
 
         <p>
             You are not currently verified as an administrator.
         </p>
 
-        <div id="deniedDetails" class="denied-details">
+
+        <div
+            id="deniedDetails"
+            class="denied-details"
+        >
             Checking administrator account...
         </div>
 
-        <a href="../" class="back-btn">
+
+        <a
+            href="../"
+            class="back-btn"
+        >
             ← Back to Homepage
         </a>
 
@@ -748,13 +1134,21 @@ select.input option {
 </div>
 
 
-<!-- DASHBOARD -->
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
 
-<div id="dashboard" class="dashboard">
+<div
+    id="dashboard"
+    class="dashboard"
+>
 
     <div class="container">
 
-        <!-- HEADER -->
+
+        <!-- =================================================
+             HEADER
+        ================================================= -->
 
         <header class="admin-header">
 
@@ -770,20 +1164,30 @@ select.input option {
 
             </div>
 
+
             <div class="admin-user">
 
-                <div id="adminName" class="admin-name">
+                <div
+                    id="adminName"
+                    class="admin-name"
+                >
                     Admin
                 </div>
 
-                <div id="adminEmail" class="admin-email"></div>
+
+                <div
+                    id="adminEmail"
+                    class="admin-email"
+                ></div>
 
             </div>
 
         </header>
 
 
-        <!-- WELCOME -->
+        <!-- =================================================
+             WELCOME
+        ================================================= -->
 
         <div class="welcome">
 
@@ -791,71 +1195,106 @@ select.input option {
                 Welcome, Shaheen Sir 👋
             </h1>
 
+
             <p>
-                Manage students and control learning content.
+                Manage students and control unit access.
             </p>
 
         </div>
 
 
-        <!-- STATISTICS -->
+        <!-- =================================================
+             STATISTICS
+        ================================================= -->
 
         <div class="stats">
 
+
             <div class="stat-card students">
 
-                <div class="stat-icon">👨‍🎓</div>
+                <div class="stat-icon">
+                    👨‍🎓
+                </div>
+
 
                 <div class="stat-title">
                     TOTAL STUDENTS
                 </div>
 
-                <div id="totalStudents" class="stat-number">
+
+                <div
+                    id="totalStudents"
+                    class="stat-number"
+                >
                     0
                 </div>
 
             </div>
 
 
-            <div class="stat-card pending">
 
-                <div class="stat-icon">⏳</div>
+            <div class="stat-card active">
 
-                <div class="stat-title">
-                    PENDING CONTENT
+                <div class="stat-icon">
+                    🟢
                 </div>
 
-                <div id="pendingContent" class="stat-number">
+
+                <div class="stat-title">
+                    ACTIVE STUDENTS
+                </div>
+
+
+                <div
+                    id="activeStudents"
+                    class="stat-number"
+                >
                     0
                 </div>
 
             </div>
 
 
-            <div class="stat-card approved">
 
-                <div class="stat-icon">✅</div>
+            <div class="stat-card unit11">
 
-                <div class="stat-title">
-                    APPROVED CONTENT
+                <div class="stat-icon">
+                    📘
                 </div>
 
-                <div id="approvedContent" class="stat-number">
+
+                <div class="stat-title">
+                    UNIT 11 APPROVED
+                </div>
+
+
+                <div
+                    id="unit11Approved"
+                    class="stat-number"
+                >
                     0
                 </div>
 
             </div>
 
 
-            <div class="stat-card denied">
 
-                <div class="stat-icon">❌</div>
+            <div class="stat-card unit12">
 
-                <div class="stat-title">
-                    DENIED CONTENT
+                <div class="stat-icon">
+                    📗
                 </div>
 
-                <div id="deniedContent" class="stat-number">
+
+                <div class="stat-title">
+                    UNIT 12 APPROVED
+                </div>
+
+
+                <div
+                    id="unit12Approved"
+                    class="stat-number"
+                >
                     0
                 </div>
 
@@ -864,18 +1303,24 @@ select.input option {
         </div>
 
 
-        <!-- STUDENTS -->
+        <!-- =================================================
+             STUDENT ACCESS MANAGEMENT
+        ================================================= -->
 
         <section class="section">
+
 
             <div class="section-header">
 
                 <div>
 
-                    <h2>👨‍🎓 Students</h2>
+                    <h2>
+                        🔐 Student Access Management
+                    </h2>
+
 
                     <p>
-                        Registered student accounts
+                        Activate students and control unit access
                     </p>
 
                 </div>
@@ -883,7 +1328,16 @@ select.input option {
             </div>
 
 
-            <div id="studentList" class="student-list">
+            <div
+                id="studentAccessMessage"
+                class="message"
+            ></div>
+
+
+            <div
+                id="studentAccessList"
+                class="student-list"
+            >
 
                 <div class="empty">
                     Loading students...
@@ -894,96 +1348,9 @@ select.input option {
         </section>
 
 
-        <!-- CONTENT -->
-
-        <section class="section">
-
-            <div class="section-header">
-
-                <div>
-
-                    <h2>📚 Content Management</h2>
-
-                    <p>
-                        Approve or deny learning content
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="content-form">
-
-                <div class="form-grid">
-
-                    <input
-                        id="contentTitle"
-                        class="input"
-                        type="text"
-                        placeholder="Content title"
-                    >
-
-                    <input
-                        id="contentPath"
-                        class="input"
-                        type="text"
-                        placeholder="Content path / URL"
-                    >
-
-                    <select
-                        id="contentStatus"
-                        class="input"
-                    >
-
-                        <option value="pending">
-                            Pending
-                        </option>
-
-                        <option value="approved">
-                            Approved
-                        </option>
-
-                        <option value="denied">
-                            Denied
-                        </option>
-
-                    </select>
-
-                    <button
-                        class="add-btn"
-                        onclick="addContent()"
-                        type="button"
-                    >
-                        + ADD CONTENT
-                    </button>
-
-                </div>
-
-
-                <div
-                    id="adminMessage"
-                    class="message"
-                ></div>
-
-            </div>
-
-
-            <div
-                id="contentList"
-                class="content-list"
-            >
-
-                <div class="empty">
-                    Loading content...
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- LOGOUT -->
+        <!-- =================================================
+             LOGOUT
+        ================================================= -->
 
         <div class="logout">
 
@@ -992,10 +1359,13 @@ select.input option {
                 onclick="adminLogout()"
                 type="button"
             >
+
                 🚪 ADMIN LOGOUT
+
             </button>
 
         </div>
+
 
     </div>
 
@@ -1004,30 +1374,45 @@ select.input option {
 
 <script type="module">
 
+
 /* =========================================================
    FIREBASE IMPORTS
 ========================================================= */
 
 import {
+
     initializeApp
+
 } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
 
-import {
-    getAuth,
-    onAuthStateChanged,
-    signOut
-} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
 
 import {
+
+    getAuth,
+
+    onAuthStateChanged,
+
+    signOut
+
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+
+
+import {
+
     getFirestore,
+
     doc,
+
     getDoc,
+
     collection,
+
     getDocs,
-    setDoc,
-    updateDoc,
-    serverTimestamp
+
+    updateDoc
+
 } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
+
 
 
 /* =========================================================
@@ -1063,15 +1448,22 @@ const firebaseConfig = {
 };
 
 
+
 /* =========================================================
    INITIALIZE FIREBASE
 ========================================================= */
 
-const app = initializeApp(firebaseConfig);
+const app =
+    initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
 
-const db = getFirestore(app);
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
 
 
 /* =========================================================
@@ -1079,8 +1471,11 @@ const db = getFirestore(app);
 ========================================================= */
 
 onAuthStateChanged(
+
     auth,
+
     async function(user) {
+
 
         console.log(
             "Firebase Auth User:",
@@ -1095,8 +1490,11 @@ onAuthStateChanged(
         if (!user) {
 
             showAccessDenied(
+
                 "You are not logged in.",
+
                 "Please login from the main website first."
+
             );
 
             return;
@@ -1109,6 +1507,7 @@ onAuthStateChanged(
             user.uid
         );
 
+
         console.log(
             "Logged-in Email:",
             user.email
@@ -1117,8 +1516,9 @@ onAuthStateChanged(
 
         try {
 
+
             /* -----------------------------------------
-               FIND ADMIN DOCUMENT USING UID
+               ADMIN DOCUMENT
             ----------------------------------------- */
 
             const adminRef =
@@ -1130,7 +1530,9 @@ onAuthStateChanged(
 
 
             const adminSnap =
-                await getDoc(adminRef);
+                await getDoc(
+                    adminRef
+                );
 
 
             console.log(
@@ -1139,15 +1541,14 @@ onAuthStateChanged(
             );
 
 
-            /* -----------------------------------------
-               ADMIN DOCUMENT NOT FOUND
-            ----------------------------------------- */
-
             if (!adminSnap.exists()) {
 
                 showAccessDenied(
+
                     "Admin document not found.",
+
                     "UID: " + user.uid
+
                 );
 
                 return;
@@ -1166,7 +1567,7 @@ onAuthStateChanged(
 
 
             /* -----------------------------------------
-               VERIFY ROLE
+               ROLE CHECK
             ----------------------------------------- */
 
             if (
@@ -1174,9 +1575,15 @@ onAuthStateChanged(
             ) {
 
                 showAccessDenied(
+
                     "Invalid admin role.",
+
                     "Your role is: " +
-                    (adminData.role || "undefined")
+                    (
+                        adminData.role ||
+                        "undefined"
+                    )
+
                 );
 
                 return;
@@ -1185,7 +1592,7 @@ onAuthStateChanged(
 
 
             /* -----------------------------------------
-               VERIFY STATUS
+               STATUS CHECK
             ----------------------------------------- */
 
             if (
@@ -1193,9 +1600,15 @@ onAuthStateChanged(
             ) {
 
                 showAccessDenied(
+
                     "Admin account is not active.",
+
                     "Current status: " +
-                    (adminData.status || "undefined")
+                    (
+                        adminData.status ||
+                        "undefined"
+                    )
+
                 );
 
                 return;
@@ -1208,19 +1621,30 @@ onAuthStateChanged(
             ----------------------------------------- */
 
             if (
+
                 adminData.email &&
+
                 user.email &&
-                adminData.email.toLowerCase()
+
+                adminData.email
+                    .toLowerCase()
+
                 !==
-                user.email.toLowerCase()
+
+                user.email
+                    .toLowerCase()
+
             ) {
 
                 showAccessDenied(
+
                     "Admin email mismatch.",
+
                     "Authentication: " +
                     user.email +
                     " | Admin document: " +
                     adminData.email
+
                 );
 
                 return;
@@ -1240,16 +1664,22 @@ onAuthStateChanged(
             document
                 .getElementById("adminName")
                 .textContent =
+
                     adminData.name ||
+
                     user.displayName ||
+
                     "Admin";
 
 
             document
                 .getElementById("adminEmail")
                 .textContent =
+
                     user.email ||
+
                     adminData.email ||
+
                     "";
 
 
@@ -1270,14 +1700,13 @@ onAuthStateChanged(
 
 
             /* -----------------------------------------
-               LOAD DATA
+               LOAD STUDENTS
             ----------------------------------------- */
 
             await loadStudents();
 
-            await loadContent();
-
         }
+
 
         catch(error) {
 
@@ -1288,16 +1717,23 @@ onAuthStateChanged(
 
 
             showAccessDenied(
+
                 "Admin verification failed.",
+
                 error.code ||
+
                 error.message ||
+
                 "Unknown Firebase error"
+
             );
 
         }
 
     }
+
 );
+
 
 
 /* =========================================================
@@ -1305,9 +1741,13 @@ onAuthStateChanged(
 ========================================================= */
 
 function showAccessDenied(
+
     title,
+
     details
+
 ) {
+
 
     document
         .getElementById("loadingScreen")
@@ -1339,44 +1779,149 @@ function showAccessDenied(
 }
 
 
+
 /* =========================================================
    LOAD STUDENTS
 ========================================================= */
 
 async function loadStudents() {
 
+
     const list =
+
         document
-        .getElementById("studentList");
+            .getElementById(
+                "studentAccessList"
+            );
 
 
     try {
 
+
         const snapshot =
+
             await getDocs(
+
                 collection(
                     db,
                     "students"
                 )
+
             );
 
 
+        /* -----------------------------------------
+           STATISTICS
+        ----------------------------------------- */
+
+        let activeCount = 0;
+
+        let unit11Count = 0;
+
+        let unit12Count = 0;
+
+
+        snapshot.forEach(
+
+            function(studentDoc) {
+
+
+                const data =
+                    studentDoc.data();
+
+
+                const status =
+                    data.accountStatus ||
+                    "inactive";
+
+
+                const approvedUnits =
+                    data.approvedUnits ||
+                    {};
+
+
+                if (
+                    status === "active"
+                ) {
+
+                    activeCount++;
+
+                }
+
+
+                if (
+                    approvedUnits["unit-11"]
+                    === true
+                ) {
+
+                    unit11Count++;
+
+                }
+
+
+                if (
+                    approvedUnits["unit-12"]
+                    === true
+                ) {
+
+                    unit12Count++;
+
+                }
+
+            }
+
+        );
+
+
         document
-            .getElementById("totalStudents")
+            .getElementById(
+                "totalStudents"
+            )
             .textContent =
                 snapshot.size;
 
+
+        document
+            .getElementById(
+                "activeStudents"
+            )
+            .textContent =
+                activeCount;
+
+
+        document
+            .getElementById(
+                "unit11Approved"
+            )
+            .textContent =
+                unit11Count;
+
+
+        document
+            .getElementById(
+                "unit12Approved"
+            )
+            .textContent =
+                unit12Count;
+
+
+        /* -----------------------------------------
+           EMPTY
+        ----------------------------------------- */
 
         if (
             snapshot.empty
         ) {
 
-            list.innerHTML =
-                `
+            list.innerHTML = `
+
                 <div class="empty">
+
                     No students registered yet.
+
                 </div>
-                `;
+
+            `;
 
             return;
 
@@ -1386,546 +1931,459 @@ async function loadStudents() {
         list.innerHTML = "";
 
 
+        /* -----------------------------------------
+           STUDENT CARDS
+        ----------------------------------------- */
+
         snapshot.forEach(
+
             function(studentDoc) {
+
 
                 const data =
                     studentDoc.data();
 
 
+                const studentId =
+                    studentDoc.id;
+
+
+                const accountStatus =
+                    data.accountStatus ||
+                    "inactive";
+
+
+                const isActive =
+                    accountStatus === "active";
+
+
+                const approvedUnits =
+                    data.approvedUnits ||
+                    {};
+
+
                 const card =
-                    document.createElement("div");
+                    document.createElement(
+                        "div"
+                    );
 
 
                 card.className =
                     "student-card";
 
 
-                card.innerHTML = `
-
-                    <div>
-
-                        <span class="student-label">
-                            NAME
-                        </span>
-
-                        <span class="student-value student-name">
-                            ${escapeHTML(data.name || "Student")}
-                        </span>
-
-                    </div>
-
-
-                    <div>
-
-                        <span class="student-label">
-                            EMAIL
-                        </span>
-
-                        <span class="student-value">
-                            ${escapeHTML(data.email || "-")}
-                        </span>
-
-                    </div>
-
-
-                    <div>
-
-                        <span class="student-label">
-                            MOBILE
-                        </span>
-
-                        <span class="student-value">
-                            ${escapeHTML(data.mobile || "-")}
-                        </span>
-
-                    </div>
-
-
-                    <div>
-
-                        <span class="student-label">
-                            COLLEGE / INSTITUTION
-                        </span>
-
-                        <span class="student-value">
-                            ${escapeHTML(data.college || "-")}
-                        </span>
-
-                    </div>
-
-                `;
-
-
-                list.appendChild(card);
-
-            }
-        );
-
-    }
-
-    catch(error) {
-
-        console.error(
-            "Student loading error:",
-            error
-        );
-
-
-        list.innerHTML =
-            `
-            <div class="empty">
-                Could not load students.
-                <br>
-                ${escapeHTML(error.message || "")}
-            </div>
-            `;
-
-    }
-
-}
-
-
-/* =========================================================
-   LOAD CONTENT
-========================================================= */
-
-async function loadContent() {
-
-    const list =
-        document
-        .getElementById("contentList");
-
-
-    try {
-
-        const snapshot =
-            await getDocs(
-                collection(
-                    db,
-                    "contents"
-                )
-            );
-
-
-        let pending = 0;
-        let approved = 0;
-        let denied = 0;
-
-
-        list.innerHTML = "";
-
-
-        if (
-            snapshot.empty
-        ) {
-
-            list.innerHTML =
-                `
-                <div class="empty">
-                    No content has been added yet.
-                </div>
-                `;
-
-            updateStats(
-                0,
-                0,
-                0
-            );
-
-            return;
-
-        }
-
-
-        snapshot.forEach(
-            function(contentDoc) {
-
-                const data =
-                    contentDoc.data();
-
-
-                const status =
-                    data.status ||
-                    "pending";
-
-
-                if (
-                    status === "pending"
-                ) pending++;
-
-
-                if (
-                    status === "approved"
-                ) approved++;
-
-
-                if (
-                    status === "denied"
-                ) denied++;
-
-
-                const card =
-                    document.createElement("div");
-
-
-                card.className =
-                    "content-card";
+                card.dataset.studentId =
+                    studentId;
 
 
                 card.innerHTML = `
 
-                    <div>
 
-                        <div class="content-title">
-                            ${escapeHTML(
-                                data.title ||
-                                "Untitled"
-                            )}
+                    <!-- STUDENT TOP -->
+
+                    <div class="student-top">
+
+
+                        <div>
+
+                            <span class="student-label">
+                                NAME
+                            </span>
+
+
+                            <span
+                                class="
+                                    student-value
+                                    student-name
+                                "
+                            >
+
+                                ${escapeHTML(
+                                    data.name ||
+                                    "Student"
+                                )}
+
+                            </span>
+
                         </div>
 
-                        <div class="content-meta">
-                            ${escapeHTML(
-                                data.path ||
-                                "-"
-                            )}
+
+
+                        <div>
+
+                            <span class="student-label">
+                                EMAIL
+                            </span>
+
+
+                            <span class="student-value">
+
+                                ${escapeHTML(
+                                    data.email ||
+                                    "-"
+                                )}
+
+                            </span>
+
                         </div>
+
+
+
+                        <div>
+
+                            <span class="student-label">
+                                MOBILE
+                            </span>
+
+
+                            <span class="student-value">
+
+                                ${escapeHTML(
+                                    data.mobile ||
+                                    "-"
+                                )}
+
+                            </span>
+
+                        </div>
+
+
+
+                        <div>
+
+                            <span class="student-label">
+                                ACCOUNT STATUS
+                            </span>
+
+
+                            <span
+                                class="
+                                    account-status
+                                    ${
+                                        isActive
+                                            ? "active"
+                                            : "inactive"
+                                    }
+                                "
+                            >
+
+                                ${
+                                    isActive
+                                        ? "ACTIVE"
+                                        : "INACTIVE"
+                                }
+
+                            </span>
+
+                        </div>
+
+
+
+                        <div>
+
+                            <button
+                                class="
+                                    account-btn
+                                    ${
+                                        isActive
+                                            ? "deactivate-btn"
+                                            : "activate-btn"
+                                    }
+                                "
+
+                                onclick="
+                                    changeStudentStatus(
+                                        '${studentId}',
+                                        '${
+                                            isActive
+                                                ? "inactive"
+                                                : "active"
+                                        }'
+                                    )
+                                "
+
+                                type="button"
+                            >
+
+                                ${
+                                    isActive
+                                        ? "DEACTIVATE"
+                                        : "ACTIVATE"
+                                }
+
+                            </button>
+
+                        </div>
+
 
                     </div>
 
 
-                    <div class="content-meta">
 
-                        Added by:
-                        ${escapeHTML(
-                            data.createdBy ||
-                            "Admin"
+                    <!-- UNIT ACCESS -->
+
+                    <div class="unit-access">
+
+
+                        <div class="unit-access-title">
+
+                            UNIT ACCESS
+
+                        </div>
+
+
+                        ${createUnitRow(
+
+                            studentId,
+
+                            "unit-11",
+
+                            "Unit 11",
+
+                            approvedUnits
+
                         )}
 
+
+                        ${createUnitRow(
+
+                            studentId,
+
+                            "unit-12",
+
+                            "Unit 12",
+
+                            approvedUnits
+
+                        )}
+
+
                     </div>
 
-
-                    <div>
-
-                        <span class="status ${escapeHTML(status)}">
-
-                            ${escapeHTML(
-                                status.toUpperCase()
-                            )}
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="actions">
-
-                        <button
-                            class="action-btn approve-btn"
-                            onclick="changeContentStatus('${contentDoc.id}','approved')"
-                            type="button"
-                        >
-                            ✓ APPROVE
-                        </button>
-
-
-                        <button
-                            class="action-btn deny-btn"
-                            onclick="changeContentStatus('${contentDoc.id}','denied')"
-                            type="button"
-                        >
-                            ✕ DENY
-                        </button>
-
-                    </div>
 
                 `;
 
 
-                list.appendChild(card);
+                list.appendChild(
+                    card
+                );
 
             }
-        );
 
-
-        updateStats(
-            pending,
-            approved,
-            denied
         );
 
     }
 
+
     catch(error) {
 
+
         console.error(
-            "Content loading error:",
+
+            "Student loading error:",
+
             error
+
         );
 
 
-        list.innerHTML =
-            `
+        list.innerHTML = `
+
             <div class="empty">
-                Could not load content.
-                <br>
-                ${escapeHTML(error.message || "")}
+
+                Could not load students.
+
+                <br><br>
+
+                ${escapeHTML(
+                    error.message ||
+                    ""
+                )}
+
             </div>
-            `;
+
+        `;
 
     }
 
 }
 
 
+
 /* =========================================================
-   UPDATE STATS
+   CREATE UNIT ROW
 ========================================================= */
 
-function updateStats(
-    pending,
-    approved,
-    denied
+function createUnitRow(
+
+    studentId,
+
+    unitId,
+
+    unitName,
+
+    approvedUnits
+
 ) {
 
-    document
-        .getElementById("pendingContent")
-        .textContent =
-            pending;
+
+    const approved =
+
+        approvedUnits &&
+
+        approvedUnits[unitId] === true;
 
 
-    document
-        .getElementById("approvedContent")
-        .textContent =
-            approved;
+    return `
+
+        <div class="unit-row">
 
 
-    document
-        .getElementById("deniedContent")
-        .textContent =
-            denied;
+            <div class="unit-name">
+
+                ${escapeHTML(
+                    unitName
+                )}
+
+            </div>
+
+
+            <div
+                class="
+                    unit-status
+                    ${
+                        approved
+                            ? "approved"
+                            : "locked"
+                    }
+                "
+            >
+
+                ${
+                    approved
+                        ? "✓ APPROVED"
+                        : "🔒 LOCKED"
+                }
+
+            </div>
+
+
+            <button
+
+                class="
+                    unit-action
+                    ${
+                        approved
+                            ? "unit-revoke"
+                            : "unit-approve"
+                    }
+                "
+
+                onclick="
+                    changeUnitAccess(
+                        '${studentId}',
+                        '${unitId}',
+                        ${approved}
+                    )
+                "
+
+                type="button"
+            >
+
+                ${
+                    approved
+                        ? "REVOKE"
+                        : "APPROVE"
+                }
+
+            </button>
+
+
+        </div>
+
+    `;
 
 }
 
 
-/* =========================================================
-   ADD CONTENT
-========================================================= */
-
-window.addContent =
-async function() {
-
-    const title =
-        document
-        .getElementById("contentTitle")
-        .value
-        .trim();
-
-
-    const path =
-        document
-        .getElementById("contentPath")
-        .value
-        .trim();
-
-
-    const status =
-        document
-        .getElementById("contentStatus")
-        .value;
-
-
-    if (
-        !title ||
-        !path
-    ) {
-
-        showAdminMessage(
-            "Please enter content title and path.",
-            "error"
-        );
-
-        return;
-
-    }
-
-
-    const user =
-        auth.currentUser;
-
-
-    if (!user) {
-
-        showAdminMessage(
-            "Admin session expired.",
-            "error"
-        );
-
-        return;
-
-    }
-
-
-    try {
-
-        const contentRef =
-            doc(
-                collection(
-                    db,
-                    "contents"
-                )
-            );
-
-
-        await setDoc(
-            contentRef,
-            {
-
-                title:
-                    title,
-
-                path:
-                    path,
-
-                status:
-                    status,
-
-                createdBy:
-                    user.email ||
-                    "Admin",
-
-                createdByUid:
-                    user.uid,
-
-                createdAt:
-                    serverTimestamp()
-
-            }
-        );
-
-
-        document
-            .getElementById("contentTitle")
-            .value = "";
-
-
-        document
-            .getElementById("contentPath")
-            .value = "";
-
-
-        document
-            .getElementById("contentStatus")
-            .value =
-                "pending";
-
-
-        showAdminMessage(
-            "Content added successfully.",
-            "success"
-        );
-
-
-        await loadContent();
-
-    }
-
-    catch(error) {
-
-        console.error(
-            "Add content error:",
-            error
-        );
-
-
-        showAdminMessage(
-            "Could not add content. " +
-            (error.message || ""),
-            "error"
-        );
-
-    }
-
-};
-
 
 /* =========================================================
-   CHANGE CONTENT STATUS
+   CHANGE STUDENT ACCOUNT STATUS
 ========================================================= */
 
-window.changeContentStatus =
+window.changeStudentStatus =
+
 async function(
-    contentId,
+
+    studentId,
+
     newStatus
+
 ) {
-
-    const user =
-        auth.currentUser;
-
-
-    if (!user) {
-
-        showAdminMessage(
-            "Admin session expired.",
-            "error"
-        );
-
-        return;
-
-    }
 
 
     try {
+
 
         await updateDoc(
 
             doc(
                 db,
-                "contents",
-                contentId
+                "students",
+                studentId
             ),
 
             {
 
-                status:
-                    newStatus,
-
-                updatedBy:
-                    user.email ||
-                    "Admin",
-
-                updatedAt:
-                    serverTimestamp()
+                accountStatus:
+                    newStatus
 
             }
 
         );
 
 
-        showAdminMessage(
-            "Content status changed to " +
-            newStatus.toUpperCase() +
-            ".",
+        showStudentMessage(
+
+            newStatus === "active"
+
+                ? "Student activated successfully."
+
+                : "Student deactivated successfully.",
+
             "success"
+
         );
 
 
-        await loadContent();
+        await loadStudents();
 
     }
 
+
     catch(error) {
 
+
         console.error(
-            "Status update error:",
+
+            "Student status update error:",
+
             error
+
         );
 
 
-        showAdminMessage(
-            "Could not update content status. " +
-            (error.message || ""),
+        showStudentMessage(
+
+            "Could not change student status. " +
+
+            (
+                error.message ||
+                ""
+            ),
+
             "error"
+
         );
 
     }
@@ -1933,28 +2391,93 @@ async function(
 };
 
 
+
 /* =========================================================
-   LOGOUT
+   APPROVE / REVOKE UNIT
 ========================================================= */
 
-window.adminLogout =
-async function() {
+window.changeUnitAccess =
+
+async function(
+
+    studentId,
+
+    unitId,
+
+    currentlyApproved
+
+) {
+
 
     try {
 
-        await signOut(auth);
+
+        const updateData = {};
 
 
-        window.location.href =
-            "../";
+        updateData[
+            "approvedUnits." + unitId
+        ] =
+
+            !currentlyApproved;
+
+
+        await updateDoc(
+
+            doc(
+                db,
+                "students",
+                studentId
+            ),
+
+            updateData
+
+        );
+
+
+        showStudentMessage(
+
+            !currentlyApproved
+
+                ? unitId.toUpperCase() +
+                  " approved successfully."
+
+                : unitId.toUpperCase() +
+                  " access revoked.",
+
+            "success"
+
+        );
+
+
+        await loadStudents();
 
     }
 
+
     catch(error) {
 
+
         console.error(
-            "Logout error:",
+
+            "Unit access update error:",
+
             error
+
+        );
+
+
+        showStudentMessage(
+
+            "Could not update unit access. " +
+
+            (
+                error.message ||
+                ""
+            ),
+
+            "error"
+
         );
 
     }
@@ -1962,18 +2485,26 @@ async function() {
 };
 
 
+
 /* =========================================================
-   ADMIN MESSAGE
+   MESSAGE
 ========================================================= */
 
-function showAdminMessage(
+function showStudentMessage(
+
     message,
+
     type
+
 ) {
 
+
     const box =
+
         document
-        .getElementById("adminMessage");
+            .getElementById(
+                "studentAccessMessage"
+            );
 
 
     box.textContent =
@@ -1986,16 +2517,58 @@ function showAdminMessage(
 
 
     setTimeout(
+
         function() {
 
             box.className =
                 "message";
 
         },
-        4000
+
+        3500
+
     );
 
 }
+
+
+
+/* =========================================================
+   ADMIN LOGOUT
+========================================================= */
+
+window.adminLogout =
+
+async function() {
+
+
+    try {
+
+
+        await signOut(
+            auth
+        );
+
+
+        window.location.href =
+            "../";
+
+
+    }
+
+
+    catch(error) {
+
+
+        console.error(
+            "Logout error:",
+            error
+        );
+
+    }
+
+};
+
 
 
 /* =========================================================
@@ -2004,23 +2577,29 @@ function showAdminMessage(
 
 function escapeHTML(value) {
 
+
     return String(value)
+
         .replaceAll(
             "&",
             "&amp;"
         )
+
         .replaceAll(
             "<",
             "&lt;"
         )
+
         .replaceAll(
             ">",
             "&gt;"
         )
+
         .replaceAll(
             '"',
             "&quot;"
         )
+
         .replaceAll(
             "'",
             "&#039;"
@@ -2030,5 +2609,7 @@ function escapeHTML(value) {
 
 </script>
 
+
 </body>
+
 </html>
