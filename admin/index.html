@@ -985,6 +985,122 @@ body {
 }
 
 
+
+/* =====================================================
+   STUDENT TOOLS
+===================================================== */
+
+.student-tools {
+    padding:18px 15px 5px;
+    border-bottom:1px solid var(--border);
+}
+
+.student-search {
+    width:100%;
+    padding:12px 14px;
+    border-radius:10px;
+    border:1px solid var(--border);
+    outline:none;
+    background:rgba(255,255,255,.045);
+    color:var(--text);
+    font-family:Poppins,sans-serif;
+    font-size:10px;
+}
+
+.student-search::placeholder {
+    color:var(--muted);
+}
+
+.student-search:focus {
+    border-color:rgba(105,183,216,.45);
+    background:rgba(255,255,255,.06);
+}
+
+.student-filters {
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:10px;
+}
+
+.student-filter {
+    padding:8px 12px;
+    border-radius:8px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.025);
+    color:var(--soft);
+    cursor:pointer;
+    font-family:Poppins,sans-serif;
+    font-size:8px;
+    font-weight:700;
+}
+
+.student-filter:hover,
+.student-filter.active {
+    color:var(--gold);
+    border-color:rgba(232,197,106,.30);
+    background:rgba(232,197,106,.08);
+}
+
+.student-result-info {
+    margin-top:10px;
+    color:var(--muted);
+    font-size:8px;
+}
+
+.pagination {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:7px;
+    padding:15px;
+    border-top:1px solid var(--border);
+}
+
+.page-btn {
+    min-width:32px;
+    padding:7px 9px;
+    border-radius:7px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.025);
+    color:var(--soft);
+    cursor:pointer;
+    font-family:Poppins,sans-serif;
+    font-size:8px;
+    font-weight:700;
+}
+
+.page-btn:hover:not(:disabled),
+.page-btn.active {
+    color:var(--gold);
+    border-color:rgba(232,197,106,.30);
+    background:rgba(232,197,106,.08);
+}
+
+.page-btn:disabled {
+    opacity:.35;
+    cursor:not-allowed;
+}
+
+.page-info {
+    color:var(--muted);
+    font-size:8px;
+    padding:0 4px;
+}
+
+@media(max-width:600px) {
+
+    .student-tools {
+        padding:15px 10px 5px;
+    }
+
+    .student-filter {
+        flex:1 1 auto;
+    }
+
+}
+
 /* =====================================================
    MOBILE
 ===================================================== */
@@ -1334,6 +1450,61 @@ body {
             ></div>
 
 
+            <!-- =================================================
+                 SEARCH / FILTER / PAGINATION CONTROLS
+            ================================================= -->
+
+            <div class="student-tools">
+
+                <input
+                    id="studentSearch"
+                    class="student-search"
+                    type="search"
+                    placeholder="🔍 Search by name, mobile or email..."
+                    autocomplete="off"
+                >
+
+                <div class="student-filters">
+
+                    <button
+                        id="filterAll"
+                        class="student-filter active"
+                        type="button"
+                        onclick="setStudentFilter('all')"
+                    >
+                        ALL
+                    </button>
+
+                    <button
+                        id="filterPending"
+                        class="student-filter"
+                        type="button"
+                        onclick="setStudentFilter('pending')"
+                    >
+                        ⏳ PENDING / NEW
+                    </button>
+
+                    <button
+                        id="filterApproved"
+                        class="student-filter"
+                        type="button"
+                        onclick="setStudentFilter('approved')"
+                    >
+                        ✅ APPROVED
+                    </button>
+
+                </div>
+
+                <div
+                    id="studentResultInfo"
+                    class="student-result-info"
+                >
+                    Loading students...
+                </div>
+
+            </div>
+
+
             <div
                 id="studentAccessList"
                 class="student-list"
@@ -1344,6 +1515,13 @@ body {
                 </div>
 
             </div>
+
+
+            <div
+                id="studentPagination"
+                class="pagination"
+                style="display:none;"
+            ></div>
 
         </section>
 
@@ -1464,6 +1642,18 @@ const auth =
 const db =
     getFirestore(app);
 
+
+/* =========================================================
+   STUDENT LIST STATE
+========================================================= */
+
+let allStudents = [];
+
+let currentStudentFilter = "all";
+
+let currentStudentPage = 1;
+
+const STUDENTS_PER_PAGE = 10;
 
 
 /* =========================================================
@@ -1786,28 +1976,28 @@ function showAccessDenied(
 
 async function loadStudents() {
 
-
     const list =
-
         document
             .getElementById(
                 "studentAccessList"
             );
 
-
     try {
 
-
         const snapshot =
-
             await getDocs(
-
                 collection(
                     db,
                     "students"
                 )
-
             );
+
+
+        /* -----------------------------------------
+           RESET STUDENT DATA
+        ----------------------------------------- */
+
+        allStudents = [];
 
 
         /* -----------------------------------------
@@ -1824,7 +2014,6 @@ async function loadStudents() {
         snapshot.forEach(
 
             function(studentDoc) {
-
 
                 const data =
                     studentDoc.data();
@@ -1868,6 +2057,35 @@ async function loadStudents() {
 
                 }
 
+
+                allStudents.push({
+
+                    id: studentDoc.id,
+
+                    data: data,
+
+                    createdAt:
+                        getStudentCreatedTime(
+                            data.createdAt
+                        )
+
+                });
+
+            }
+
+        );
+
+
+        /* -----------------------------------------
+           NEWEST STUDENTS FIRST
+        ----------------------------------------- */
+
+        allStudents.sort(
+
+            function(a, b) {
+
+                return b.createdAt - a.createdAt;
+
             }
 
         );
@@ -1905,6 +2123,9 @@ async function loadStudents() {
                 unit12Count;
 
 
+        currentStudentPage = 1;
+
+
         /* -----------------------------------------
            EMPTY
         ----------------------------------------- */
@@ -1923,260 +2144,35 @@ async function loadStudents() {
 
             `;
 
+            document
+                .getElementById(
+                    "studentPagination"
+                )
+                .style.display =
+                    "none";
+
+            document
+                .getElementById(
+                    "studentResultInfo"
+                )
+                .textContent =
+                    "0 students";
+
             return;
 
         }
 
 
-        list.innerHTML = "";
-
-
         /* -----------------------------------------
-           STUDENT CARDS
+           INITIAL RENDER
         ----------------------------------------- */
 
-        snapshot.forEach(
-
-            function(studentDoc) {
-
-
-                const data =
-                    studentDoc.data();
-
-
-                const studentId =
-                    studentDoc.id;
-
-
-                const accountStatus =
-                    data.accountStatus ||
-                    "inactive";
-
-
-                const isActive =
-                    accountStatus === "active";
-
-
-                const approvedUnits =
-                    data.approvedUnits ||
-                    {};
-
-
-                const card =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                card.className =
-                    "student-card";
-
-
-                card.dataset.studentId =
-                    studentId;
-
-
-                card.innerHTML = `
-
-
-                    <!-- STUDENT TOP -->
-
-                    <div class="student-top">
-
-
-                        <div>
-
-                            <span class="student-label">
-                                NAME
-                            </span>
-
-
-                            <span
-                                class="
-                                    student-value
-                                    student-name
-                                "
-                            >
-
-                                ${escapeHTML(
-                                    data.name ||
-                                    "Student"
-                                )}
-
-                            </span>
-
-                        </div>
-
-
-
-                        <div>
-
-                            <span class="student-label">
-                                EMAIL
-                            </span>
-
-
-                            <span class="student-value">
-
-                                ${escapeHTML(
-                                    data.email ||
-                                    "-"
-                                )}
-
-                            </span>
-
-                        </div>
-
-
-
-                        <div>
-
-                            <span class="student-label">
-                                MOBILE
-                            </span>
-
-
-                            <span class="student-value">
-
-                                ${escapeHTML(
-                                    data.mobile ||
-                                    "-"
-                                )}
-
-                            </span>
-
-                        </div>
-
-
-
-                        <div>
-
-                            <span class="student-label">
-                                ACCOUNT STATUS
-                            </span>
-
-
-                            <span
-                                class="
-                                    account-status
-                                    ${
-                                        isActive
-                                            ? "active"
-                                            : "inactive"
-                                    }
-                                "
-                            >
-
-                                ${
-                                    isActive
-                                        ? "ACTIVE"
-                                        : "INACTIVE"
-                                }
-
-                            </span>
-
-                        </div>
-
-
-
-                        <div>
-
-                            <button
-                                class="
-                                    account-btn
-                                    ${
-                                        isActive
-                                            ? "deactivate-btn"
-                                            : "activate-btn"
-                                    }
-                                "
-
-                                onclick="
-                                    changeStudentStatus(
-                                        '${studentId}',
-                                        '${
-                                            isActive
-                                                ? "inactive"
-                                                : "active"
-                                        }'
-                                    )
-                                "
-
-                                type="button"
-                            >
-
-                                ${
-                                    isActive
-                                        ? "DEACTIVATE"
-                                        : "ACTIVATE"
-                                }
-
-                            </button>
-
-                        </div>
-
-
-                    </div>
-
-
-
-                    <!-- UNIT ACCESS -->
-
-                    <div class="unit-access">
-
-
-                        <div class="unit-access-title">
-
-                            UNIT ACCESS
-
-                        </div>
-
-
-                        ${createUnitRow(
-
-                            studentId,
-
-                            "unit-11",
-
-                            "Unit 11",
-
-                            approvedUnits
-
-                        )}
-
-
-                        ${createUnitRow(
-
-                            studentId,
-
-                            "unit-12",
-
-                            "Unit 12",
-
-                            approvedUnits
-
-                        )}
-
-
-                    </div>
-
-
-                `;
-
-
-                list.appendChild(
-                    card
-                );
-
-            }
-
-        );
+        renderStudentList();
 
     }
 
 
     catch(error) {
-
 
         console.error(
 
@@ -2208,6 +2204,966 @@ async function loadStudents() {
 
 }
 
+
+/* =========================================================
+   STUDENT SEARCH
+========================================================= */
+
+document
+    .getElementById("studentSearch")
+    .addEventListener(
+
+        "input",
+
+        function() {
+
+            currentStudentPage = 1;
+
+            renderStudentList();
+
+        }
+
+    );
+
+
+/* =========================================================
+   STUDENT FILTER
+========================================================= */
+
+window.setStudentFilter =
+
+function(filter) {
+
+    currentStudentFilter =
+        filter;
+
+    currentStudentPage = 1;
+
+
+    document
+        .querySelectorAll(
+            ".student-filter"
+        )
+        .forEach(
+
+            function(button) {
+
+                button.classList.remove(
+                    "active"
+                );
+
+            }
+
+        );
+
+
+    const activeButton =
+        document.getElementById(
+
+            filter === "all"
+                ? "filterAll"
+                : filter === "pending"
+                    ? "filterPending"
+                    : "filterApproved"
+
+        );
+
+
+    if (activeButton) {
+
+        activeButton.classList.add(
+            "active"
+        );
+
+    }
+
+
+    renderStudentList();
+
+};
+
+
+/* =========================================================
+   GET FILTERED STUDENTS
+========================================================= */
+
+function getFilteredStudents() {
+
+    const searchInput =
+        document.getElementById(
+            "studentSearch"
+        );
+
+
+    const search =
+        (
+            searchInput
+                ? searchInput.value
+                : ""
+        )
+        .trim()
+        .toLowerCase();
+
+
+    return allStudents.filter(
+
+        function(student) {
+
+            const data =
+                student.data || {};
+
+
+            const status =
+                data.accountStatus ||
+                "inactive";
+
+
+            /* -----------------------------------------
+               STATUS FILTER
+            ----------------------------------------- */
+
+            if (
+                currentStudentFilter ===
+                "pending" &&
+                status === "active"
+            ) {
+
+                return false;
+
+            }
+
+
+            if (
+                currentStudentFilter ===
+                "approved" &&
+                status !== "active"
+            ) {
+
+                return false;
+
+            }
+
+
+            /* -----------------------------------------
+               SEARCH FILTER
+               NAME / MOBILE / EMAIL
+            ----------------------------------------- */
+
+            if (!search) {
+
+                return true;
+
+            }
+
+
+            const name =
+                String(
+                    data.name ||
+                    ""
+                )
+                .toLowerCase();
+
+
+            const mobile =
+                String(
+                    data.mobile ||
+                    ""
+                )
+                .toLowerCase();
+
+
+            const email =
+                String(
+                    data.email ||
+                    ""
+                )
+                .toLowerCase();
+
+
+            return (
+
+                name.includes(search) ||
+
+                mobile.includes(search) ||
+
+                email.includes(search)
+
+            );
+
+        }
+
+    );
+
+}
+
+
+/* =========================================================
+   RENDER STUDENT LIST
+========================================================= */
+
+function renderStudentList() {
+
+    const list =
+        document.getElementById(
+            "studentAccessList"
+        );
+
+
+    const pagination =
+        document.getElementById(
+            "studentPagination"
+        );
+
+
+    const resultInfo =
+        document.getElementById(
+            "studentResultInfo"
+        );
+
+
+    const filteredStudents =
+        getFilteredStudents();
+
+
+    const totalResults =
+        filteredStudents.length;
+
+
+    const totalPages =
+        Math.max(
+
+            1,
+
+            Math.ceil(
+                totalResults /
+                STUDENTS_PER_PAGE
+            )
+
+        );
+
+
+    if (
+        currentStudentPage >
+        totalPages
+    ) {
+
+        currentStudentPage =
+            totalPages;
+
+    }
+
+
+    const startIndex =
+        (
+            currentStudentPage -
+            1
+        ) *
+        STUDENTS_PER_PAGE;
+
+
+    const endIndex =
+        startIndex +
+        STUDENTS_PER_PAGE;
+
+
+    const visibleStudents =
+        filteredStudents.slice(
+            startIndex,
+            endIndex
+        );
+
+
+    /* -----------------------------------------
+       RESULT INFORMATION
+    ----------------------------------------- */
+
+    if (
+        totalResults === 0
+    ) {
+
+        resultInfo.textContent =
+            "No matching students found.";
+
+    }
+
+    else {
+
+        resultInfo.textContent =
+
+            "Showing " +
+
+            (
+                startIndex + 1
+            ) +
+
+            "–" +
+
+            Math.min(
+                endIndex,
+                totalResults
+            ) +
+
+            " of " +
+
+            totalResults +
+
+            " students";
+
+    }
+
+
+    /* -----------------------------------------
+       EMPTY RESULT
+    ----------------------------------------- */
+
+    if (
+        visibleStudents.length === 0
+    ) {
+
+        list.innerHTML = `
+
+            <div class="empty">
+
+                ${
+                    allStudents.length === 0
+                        ? "No students registered yet."
+                        : "No students match your search or filter."
+                }
+
+            </div>
+
+        `;
+
+
+        renderPagination(
+            totalPages,
+            totalResults
+        );
+
+        return;
+
+    }
+
+
+    list.innerHTML = "";
+
+
+    /* -----------------------------------------
+       STUDENT CARDS
+    ----------------------------------------- */
+
+    visibleStudents.forEach(
+
+        function(student) {
+
+            const data =
+                student.data || {};
+
+
+            const studentId =
+                student.id;
+
+
+            const accountStatus =
+                data.accountStatus ||
+                "inactive";
+
+
+            const isActive =
+                accountStatus === "active";
+
+
+            const approvedUnits =
+                data.approvedUnits ||
+                {};
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "student-card";
+
+
+            card.dataset.studentId =
+                studentId;
+
+
+            card.innerHTML = `
+
+
+                <!-- STUDENT TOP -->
+
+                <div class="student-top">
+
+
+                    <div>
+
+                        <span class="student-label">
+                            NAME
+                        </span>
+
+
+                        <span
+                            class="
+                                student-value
+                                student-name
+                            "
+                        >
+
+                            ${escapeHTML(
+                                data.name ||
+                                "Student"
+                            )}
+
+                        </span>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span class="student-label">
+                            EMAIL
+                        </span>
+
+
+                        <span class="student-value">
+
+                            ${escapeHTML(
+                                data.email ||
+                                "-"
+                            )}
+
+                        </span>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span class="student-label">
+                            MOBILE
+                        </span>
+
+
+                        <span class="student-value">
+
+                            ${escapeHTML(
+                                data.mobile ||
+                                "-"
+                            )}
+
+                        </span>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span class="student-label">
+                            ACCOUNT STATUS
+                        </span>
+
+
+                        <span
+                            class="
+                                account-status
+                                ${
+                                    isActive
+                                        ? "active"
+                                        : "inactive"
+                                }
+                            "
+                        >
+
+                            ${
+                                isActive
+                                    ? "ACTIVE"
+                                    : "PENDING"
+                            }
+
+                        </span>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <button
+                            class="
+                                account-btn
+                                ${
+                                    isActive
+                                        ? "deactivate-btn"
+                                        : "activate-btn"
+                                }
+                            "
+
+                            onclick="
+                                changeStudentStatus(
+                                    '${studentId}',
+                                    '${
+                                        isActive
+                                            ? "inactive"
+                                            : "active"
+                                    }'
+                                )
+                            "
+
+                            type="button"
+                        >
+
+                            ${
+                                isActive
+                                    ? "DEACTIVATE"
+                                    : "ACTIVATE"
+                            }
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- UNIT ACCESS -->
+
+                <div class="unit-access">
+
+
+                    <div class="unit-access-title">
+
+                        UNIT ACCESS
+
+                    </div>
+
+
+                    ${createUnitRow(
+
+                        studentId,
+
+                        "unit-11",
+
+                        "Unit 11",
+
+                        approvedUnits
+
+                    )}
+
+
+                    ${createUnitRow(
+
+                        studentId,
+
+                        "unit-12",
+
+                        "Unit 12",
+
+                        approvedUnits
+
+                    )}
+
+
+                </div>
+
+
+            `;
+
+
+            list.appendChild(
+                card
+            );
+
+        }
+
+    );
+
+
+    renderPagination(
+        totalPages,
+        totalResults
+    );
+
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+function renderPagination(
+    totalPages,
+    totalResults
+) {
+
+    const pagination =
+        document.getElementById(
+            "studentPagination"
+        );
+
+
+    if (
+        totalResults <=
+        STUDENTS_PER_PAGE
+    ) {
+
+        pagination.innerHTML = "";
+
+        pagination.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    pagination.style.display =
+        "flex";
+
+
+    let html = "";
+
+
+    html += `
+
+        <button
+            class="page-btn"
+            type="button"
+            onclick="changeStudentPage(${currentStudentPage - 1})"
+            ${currentStudentPage === 1 ? "disabled" : ""}
+        >
+            ‹
+        </button>
+
+    `;
+
+
+    /*
+       Show a compact page range so the
+       pagination remains usable even when
+       there are many students.
+    */
+
+    const pageNumbers =
+        getPageNumbers(
+            totalPages,
+            currentStudentPage
+        );
+
+
+    pageNumbers.forEach(
+
+        function(page) {
+
+            if (
+                page === "..."
+            ) {
+
+                html += `
+
+                    <span class="page-info">
+                        ...
+                    </span>
+
+                `;
+
+            }
+
+            else {
+
+                html += `
+
+                    <button
+                        class="page-btn ${
+                            page ===
+                            currentStudentPage
+                                ? "active"
+                                : ""
+                        }"
+                        type="button"
+                        onclick="changeStudentPage(${page})"
+                    >
+                        ${page}
+                    </button>
+
+                `;
+
+            }
+
+        }
+
+    );
+
+
+    html += `
+
+        <button
+            class="page-btn"
+            type="button"
+            onclick="changeStudentPage(${currentStudentPage + 1})"
+            ${
+                currentStudentPage ===
+                totalPages
+                    ? "disabled"
+                    : ""
+            }
+        >
+            ›
+        </button>
+
+
+        <span class="page-info">
+            Page ${currentStudentPage} of ${totalPages}
+        </span>
+
+    `;
+
+
+    pagination.innerHTML =
+        html;
+
+}
+
+
+function getPageNumbers(
+    totalPages,
+    currentPage
+) {
+
+    if (
+        totalPages <= 7
+    ) {
+
+        return Array.from(
+
+            {
+                length:
+                    totalPages
+
+            },
+
+            function(_, index) {
+
+                return index + 1;
+
+            }
+
+        );
+
+    }
+
+
+    const pages = [1];
+
+
+    if (
+        currentPage > 4
+    ) {
+
+        pages.push("...");
+
+    }
+
+
+    const start =
+        Math.max(
+            2,
+            currentPage - 1
+        );
+
+
+    const end =
+        Math.min(
+            totalPages - 1,
+            currentPage + 1
+        );
+
+
+    for (
+        let page = start;
+        page <= end;
+        page++
+    ) {
+
+        pages.push(page);
+
+    }
+
+
+    if (
+        currentPage <
+        totalPages - 3
+    ) {
+
+        pages.push("...");
+
+    }
+
+
+    pages.push(
+        totalPages
+    );
+
+
+    return pages;
+
+}
+
+
+window.changeStudentPage =
+
+function(page) {
+
+    const filteredCount =
+        getFilteredStudents().length;
+
+
+    const totalPages =
+        Math.max(
+
+            1,
+
+            Math.ceil(
+                filteredCount /
+                STUDENTS_PER_PAGE
+            )
+
+        );
+
+
+    if (
+        page < 1 ||
+        page > totalPages
+    ) {
+
+        return;
+
+    }
+
+
+    currentStudentPage =
+        page;
+
+
+    renderStudentList();
+
+
+    const section =
+        document.querySelector(
+            ".section"
+        );
+
+
+    if (section) {
+
+        section.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+};
+
+
+/* =========================================================
+   CREATED AT HELPER
+========================================================= */
+
+function getStudentCreatedTime(
+    createdAt
+) {
+
+    if (!createdAt) {
+
+        return 0;
+
+    }
+
+
+    /* Firestore Timestamp */
+
+    if (
+        typeof createdAt.toMillis ===
+        "function"
+    ) {
+
+        return createdAt.toMillis();
+
+    }
+
+
+    /* JavaScript Date */
+
+    if (
+        createdAt instanceof Date
+    ) {
+
+        return createdAt.getTime();
+
+    }
+
+
+    /* Timestamp-like object */
+
+    if (
+        typeof createdAt.seconds ===
+        "number"
+    ) {
+
+        return (
+            createdAt.seconds *
+            1000
+        ) +
+
+        Math.floor(
+            (
+                createdAt.nanoseconds ||
+                0
+            ) /
+            1000000
+        );
+
+    }
+
+
+    /* Number */
+
+    if (
+        typeof createdAt ===
+        "number"
+    ) {
+
+        return createdAt;
+
+    }
+
+
+    /* Date string */
+
+    const parsed =
+        Date.parse(
+            String(createdAt)
+        );
+
+
+    return Number.isNaN(
+        parsed
+    )
+        ? 0
+        : parsed;
+
+}
 
 
 /* =========================================================
