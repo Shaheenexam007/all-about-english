@@ -3656,25 +3656,205 @@ document.getElementById(
 
         try {
 
-            await signInWithEmailAndPassword(
-                auth,
-                email,
-                password
+            /* =================================================
+               1. FIREBASE AUTHENTICATION
+            ================================================= */
+
+            const userCredential =
+                await signInWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+
+            const user =
+                userCredential.user;
+
+
+            console.log(
+                "Firebase login successful:",
+                user.uid
             );
 
 
+            /* =================================================
+               2. CHECK ADMIN ACCOUNT
+            ================================================= */
+
+            const adminRef =
+                doc(
+                    db,
+                    "admins",
+                    user.uid
+                );
+
+
+            const adminSnap =
+                await getDoc(
+                    adminRef
+                );
+
+
+            /* =================================================
+               3. ADMIN LOGIN
+            ================================================= */
+
+            if (
+                adminSnap.exists()
+            ) {
+
+                const adminData =
+                    adminSnap.data();
+
+
+                console.log(
+                    "Admin document found:",
+                    adminData
+                );
+
+
+                if (
+                    adminData.role === "admin" &&
+                    adminData.status === "active"
+                ) {
+
+                    console.log(
+                        "Active admin login detected."
+                    );
+
+
+                    showMessage(
+                        "Admin login successful!",
+                        "success"
+                    );
+
+
+                    setTimeout(
+                        function() {
+
+                            closeAuthModal();
+
+
+                            /*
+                             * যদি তোমার admin dashboard
+                             * অন্য page-এ থাকে,
+                             * এখানে সেই page-এর URL বসাবে।
+                             *
+                             * আপাতত account panel খুলছি।
+                             */
+
+                            openAccountPanel();
+
+                        },
+                        600
+                    );
+
+
+                    return;
+
+                }
+
+
+                /* ---------------------------------------------
+                   ADMIN DOCUMENT EXISTS BUT NOT ACTIVE
+                --------------------------------------------- */
+
+                await signOut(auth);
+
+
+                showMessage(
+                    "Your admin account is not active.",
+                    "error"
+                );
+
+
+                return;
+
+            }
+
+
+            /* =================================================
+               4. STUDENT LOGIN
+            ================================================= */
+
+            console.log(
+                "No admin document. Checking student account..."
+            );
+
+
+            const studentRef =
+                doc(
+                    db,
+                    "students",
+                    user.uid
+                );
+
+
+            const studentSnap =
+                await getDoc(
+                    studentRef
+                );
+
+
+            if (
+                !studentSnap.exists()
+            ) {
+
+                console.error(
+                    "Neither admin nor student profile was found."
+                );
+
+
+                await signOut(auth);
+
+
+                showMessage(
+                    "Account profile was not found. Please contact Shaheen Sir.",
+                    "error"
+                );
+
+
+                return;
+
+            }
+
+
+            /* =================================================
+               5. REGISTER CURRENT DEVICE
+            ================================================= */
+
             const allowed =
-    await registerCurrentDevice();
+                await registerCurrentDevice();
 
-if (!allowed) {
 
-    console.warn(
-        "Device registration failed, but user remains logged in."
-    );
+            if (!allowed) {
 
-    return;
+                /*
+                 * IMPORTANT:
+                 *
+                 * Do NOT sign the user out.
+                 *
+                 * Authentication remains valid.
+                 */
 
-}
+                console.warn(
+                    "Device registration was not allowed, but the user remains logged in."
+                );
+
+
+                return;
+
+            }
+
+
+            /* =================================================
+               6. STUDENT LOGIN SUCCESS
+            ================================================= */
+
+            console.log(
+                "Student login successful."
+            );
 
 
             showMessage(
@@ -3694,8 +3874,8 @@ if (!allowed) {
                 600
             );
 
-
         }
+
 
         catch(error) {
 
@@ -3719,6 +3899,7 @@ if (!allowed) {
 
             }
 
+
             else if (
                 error.code ===
                 "auth/user-not-found"
@@ -3728,6 +3909,7 @@ if (!allowed) {
                     "No account found with this email.";
 
             }
+
 
             else if (
                 error.code ===
@@ -3739,6 +3921,7 @@ if (!allowed) {
 
             }
 
+
             else if (
                 error.code ===
                 "auth/too-many-requests"
@@ -3749,9 +3932,24 @@ if (!allowed) {
 
             }
 
+
             else if (
                 error.code ===
                 "permission-denied"
+            ) {
+
+                message =
+                    "Firestore permission denied. Please check Firestore Rules.";
+
+            }
+
+
+            else if (
+                error.code ===
+                "permission-denied" ||
+                error.message?.includes(
+                    "Missing or insufficient permissions"
+                )
             ) {
 
                 message =
@@ -3767,10 +3965,12 @@ if (!allowed) {
 
         }
 
+
         finally {
 
             submitButton.disabled =
                 false;
+
 
             loading.classList.remove(
                 "show"
