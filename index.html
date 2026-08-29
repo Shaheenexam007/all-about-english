@@ -2862,8 +2862,8 @@ footer strong {
      FIREBASE
 ========================================================= -->
 
+```html
 <script type="module">
-
 
 /* =========================================================
    FIREBASE IMPORTS
@@ -2883,7 +2883,9 @@ import {
     signOut,
     onAuthStateChanged,
     sendPasswordResetEmail,
-    updateProfile
+    updateProfile,
+    setPersistence,
+    browserLocalPersistence
 }
 from
 "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
@@ -2901,7 +2903,6 @@ from
 "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
 
 
-
 /* =========================================================
    FIREBASE CONFIG
 ========================================================= */
@@ -2909,7 +2910,7 @@ from
 const firebaseConfig = {
 
     apiKey:
-        "AIzaSyCSC86rxNfQ44z-WTBsZh5FL-Sxa0_F4fA",
+        "AIzaSyCSC86rxNfQ44z-WTBsZh5FL-Sxa0_f4fA",
 
     authDomain:
         "all-about-english-007.firebaseapp.com",
@@ -2935,9 +2936,8 @@ const firebaseConfig = {
 };
 
 
-
 /* =========================================================
-   INITIALIZE
+   INITIALIZE FIREBASE
 ========================================================= */
 
 const app =
@@ -2951,6 +2951,20 @@ const auth =
 const db =
     getFirestore(app);
 
+
+/* =========================================================
+   IMPORTANT:
+   ENABLE FIREBASE AUTH PERSISTENCE
+========================================================= */
+
+await setPersistence(
+    auth,
+    browserLocalPersistence
+);
+
+console.log(
+    "Firebase Auth persistence enabled."
+);
 
 
 /* =========================================================
@@ -2983,7 +2997,6 @@ function createDeviceId() {
 }
 
 
-
 function getDeviceId() {
 
     let deviceId =
@@ -3011,10 +3024,8 @@ function getDeviceId() {
 }
 
 
-
 const currentDeviceId =
     getDeviceId();
-
 
 
 /* =========================================================
@@ -3038,7 +3049,6 @@ const authButton =
 
 const userDisplay =
     document.getElementById("userNameDisplay");
-
 
 
 /* =========================================================
@@ -3067,7 +3077,6 @@ function showMessage(
 }
 
 
-
 function clearMessage() {
 
     const box =
@@ -3084,7 +3093,6 @@ function clearMessage() {
         "auth-message";
 
 }
-
 
 
 /* =========================================================
@@ -3117,7 +3125,6 @@ function closeAuthModal() {
     );
 
 }
-
 
 
 function openAccountPanel() {
@@ -3172,7 +3179,6 @@ function openAccountPanel() {
 }
 
 
-
 function closeOverlayOutside(event) {
 
     if (
@@ -3187,6 +3193,9 @@ function closeOverlayOutside(event) {
 }
 
 
+/* =========================================================
+   AUTH BUTTONS
+========================================================= */
 
 authButton.addEventListener(
     "click",
@@ -3238,7 +3247,6 @@ authOverlay.addEventListener(
 );
 
 
-
 /* =========================================================
    TABS
 ========================================================= */
@@ -3275,7 +3283,6 @@ document.getElementById(
 );
 
 
-
 document.getElementById(
     "registerTab"
 ).addEventListener(
@@ -3306,7 +3313,6 @@ document.getElementById(
 
     }
 );
-
 
 
 /* =========================================================
@@ -3604,6 +3610,238 @@ document.getElementById(
 );
 
 
+/* =========================================================
+   REGISTER CURRENT DEVICE
+========================================================= */
+
+async function registerCurrentDevice() {
+
+    const user =
+        auth.currentUser;
+
+
+    if (!user) {
+
+        showMessage(
+            "Please login again.",
+            "error"
+        );
+
+        return false;
+
+    }
+
+
+    const studentRef =
+        doc(
+            db,
+            "students",
+            user.uid
+        );
+
+
+    try {
+
+        const studentSnap =
+            await getDoc(
+                studentRef
+            );
+
+
+        if (!studentSnap.exists()) {
+
+            showMessage(
+                "Student profile was not found.",
+                "error"
+            );
+
+            return false;
+
+        }
+
+
+        const data =
+            studentSnap.data();
+
+
+        const device1 =
+            typeof data.device1 === "string"
+                ? data.device1
+                : "";
+
+
+        const device2 =
+            typeof data.device2 === "string"
+                ? data.device2
+                : "";
+
+
+        if (
+            typeof currentDeviceId !== "string" ||
+            !currentDeviceId.trim()
+        ) {
+
+            console.error(
+                "Current device ID is missing."
+            );
+
+            showMessage(
+                "Could not identify this device. Please try again.",
+                "error"
+            );
+
+            return false;
+
+        }
+
+
+        const currentDevice =
+            currentDeviceId.trim();
+
+
+        /* SAME DEVICE */
+
+        if (
+            device1 === currentDevice ||
+            device2 === currentDevice
+        ) {
+
+            console.log(
+                "Existing registered device detected."
+            );
+
+            return true;
+
+        }
+
+
+        /* DEVICE 1 EMPTY */
+
+        if (!device1) {
+
+            await updateDoc(
+                studentRef,
+                {
+                    device1:
+                        currentDevice
+                }
+            );
+
+
+            console.log(
+                "Device 1 registered successfully."
+            );
+
+
+            return true;
+
+        }
+
+
+        /* DEVICE 2 EMPTY */
+
+        if (!device2) {
+
+            await updateDoc(
+                studentRef,
+                {
+                    device2:
+                        currentDevice
+                }
+            );
+
+
+            console.log(
+                "Device 2 registered successfully."
+            );
+
+
+            return true;
+
+        }
+
+
+        /* BOTH DEVICES FULL */
+
+        console.warn(
+            "Both device slots are already occupied."
+        );
+
+
+        if (deviceLimitBox) {
+
+            deviceLimitBox.style.display =
+                "block";
+
+        }
+
+
+        if (authModal) {
+
+            authModal.style.display =
+                "none";
+
+        }
+
+
+        if (accountPanel) {
+
+            accountPanel.classList.remove(
+                "show"
+            );
+
+        }
+
+
+        if (authOverlay) {
+
+            authOverlay.classList.add(
+                "show"
+            );
+
+        }
+
+
+        return false;
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Device registration error:",
+            error
+        );
+
+
+        if (
+            error.code ===
+            "permission-denied"
+        ) {
+
+            showMessage(
+                "Firestore permission denied. Please contact Shaheen Sir.",
+                "error"
+            );
+
+        }
+
+        else {
+
+            showMessage(
+                "Could not register this device. Please try again.",
+                "error"
+            );
+
+        }
+
+
+        return false;
+
+    }
+
+}
+
 
 /* =========================================================
    LOGIN
@@ -3679,7 +3917,7 @@ document.getElementById(
 
 
             /* =================================================
-               2. CHECK ADMIN ACCOUNT
+               2. CHECK ADMIN
             ================================================= */
 
             const adminRef =
@@ -3690,10 +3928,51 @@ document.getElementById(
                 );
 
 
-            const adminSnap =
-                await getDoc(
-                    adminRef
+            let adminSnap;
+
+
+            try {
+
+                adminSnap =
+                    await getDoc(
+                        adminRef
+                    );
+
+            }
+
+            catch(adminError) {
+
+                console.error(
+                    "Admin document check error:",
+                    adminError
                 );
+
+                /*
+                 * IMPORTANT:
+                 *
+                 * If the document simply cannot be read,
+                 * do not immediately destroy the valid
+                 * Firebase authentication session.
+                 */
+
+                if (
+                    adminError.code ===
+                    "permission-denied"
+                ) {
+
+                    console.warn(
+                        "Admin check permission denied. Continuing with student check."
+                    );
+
+                }
+
+                else {
+
+                    throw adminError;
+
+                }
+
+            }
 
 
             /* =================================================
@@ -3701,6 +3980,7 @@ document.getElementById(
             ================================================= */
 
             if (
+                adminSnap &&
                 adminSnap.exists()
             ) {
 
@@ -3735,15 +4015,6 @@ document.getElementById(
 
                             closeAuthModal();
 
-
-                            /*
-                             * যদি তোমার admin dashboard
-                             * অন্য page-এ থাকে,
-                             * এখানে সেই page-এর URL বসাবে।
-                             *
-                             * আপাতত account panel খুলছি।
-                             */
-
                             openAccountPanel();
 
                         },
@@ -3755,10 +4026,6 @@ document.getElementById(
 
                 }
 
-
-                /* ---------------------------------------------
-                   ADMIN DOCUMENT EXISTS BUT NOT ACTIVE
-                --------------------------------------------- */
 
                 await signOut(auth);
 
@@ -3821,7 +4088,7 @@ document.getElementById(
 
 
             /* =================================================
-               5. REGISTER CURRENT DEVICE
+               5. DEVICE CHECK
             ================================================= */
 
             const allowed =
@@ -3834,12 +4101,10 @@ document.getElementById(
                  * IMPORTANT:
                  *
                  * Do NOT sign the user out.
-                 *
-                 * Authentication remains valid.
                  */
 
                 console.warn(
-                    "Device registration was not allowed, but the user remains logged in."
+                    "Device registration was not allowed, but Firebase authentication remains active."
                 );
 
 
@@ -3854,6 +4119,12 @@ document.getElementById(
 
             console.log(
                 "Student login successful."
+            );
+
+
+            console.log(
+                "Authenticated UID:",
+                auth.currentUser?.uid
             );
 
 
@@ -3899,7 +4170,6 @@ document.getElementById(
 
             }
 
-
             else if (
                 error.code ===
                 "auth/user-not-found"
@@ -3909,7 +4179,6 @@ document.getElementById(
                     "No account found with this email.";
 
             }
-
 
             else if (
                 error.code ===
@@ -3921,7 +4190,6 @@ document.getElementById(
 
             }
 
-
             else if (
                 error.code ===
                 "auth/too-many-requests"
@@ -3931,18 +4199,6 @@ document.getElementById(
                     "Too many unsuccessful attempts. Please try again later.";
 
             }
-
-
-            else if (
-                error.code ===
-                "permission-denied"
-            ) {
-
-                message =
-                    "Firestore permission denied. Please check Firestore Rules.";
-
-            }
-
 
             else if (
                 error.code ===
@@ -3980,289 +4236,6 @@ document.getElementById(
 
     }
 );
-
-
-
-/* =========================================================
-   REGISTER CURRENT DEVICE
-   Safe version for existing + new students
-========================================================= */
-
-async function registerCurrentDevice() {
-
-    const user = auth.currentUser;
-
-
-    /* -----------------------------------------------------
-       USER NOT LOGGED IN
-    ----------------------------------------------------- */
-
-    if (!user) {
-
-        showMessage(
-            "Please login again.",
-            "error"
-        );
-
-        return false;
-
-    }
-
-
-    /* -----------------------------------------------------
-       STUDENT DOCUMENT
-    ----------------------------------------------------- */
-
-    const studentRef = doc(
-        db,
-        "students",
-        user.uid
-    );
-
-
-    try {
-
-        const studentSnap = await getDoc(
-            studentRef
-        );
-
-
-        /* -------------------------------------------------
-           STUDENT DOCUMENT NOT FOUND
-        ------------------------------------------------- */
-
-        if (!studentSnap.exists()) {
-
-            showMessage(
-                "Student profile was not found.",
-                "error"
-            );
-
-            return false;
-
-        }
-
-
-        const data = studentSnap.data();
-
-
-        /* -------------------------------------------------
-           EXISTING DEVICE DATA
-        ------------------------------------------------- */
-
-        const device1 =
-            typeof data.device1 === "string"
-                ? data.device1
-                : "";
-
-
-        const device2 =
-            typeof data.device2 === "string"
-                ? data.device2
-                : "";
-
-
-        /* -------------------------------------------------
-           CURRENT DEVICE ID
-        ------------------------------------------------- */
-
-        if (
-            typeof currentDeviceId !== "string" ||
-            !currentDeviceId.trim()
-        ) {
-
-            console.error(
-                "Current device ID is missing."
-            );
-
-            showMessage(
-                "Could not identify this device. Please try again.",
-                "error"
-            );
-
-            return false;
-
-        }
-
-
-        const currentDevice =
-            currentDeviceId.trim();
-
-
-        /* =================================================
-           1. SAME DEVICE ALREADY REGISTERED
-        ================================================= */
-
-        if (
-            device1 === currentDevice ||
-            device2 === currentDevice
-        ) {
-
-            console.log(
-                "Existing registered device detected."
-            );
-
-            return true;
-
-        }
-
-
-        /* =================================================
-           2. DEVICE 1 EMPTY
-        ================================================= */
-
-        if (!device1) {
-
-            await updateDoc(
-                studentRef,
-                {
-                    device1: currentDevice
-                }
-            );
-
-
-            console.log(
-                "Device 1 registered successfully."
-            );
-
-
-            return true;
-
-        }
-
-
-        /* =================================================
-           3. DEVICE 2 EMPTY
-        ================================================= */
-
-        if (!device2) {
-
-            await updateDoc(
-                studentRef,
-                {
-                    device2: currentDevice
-                }
-            );
-
-
-            console.log(
-                "Device 2 registered successfully."
-            );
-
-
-            return true;
-
-        }
-
-
-        /* =================================================
-           4. BOTH DEVICE SLOTS ARE FULL
-        ================================================= */
-
-        console.warn(
-            "Both device slots are already occupied."
-        );
-
-
-        if (
-            typeof deviceLimitBox !== "undefined" &&
-            deviceLimitBox
-        ) {
-
-            deviceLimitBox.style.display =
-                "block";
-
-        }
-
-
-        if (
-            typeof authModal !== "undefined" &&
-            authModal
-        ) {
-
-            authModal.style.display =
-                "none";
-
-        }
-
-
-        if (
-            typeof accountPanel !== "undefined" &&
-            accountPanel
-        ) {
-
-            accountPanel.classList.remove(
-                "show"
-            );
-
-        }
-
-
-        if (
-            typeof authOverlay !== "undefined" &&
-            authOverlay
-        ) {
-
-            authOverlay.classList.add(
-                "show"
-            );
-
-        }
-
-
-        return false;
-
-    }
-
-
-    /* =====================================================
-       FIRESTORE ERROR
-    ===================================================== */
-
-    catch(error) {
-
-        console.error(
-            "Device registration error:",
-            error
-        );
-
-
-        /* -----------------------------------------------
-           FIRESTORE PERMISSION
-        ----------------------------------------------- */
-
-        if (
-            error.code ===
-            "permission-denied"
-        ) {
-
-            showMessage(
-                "Firestore permission denied. Please contact Shaheen Sir.",
-                "error"
-            );
-
-        }
-
-
-        /* -----------------------------------------------
-           OTHER FIRESTORE ERROR
-        ----------------------------------------------- */
-
-        else {
-
-            showMessage(
-                "Could not register this device. Please try again.",
-                "error"
-            );
-
-        }
-
-
-        return false;
-
-    }
-
-}
 
 
 /* =========================================================
@@ -4367,7 +4340,6 @@ async function loadAccountData() {
 }
 
 
-
 /* =========================================================
    PASSWORD RESET
 ========================================================= */
@@ -4429,7 +4401,6 @@ document.getElementById(
 );
 
 
-
 /* =========================================================
    LOGOUT
 ========================================================= */
@@ -4461,14 +4432,21 @@ document.getElementById(
 );
 
 
-
 /* =========================================================
    AUTH STATE
 ========================================================= */
 
 onAuthStateChanged(
     auth,
-    async function(user) {
+    function(user) {
+
+        console.log(
+            "Main Website Auth State:",
+            user
+                ? user.uid
+                : null
+        );
+
 
         if (user) {
 
@@ -4487,14 +4465,6 @@ onAuthStateChanged(
             authButton.textContent =
                 "👤 My Account";
 
-
-            /*
-             * Registration-এর সময় device1 already saved.
-             *
-             * Existing account হলে login-এর সময়
-             * registerCurrentDevice() already called.
-             */
-
         }
 
         else {
@@ -4510,7 +4480,6 @@ onAuthStateChanged(
 
     }
 );
-
 
 
 /* =========================================================
@@ -4573,6 +4542,8 @@ searchInput.addEventListener(
 );
 
 </script>
+```
+
 
 
 </body>
