@@ -2905,12 +2905,14 @@ from
 
 /* =========================================================
    FIREBASE CONFIG
+   IMPORTANT:
+   This is the CURRENT Firebase Console configuration.
 ========================================================= */
 
 const firebaseConfig = {
 
     apiKey:
-        "AIzaSyCSC86rxNfQ44z-WTBsZh5FL-Sxa0_f4fA",
+        "AIzaSyB6xJFLJC9KReEJQAzHbOmB67DBg-zX4gE",
 
     authDomain:
         "all-about-english-007.firebaseapp.com",
@@ -2953,18 +2955,29 @@ const db =
 
 
 /* =========================================================
-   IMPORTANT:
-   ENABLE FIREBASE AUTH PERSISTENCE
+   AUTH PERSISTENCE
 ========================================================= */
 
-await setPersistence(
-    auth,
-    browserLocalPersistence
-);
+try {
 
-console.log(
-    "Firebase Auth persistence enabled."
-);
+    await setPersistence(
+        auth,
+        browserLocalPersistence
+    );
+
+    console.log(
+        "Firebase Auth persistence enabled."
+    );
+
+}
+catch(error) {
+
+    console.error(
+        "Firebase Auth persistence error:",
+        error
+    );
+
+}
 
 
 /* =========================================================
@@ -2991,7 +3004,9 @@ function createDeviceId() {
         "device-" +
         Date.now().toString(36) +
         "-" +
-        Math.random().toString(36).substring(2, 15)
+        Math.random()
+            .toString(36)
+            .substring(2, 15)
     );
 
 }
@@ -3066,6 +3081,9 @@ function showMessage(
         );
 
 
+    if (!box) return;
+
+
     box.textContent =
         message;
 
@@ -3085,6 +3103,9 @@ function clearMessage() {
         );
 
 
+    if (!box) return;
+
+
     box.textContent =
         "";
 
@@ -3101,17 +3122,39 @@ function clearMessage() {
 
 function openAuthModal() {
 
-    authOverlay.classList.add("show");
+    if (authOverlay) {
 
-    authModal.style.display =
-        "block";
+        authOverlay.classList.add(
+            "show"
+        );
 
-    accountPanel.classList.remove(
-        "show"
-    );
+    }
 
-    deviceLimitBox.style.display =
-        "none";
+
+    if (authModal) {
+
+        authModal.style.display =
+            "block";
+
+    }
+
+
+    if (accountPanel) {
+
+        accountPanel.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    if (deviceLimitBox) {
+
+        deviceLimitBox.style.display =
+            "none";
+
+    }
+
 
     clearMessage();
 
@@ -3120,9 +3163,13 @@ function openAuthModal() {
 
 function closeAuthModal() {
 
-    authOverlay.classList.remove(
-        "show"
-    );
+    if (authOverlay) {
+
+        authOverlay.classList.remove(
+            "show"
+        );
+
+    }
 
 }
 
@@ -3142,36 +3189,68 @@ function openAccountPanel() {
     }
 
 
-    authOverlay.classList.add(
-        "show"
-    );
+    if (authOverlay) {
+
+        authOverlay.classList.add(
+            "show"
+        );
+
+    }
 
 
-    authModal.style.display =
-        "none";
+    if (authModal) {
+
+        authModal.style.display =
+            "none";
+
+    }
 
 
-    deviceLimitBox.style.display =
-        "none";
+    if (deviceLimitBox) {
+
+        deviceLimitBox.style.display =
+            "none";
+
+    }
 
 
-    accountPanel.classList.add(
-        "show"
-    );
+    if (accountPanel) {
+
+        accountPanel.classList.add(
+            "show"
+        );
+
+    }
 
 
-    document.getElementById(
-        "accountName"
-    ).textContent =
-        user.displayName ||
-        "Student";
+    const accountName =
+        document.getElementById(
+            "accountName"
+        );
 
 
-    document.getElementById(
-        "accountEmail"
-    ).textContent =
-        user.email ||
-        "";
+    const accountEmail =
+        document.getElementById(
+            "accountEmail"
+        );
+
+
+    if (accountName) {
+
+        accountName.textContent =
+            user.displayName ||
+            "Student";
+
+    }
+
+
+    if (accountEmail) {
+
+        accountEmail.textContent =
+            user.email ||
+            "";
+
+    }
 
 
     loadAccountData();
@@ -3197,417 +3276,485 @@ function closeOverlayOutside(event) {
    AUTH BUTTONS
 ========================================================= */
 
-authButton.addEventListener(
-    "click",
-    function() {
+if (authButton) {
 
-        if (auth.currentUser) {
+    authButton.addEventListener(
+        "click",
+        function() {
 
-            openAccountPanel();
+            if (auth.currentUser) {
+
+                openAccountPanel();
+
+            }
+
+            else {
+
+                openAuthModal();
+
+            }
 
         }
+    );
 
-        else {
-
-            openAuthModal();
-
-        }
-
-    }
-);
+}
 
 
-document.getElementById(
-    "authCloseBtn"
-).addEventListener(
-    "click",
-    closeAuthModal
-);
+const authCloseBtn =
+    document.getElementById(
+        "authCloseBtn"
+    );
 
 
-document.getElementById(
-    "accountCloseBtn"
-).addEventListener(
-    "click",
-    closeAuthModal
-);
+if (authCloseBtn) {
+
+    authCloseBtn.addEventListener(
+        "click",
+        closeAuthModal
+    );
+
+}
 
 
-document.getElementById(
-    "deviceCloseBtn"
-).addEventListener(
-    "click",
-    closeAuthModal
-);
+const accountCloseBtn =
+    document.getElementById(
+        "accountCloseBtn"
+    );
 
 
-authOverlay.addEventListener(
-    "click",
-    closeOverlayOutside
-);
+if (accountCloseBtn) {
+
+    accountCloseBtn.addEventListener(
+        "click",
+        closeAuthModal
+    );
+
+}
+
+
+const deviceCloseBtn =
+    document.getElementById(
+        "deviceCloseBtn"
+    );
+
+
+if (deviceCloseBtn) {
+
+    deviceCloseBtn.addEventListener(
+        "click",
+        closeAuthModal
+    );
+
+}
+
+
+if (authOverlay) {
+
+    authOverlay.addEventListener(
+        "click",
+        closeOverlayOutside
+    );
+
+}
 
 
 /* =========================================================
    TABS
 ========================================================= */
 
-document.getElementById(
-    "loginTab"
-).addEventListener(
-    "click",
-    function() {
-
-        document.getElementById(
-            "loginTab"
-        ).classList.add("active");
+const loginTab =
+    document.getElementById(
+        "loginTab"
+    );
 
 
-        document.getElementById(
-            "registerTab"
-        ).classList.remove("active");
+if (loginTab) {
+
+    loginTab.addEventListener(
+        "click",
+        function() {
+
+            document.getElementById(
+                "loginTab"
+            ).classList.add("active");
 
 
-        document.getElementById(
-            "loginForm"
-        ).classList.add("active");
+            document.getElementById(
+                "registerTab"
+            ).classList.remove("active");
 
 
-        document.getElementById(
-            "registerForm"
-        ).classList.remove("active");
+            document.getElementById(
+                "loginForm"
+            ).classList.add("active");
 
 
-        clearMessage();
-
-    }
-);
-
-
-document.getElementById(
-    "registerTab"
-).addEventListener(
-    "click",
-    function() {
-
-        document.getElementById(
-            "registerTab"
-        ).classList.add("active");
+            document.getElementById(
+                "registerForm"
+            ).classList.remove("active");
 
 
-        document.getElementById(
-            "loginTab"
-        ).classList.remove("active");
+            clearMessage();
+
+        }
+    );
+
+}
 
 
-        document.getElementById(
-            "registerForm"
-        ).classList.add("active");
+const registerTab =
+    document.getElementById(
+        "registerTab"
+    );
 
 
-        document.getElementById(
-            "loginForm"
-        ).classList.remove("active");
+if (registerTab) {
+
+    registerTab.addEventListener(
+        "click",
+        function() {
+
+            document.getElementById(
+                "registerTab"
+            ).classList.add("active");
 
 
-        clearMessage();
+            document.getElementById(
+                "loginTab"
+            ).classList.remove("active");
 
-    }
-);
+
+            document.getElementById(
+                "registerForm"
+            ).classList.add("active");
+
+
+            document.getElementById(
+                "loginForm"
+            ).classList.remove("active");
+
+
+            clearMessage();
+
+        }
+    );
+
+}
 
 
 /* =========================================================
    REGISTER
 ========================================================= */
 
-document.getElementById(
-    "registerForm"
-).addEventListener(
-    "submit",
-    async function(event) {
-
-        event.preventDefault();
+const registerForm =
+    document.getElementById(
+        "registerForm"
+    );
 
 
-        const name =
-            document.getElementById(
-                "registerName"
-            ).value.trim();
+if (registerForm) {
+
+    registerForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
 
 
-        const email =
-            document.getElementById(
-                "registerEmail"
-            ).value.trim();
+            const name =
+                document.getElementById(
+                    "registerName"
+                ).value.trim();
 
 
-        const mobile =
-            document.getElementById(
-                "registerMobile"
-            ).value.trim();
+            const email =
+                document.getElementById(
+                    "registerEmail"
+                ).value.trim();
 
 
-        const college =
-            document.getElementById(
-                "registerCollege"
-            ).value.trim();
+            const mobile =
+                document.getElementById(
+                    "registerMobile"
+                ).value.trim();
 
 
-        const password =
-            document.getElementById(
-                "registerPassword"
-            ).value;
+            const college =
+                document.getElementById(
+                    "registerCollege"
+                ).value.trim();
 
 
-        const confirmPassword =
-            document.getElementById(
-                "registerConfirmPassword"
-            ).value;
+            const password =
+                document.getElementById(
+                    "registerPassword"
+                ).value;
 
 
-        if (name.length < 2) {
-
-            showMessage(
-                "Please enter your full name.",
-                "error"
-            );
-
-            return;
-
-        }
+            const confirmPassword =
+                document.getElementById(
+                    "registerConfirmPassword"
+                ).value;
 
 
-        if (
-            !/^[0-9]{11}$/.test(
-                mobile
-            )
-        ) {
+            if (name.length < 2) {
 
-            showMessage(
-                "Please enter a valid 11-digit Bangladesh mobile number.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if (
-            password.length < 6
-        ) {
-
-            showMessage(
-                "Password must contain at least 6 characters.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if (
-            password !==
-            confirmPassword
-        ) {
-
-            showMessage(
-                "Passwords do not match.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        const submitButton =
-            document.getElementById(
-                "registerSubmit"
-            );
-
-
-        const loading =
-            document.getElementById(
-                "registerLoading"
-            );
-
-
-        submitButton.disabled =
-            true;
-
-
-        loading.classList.add(
-            "show"
-        );
-
-
-        clearMessage();
-
-
-        try {
-
-            const userCredential =
-                await createUserWithEmailAndPassword(
-                    auth,
-                    email,
-                    password
+                showMessage(
+                    "Please enter your full name.",
+                    "error"
                 );
 
+                return;
 
-            const user =
-                userCredential.user;
-
-
-            await updateProfile(
-                user,
-                {
-                    displayName:
-                        name
-                }
-            );
-
-
-            await setDoc(
-
-                doc(
-                    db,
-                    "students",
-                    user.uid
-                ),
-
-                {
-
-                    uid:
-                        user.uid,
-
-                    name:
-                        name,
-
-                    email:
-                        email,
-
-                    mobile:
-                        mobile,
-
-                    college:
-                        college,
-
-                    createdAt:
-                        serverTimestamp(),
-
-                    accountStatus:
-                        "pending",
-
-                    device1:
-                        currentDeviceId,
-
-                    device2:
-                        ""
-
-                }
-
-            );
-
-
-            showMessage(
-                "Registration successful! Your first device has been registered.",
-                "success"
-            );
-
-
-            setTimeout(
-                function() {
-
-                    closeAuthModal();
-
-                    openAccountPanel();
-
-                },
-                1000
-            );
-
-
-            document.getElementById(
-                "registerForm"
-            ).reset();
-
-
-        }
-
-        catch(error) {
-
-            console.error(
-                "Registration error:",
-                error
-            );
-
-
-            let message =
-                "Registration failed. Please try again.";
+            }
 
 
             if (
-                error.code ===
-                "auth/email-already-in-use"
+                !/^[0-9]{11}$/.test(
+                    mobile
+                )
             ) {
 
-                message =
-                    "This email is already registered. Please login.";
+                showMessage(
+                    "Please enter a valid 11-digit Bangladesh mobile number.",
+                    "error"
+                );
 
-            }
-
-            else if (
-                error.code ===
-                "auth/invalid-email"
-            ) {
-
-                message =
-                    "Please enter a valid email address.";
-
-            }
-
-            else if (
-                error.code ===
-                "auth/weak-password"
-            ) {
-
-                message =
-                    "Password is too weak. Use at least 6 characters.";
-
-            }
-
-            else if (
-                error.code ===
-                "permission-denied"
-            ) {
-
-                message =
-                    "Registration was blocked by Firestore Rules. Please check the Rules.";
+                return;
 
             }
 
 
-            showMessage(
-                message,
-                "error"
-            );
+            if (
+                password.length < 6
+            ) {
 
-        }
+                showMessage(
+                    "Password must contain at least 6 characters.",
+                    "error"
+                );
 
-        finally {
+                return;
+
+            }
+
+
+            if (
+                password !==
+                confirmPassword
+            ) {
+
+                showMessage(
+                    "Passwords do not match.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            const submitButton =
+                document.getElementById(
+                    "registerSubmit"
+                );
+
+
+            const loading =
+                document.getElementById(
+                    "registerLoading"
+                );
+
 
             submitButton.disabled =
-                false;
+                true;
 
-            loading.classList.remove(
-                "show"
-            );
+
+            if (loading) {
+
+                loading.classList.add(
+                    "show"
+                );
+
+            }
+
+
+            clearMessage();
+
+
+            try {
+
+                const userCredential =
+                    await createUserWithEmailAndPassword(
+                        auth,
+                        email,
+                        password
+                    );
+
+
+                const user =
+                    userCredential.user;
+
+
+                await updateProfile(
+                    user,
+                    {
+                        displayName:
+                            name
+                    }
+                );
+
+
+                await setDoc(
+
+                    doc(
+                        db,
+                        "students",
+                        user.uid
+                    ),
+
+                    {
+
+                        uid:
+                            user.uid,
+
+                        name:
+                            name,
+
+                        email:
+                            email,
+
+                        mobile:
+                            mobile,
+
+                        college:
+                            college,
+
+                        createdAt:
+                            serverTimestamp(),
+
+                        accountStatus:
+                            "pending",
+
+                        device1:
+                            currentDeviceId,
+
+                        device2:
+                            ""
+
+                    }
+
+                );
+
+
+                console.log(
+                    "Registration successful:",
+                    user.uid
+                );
+
+
+                showMessage(
+                    "Registration successful! Your first device has been registered.",
+                    "success"
+                );
+
+
+                setTimeout(
+                    function() {
+
+                        closeAuthModal();
+
+                        openAccountPanel();
+
+                    },
+                    1000
+                );
+
+
+                registerForm.reset();
+
+            }
+
+            catch(error) {
+
+                console.error(
+                    "Registration error:",
+                    error
+                );
+
+
+                let message =
+                    "Registration failed. Please try again.";
+
+
+                if (
+                    error.code ===
+                    "auth/email-already-in-use"
+                ) {
+
+                    message =
+                        "This email is already registered. Please login.";
+
+                }
+
+                else if (
+                    error.code ===
+                    "auth/invalid-email"
+                ) {
+
+                    message =
+                        "Please enter a valid email address.";
+
+                }
+
+                else if (
+                    error.code ===
+                    "auth/weak-password"
+                ) {
+
+                    message =
+                        "Password is too weak. Use at least 6 characters.";
+
+                }
+
+                else if (
+                    error.code ===
+                    "permission-denied"
+                ) {
+
+                    message =
+                        "Registration was blocked by Firestore Rules. Please check the Rules.";
+
+                }
+
+
+                showMessage(
+                    message,
+                    "error"
+                );
+
+            }
+
+            finally {
+
+                submitButton.disabled =
+                    false;
+
+
+                if (loading) {
+
+                    loading.classList.remove(
+                        "show"
+                    );
+
+                }
+
+            }
 
         }
+    );
 
-    }
-);
+}
 
 
 /* =========================================================
@@ -3622,9 +3769,8 @@ async function registerCurrentDevice() {
 
     if (!user) {
 
-        showMessage(
-            "Please login again.",
-            "error"
+        console.warn(
+            "Device registration skipped: no authenticated user."
         );
 
         return false;
@@ -3650,9 +3796,8 @@ async function registerCurrentDevice() {
 
         if (!studentSnap.exists()) {
 
-            showMessage(
-                "Student profile was not found.",
-                "error"
+            console.warn(
+                "Student profile not found during device registration."
             );
 
             return false;
@@ -3676,27 +3821,15 @@ async function registerCurrentDevice() {
                 : "";
 
 
-        if (
-            typeof currentDeviceId !== "string" ||
-            !currentDeviceId.trim()
-        ) {
+        const currentDevice =
+            currentDeviceId.trim();
 
-            console.error(
-                "Current device ID is missing."
-            );
 
-            showMessage(
-                "Could not identify this device. Please try again.",
-                "error"
-            );
+        if (!currentDevice) {
 
             return false;
 
         }
-
-
-        const currentDevice =
-            currentDeviceId.trim();
 
 
         /* SAME DEVICE */
@@ -3847,178 +3980,177 @@ async function registerCurrentDevice() {
    LOGIN
 ========================================================= */
 
-document.getElementById(
-    "loginForm"
-).addEventListener(
-    "submit",
-    async function(event) {
-
-        event.preventDefault();
+const loginForm =
+    document.getElementById(
+        "loginForm"
+    );
 
 
-        const email =
-            document.getElementById(
-                "loginEmail"
-            ).value.trim();
+if (loginForm) {
+
+    loginForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
 
 
-        const password =
-            document.getElementById(
-                "loginPassword"
-            ).value;
+            const email =
+                document.getElementById(
+                    "loginEmail"
+                ).value.trim();
 
 
-        const submitButton =
-            document.getElementById(
-                "loginSubmit"
-            );
+            const password =
+                document.getElementById(
+                    "loginPassword"
+                ).value;
 
 
-        const loading =
-            document.getElementById(
-                "loginLoading"
-            );
-
-
-        submitButton.disabled =
-            true;
-
-
-        loading.classList.add(
-            "show"
-        );
-
-
-        clearMessage();
-
-
-        try {
-
-            /* =================================================
-               1. FIREBASE AUTHENTICATION
-            ================================================= */
-
-            const userCredential =
-                await signInWithEmailAndPassword(
-                    auth,
-                    email,
-                    password
+            const submitButton =
+                document.getElementById(
+                    "loginSubmit"
                 );
 
 
-            const user =
-                userCredential.user;
-
-
-            console.log(
-                "Firebase login successful:",
-                user.uid
-            );
-
-
-            /* =================================================
-               2. CHECK ADMIN
-            ================================================= */
-
-            const adminRef =
-                doc(
-                    db,
-                    "admins",
-                    user.uid
+            const loading =
+                document.getElementById(
+                    "loginLoading"
                 );
 
 
-            let adminSnap;
+            submitButton.disabled =
+                true;
+
+
+            if (loading) {
+
+                loading.classList.add(
+                    "show"
+                );
+
+            }
+
+
+            clearMessage();
 
 
             try {
 
-                adminSnap =
-                    await getDoc(
-                        adminRef
+                /* =========================================
+                   1. FIREBASE AUTHENTICATION
+                ========================================= */
+
+                const userCredential =
+                    await signInWithEmailAndPassword(
+                        auth,
+                        email,
+                        password
                     );
 
-            }
 
-            catch(adminError) {
-
-                console.error(
-                    "Admin document check error:",
-                    adminError
-                );
-
-                /*
-                 * IMPORTANT:
-                 *
-                 * If the document simply cannot be read,
-                 * do not immediately destroy the valid
-                 * Firebase authentication session.
-                 */
-
-                if (
-                    adminError.code ===
-                    "permission-denied"
-                ) {
-
-                    console.warn(
-                        "Admin check permission denied. Continuing with student check."
-                    );
-
-                }
-
-                else {
-
-                    throw adminError;
-
-                }
-
-            }
-
-
-            /* =================================================
-               3. ADMIN LOGIN
-            ================================================= */
-
-            if (
-                adminSnap &&
-                adminSnap.exists()
-            ) {
-
-                const adminData =
-                    adminSnap.data();
+                const user =
+                    userCredential.user;
 
 
                 console.log(
-                    "Admin document found:",
-                    adminData
+                    "Firebase login successful:",
+                    user.uid
                 );
 
 
+                /* =========================================
+                   2. CHECK ADMIN
+                ========================================= */
+
+                const adminRef =
+                    doc(
+                        db,
+                        "admins",
+                        user.uid
+                    );
+
+
+                let adminSnap = null;
+
+
+                try {
+
+                    adminSnap =
+                        await getDoc(
+                            adminRef
+                        );
+
+                }
+
+                catch(adminError) {
+
+                    console.warn(
+                        "Admin check failed:",
+                        adminError
+                    );
+
+                }
+
+
+                /* =========================================
+                   3. ADMIN LOGIN
+                ========================================= */
+
                 if (
-                    adminData.role === "admin" &&
-                    adminData.status === "active"
+                    adminSnap &&
+                    adminSnap.exists()
                 ) {
 
+                    const adminData =
+                        adminSnap.data();
+
+
                     console.log(
-                        "Active admin login detected."
+                        "Admin document found:",
+                        adminData
                     );
+
+
+                    if (
+                        adminData.role === "admin" &&
+                        adminData.status === "active"
+                    ) {
+
+                        console.log(
+                            "Active admin login detected."
+                        );
+
+
+                        showMessage(
+                            "Admin login successful!",
+                            "success"
+                        );
+
+
+                        setTimeout(
+                            function() {
+
+                                closeAuthModal();
+
+                                openAccountPanel();
+
+                            },
+                            600
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    await signOut(auth);
 
 
                     showMessage(
-                        "Admin login successful!",
-                        "success"
-                    );
-
-
-                    setTimeout(
-                        function() {
-
-                            closeAuthModal();
-
-                            openAccountPanel();
-
-                        },
-                        600
+                        "Your admin account is not active.",
+                        "error"
                     );
 
 
@@ -4027,215 +4159,212 @@ document.getElementById(
                 }
 
 
-                await signOut(auth);
+                /* =========================================
+                   4. STUDENT PROFILE
+                ========================================= */
+
+                console.log(
+                    "No admin document. Checking student account..."
+                );
+
+
+                const studentRef =
+                    doc(
+                        db,
+                        "students",
+                        user.uid
+                    );
+
+
+                const studentSnap =
+                    await getDoc(
+                        studentRef
+                    );
+
+
+                if (
+                    !studentSnap.exists()
+                ) {
+
+                    console.error(
+                        "Neither admin nor student profile was found."
+                    );
+
+
+                    await signOut(auth);
+
+
+                    showMessage(
+                        "Account profile was not found. Please contact Shaheen Sir.",
+                        "error"
+                    );
+
+
+                    return;
+
+                }
+
+
+                /* =========================================
+                   5. DEVICE CHECK
+                ========================================= */
+
+                const allowed =
+                    await registerCurrentDevice();
+
+
+                if (!allowed) {
+
+                    /*
+                     * IMPORTANT:
+                     * Never sign out because of a device
+                     * registration problem.
+                     */
+
+                    console.warn(
+                        "Device registration was not completed. Firebase authentication remains active."
+                    );
+
+                }
+
+
+                /* =========================================
+                   6. STUDENT LOGIN SUCCESS
+                ========================================= */
+
+                console.log(
+                    "Student login successful."
+                );
+
+
+                console.log(
+                    "Authenticated UID:",
+                    auth.currentUser?.uid
+                );
 
 
                 showMessage(
-                    "Your admin account is not active.",
-                    "error"
+                    "Login successful!",
+                    "success"
                 );
 
 
-                return;
+                setTimeout(
+                    function() {
+
+                        closeAuthModal();
+
+                        openAccountPanel();
+
+                    },
+                    600
+                );
 
             }
 
-
-            /* =================================================
-               4. STUDENT LOGIN
-            ================================================= */
-
-            console.log(
-                "No admin document. Checking student account..."
-            );
-
-
-            const studentRef =
-                doc(
-                    db,
-                    "students",
-                    user.uid
-                );
-
-
-            const studentSnap =
-                await getDoc(
-                    studentRef
-                );
-
-
-            if (
-                !studentSnap.exists()
-            ) {
+            catch(error) {
 
                 console.error(
-                    "Neither admin nor student profile was found."
+                    "Login error:",
+                    error
                 );
 
 
-                await signOut(auth);
+                let message =
+                    "Login failed. Please check your email and password.";
+
+
+                if (
+                    error.code ===
+                    "auth/invalid-credential"
+                ) {
+
+                    message =
+                        "Incorrect email or password.";
+
+                }
+
+                else if (
+                    error.code ===
+                    "auth/user-not-found"
+                ) {
+
+                    message =
+                        "No account found with this email.";
+
+                }
+
+                else if (
+                    error.code ===
+                    "auth/wrong-password"
+                ) {
+
+                    message =
+                        "Incorrect password.";
+
+                }
+
+                else if (
+                    error.code ===
+                    "auth/too-many-requests"
+                ) {
+
+                    message =
+                        "Too many unsuccessful attempts. Please try again later.";
+
+                }
+
+                else if (
+                    error.code ===
+                    "auth/api-key-not-valid"
+                ) {
+
+                    message =
+                        "Firebase configuration error. Please contact Shaheen Sir.";
+
+                }
+
+                else if (
+                    error.code ===
+                    "permission-denied" ||
+                    error.message?.includes(
+                        "Missing or insufficient permissions"
+                    )
+                ) {
+
+                    message =
+                        "Firestore permission denied. Please check Firestore Rules.";
+
+                }
 
 
                 showMessage(
-                    "Account profile was not found. Please contact Shaheen Sir.",
+                    message,
                     "error"
                 );
 
-
-                return;
-
             }
 
+            finally {
 
-            /* =================================================
-               5. DEVICE CHECK
-            ================================================= */
-
-            const allowed =
-                await registerCurrentDevice();
+                submitButton.disabled =
+                    false;
 
 
-            if (!allowed) {
+                if (loading) {
 
-                /*
-                 * IMPORTANT:
-                 *
-                 * Do NOT sign the user out.
-                 */
+                    loading.classList.remove(
+                        "show"
+                    );
 
-                console.warn(
-                    "Device registration was not allowed, but Firebase authentication remains active."
-                );
-
-
-                return;
+                }
 
             }
-
-
-            /* =================================================
-               6. STUDENT LOGIN SUCCESS
-            ================================================= */
-
-            console.log(
-                "Student login successful."
-            );
-
-
-            console.log(
-                "Authenticated UID:",
-                auth.currentUser?.uid
-            );
-
-
-            showMessage(
-                "Login successful!",
-                "success"
-            );
-
-
-            setTimeout(
-                function() {
-
-                    closeAuthModal();
-
-                    openAccountPanel();
-
-                },
-                600
-            );
 
         }
+    );
 
-
-        catch(error) {
-
-            console.error(
-                "Login error:",
-                error
-            );
-
-
-            let message =
-                "Login failed. Please check your email and password.";
-
-
-            if (
-                error.code ===
-                "auth/invalid-credential"
-            ) {
-
-                message =
-                    "Incorrect email or password.";
-
-            }
-
-            else if (
-                error.code ===
-                "auth/user-not-found"
-            ) {
-
-                message =
-                    "No account found with this email.";
-
-            }
-
-            else if (
-                error.code ===
-                "auth/wrong-password"
-            ) {
-
-                message =
-                    "Incorrect password.";
-
-            }
-
-            else if (
-                error.code ===
-                "auth/too-many-requests"
-            ) {
-
-                message =
-                    "Too many unsuccessful attempts. Please try again later.";
-
-            }
-
-            else if (
-                error.code ===
-                "permission-denied" ||
-                error.message?.includes(
-                    "Missing or insufficient permissions"
-                )
-            ) {
-
-                message =
-                    "Firestore permission denied. Please check Firestore Rules.";
-
-            }
-
-
-            showMessage(
-                message,
-                "error"
-            );
-
-        }
-
-
-        finally {
-
-            submitButton.disabled =
-                false;
-
-
-            loading.classList.remove(
-                "show"
-            );
-
-        }
-
-    }
-);
+}
 
 
 /* =========================================================
@@ -4284,18 +4413,34 @@ async function loadAccountData() {
             studentSnap.data();
 
 
-        document.getElementById(
-            "accountMobile"
-        ).textContent =
-            data.mobile ||
-            "Not provided";
+        const accountMobile =
+            document.getElementById(
+                "accountMobile"
+            );
 
 
-        document.getElementById(
-            "accountCollege"
-        ).textContent =
-            data.college ||
-            "Not provided";
+        const accountCollege =
+            document.getElementById(
+                "accountCollege"
+            );
+
+
+        if (accountMobile) {
+
+            accountMobile.textContent =
+                data.mobile ||
+                "Not provided";
+
+        }
+
+
+        if (accountCollege) {
+
+            accountCollege.textContent =
+                data.college ||
+                "Not provided";
+
+        }
 
 
         const devices = [];
@@ -4319,12 +4464,20 @@ async function loadAccountData() {
         }
 
 
-        document.getElementById(
-            "deviceCount"
-        ).textContent =
-            "Registered devices: " +
-            devices.length +
-            " / 2";
+        const deviceCount =
+            document.getElementById(
+                "deviceCount"
+            );
+
+
+        if (deviceCount) {
+
+            deviceCount.textContent =
+                "Registered devices: " +
+                devices.length +
+                " / 2";
+
+        }
 
     }
 
@@ -4344,92 +4497,109 @@ async function loadAccountData() {
    PASSWORD RESET
 ========================================================= */
 
-document.getElementById(
-    "forgotPassword"
-).addEventListener(
-    "click",
-    async function() {
-
-        const email =
-            document.getElementById(
-                "loginEmail"
-            ).value.trim();
+const forgotPassword =
+    document.getElementById(
+        "forgotPassword"
+    );
 
 
-        if (!email) {
+if (forgotPassword) {
 
-            showMessage(
-                "Please enter your email address first.",
-                "error"
-            );
+    forgotPassword.addEventListener(
+        "click",
+        async function() {
 
-            return;
+            const email =
+                document.getElementById(
+                    "loginEmail"
+                ).value.trim();
+
+
+            if (!email) {
+
+                showMessage(
+                    "Please enter your email address first.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            try {
+
+                await sendPasswordResetEmail(
+                    auth,
+                    email
+                );
+
+
+                showMessage(
+                    "Password reset email has been sent. Please check your inbox.",
+                    "success"
+                );
+
+            }
+
+            catch(error) {
+
+                console.error(
+                    "Password reset error:",
+                    error
+                );
+
+
+                showMessage(
+                    "Could not send password reset email.",
+                    "error"
+                );
+
+            }
 
         }
+    );
 
-
-        try {
-
-            await sendPasswordResetEmail(
-                auth,
-                email
-            );
-
-
-            showMessage(
-                "Password reset email has been sent. Please check your inbox.",
-                "success"
-            );
-
-        }
-
-        catch(error) {
-
-            console.error(
-                error
-            );
-
-
-            showMessage(
-                "Could not send password reset email.",
-                "error"
-            );
-
-        }
-
-    }
-);
+}
 
 
 /* =========================================================
    LOGOUT
 ========================================================= */
 
-document.getElementById(
-    "logoutBtn"
-).addEventListener(
-    "click",
-    async function() {
+const logoutBtn =
+    document.getElementById(
+        "logoutBtn"
+    );
 
-        try {
 
-            await signOut(auth);
+if (logoutBtn) {
 
-            closeAuthModal();
+    logoutBtn.addEventListener(
+        "click",
+        async function() {
+
+            try {
+
+                await signOut(auth);
+
+                closeAuthModal();
+
+            }
+
+            catch(error) {
+
+                console.error(
+                    "Logout error:",
+                    error
+                );
+
+            }
 
         }
+    );
 
-        catch(error) {
-
-            console.error(
-                "Logout error:",
-                error
-            );
-
-        }
-
-    }
-);
+}
 
 
 /* =========================================================
@@ -4450,31 +4620,47 @@ onAuthStateChanged(
 
         if (user) {
 
-            userDisplay.textContent =
-                "👋 " +
-                (
-                    user.displayName ||
-                    "Student"
-                );
+            if (userDisplay) {
+
+                userDisplay.textContent =
+                    "👋 " +
+                    (
+                        user.displayName ||
+                        "Student"
+                    );
 
 
-            userDisplay.style.display =
-                "inline-block";
+                userDisplay.style.display =
+                    "inline-block";
+
+            }
 
 
-            authButton.textContent =
-                "👤 My Account";
+            if (authButton) {
+
+                authButton.textContent =
+                    "👤 My Account";
+
+            }
 
         }
 
         else {
 
-            userDisplay.style.display =
-                "none";
+            if (userDisplay) {
+
+                userDisplay.style.display =
+                    "none";
+
+            }
 
 
-            authButton.textContent =
-                "👤 Student Login";
+            if (authButton) {
+
+                authButton.textContent =
+                    "👤 Student Login";
+
+            }
 
         }
 
@@ -4492,57 +4678,63 @@ const searchInput =
     );
 
 
-searchInput.addEventListener(
-    "keyup",
-    function() {
+if (searchInput) {
 
-        const input =
-            searchInput.value
-                .toLowerCase()
-                .trim();
+    searchInput.addEventListener(
+        "keyup",
+        function() {
+
+            const input =
+                searchInput.value
+                    .toLowerCase()
+                    .trim();
 
 
-        const items =
-            document.querySelectorAll(
-                ".main-card, .folder"
+            const items =
+                document.querySelectorAll(
+                    ".main-card, .folder"
+                );
+
+
+            items.forEach(
+                function(item) {
+
+                    const text =
+                        item.innerText
+                            .toLowerCase();
+
+
+                    if (
+                        input === "" ||
+                        text.includes(input)
+                    ) {
+
+                        item.classList.remove(
+                            "hidden"
+                        );
+
+                    }
+
+                    else {
+
+                        item.classList.add(
+                            "hidden"
+                        );
+
+                    }
+
+                }
             );
 
+        }
+    );
 
-        items.forEach(
-            function(item) {
-
-                const text =
-                    item.innerText
-                        .toLowerCase();
-
-
-                if (
-                    input === "" ||
-                    text.includes(input)
-                ) {
-
-                    item.classList.remove(
-                        "hidden"
-                    );
-
-                }
-
-                else {
-
-                    item.classList.add(
-                        "hidden"
-                    );
-
-                }
-
-            }
-        );
-
-    }
-);
+}
 
 </script>
 ```
+
+
 
 
 
