@@ -1,1 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Device Migration</title>
+
+</head>
+
+
+<body>
+
+    <h2>Student Device Migration</h2>
+
+    <p id="status">
+        Checking admin login...
+    </p>
+
+    <button
+        id="startMigration"
+        disabled
+    >
+        START MIGRATION
+    </button>
+
+    <pre
+        id="output"
+        style="
+            white-space:pre-wrap;
+            margin-top:20px;
+            padding:15px;
+            background:#f5f5f5;
+        "
+    ></pre>
+
+
+<script type="module">
+
+
+/* =========================================================
+   FIREBASE IMPORTS
+========================================================= */
+
+import {
+    initializeApp
+}
+from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    doc,
+    updateDoc
+}
+from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
+
+
+/* =========================================================
+   FIREBASE CONFIG
+========================================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyCSC86rxNfQ44z-WTBsZh5FL-Sxa0_f4F4a",
+
+    authDomain:
+        "all-about-english-007.firebaseapp.com",
+
+    databaseURL:
+        "https://all-about-english-007-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+    projectId:
+        "all-about-english-007",
+
+    storageBucket:
+        "all-about-english-007.firebasestorage.app",
+
+    messagingSenderId:
+        "251678333411",
+
+    appId:
+        "1:251678333411:web:889369210cb79442f0a8d6",
+
+    measurementId:
+        "G-RVFY5YEX6L"
+
+};
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const status =
+    document.getElementById(
+        "status"
+    );
+
+
+const startButton =
+    document.getElementById(
+        "startMigration"
+    );
+
+
+const output =
+    document.getElementById(
+        "output"
+    );
+
+
+/* =========================================================
+   AUTH CHECK
+========================================================= */
+
+onAuthStateChanged(
+    auth,
+    async function(user) {
+
+        if (!user) {
+
+            status.textContent =
+                "❌ Please login with the ADMIN account first.";
+
+            return;
+
+        }
+
+
+        status.textContent =
+            "Logged in. Admin migration is ready.";
+
+
+        startButton.disabled =
+            false;
+
+
+        output.textContent =
+            "Admin UID:\n" +
+            user.uid +
+            "\n\n" +
+            "Click START MIGRATION.";
+
+
+    }
+);
+
+
+/* =========================================================
+   MIGRATION
+========================================================= */
+
+startButton.addEventListener(
+    "click",
+    async function() {
+
+
+        const user =
+            auth.currentUser;
+
+
+        if (!user) {
+
+            alert(
+                "Please login with the admin account."
+            );
+
+            return;
+
+        }
+
+
+        const confirmed =
+            confirm(
+
+                "This will ONLY add missing device1/device2 fields.\n\n" +
+
+                "Existing student data will NOT be replaced.\n\n" +
+
+                "Continue?"
+
+            );
+
+
+        if (!confirmed) {
+
+            return;
+
+        }
+
+
+        startButton.disabled =
+            true;
+
+
+        status.textContent =
+            "Migration running...";
+
+
+        output.textContent =
+            "";
+
+
+        try {
+
+
+            /* =================================================
+               GET ALL STUDENTS
+            ================================================= */
+
+            const studentsRef =
+                collection(
+                    db,
+                    "students"
+                );
+
+
+            const studentsSnap =
+                await getDocs(
+                    studentsRef
+                );
+
+
+            let total =
+                studentsSnap.size;
+
+
+            let updated =
+                0;
+
+
+            let skipped =
+                0;
+
+
+            let failed =
+                0;
+
+
+            output.textContent +=
+                "Total students found: " +
+                total +
+                "\n\n";
+
+
+            /* =================================================
+               PROCESS EACH STUDENT
+            ================================================= */
+
+            for (
+                const studentDoc
+                of studentsSnap.docs
+            ) {
+
+
+                const data =
+                    studentDoc.data();
+
+
+                const changes = {};
+
+
+                /* =============================================
+                   ONLY ADD IF FIELD DOES NOT EXIST
+                ============================================= */
+
+                if (
+                    !Object.prototype.hasOwnProperty.call(
+                        data,
+                        "device1"
+                    )
+                ) {
+
+                    changes.device1 =
+                        "";
+
+                }
+
+
+                if (
+                    !Object.prototype.hasOwnProperty.call(
+                        data,
+                        "device2"
+                    )
+                ) {
+
+                    changes.device2 =
+                        "";
+
+                }
+
+
+                /* =============================================
+                   NOTHING TO CHANGE
+                ============================================= */
+
+                if (
+                    Object.keys(changes).length === 0
+                ) {
+
+                    skipped++;
+
+                    output.textContent +=
+                        "SKIPPED: " +
+                        studentDoc.id +
+                        "\n";
+
+                    continue;
+
+                }
+
+
+                /* =============================================
+                   SAFE UPDATE
+                   
+                   updateDoc changes ONLY the fields
+                   inside "changes".
+                   
+                   Existing fields remain untouched.
+                ============================================= */
+
+                try {
+
+
+                    await updateDoc(
+
+                        doc(
+                            db,
+                            "students",
+                            studentDoc.id
+                        ),
+
+                        changes
+
+                    );
+
+
+                    updated++;
+
+
+                    output.textContent +=
+
+                        "UPDATED: " +
+                        studentDoc.id +
+                        " → " +
+                        JSON.stringify(changes) +
+                        "\n";
+
+
+                }
+
+                catch(error) {
+
+
+                    failed++;
+
+
+                    console.error(
+                        "Migration failed:",
+                        studentDoc.id,
+                        error
+                    );
+
+
+                    output.textContent +=
+
+                        "FAILED: " +
+                        studentDoc.id +
+                        " → " +
+                        error.code +
+                        "\n";
+
+                }
+
+            }
+
+
+            /* =================================================
+               COMPLETE
+            ================================================= */
+
+            status.textContent =
+                "✅ Migration completed.";
+
+
+            output.textContent +=
+
+                "\n============================\n" +
+
+                "MIGRATION COMPLETE\n" +
+
+                "============================\n\n" +
+
+                "Total students: " +
+                total +
+                "\n" +
+
+                "Updated: " +
+                updated +
+                "\n" +
+
+                "Already complete: " +
+                skipped +
+                "\n" +
+
+                "Failed: " +
+                failed +
+                "\n";
+
+
+            alert(
+                "Migration completed.\n\n" +
+                "Updated: " +
+                updated +
+                "\n" +
+                "Skipped: " +
+                skipped +
+                "\n" +
+                "Failed: " +
+                failed
+            );
+
+
+        }
+
+        catch(error) {
+
+
+            console.error(
+                "Migration error:",
+                error
+            );
+
+
+            status.textContent =
+                "❌ Migration failed.";
+
+
+            output.textContent +=
+
+                "\nERROR:\n" +
+
+                error.code +
+                "\n" +
+
+                error.message;
+
+
+            startButton.disabled =
+                false;
+
+        }
+
+    }
+
+);
+
+
+</script>
+
+</body>
+
+</html>
