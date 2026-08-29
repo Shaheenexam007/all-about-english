@@ -1609,20 +1609,20 @@ body.modal-open {
 <script type="module">
 
 import { initializeApp }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
 
 import {
     getAuth,
     onAuthStateChanged
 }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
 
 import {
     getFirestore,
     doc,
     getDoc
 }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
 
 
 /* =========================================================
@@ -1632,7 +1632,7 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 const firebaseConfig = {
 
     apiKey:
-        "AIzaSyB6xJFLJC9KReEJQAzHbOmB67DBg-zX4gE",
+        "AIzaSyCSC86rxNfQ44z-WTBsZh5FL-Sxa0_F4fA",
 
     authDomain:
         "all-about-english-007.firebaseapp.com",
@@ -1673,20 +1673,26 @@ const db =
 
 
 /* =========================================================
-   ⭐ ONLY CHANGE THIS FOR DIFFERENT UNITS
-=========================================================
-
-   Unit 12 lesson:
-*/
+   ⭐ CHANGE ONLY THIS FOR EACH UNIT
+========================================================= */
 
 const UNIT_ID = "unit-12";
 
 
 /* =========================================================
-   ACCESS DENIED PAGE
+   HIDE EVERYTHING UNTIL ACCESS IS VERIFIED
+========================================================= */
+
+document.documentElement.style.visibility = "hidden";
+
+
+/* =========================================================
+   ACCESS DENIED
 ========================================================= */
 
 function showAccessDenied(message) {
+
+    document.documentElement.style.visibility = "visible";
 
     document.body.innerHTML = `
 
@@ -1696,6 +1702,7 @@ function showAccessDenied(message) {
             align-items:center;
             justify-content:center;
             padding:25px;
+            box-sizing:border-box;
             background:linear-gradient(
                 135deg,
                 #eef4ff,
@@ -1761,14 +1768,7 @@ function showAccessDenied(message) {
 
 
 /* =========================================================
-   TEMPORARILY HIDE LESSON CONTENT
-========================================================= */
-
-document.documentElement.style.visibility = "hidden";
-
-
-/* =========================================================
-   FIREBASE ACCESS CHECK
+   FIREBASE AUTH CHECK
 ========================================================= */
 
 onAuthStateChanged(
@@ -1777,7 +1777,7 @@ onAuthStateChanged(
 
 
         /* =================================================
-           1. USER NOT LOGGED IN
+           1. NOT LOGGED IN
         ================================================= */
 
         if (!user) {
@@ -1813,7 +1813,7 @@ onAuthStateChanged(
 
 
             /* =================================================
-               3. STUDENT DOCUMENT NOT FOUND
+               3. STUDENT NOT FOUND
             ================================================= */
 
             if (!studentSnap.exists()) {
@@ -1828,7 +1828,7 @@ onAuthStateChanged(
 
 
             /* =================================================
-               4. GET STUDENT DATA
+               4. STUDENT DATA
             ================================================= */
 
             const studentData =
@@ -1836,21 +1836,29 @@ onAuthStateChanged(
 
 
             console.log(
-                "Firebase Student Data:",
+                "STUDENT UID:",
+                user.uid
+            );
+
+
+            console.log(
+                "STUDENT DATA:",
                 studentData
             );
 
 
             /* =================================================
-               5. CHECK ACCOUNT STATUS
+               5. ACCOUNT STATUS
             ================================================= */
 
             const accountStatus =
-                studentData.accountStatus;
+                String(
+                    studentData.accountStatus || ""
+                ).toLowerCase();
 
 
             console.log(
-                "Account Status:",
+                "ACCOUNT STATUS:",
                 accountStatus
             );
 
@@ -1860,7 +1868,7 @@ onAuthStateChanged(
             ) {
 
                 showAccessDenied(
-                    "Your account is not active yet. Please contact the administrator."
+                    "Your account is not active yet. Please contact Shaheen Sir."
                 );
 
                 return;
@@ -1869,7 +1877,7 @@ onAuthStateChanged(
 
 
             /* =================================================
-               6. GET APPROVED UNITS
+               6. APPROVED UNITS
             ================================================= */
 
             const approvedUnits =
@@ -1877,7 +1885,7 @@ onAuthStateChanged(
 
 
             console.log(
-                "Approved Units:",
+                "APPROVED UNITS:",
                 approvedUnits
             );
 
@@ -1891,19 +1899,19 @@ onAuthStateChanged(
 
 
             console.log(
-                "Current Unit:",
+                "CURRENT UNIT:",
                 UNIT_ID
             );
 
 
             console.log(
-                "Unit Approved:",
+                "UNIT APPROVED:",
                 unitApproved
             );
 
 
             /* =================================================
-               8. ACCESS DENIED
+               8. UNIT NOT APPROVED
             ================================================= */
 
             if (!unitApproved) {
@@ -1924,15 +1932,9 @@ onAuthStateChanged(
             ================================================= */
 
             console.log(
-                "LESSON ACCESS GRANTED"
+                "✅ LESSON ACCESS GRANTED"
             );
 
-
-            /*
-             * Firebase verification successful.
-             *
-             * Now show the lesson.
-             */
 
             document.documentElement.style.visibility =
                 "visible";
@@ -1942,7 +1944,7 @@ onAuthStateChanged(
 
 
         /* =====================================================
-           FIREBASE ERROR
+           ERROR
         ===================================================== */
 
         catch(error) {
@@ -1954,7 +1956,7 @@ onAuthStateChanged(
 
 
             showAccessDenied(
-                "Unable to verify your account. Please try again."
+                "Unable to verify your account. Please login again and try."
             );
 
         }
