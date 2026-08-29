@@ -2858,194 +2858,33 @@ footer strong {
 
 
 
-<!-- =========================================================
-     FIREBASE
-========================================================= -->
-
-
 <script type="module">
 
-/* =========================================================
-   FIREBASE IMPORTS
-========================================================= */
+// ============================================================
+// ALL ABOUT ENGLISH
+// MAIN WEBSITE AUTHENTICATION
+// VERSION 1 — SIMPLE & CLEAN
+// ============================================================
 
 import {
-    initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
+    auth
+} from "./firebase-config.js";
 
 
 import {
-    getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
     onAuthStateChanged,
     sendPasswordResetEmail,
-    updateProfile,
-    setPersistence,
-    browserLocalPersistence
-}
-from
+    updateProfile
+} from
 "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
 
 
-import {
-    getFirestore,
-    doc,
-    setDoc,
-    getDoc,
-    updateDoc,
-    serverTimestamp
-}
-from
-"https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
-
-
-/* =========================================================
-   FIREBASE CONFIG
-   IMPORTANT:
-   This is the CURRENT Firebase Console configuration.
-========================================================= */
-
-const firebaseConfig = {
-
-    apiKey:
-        "AIzaSyB6xJFLJC9KReEJQAzHbOmB67DBg-zX4gE",
-
-    authDomain:
-        "all-about-english-007.firebaseapp.com",
-
-    databaseURL:
-        "https://all-about-english-007-default-rtdb.asia-southeast1.firebasedatabase.app",
-
-    projectId:
-        "all-about-english-007",
-
-    storageBucket:
-        "all-about-english-007.firebasestorage.app",
-
-    messagingSenderId:
-        "251678333411",
-
-    appId:
-        "1:251678333411:web:889369210cb79442f0a8d6",
-
-    measurementId:
-        "G-RVFY5YEX6L"
-
-};
-
-
-/* =========================================================
-   INITIALIZE FIREBASE
-========================================================= */
-
-const app =
-    initializeApp(firebaseConfig);
-
-
-const auth =
-    getAuth(app);
-
-
-const db =
-    getFirestore(app);
-
-
-/* =========================================================
-   AUTH PERSISTENCE
-========================================================= */
-
-try {
-
-    await setPersistence(
-        auth,
-        browserLocalPersistence
-    );
-
-    console.log(
-        "Firebase Auth persistence enabled."
-    );
-
-}
-catch(error) {
-
-    console.error(
-        "Firebase Auth persistence error:",
-        error
-    );
-
-}
-
-
-/* =========================================================
-   DEVICE ID
-========================================================= */
-
-const DEVICE_STORAGE_KEY =
-    "aae_student_device_id_v1";
-
-
-function createDeviceId() {
-
-    if (
-        window.crypto &&
-        crypto.randomUUID
-    ) {
-
-        return crypto.randomUUID();
-
-    }
-
-
-    return (
-        "device-" +
-        Date.now().toString(36) +
-        "-" +
-        Math.random()
-            .toString(36)
-            .substring(2, 15)
-    );
-
-}
-
-
-function getDeviceId() {
-
-    let deviceId =
-        localStorage.getItem(
-            DEVICE_STORAGE_KEY
-        );
-
-
-    if (!deviceId) {
-
-        deviceId =
-            createDeviceId();
-
-
-        localStorage.setItem(
-            DEVICE_STORAGE_KEY,
-            deviceId
-        );
-
-    }
-
-
-    return deviceId;
-
-}
-
-
-const currentDeviceId =
-    getDeviceId();
-
-
-/* =========================================================
-   DOM
-========================================================= */
+// ============================================================
+// DOM
+// ============================================================
 
 const authOverlay =
     document.getElementById("authOverlay");
@@ -3056,9 +2895,6 @@ const authModal =
 const accountPanel =
     document.getElementById("accountPanel");
 
-const deviceLimitBox =
-    document.getElementById("deviceLimitBox");
-
 const authButton =
     document.getElementById("authOpenBtn");
 
@@ -3066,31 +2902,21 @@ const userDisplay =
     document.getElementById("userNameDisplay");
 
 
-/* =========================================================
-   MESSAGE
-========================================================= */
+// ============================================================
+// MESSAGE
+// ============================================================
 
-function showMessage(
-    message,
-    type
-) {
+function showMessage(message, type) {
 
     const box =
-        document.getElementById(
-            "authMessage"
-        );
-
+        document.getElementById("authMessage");
 
     if (!box) return;
 
-
-    box.textContent =
-        message;
-
+    box.textContent = message;
 
     box.className =
-        "auth-message " +
-        type;
+        "auth-message " + type;
 
 }
 
@@ -3098,148 +2924,68 @@ function showMessage(
 function clearMessage() {
 
     const box =
-        document.getElementById(
-            "authMessage"
-        );
-
+        document.getElementById("authMessage");
 
     if (!box) return;
 
+    box.textContent = "";
 
-    box.textContent =
-        "";
-
-
-    box.className =
-        "auth-message";
+    box.className = "auth-message";
 
 }
 
 
-/* =========================================================
-   AUTH MODAL
-========================================================= */
+// ============================================================
+// OPEN LOGIN
+// ============================================================
 
-function openAuthModal() {
+function openLogin() {
 
-    if (authOverlay) {
+    authOverlay.classList.add("show");
 
-        authOverlay.classList.add(
-            "show"
-        );
+    authModal.style.display = "block";
 
-    }
-
-
-    if (authModal) {
-
-        authModal.style.display =
-            "block";
-
-    }
-
-
-    if (accountPanel) {
-
-        accountPanel.classList.remove(
-            "show"
-        );
-
-    }
-
-
-    if (deviceLimitBox) {
-
-        deviceLimitBox.style.display =
-            "none";
-
-    }
-
+    accountPanel.classList.remove("show");
 
     clearMessage();
 
 }
 
 
-function closeAuthModal() {
+// ============================================================
+// OPEN ACCOUNT
+// ============================================================
 
-    if (authOverlay) {
+function openAccount() {
 
-        authOverlay.classList.remove(
-            "show"
-        );
-
-    }
-
-}
-
-
-function openAccountPanel() {
-
-    const user =
-        auth.currentUser;
-
+    const user = auth.currentUser;
 
     if (!user) {
 
-        openAuthModal();
+        openLogin();
 
         return;
 
     }
 
+    authOverlay.classList.add("show");
 
-    if (authOverlay) {
+    authModal.style.display = "none";
 
-        authOverlay.classList.add(
-            "show"
-        );
-
-    }
-
-
-    if (authModal) {
-
-        authModal.style.display =
-            "none";
-
-    }
-
-
-    if (deviceLimitBox) {
-
-        deviceLimitBox.style.display =
-            "none";
-
-    }
-
-
-    if (accountPanel) {
-
-        accountPanel.classList.add(
-            "show"
-        );
-
-    }
+    accountPanel.classList.add("show");
 
 
     const accountName =
-        document.getElementById(
-            "accountName"
-        );
-
+        document.getElementById("accountName");
 
     const accountEmail =
-        document.getElementById(
-            "accountEmail"
-        );
+        document.getElementById("accountEmail");
 
 
     if (accountName) {
 
         accountName.textContent =
-            user.displayName ||
-            "Student";
+            user.displayName || "Student";
 
     }
 
@@ -3247,34 +2993,27 @@ function openAccountPanel() {
     if (accountEmail) {
 
         accountEmail.textContent =
-            user.email ||
-            "";
-
-    }
-
-
-    loadAccountData();
-
-}
-
-
-function closeOverlayOutside(event) {
-
-    if (
-        event.target ===
-        authOverlay
-    ) {
-
-        closeAuthModal();
+            user.email || "";
 
     }
 
 }
 
 
-/* =========================================================
-   AUTH BUTTONS
-========================================================= */
+// ============================================================
+// CLOSE OVERLAY
+// ============================================================
+
+function closeOverlay() {
+
+    authOverlay.classList.remove("show");
+
+}
+
+
+// ============================================================
+// ACCOUNT BUTTON
+// ============================================================
 
 if (authButton) {
 
@@ -3284,13 +3023,13 @@ if (authButton) {
 
             if (auth.currentUser) {
 
-                openAccountPanel();
+                openAccount();
 
             }
 
             else {
 
-                openAuthModal();
+                openLogin();
 
             }
 
@@ -3300,72 +3039,81 @@ if (authButton) {
 }
 
 
+// ============================================================
+// CLOSE LOGIN
+// ============================================================
+
 const authCloseBtn =
-    document.getElementById(
-        "authCloseBtn"
-    );
+    document.getElementById("authCloseBtn");
 
 
 if (authCloseBtn) {
 
     authCloseBtn.addEventListener(
         "click",
-        closeAuthModal
+        closeOverlay
     );
 
 }
 
 
+// ============================================================
+// CLOSE ACCOUNT
+// ============================================================
+
 const accountCloseBtn =
-    document.getElementById(
-        "accountCloseBtn"
-    );
+    document.getElementById("accountCloseBtn");
 
 
 if (accountCloseBtn) {
 
     accountCloseBtn.addEventListener(
         "click",
-        closeAuthModal
+        closeOverlay
     );
 
 }
 
 
-const deviceCloseBtn =
-    document.getElementById(
-        "deviceCloseBtn"
-    );
-
-
-if (deviceCloseBtn) {
-
-    deviceCloseBtn.addEventListener(
-        "click",
-        closeAuthModal
-    );
-
-}
-
+// ============================================================
+// CLICK OUTSIDE
+// ============================================================
 
 if (authOverlay) {
 
     authOverlay.addEventListener(
         "click",
-        closeOverlayOutside
+        function(event) {
+
+            if (
+                event.target === authOverlay
+            ) {
+
+                closeOverlay();
+
+            }
+
+        }
     );
 
 }
 
 
-/* =========================================================
-   TABS
-========================================================= */
+// ============================================================
+// LOGIN / REGISTER TABS
+// ============================================================
 
 const loginTab =
-    document.getElementById(
-        "loginTab"
-    );
+    document.getElementById("loginTab");
+
+const registerTab =
+    document.getElementById("registerTab");
+
+const loginForm =
+    document.getElementById("loginForm");
+
+const registerForm =
+    document.getElementById("registerForm");
 
 
 if (loginTab) {
@@ -3374,25 +3122,13 @@ if (loginTab) {
         "click",
         function() {
 
-            document.getElementById(
-                "loginTab"
-            ).classList.add("active");
+            loginTab.classList.add("active");
 
+            registerTab.classList.remove("active");
 
-            document.getElementById(
-                "registerTab"
-            ).classList.remove("active");
+            loginForm.classList.add("active");
 
-
-            document.getElementById(
-                "loginForm"
-            ).classList.add("active");
-
-
-            document.getElementById(
-                "registerForm"
-            ).classList.remove("active");
-
+            registerForm.classList.remove("active");
 
             clearMessage();
 
@@ -3400,12 +3136,6 @@ if (loginTab) {
     );
 
 }
-
-
-const registerTab =
-    document.getElementById(
-        "registerTab"
-    );
 
 
 if (registerTab) {
@@ -3414,25 +3144,13 @@ if (registerTab) {
         "click",
         function() {
 
-            document.getElementById(
-                "registerTab"
-            ).classList.add("active");
+            registerTab.classList.add("active");
 
+            loginTab.classList.remove("active");
 
-            document.getElementById(
-                "loginTab"
-            ).classList.remove("active");
+            registerForm.classList.add("active");
 
-
-            document.getElementById(
-                "registerForm"
-            ).classList.add("active");
-
-
-            document.getElementById(
-                "loginForm"
-            ).classList.remove("active");
-
+            loginForm.classList.remove("active");
 
             clearMessage();
 
@@ -3442,15 +3160,9 @@ if (registerTab) {
 }
 
 
-/* =========================================================
-   REGISTER
-========================================================= */
-
-const registerForm =
-    document.getElementById(
-        "registerForm"
-    );
-
+// ============================================================
+// REGISTER
+// ============================================================
 
 if (registerForm) {
 
@@ -3462,40 +3174,48 @@ if (registerForm) {
 
 
             const name =
-                document.getElementById(
-                    "registerName"
-                ).value.trim();
+                document
+                    .getElementById("registerName")
+                    .value
+                    .trim();
 
 
             const email =
-                document.getElementById(
-                    "registerEmail"
-                ).value.trim();
+                document
+                    .getElementById("registerEmail")
+                    .value
+                    .trim();
 
 
             const mobile =
-                document.getElementById(
-                    "registerMobile"
-                ).value.trim();
+                document
+                    .getElementById("registerMobile")
+                    .value
+                    .trim();
 
 
             const college =
-                document.getElementById(
-                    "registerCollege"
-                ).value.trim();
+                document
+                    .getElementById("registerCollege")
+                    .value
+                    .trim();
 
 
             const password =
-                document.getElementById(
-                    "registerPassword"
-                ).value;
+                document
+                    .getElementById("registerPassword")
+                    .value;
 
 
             const confirmPassword =
-                document.getElementById(
-                    "registerConfirmPassword"
-                ).value;
+                document
+                    .getElementById("registerConfirmPassword")
+                    .value;
 
+
+            // ------------------------------------------------
+            // VALIDATION
+            // ------------------------------------------------
 
             if (name.length < 2) {
 
@@ -3509,11 +3229,7 @@ if (registerForm) {
             }
 
 
-            if (
-                !/^[0-9]{11}$/.test(
-                    mobile
-                )
-            ) {
+            if (!/^[0-9]{11}$/.test(mobile)) {
 
                 showMessage(
                     "Please enter a valid 11-digit Bangladesh mobile number.",
@@ -3525,9 +3241,7 @@ if (registerForm) {
             }
 
 
-            if (
-                password.length < 6
-            ) {
+            if (password.length < 6) {
 
                 showMessage(
                     "Password must contain at least 6 characters.",
@@ -3539,10 +3253,7 @@ if (registerForm) {
             }
 
 
-            if (
-                password !==
-                confirmPassword
-            ) {
+            if (password !== confirmPassword) {
 
                 showMessage(
                     "Passwords do not match.",
@@ -3555,36 +3266,27 @@ if (registerForm) {
 
 
             const submitButton =
-                document.getElementById(
-                    "registerSubmit"
-                );
+                document.getElementById("registerSubmit");
 
 
             const loading =
-                document.getElementById(
-                    "registerLoading"
-                );
+                document.getElementById("registerLoading");
 
 
-            submitButton.disabled =
-                true;
+            submitButton.disabled = true;
 
-
-            if (loading) {
-
-                loading.classList.add(
-                    "show"
-                );
-
-            }
-
+            loading.classList.add("show");
 
             clearMessage();
 
 
             try {
 
-                const userCredential =
+                // ------------------------------------------------
+                // CREATE FIREBASE AUTH ACCOUNT
+                // ------------------------------------------------
+
+                const result =
                     await createUserWithEmailAndPassword(
                         auth,
                         email,
@@ -3593,98 +3295,63 @@ if (registerForm) {
 
 
                 const user =
-                    userCredential.user;
+                    result.user;
 
+
+                // ------------------------------------------------
+                // SAVE DISPLAY NAME
+                // ------------------------------------------------
 
                 await updateProfile(
                     user,
                     {
-                        displayName:
-                            name
+                        displayName: name
                     }
-                );
-
-
-                await setDoc(
-
-                    doc(
-                        db,
-                        "students",
-                        user.uid
-                    ),
-
-                    {
-
-                        uid:
-                            user.uid,
-
-                        name:
-                            name,
-
-                        email:
-                            email,
-
-                        mobile:
-                            mobile,
-
-                        college:
-                            college,
-
-                        createdAt:
-                            serverTimestamp(),
-
-                        accountStatus:
-                            "pending",
-
-                        device1:
-                            currentDeviceId,
-
-                        device2:
-                            ""
-
-                    }
-
                 );
 
 
                 console.log(
-                    "Registration successful:",
+                    "REGISTRATION SUCCESS"
+                );
+
+
+                console.log(
+                    "UID:",
                     user.uid
                 );
 
 
                 showMessage(
-                    "Registration successful! Your first device has been registered.",
+                    "Account created successfully!",
                     "success"
                 );
+
+
+                registerForm.reset();
 
 
                 setTimeout(
                     function() {
 
-                        closeAuthModal();
-
-                        openAccountPanel();
+                        closeOverlay();
 
                     },
                     1000
                 );
 
 
-                registerForm.reset();
-
             }
 
             catch(error) {
 
                 console.error(
-                    "Registration error:",
+                    "REGISTRATION ERROR:",
                     error
                 );
 
 
                 let message =
-                    "Registration failed. Please try again.";
+                    "Registration failed.";
 
 
                 if (
@@ -3693,9 +3360,10 @@ if (registerForm) {
                 ) {
 
                     message =
-                        "This email is already registered. Please login.";
+                        "This email is already registered.";
 
                 }
+
 
                 else if (
                     error.code ===
@@ -3707,23 +3375,14 @@ if (registerForm) {
 
                 }
 
+
                 else if (
                     error.code ===
                     "auth/weak-password"
                 ) {
 
                     message =
-                        "Password is too weak. Use at least 6 characters.";
-
-                }
-
-                else if (
-                    error.code ===
-                    "permission-denied"
-                ) {
-
-                    message =
-                        "Registration was blocked by Firestore Rules. Please check the Rules.";
+                        "Password must contain at least 6 characters.";
 
                 }
 
@@ -3737,17 +3396,9 @@ if (registerForm) {
 
             finally {
 
-                submitButton.disabled =
-                    false;
+                submitButton.disabled = false;
 
-
-                if (loading) {
-
-                    loading.classList.remove(
-                        "show"
-                    );
-
-                }
+                loading.classList.remove("show");
 
             }
 
@@ -3757,234 +3408,9 @@ if (registerForm) {
 }
 
 
-/* =========================================================
-   REGISTER CURRENT DEVICE
-========================================================= */
-
-async function registerCurrentDevice() {
-
-    const user =
-        auth.currentUser;
-
-
-    if (!user) {
-
-        console.warn(
-            "Device registration skipped: no authenticated user."
-        );
-
-        return false;
-
-    }
-
-
-    const studentRef =
-        doc(
-            db,
-            "students",
-            user.uid
-        );
-
-
-    try {
-
-        const studentSnap =
-            await getDoc(
-                studentRef
-            );
-
-
-        if (!studentSnap.exists()) {
-
-            console.warn(
-                "Student profile not found during device registration."
-            );
-
-            return false;
-
-        }
-
-
-        const data =
-            studentSnap.data();
-
-
-        const device1 =
-            typeof data.device1 === "string"
-                ? data.device1
-                : "";
-
-
-        const device2 =
-            typeof data.device2 === "string"
-                ? data.device2
-                : "";
-
-
-        const currentDevice =
-            currentDeviceId.trim();
-
-
-        if (!currentDevice) {
-
-            return false;
-
-        }
-
-
-        /* SAME DEVICE */
-
-        if (
-            device1 === currentDevice ||
-            device2 === currentDevice
-        ) {
-
-            console.log(
-                "Existing registered device detected."
-            );
-
-            return true;
-
-        }
-
-
-        /* DEVICE 1 EMPTY */
-
-        if (!device1) {
-
-            await updateDoc(
-                studentRef,
-                {
-                    device1:
-                        currentDevice
-                }
-            );
-
-
-            console.log(
-                "Device 1 registered successfully."
-            );
-
-
-            return true;
-
-        }
-
-
-        /* DEVICE 2 EMPTY */
-
-        if (!device2) {
-
-            await updateDoc(
-                studentRef,
-                {
-                    device2:
-                        currentDevice
-                }
-            );
-
-
-            console.log(
-                "Device 2 registered successfully."
-            );
-
-
-            return true;
-
-        }
-
-
-        /* BOTH DEVICES FULL */
-
-        console.warn(
-            "Both device slots are already occupied."
-        );
-
-
-        if (deviceLimitBox) {
-
-            deviceLimitBox.style.display =
-                "block";
-
-        }
-
-
-        if (authModal) {
-
-            authModal.style.display =
-                "none";
-
-        }
-
-
-        if (accountPanel) {
-
-            accountPanel.classList.remove(
-                "show"
-            );
-
-        }
-
-
-        if (authOverlay) {
-
-            authOverlay.classList.add(
-                "show"
-            );
-
-        }
-
-
-        return false;
-
-    }
-
-    catch(error) {
-
-        console.error(
-            "Device registration error:",
-            error
-        );
-
-
-        if (
-            error.code ===
-            "permission-denied"
-        ) {
-
-            showMessage(
-                "Firestore permission denied. Please contact Shaheen Sir.",
-                "error"
-            );
-
-        }
-
-        else {
-
-            showMessage(
-                "Could not register this device. Please try again.",
-                "error"
-            );
-
-        }
-
-
-        return false;
-
-    }
-
-}
-
-
-/* =========================================================
-   LOGIN
-========================================================= */
-
-const loginForm =
-    document.getElementById(
-        "loginForm"
-    );
-
+// ============================================================
+// LOGIN
+// ============================================================
 
 if (loginForm) {
 
@@ -3996,52 +3422,40 @@ if (loginForm) {
 
 
             const email =
-                document.getElementById(
-                    "loginEmail"
-                ).value.trim();
+                document
+                    .getElementById("loginEmail")
+                    .value
+                    .trim();
 
 
             const password =
-                document.getElementById(
-                    "loginPassword"
-                ).value;
+                document
+                    .getElementById("loginPassword")
+                    .value;
 
 
             const submitButton =
-                document.getElementById(
-                    "loginSubmit"
-                );
+                document.getElementById("loginSubmit");
 
 
             const loading =
-                document.getElementById(
-                    "loginLoading"
-                );
+                document.getElementById("loginLoading");
 
 
-            submitButton.disabled =
-                true;
+            submitButton.disabled = true;
 
-
-            if (loading) {
-
-                loading.classList.add(
-                    "show"
-                );
-
-            }
-
+            loading.classList.add("show");
 
             clearMessage();
 
 
             try {
 
-                /* =========================================
-                   1. FIREBASE AUTHENTICATION
-                ========================================= */
+                // ------------------------------------------------
+                // FIREBASE LOGIN
+                // ------------------------------------------------
 
-                const userCredential =
+                const result =
                     await signInWithEmailAndPassword(
                         auth,
                         email,
@@ -4050,196 +3464,34 @@ if (loginForm) {
 
 
                 const user =
-                    userCredential.user;
+                    result.user;
 
 
                 console.log(
-                    "Firebase login successful:",
+                    "================================"
+                );
+
+                console.log(
+                    "LOGIN SUCCESS"
+                );
+
+                console.log(
+                    "UID:",
                     user.uid
                 );
 
-
-                /* =========================================
-                   2. CHECK ADMIN
-                ========================================= */
-
-                const adminRef =
-                    doc(
-                        db,
-                        "admins",
-                        user.uid
-                    );
-
-
-                let adminSnap = null;
-
-
-                try {
-
-                    adminSnap =
-                        await getDoc(
-                            adminRef
-                        );
-
-                }
-
-                catch(adminError) {
-
-                    console.warn(
-                        "Admin check failed:",
-                        adminError
-                    );
-
-                }
-
-
-                /* =========================================
-                   3. ADMIN LOGIN
-                ========================================= */
-
-                if (
-                    adminSnap &&
-                    adminSnap.exists()
-                ) {
-
-                    const adminData =
-                        adminSnap.data();
-
-
-                    console.log(
-                        "Admin document found:",
-                        adminData
-                    );
-
-
-                    if (
-                        adminData.role === "admin" &&
-                        adminData.status === "active"
-                    ) {
-
-                        console.log(
-                            "Active admin login detected."
-                        );
-
-
-                        showMessage(
-                            "Admin login successful!",
-                            "success"
-                        );
-
-
-                        setTimeout(
-                            function() {
-
-                                closeAuthModal();
-
-                                openAccountPanel();
-
-                            },
-                            600
-                        );
-
-
-                        return;
-
-                    }
-
-
-                    await signOut(auth);
-
-
-                    showMessage(
-                        "Your admin account is not active.",
-                        "error"
-                    );
-
-
-                    return;
-
-                }
-
-
-                /* =========================================
-                   4. STUDENT PROFILE
-                ========================================= */
-
                 console.log(
-                    "No admin document. Checking student account..."
+                    "EMAIL:",
+                    user.email
                 );
 
-
-                const studentRef =
-                    doc(
-                        db,
-                        "students",
-                        user.uid
-                    );
-
-
-                const studentSnap =
-                    await getDoc(
-                        studentRef
-                    );
-
-
-                if (
-                    !studentSnap.exists()
-                ) {
-
-                    console.error(
-                        "Neither admin nor student profile was found."
-                    );
-
-
-                    await signOut(auth);
-
-
-                    showMessage(
-                        "Account profile was not found. Please contact Shaheen Sir.",
-                        "error"
-                    );
-
-
-                    return;
-
-                }
-
-
-                /* =========================================
-                   5. DEVICE CHECK
-                ========================================= */
-
-                const allowed =
-                    await registerCurrentDevice();
-
-
-                if (!allowed) {
-
-                    /*
-                     * IMPORTANT:
-                     * Never sign out because of a device
-                     * registration problem.
-                     */
-
-                    console.warn(
-                        "Device registration was not completed. Firebase authentication remains active."
-                    );
-
-                }
-
-
-                /* =========================================
-                   6. STUDENT LOGIN SUCCESS
-                ========================================= */
-
                 console.log(
-                    "Student login successful."
+                    "DISPLAY NAME:",
+                    user.displayName
                 );
 
-
                 console.log(
-                    "Authenticated UID:",
-                    auth.currentUser?.uid
+                    "================================"
                 );
 
 
@@ -4252,26 +3504,25 @@ if (loginForm) {
                 setTimeout(
                     function() {
 
-                        closeAuthModal();
-
-                        openAccountPanel();
+                        closeOverlay();
 
                     },
-                    600
+                    700
                 );
+
 
             }
 
             catch(error) {
 
                 console.error(
-                    "Login error:",
+                    "LOGIN ERROR:",
                     error
                 );
 
 
                 let message =
-                    "Login failed. Please check your email and password.";
+                    "Login failed.";
 
 
                 if (
@@ -4284,6 +3535,7 @@ if (loginForm) {
 
                 }
 
+
                 else if (
                     error.code ===
                     "auth/user-not-found"
@@ -4293,6 +3545,7 @@ if (loginForm) {
                         "No account found with this email.";
 
                 }
+
 
                 else if (
                     error.code ===
@@ -4304,6 +3557,7 @@ if (loginForm) {
 
                 }
 
+
                 else if (
                     error.code ===
                     "auth/too-many-requests"
@@ -4311,29 +3565,6 @@ if (loginForm) {
 
                     message =
                         "Too many unsuccessful attempts. Please try again later.";
-
-                }
-
-                else if (
-                    error.code ===
-                    "auth/api-key-not-valid"
-                ) {
-
-                    message =
-                        "Firebase configuration error. Please contact Shaheen Sir.";
-
-                }
-
-                else if (
-                    error.code ===
-                    "permission-denied" ||
-                    error.message?.includes(
-                        "Missing or insufficient permissions"
-                    )
-                ) {
-
-                    message =
-                        "Firestore permission denied. Please check Firestore Rules.";
 
                 }
 
@@ -4347,17 +3578,9 @@ if (loginForm) {
 
             finally {
 
-                submitButton.disabled =
-                    false;
+                submitButton.disabled = false;
 
-
-                if (loading) {
-
-                    loading.classList.remove(
-                        "show"
-                    );
-
-                }
+                loading.classList.remove("show");
 
             }
 
@@ -4367,140 +3590,12 @@ if (loginForm) {
 }
 
 
-/* =========================================================
-   ACCOUNT DATA
-========================================================= */
-
-async function loadAccountData() {
-
-    const user =
-        auth.currentUser;
-
-
-    if (!user) {
-
-        return;
-
-    }
-
-
-    try {
-
-        const studentRef =
-            doc(
-                db,
-                "students",
-                user.uid
-            );
-
-
-        const studentSnap =
-            await getDoc(
-                studentRef
-            );
-
-
-        if (
-            !studentSnap.exists()
-        ) {
-
-            return;
-
-        }
-
-
-        const data =
-            studentSnap.data();
-
-
-        const accountMobile =
-            document.getElementById(
-                "accountMobile"
-            );
-
-
-        const accountCollege =
-            document.getElementById(
-                "accountCollege"
-            );
-
-
-        if (accountMobile) {
-
-            accountMobile.textContent =
-                data.mobile ||
-                "Not provided";
-
-        }
-
-
-        if (accountCollege) {
-
-            accountCollege.textContent =
-                data.college ||
-                "Not provided";
-
-        }
-
-
-        const devices = [];
-
-
-        if (data.device1) {
-
-            devices.push(
-                data.device1
-            );
-
-        }
-
-
-        if (data.device2) {
-
-            devices.push(
-                data.device2
-            );
-
-        }
-
-
-        const deviceCount =
-            document.getElementById(
-                "deviceCount"
-            );
-
-
-        if (deviceCount) {
-
-            deviceCount.textContent =
-                "Registered devices: " +
-                devices.length +
-                " / 2";
-
-        }
-
-    }
-
-    catch(error) {
-
-        console.error(
-            "Could not load student data:",
-            error
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   PASSWORD RESET
-========================================================= */
+// ============================================================
+// FORGOT PASSWORD
+// ============================================================
 
 const forgotPassword =
-    document.getElementById(
-        "forgotPassword"
-    );
+    document.getElementById("forgotPassword");
 
 
 if (forgotPassword) {
@@ -4510,9 +3605,10 @@ if (forgotPassword) {
         async function() {
 
             const email =
-                document.getElementById(
-                    "loginEmail"
-                ).value.trim();
+                document
+                    .getElementById("loginEmail")
+                    .value
+                    .trim();
 
 
             if (!email) {
@@ -4536,7 +3632,7 @@ if (forgotPassword) {
 
 
                 showMessage(
-                    "Password reset email has been sent. Please check your inbox.",
+                    "Password reset email sent. Please check your inbox.",
                     "success"
                 );
 
@@ -4545,7 +3641,7 @@ if (forgotPassword) {
             catch(error) {
 
                 console.error(
-                    "Password reset error:",
+                    "PASSWORD RESET ERROR:",
                     error
                 );
 
@@ -4563,14 +3659,12 @@ if (forgotPassword) {
 }
 
 
-/* =========================================================
-   LOGOUT
-========================================================= */
+// ============================================================
+// LOGOUT
+// ============================================================
 
 const logoutBtn =
-    document.getElementById(
-        "logoutBtn"
-    );
+    document.getElementById("logoutBtn");
 
 
 if (logoutBtn) {
@@ -4583,14 +3677,18 @@ if (logoutBtn) {
 
                 await signOut(auth);
 
-                closeAuthModal();
+                closeOverlay();
+
+                console.log(
+                    "User logged out."
+                );
 
             }
 
             catch(error) {
 
                 console.error(
-                    "Logout error:",
+                    "LOGOUT ERROR:",
                     error
                 );
 
@@ -4602,16 +3700,16 @@ if (logoutBtn) {
 }
 
 
-/* =========================================================
-   AUTH STATE
-========================================================= */
+// ============================================================
+// AUTH STATE
+// ============================================================
 
 onAuthStateChanged(
     auth,
     function(user) {
 
         console.log(
-            "Main Website Auth State:",
+            "MAIN WEBSITE AUTH STATE:",
             user
                 ? user.uid
                 : null
@@ -4619,6 +3717,10 @@ onAuthStateChanged(
 
 
         if (user) {
+
+            // ------------------------------------------------
+            // USER IS LOGGED IN
+            // ------------------------------------------------
 
             if (userDisplay) {
 
@@ -4628,7 +3730,6 @@ onAuthStateChanged(
                         user.displayName ||
                         "Student"
                     );
-
 
                 userDisplay.style.display =
                     "inline-block";
@@ -4646,6 +3747,10 @@ onAuthStateChanged(
         }
 
         else {
+
+            // ------------------------------------------------
+            // USER IS NOT LOGGED IN
+            // ------------------------------------------------
 
             if (userDisplay) {
 
@@ -4668,14 +3773,12 @@ onAuthStateChanged(
 );
 
 
-/* =========================================================
-   SEARCH
-========================================================= */
+// ============================================================
+// SEARCH
+// ============================================================
 
 const searchInput =
-    document.getElementById(
-        "searchInput"
-    );
+    document.getElementById("searchInput");
 
 
 if (searchInput) {
@@ -4730,6 +3833,7 @@ if (searchInput) {
     );
 
 }
+
 
 </script>
 
