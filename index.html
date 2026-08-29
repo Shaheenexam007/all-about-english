@@ -3664,16 +3664,17 @@ document.getElementById(
 
 
             const allowed =
-                await registerCurrentDevice();
+    await registerCurrentDevice();
 
+if (!allowed) {
 
-            if (!allowed) {
+    console.warn(
+        "Device registration failed, but user remains logged in."
+    );
 
-                await signOut(auth);
+    return;
 
-                return;
-
-            }
+}
 
 
             showMessage(
