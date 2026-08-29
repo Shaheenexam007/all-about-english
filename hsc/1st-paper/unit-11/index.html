@@ -341,31 +341,46 @@ body {
 
 <script type="module">
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+/* =========================================================
+   FIREBASE IMPORTS
+========================================================= */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
+
 
 import {
     getAuth,
-    onAuthStateChanged
+    onAuthStateChanged,
+    setPersistence,
+    browserLocalPersistence
 }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+from
+"https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+
 
 import {
     getFirestore,
     doc,
     getDoc
 }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+from
+"https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
 
 
 /* =========================================================
    FIREBASE CONFIG
+   IMPORTANT:
+   SAME CONFIG AS MAIN WEBSITE
 ========================================================= */
 
 const firebaseConfig = {
 
     apiKey:
-        "AIzaSyB6xJFLJC9KReEJQAzHbOmB67DBg-zX4gE",
+        "AIzaSyCSC86rxNfQ44z-WTBsZh5FL-Sxa0_f4A",
 
     authDomain:
         "all-about-english-007.firebaseapp.com",
@@ -398,24 +413,48 @@ const firebaseConfig = {
 const app =
     initializeApp(firebaseConfig);
 
+
 const auth =
     getAuth(app);
+
 
 const db =
     getFirestore(app);
 
 
 /* =========================================================
-   ⭐ MASTER UNIT ID
-=========================================================
+   KEEP LOGIN SESSION ACROSS PAGES
+========================================================= */
 
-   ভবিষ্যতে অন্য Unit-এর index বানানোর সময়
-   মূলত এই value পরিবর্তন করলেই হবে।
+try {
 
-   Unit 12:
-*/
+    await setPersistence(
+        auth,
+        browserLocalPersistence
+    );
 
-const UNIT_ID = "unit-11";
+    console.log(
+        "Firebase Auth persistence enabled."
+    );
+
+}
+
+catch(error) {
+
+    console.error(
+        "Auth persistence error:",
+        error
+    );
+
+}
+
+
+/* =========================================================
+   MASTER UNIT ID
+========================================================= */
+
+const UNIT_ID =
+    "unit-11";
 
 
 /* =========================================================
@@ -425,31 +464,59 @@ const UNIT_ID = "unit-11";
 const lessons = [
 
     {
-        buttonId: "lesson1Button"
+        buttonId:
+            "lesson1Button",
+
+        lessonId:
+            "unit-11-lesson-1"
     },
 
     {
-        buttonId: "lesson2Button"
+        buttonId:
+            "lesson2Button",
+
+        lessonId:
+            "unit-11-lesson-2"
     },
 
     {
-        buttonId: "lesson3Button"
+        buttonId:
+            "lesson3Button",
+
+        lessonId:
+            "unit-11-lesson-3"
     },
 
     {
-        buttonId: "lesson4Button"
+        buttonId:
+            "lesson4Button",
+
+        lessonId:
+            "unit-11-lesson-4"
     },
 
     {
-        buttonId: "lesson4SecondHalfButton"
+        buttonId:
+            "lesson4SecondHalfButton",
+
+        lessonId:
+            "unit-11-lesson-4-second-half"
     },
 
     {
-        buttonId: "lesson5Button"
+        buttonId:
+            "lesson5Button",
+
+        lessonId:
+            "unit-11-lesson-5"
     },
 
     {
-        buttonId: "lesson5SecondHalfButton"
+        buttonId:
+            "lesson5SecondHalfButton",
+
+        lessonId:
+            "unit-11-lesson-5-second-half"
     }
 
 ];
@@ -467,7 +534,7 @@ function getButton(id) {
 
 
 /* =========================================================
-   LOCK ALL LESSONS
+   LOCK LESSON
 ========================================================= */
 
 function lockLesson(button) {
@@ -475,24 +542,25 @@ function lockLesson(button) {
     if (!button) return;
 
 
-    button.classList.remove("open");
-
-    button.classList.add("locked");
-
-
-    /*
-     * Remove actual link
-     */
-
-    button.removeAttribute("href");
+    button.classList.remove(
+        "open"
+    );
 
 
-    /*
-     * Change button text
-     */
+    button.classList.add(
+        "locked"
+    );
+
+
+    button.removeAttribute(
+        "href"
+    );
+
 
     const openButton =
-        button.querySelector(".open-btn");
+        button.querySelector(
+            ".open-btn"
+        );
 
 
     if (openButton) {
@@ -503,18 +571,16 @@ function lockLesson(button) {
     }
 
 
-    /*
-     * Prevent clicking
-     */
-
     button.onclick =
         function(event) {
 
             event.preventDefault();
 
+
             alert(
-                "This unit has not been approved for your account yet."
+                "This lesson has not been approved for your account yet."
             );
+
 
             return false;
 
@@ -532,14 +598,15 @@ function openLesson(button) {
     if (!button) return;
 
 
-    button.classList.remove("locked");
+    button.classList.remove(
+        "locked"
+    );
 
-    button.classList.add("open");
 
+    button.classList.add(
+        "open"
+    );
 
-    /*
-     * Restore original lesson link
-     */
 
     const originalHref =
         button.dataset.href;
@@ -555,12 +622,10 @@ function openLesson(button) {
     }
 
 
-    /*
-     * Change button text
-     */
-
     const openButton =
-        button.querySelector(".open-btn");
+        button.querySelector(
+            ".open-btn"
+        );
 
 
     if (openButton) {
@@ -570,10 +635,6 @@ function openLesson(button) {
 
     }
 
-
-    /*
-     * Allow normal link click
-     */
 
     button.onclick = null;
 
@@ -587,14 +648,21 @@ function openLesson(button) {
 function showMessage(text) {
 
     const message =
-        document.getElementById("message");
+        document.getElementById(
+            "message"
+        );
+
+
+    if (!message) return;
 
 
     message.textContent =
         text;
 
 
-    message.classList.add("show");
+    message.classList.add(
+        "show"
+    );
 
 }
 
@@ -606,22 +674,23 @@ function showMessage(text) {
 function hideMessage() {
 
     const message =
-        document.getElementById("message");
+        document.getElementById(
+            "message"
+        );
 
 
-    message.classList.remove("show");
+    if (!message) return;
+
+
+    message.classList.remove(
+        "show"
+    );
 
 }
 
 
 /* =========================================================
    SAVE ORIGINAL LINKS
-=========================================================
-
-   Page load হওয়ার আগেই original href
-   data-href-এ রাখা হবে।
-
-   তারপর locked অবস্থায় href remove হবে।
 ========================================================= */
 
 document
@@ -630,7 +699,9 @@ document
     function(button) {
 
         const href =
-            button.getAttribute("href");
+            button.getAttribute(
+                "href"
+            );
 
 
         if (href) {
@@ -652,6 +723,93 @@ document
 
 
 /* =========================================================
+   LOCK ALL LESSONS
+========================================================= */
+
+function lockAllLessons() {
+
+    lessons.forEach(
+        function(lesson) {
+
+            lockLesson(
+                getButton(
+                    lesson.buttonId
+                )
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   OPEN ALL LESSONS
+   Used for ADMIN or FULL UNIT APPROVAL
+========================================================= */
+
+function openAllLessons() {
+
+    lessons.forEach(
+        function(lesson) {
+
+            openLesson(
+                getButton(
+                    lesson.buttonId
+                )
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   OPEN APPROVED LESSONS ONLY
+========================================================= */
+
+function openApprovedLessons(
+    approvedLessons
+) {
+
+    lessons.forEach(
+        function(lesson) {
+
+            const button =
+                getButton(
+                    lesson.buttonId
+                );
+
+
+            if (
+                approvedLessons &&
+                approvedLessons[
+                    lesson.lessonId
+                ] === true
+            ) {
+
+                openLesson(
+                    button
+                );
+
+            }
+
+            else {
+
+                lockLesson(
+                    button
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
    FIREBASE AUTH STATE
 ========================================================= */
 
@@ -659,28 +817,28 @@ onAuthStateChanged(
     auth,
     async function(user) {
 
+        console.log(
+            "Unit 11 Auth State:",
+            user
+        );
+
 
         /* =================================================
-           1. USER NOT LOGGED IN
+           USER NOT LOGGED IN
         ================================================= */
 
         if (!user) {
 
-            lessons.forEach(
-                function(lesson) {
-
-                    lockLesson(
-                        getButton(
-                            lesson.buttonId
-                        )
-                    );
-
-                }
-            );
+            lockAllLessons();
 
 
             showMessage(
-                "Please login to access Unit 11."
+                "Please login from the main website first."
+            );
+
+
+            console.warn(
+                "Unit 11: No authenticated Firebase user."
             );
 
 
@@ -689,11 +847,77 @@ onAuthStateChanged(
         }
 
 
+        console.log(
+            "Authenticated UID:",
+            user.uid
+        );
+
+
+        console.log(
+            "Authenticated Email:",
+            user.email
+        );
+
+
         try {
+
+            /* =================================================
+               STEP 1 — CHECK ADMIN
+            ================================================= */
+
+            const adminRef =
+                doc(
+                    db,
+                    "admins",
+                    user.uid
+                );
+
+
+            const adminSnap =
+                await getDoc(
+                    adminRef
+                );
+
+
+            if (
+                adminSnap.exists()
+            ) {
+
+                const adminData =
+                    adminSnap.data();
+
+
+                console.log(
+                    "Admin data:",
+                    adminData
+                );
+
+
+                if (
+                    adminData.role === "admin" &&
+                    adminData.status === "active"
+                ) {
+
+                    console.log(
+                        "ADMIN ACCESS GRANTED"
+                    );
+
+
+                    openAllLessons();
+
+
+                    hideMessage();
+
+
+                    return;
+
+                }
+
+            }
 
 
             /* =================================================
-               2. GET STUDENT DOCUMENT
+               STEP 2 — CHECK STUDENT
             ================================================= */
 
             const studentRef =
@@ -710,27 +934,20 @@ onAuthStateChanged(
                 );
 
 
-            /* =================================================
-               3. STUDENT DOCUMENT NOT FOUND
-            ================================================= */
+            if (
+                !studentSnap.exists()
+            ) {
 
-            if (!studentSnap.exists()) {
-
-                lessons.forEach(
-                    function(lesson) {
-
-                        lockLesson(
-                            getButton(
-                                lesson.buttonId
-                            )
-                        );
-
-                    }
-                );
+                lockAllLessons();
 
 
                 showMessage(
-                    "Your student account information was not found."
+                    "Your account profile was not found. Please contact Shaheen Sir."
+                );
+
+
+                console.error(
+                    "Neither admin nor student document was found."
                 );
 
 
@@ -740,7 +957,7 @@ onAuthStateChanged(
 
 
             /* =================================================
-               4. STUDENT DATA
+               STEP 3 — STUDENT DATA
             ================================================= */
 
             const studentData =
@@ -754,7 +971,7 @@ onAuthStateChanged(
 
 
             /* =================================================
-               5. ACCOUNT STATUS
+               STEP 4 — ACCOUNT STATUS
             ================================================= */
 
             const accountStatus =
@@ -771,18 +988,7 @@ onAuthStateChanged(
                 accountStatus !== "active"
             ) {
 
-
-                lessons.forEach(
-                    function(lesson) {
-
-                        lockLesson(
-                            getButton(
-                                lesson.buttonId
-                            )
-                        );
-
-                    }
-                );
+                lockAllLessons();
 
 
                 showMessage(
@@ -796,96 +1002,116 @@ onAuthStateChanged(
 
 
             /* =================================================
-               6. GET APPROVED UNITS
+               STEP 5 — APPROVED LESSONS
+            ================================================= */
+
+            const approvedLessons =
+                studentData.approvedLessons || {};
+
+
+            console.log(
+                "Approved Lessons:",
+                approvedLessons
+            );
+
+
+            /* =================================================
+               STEP 6 — CHECK FULL UNIT APPROVAL
+               
+               Support both:
+               
+               approvedUnits
+               approvedLessons
             ================================================= */
 
             const approvedUnits =
                 studentData.approvedUnits || {};
 
 
-            console.log(
-                "Approved Units:",
-                approvedUnits
-            );
-
-
-            /* =================================================
-               7. CHECK CURRENT UNIT
-            ================================================= */
-
-            const unitApproved =
+            const fullUnitApproved =
                 approvedUnits[UNIT_ID] === true;
 
 
             console.log(
-                "Current Unit:",
-                UNIT_ID
-            );
-
-
-            console.log(
-                "Unit Approved:",
-                unitApproved
+                "Full Unit Approved:",
+                fullUnitApproved
             );
 
 
             /* =================================================
-               8. OPEN / LOCK ALL LESSONS
-            ================================================= */
-
-            lessons.forEach(
-                function(lesson) {
-
-                    const button =
-                        getButton(
-                            lesson.buttonId
-                        );
-
-
-                    if (
-                        unitApproved
-                    ) {
-
-                        openLesson(
-                            button
-                        );
-
-                    }
-
-                    else {
-
-                        lockLesson(
-                            button
-                        );
-
-                    }
-
-                }
-            );
-
-
-            /* =================================================
-               9. FINAL MESSAGE
+               STEP 7 — OPEN ACCESS
             ================================================= */
 
             if (
-                unitApproved
+                fullUnitApproved
             ) {
 
+                openAllLessons();
+
+
                 hideMessage();
+
 
                 console.log(
                     "UNIT ACCESS GRANTED:",
                     UNIT_ID
                 );
 
+
+                return;
+
+            }
+
+
+            /* =================================================
+               STEP 8 — LESSON-BY-LESSON ACCESS
+            ================================================= */
+
+            openApprovedLessons(
+                approvedLessons
+            );
+
+
+            /* =================================================
+               CHECK WHETHER AT LEAST ONE LESSON IS APPROVED
+            ================================================= */
+
+            const hasApprovedLesson =
+                lessons.some(
+                    function(lesson) {
+
+                        return (
+                            approvedLessons[
+                                lesson.lessonId
+                            ] === true
+                        );
+
+                    }
+                );
+
+
+            if (
+                hasApprovedLesson
+            ) {
+
+                hideMessage();
+
+
+                console.log(
+                    "APPROVED LESSON ACCESS GRANTED."
+                );
+
             }
 
             else {
 
+                lockAllLessons();
+
+
                 showMessage(
                     "Unit 11 has not been approved for your account yet."
                 );
+
 
                 console.log(
                     "UNIT ACCESS DENIED:",
@@ -894,43 +1120,38 @@ onAuthStateChanged(
 
             }
 
-
         }
+
 
         catch(error) {
 
-
-            /* =================================================
-               FIREBASE ERROR
-            ================================================= */
-
             console.error(
-                "Unit access verification error:",
+                "Unit 11 access verification error:",
                 error
             );
 
 
-            /*
-             * Security principle:
-             * Firebase error হলে lesson OPEN হবে না।
-             */
-
-            lessons.forEach(
-                function(lesson) {
-
-                    lockLesson(
-                        getButton(
-                            lesson.buttonId
-                        )
-                    );
-
-                }
-            );
+            lockAllLessons();
 
 
-            showMessage(
-                "Unable to verify your account. Please try again."
-            );
+            if (
+                error.code ===
+                "permission-denied"
+            ) {
+
+                showMessage(
+                    "Firestore permission denied. Please contact Shaheen Sir."
+                );
+
+            }
+
+            else {
+
+                showMessage(
+                    "Unable to verify your account. Please try again."
+                );
+
+            }
 
         }
 
@@ -938,6 +1159,8 @@ onAuthStateChanged(
 );
 
 </script>
+
+
 
 </head>
 
