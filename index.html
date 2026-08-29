@@ -3784,41 +3784,22 @@ document.getElementById(
 
 /* =========================================================
    REGISTER CURRENT DEVICE
+   Safe version for existing + new students
 ========================================================= */
 
 async function registerCurrentDevice() {
 
-    const user =
-        auth.currentUser;
+    const user = auth.currentUser;
 
+
+    /* -----------------------------------------------------
+       USER NOT LOGGED IN
+    ----------------------------------------------------- */
 
     if (!user) {
 
-        return false;
-
-    }
-
-
-    const studentRef =
-        doc(
-            db,
-            "students",
-            user.uid
-        );
-
-
-    const studentSnap =
-        await getDoc(
-            studentRef
-        );
-
-
-    if (
-        !studentSnap.exists()
-    ) {
-
         showMessage(
-            "Student profile was not found.",
+            "Please login again.",
             "error"
         );
 
@@ -3827,97 +3808,260 @@ async function registerCurrentDevice() {
     }
 
 
-    const data =
-        studentSnap.data();
+    /* -----------------------------------------------------
+       STUDENT DOCUMENT
+    ----------------------------------------------------- */
 
-
-    const device1 =
-        data.device1 || "";
-
-
-    const device2 =
-        data.device2 || "";
-
-
-
-    /* =====================================================
-       SAME DEVICE
-    ===================================================== */
-
-    if (
-        device1 === currentDeviceId ||
-        device2 === currentDeviceId
-    ) {
-
-        return true;
-
-    }
-
-
-
-    /* =====================================================
-       DEVICE SLOT 1 EMPTY
-    ===================================================== */
-
-    if (!device1) {
-
-        await updateDoc(
-            studentRef,
-            {
-                device1:
-                    currentDeviceId
-            }
-        );
-
-        return true;
-
-    }
-
-
-
-    /* =====================================================
-       DEVICE SLOT 2 EMPTY
-    ===================================================== */
-
-    if (!device2) {
-
-        await updateDoc(
-            studentRef,
-            {
-                device2:
-                    currentDeviceId
-            }
-        );
-
-        return true;
-
-    }
-
-
-
-    /* =====================================================
-       BOTH DEVICES USED
-    ===================================================== */
-
-    deviceLimitBox.style.display =
-        "block";
-
-    authModal.style.display =
-        "none";
-
-    accountPanel.classList.remove(
-        "show"
-    );
-
-    authOverlay.classList.add(
-        "show"
+    const studentRef = doc(
+        db,
+        "students",
+        user.uid
     );
 
 
-    return false;
+    try {
+
+        const studentSnap = await getDoc(
+            studentRef
+        );
+
+
+        /* -------------------------------------------------
+           STUDENT DOCUMENT NOT FOUND
+        ------------------------------------------------- */
+
+        if (!studentSnap.exists()) {
+
+            showMessage(
+                "Student profile was not found.",
+                "error"
+            );
+
+            return false;
+
+        }
+
+
+        const data = studentSnap.data();
+
+
+        /* -------------------------------------------------
+           EXISTING DEVICE DATA
+        ------------------------------------------------- */
+
+        const device1 =
+            typeof data.device1 === "string"
+                ? data.device1
+                : "";
+
+
+        const device2 =
+            typeof data.device2 === "string"
+                ? data.device2
+                : "";
+
+
+        /* -------------------------------------------------
+           CURRENT DEVICE ID
+        ------------------------------------------------- */
+
+        if (
+            typeof currentDeviceId !== "string" ||
+            !currentDeviceId.trim()
+        ) {
+
+            console.error(
+                "Current device ID is missing."
+            );
+
+            showMessage(
+                "Could not identify this device. Please try again.",
+                "error"
+            );
+
+            return false;
+
+        }
+
+
+        const currentDevice =
+            currentDeviceId.trim();
+
+
+        /* =================================================
+           1. SAME DEVICE ALREADY REGISTERED
+        ================================================= */
+
+        if (
+            device1 === currentDevice ||
+            device2 === currentDevice
+        ) {
+
+            console.log(
+                "Existing registered device detected."
+            );
+
+            return true;
+
+        }
+
+
+        /* =================================================
+           2. DEVICE 1 EMPTY
+        ================================================= */
+
+        if (!device1) {
+
+            await updateDoc(
+                studentRef,
+                {
+                    device1: currentDevice
+                }
+            );
+
+
+            console.log(
+                "Device 1 registered successfully."
+            );
+
+
+            return true;
+
+        }
+
+
+        /* =================================================
+           3. DEVICE 2 EMPTY
+        ================================================= */
+
+        if (!device2) {
+
+            await updateDoc(
+                studentRef,
+                {
+                    device2: currentDevice
+                }
+            );
+
+
+            console.log(
+                "Device 2 registered successfully."
+            );
+
+
+            return true;
+
+        }
+
+
+        /* =================================================
+           4. BOTH DEVICE SLOTS ARE FULL
+        ================================================= */
+
+        console.warn(
+            "Both device slots are already occupied."
+        );
+
+
+        if (
+            typeof deviceLimitBox !== "undefined" &&
+            deviceLimitBox
+        ) {
+
+            deviceLimitBox.style.display =
+                "block";
+
+        }
+
+
+        if (
+            typeof authModal !== "undefined" &&
+            authModal
+        ) {
+
+            authModal.style.display =
+                "none";
+
+        }
+
+
+        if (
+            typeof accountPanel !== "undefined" &&
+            accountPanel
+        ) {
+
+            accountPanel.classList.remove(
+                "show"
+            );
+
+        }
+
+
+        if (
+            typeof authOverlay !== "undefined" &&
+            authOverlay
+        ) {
+
+            authOverlay.classList.add(
+                "show"
+            );
+
+        }
+
+
+        return false;
+
+    }
+
+
+    /* =====================================================
+       FIRESTORE ERROR
+    ===================================================== */
+
+    catch(error) {
+
+        console.error(
+            "Device registration error:",
+            error
+        );
+
+
+        /* -----------------------------------------------
+           FIRESTORE PERMISSION
+        ----------------------------------------------- */
+
+        if (
+            error.code ===
+            "permission-denied"
+        ) {
+
+            showMessage(
+                "Firestore permission denied. Please contact Shaheen Sir.",
+                "error"
+            );
+
+        }
+
+
+        /* -----------------------------------------------
+           OTHER FIRESTORE ERROR
+        ----------------------------------------------- */
+
+        else {
+
+            showMessage(
+                "Could not register this device. Please try again.",
+                "error"
+            );
+
+        }
+
+
+        return false;
+
+    }
 
 }
-
 
 
 /* =========================================================
