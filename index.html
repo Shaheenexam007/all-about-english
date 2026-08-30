@@ -2037,6 +2037,95 @@
 
         }
 
+/* =====================================================
+   AUTH STATUS / LOGGED-IN USER
+===================================================== */
+
+.user-menu {
+    display: none;
+    align-items: center;
+    gap: 7px;
+}
+
+.user-menu.show {
+    display: flex;
+}
+
+.user-name-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 11px;
+    border-radius: 9px;
+    background: #f5f1e6;
+    color: var(--navy);
+    border: 1px solid #e8dfc9;
+    font-size: 10px;
+    font-weight: 800;
+    max-width: 170px;
+}
+
+.user-name-badge i {
+    color: var(--gold);
+}
+
+.auth-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: none;
+    cursor: pointer;
+    padding: 9px 11px;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 800;
+    transition: .25s ease;
+}
+
+.auth-action-btn:hover {
+    transform: translateY(-1px);
+}
+
+.admin-btn {
+    background: var(--navy);
+    color: white;
+}
+
+.logout-btn {
+    background: #f4eeee;
+    color: #9b3028;
+    border: 1px solid #ead4d1;
+}
+
+@media (max-width: 600px) {
+
+    .user-menu {
+        gap: 4px;
+    }
+
+    .user-name-badge {
+        max-width: 105px;
+        padding: 8px 8px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .auth-action-btn {
+        padding: 8px 9px;
+        font-size: 9px;
+    }
+
+    .user-name-badge span {
+        max-width: 65px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+        
     </style>
 
 </head>
@@ -2103,17 +2192,71 @@
                     About
                 </a>
 
-                <a
-                    href="#"
-                    class="login-nav"
-                    onclick="openLogin(); return false;"
-                >
+               <!-- =====================================================
+     AUTH STATUS
+===================================================== -->
 
-                    <i class="fa-solid fa-lock"></i>
+<a
+    href="./login.html"
+    class="login-nav"
+    id="studentLoginNav"
+>
 
-                    Student Login
+    <i class="fa-solid fa-lock"></i>
 
-                </a>
+    Student Login
+
+</a>
+
+
+<div
+    class="user-menu"
+    id="userMenu"
+>
+
+    <div
+        class="user-name-badge"
+        title="Logged in user"
+    >
+
+        <i
+            class="fa-solid fa-circle-user"
+        ></i>
+
+        <span id="userDisplayName">
+            Student
+        </span>
+
+    </div>
+
+
+    <a
+        href="./admin/"
+        class="auth-action-btn admin-btn"
+        id="adminPanelBtn"
+        style="display:none;"
+    >
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        Admin
+
+    </a>
+
+
+    <button
+        type="button"
+        class="auth-action-btn logout-btn"
+        id="logoutBtn"
+    >
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Logout
+
+    </button>
+
+</div>
 
             </nav>
 
@@ -2199,17 +2342,17 @@
                     </a>
 
 
-                    <a
-                        href="#"
-                        onclick="openLogin(); return false;"
-                        class="hero-btn hero-login"
-                    >
+                   <a
+    href="./login.html"
+    class="hero-btn hero-login"
+    id="heroLoginButton"
+>
 
-                        <i class="fa-solid fa-right-to-bracket"></i>
+    <i class="fa-solid fa-right-to-bracket"></i>
 
-                        Student Login
+    Student Login
 
-                    </a>
+</a>
 
 
                 </div>
@@ -2764,16 +2907,16 @@
                     <!-- LOGIN -->
 
                     <a
-                        href="#"
-                        onclick="openLogin(); return false;"
-                        class="quick-link"
-                    >
+    href="./login.html"
+    class="quick-link"
+    id="quickLoginButton"
+>
 
-                        <i class="fa-solid fa-lock"></i>
+    <i class="fa-solid fa-lock"></i>
 
-                        Student Login
+    Student Login
 
-                    </a>
+</a>
 
 
                 </div>
@@ -2980,7 +3123,7 @@
 
                 <p>
 
-                    By Shaheen Sir<br>
+                    Shaheen Sir<br>
 
                     Assistant Professor & Head of the
                     English Department<br>
@@ -3081,15 +3224,15 @@
 
 
                 <a
-                    href="#"
-                    onclick="openLogin(); return false;"
-                >
+    href="./login.html"
+    id="footerLoginButton"
+>
 
-                    <i class="fa-solid fa-lock"></i>
+    <i class="fa-solid fa-lock"></i>
 
-                    Student Login
+    Student Login
 
-                </a>
+</a>
 
             </div>
 
