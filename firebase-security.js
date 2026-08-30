@@ -1,4 +1,3 @@
-```javascript
 // ============================================================
 // ALL ABOUT ENGLISH
 // FIREBASE SECURITY & ACCESS CONTROL
@@ -6,10 +5,6 @@
 // BY SHAHEEN SIR
 // ============================================================
 
-
-// ============================================================
-// FIREBASE IMPORTS
-// ============================================================
 
 import {
     getFirestore,
@@ -39,7 +34,7 @@ const db =
 
 
 // ============================================================
-// LOGIN USER
+// GET CURRENT LOGIN USER
 // ============================================================
 
 function getLoggedInUser() {
@@ -50,280 +45,7 @@ function getLoggedInUser() {
 
 
 // ============================================================
-// GET CURRENT STUDENT DATA
-// ============================================================
-
-async function getStudentData() {
-
-    const user =
-        getLoggedInUser();
-
-
-    // --------------------------------------------------------
-    // No user
-    // --------------------------------------------------------
-
-    if (!user) {
-
-        return null;
-
-    }
-
-
-    try {
-
-        const studentRef =
-            doc(
-                db,
-                "students",
-                user.uid
-            );
-
-
-        const studentSnap =
-            await getDoc(
-                studentRef
-            );
-
-
-        if (
-            !studentSnap.exists()
-        ) {
-
-            return null;
-
-        }
-
-
-        return studentSnap.data();
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Student data error:",
-            error
-        );
-
-
-        return null;
-
-    }
-
-}
-
-
-// ============================================================
-// CHECK ACCOUNT STATUS
-// ============================================================
-
-async function isAccountActive() {
-
-    const student =
-        await getStudentData();
-
-
-    if (!student) {
-
-        return false;
-
-    }
-
-
-    return (
-        student.accountStatus ===
-        "active"
-    );
-
-}
-
-
-// ============================================================
-// CHECK APPROVED FOLDER / UNIT
-// ============================================================
-//
-// Example Firestore:
-//
-// approvedUnits: {
-//     "unit-11": true,
-//     "unit-12": false
-// }
-//
-// If unit-11 is true:
-// → Unit 11 folder is accessible
-// → All lessons inside Unit 11 are accessible
-//
-// ============================================================
-
-async function isUnitApproved(
-    unitId
-) {
-
-    const student =
-        await getStudentData();
-
-
-    // --------------------------------------------------------
-    // Student data not found
-    // --------------------------------------------------------
-
-    if (!student) {
-
-        return false;
-
-    }
-
-
-    // --------------------------------------------------------
-    // Account must be active
-    // --------------------------------------------------------
-
-    if (
-        student.accountStatus !==
-        "active"
-    ) {
-
-        return false;
-
-    }
-
-
-    // --------------------------------------------------------
-    // Get approvedUnits
-    // --------------------------------------------------------
-
-    const approvedUnits =
-        student.approvedUnits || {};
-
-
-    // --------------------------------------------------------
-    // Check requested Unit
-    // --------------------------------------------------------
-
-    return (
-        approvedUnits[unitId] ===
-        true
-    );
-
-}
-
-
-// ============================================================
-// REQUIRE LOGIN
-// ============================================================
-
-async function requireLogin() {
-
-    const user =
-        getLoggedInUser();
-
-
-    if (!user) {
-
-        window.location.href =
-            "/all-about-english/login.html";
-
-        return false;
-
-    }
-
-
-    return true;
-
-}
-
-
-// ============================================================
-// REQUIRE ACTIVE ACCOUNT
-// ============================================================
-
-async function requireActiveAccount() {
-
-    const loggedIn =
-        await requireLogin();
-
-
-    if (!loggedIn) {
-
-        return false;
-
-    }
-
-
-    const active =
-        await isAccountActive();
-
-
-    if (!active) {
-
-        alert(
-            "Your account is not approved yet. Please contact Shaheen Sir."
-        );
-
-
-        return false;
-
-    }
-
-
-    return true;
-
-}
-
-
-// ============================================================
-// REQUIRE APPROVED FOLDER / UNIT
-// ============================================================
-
-async function requireApprovedUnit(
-    unitId
-) {
-
-    const loggedIn =
-        await requireLogin();
-
-
-    if (!loggedIn) {
-
-        return false;
-
-    }
-
-
-    const approved =
-        await isUnitApproved(
-            unitId
-        );
-
-
-    if (!approved) {
-
-        alert(
-            "You do not have permission to access this folder."
-        );
-
-
-        return false;
-
-    }
-
-
-    return true;
-
-}
-
-
-// ============================================================
-// WAIT FOR FIREBASE AUTHENTICATION
-// ============================================================
-//
-// Important:
-// Firebase may need a short time to restore the user's
-// login session after page refresh.
-//
-// This function waits until Firebase tells us the
-// authentication state.
+// WAIT FOR FIREBASE AUTH
 // ============================================================
 
 function waitForAuth() {
@@ -356,84 +78,214 @@ function waitForAuth() {
 
 
 // ============================================================
-// PROTECT FOLDER / UNIT PAGE
-// ============================================================
-//
-// Use inside:
-//
-// unit-11/index.html
-//
-// Example:
-//
-// await protectPage(
-//     "unit",
-//     "unit-11"
-// );
-//
+// GET STUDENT DATA
 // ============================================================
 
-
-// ============================================================
-// PROTECT LESSON PAGE
-// ============================================================
-//
-// IMPORTANT:
-//
-// Lessons do NOT have individual approval.
-//
-// A lesson checks the approval of its parent Unit.
-//
-// Example:
-//
-// Lesson 1 inside Unit 11:
-//
-// await protectPage(
-//     "lesson",
-//     "unit-11"
-// );
-//
-// Lesson 2 inside Unit 11:
-//
-// await protectPage(
-//     "lesson",
-//     "unit-11"
-// );
-//
-// Lesson 3 inside Unit 11:
-//
-// await protectPage(
-//     "lesson",
-//     "unit-11"
-// );
-//
-// Therefore:
-//
-// approvedUnits["unit-11"] === true
-//
-// is enough to access ALL lessons of Unit 11.
-//
-// ============================================================
-
-async function protectPage(
-    requiredType,
-    requiredId
+async function getStudentData(
+    user = null
 ) {
 
     // --------------------------------------------------------
-    // STEP 1
-    // Wait for Firebase authentication
+    // If user was supplied, use that user.
+    // Otherwise use current Firebase user.
     // --------------------------------------------------------
 
-    const user =
-        await waitForAuth();
+    const currentUser =
+        user || getLoggedInUser();
+
+
+    if (!currentUser) {
+
+        return null;
+
+    }
+
+
+    try {
+
+        const studentRef =
+            doc(
+                db,
+                "students",
+                currentUser.uid
+            );
+
+
+        const studentSnap =
+            await getDoc(
+                studentRef
+            );
+
+
+        if (
+            !studentSnap.exists()
+        ) {
+
+            console.error(
+                "Student document not found:",
+                currentUser.uid
+            );
+
+            return null;
+
+        }
+
+
+        return studentSnap.data();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Student data error:",
+            error
+        );
+
+        return null;
+
+    }
+
+}
+
+
+// ============================================================
+// CHECK ACCOUNT STATUS
+// ============================================================
+
+async function isAccountActive(
+    user = null
+) {
+
+    const student =
+        await getStudentData(
+            user
+        );
+
+
+    if (!student) {
+
+        return false;
+
+    }
+
+
+    return (
+        String(
+            student.accountStatus || ""
+        )
+            .toLowerCase()
+            .trim() ===
+        "active"
+    );
+
+}
+
+
+// ============================================================
+// CHECK APPROVED UNIT
+// ============================================================
+//
+// Firestore structure:
+//
+// students
+//   └── USER UID
+//       └── approvedUnits
+//           ├── unit-11: true
+//           ├── unit-12: false
+//
+// ============================================================
+
+async function isUnitApproved(
+    unitId,
+    user = null
+) {
+
+    const student =
+        await getStudentData(
+            user
+        );
+
+
+    if (!student) {
+
+        console.error(
+            "No student data found."
+        );
+
+        return false;
+
+    }
 
 
     // --------------------------------------------------------
-    // STEP 2
-    // Login check
+    // ACCOUNT MUST BE ACTIVE
     // --------------------------------------------------------
 
-    if (!user) {
+    const accountStatus =
+        String(
+            student.accountStatus || ""
+        )
+            .toLowerCase()
+            .trim();
+
+
+    if (
+        accountStatus !==
+        "active"
+    ) {
+
+        console.log(
+            "Student account is not active:",
+            accountStatus
+        );
+
+        return false;
+
+    }
+
+
+    // --------------------------------------------------------
+    // APPROVED UNITS
+    // --------------------------------------------------------
+
+    const approvedUnits =
+        student.approvedUnits || {};
+
+
+    // --------------------------------------------------------
+    // CHECK REQUESTED UNIT
+    // --------------------------------------------------------
+
+    const approved =
+        approvedUnits[unitId] === true;
+
+
+    console.log(
+        "Unit access check:",
+        unitId,
+        approved
+    );
+
+
+    return approved;
+
+}
+
+
+// ============================================================
+// REQUIRE LOGIN
+// ============================================================
+
+async function requireLogin(
+    user = null
+) {
+
+    const currentUser =
+        user || getLoggedInUser();
+
+
+    if (!currentUser) {
 
         window.location.href =
             "/all-about-english/login.html";
@@ -443,77 +295,254 @@ async function protectPage(
     }
 
 
-    // --------------------------------------------------------
-    // STEP 3
-    // Folder / Unit protection
-    // --------------------------------------------------------
+    return true;
 
-    if (
-        requiredType ===
-        "unit"
-    ) {
+}
 
-        return await requireApprovedUnit(
-            requiredId
+
+// ============================================================
+// REQUIRE ACTIVE ACCOUNT
+// ============================================================
+
+async function requireActiveAccount(
+    user = null
+) {
+
+    const loggedIn =
+        await requireLogin(
+            user
         );
 
+
+    if (!loggedIn) {
+
+        return false;
+
     }
 
 
-    // --------------------------------------------------------
-    // STEP 4
-    // Lesson protection
-    // --------------------------------------------------------
-    //
-    // Lesson uses parent Unit approval.
-    //
-    // Example:
-    //
-    // protectPage(
-    //     "lesson",
-    //     "unit-11"
-    // );
-    //
-    // --------------------------------------------------------
-
-    if (
-        requiredType ===
-        "lesson"
-    ) {
-
-        return await requireApprovedUnit(
-            requiredId
+    const active =
+        await isAccountActive(
+            user
         );
 
-    }
+
+    if (!active) {
+
+        alert(
+            "Your account is not approved yet. Please contact Shaheen Sir."
+        );
 
 
-    // --------------------------------------------------------
-    // STEP 5
-    // Active account protection
-    // --------------------------------------------------------
-
-    if (
-        requiredType ===
-        "active"
-    ) {
-
-        return await requireActiveAccount();
+        return false;
 
     }
 
 
-    // --------------------------------------------------------
-    // Unknown protection type
-    // --------------------------------------------------------
+    return true;
 
-    console.error(
-        "Unknown protection type:",
-        requiredType
-    );
+}
 
 
-    return false;
+// ============================================================
+// REQUIRE APPROVED UNIT
+// ============================================================
+
+async function requireApprovedUnit(
+    unitId,
+    user = null
+) {
+
+    const loggedIn =
+        await requireLogin(
+            user
+        );
+
+
+    if (!loggedIn) {
+
+        return false;
+
+    }
+
+
+    const approved =
+        await isUnitApproved(
+            unitId,
+            user
+        );
+
+
+    if (!approved) {
+
+        alert(
+            "You do not have permission to access this folder."
+        );
+
+
+        return false;
+
+    }
+
+
+    return true;
+
+}
+
+
+// ============================================================
+// PROTECT PAGE
+// ============================================================
+//
+// UNIT:
+//
+// protectPage(
+//     "unit",
+//     "unit-11"
+// );
+//
+// LESSON:
+//
+// protectPage(
+//     "lesson",
+//     "unit-11"
+// );
+//
+// IMPORTANT:
+// Lesson approval is controlled by its parent Unit.
+//
+// ============================================================
+
+async function protectPage(
+    requiredType,
+    requiredId
+) {
+
+    try {
+
+        // ----------------------------------------------------
+        // STEP 1
+        // WAIT FOR FIREBASE AUTH
+        // ----------------------------------------------------
+
+        const user =
+            await waitForAuth();
+
+
+        console.log(
+            "Firebase auth state:",
+            user
+                ? user.uid
+                : "NOT LOGGED IN"
+        );
+
+
+        // ----------------------------------------------------
+        // STEP 2
+        // LOGIN CHECK
+        // ----------------------------------------------------
+
+        if (!user) {
+
+            window.location.href =
+                "/all-about-english/login.html";
+
+            return false;
+
+        }
+
+
+        // ----------------------------------------------------
+        // STEP 3
+        // UNIT / FOLDER
+        // ----------------------------------------------------
+
+        if (
+            requiredType ===
+            "unit"
+        ) {
+
+            return await requireApprovedUnit(
+                requiredId,
+                user
+            );
+
+        }
+
+
+        // ----------------------------------------------------
+        // STEP 4
+        // LESSON
+        // ----------------------------------------------------
+        //
+        // Lesson uses parent Unit approval.
+        //
+        // Example:
+        //
+        // Unit 11 Lesson 1:
+        //
+        // protectPage(
+        //     "lesson",
+        //     "unit-11"
+        // );
+        //
+        // ----------------------------------------------------
+
+        if (
+            requiredType ===
+            "lesson"
+        ) {
+
+            return await requireApprovedUnit(
+                requiredId,
+                user
+            );
+
+        }
+
+
+        // ----------------------------------------------------
+        // STEP 5
+        // ACTIVE ACCOUNT
+        // ----------------------------------------------------
+
+        if (
+            requiredType ===
+            "active"
+        ) {
+
+            return await requireActiveAccount(
+                user
+            );
+
+        }
+
+
+        // ----------------------------------------------------
+        // UNKNOWN TYPE
+        // ----------------------------------------------------
+
+        console.error(
+            "Unknown protection type:",
+            requiredType
+        );
+
+
+        return false;
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Page protection error:",
+            error
+        );
+
+
+        return false;
+
+    }
 
 }
 
@@ -543,4 +572,3 @@ export {
     protectPage
 
 };
-```
