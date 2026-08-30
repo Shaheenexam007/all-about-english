@@ -4,16 +4,8 @@
 // By Shaheen Sir
 // ============================================================
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import {
-    getAuth,
-    setPersistence,
-    browserLocalPersistence
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
-import {
-    getFirestore
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import { initializeApp } from
+    "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
 // ============================================================
@@ -22,24 +14,30 @@ import {
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyB6xJFLJC9KReEJQAzHbOmB67DBg-zX4gE",
+    apiKey:
+        "AIzaSyB6xJFLJC9KReJQAzHbOmB67DBg-zX4gE",
 
-    authDomain: "all-about-english-007.firebaseapp.com",
+    authDomain:
+        "all-about-english-007.firebaseapp.com",
 
     databaseURL:
         "https://all-about-english-007-default-rtdb.asia-southeast1.firebasedatabase.app",
 
-    projectId: "all-about-english-007",
+    projectId:
+        "all-about-english-007",
 
     storageBucket:
         "all-about-english-007.firebasestorage.app",
 
-    messagingSenderId: "251678333411",
+    messagingSenderId:
+        "251678333411",
 
     appId:
         "1:251678333411:web:889369210cb79442f0a8d6",
 
-    measurementId: "G-RVFY5YEX6L"
+    measurementId:
+        "G-RVFY5YEX6L"
+
 };
 
 
@@ -51,42 +49,7 @@ const app = initializeApp(firebaseConfig);
 
 
 // ============================================================
-// FIREBASE AUTHENTICATION
+// EXPORT APP
 // ============================================================
 
-const auth = getAuth(app);
-
-
-// ============================================================
-// FIRESTORE
-// ============================================================
-
-const db = getFirestore(app);
-
-
-// ============================================================
-// AUTH PERSISTENCE
-//
-// Student login will remain active after:
-// - page refresh
-// - navigating between lessons
-// - closing and reopening browser
-//
-// until the student logs out.
-// ============================================================
-
-await setPersistence(
-    auth,
-    browserLocalPersistence
-);
-
-
-// ============================================================
-// EXPORT
-// ============================================================
-
-export {
-    app,
-    auth,
-    db
-};
+export { app };
