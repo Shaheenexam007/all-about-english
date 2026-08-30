@@ -1,8 +1,8 @@
+```javascript
 // ============================================================
 // ALL ABOUT ENGLISH
 // FIREBASE SECURITY & ACCESS CONTROL
 // FOLDER / UNIT BASED SYSTEM
-// MAXIMUM 2 DEVICES PER ACCOUNT
 // BY SHAHEEN SIR
 // ============================================================
 
@@ -28,7 +28,6 @@ import {
 import {
     app
 } from "./firebase-config.js";
-
 
 
 // ============================================================
@@ -103,7 +102,6 @@ async function getStudentData() {
             error
         );
 
-
         return null;
 
     }
@@ -138,6 +136,15 @@ async function isAccountActive() {
 
 // ============================================================
 // CHECK APPROVED UNIT
+// ============================================================
+//
+// Firestore example:
+//
+// approvedUnits: {
+//     "unit-11": true,
+//     "unit-12": false
+// }
+//
 // ============================================================
 
 async function isUnitApproved(
@@ -229,7 +236,6 @@ async function requireActiveAccount() {
             "Your account is not approved yet. Please contact Shaheen Sir."
         );
 
-
         return false;
 
     }
@@ -241,204 +247,18 @@ async function requireActiveAccount() {
 
 
 // ============================================================
-// DEVICE ACCESS
-// ============================================================
-//
-// Maximum 2 devices per student account.
-//
-// First device:
-// → registered automatically
-//
-// Second device:
-// → registered automatically
-//
-// Third device:
-// → blocked
-//
-// Existing Unit approval remains unchanged.
-// ============================================================
-
-async function requireDeviceAccess() {
-
-    try {
-
-        const result =
-            await checkDeviceAccess();
-
-
-        if (
-            result.allowed
-        ) {
-
-            return true;
-
-        }
-
-
-        // ----------------------------------------------------
-        // Login required
-        // ----------------------------------------------------
-
-        if (
-            result.reason ===
-            "not-logged-in"
-        ) {
-
-            window.location.href =
-                "/all-about-english/login.html";
-
-            return false;
-
-        }
-
-
-        // ----------------------------------------------------
-        // Student document not found
-        // ----------------------------------------------------
-
-        if (
-            result.reason ===
-            "student-not-found"
-        ) {
-
-            alert(
-                "Student account information could not be found. Please contact Shaheen Sir."
-            );
-
-            return false;
-
-        }
-
-
-        // ----------------------------------------------------
-        // Maximum devices reached
-        // ----------------------------------------------------
-
-        if (
-            result.reason ===
-            "device-limit-reached"
-        ) {
-
-            document.body.innerHTML = `
-
-                <div style="
-                    min-height:100vh;
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    padding:25px;
-                    background:#fbfaf6;
-                    font-family:Arial,sans-serif;
-                    text-align:center;
-                ">
-
-                    <div style="
-                        width:min(500px,100%);
-                        background:white;
-                        padding:40px 28px;
-                        border-radius:20px;
-                        border:1px solid #e7e4dc;
-                        box-shadow:0 15px 45px rgba(0,0,0,.08);
-                    ">
-
-                        <div style="
-                            font-size:45px;
-                            margin-bottom:15px;
-                        ">
-                            📱
-                        </div>
-
-                        <h2 style="
-                            color:#101b36;
-                            margin-bottom:12px;
-                        ">
-                            Device Limit Reached
-                        </h2>
-
-                        <p style="
-                            color:#68748a;
-                            line-height:1.7;
-                            font-size:14px;
-                            margin-bottom:10px;
-                        ">
-                            This account is already registered
-                            on the maximum of
-                            <strong>2 devices</strong>.
-                        </p>
-
-                        <p style="
-                            color:#68748a;
-                            line-height:1.7;
-                            font-size:13px;
-                        ">
-                            Please use one of your registered
-                            devices or contact Shaheen Sir
-                            if you need to change a device.
-                        </p>
-
-                        <a
-                            href="/all-about-english/"
-                            style="
-                                display:inline-block;
-                                margin-top:20px;
-                                padding:11px 20px;
-                                background:#101b36;
-                                color:white;
-                                text-decoration:none;
-                                border-radius:9px;
-                                font-size:13px;
-                                font-weight:bold;
-                            "
-                        >
-                            Go to Homepage
-                        </a>
-
-                    </div>
-
-                </div>
-
-            `;
-
-            return false;
-
-        }
-
-
-        // ----------------------------------------------------
-        // Other device error
-        // ----------------------------------------------------
-
-        alert(
-            "This device could not be verified. Please contact Shaheen Sir."
-        );
-
-
-        return false;
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Device access error:",
-            error
-        );
-
-
-        alert(
-            "Unable to verify this device. Please refresh the page."
-        );
-
-
-        return false;
-
-    }
-
-}
-
-
-// ============================================================
 // REQUIRE APPROVED UNIT
+// ============================================================
+//
+// IMPORTANT:
+//
+// এখানে কোনো device-manager নেই।
+//
+// Unit access শুধুমাত্র:
+// 1. Login
+// 2. Active account
+// 3. approvedUnits[unitId] === true
+//
 // ============================================================
 
 async function requireApprovedUnit(
@@ -480,22 +300,7 @@ async function requireApprovedUnit(
 
 
     // --------------------------------------------------------
-    // STEP 3 — Device check
-    // --------------------------------------------------------
-
-    const deviceAllowed =
-        await requireDeviceAccess();
-
-
-    if (!deviceAllowed) {
-
-        return false;
-
-    }
-
-
-    // --------------------------------------------------------
-    // STEP 4 — Unit approval
+    // STEP 3 — Unit approval
     // --------------------------------------------------------
 
     const approved =
@@ -506,14 +311,14 @@ async function requireApprovedUnit(
 
     if (!approved) {
 
-        alert(
-            "You do not have permission to access this folder."
-        );
-
         return false;
 
     }
 
+
+    // --------------------------------------------------------
+    // ACCESS GRANTED
+    // --------------------------------------------------------
 
     return true;
 
@@ -571,8 +376,6 @@ function waitForAuth() {
 //     "unit-11"
 // );
 //
-// Both use the parent's Unit approval.
-//
 // ============================================================
 
 async function protectPage(
@@ -589,7 +392,7 @@ async function protectPage(
 
 
     // --------------------------------------------------------
-    // STEP 2 — Login
+    // STEP 2 — Login check
     // --------------------------------------------------------
 
     if (!user) {
@@ -621,17 +424,6 @@ async function protectPage(
     // --------------------------------------------------------
     // STEP 4 — LESSON
     // --------------------------------------------------------
-    //
-    // Lesson checks parent Unit.
-    //
-    // Example:
-    //
-    // protectPage(
-    //     "lesson",
-    //     "unit-11"
-    // );
-    //
-    // --------------------------------------------------------
 
     if (
         requiredType ===
@@ -654,18 +446,7 @@ async function protectPage(
         "active"
     ) {
 
-        const active =
-            await requireActiveAccount();
-
-
-        if (!active) {
-
-            return false;
-
-        }
-
-
-        return await requireDeviceAccess();
+        return await requireActiveAccount();
 
     }
 
@@ -703,8 +484,6 @@ export {
 
     requireActiveAccount,
 
-    requireDeviceAccess,
-
     requireApprovedUnit,
 
     waitForAuth,
@@ -712,3 +491,4 @@ export {
     protectPage
 
 };
+```
