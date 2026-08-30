@@ -1,0 +1,399 @@
+// ============================================================
+// ALL ABOUT ENGLISH
+// Firebase Authentication Manager
+// By Shaheen Sir
+// ============================================================
+
+import {
+    auth,
+    db
+} from "./firebase-config.js";
+
+import {
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    sendPasswordResetEmail,
+    signOut,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+    doc,
+    getDoc,
+    setDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+// ============================================================
+// LOGIN
+// ============================================================
+
+async function loginStudent(email, password) {
+
+    try {
+
+        if (!email || !password) {
+            throw new Error(
+                "Email and password are required."
+            );
+        }
+
+
+        const userCredential =
+            await signInWithEmailAndPassword(
+                auth,
+                email.trim(),
+                password
+            );
+
+
+        const user = userCredential.user;
+
+
+        // ----------------------------------------------------
+        // Check student's Firestore document
+        // ----------------------------------------------------
+
+        const studentRef =
+            doc(db, "students", user.uid);
+
+        const studentSnap =
+            await getDoc(studentRef);
+
+
+        if (!studentSnap.exists()) {
+
+            await signOut(auth);
+
+            throw new Error(
+                "Student profile was not found."
+            );
+        }
+
+
+        const studentData =
+            studentSnap.data();
+
+
+        // ----------------------------------------------------
+        // Account status
+        // ----------------------------------------------------
+
+        if (
+            studentData.accountStatus !== "active"
+        ) {
+
+            await signOut(auth);
+
+            throw new Error(
+                "Your account is not active yet."
+            );
+        }
+
+
+        return {
+
+            success: true,
+
+            user: user,
+
+            student: studentData
+
+        };
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Student Login Error:",
+            error
+        );
+
+        throw error;
+    }
+}
+
+
+// ============================================================
+// ADMIN LOGIN
+// ============================================================
+
+async function loginAdmin(email, password) {
+
+    try {
+
+        const userCredential =
+            await signInWithEmailAndPassword(
+                auth,
+                email.trim(),
+                password
+            );
+
+
+        const user =
+            userCredential.user;
+
+
+        // ----------------------------------------------------
+        // Check admin document
+        // ----------------------------------------------------
+
+        const adminRef =
+            doc(db, "admins", user.uid);
+
+        const adminSnap =
+            await getDoc(adminRef);
+
+
+        if (!adminSnap.exists()) {
+
+            await signOut(auth);
+
+            throw new Error(
+                "This account is not an administrator."
+            );
+        }
+
+
+        const adminData =
+            adminSnap.data();
+
+
+        if (
+            adminData.role !== "admin" ||
+            adminData.status !== "active"
+        ) {
+
+            await signOut(auth);
+
+            throw new Error(
+                "Administrator account is inactive."
+            );
+        }
+
+
+        return {
+
+            success: true,
+
+            user: user,
+
+            admin: adminData
+
+        };
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Admin Login Error:",
+            error
+        );
+
+        throw error;
+    }
+}
+
+
+// ============================================================
+// STUDENT REGISTRATION
+//
+// This function will be used later from the registration page.
+// ============================================================
+
+async function registerStudent({
+
+    name,
+    email,
+    mobile,
+    college,
+    password
+
+}) {
+
+    try {
+
+        const userCredential =
+            await createUserWithEmailAndPassword(
+                auth,
+                email.trim(),
+                password
+            );
+
+
+        const user =
+            userCredential.user;
+
+
+        // ----------------------------------------------------
+        // Create student Firestore document
+        // ----------------------------------------------------
+
+        await setDoc(
+            doc(db, "students", user.uid),
+            {
+
+                uid: user.uid,
+
+                name: name.trim(),
+
+                email: email.trim(),
+
+                mobile: mobile.trim(),
+
+                college: college.trim(),
+
+                createdAt: serverTimestamp(),
+
+                accountStatus: "pending",
+
+                device1: "",
+
+                device2: ""
+
+            }
+        );
+
+
+        return {
+
+            success: true,
+
+            user: user
+
+        };
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Student Registration Error:",
+            error
+        );
+
+        throw error;
+    }
+}
+
+
+// ============================================================
+// PASSWORD RESET
+// ============================================================
+
+async function resetStudentPassword(email) {
+
+    try {
+
+        if (!email) {
+
+            throw new Error(
+                "Please enter your email address."
+            );
+        }
+
+
+        await sendPasswordResetEmail(
+            auth,
+            email.trim()
+        );
+
+
+        return {
+
+            success: true
+
+        };
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Password Reset Error:",
+            error
+        );
+
+        throw error;
+    }
+}
+
+
+// ============================================================
+// LOGOUT
+// ============================================================
+
+async function logoutUser() {
+
+    try {
+
+        await signOut(auth);
+
+        return {
+
+            success: true
+
+        };
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Logout Error:",
+            error
+        );
+
+        throw error;
+    }
+}
+
+
+// ============================================================
+// AUTH STATE LISTENER
+// ============================================================
+
+function watchAuthState(callback) {
+
+    return onAuthStateChanged(
+        auth,
+        callback
+    );
+}
+
+
+// ============================================================
+// CURRENT USER
+// ============================================================
+
+function getCurrentUser() {
+
+    return auth.currentUser;
+
+}
+
+
+// ============================================================
+// EXPORT
+// ============================================================
+
+export {
+
+    loginStudent,
+
+    loginAdmin,
+
+    registerStudent,
+
+    resetStudentPassword,
+
+    logoutUser,
+
+    watchAuthState,
+
+    getCurrentUser
+
+};
