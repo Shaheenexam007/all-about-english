@@ -15,9 +15,12 @@
         content="#101b36"
     >
 
-    <title>
-        Student Login | All About English
-    </title>
+    <meta
+        name="description"
+        content="Student Login Portal - All About English by Shaheen Sir"
+    >
+
+    <title>Student Login | All About English</title>
 
 
     <!-- =====================================================
@@ -39,16 +42,6 @@
 
 
     <!-- =====================================================
-         FONT AWESOME
-    ====================================================== -->
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
-
-
-    <!-- =====================================================
          STYLE
     ====================================================== -->
 
@@ -56,61 +49,50 @@
 
         :root {
 
-            --navy:
-                #101b36;
+            --navy: #101b36;
+            --navy-dark: #091126;
 
-            --navy-dark:
-                #091126;
+            --gold: #c9a45c;
+            --gold-light: #ead9ae;
 
-            --gold:
-                #c9a45c;
+            --ivory: #fbfaf6;
+            --white: #ffffff;
 
-            --gold-light:
-                #ead9ae;
+            --text: #1d2940;
+            --muted: #68748a;
 
-            --ivory:
-                #fbfaf6;
+            --border: #e7e4dc;
 
-            --white:
-                #ffffff;
+            --success: #18794e;
+            --danger: #b42318;
 
-            --text:
-                #1d2940;
-
-            --muted:
-                #68748a;
-
-            --border:
-                #e7e4dc;
-
-            --success:
-                #18794e;
-
-            --danger:
-                #b42318;
         }
 
 
         * {
 
-            margin:
-                0;
+            margin: 0;
+            padding: 0;
 
-            padding:
-                0;
+            box-sizing: border-box;
 
-            box-sizing:
-                border-box;
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
         }
 
 
         body {
 
-            min-height:
-                100vh;
+            min-height: 100vh;
 
             font-family:
                 "Inter",
+                Arial,
                 sans-serif;
 
             background:
@@ -121,24 +103,29 @@
                     #eef1f6 100%
                 );
 
-            color:
-                var(--text);
+            color: var(--text);
 
-            display:
-                flex;
+            display: flex;
 
-            flex-direction:
-                column;
+            flex-direction: column;
+
         }
 
 
         a {
 
-            text-decoration:
-                none;
+            text-decoration: none;
 
-            color:
-                inherit;
+            color: inherit;
+
+        }
+
+
+        button,
+        input {
+
+            font-family: inherit;
+
         }
 
 
@@ -149,13 +136,17 @@
         header {
 
             background:
-                rgba(255,255,255,.88);
+                rgba(255,255,255,.92);
 
             backdrop-filter:
                 blur(16px);
 
+            -webkit-backdrop-filter:
+                blur(16px);
+
             border-bottom:
                 1px solid rgba(16,27,54,.08);
+
         }
 
 
@@ -178,6 +169,10 @@
 
             justify-content:
                 space-between;
+
+            gap:
+                15px;
+
         }
 
 
@@ -191,6 +186,7 @@
 
             gap:
                 10px;
+
         }
 
 
@@ -219,6 +215,10 @@
 
             justify-content:
                 center;
+
+            font-size:
+                18px;
+
         }
 
 
@@ -235,6 +235,10 @@
 
             font-weight:
                 800;
+
+            letter-spacing:
+                .2px;
+
         }
 
 
@@ -257,6 +261,7 @@
 
             margin-top:
                 2px;
+
         }
 
 
@@ -291,6 +296,21 @@
 
             background:
                 white;
+
+            transition:
+                .2s ease;
+
+        }
+
+
+        .home-link:hover {
+
+            border-color:
+                var(--gold);
+
+            transform:
+                translateY(-1px);
+
         }
 
 
@@ -314,6 +334,7 @@
 
             padding:
                 45px 15px;
+
         }
 
 
@@ -342,6 +363,7 @@
 
             box-shadow:
                 0 25px 70px rgba(16,27,54,.12);
+
         }
 
 
@@ -365,6 +387,7 @@
 
             overflow:
                 hidden;
+
         }
 
 
@@ -393,6 +416,7 @@
 
             top:
                 -100px;
+
         }
 
 
@@ -421,6 +445,7 @@
 
             bottom:
                 -80px;
+
         }
 
 
@@ -431,6 +456,7 @@
 
             z-index:
                 2;
+
         }
 
 
@@ -450,6 +476,7 @@
 
             margin-bottom:
                 17px;
+
         }
 
 
@@ -457,6 +484,7 @@
 
             font-family:
                 "Playfair Display",
+                Georgia,
                 serif;
 
             font-size:
@@ -467,6 +495,7 @@
 
             margin-bottom:
                 15px;
+
         }
 
 
@@ -474,6 +503,7 @@
 
             color:
                 var(--gold);
+
         }
 
 
@@ -490,6 +520,7 @@
 
             margin-bottom:
                 25px;
+
         }
 
 
@@ -500,6 +531,7 @@
 
             gap:
                 12px;
+
         }
 
 
@@ -522,16 +554,42 @@
 
             line-height:
                 1.5;
+
         }
 
 
-        .benefit i {
+        .benefit-icon {
+
+            width:
+                20px;
+
+            min-width:
+                20px;
+
+            height:
+                20px;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(201,164,92,.12);
 
             color:
                 var(--gold);
 
-            margin-top:
-                2px;
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                10px;
+
         }
 
 
@@ -543,6 +601,7 @@
 
             padding:
                 40px;
+
         }
 
 
@@ -550,6 +609,7 @@
 
             margin-bottom:
                 23px;
+
         }
 
 
@@ -557,6 +617,7 @@
 
             font-family:
                 "Playfair Display",
+                Georgia,
                 serif;
 
             color:
@@ -567,6 +628,7 @@
 
             margin-bottom:
                 6px;
+
         }
 
 
@@ -580,6 +642,7 @@
 
             line-height:
                 1.6;
+
         }
 
 
@@ -609,6 +672,7 @@
 
             margin-bottom:
                 22px;
+
         }
 
 
@@ -637,6 +701,10 @@
 
             cursor:
                 pointer;
+
+            transition:
+                .2s ease;
+
         }
 
 
@@ -650,6 +718,7 @@
 
             box-shadow:
                 0 3px 10px rgba(16,27,54,.08);
+
         }
 
 
@@ -661,6 +730,7 @@
 
             display:
                 none;
+
         }
 
 
@@ -668,6 +738,7 @@
 
             display:
                 block;
+
         }
 
 
@@ -675,6 +746,7 @@
 
             margin-bottom:
                 13px;
+
         }
 
 
@@ -694,6 +766,7 @@
 
             margin-bottom:
                 6px;
+
         }
 
 
@@ -701,10 +774,11 @@
 
             position:
                 relative;
+
         }
 
 
-        .input-wrap i {
+        .input-icon {
 
             position:
                 absolute;
@@ -722,7 +796,17 @@
                 #929aaa;
 
             font-size:
-                11px;
+                12px;
+
+            width:
+                15px;
+
+            text-align:
+                center;
+
+            pointer-events:
+                none;
+
         }
 
 
@@ -741,7 +825,7 @@
                 9px;
 
             padding:
-                0 38px;
+                0 40px;
 
             font-family:
                 inherit;
@@ -760,6 +844,7 @@
 
             transition:
                 .2s ease;
+
         }
 
 
@@ -773,6 +858,7 @@
 
             box-shadow:
                 0 0 0 3px rgba(201,164,92,.10);
+
         }
 
 
@@ -804,6 +890,10 @@
 
             font-size:
                 11px;
+
+            padding:
+                5px;
+
         }
 
 
@@ -814,6 +904,7 @@
 
             margin:
                 -3px 0 15px;
+
         }
 
 
@@ -836,6 +927,15 @@
 
             cursor:
                 pointer;
+
+        }
+
+
+        .forgot-btn:hover {
+
+            text-decoration:
+                underline;
+
         }
 
 
@@ -877,6 +977,7 @@
 
             box-shadow:
                 0 9px 22px rgba(16,27,54,.16);
+
         }
 
 
@@ -887,6 +988,7 @@
 
             transform:
                 translateY(-1px);
+
         }
 
 
@@ -900,6 +1002,7 @@
 
             transform:
                 none;
+
         }
 
 
@@ -926,6 +1029,7 @@
 
             margin-bottom:
                 13px;
+
         }
 
 
@@ -933,6 +1037,7 @@
 
             display:
                 block;
+
         }
 
 
@@ -946,6 +1051,7 @@
 
             border:
                 1px solid #c9ead8;
+
         }
 
 
@@ -959,6 +1065,7 @@
 
             border:
                 1px solid #f3d0cb;
+
         }
 
 
@@ -978,6 +1085,7 @@
 
             line-height:
                 1.6;
+
         }
 
 
@@ -998,6 +1106,7 @@
 
             font-size:
                 8px;
+
         }
 
 
@@ -1067,6 +1176,14 @@
             }
 
 
+            .brand span {
+
+                font-size:
+                    7px;
+
+            }
+
+
             main {
 
                 padding:
@@ -1131,9 +1248,7 @@
             >
 
                 <div class="brand-icon">
-
-                    <i class="fa-solid fa-book-open"></i>
-
+                    📖
                 </div>
 
 
@@ -1157,8 +1272,7 @@
                 class="home-link"
             >
 
-                <i class="fa-solid fa-house"></i>
-
+                🏠
                 Home
 
             </a>
@@ -1222,7 +1336,9 @@
 
                         <div class="benefit">
 
-                            <i class="fa-solid fa-shield-halved"></i>
+                            <div class="benefit-icon">
+                                ✓
+                            </div>
 
                             <span>
                                 Secure student account
@@ -1233,7 +1349,9 @@
 
                         <div class="benefit">
 
-                            <i class="fa-solid fa-book-open"></i>
+                            <div class="benefit-icon">
+                                📖
+                            </div>
 
                             <span>
                                 Access approved learning content
@@ -1244,7 +1362,9 @@
 
                         <div class="benefit">
 
-                            <i class="fa-solid fa-mobile-screen"></i>
+                            <div class="benefit-icon">
+                                📱
+                            </div>
 
                             <span>
                                 Designed for mobile and desktop
@@ -1255,7 +1375,9 @@
 
                         <div class="benefit">
 
-                            <i class="fa-solid fa-key"></i>
+                            <div class="benefit-icon">
+                                🔑
+                            </div>
 
                             <span>
                                 Easy password recovery
@@ -1293,7 +1415,9 @@
 
 
 
-                <!-- TABS -->
+                <!-- =================================================
+                     TABS
+                ================================================== -->
 
                 <div class="tabs">
 
@@ -1302,7 +1426,6 @@
                         type="button"
                         class="tab active"
                         id="loginTab"
-                        onclick="showForm('login')"
                     >
 
                         Login
@@ -1314,7 +1437,6 @@
                         type="button"
                         class="tab"
                         id="registerTab"
-                        onclick="showForm('register')"
                     >
 
                         Create Account
@@ -1333,6 +1455,8 @@
                 <div
                     id="message"
                     class="message"
+                    role="alert"
+                    aria-live="polite"
                 ></div>
 
 
@@ -1344,6 +1468,7 @@
                 <form
                     id="loginForm"
                     class="form active"
+                    novalidate
                 >
 
 
@@ -1356,7 +1481,9 @@
 
                         <div class="input-wrap">
 
-                            <i class="fa-solid fa-envelope"></i>
+                            <span class="input-icon">
+                                ✉
+                            </span>
 
                             <input
                                 type="email"
@@ -1381,7 +1508,9 @@
 
                         <div class="input-wrap">
 
-                            <i class="fa-solid fa-lock"></i>
+                            <span class="input-icon">
+                                🔒
+                            </span>
 
                             <input
                                 type="password"
@@ -1395,10 +1524,11 @@
                             <button
                                 type="button"
                                 class="password-toggle"
-                                onclick="togglePassword('loginPassword', this)"
+                                id="loginPasswordToggle"
+                                aria-label="Show password"
                             >
 
-                                <i class="fa-solid fa-eye"></i>
+                                👁
 
                             </button>
 
@@ -1413,7 +1543,7 @@
                         <button
                             type="button"
                             class="forgot-btn"
-                            onclick="resetPassword()"
+                            id="forgotPasswordButton"
                         >
 
                             Forgot Password?
@@ -1430,9 +1560,7 @@
                         id="loginButton"
                     >
 
-                        <i class="fa-solid fa-right-to-bracket"></i>
-
-                        &nbsp; LOGIN
+                        → &nbsp; LOGIN
 
                     </button>
 
@@ -1456,6 +1584,7 @@
                 <form
                     id="registerForm"
                     class="form"
+                    novalidate
                 >
 
 
@@ -1468,7 +1597,9 @@
 
                         <div class="input-wrap">
 
-                            <i class="fa-solid fa-user"></i>
+                            <span class="input-icon">
+                                👤
+                            </span>
 
                             <input
                                 type="text"
@@ -1493,7 +1624,9 @@
 
                         <div class="input-wrap">
 
-                            <i class="fa-solid fa-phone"></i>
+                            <span class="input-icon">
+                                ☎
+                            </span>
 
                             <input
                                 type="tel"
@@ -1518,7 +1651,9 @@
 
                         <div class="input-wrap">
 
-                            <i class="fa-solid fa-school"></i>
+                            <span class="input-icon">
+                                🏫
+                            </span>
 
                             <input
                                 type="text"
@@ -1543,7 +1678,9 @@
 
                         <div class="input-wrap">
 
-                            <i class="fa-solid fa-envelope"></i>
+                            <span class="input-icon">
+                                ✉
+                            </span>
 
                             <input
                                 type="email"
@@ -1568,7 +1705,9 @@
 
                         <div class="input-wrap">
 
-                            <i class="fa-solid fa-lock"></i>
+                            <span class="input-icon">
+                                🔒
+                            </span>
 
                             <input
                                 type="password"
@@ -1583,10 +1722,11 @@
                             <button
                                 type="button"
                                 class="password-toggle"
-                                onclick="togglePassword('registerPassword', this)"
+                                id="registerPasswordToggle"
+                                aria-label="Show password"
                             >
 
-                                <i class="fa-solid fa-eye"></i>
+                                👁
 
                             </button>
 
@@ -1605,7 +1745,9 @@
 
                         <div class="input-wrap">
 
-                            <i class="fa-solid fa-lock"></i>
+                            <span class="input-icon">
+                                🔒
+                            </span>
 
                             <input
                                 type="password"
@@ -1620,10 +1762,11 @@
                             <button
                                 type="button"
                                 class="password-toggle"
-                                onclick="togglePassword('confirmPassword', this)"
+                                id="confirmPasswordToggle"
+                                aria-label="Show password"
                             >
 
-                                <i class="fa-solid fa-eye"></i>
+                                👁
 
                             </button>
 
@@ -1639,9 +1782,7 @@
                         id="registerButton"
                     >
 
-                        <i class="fa-solid fa-user-plus"></i>
-
-                        &nbsp; CREATE ACCOUNT
+                        + &nbsp; CREATE ACCOUNT
 
                     </button>
 
@@ -1684,6 +1825,10 @@
 
     <script type="module">
 
+        /* =====================================================
+           FIREBASE AUTH IMPORT
+        ====================================================== */
+
         import {
             loginStudent,
             registerStudent,
@@ -1691,32 +1836,39 @@
         } from "./firebase-auth.js";
 
 
+        /* =====================================================
+           ELEMENTS
+        ====================================================== */
 
-        // ====================================================
-        // FORM SWITCH
-        // ====================================================
+        const loginForm =
+            document.getElementById("loginForm");
 
-        window.showForm = function(type) {
+        const registerForm =
+            document.getElementById("registerForm");
+
+        const loginTab =
+            document.getElementById("loginTab");
+
+        const registerTab =
+            document.getElementById("registerTab");
+
+        const loginButton =
+            document.getElementById("loginButton");
+
+        const registerButton =
+            document.getElementById("registerButton");
+
+        const message =
+            document.getElementById("message");
 
 
-            const loginForm =
-                document.getElementById("loginForm");
+        /* =====================================================
+           FORM SWITCH
+        ====================================================== */
 
-
-            const registerForm =
-                document.getElementById("registerForm");
-
-
-            const loginTab =
-                document.getElementById("loginTab");
-
-
-            const registerTab =
-                document.getElementById("registerTab");
-
+        function showForm(type) {
 
             clearMessage();
-
 
             if (type === "login") {
 
@@ -1742,70 +1894,121 @@
 
             }
 
-        };
+        }
 
 
+        loginTab.addEventListener(
+            "click",
+            function() {
 
-        // ====================================================
-        // PASSWORD VISIBILITY
-        // ====================================================
+                showForm("login");
 
-        window.togglePassword = function(
+            }
+        );
+
+
+        registerTab.addEventListener(
+            "click",
+            function() {
+
+                showForm("register");
+
+            }
+        );
+
+
+        /* =====================================================
+           MAKE SHOWFORM AVAILABLE
+           FOR OTHER POSSIBLE INLINE CALLS
+        ====================================================== */
+
+        window.showForm = showForm;
+
+
+        /* =====================================================
+           PASSWORD TOGGLE
+        ====================================================== */
+
+        function setupPasswordToggle(
             inputId,
-            button
+            buttonId
         ) {
-
 
             const input =
                 document.getElementById(inputId);
 
-
-            const icon =
-                button.querySelector("i");
-
-
-            if (input.type === "password") {
-
-                input.type = "text";
-
-                icon.className =
-                    "fa-solid fa-eye-slash";
-
-            }
-
-            else {
-
-                input.type = "password";
-
-                icon.className =
-                    "fa-solid fa-eye";
-
-            }
-
-        };
+            const button =
+                document.getElementById(buttonId);
 
 
+            button.addEventListener(
+                "click",
+                function() {
 
-        // ====================================================
-        // MESSAGE
-        // ====================================================
+                    if (input.type === "password") {
+
+                        input.type = "text";
+
+                        button.textContent = "🙈";
+
+                        button.setAttribute(
+                            "aria-label",
+                            "Hide password"
+                        );
+
+                    }
+
+                    else {
+
+                        input.type = "password";
+
+                        button.textContent = "👁";
+
+                        button.setAttribute(
+                            "aria-label",
+                            "Show password"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        setupPasswordToggle(
+            "loginPassword",
+            "loginPasswordToggle"
+        );
+
+
+        setupPasswordToggle(
+            "registerPassword",
+            "registerPasswordToggle"
+        );
+
+
+        setupPasswordToggle(
+            "confirmPassword",
+            "confirmPasswordToggle"
+        );
+
+
+        /* =====================================================
+           MESSAGE
+        ====================================================== */
 
         function showMessage(
             text,
             type
         ) {
 
-            const message =
-                document.getElementById("message");
-
-
             message.textContent =
                 text;
 
-
             message.className =
                 "message show " + type;
-
 
             window.scrollTo({
                 top: 0,
@@ -1817,13 +2020,8 @@
 
         function clearMessage() {
 
-            const message =
-                document.getElementById("message");
-
-
             message.textContent =
                 "";
-
 
             message.className =
                 "message";
@@ -1831,57 +2029,120 @@
         }
 
 
+        /* =====================================================
+           FIREBASE TIMEOUT PROTECTION
+        ====================================================== */
 
-        // ====================================================
-        // LOGIN
-        // ====================================================
+        function withTimeout(
+            promise,
+            milliseconds
+        ) {
 
-        document
-            .getElementById("loginForm")
-            .addEventListener(
-                "submit",
-                async function(event) {
+            return Promise.race([
 
-                    event.preventDefault();
+                promise,
 
+                new Promise(
+                    function(resolve) {
 
-                    const email =
-                        document
-                            .getElementById("loginEmail")
-                            .value
-                            .trim();
+                        setTimeout(
+                            function() {
 
+                                resolve({
 
-                    const password =
-                        document
-                            .getElementById("loginPassword")
-                            .value;
+                                    success: false,
 
+                                    message:
+                                        "The request is taking too long. Please check your internet connection and try again."
 
-                    const button =
-                        document
-                            .getElementById("loginButton");
+                                });
 
+                            },
+                            milliseconds
+                        );
 
-                    button.disabled =
-                        true;
+                    }
+                )
 
+            ]);
 
-                    button.innerHTML =
-                        '<i class="fa-solid fa-spinner fa-spin"></i> &nbsp; LOGGING IN...';
+        }
 
 
-                    clearMessage();
+        /* =====================================================
+           LOGIN
+        ====================================================== */
 
+        loginForm.addEventListener(
+            "submit",
+            async function(event) {
+
+                event.preventDefault();
+
+                clearMessage();
+
+
+                const email =
+                    document
+                        .getElementById("loginEmail")
+                        .value
+                        .trim();
+
+
+                const password =
+                    document
+                        .getElementById("loginPassword")
+                        .value;
+
+
+                if (!email) {
+
+                    showMessage(
+                        "Please enter your email address.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (!password) {
+
+                    showMessage(
+                        "Please enter your password.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                loginButton.disabled =
+                    true;
+
+
+                loginButton.textContent =
+                    "LOGGING IN...";
+
+
+                try {
 
                     const result =
-                        await loginStudent(
-                            email,
-                            password
+                        await withTimeout(
+                            loginStudent(
+                                email,
+                                password
+                            ),
+                            15000
                         );
 
 
-                    if (result.success) {
+                    if (
+                        result &&
+                        result.success
+                    ) {
 
                         showMessage(
                             "Login successful. Redirecting...",
@@ -1892,155 +2153,220 @@
                         setTimeout(
                             function() {
 
-                                window.location.href =
-                                    "./index.html";
+                                window.location.replace(
+                                    "./index.html"
+                                );
 
                             },
-                            1000
-                        );
-
-                    }
-
-                    else {
-
-                        showMessage(
-                            result.message,
-                            "error"
+                            700
                         );
 
 
-                        button.disabled =
-                            false;
-
-
-                        button.innerHTML =
-                            '<i class="fa-solid fa-right-to-bracket"></i> &nbsp; LOGIN';
+                        return;
 
                     }
+
+
+                    showMessage(
+                        result &&
+                        result.message
+                            ? result.message
+                            : "Login failed. Please try again.",
+                        "error"
+                    );
+
+
+                    loginButton.disabled =
+                        false;
+
+
+                    loginButton.textContent =
+                        "→  LOGIN";
 
                 }
-            );
+
+                catch (error) {
+
+                    console.error(
+                        "Login Error:",
+                        error
+                    );
 
 
-
-        // ====================================================
-        // REGISTER
-        // ====================================================
-
-        document
-            .getElementById("registerForm")
-            .addEventListener(
-                "submit",
-                async function(event) {
-
-                    event.preventDefault();
+                    showMessage(
+                        getFriendlyFirebaseError(error),
+                        "error"
+                    );
 
 
-                    const name =
-                        document
-                            .getElementById("registerName")
-                            .value
-                            .trim();
+                    loginButton.disabled =
+                        false;
 
 
-                    const mobile =
-                        document
-                            .getElementById("registerMobile")
-                            .value
-                            .trim();
+                    loginButton.textContent =
+                        "→  LOGIN";
+
+                }
+
+            }
+        );
 
 
-                    const college =
-                        document
-                            .getElementById("registerCollege")
-                            .value
-                            .trim();
+        /* =====================================================
+           REGISTER
+        ====================================================== */
+
+        registerForm.addEventListener(
+            "submit",
+            async function(event) {
+
+                event.preventDefault();
+
+                clearMessage();
 
 
-                    const email =
-                        document
-                            .getElementById("registerEmail")
-                            .value
-                            .trim();
+                const name =
+                    document
+                        .getElementById("registerName")
+                        .value
+                        .trim();
 
 
-                    const password =
-                        document
-                            .getElementById("registerPassword")
-                            .value;
+                const mobile =
+                    document
+                        .getElementById("registerMobile")
+                        .value
+                        .trim();
 
 
-                    const confirmPassword =
-                        document
-                            .getElementById("confirmPassword")
-                            .value;
+                const college =
+                    document
+                        .getElementById("registerCollege")
+                        .value
+                        .trim();
 
 
-                    const button =
-                        document
-                            .getElementById("registerButton");
+                const email =
+                    document
+                        .getElementById("registerEmail")
+                        .value
+                        .trim();
 
 
-
-                    // Password match
-
-                    if (
-                        password !==
-                        confirmPassword
-                    ) {
-
-                        showMessage(
-                            "Passwords do not match.",
-                            "error"
-                        );
-
-                        return;
-
-                    }
+                const password =
+                    document
+                        .getElementById("registerPassword")
+                        .value;
 
 
-
-                    // Password length
-
-                    if (
-                        password.length < 6
-                    ) {
-
-                        showMessage(
-                            "Password must contain at least 6 characters.",
-                            "error"
-                        );
-
-                        return;
-
-                    }
+                const confirmPassword =
+                    document
+                        .getElementById("confirmPassword")
+                        .value;
 
 
+                if (!name) {
 
-                    button.disabled =
-                        true;
+                    showMessage(
+                        "Please enter your full name.",
+                        "error"
+                    );
+
+                    return;
+
+                }
 
 
-                    button.innerHTML =
-                        '<i class="fa-solid fa-spinner fa-spin"></i> &nbsp; CREATING...';
+                if (!mobile) {
+
+                    showMessage(
+                        "Please enter your mobile number.",
+                        "error"
+                    );
+
+                    return;
+
+                }
 
 
-                    clearMessage();
+                if (!college) {
+
+                    showMessage(
+                        "Please enter your college or institution.",
+                        "error"
+                    );
+
+                    return;
+
+                }
 
 
+                if (!email) {
+
+                    showMessage(
+                        "Please enter your email address.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (password.length < 6) {
+
+                    showMessage(
+                        "Password must contain at least 6 characters.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    password !==
+                    confirmPassword
+                ) {
+
+                    showMessage(
+                        "Passwords do not match.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                registerButton.disabled =
+                    true;
+
+
+                registerButton.textContent =
+                    "CREATING...";
+
+
+                try {
 
                     const result =
-                        await registerStudent(
-                            name,
-                            mobile,
-                            email,
-                            college,
-                            password
+                        await withTimeout(
+                            registerStudent(
+                                name,
+                                mobile,
+                                email,
+                                college,
+                                password
+                            ),
+                            15000
                         );
 
 
-
-                    if (result.success) {
+                    if (
+                        result &&
+                        result.success
+                    ) {
 
                         showMessage(
                             "Account created successfully. Your account is now pending approval.",
@@ -2048,15 +2374,15 @@
                         );
 
 
-                        document
-                            .getElementById("registerForm")
-                            .reset();
+                        registerForm.reset();
 
 
                         setTimeout(
                             function() {
 
-                                showForm("login");
+                                showForm(
+                                    "login"
+                                );
 
                             },
                             1800
@@ -2067,86 +2393,286 @@
                     else {
 
                         showMessage(
-                            result.message,
+                            result &&
+                            result.message
+                                ? result.message
+                                : "Registration failed. Please try again.",
                             "error"
                         );
 
                     }
 
+                }
 
-                    button.disabled =
-                        false;
+                catch (error) {
+
+                    console.error(
+                        "Registration Error:",
+                        error
+                    );
 
 
-                    button.innerHTML =
-                        '<i class="fa-solid fa-user-plus"></i> &nbsp; CREATE ACCOUNT';
+                    showMessage(
+                        getFriendlyFirebaseError(error),
+                        "error"
+                    );
 
                 }
-            );
 
 
-
-        // ====================================================
-        // PASSWORD RESET
-        // ====================================================
-
-        window.resetPassword = async function() {
+                registerButton.disabled =
+                    false;
 
 
-            const email =
-                document
-                    .getElementById("loginEmail")
-                    .value
-                    .trim();
-
-
-            if (!email) {
-
-                showMessage(
-                    "Please enter your email address first.",
-                    "error"
-                );
-
-                document
-                    .getElementById("loginEmail")
-                    .focus();
-
-                return;
+                registerButton.textContent =
+                    "+  CREATE ACCOUNT";
 
             }
+        );
 
 
-            showMessage(
-                "Sending password reset email...",
-                "success"
+        /* =====================================================
+           PASSWORD RESET
+        ====================================================== */
+
+        const forgotPasswordButton =
+            document.getElementById(
+                "forgotPasswordButton"
             );
 
 
-            const result =
-                await resetStudentPassword(
-                    email
-                );
+        forgotPasswordButton.addEventListener(
+            "click",
+            async function() {
+
+                const email =
+                    document
+                        .getElementById("loginEmail")
+                        .value
+                        .trim();
 
 
-            if (result.success) {
+                if (!email) {
+
+                    showMessage(
+                        "Please enter your email address first.",
+                        "error"
+                    );
+
+
+                    document
+                        .getElementById("loginEmail")
+                        .focus();
+
+                    return;
+
+                }
+
+
+                forgotPasswordButton.disabled =
+                    true;
+
 
                 showMessage(
-                    "Password reset email sent. Please check your inbox and follow the link.",
+                    "Sending password reset email...",
                     "success"
                 );
 
+
+                try {
+
+                    const result =
+                        await withTimeout(
+                            resetStudentPassword(
+                                email
+                            ),
+                            15000
+                        );
+
+
+                    if (
+                        result &&
+                        result.success
+                    ) {
+
+                        showMessage(
+                            "Password reset email sent. Please check your inbox and follow the instructions.",
+                            "success"
+                        );
+
+                    }
+
+                    else {
+
+                        showMessage(
+                            result &&
+                            result.message
+                                ? result.message
+                                : "Password reset could not be completed.",
+                            "error"
+                        );
+
+                    }
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "Password Reset Error:",
+                        error
+                    );
+
+
+                    showMessage(
+                        getFriendlyFirebaseError(error),
+                        "error"
+                    );
+
+                }
+
+
+                forgotPasswordButton.disabled =
+                    false;
+
+            }
+        );
+
+
+        /* =====================================================
+           FIREBASE ERROR TRANSLATION
+        ====================================================== */
+
+        function getFriendlyFirebaseError(
+            error
+        ) {
+
+            const code =
+                error &&
+                error.code
+                    ? error.code
+                    : "";
+
+
+            if (
+                code.includes(
+                    "auth/invalid-credential"
+                )
+            ) {
+
+                return "Incorrect email or password.";
+
             }
 
-            else {
 
-                showMessage(
-                    result.message,
-                    "error"
-                );
+            if (
+                code.includes(
+                    "auth/user-not-found"
+                )
+            ) {
+
+                return "No account was found with this email address.";
 
             }
 
-        };
+
+            if (
+                code.includes(
+                    "auth/wrong-password"
+                )
+            ) {
+
+                return "Incorrect password.";
+
+            }
+
+
+            if (
+                code.includes(
+                    "auth/email-already-in-use"
+                )
+            ) {
+
+                return "An account already exists with this email address. Please login instead.";
+
+            }
+
+
+            if (
+                code.includes(
+                    "auth/weak-password"
+                )
+            ) {
+
+                return "Password is too weak. Please use at least 6 characters.";
+
+            }
+
+
+            if (
+                code.includes(
+                    "auth/invalid-email"
+                )
+            ) {
+
+                return "Please enter a valid email address.";
+
+            }
+
+
+            if (
+                code.includes(
+                    "auth/too-many-requests"
+                )
+            ) {
+
+                return "Too many attempts. Please wait a while and try again.";
+
+            }
+
+
+            if (
+                code.includes(
+                    "auth/network-request-failed"
+                )
+            ) {
+
+                return "Network error. Please check your internet connection.";
+
+            }
+
+
+            if (
+                code.includes(
+                    "permission-denied"
+                )
+            ) {
+
+                return "Access was denied by the security rules. Please contact the administrator.";
+
+            }
+
+
+            return (
+                error &&
+                error.message
+                    ? error.message
+                    : "Something went wrong. Please try again."
+            );
+
+        }
+
+
+        /* =====================================================
+           INITIAL STATE
+        ====================================================== */
+
+        showForm("login");
+
+
+        console.log(
+            "All About English Login System Ready."
+        );
 
     </script>
 
