@@ -1,7 +1,7 @@
 // ============================================================
 // ALL ABOUT ENGLISH
-// Firebase Authentication
-// By Shaheen Sir
+// FIREBASE AUTHENTICATION
+// BY SHAHEEN SIR
 // ============================================================
 
 import {
@@ -11,8 +11,7 @@ import {
     sendPasswordResetEmail,
     signOut,
     onAuthStateChanged
-} from
-    "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
     getFirestore,
@@ -20,8 +19,7 @@ import {
     setDoc,
     getDoc,
     serverTimestamp
-} from
-    "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 import { app } from "./firebase-config.js";
 
@@ -49,10 +47,6 @@ async function registerStudent(
 
     try {
 
-        // -----------------------------------------------
-        // Create Firebase Authentication account
-        // -----------------------------------------------
-
         const userCredential =
             await createUserWithEmailAndPassword(
                 auth,
@@ -60,14 +54,9 @@ async function registerStudent(
                 password
             );
 
-
         const user =
             userCredential.user;
 
-
-        // -----------------------------------------------
-        // Create student Firestore document
-        // -----------------------------------------------
 
         await setDoc(
             doc(
@@ -108,10 +97,6 @@ async function registerStudent(
         );
 
 
-        // -----------------------------------------------
-        // Sign out after registration
-        // -----------------------------------------------
-
         await signOut(auth);
 
 
@@ -141,9 +126,7 @@ async function registerStudent(
                 false,
 
             message:
-                getFriendlyAuthError(
-                    error
-                )
+                getFriendlyAuthError(error)
 
         };
 
@@ -154,7 +137,7 @@ async function registerStudent(
 
 
 // ============================================================
-// STUDENT LOGIN
+// LOGIN STUDENT
 // ============================================================
 
 async function loginStudent(
@@ -163,6 +146,11 @@ async function loginStudent(
 ) {
 
     try {
+
+        // ----------------------------------------------------
+        // STEP 1
+        // Firebase Authentication
+        // ----------------------------------------------------
 
         const userCredential =
             await signInWithEmailAndPassword(
@@ -176,60 +164,75 @@ async function loginStudent(
             userCredential.user;
 
 
-        // -----------------------------------------------
-        // Get student document
-        // -----------------------------------------------
+        console.log(
+            "Firebase login successful:",
+            user.uid
+        );
 
-        const studentRef =
-            doc(
-                db,
-                "students",
-                user.uid
+
+        // ----------------------------------------------------
+        // STEP 2
+        // Read student document
+        // ----------------------------------------------------
+
+        let studentData =
+            null;
+
+
+        try {
+
+            const studentRef =
+                doc(
+                    db,
+                    "students",
+                    user.uid
+                );
+
+
+            const studentSnap =
+                await getDoc(
+                    studentRef
+                );
+
+
+            if (
+                studentSnap.exists()
+            ) {
+
+                studentData =
+                    studentSnap.data();
+
+            }
+
+        }
+
+        catch (firestoreError) {
+
+            console.error(
+                "Student document read error:",
+                firestoreError
             );
 
-
-        const studentSnap =
-            await getDoc(
-                studentRef
-            );
-
-
-        // -----------------------------------------------
-        // Student document missing
-        // -----------------------------------------------
-
-        if (!studentSnap.exists()) {
-
-            await signOut(auth);
-
-
-            return {
-
-                success:
-                    false,
-
-                message:
-                    "Student account information was not found."
-
-            };
+            // Do NOT leave login hanging.
+            // Authentication itself was successful.
 
         }
 
 
-        const studentData =
-            studentSnap.data();
-
-
-        // -----------------------------------------------
+        // ----------------------------------------------------
+        // STEP 3
         // Account status
-        // -----------------------------------------------
+        // ----------------------------------------------------
 
         if (
+            studentData &&
             studentData.accountStatus ===
             "blocked"
         ) {
 
-            await signOut(auth);
+            await signOut(
+                auth
+            );
 
 
             return {
@@ -245,30 +248,10 @@ async function loginStudent(
         }
 
 
-        if (
-            studentData.accountStatus ===
-            "pending"
-        ) {
-
-            // Login is allowed,
-            // but protected content will remain locked.
-
-            return {
-
-                success:
-                    true,
-
-                message:
-                    "Login successful. Your account is waiting for approval."
-
-            };
-
-        }
-
-
-        // -----------------------------------------------
-        // Active account
-        // -----------------------------------------------
+        // ----------------------------------------------------
+        // STEP 4
+        // Successful login
+        // ----------------------------------------------------
 
         return {
 
@@ -276,7 +259,18 @@ async function loginStudent(
                 true,
 
             message:
-                "Login successful."
+                studentData &&
+                studentData.accountStatus === "pending"
+
+                ? "Login successful. Your account is waiting for approval."
+
+                : "Login successful.",
+
+            user:
+                user,
+
+            student:
+                studentData
 
         };
 
@@ -296,9 +290,7 @@ async function loginStudent(
                 false,
 
             message:
-                getFriendlyAuthError(
-                    error
-                )
+                getFriendlyAuthError(error)
 
         };
 
@@ -330,7 +322,7 @@ async function resetStudentPassword(
                 true,
 
             message:
-                "Password reset email has been sent."
+                "Password reset email has been sent. Please check your inbox."
 
         };
 
@@ -350,9 +342,7 @@ async function resetStudentPassword(
                 false,
 
             message:
-                getFriendlyAuthError(
-                    error
-                )
+                getFriendlyAuthError(error)
 
         };
 
@@ -421,7 +411,7 @@ function getCurrentUser() {
 
 
 // ============================================================
-// AUTH STATE LISTENER
+// AUTH STATE
 // ============================================================
 
 function watchAuthState(
@@ -438,7 +428,7 @@ function watchAuthState(
 
 
 // ============================================================
-// FRIENDLY FIREBASE ERROR
+// FRIENDLY ERROR MESSAGE
 // ============================================================
 
 function getFriendlyAuthError(
@@ -451,10 +441,9 @@ function getFriendlyAuthError(
 
     switch (code) {
 
-
         case "auth/email-already-in-use":
 
-            return "This email is already registered. Please login instead.";
+            return "This email is already registered. Please use Login instead.";
 
 
         case "auth/invalid-email":
@@ -464,7 +453,7 @@ function getFriendlyAuthError(
 
         case "auth/weak-password":
 
-            return "Password is too weak. Please use at least 6 characters.";
+            return "Password must contain at least 6 characters.";
 
 
         case "auth/invalid-credential":
@@ -484,7 +473,7 @@ function getFriendlyAuthError(
 
         case "auth/too-many-requests":
 
-            return "Too many attempts. Please wait a while and try again.";
+            return "Too many attempts. Please wait and try again later.";
 
 
         case "auth/network-request-failed":
@@ -499,7 +488,7 @@ function getFriendlyAuthError(
 
         case "auth/operation-not-allowed":
 
-            return "Email/password authentication is not enabled in Firebase.";
+            return "Email/password authentication is not enabled.";
 
 
         default:
