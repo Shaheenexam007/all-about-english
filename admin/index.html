@@ -1925,34 +1925,66 @@
             </div>
 
 
-            <div class="approval-box">
+          <div class="approval-box">
 
-                <p>
-
-                    Unit / folder approval management will be
-                    connected here in the next step.
-
-                </p>
+    <p>
+        Approve or remove access to specific folders / units
+        for this student.
+    </p>
 
 
-                <div class="future-note">
+    <!-- =====================================================
+         UNIT APPROVAL LIST
+    ====================================================== -->
 
-                    <i class="fa-solid fa-lock"></i>
+    <div
+        id="unitApprovalList"
+        style="
+            display:flex;
+            flex-direction:column;
+            gap:8px;
+        "
+    >
 
-                    &nbsp;
+        <div
+            style="
+                padding:15px;
+                text-align:center;
+                color:#68748a;
+                font-size:9px;
+            "
+        >
 
-                    The student's existing
-                    <strong>approvedLessons</strong>
-                    data will not be deleted.
+            <i class="fa-solid fa-spinner fa-spin"></i>
 
-                    We will connect the new
-                    <strong>approvedUnits</strong>
-                    system after the student management
-                    dashboard is working correctly.
+            &nbsp;
 
-                </div>
+            Loading units...
 
-            </div>
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         NOTE
+    ====================================================== -->
+
+    <div
+        class="future-note"
+        style="margin-top:12px;"
+    >
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        &nbsp;
+
+        Approval is saved directly to the student's
+        <strong>approvedUnits</strong> field in Firestore.
+
+    </div>
+
+</div>
 
 
         </div>
@@ -2058,6 +2090,40 @@
 
     let selectedStudent = null;
 
+    /* =====================================================
+   UNIT CONFIGURATION
+
+   ভবিষ্যতে নতুন Unit যোগ করতে হলে
+   শুধু এই list-এ নতুন Unit যোগ করবেন।
+===================================================== */
+
+const UNIT_LIST = [
+
+    {
+        id: "unit-11",
+        name: "Unit 11",
+        description: "English 1st Paper — Unit 11"
+    },
+
+    {
+        id: "unit-12",
+        name: "Unit 12",
+        description: "English 1st Paper — Unit 12"
+    },
+
+    {
+        id: "unit-13",
+        name: "Unit 13",
+        description: "English 1st Paper — Unit 13"
+    },
+
+    {
+        id: "unit-14",
+        name: "Unit 14",
+        description: "English 1st Paper — Unit 14"
+    }
+
+];
 
 
     /* =====================================================
@@ -2972,7 +3038,324 @@
 
     }
 
+/* =====================================================
+   RENDER UNIT APPROVALS
+===================================================== */
 
+function renderUnitApprovals() {
+
+    const container =
+        document.getElementById(
+            "unitApprovalList"
+        );
+
+
+    if (!container) {
+
+        return;
+
+    }
+
+
+    if (!selectedStudent) {
+
+        container.innerHTML = "";
+
+        return;
+
+    }
+
+
+    const approvedUnits =
+        selectedStudent.approvedUnits || {};
+
+
+    let html = "";
+
+
+    UNIT_LIST.forEach(
+        function(unit) {
+
+            const approved =
+                approvedUnits[unit.id] === true;
+
+
+            html += `
+
+                <div
+                    style="
+                        display:flex;
+                        align-items:center;
+                        justify-content:space-between;
+                        gap:12px;
+                        padding:12px;
+                        border:1px solid #e7e4dc;
+                        border-radius:10px;
+                        background:#fcfcfa;
+                    "
+                >
+
+                    <div
+                        style="
+                            min-width:0;
+                            flex:1;
+                        "
+                    >
+
+                        <div
+                            style="
+                                font-size:10px;
+                                font-weight:800;
+                                color:#101b36;
+                            "
+                        >
+
+                            ${escapeHTML(
+                                unit.name
+                            )}
+
+                        </div>
+
+
+                        <div
+                            style="
+                                margin-top:3px;
+                                font-size:8px;
+                                color:#68748a;
+                            "
+                        >
+
+                            ${escapeHTML(
+                                unit.description
+                            )}
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="unit-approval-btn"
+                        data-unit-id="${escapeHTML(
+                            unit.id
+                        )}"
+                        data-approved="${approved}"
+                        style="
+                            border:none;
+                            border-radius:8px;
+                            padding:8px 11px;
+                            font-size:8px;
+                            font-weight:800;
+                            white-space:nowrap;
+                            cursor:pointer;
+
+                            ${
+                                approved
+                                    ? `
+                                        background:#eaf7f0;
+                                        color:#18794e;
+                                        border:1px solid #c9ead8;
+                                      `
+                                    : `
+                                        background:#101b36;
+                                        color:white;
+                                      `
+                            }
+                        "
+                    >
+
+                        ${
+                            approved
+                                ? `
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    Approved
+                                  `
+                                : `
+                                    <i class="fa-solid fa-lock-open"></i>
+                                    Approve
+                                  `
+                        }
+
+                    </button>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    container.innerHTML =
+        html;
+
+
+    container
+        .querySelectorAll(
+            ".unit-approval-btn"
+        )
+        .forEach(
+            function(button) {
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        toggleUnitApproval(
+                            this.dataset.unitId
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+
+    /* =====================================================
+   TOGGLE UNIT APPROVAL
+===================================================== */
+
+async function toggleUnitApproval(
+    unitId
+) {
+
+    if (!selectedStudent) {
+
+        return;
+
+    }
+
+
+    const studentId =
+        selectedStudent.id;
+
+
+    const approvedUnits = {
+
+        ...(selectedStudent.approvedUnits || {})
+
+    };
+
+
+    const currentlyApproved =
+        approvedUnits[unitId] === true;
+
+
+    const newApproval =
+        !currentlyApproved;
+
+
+    approvedUnits[unitId] =
+        newApproval;
+
+
+    try {
+
+        await updateDoc(
+            doc(
+                db,
+                "students",
+                studentId
+            ),
+            {
+                approvedUnits:
+                    approvedUnits
+            }
+        );
+
+
+        /* =============================================
+           UPDATE LOCAL DATA
+        ============================================= */
+
+        selectedStudent.approvedUnits =
+            approvedUnits;
+
+
+        const index =
+            students.findIndex(
+                function(student) {
+
+                    return (
+                        student.id ===
+                        studentId
+                    );
+
+                }
+            );
+
+
+        if (
+            index !== -1
+        ) {
+
+            students[index].approvedUnits =
+                approvedUnits;
+
+        }
+
+
+        /* =============================================
+           REFRESH UNIT LIST
+        ============================================= */
+
+        renderUnitApprovals();
+
+
+        /* =============================================
+           REFRESH STUDENT DETAILS
+        ============================================= */
+
+        openStudent(
+            studentId
+        );
+
+
+        showMessage(
+
+            newApproval
+                ? "Unit access approved successfully."
+                : "Unit access removed successfully.",
+
+            "success"
+
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Unit approval error:",
+            error
+        );
+
+
+        /* Roll back local change */
+
+        approvedUnits[unitId] =
+            currentlyApproved;
+
+
+        selectedStudent.approvedUnits =
+            approvedUnits;
+
+
+        showMessage(
+            "Could not update unit access. Check Firestore Rules.",
+            "error"
+        );
+
+    }
+
+}
+
+    
 
     /* =====================================================
        OPEN STUDENT
@@ -3116,23 +3499,48 @@
             </div>
 
 
-            <div class="detail-box">
+        <div class="detail-box">
 
-                <small>
-                    APPROVED LESSONS
-                </small>
+    <small>
+        APPROVED UNITS
+    </small>
 
-                <strong>
-                    ${
-                        selectedStudent.approvedLessons
-                            ? Object.keys(
-                                selectedStudent.approvedLessons
-                              ).length
-                            : 0
-                    }
-                </strong>
+    <strong>
+        ${
+            selectedStudent.approvedUnits
+                ? Object.entries(
+                    selectedStudent.approvedUnits
+                  ).filter(
+                    ([unitId, approved]) =>
+                        approved === true
+                  ).length
+                : 0
+        }
+    </strong>
 
-            </div>
+</div>
+
+
+<div class="detail-box">
+
+    <small>
+        APPROVED LESSONS
+    </small>
+
+    <strong>
+        ${
+            selectedStudent.approvedLessons
+                ? Object.entries(
+                    selectedStudent.approvedLessons
+                  ).filter(
+                    ([lessonId, approved]) =>
+                        approved === true
+                  ).length
+                : 0
+        }
+    </strong>
+
+</div>
 
         `;
 
@@ -3140,6 +3548,7 @@
         studentModal.classList.add(
             "show"
         );
+        renderUnitApprovals();
 
     }
 
