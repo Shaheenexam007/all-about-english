@@ -1,7 +1,14 @@
+```javascript
 // ============================================================
 // ALL ABOUT ENGLISH
 // FIREBASE SECURITY & ACCESS CONTROL
+// FOLDER / UNIT BASED SYSTEM
 // BY SHAHEEN SIR
+// ============================================================
+
+
+// ============================================================
+// FIREBASE IMPORTS
 // ============================================================
 
 import {
@@ -32,7 +39,7 @@ const db =
 
 
 // ============================================================
-// CURRENT USER
+// LOGIN USER
 // ============================================================
 
 function getLoggedInUser() {
@@ -43,7 +50,7 @@ function getLoggedInUser() {
 
 
 // ============================================================
-// GET STUDENT DATA
+// GET CURRENT STUDENT DATA
 // ============================================================
 
 async function getStudentData() {
@@ -51,6 +58,10 @@ async function getStudentData() {
     const user =
         getLoggedInUser();
 
+
+    // --------------------------------------------------------
+    // No user
+    // --------------------------------------------------------
 
     if (!user) {
 
@@ -75,7 +86,9 @@ async function getStudentData() {
             );
 
 
-        if (!studentSnap.exists()) {
+        if (
+            !studentSnap.exists()
+        ) {
 
             return null;
 
@@ -127,7 +140,20 @@ async function isAccountActive() {
 
 
 // ============================================================
-// CHECK APPROVED UNIT
+// CHECK APPROVED FOLDER / UNIT
+// ============================================================
+//
+// Example Firestore:
+//
+// approvedUnits: {
+//     "unit-11": true,
+//     "unit-12": false
+// }
+//
+// If unit-11 is true:
+// → Unit 11 folder is accessible
+// → All lessons inside Unit 11 are accessible
+//
 // ============================================================
 
 async function isUnitApproved(
@@ -138,12 +164,20 @@ async function isUnitApproved(
         await getStudentData();
 
 
+    // --------------------------------------------------------
+    // Student data not found
+    // --------------------------------------------------------
+
     if (!student) {
 
         return false;
 
     }
 
+
+    // --------------------------------------------------------
+    // Account must be active
+    // --------------------------------------------------------
 
     if (
         student.accountStatus !==
@@ -154,54 +188,21 @@ async function isUnitApproved(
 
     }
 
+
+    // --------------------------------------------------------
+    // Get approvedUnits
+    // --------------------------------------------------------
 
     const approvedUnits =
         student.approvedUnits || {};
 
 
+    // --------------------------------------------------------
+    // Check requested Unit
+    // --------------------------------------------------------
+
     return (
         approvedUnits[unitId] ===
-        true
-    );
-
-}
-
-
-// ============================================================
-// CHECK APPROVED LESSON
-// ============================================================
-
-async function isLessonApproved(
-    lessonId
-) {
-
-    const student =
-        await getStudentData();
-
-
-    if (!student) {
-
-        return false;
-
-    }
-
-
-    if (
-        student.accountStatus !==
-        "active"
-    ) {
-
-        return false;
-
-    }
-
-
-    const approvedLessons =
-        student.approvedLessons || {};
-
-
-    return (
-        approvedLessons[lessonId] ===
         true
     );
 
@@ -272,7 +273,7 @@ async function requireActiveAccount() {
 
 
 // ============================================================
-// REQUIRE APPROVED UNIT
+// REQUIRE APPROVED FOLDER / UNIT
 // ============================================================
 
 async function requireApprovedUnit(
@@ -299,7 +300,7 @@ async function requireApprovedUnit(
     if (!approved) {
 
         alert(
-            "You do not have permission to access this unit."
+            "You do not have permission to access this folder."
         );
 
 
@@ -314,49 +315,15 @@ async function requireApprovedUnit(
 
 
 // ============================================================
-// REQUIRE APPROVED LESSON
+// WAIT FOR FIREBASE AUTHENTICATION
 // ============================================================
-
-async function requireApprovedLesson(
-    lessonId
-) {
-
-    const loggedIn =
-        await requireLogin();
-
-
-    if (!loggedIn) {
-
-        return false;
-
-    }
-
-
-    const approved =
-        await isLessonApproved(
-            lessonId
-        );
-
-
-    if (!approved) {
-
-        alert(
-            "You do not have permission to access this lesson."
-        );
-
-
-        return false;
-
-    }
-
-
-    return true;
-
-}
-
-
-// ============================================================
-// WAIT FOR AUTHENTICATION
+//
+// Important:
+// Firebase may need a short time to restore the user's
+// login session after page refresh.
+//
+// This function waits until Firebase tells us the
+// authentication state.
 // ============================================================
 
 function waitForAuth() {
@@ -389,7 +356,62 @@ function waitForAuth() {
 
 
 // ============================================================
-// PROTECT DIRECT ACCESS
+// PROTECT FOLDER / UNIT PAGE
+// ============================================================
+//
+// Use inside:
+//
+// unit-11/index.html
+//
+// Example:
+//
+// await protectPage(
+//     "unit",
+//     "unit-11"
+// );
+//
+// ============================================================
+
+
+// ============================================================
+// PROTECT LESSON PAGE
+// ============================================================
+//
+// IMPORTANT:
+//
+// Lessons do NOT have individual approval.
+//
+// A lesson checks the approval of its parent Unit.
+//
+// Example:
+//
+// Lesson 1 inside Unit 11:
+//
+// await protectPage(
+//     "lesson",
+//     "unit-11"
+// );
+//
+// Lesson 2 inside Unit 11:
+//
+// await protectPage(
+//     "lesson",
+//     "unit-11"
+// );
+//
+// Lesson 3 inside Unit 11:
+//
+// await protectPage(
+//     "lesson",
+//     "unit-11"
+// );
+//
+// Therefore:
+//
+// approvedUnits["unit-11"] === true
+//
+// is enough to access ALL lessons of Unit 11.
+//
 // ============================================================
 
 async function protectPage(
@@ -397,9 +419,19 @@ async function protectPage(
     requiredId
 ) {
 
+    // --------------------------------------------------------
+    // STEP 1
+    // Wait for Firebase authentication
+    // --------------------------------------------------------
+
     const user =
         await waitForAuth();
 
+
+    // --------------------------------------------------------
+    // STEP 2
+    // Login check
+    // --------------------------------------------------------
 
     if (!user) {
 
@@ -410,6 +442,11 @@ async function protectPage(
 
     }
 
+
+    // --------------------------------------------------------
+    // STEP 3
+    // Folder / Unit protection
+    // --------------------------------------------------------
 
     if (
         requiredType ===
@@ -423,17 +460,38 @@ async function protectPage(
     }
 
 
+    // --------------------------------------------------------
+    // STEP 4
+    // Lesson protection
+    // --------------------------------------------------------
+    //
+    // Lesson uses parent Unit approval.
+    //
+    // Example:
+    //
+    // protectPage(
+    //     "lesson",
+    //     "unit-11"
+    // );
+    //
+    // --------------------------------------------------------
+
     if (
         requiredType ===
         "lesson"
     ) {
 
-        return await requireApprovedLesson(
+        return await requireApprovedUnit(
             requiredId
         );
 
     }
 
+
+    // --------------------------------------------------------
+    // STEP 5
+    // Active account protection
+    // --------------------------------------------------------
 
     if (
         requiredType ===
@@ -445,7 +503,17 @@ async function protectPage(
     }
 
 
-    return true;
+    // --------------------------------------------------------
+    // Unknown protection type
+    // --------------------------------------------------------
+
+    console.error(
+        "Unknown protection type:",
+        requiredType
+    );
+
+
+    return false;
 
 }
 
@@ -464,18 +532,15 @@ export {
 
     isUnitApproved,
 
-    isLessonApproved,
-
     requireLogin,
 
     requireActiveAccount,
 
     requireApprovedUnit,
 
-    requireApprovedLesson,
-
     waitForAuth,
 
     protectPage
 
 };
+```
