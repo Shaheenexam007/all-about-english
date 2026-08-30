@@ -1,1 +1,1903 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="HSC English by Shaheen Sir — English 1st Paper and English 2nd Paper."
+    >
+
+    <meta
+        name="theme-color"
+        content="#101b36"
+    >
+
+    <title>
+        HSC English | All About English
+    </title>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         STYLE
+    ====================================================== -->
+
+    <style>
+
+        /* =====================================================
+           ROOT
+        ====================================================== */
+
+        :root {
+
+            --navy:
+                #101b36;
+
+            --navy-dark:
+                #091126;
+
+            --navy-light:
+                #1b2b52;
+
+            --gold:
+                #c9a45c;
+
+            --gold-light:
+                #ead9ae;
+
+            --ivory:
+                #fbfaf6;
+
+            --white:
+                #ffffff;
+
+            --text:
+                #1d2940;
+
+            --muted:
+                #68748a;
+
+            --border:
+                #e7e4dc;
+
+            --soft:
+                #f4f2eb;
+
+            --shadow:
+                0 18px 55px rgba(16,27,54,0.10);
+        }
+
+
+        /* =====================================================
+           RESET
+        ====================================================== */
+
+        * {
+
+            margin:
+                0;
+
+            padding:
+                0;
+
+            box-sizing:
+                border-box;
+        }
+
+
+        html {
+
+            scroll-behavior:
+                smooth;
+        }
+
+
+        body {
+
+            font-family:
+                "Inter",
+                sans-serif;
+
+            color:
+                var(--text);
+
+            background:
+                var(--ivory);
+
+            overflow-x:
+                hidden;
+        }
+
+
+        a {
+
+            text-decoration:
+                none;
+
+            color:
+                inherit;
+        }
+
+
+        button {
+
+            font-family:
+                inherit;
+        }
+
+
+        /* =====================================================
+           TOP BAR
+        ====================================================== */
+
+        .top-bar {
+
+            background:
+                var(--navy-dark);
+
+            color:
+                #e9e4d5;
+
+            text-align:
+                center;
+
+            padding:
+                8px 15px;
+
+            font-size:
+                11px;
+
+            letter-spacing:
+                .5px;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ====================================================== */
+
+        header {
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                1000;
+
+            background:
+                rgba(251,250,246,.94);
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
+
+            border-bottom:
+                1px solid rgba(16,27,54,.08);
+        }
+
+
+        .nav-container {
+
+            width:
+                min(1180px,92%);
+
+            min-height:
+                76px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+        }
+
+
+        /* =====================================================
+           BRAND
+        ====================================================== */
+
+        .brand {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+        }
+
+
+        .brand-icon {
+
+            width:
+                45px;
+
+            height:
+                45px;
+
+            border-radius:
+                14px;
+
+            background:
+                var(--navy);
+
+            color:
+                var(--gold-light);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                18px;
+
+            box-shadow:
+                0 8px 22px rgba(16,27,54,.18);
+        }
+
+
+        .brand-text strong {
+
+            display:
+                block;
+
+            color:
+                var(--navy);
+
+            font-size:
+                16px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                .4px;
+        }
+
+
+        .brand-text span {
+
+            display:
+                block;
+
+            color:
+                var(--gold);
+
+            font-size:
+                9px;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                1px;
+
+            margin-top:
+                3px;
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ====================================================== */
+
+        .nav-links {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                5px;
+        }
+
+
+        .nav-links a {
+
+            color:
+                #536078;
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            padding:
+                9px 12px;
+
+            border-radius:
+                9px;
+
+            transition:
+                .25s ease;
+        }
+
+
+        .nav-links a:hover {
+
+            color:
+                var(--navy);
+
+            background:
+                #f1eee5;
+        }
+
+
+        .login-nav {
+
+            background:
+                var(--navy) !important;
+
+            color:
+                white !important;
+
+            padding:
+                10px 16px !important;
+
+            box-shadow:
+                0 8px 20px rgba(16,27,54,.18);
+        }
+
+
+        /* =====================================================
+           PAGE HERO
+        ====================================================== */
+
+        .page-hero {
+
+            width:
+                min(1180px,92%);
+
+            margin:
+                auto;
+
+            padding:
+                70px 0 45px;
+
+            text-align:
+                center;
+
+            position:
+                relative;
+        }
+
+
+        .page-hero::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                330px;
+
+            height:
+                330px;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(201,164,92,.08);
+
+            right:
+                -150px;
+
+            top:
+                15px;
+
+            z-index:
+                -1;
+        }
+
+
+        .page-label {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            padding:
+                8px 14px;
+
+            border:
+                1px solid var(--gold-light);
+
+            background:
+                #f8f2e4;
+
+            color:
+                #856b34;
+
+            border-radius:
+                999px;
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.5px;
+
+            margin-bottom:
+                18px;
+        }
+
+
+        .page-label i {
+
+            font-size:
+                9px;
+        }
+
+
+        .page-hero h1 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            color:
+                var(--navy);
+
+            font-size:
+                clamp(40px,6vw,64px);
+
+            line-height:
+                1.05;
+
+            letter-spacing:
+                -1.5px;
+
+            margin-bottom:
+                14px;
+        }
+
+
+        .page-hero h1 span {
+
+            color:
+                var(--gold);
+        }
+
+
+        .page-hero p {
+
+            max-width:
+                680px;
+
+            margin:
+                auto;
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+
+            line-height:
+                1.8;
+        }
+
+
+        /* =====================================================
+           BREADCRUMB
+        ====================================================== */
+
+        .breadcrumb {
+
+            width:
+                min(1180px,92%);
+
+            margin:
+                0 auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                7px;
+
+            color:
+                #7b8494;
+
+            font-size:
+                10px;
+
+            font-weight:
+                700;
+        }
+
+
+        .breadcrumb a {
+
+            color:
+                var(--navy);
+        }
+
+
+        .breadcrumb i {
+
+            color:
+                var(--gold);
+
+            font-size:
+                8px;
+        }
+
+
+        /* =====================================================
+           MAIN SECTION
+        ====================================================== */
+
+        .section {
+
+            width:
+                min(1100px,92%);
+
+            margin:
+                auto;
+
+            padding:
+                45px 0 80px;
+        }
+
+
+        .section-heading {
+
+            text-align:
+                center;
+
+            max-width:
+                650px;
+
+            margin:
+                0 auto 35px;
+        }
+
+
+        .eyebrow {
+
+            color:
+                var(--gold);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                2px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                8px;
+        }
+
+
+        .section-heading h2 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            color:
+                var(--navy);
+
+            font-size:
+                clamp(27px,4vw,38px);
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .section-heading p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                12px;
+
+            line-height:
+                1.7;
+        }
+
+
+        /* =====================================================
+           PAPER GRID
+        ====================================================== */
+
+        .paper-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap:
+                20px;
+        }
+
+
+        /* =====================================================
+           PAPER CARD
+        ====================================================== */
+
+        .paper-card {
+
+            min-height:
+                260px;
+
+            background:
+                white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                23px;
+
+            padding:
+                28px;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            transition:
+                .3s ease;
+
+            box-shadow:
+                0 8px 25px rgba(16,27,54,.04);
+        }
+
+
+        .paper-card::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                180px;
+
+            height:
+                180px;
+
+            border-radius:
+                50%;
+
+            background:
+                #f6efdf;
+
+            right:
+                -75px;
+
+            bottom:
+                -75px;
+
+            transition:
+                .35s ease;
+        }
+
+
+        .paper-card:hover {
+
+            transform:
+                translateY(-6px);
+
+            border-color:
+                #d8c89f;
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .paper-card:hover::before {
+
+            transform:
+                scale(1.35);
+        }
+
+
+        /* =====================================================
+           PAPER ICON
+        ====================================================== */
+
+        .paper-icon {
+
+            width:
+                54px;
+
+            height:
+                54px;
+
+            border-radius:
+                16px;
+
+            background:
+                #f5efe1;
+
+            color:
+                var(--navy);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                20px;
+
+            margin-bottom:
+                18px;
+
+            position:
+                relative;
+
+            z-index:
+                2;
+        }
+
+
+        /* =====================================================
+           PAPER CONTENT
+        ====================================================== */
+
+        .paper-card h3 {
+
+            color:
+                var(--navy);
+
+            font-size:
+                20px;
+
+            line-height:
+                1.35;
+
+            margin-bottom:
+                9px;
+
+            position:
+                relative;
+
+            z-index:
+                2;
+        }
+
+
+        .paper-card p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.75;
+
+            max-width:
+                430px;
+
+            position:
+                relative;
+
+            z-index:
+                2;
+        }
+
+
+        /* =====================================================
+           PAPER TOPIC LIST
+        ====================================================== */
+
+        .topic-list {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                7px;
+
+            margin-top:
+                17px;
+
+            position:
+                relative;
+
+            z-index:
+                2;
+        }
+
+
+        .topic {
+
+            padding:
+                6px 9px;
+
+            background:
+                #f8f7f2;
+
+            border:
+                1px solid #ece9df;
+
+            border-radius:
+                7px;
+
+            color:
+                #596477;
+
+            font-size:
+                8px;
+
+            font-weight:
+                700;
+        }
+
+
+        /* =====================================================
+           ENTER BUTTON
+        ====================================================== */
+
+        .enter-paper {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+            margin-top:
+                21px;
+
+            padding:
+                10px 14px;
+
+            background:
+                var(--navy);
+
+            color:
+                white;
+
+            border-radius:
+                9px;
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+
+            position:
+                relative;
+
+            z-index:
+                3;
+
+            transition:
+                .25s ease;
+        }
+
+
+        .enter-paper:hover {
+
+            background:
+                var(--navy-light);
+
+            transform:
+                translateX(3px);
+        }
+
+
+        /* =====================================================
+           INFO BOX
+        ====================================================== */
+
+        .info-box {
+
+            margin-top:
+                35px;
+
+            padding:
+                24px 26px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--navy);
+
+            color:
+                white;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                17px;
+
+            box-shadow:
+                0 18px 45px rgba(16,27,54,.14);
+        }
+
+
+        .info-icon {
+
+            width:
+                44px;
+
+            height:
+                44px;
+
+            min-width:
+                44px;
+
+            border-radius:
+                13px;
+
+            background:
+                rgba(255,255,255,.09);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            color:
+                var(--gold-light);
+
+            font-size:
+                16px;
+        }
+
+
+        .info-box h4 {
+
+            font-size:
+                12px;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        .info-box p {
+
+            color:
+                #c9d0dd;
+
+            font-size:
+                10px;
+
+            line-height:
+                1.7;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+
+            background:
+                var(--navy-dark);
+
+            color:
+                #cbd3df;
+
+            padding:
+                40px 0 20px;
+
+            margin-top:
+                20px;
+        }
+
+
+        .footer-container {
+
+            width:
+                min(1100px,92%);
+
+            margin:
+                auto;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1.4fr 1fr 1fr;
+
+            gap:
+                35px;
+        }
+
+
+        .footer-brand h3 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            color:
+                white;
+
+            font-size:
+                23px;
+
+            margin-bottom:
+                8px;
+        }
+
+
+        .footer-brand p {
+
+            color:
+                #8f9bad;
+
+            font-size:
+                10px;
+
+            line-height:
+                1.8;
+
+            max-width:
+                370px;
+        }
+
+
+        .footer-column h4 {
+
+            color:
+                var(--gold-light);
+
+            font-size:
+                10px;
+
+            letter-spacing:
+                1.5px;
+
+            margin-bottom:
+                14px;
+        }
+
+
+        .footer-column a {
+
+            display:
+                block;
+
+            color:
+                #9ba5b5;
+
+            font-size:
+                10px;
+
+            margin-bottom:
+                9px;
+
+            transition:
+                .2s ease;
+        }
+
+
+        .footer-column a:hover {
+
+            color:
+                white;
+        }
+
+
+        .footer-bottom {
+
+            width:
+                min(1100px,92%);
+
+            margin:
+                25px auto 0;
+
+            padding-top:
+                16px;
+
+            border-top:
+                1px solid rgba(255,255,255,.08);
+
+            text-align:
+                center;
+
+            color:
+                #687386;
+
+            font-size:
+                9px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 750px) {
+
+            .paper-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .info-box {
+
+                align-items:
+                    flex-start;
+            }
+
+
+            .footer-container {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .top-bar {
+
+                font-size:
+                    9px;
+            }
+
+
+            .nav-container {
+
+                min-height:
+                    67px;
+            }
+
+
+            .brand-icon {
+
+                width:
+                    39px;
+
+                height:
+                    39px;
+
+                border-radius:
+                    11px;
+            }
+
+
+            .brand-text strong {
+
+                font-size:
+                    13px;
+            }
+
+
+            .brand-text span {
+
+                font-size:
+                    7px;
+            }
+
+
+            .nav-links a:not(.login-nav) {
+
+                display:
+                    none;
+            }
+
+
+            .login-nav {
+
+                font-size:
+                    10px !important;
+
+                padding:
+                    9px 12px !important;
+            }
+
+
+            .page-hero {
+
+                padding:
+                    50px 0 35px;
+            }
+
+
+            .page-hero h1 {
+
+                font-size:
+                    43px;
+            }
+
+
+            .page-hero p {
+
+                font-size:
+                    11px;
+            }
+
+
+            .section {
+
+                padding:
+                    35px 0 55px;
+            }
+
+
+            .paper-card {
+
+                min-height:
+                    auto;
+
+                padding:
+                    22px;
+            }
+
+
+            .paper-card h3 {
+
+                font-size:
+                    18px;
+            }
+
+
+            .paper-card p {
+
+                font-size:
+                    10px;
+            }
+
+
+            .info-box {
+
+                padding:
+                    20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
+
+    <div class="top-bar">
+
+        ALL ABOUT ENGLISH • HSC ENGLISH • BY SHAHEEN SIR
+
+    </div>
+
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="nav-container">
+
+
+            <!-- BRAND -->
+
+            <a
+                href="../"
+                class="brand"
+            >
+
+                <div class="brand-icon">
+
+                    <i class="fa-solid fa-book-open"></i>
+
+                </div>
+
+
+                <div class="brand-text">
+
+                    <strong>
+                        ALL ABOUT ENGLISH
+                    </strong>
+
+                    <span>
+                        BY SHAHEEN SIR
+                    </span>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="nav-links">
+
+
+                <a
+                    href="../#programs"
+                >
+                    Programs
+                </a>
+
+
+                <a
+                    href="../#about"
+                >
+                    About
+                </a>
+
+
+                <a
+                    href="../login.html"
+                    class="login-nav"
+                >
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    Student Login
+
+                </a>
+
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         PAGE HERO
+    ====================================================== -->
+
+    <section class="page-hero">
+
+
+        <div class="page-label">
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            HSC ENGLISH
+
+        </div>
+
+
+        <h1>
+
+            HSC <span>English</span>
+
+        </h1>
+
+
+        <p>
+
+            A structured learning space for HSC students,
+            covering English 1st Paper and English 2nd Paper
+            with lessons, vocabulary, grammar and examination
+            preparation.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         BREADCRUMB
+    ====================================================== -->
+
+    <div class="breadcrumb">
+
+        <a href="../">
+            Home
+        </a>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <span>
+            HSC English
+        </span>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main>
+
+
+        <section class="section">
+
+
+            <!-- SECTION HEADING -->
+
+            <div class="section-heading">
+
+
+                <div class="eyebrow">
+                    HSC Curriculum
+                </div>
+
+
+                <h2>
+                    Choose Your Paper
+                </h2>
+
+
+                <p>
+
+                    Select the paper you want to study.
+                    Each section can contain units, lessons,
+                    practice materials and other resources.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PAPER GRID
+            ================================================== -->
+
+            <div class="paper-grid">
+
+
+
+                <!-- =============================================
+                     ENGLISH 1ST PAPER
+                ============================================== -->
+
+                <div class="paper-card">
+
+
+                    <div class="paper-icon">
+
+                        <i class="fa-solid fa-book-open"></i>
+
+                    </div>
+
+
+                    <h3>
+                        English 1st Paper
+                    </h3>
+
+
+                    <p>
+
+                        Reading, comprehension, vocabulary,
+                        literary texts, passages and structured
+                        lessons for HSC English 1st Paper.
+
+                    </p>
+
+
+                    <div class="topic-list">
+
+
+                        <span class="topic">
+                            Reading
+                        </span>
+
+
+                        <span class="topic">
+                            Vocabulary
+                        </span>
+
+
+                        <span class="topic">
+                            Comprehension
+                        </span>
+
+
+                        <span class="topic">
+                            Units & Lessons
+                        </span>
+
+
+                    </div>
+
+
+                    <!-- =========================================
+                         CHANGE ONLY THIS URL IF NEEDED
+
+                         Current:
+                         ./1st-paper/
+
+                    ========================================== -->
+
+                    <a
+                        href="./1st-paper/"
+                        class="enter-paper"
+                    >
+
+                        Enter 1st Paper
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- =============================================
+                     ENGLISH 2ND PAPER
+                ============================================== -->
+
+                <div class="paper-card">
+
+
+                    <div class="paper-icon">
+
+                        <i class="fa-solid fa-pen-nib"></i>
+
+                    </div>
+
+
+                    <h3>
+                        English 2nd Paper
+                    </h3>
+
+
+                    <p>
+
+                        Grammar, writing, sentence transformation,
+                        connectors, modifiers, narration,
+                        vocabulary and examination-focused practice.
+
+                    </p>
+
+
+                    <div class="topic-list">
+
+
+                        <span class="topic">
+                            Grammar
+                        </span>
+
+
+                        <span class="topic">
+                            Writing
+                        </span>
+
+
+                        <span class="topic">
+                            Transformation
+                        </span>
+
+
+                        <span class="topic">
+                            Practice
+                        </span>
+
+
+                    </div>
+
+
+                    <!-- =========================================
+                         CHANGE ONLY THIS URL IF NEEDED
+
+                         Current:
+                         ./2nd-paper/
+
+                    ========================================== -->
+
+                    <a
+                        href="./2nd-paper/"
+                        class="enter-paper"
+                    >
+
+                        Enter 2nd Paper
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 INFORMATION BOX
+            ================================================== -->
+
+            <div class="info-box">
+
+
+                <div class="info-icon">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                </div>
+
+
+                <div>
+
+
+                    <h4>
+                        HSC English Learning Platform
+                    </h4>
+
+
+                    <p>
+
+                        New units, lessons, vocabulary resources,
+                        grammar materials and examination practice
+                        can be added gradually under the two papers.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+
+        <div class="footer-container">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+                <h3>
+                    ALL ABOUT ENGLISH
+                </h3>
+
+
+                <p>
+
+                    By Shaheen Sir<br>
+
+                    Assistant Professor & Head of the
+                    English Department<br>
+
+                    Bangladesh Air Force Shaheen College Kurmitola
+
+                </p>
+
+            </div>
+
+
+
+            <!-- LEARNING -->
+
+            <div class="footer-column">
+
+                <h4>
+                    HSC ENGLISH
+                </h4>
+
+
+                <a href="./1st-paper/">
+
+                    English 1st Paper
+
+                </a>
+
+
+                <a href="./2nd-paper/">
+
+                    English 2nd Paper
+
+                </a>
+
+            </div>
+
+
+
+            <!-- CONNECT -->
+
+            <div class="footer-column">
+
+                <h4>
+                    CONNECT
+                </h4>
+
+
+                <a href="tel:01671642358">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    Call: 01671642358
+
+                </a>
+
+
+                <a
+                    href="https://wa.me/8801671642358"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    WhatsApp
+
+                </a>
+
+
+                <a
+                    href="https://www.facebook.com/profile.php?id=61553493074328"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <i class="fa-brands fa-facebook"></i>
+
+                    Facebook
+
+                </a>
+
+
+                <a href="../login.html">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    Student Login
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            © 2026 ALL ABOUT ENGLISH • BY SHAHEEN SIR •
+            All Rights Reserved
+
+        </div>
+
+
+    </footer>
+
+
+</body>
+
+</html>
