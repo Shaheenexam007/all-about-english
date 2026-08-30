@@ -23,6 +23,10 @@ import {
 
 import { app } from "./firebase-config.js";
 
+import {
+    getDeviceId
+} from "./device-manager.js";
+
 
 // ============================================================
 // INITIALIZE
@@ -56,6 +60,14 @@ async function registerStudent(
 
         const user =
             userCredential.user;
+
+        const deviceId =
+    getDeviceId();
+
+console.log(
+    "Current device ID:",
+    deviceId
+);
 
 
         await setDoc(
