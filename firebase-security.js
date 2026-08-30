@@ -29,9 +29,6 @@ import {
     app
 } from "./firebase-config.js";
 
-import {
-    checkDeviceAccess
-} from "./device-manager.js";
 
 
 // ============================================================
