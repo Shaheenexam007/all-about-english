@@ -1,4 +1,3 @@
-```javascript
 // ============================================================
 // ALL ABOUT ENGLISH
 // FIREBASE AUTHENTICATION
@@ -14,7 +13,6 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-
 import {
     getFirestore,
     doc,
@@ -23,7 +21,6 @@ import {
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
 import { app } from "./firebase-config.js";
 
 
@@ -31,12 +28,9 @@ import { app } from "./firebase-config.js";
 // INITIALIZE
 // ============================================================
 
-const auth =
-    getAuth(app);
+const auth = getAuth(app);
 
-
-const db =
-    getFirestore(app);
+const db = getFirestore(app);
 
 
 // ============================================================
@@ -53,6 +47,10 @@ async function registerStudent(
 
     try {
 
+        // ----------------------------------------------------
+        // CREATE FIREBASE AUTH ACCOUNT
+        // ----------------------------------------------------
+
         const userCredential =
             await createUserWithEmailAndPassword(
                 auth,
@@ -64,6 +62,10 @@ async function registerStudent(
         const user =
             userCredential.user;
 
+
+        // ----------------------------------------------------
+        // CREATE STUDENT FIRESTORE DOCUMENT
+        // ----------------------------------------------------
 
         await setDoc(
             doc(
@@ -94,19 +96,21 @@ async function registerStudent(
                 accountStatus:
                     "pending",
 
-                device1:
-                    "",
+                approvedUnits:
+                    {},
 
-                device2:
-                    ""
+                approvedLessons:
+                    {}
 
             }
         );
 
 
-        await signOut(
-            auth
-        );
+        // ----------------------------------------------------
+        // LOGOUT AFTER REGISTRATION
+        // ----------------------------------------------------
+
+        await signOut(auth);
 
 
         return {
@@ -115,7 +119,7 @@ async function registerStudent(
                 true,
 
             message:
-                "Account created successfully."
+                "Account created successfully. Please wait for approval."
 
         };
 
@@ -156,8 +160,7 @@ async function loginStudent(
     try {
 
         // ----------------------------------------------------
-        // STEP 1
-        // Firebase Authentication
+        // FIREBASE AUTHENTICATION
         // ----------------------------------------------------
 
         const userCredential =
@@ -179,8 +182,7 @@ async function loginStudent(
 
 
         // ----------------------------------------------------
-        // STEP 2
-        // Read student document
+        // LOAD STUDENT DATA
         // ----------------------------------------------------
 
         let studentData =
@@ -225,8 +227,7 @@ async function loginStudent(
 
 
         // ----------------------------------------------------
-        // STEP 3
-        // Account status
+        // CHECK BLOCKED ACCOUNT
         // ----------------------------------------------------
 
         if (
@@ -254,8 +255,7 @@ async function loginStudent(
 
 
         // ----------------------------------------------------
-        // STEP 4
-        // Successful login
+        // LOGIN SUCCESS
         // ----------------------------------------------------
 
         return {
@@ -429,7 +429,7 @@ function watchAuthState(
 
 
 // ============================================================
-// FRIENDLY ERROR MESSAGE
+// FRIENDLY AUTH ERROR
 // ============================================================
 
 function getFriendlyAuthError(
@@ -527,4 +527,3 @@ export {
     watchAuthState
 
 };
-```
