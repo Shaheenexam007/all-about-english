@@ -1,8 +1,11 @@
+```javascript
 // ============================================================
 // ALL ABOUT ENGLISH
 // FIREBASE AUTHENTICATION
+// DEVICE LIMIT: MAXIMUM 2 DEVICES PER ACCOUNT
 // BY SHAHEEN SIR
 // ============================================================
+
 
 import {
     getAuth,
@@ -13,15 +16,19 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
+
 import {
     getFirestore,
     doc,
     setDoc,
     getDoc,
+    runTransaction,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+
 import { app } from "./firebase-config.js";
+
 
 import {
     getDeviceId
@@ -32,9 +39,28 @@ import {
 // INITIALIZE
 // ============================================================
 
-const auth = getAuth(app);
+const auth =
+    getAuth(app);
 
-const db = getFirestore(app);
+
+const db =
+    getFirestore(app);
+
+
+// ============================================================
+// DEVICE LIMIT
+// ============================================================
+//
+// 1 account = maximum 2 devices
+//
+// Firestore student document:
+//
+// device1: "DEVICE_ID"
+// device2: "DEVICE_ID"
+//
+// ============================================================
+
+const MAX_DEVICES = 2;
 
 
 // ============================================================
@@ -58,17 +84,28 @@ async function registerStudent(
                 password
             );
 
+
         const user =
             userCredential.user;
 
+
+        // ----------------------------------------------------
+        // Get current device ID
+        // ----------------------------------------------------
+
         const deviceId =
-    getDeviceId();
+            getDeviceId();
 
-console.log(
-    "Current device ID:",
-    deviceId
-);
 
+        console.log(
+            "Registration device ID:",
+            deviceId
+        );
+
+
+        // ----------------------------------------------------
+        // Create student document
+        // ----------------------------------------------------
 
         await setDoc(
             doc(
@@ -99,6 +136,10 @@ console.log(
                 accountStatus:
                     "pending",
 
+                // ------------------------------------------------
+                // Device slots
+                // ------------------------------------------------
+
                 device1:
                     "",
 
@@ -109,7 +150,13 @@ console.log(
         );
 
 
-        await signOut(auth);
+        // ----------------------------------------------------
+        // Logout immediately after registration
+        // ----------------------------------------------------
+
+        await signOut(
+            auth
+        );
 
 
         return {
@@ -146,6 +193,274 @@ console.log(
 
 }
 
+
+// ============================================================
+// CHECK / REGISTER DEVICE
+// ============================================================
+//
+// Returns:
+//
+// {
+//     allowed: true
+// }
+//
+// OR
+//
+// {
+//     allowed: false,
+//     reason: "limit"
+// }
+//
+// ============================================================
+
+async function checkAndRegisterDevice(
+    user
+) {
+
+    if (!user) {
+
+        return {
+
+            allowed:
+                false,
+
+            reason:
+                "no-user"
+
+        };
+
+    }
+
+
+    const deviceId =
+        getDeviceId();
+
+
+    console.log(
+        "Current device ID:",
+        deviceId
+    );
+
+
+    const studentRef =
+        doc(
+            db,
+            "students",
+            user.uid
+        );
+
+
+    try {
+
+        const result =
+            await runTransaction(
+                db,
+                async function(transaction) {
+
+                    const studentSnap =
+                        await transaction.get(
+                            studentRef
+                        );
+
+
+                    // ------------------------------------------------
+                    // Student document missing
+                    // ------------------------------------------------
+
+                    if (
+                        !studentSnap.exists()
+                    ) {
+
+                        return {
+
+                            allowed:
+                                false,
+
+                            reason:
+                                "student-not-found"
+
+                        };
+
+                    }
+
+
+                    const data =
+                        studentSnap.data();
+
+
+                    // ------------------------------------------------
+                    // Existing device slots
+                    // ------------------------------------------------
+
+                    const device1 =
+                        String(
+                            data.device1 || ""
+                        ).trim();
+
+
+                    const device2 =
+                        String(
+                            data.device2 || ""
+                        ).trim();
+
+
+                    // ------------------------------------------------
+                    // DEVICE ALREADY REGISTERED
+                    // ------------------------------------------------
+                    //
+                    // Same browser/device can login normally.
+                    //
+                    // ------------------------------------------------
+
+                    if (
+                        device1 === deviceId ||
+                        device2 === deviceId
+                    ) {
+
+                        return {
+
+                            allowed:
+                                true,
+
+                            reason:
+                                "existing-device"
+
+                        };
+
+                    }
+
+
+                    // ------------------------------------------------
+                    // FIRST DEVICE
+                    // ------------------------------------------------
+
+                    if (!device1) {
+
+                        transaction.update(
+                            studentRef,
+                            {
+
+                                device1:
+                                    deviceId,
+
+                                device1LastLogin:
+                                    serverTimestamp()
+
+                            }
+                        );
+
+
+                        return {
+
+                            allowed:
+                                true,
+
+                            reason:
+                                "device-1"
+
+                        };
+
+                    }
+
+
+                    // ------------------------------------------------
+                    // SECOND DEVICE
+                    // ------------------------------------------------
+
+                    if (!device2) {
+
+                        transaction.update(
+                            studentRef,
+                            {
+
+                                device2:
+                                    deviceId,
+
+                                device2LastLogin:
+                                    serverTimestamp()
+
+                            }
+                        );
+
+
+                        return {
+
+                            allowed:
+                                true,
+
+                            reason:
+                                "device-2"
+
+                        };
+
+                    }
+
+
+                    // ------------------------------------------------
+                    // THIRD DEVICE
+                    // ------------------------------------------------
+                    //
+                    // Both device slots are already occupied.
+                    //
+                    // ------------------------------------------------
+
+                    return {
+
+                        allowed:
+                            false,
+
+                        reason:
+                            "limit"
+
+                    };
+
+                }
+            );
+
+
+        console.log(
+            "Device check result:",
+            result
+        );
+
+
+        return result;
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Device registration/check error:",
+            error
+        );
+
+
+        // ----------------------------------------------------
+        // SECURITY PRINCIPLE
+        // ----------------------------------------------------
+        //
+        // If device verification cannot be completed,
+        // do NOT allow the login.
+        //
+        // ----------------------------------------------------
+
+        return {
+
+            allowed:
+                false,
+
+            reason:
+                "verification-error",
+
+            error:
+                error
+
+        };
+
+    }
+
+}
 
 
 // ============================================================
@@ -225,19 +540,67 @@ async function loginStudent(
                 firestoreError
             );
 
-            // Do NOT leave login hanging.
-            // Authentication itself was successful.
+
+            // ------------------------------------------------
+            // IMPORTANT
+            // ------------------------------------------------
+            //
+            // Device security cannot be verified if the
+            // student document cannot be read.
+            //
+            // Therefore logout and block access.
+            //
+            // ------------------------------------------------
+
+            await signOut(
+                auth
+            );
+
+
+            return {
+
+                success:
+                    false,
+
+                message:
+                    "Unable to verify your account. Please try again."
+
+            };
 
         }
 
 
         // ----------------------------------------------------
         // STEP 3
+        // Student document must exist
+        // ----------------------------------------------------
+
+        if (!studentData) {
+
+            await signOut(
+                auth
+            );
+
+
+            return {
+
+                success:
+                    false,
+
+                message:
+                    "Student account information was not found. Please contact Shaheen Sir."
+
+            };
+
+        }
+
+
+        // ----------------------------------------------------
+        // STEP 4
         // Account status
         // ----------------------------------------------------
 
         if (
-            studentData &&
             studentData.accountStatus ===
             "blocked"
         ) {
@@ -261,9 +624,78 @@ async function loginStudent(
 
 
         // ----------------------------------------------------
-        // STEP 4
+        // STEP 5
+        // DEVICE SECURITY
+        // ----------------------------------------------------
+
+        const deviceResult =
+            await checkAndRegisterDevice(
+                user
+            );
+
+
+        // ----------------------------------------------------
+        // DEVICE LIMIT REACHED
+        // ----------------------------------------------------
+
+        if (
+            !deviceResult.allowed
+        ) {
+
+            await signOut(
+                auth
+            );
+
+
+            // ------------------------------------------------
+            // Third device
+            // ------------------------------------------------
+
+            if (
+                deviceResult.reason ===
+                "limit"
+            ) {
+
+                return {
+
+                    success:
+                        false,
+
+                    message:
+                        "Device limit reached. This account is already active on 2 devices. Please log out from one of your existing devices or contact Shaheen Sir."
+
+                };
+
+            }
+
+
+            // ------------------------------------------------
+            // Other verification error
+            // ------------------------------------------------
+
+            return {
+
+                success:
+                    false,
+
+                message:
+                    "Unable to verify this device. Please try again or contact Shaheen Sir."
+
+            };
+
+        }
+
+
+        // ----------------------------------------------------
+        // STEP 6
         // Successful login
         // ----------------------------------------------------
+
+        console.log(
+            "Device access granted:",
+            deviceResult.reason
+        );
+
 
         return {
 
@@ -272,7 +704,8 @@ async function loginStudent(
 
             message:
                 studentData &&
-                studentData.accountStatus === "pending"
+                studentData.accountStatus ===
+                "pending"
 
                 ? "Login successful. Your account is waiting for approval."
 
@@ -309,7 +742,6 @@ async function loginStudent(
     }
 
 }
-
 
 
 // ============================================================
@@ -363,7 +795,6 @@ async function resetStudentPassword(
 }
 
 
-
 // ============================================================
 // LOGOUT
 // ============================================================
@@ -371,6 +802,19 @@ async function resetStudentPassword(
 async function logoutStudent() {
 
     try {
+
+        // ----------------------------------------------------
+        // IMPORTANT:
+        //
+        // We DO NOT remove device1/device2 during logout.
+        //
+        // Otherwise a student could:
+        //
+        // Login → logout → new device → login
+        //
+        // and bypass the 2-device limit.
+        //
+        // ----------------------------------------------------
 
         await signOut(
             auth
@@ -409,7 +853,6 @@ async function logoutStudent() {
 }
 
 
-
 // ============================================================
 // CURRENT USER
 // ============================================================
@@ -419,7 +862,6 @@ function getCurrentUser() {
     return auth.currentUser;
 
 }
-
 
 
 // ============================================================
@@ -436,7 +878,6 @@ function watchAuthState(
     );
 
 }
-
 
 
 // ============================================================
@@ -515,7 +956,6 @@ function getFriendlyAuthError(
 }
 
 
-
 // ============================================================
 // EXPORT
 // ============================================================
@@ -536,6 +976,9 @@ export {
 
     getCurrentUser,
 
-    watchAuthState
+    watchAuthState,
+
+    checkAndRegisterDevice
 
 };
+```
