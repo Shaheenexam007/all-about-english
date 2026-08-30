@@ -1,1 +1,2679 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="All About English by Shaheen Sir - HSC, SSC, VI-VIII, Varsity Admission, Spoken English, IELTS and Basic English."
+    >
+
+    <meta
+        name="theme-color"
+        content="#0f172a"
+    >
+
+    <title>
+        All About English | Shaheen Sir
+    </title>
+
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         ICONS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         PAGE STYLE
+    ====================================================== -->
+
+    <style>
+
+        /* ==================================================
+           GLOBAL
+        ================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: "Inter", sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8fafc 0%,
+                    #eef2ff 45%,
+                    #f8fafc 100%
+                );
+
+            color: #172033;
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* ==================================================
+           TOP BAR
+        ================================================== */
+
+        .top-bar {
+
+            background: #0f172a;
+
+            color: #e2e8f0;
+
+            text-align: center;
+
+            padding: 9px 15px;
+
+            font-size: 13px;
+
+            letter-spacing: 0.3px;
+        }
+
+
+        /* ==================================================
+           HEADER
+        ================================================== */
+
+        header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background:
+                rgba(255,255,255,0.92);
+
+            backdrop-filter: blur(16px);
+
+            -webkit-backdrop-filter: blur(16px);
+
+            border-bottom:
+                1px solid rgba(15,23,42,0.08);
+        }
+
+
+        .nav-container {
+
+            width: min(1180px, 92%);
+
+            margin: auto;
+
+            min-height: 76px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+
+        /* ==================================================
+           BRAND
+        ================================================== */
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .brand-icon {
+
+            width: 46px;
+
+            height: 46px;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #334155
+                );
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 20px;
+
+            box-shadow:
+                0 8px 20px
+                rgba(15,23,42,0.18);
+        }
+
+
+        .brand-text strong {
+
+            display: block;
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.4px;
+        }
+
+
+        .brand-text span {
+
+            display: block;
+
+            font-size: 11px;
+
+            color: #64748b;
+
+            margin-top: 2px;
+        }
+
+
+        /* ==================================================
+           NAVIGATION
+        ================================================== */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+        }
+
+
+        .nav-links a {
+
+            padding: 9px 12px;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            color: #475569;
+
+            transition: 0.25s ease;
+        }
+
+
+        .nav-links a:hover {
+
+            background: #f1f5f9;
+
+            color: #0f172a;
+        }
+
+
+        .login-nav-btn {
+
+            background:
+                #0f172a !important;
+
+            color: white !important;
+
+            padding:
+                10px 16px !important;
+
+            box-shadow:
+                0 7px 18px
+                rgba(15,23,42,0.18);
+        }
+
+
+        .login-nav-btn:hover {
+
+            background:
+                #1e293b !important;
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        /* ==================================================
+           HERO
+        ================================================== */
+
+        .hero {
+
+            position: relative;
+
+            width: min(1180px, 92%);
+
+            margin: auto;
+
+            padding:
+                82px 0 70px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.15fr 0.85fr;
+
+            gap: 55px;
+
+            align-items: center;
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 320px;
+
+            height: 320px;
+
+            background:
+                rgba(99,102,241,0.10);
+
+            border-radius: 50%;
+
+            filter: blur(4px);
+
+            top: 10px;
+
+            right: 5%;
+
+            z-index: -1;
+        }
+
+
+        .hero-label {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background:
+                #eef2ff;
+
+            color:
+                #4338ca;
+
+            padding:
+                8px 13px;
+
+            border-radius:
+                999px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+        }
+
+
+        .hero-label i {
+
+            font-size: 10px;
+        }
+
+
+        .hero h1 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                clamp(40px, 6vw, 70px);
+
+            line-height:
+                1.02;
+
+            color:
+                #0f172a;
+
+            letter-spacing:
+                -1.8px;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .hero h1 span {
+
+            display: block;
+
+            color:
+                #4338ca;
+        }
+
+
+        .hero-subtitle {
+
+            font-size:
+                17px;
+
+            line-height:
+                1.7;
+
+            color:
+                #475569;
+
+            max-width:
+                650px;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .teacher-name {
+
+            font-size:
+                15px;
+
+            font-weight:
+                800;
+
+            color:
+                #0f172a;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        .teacher-designation {
+
+            color:
+                #64748b;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.6;
+        }
+
+
+        .hero-buttons {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                12px;
+
+            margin-top:
+                27px;
+        }
+
+
+        .primary-btn,
+        .secondary-btn {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                9px;
+
+            padding:
+                13px 20px;
+
+            border-radius:
+                12px;
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .primary-btn {
+
+            background:
+                #0f172a;
+
+            color:
+                white;
+
+            box-shadow:
+                0 10px 25px
+                rgba(15,23,42,0.20);
+        }
+
+
+        .primary-btn:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 14px 30px
+                rgba(15,23,42,0.25);
+        }
+
+
+        .secondary-btn {
+
+            background:
+                white;
+
+            color:
+                #334155;
+
+            border:
+                1px solid
+                #e2e8f0;
+        }
+
+
+        .secondary-btn:hover {
+
+            border-color:
+                #94a3b8;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* ==================================================
+           HERO CARD
+        ================================================== */
+
+        .hero-card {
+
+            background:
+                rgba(255,255,255,0.78);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.9);
+
+            border-radius:
+                28px;
+
+            padding:
+                25px;
+
+            box-shadow:
+                0 25px 70px
+                rgba(15,23,42,0.10);
+
+            backdrop-filter:
+                blur(12px);
+        }
+
+
+        .hero-card-top {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                15px;
+
+            margin-bottom:
+                20px;
+        }
+
+
+        .profile-icon {
+
+            width:
+                62px;
+
+            height:
+                62px;
+
+            border-radius:
+                18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4338ca,
+                    #6366f1
+                );
+
+            color:
+                white;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                25px;
+        }
+
+
+        .hero-card-top h3 {
+
+            font-size:
+                17px;
+
+            margin-bottom:
+                4px;
+        }
+
+
+        .hero-card-top p {
+
+            font-size:
+                12px;
+
+            color:
+                #64748b;
+        }
+
+
+        .feature-mini {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap:
+                10px;
+        }
+
+
+        .mini-item {
+
+            padding:
+                15px;
+
+            border-radius:
+                15px;
+
+            background:
+                #f8fafc;
+
+            border:
+                1px solid
+                #e2e8f0;
+        }
+
+
+        .mini-item i {
+
+            color:
+                #4338ca;
+
+            margin-bottom:
+                8px;
+
+            font-size:
+                16px;
+        }
+
+
+        .mini-item strong {
+
+            display:
+                block;
+
+            font-size:
+                12px;
+
+            margin-bottom:
+                3px;
+        }
+
+
+        .mini-item span {
+
+            font-size:
+                10px;
+
+            color:
+                #64748b;
+        }
+
+
+        /* ==================================================
+           SECTION
+        ================================================== */
+
+        .section {
+
+            width:
+                min(1180px,92%);
+
+            margin:
+                auto;
+
+            padding:
+                60px 0;
+        }
+
+
+        .section-heading {
+
+            text-align:
+                center;
+
+            max-width:
+                650px;
+
+            margin:
+                0 auto 35px;
+        }
+
+
+        .section-heading .eyebrow {
+
+            color:
+                #4338ca;
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.6px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                9px;
+        }
+
+
+        .section-heading h2 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                clamp(28px,4vw,40px);
+
+            color:
+                #0f172a;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .section-heading p {
+
+            color:
+                #64748b;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.7;
+        }
+
+
+        /* ==================================================
+           PROGRAM GRID
+        ================================================== */
+
+        .program-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap:
+                17px;
+        }
+
+
+        .program-card {
+
+            position:
+                relative;
+
+            background:
+                white;
+
+            border:
+                1px solid
+                #e2e8f0;
+
+            border-radius:
+                19px;
+
+            padding:
+                22px;
+
+            min-height:
+                185px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            transition:
+                0.28s ease;
+
+            overflow:
+                hidden;
+        }
+
+
+        .program-card::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                90px;
+
+            height:
+                90px;
+
+            border-radius:
+                50%;
+
+            background:
+                #eef2ff;
+
+            right:
+                -35px;
+
+            bottom:
+                -35px;
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .program-card:hover {
+
+            transform:
+                translateY(-6px);
+
+            border-color:
+                #c7d2fe;
+
+            box-shadow:
+                0 18px 40px
+                rgba(15,23,42,0.09);
+        }
+
+
+        .program-card:hover::after {
+
+            transform:
+                scale(1.4);
+        }
+
+
+        .program-icon {
+
+            width:
+                43px;
+
+            height:
+                43px;
+
+            border-radius:
+                13px;
+
+            background:
+                #eef2ff;
+
+            color:
+                #4338ca;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            margin-bottom:
+                15px;
+
+            font-size:
+                17px;
+
+            position:
+                relative;
+
+            z-index:
+                2;
+        }
+
+
+        .program-card h3 {
+
+            font-size:
+                16px;
+
+            color:
+                #0f172a;
+
+            margin-bottom:
+                7px;
+
+            position:
+                relative;
+
+            z-index:
+                2;
+        }
+
+
+        .program-card p {
+
+            font-size:
+                11px;
+
+            color:
+                #64748b;
+
+            line-height:
+                1.6;
+
+            position:
+                relative;
+
+            z-index:
+                2;
+        }
+
+
+        .program-arrow {
+
+            margin-top:
+                auto;
+
+            padding-top:
+                14px;
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+
+            color:
+                #4338ca;
+
+            position:
+                relative;
+
+            z-index:
+                2;
+        }
+
+
+        /* ==================================================
+           QUICK CONNECTION
+        ================================================== */
+
+        .quick-section {
+
+            width:
+                min(1000px,92%);
+
+            margin:
+                20px auto 70px;
+
+            background:
+                #0f172a;
+
+            border-radius:
+                26px;
+
+            padding:
+                30px;
+
+            color:
+                white;
+
+            box-shadow:
+                0 25px 55px
+                rgba(15,23,42,0.17);
+        }
+
+
+        .quick-content {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                25px;
+        }
+
+
+        .quick-content h2 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                27px;
+
+            margin-bottom:
+                7px;
+        }
+
+
+        .quick-content p {
+
+            color:
+                #cbd5e1;
+
+            font-size:
+                12px;
+        }
+
+
+        .quick-links {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                9px;
+
+            justify-content:
+                flex-end;
+        }
+
+
+        .quick-link {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            padding:
+                11px 14px;
+
+            border-radius:
+                11px;
+
+            background:
+                rgba(255,255,255,0.09);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            color:
+                white;
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .quick-link:hover {
+
+            background:
+                rgba(255,255,255,0.17);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* ==================================================
+           ABOUT TEACHER
+        ================================================== */
+
+        .about-box {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                0.8fr 1.2fr;
+
+            gap:
+                25px;
+
+            align-items:
+                stretch;
+        }
+
+
+        .about-profile {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #eef2ff,
+                    #f8fafc
+                );
+
+            border:
+                1px solid
+                #e2e8f0;
+
+            border-radius:
+                22px;
+
+            padding:
+                28px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            text-align:
+                center;
+        }
+
+
+        .large-teacher-icon {
+
+            width:
+                85px;
+
+            height:
+                85px;
+
+            border-radius:
+                25px;
+
+            background:
+                #0f172a;
+
+            color:
+                white;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                31px;
+
+            margin-bottom:
+                16px;
+        }
+
+
+        .about-profile h3 {
+
+            font-size:
+                19px;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        .about-profile p {
+
+            color:
+                #64748b;
+
+            font-size:
+                12px;
+
+            line-height:
+                1.6;
+        }
+
+
+        .about-details {
+
+            background:
+                white;
+
+            border:
+                1px solid
+                #e2e8f0;
+
+            border-radius:
+                22px;
+
+            padding:
+                28px;
+        }
+
+
+        .about-details h3 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                25px;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .about-details p {
+
+            font-size:
+                13px;
+
+            color:
+                #64748b;
+
+            line-height:
+                1.8;
+
+            margin-bottom:
+                16px;
+        }
+
+
+        .credentials {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap:
+                10px;
+        }
+
+
+        .credential {
+
+            background:
+                #f8fafc;
+
+            border:
+                1px solid
+                #e2e8f0;
+
+            padding:
+                13px;
+
+            border-radius:
+                12px;
+
+            font-size:
+                11px;
+
+            color:
+                #475569;
+
+            line-height:
+                1.5;
+        }
+
+
+        .credential i {
+
+            color:
+                #4338ca;
+
+            margin-right:
+                6px;
+        }
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        footer {
+
+            background:
+                #0b1120;
+
+            color:
+                #cbd5e1;
+
+            margin-top:
+                50px;
+
+            padding:
+                38px 0 20px;
+        }
+
+
+        .footer-container {
+
+            width:
+                min(1180px,92%);
+
+            margin:
+                auto;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1.3fr 1fr 1fr;
+
+            gap:
+                30px;
+        }
+
+
+        .footer-brand h3 {
+
+            color:
+                white;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                23px;
+
+            margin-bottom:
+                7px;
+        }
+
+
+        .footer-brand p {
+
+            font-size:
+                11px;
+
+            line-height:
+                1.7;
+
+            color:
+                #94a3b8;
+
+            max-width:
+                370px;
+        }
+
+
+        .footer-column h4 {
+
+            color:
+                white;
+
+            font-size:
+                12px;
+
+            margin-bottom:
+                13px;
+        }
+
+
+        .footer-column a {
+
+            display:
+                block;
+
+            color:
+                #94a3b8;
+
+            font-size:
+                11px;
+
+            margin-bottom:
+                8px;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .footer-column a:hover {
+
+            color:
+                white;
+        }
+
+
+        .footer-bottom {
+
+            width:
+                min(1180px,92%);
+
+            margin:
+                25px auto 0;
+
+            padding-top:
+                17px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            text-align:
+                center;
+
+            font-size:
+                10px;
+
+            color:
+                #64748b;
+        }
+
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
+
+        @media (max-width: 900px) {
+
+            .nav-links a:not(.login-nav-btn) {
+                display: none;
+            }
+
+            .hero {
+
+                grid-template-columns:
+                    1fr;
+
+                padding-top:
+                    55px;
+
+                text-align:
+                    center;
+            }
+
+            .hero-label {
+
+                margin-left:
+                    auto;
+
+                margin-right:
+                    auto;
+            }
+
+            .hero-subtitle {
+
+                margin-left:
+                    auto;
+
+                margin-right:
+                    auto;
+            }
+
+            .hero-buttons {
+
+                justify-content:
+                    center;
+            }
+
+            .program-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .about-box {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .quick-content {
+
+                flex-direction:
+                    column;
+
+                text-align:
+                    center;
+            }
+
+            .quick-links {
+
+                justify-content:
+                    center;
+            }
+
+            .footer-container {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .footer-brand {
+
+                grid-column:
+                    1 / -1;
+            }
+
+        }
+
+
+        @media (max-width: 560px) {
+
+            .top-bar {
+
+                font-size:
+                    10px;
+            }
+
+            .nav-container {
+
+                min-height:
+                    68px;
+            }
+
+            .brand-text strong {
+
+                font-size:
+                    14px;
+            }
+
+            .brand-text span {
+
+                font-size:
+                    9px;
+            }
+
+            .brand-icon {
+
+                width:
+                    40px;
+
+                height:
+                    40px;
+
+                border-radius:
+                    12px;
+            }
+
+            .hero {
+
+                padding:
+                    48px 0 40px;
+            }
+
+            .hero h1 {
+
+                font-size:
+                    43px;
+            }
+
+            .hero-subtitle {
+
+                font-size:
+                    14px;
+            }
+
+            .hero-card {
+
+                padding:
+                    18px;
+
+                border-radius:
+                    21px;
+            }
+
+            .feature-mini {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .program-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap:
+                    10px;
+            }
+
+            .program-card {
+
+                min-height:
+                    170px;
+
+                padding:
+                    16px;
+            }
+
+            .program-card h3 {
+
+                font-size:
+                    14px;
+            }
+
+            .program-card p {
+
+                font-size:
+                    10px;
+            }
+
+            .section {
+
+                padding:
+                    42px 0;
+            }
+
+            .quick-section {
+
+                padding:
+                    24px 17px;
+
+                border-radius:
+                    20px;
+            }
+
+            .quick-content h2 {
+
+                font-size:
+                    24px;
+            }
+
+            .quick-links {
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                width:
+                    100%;
+            }
+
+            .quick-link {
+
+                justify-content:
+                    center;
+            }
+
+            .credentials {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .footer-container {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .footer-brand {
+
+                grid-column:
+                    auto;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
+
+    <div class="top-bar">
+
+        English Learning • HSC • SSC • VI–VIII • Admission • IELTS
+
+    </div>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="nav-container">
+
+
+            <a
+                href="./"
+                class="brand"
+            >
+
+                <div class="brand-icon">
+
+                    <i class="fa-solid fa-book-open"></i>
+
+                </div>
+
+
+                <div class="brand-text">
+
+                    <strong>
+                        ALL ABOUT ENGLISH
+                    </strong>
+
+                    <span>
+                        BY SHAHEEN SIR
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <nav class="nav-links">
+
+                <a href="#programs">
+                    Programs
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a
+                    href="#"
+                    class="login-nav-btn"
+                    onclick="openLogin()"
+                >
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Student Login
+
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <main>
+
+
+        <section class="hero">
+
+
+            <div class="hero-content">
+
+
+                <div class="hero-label">
+
+                    <i class="fa-solid fa-star"></i>
+
+                    SMART • STRUCTURED • EFFECTIVE ENGLISH
+
+                </div>
+
+
+                <h1>
+
+                    ALL ABOUT
+
+                    <span>
+                        ENGLISH
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-subtitle">
+
+                    A structured English learning platform designed
+                    to help students build strong foundations,
+                    master examinations and develop practical
+                    communication skills.
+
+                </p>
+
+
+                <div class="teacher-name">
+
+                    BY SHAHEEN SIR
+
+                </div>
+
+
+                <div class="teacher-designation">
+
+                    Assistant Professor & Head of the English Department<br>
+
+                    Bangladesh Air Force Shaheen College Kurmitola
+
+                </div>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#programs"
+                        class="primary-btn"
+                    >
+
+                        <i class="fa-solid fa-layer-group"></i>
+
+                        Explore Programs
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="secondary-btn"
+                        onclick="openLogin()"
+                    >
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        Student Login
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HERO CARD -->
+
+            <div class="hero-card">
+
+
+                <div class="hero-card-top">
+
+
+                    <div class="profile-icon">
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Learn with Purpose
+                        </h3>
+
+                        <p>
+                            One platform for your English journey
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature-mini">
+
+
+                    <div class="mini-item">
+
+                        <i class="fa-solid fa-file-lines"></i>
+
+                        <strong>
+                            Exam Focused
+                        </strong>
+
+                        <span>
+                            HSC & SSC preparation
+                        </span>
+
+                    </div>
+
+
+                    <div class="mini-item">
+
+                        <i class="fa-solid fa-university"></i>
+
+                        <strong>
+                            Admission
+                        </strong>
+
+                        <span>
+                            Varsity admission English
+                        </span>
+
+                    </div>
+
+
+                    <div class="mini-item">
+
+                        <i class="fa-solid fa-comments"></i>
+
+                        <strong>
+                            Communication
+                        </strong>
+
+                        <span>
+                            Spoken English
+                        </span>
+
+                    </div>
+
+
+                    <div class="mini-item">
+
+                        <i class="fa-solid fa-language"></i>
+
+                        <strong>
+                            IELTS
+                        </strong>
+
+                        <span>
+                            Skills & preparation
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROGRAMS
+        ================================================== -->
+
+        <section
+            class="section"
+            id="programs"
+        >
+
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    Explore
+                </div>
+
+                <h2>
+                    Choose Your English Path
+                </h2>
+
+                <p>
+
+                    Select a learning category and continue
+                    to the content designed for your level
+                    and purpose.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="program-grid">
+
+
+                <!-- HSC -->
+
+                <a
+                    href="./hsc/"
+                    class="program-card"
+                >
+
+                    <div class="program-icon">
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                    </div>
+
+                    <h3>
+                        HSC English
+                    </h3>
+
+                    <p>
+                        English 1st Paper, English 2nd Paper,
+                        grammar, vocabulary and examination
+                        preparation.
+                    </p>
+
+                    <div class="program-arrow">
+
+                        Explore HSC
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- SSC -->
+
+                <a
+                    href="./ssc/"
+                    class="program-card"
+                >
+
+                    <div class="program-icon">
+
+                        <i class="fa-solid fa-school"></i>
+
+                    </div>
+
+                    <h3>
+                        SSC English
+                    </h3>
+
+                    <p>
+                        Complete English support for SSC
+                        students with structured lessons
+                        and practice.
+                    </p>
+
+                    <div class="program-arrow">
+
+                        Explore SSC
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- VI-VIII -->
+
+                <a
+                    href="./vi-viii/"
+                    class="program-card"
+                >
+
+                    <div class="program-icon">
+
+                        <i class="fa-solid fa-children"></i>
+
+                    </div>
+
+                    <h3>
+                        VI–VIII English
+                    </h3>
+
+                    <p>
+                        Foundation-focused English learning
+                        for students from classes VI to VIII.
+                    </p>
+
+                    <div class="program-arrow">
+
+                        Explore VI–VIII
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- VARSITY -->
+
+                <a
+                    href="./varsity/"
+                    class="program-card"
+                >
+
+                    <div class="program-icon">
+
+                        <i class="fa-solid fa-building-columns"></i>
+
+                    </div>
+
+                    <h3>
+                        Varsity Admission English
+                    </h3>
+
+                    <p>
+                        Vocabulary, grammar, questions and
+                        strategic preparation for admission tests.
+                    </p>
+
+                    <div class="program-arrow">
+
+                        Explore Admission
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- SPOKEN -->
+
+                <a
+                    href="./spoken-english/"
+                    class="program-card"
+                >
+
+                    <div class="program-icon">
+
+                        <i class="fa-solid fa-comments"></i>
+
+                    </div>
+
+                    <h3>
+                        Spoken English
+                    </h3>
+
+                    <p>
+                        Practical English for confident
+                        communication in everyday situations.
+                    </p>
+
+                    <div class="program-arrow">
+
+                        Explore Spoken
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- IELTS -->
+
+                <a
+                    href="./ielts/"
+                    class="program-card"
+                >
+
+                    <div class="program-icon">
+
+                        <i class="fa-solid fa-earth-americas"></i>
+
+                    </div>
+
+                    <h3>
+                        IELTS
+                    </h3>
+
+                    <p>
+                        Reading, writing, listening and speaking
+                        resources for IELTS learners.
+                    </p>
+
+                    <div class="program-arrow">
+
+                        Explore IELTS
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- BASIC -->
+
+                <a
+                    href="./basic-english/"
+                    class="program-card"
+                >
+
+                    <div class="program-icon">
+
+                        <i class="fa-solid fa-book"></i>
+
+                    </div>
+
+                    <h3>
+                        Basic English
+                    </h3>
+
+                    <p>
+                        Build a strong English foundation with
+                        vocabulary, grammar and everyday practice.
+                    </p>
+
+                    <div class="program-arrow">
+
+                        Explore Basics
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- FUTURE -->
+
+                <div
+                    class="program-card"
+                    style="cursor:default;"
+                >
+
+                    <div class="program-icon">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                    </div>
+
+                    <h3>
+                        More Coming
+                    </h3>
+
+                    <p>
+                        New English programs and learning
+                        resources will be added here in future.
+                    </p>
+
+                    <div class="program-arrow">
+
+                        Future Section
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUICK CONNECTION
+        ================================================== -->
+
+        <section class="quick-section">
+
+
+            <div class="quick-content">
+
+
+                <div>
+
+                    <h2>
+                        Quick Connection
+                    </h2>
+
+                    <p>
+                        Connect with Shaheen Sir quickly.
+                    </p>
+
+                </div>
+
+
+                <div class="quick-links">
+
+
+                    <a
+                        href="tel:01671642358"
+                        class="quick-link"
+                    >
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        Call
+
+                    </a>
+
+
+                    <a
+                        href="https://wa.me/8801671642358"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="quick-link"
+                    >
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        WhatsApp
+
+                    </a>
+
+
+                    <a
+                        href="https://www.facebook.com/profile.php?id=61553493074328"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="quick-link"
+                    >
+
+                        <i class="fa-brands fa-facebook"></i>
+
+                        Facebook
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        onclick="openLogin()"
+                        class="quick-link"
+                    >
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        Student Login
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ABOUT
+        ================================================== -->
+
+        <section
+            class="section"
+            id="about"
+        >
+
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    About
+                </div>
+
+                <h2>
+                    Your English Learning Platform
+                </h2>
+
+                <p>
+
+                    Designed with a focus on clear explanation,
+                    structured learning and practical examination
+                    preparation.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="about-box">
+
+
+                <div class="about-profile">
+
+
+                    <div class="large-teacher-icon">
+
+                        <i class="fa-solid fa-user-tie"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Shaheen Sir
+                    </h3>
+
+
+                    <p>
+
+                        Assistant Professor & Head of the
+                        English Department
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="about-details">
+
+
+                    <h3>
+                        ALL ABOUT ENGLISH
+                    </h3>
+
+
+                    <p>
+
+                        This platform is designed to bring
+                        different areas of English learning
+                        together in one organized place—from
+                        school-level English to HSC, university
+                        admission, spoken English and IELTS.
+
+                    </p>
+
+
+                    <div class="credentials">
+
+
+                        <div class="credential">
+
+                            <i class="fa-solid fa-school"></i>
+
+                            Bangladesh Air Force Shaheen
+                            College Kurmitola
+
+                        </div>
+
+
+                        <div class="credential">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            01671642358
+
+                        </div>
+
+
+                        <div class="credential">
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
+                            WhatsApp:
+                            01671642358
+
+                        </div>
+
+
+                        <div class="credential">
+
+                            <i class="fa-brands fa-facebook"></i>
+
+                            Official Facebook Page
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+
+                <h3>
+                    ALL ABOUT ENGLISH
+                </h3>
+
+                <p>
+
+                    By Shaheen Sir — Assistant Professor &
+                    Head of the English Department,
+                    Bangladesh Air Force Shaheen College Kurmitola.
+
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    LEARNING
+                </h4>
+
+                <a href="./hsc/">
+                    HSC English
+                </a>
+
+                <a href="./ssc/">
+                    SSC English
+                </a>
+
+                <a href="./vi-viii/">
+                    VI–VIII English
+                </a>
+
+                <a href="./varsity/">
+                    Varsity Admission
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    CONNECT
+                </h4>
+
+                <a href="tel:01671642358">
+                    Call: 01671642358
+                </a>
+
+                <a
+                    href="https://wa.me/8801671642358"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    WhatsApp
+                </a>
+
+                <a
+                    href="https://www.facebook.com/profile.php?id=61553493074328"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Facebook Page
+                </a>
+
+                <a
+                    href="#"
+                    onclick="openLogin()"
+                >
+                    Student Login
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 All About English | By Shaheen Sir.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         BASIC SCRIPT
+         
+         Login functionality will be connected in STEP 4.
+    ====================================================== -->
+
+    <script>
+
+        function openLogin() {
+
+            alert(
+                "Student Login will be connected in STEP 4."
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
