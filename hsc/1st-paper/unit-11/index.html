@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Unit 11 | All About English
+    </title>
+
+    <meta
+        name="description"
+        content="Unit 11 English lessons by Shaheen Sir."
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <style>
+
+        :root {
+
+            --navy: #101b36;
+            --navy-dark: #091126;
+            --gold: #c9a45c;
+            --gold-light: #ead9ae;
+            --ivory: #fbfaf6;
+            --white: #ffffff;
+            --text: #1d2940;
+            --muted: #68748a;
+            --border: #e7e4dc;
+            --soft: #f4f2eb;
+
+        }
+
+
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+
+        body {
+
+            font-family: "Inter", sans-serif;
+
+            background: var(--ivory);
+
+            color: var(--text);
+
+            min-height: 100vh;
+
+        }
+
+
+        a {
+
+            text-decoration: none;
+
+            color: inherit;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ====================================================== */
+
+        header {
+
+            background: var(--navy-dark);
+
+            color: white;
+
+            padding: 18px 20px;
+
+        }
+
+
+        .header-inner {
+
+            width: min(1100px, 92%);
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+        }
+
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .brand-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 12px;
+
+            background: var(--navy);
+
+            border: 1px solid rgba(255,255,255,.1);
+
+            color: var(--gold-light);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+        .brand-text strong {
+
+            display: block;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+        }
+
+
+        .brand-text span {
+
+            display: block;
+
+            font-size: 8px;
+
+            color: var(--gold-light);
+
+            letter-spacing: 1px;
+
+            margin-top: 3px;
+
+        }
+
+
+        .home-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 9px 13px;
+
+            border-radius: 9px;
+
+            background: rgba(255,255,255,.08);
+
+            color: white;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+        }
+
+
+        .home-btn:hover {
+
+            background: var(--gold);
+
+            color: var(--navy);
+
+        }
+
+
+        /* =====================================================
+           MAIN
+        ====================================================== */
+
+        main {
+
+            width: min(1000px, 92%);
+
+            margin: auto;
+
+            padding: 55px 0 70px;
+
+        }
+
+
+        .unit-header {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .eyebrow {
+
+            color: var(--gold);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .unit-header h1 {
+
+            font-family: "Playfair Display", serif;
+
+            color: var(--navy);
+
+            font-size: clamp(32px, 6vw, 48px);
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .unit-header p {
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            max-width: 650px;
+
+            margin: auto;
+
+        }
+
+
+        /* =====================================================
+           ACCESS MESSAGE
+        ====================================================== */
+
+        #access-message {
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        #access-message i {
+
+            font-size: 30px;
+
+            color: var(--gold);
+
+            margin-bottom: 12px;
+
+        }
+
+
+        #access-message h2 {
+
+            color: var(--navy);
+
+            font-size: 18px;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        #access-message p {
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================================
+           LESSON GRID
+        ====================================================== */
+
+        .lesson-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+        }
+
+
+        .lesson-card {
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 22px;
+
+            min-height: 210px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: .25s ease;
+
+        }
+
+
+        .lesson-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 100px;
+
+            height: 100px;
+
+            border-radius: 50%;
+
+            background: #f5efe1;
+
+            right: -35px;
+
+            bottom: -35px;
+
+            z-index: 0;
+
+        }
+
+
+        .lesson-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color: #d8c89f;
+
+            box-shadow:
+                0 18px 45px rgba(16,27,54,.10);
+
+        }
+
+
+        .lesson-number {
+
+            width: 43px;
+
+            height: 43px;
+
+            border-radius: 12px;
+
+            background: #f5efe1;
+
+            color: var(--navy);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: 800;
+
+            font-size: 13px;
+
+            margin-bottom: 17px;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .lesson-card h2 {
+
+            color: var(--navy);
+
+            font-size: 16px;
+
+            margin-bottom: 8px;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .lesson-card p {
+
+            color: var(--muted);
+
+            font-size: 10px;
+
+            line-height: 1.7;
+
+            margin-bottom: 18px;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .lesson-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 9px 13px;
+
+            border-radius: 9px;
+
+            background: var(--navy);
+
+            color: white;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            position: relative;
+
+            z-index: 3;
+
+        }
+
+
+        .lesson-btn:hover {
+
+            background: var(--gold);
+
+            color: var(--navy);
+
+        }
+
+
+        /* =====================================================
+           LOCKED CARD
+        ====================================================== */
+
+        .lesson-card.locked {
+
+            opacity: .75;
+
+        }
+
+
+        .lesson-card.locked .lesson-btn {
+
+            background: #d9d9d9;
+
+            color: #777;
+
+            cursor: not-allowed;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+
+            background: var(--navy-dark);
+
+            color: #9da7b8;
+
+            text-align: center;
+
+            padding: 22px 15px;
+
+            font-size: 9px;
+
+        }
+
+
+        footer strong {
+
+            color: var(--gold-light);
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 750px) {
+
+            .lesson-grid {
+
+                grid-template-columns: 1fr 1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .header-inner {
+
+                width: 94%;
+
+            }
+
+
+            .brand-text strong {
+
+                font-size: 12px;
+
+            }
+
+
+            .home-btn {
+
+                font-size: 9px;
+
+                padding: 8px 10px;
+
+            }
+
+
+            main {
+
+                padding-top: 40px;
+
+            }
+
+
+            .lesson-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .lesson-card {
+
+                min-height: 185px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-inner">
+
+
+            <a
+                href="/all-about-english/"
+                class="brand"
+            >
+
+                <div class="brand-icon">
+
+                    <i class="fa-solid fa-book-open"></i>
+
+                </div>
+
+
+                <div class="brand-text">
+
+                    <strong>
+                        ALL ABOUT ENGLISH
+                    </strong>
+
+                    <span>
+                        BY SHAHEEN SIR
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="/all-about-english/"
+                class="home-btn"
+            >
+
+                <i class="fa-solid fa-house"></i>
+
+                HOME
+
+            </a>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             UNIT INFORMATION
+        ================================================== -->
+
+        <div class="unit-header">
+
+            <div class="eyebrow">
+                HSC English 1st Paper
+            </div>
+
+
+            <h1>
+                Unit 11
+            </h1>
+
+
+            <p>
+
+                Explore the lessons of Unit 11.
+                Access is available to students whose
+                account has been approved for this unit.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             ACCESS MESSAGE
+
+             এই অংশটি শুরুতে loading দেখাবে।
+             JavaScript পরে প্রয়োজন অনুযায়ী পরিবর্তন করবে।
+        ================================================== -->
+
+        <div id="access-message">
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            <h2>
+                Checking Access...
+            </h2>
+
+            <p>
+                Please wait while we verify your account.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             LESSON GRID
+
+             IMPORTANT:
+             Unit approval সফল হলে এই অংশ দেখা যাবে।
+        ================================================== -->
+
+        <div
+            class="lesson-grid"
+            id="lesson-grid"
+            style="display:none;"
+        >
+
+
+            <!-- =================================================
+                 LESSON 1
+            ================================================== -->
+
+            <div class="lesson-card">
+
+                <div class="lesson-number">
+                    01
+                </div>
+
+
+                <h2>
+                    Lesson 1
+                </h2>
+
+
+                <p>
+                    Unit 11 — Lesson 1
+                </p>
+
+
+                <a
+                    href="./lesson-1/"
+                    class="lesson-btn"
+                >
+
+                    OPEN LESSON
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LESSON 2
+            ================================================== -->
+
+            <div class="lesson-card">
+
+                <div class="lesson-number">
+                    02
+                </div>
+
+
+                <h2>
+                    Lesson 2
+                </h2>
+
+
+                <p>
+                    Unit 11 — Lesson 2
+                </p>
+
+
+                <a
+                    href="./lesson-2/"
+                    class="lesson-btn"
+                >
+
+                    OPEN LESSON
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LESSON 3
+            ================================================== -->
+
+            <div class="lesson-card">
+
+                <div class="lesson-number">
+                    03
+                </div>
+
+
+                <h2>
+                    Lesson 3
+                </h2>
+
+
+                <p>
+                    Unit 11 — Lesson 3
+                </p>
+
+
+                <a
+                    href="./lesson-3/"
+                    class="lesson-btn"
+                >
+
+                    OPEN LESSON
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        © 2026
+        <strong>
+            ALL ABOUT ENGLISH
+        </strong>
+        • BY SHAHEEN SIR
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         FIREBASE UNIT SECURITY
+
+         IMPORTANT:
+
+         এই Unit ID-টি Firestore-এর
+         approvedUnits object-এর key-এর সঙ্গে
+         EXACTLY একই হতে হবে।
+
+         উদাহরণ:
+
+         approvedUnits:
+         {
+             "unit-11": true
+         }
+
+    ====================================================== -->
+
+    <script type="module">
+
+        import {
+            protectPage
+        } from "../../../../firebase-security.js";
+
+
+        // ====================================================
+        // UNIT CONFIGURATION
+        // ====================================================
+
+        const UNIT_ID =
+            "unit-11";
+
+
+        // ====================================================
+        // ELEMENTS
+        // ====================================================
+
+        const accessMessage =
+            document.getElementById(
+                "access-message"
+            );
+
+
+        const lessonGrid =
+            document.getElementById(
+                "lesson-grid"
+            );
+
+
+        // ====================================================
+        // CHECK UNIT ACCESS
+        // ====================================================
+
+        async function checkUnitAccess() {
+
+            try {
+
+                const allowed =
+                    await protectPage(
+                        "unit",
+                        UNIT_ID
+                    );
+
+
+                if (!allowed) {
+
+                    accessMessage.innerHTML = `
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <h2>
+                            Access Restricted
+                        </h2>
+
+                        <p>
+                            You do not have permission
+                            to access Unit 11.
+                            Please contact Shaheen Sir.
+                        </p>
+
+                    `;
+
+                    return;
+
+                }
+
+
+                // ============================================
+                // ACCESS GRANTED
+                // ============================================
+
+                accessMessage.style.display =
+                    "none";
+
+
+                lessonGrid.style.display =
+                    "grid";
+
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Unit access error:",
+                    error
+                );
+
+
+                accessMessage.innerHTML = `
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <h2>
+                        Access Error
+                    </h2>
+
+                    <p>
+                        Something went wrong while
+                        checking your access.
+                        Please try again.
+                    </p>
+
+                `;
+
+            }
+
+        }
+
+
+        // ====================================================
+        // START
+        // ====================================================
+
+        checkUnitAccess();
+
+    </script>
+
+
+</body>
+
+</html>
