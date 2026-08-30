@@ -3841,5 +3841,32 @@ createVocabulary(
 </script>
 
 
+
+<!-- =========================================================
+     ALL ABOUT ENGLISH
+     UNIT ACCESS SECURITY
+     ========================================================= -->
+
+<script type="module">
+
+    import {
+        protectPage
+    } from "../../../../firebase-security.js";
+
+
+    const allowed =
+        await protectPage(
+            "unit",
+            "unit-11"
+        );
+
+
+    if (!allowed) {
+
+        document.body.innerHTML = "";
+
+    }
+
+</script>
 </body>
 </html>
