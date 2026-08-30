@@ -1,13 +1,41 @@
 // ============================================================
 // ALL ABOUT ENGLISH
 // DEVICE MANAGEMENT
+// MAXIMUM 2 DEVICES PER ACCOUNT
 // BY SHAHEEN SIR
 // ============================================================
 
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    updateDoc,
+    arrayUnion
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+import {
+    auth
+} from "./firebase-auth.js";
+
+import {
+    app
+} from "./firebase-config.js";
+
 
 // ============================================================
-// DEVICE ID KEY
+// FIRESTORE
 // ============================================================
+
+const db =
+    getFirestore(app);
+
+
+// ============================================================
+// SETTINGS
+// ============================================================
+
+const MAX_DEVICES = 2;
 
 const DEVICE_ID_KEY =
     "all_about_english_device_id";
@@ -19,10 +47,6 @@ const DEVICE_ID_KEY =
 
 function createDeviceId() {
 
-    // --------------------------------------------------------
-    // Try browser crypto UUID
-    // --------------------------------------------------------
-
     if (
         window.crypto &&
         typeof window.crypto.randomUUID ===
@@ -33,10 +57,6 @@ function createDeviceId() {
 
     }
 
-
-    // --------------------------------------------------------
-    // Fallback
-    // --------------------------------------------------------
 
     return (
         "device-" +
@@ -61,10 +81,6 @@ function getDeviceId() {
             DEVICE_ID_KEY
         );
 
-
-    // --------------------------------------------------------
-    // First visit on this browser
-    // --------------------------------------------------------
 
     if (!deviceId) {
 
@@ -99,6 +115,144 @@ function removeLocalDeviceId() {
 
 
 // ============================================================
+// CHECK / REGISTER DEVICE
+// ============================================================
+
+async function checkDeviceAccess() {
+
+    const user =
+        auth.currentUser;
+
+
+    // --------------------------------------------------------
+    // No login
+    // --------------------------------------------------------
+
+    if (!user) {
+
+        return {
+            allowed: false,
+            reason: "not-logged-in"
+        };
+
+    }
+
+
+    const deviceId =
+        getDeviceId();
+
+
+    const studentRef =
+        doc(
+            db,
+            "students",
+            user.uid
+        );
+
+
+    const studentSnap =
+        await getDoc(
+            studentRef
+        );
+
+
+    if (
+        !studentSnap.exists()
+    ) {
+
+        return {
+            allowed: false,
+            reason: "student-not-found"
+        };
+
+    }
+
+
+    const student =
+        studentSnap.data();
+
+
+    // --------------------------------------------------------
+    // Existing devices
+    // --------------------------------------------------------
+
+    const devices =
+        Array.isArray(
+            student.registeredDevices
+        )
+            ? student.registeredDevices
+            : [];
+
+
+    // --------------------------------------------------------
+    // Current device already registered
+    // --------------------------------------------------------
+
+    if (
+        devices.includes(
+            deviceId
+        )
+    ) {
+
+        return {
+            allowed: true,
+            reason: "device-already-registered",
+            deviceId: deviceId,
+            deviceCount: devices.length
+        };
+
+    }
+
+
+    // --------------------------------------------------------
+    // Maximum device limit reached
+    // --------------------------------------------------------
+
+    if (
+        devices.length >=
+        MAX_DEVICES
+    ) {
+
+        return {
+            allowed: false,
+            reason: "device-limit-reached",
+            deviceId: deviceId,
+            deviceCount: devices.length,
+            maxDevices: MAX_DEVICES
+        };
+
+    }
+
+
+    // --------------------------------------------------------
+    // Register new device
+    // --------------------------------------------------------
+
+    await updateDoc(
+        studentRef,
+        {
+
+            registeredDevices:
+                arrayUnion(
+                    deviceId
+                )
+
+        }
+    );
+
+
+    return {
+        allowed: true,
+        reason: "new-device-registered",
+        deviceId: deviceId,
+        deviceCount:
+            devices.length + 1
+    };
+
+}
+
+
+// ============================================================
 // EXPORT
 // ============================================================
 
@@ -106,6 +260,10 @@ export {
 
     getDeviceId,
 
-    removeLocalDeviceId
+    removeLocalDeviceId,
+
+    checkDeviceAccess,
+
+    MAX_DEVICES
 
 };
