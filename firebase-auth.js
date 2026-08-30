@@ -1,3 +1,4 @@
+```javascript
 // ============================================================
 // ALL ABOUT ENGLISH
 // FIREBASE AUTHENTICATION
@@ -13,6 +14,7 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
+
 import {
     getFirestore,
     doc,
@@ -21,20 +23,20 @@ import {
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-import { app } from "./firebase-config.js";
 
-import {
-    getDeviceId
-} from "./device-manager.js";
+import { app } from "./firebase-config.js";
 
 
 // ============================================================
 // INITIALIZE
 // ============================================================
 
-const auth = getAuth(app);
+const auth =
+    getAuth(app);
 
-const db = getFirestore(app);
+
+const db =
+    getFirestore(app);
 
 
 // ============================================================
@@ -58,16 +60,9 @@ async function registerStudent(
                 password
             );
 
+
         const user =
             userCredential.user;
-
-        const deviceId =
-    getDeviceId();
-
-console.log(
-    "Current device ID:",
-    deviceId
-);
 
 
         await setDoc(
@@ -109,7 +104,9 @@ console.log(
         );
 
 
-        await signOut(auth);
+        await signOut(
+            auth
+        );
 
 
         return {
@@ -145,7 +142,6 @@ console.log(
     }
 
 }
-
 
 
 // ============================================================
@@ -225,9 +221,6 @@ async function loginStudent(
                 firestoreError
             );
 
-            // Do NOT leave login hanging.
-            // Authentication itself was successful.
-
         }
 
 
@@ -272,7 +265,8 @@ async function loginStudent(
 
             message:
                 studentData &&
-                studentData.accountStatus === "pending"
+                studentData.accountStatus ===
+                "pending"
 
                 ? "Login successful. Your account is waiting for approval."
 
@@ -309,7 +303,6 @@ async function loginStudent(
     }
 
 }
-
 
 
 // ============================================================
@@ -363,7 +356,6 @@ async function resetStudentPassword(
 }
 
 
-
 // ============================================================
 // LOGOUT
 // ============================================================
@@ -409,7 +401,6 @@ async function logoutStudent() {
 }
 
 
-
 // ============================================================
 // CURRENT USER
 // ============================================================
@@ -419,7 +410,6 @@ function getCurrentUser() {
     return auth.currentUser;
 
 }
-
 
 
 // ============================================================
@@ -436,7 +426,6 @@ function watchAuthState(
     );
 
 }
-
 
 
 // ============================================================
@@ -480,7 +469,7 @@ function getFriendlyAuthError(
 
         case "auth/wrong-password":
 
-            return "Incorrect password.";
+            return "Incorrect email or password.";
 
 
         case "auth/too-many-requests":
@@ -515,7 +504,6 @@ function getFriendlyAuthError(
 }
 
 
-
 // ============================================================
 // EXPORT
 // ============================================================
@@ -539,3 +527,4 @@ export {
     watchAuthState
 
 };
+```
