@@ -1,0 +1,255 @@
+// ============================================================
+// ALL ABOUT ENGLISH
+// Firebase Security / Permission Manager
+// By Shaheen Sir
+// ============================================================
+
+import {
+    auth,
+    db
+} from "./firebase-config.js";
+
+import {
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+// ============================================================
+// GET CURRENT AUTHENTICATED USER
+// ============================================================
+
+function getAuthenticatedUser() {
+
+    return auth.currentUser;
+
+}
+
+
+// ============================================================
+// CHECK LOGIN
+// ============================================================
+
+function isLoggedIn() {
+
+    return auth.currentUser !== null;
+
+}
+
+
+// ============================================================
+// GET STUDENT PROFILE
+// ============================================================
+
+async function getStudentProfile() {
+
+    const user =
+        auth.currentUser;
+
+
+    if (!user) {
+
+        return null;
+
+    }
+
+
+    const studentRef =
+        doc(
+            db,
+            "students",
+            user.uid
+        );
+
+
+    const studentSnap =
+        await getDoc(studentRef);
+
+
+    if (!studentSnap.exists()) {
+
+        return null;
+
+    }
+
+
+    return {
+
+        uid: user.uid,
+
+        ...studentSnap.data()
+
+    };
+
+}
+
+
+// ============================================================
+// CHECK STUDENT ACCOUNT
+// ============================================================
+
+async function isStudentActive() {
+
+    const student =
+        await getStudentProfile();
+
+
+    if (!student) {
+
+        return false;
+
+    }
+
+
+    return (
+        student.accountStatus === "active"
+    );
+
+}
+
+
+// ============================================================
+// CHECK UNIT PERMISSION
+//
+// Example:
+//
+// checkUnitPermission("unit-11")
+//
+// This function is temporary foundation logic.
+// Later it will become:
+//
+// checkUnitPermission(
+//     "hsc",
+//     "english-1st-paper",
+//     "unit-11"
+// )
+//
+// ============================================================
+
+async function checkUnitPermission(unitId) {
+
+    const student =
+        await getStudentProfile();
+
+
+    if (!student) {
+
+        return false;
+
+    }
+
+
+    if (
+        student.accountStatus !== "active"
+    ) {
+
+        return false;
+
+    }
+
+
+    const approvedUnits =
+        student.approvedUnits || {};
+
+
+    return (
+        approvedUnits[unitId] === true
+    );
+
+}
+
+
+// ============================================================
+// CHECK LESSON PERMISSION
+//
+// Example:
+//
+// checkLessonPermission(
+//     "unit-11-lesson-1"
+// )
+//
+// Later this will be upgraded to the
+// new structured permission system.
+// ============================================================
+
+async function checkLessonPermission(
+    lessonId
+) {
+
+    const student =
+        await getStudentProfile();
+
+
+    if (!student) {
+
+        return false;
+
+    }
+
+
+    if (
+        student.accountStatus !== "active"
+    ) {
+
+        return false;
+
+    }
+
+
+    const approvedLessons =
+        student.approvedLessons || {};
+
+
+    return (
+        approvedLessons[lessonId] === true
+    );
+
+}
+
+
+// ============================================================
+// REQUIRE LOGIN
+//
+// Used by protected pages.
+// ============================================================
+
+function requireLogin(
+    redirectTo = "/all-about-english/"
+) {
+
+    if (!auth.currentUser) {
+
+        window.location.href =
+            redirectTo;
+
+        return false;
+
+    }
+
+
+    return true;
+
+}
+
+
+// ============================================================
+// EXPORT
+// ============================================================
+
+export {
+
+    getAuthenticatedUser,
+
+    isLoggedIn,
+
+    getStudentProfile,
+
+    isStudentActive,
+
+    checkUnitPermission,
+
+    checkLessonPermission,
+
+    requireLogin
+
+};
