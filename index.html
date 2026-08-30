@@ -3258,13 +3258,279 @@
          Firebase Login will be connected in STEP 4.
     ====================================================== -->
 
-   <script>
+ <script type="module">
 
-    function openLogin() {
+    // ============================================================
+    // ALL ABOUT ENGLISH
+    // HOMEPAGE AUTH STATUS
+    // BY SHAHEEN SIR
+    // ============================================================
+
+    import {
+        watchAuthState,
+        logoutStudent
+    } from "./firebase-auth.js";
+
+
+    // ============================================================
+    // LOGIN PAGE
+    // ============================================================
+
+    window.openLogin = function () {
 
         window.location.href = "./login.html";
 
+    };
+
+
+    // ============================================================
+    // FIND ALL STUDENT LOGIN LINKS
+    // ============================================================
+
+    function getStudentLoginLinks() {
+
+        return Array.from(
+            document.querySelectorAll("a")
+        ).filter(function (link) {
+
+            return link.textContent
+                .trim()
+                .toLowerCase()
+                .includes("student login");
+
+        });
+
     }
+
+
+    // ============================================================
+    // CREATE LOGOUT BUTTON
+    // ============================================================
+
+    function createLogoutButton(link, userName) {
+
+        link.innerHTML = `
+            <i class="fa-solid fa-user"></i>
+            ${userName}
+            <span style="opacity:.55;">|</span>
+            <span>Logout</span>
+        `;
+
+        link.href = "#";
+
+        link.onclick = async function (event) {
+
+            event.preventDefault();
+
+            link.style.pointerEvents = "none";
+
+            link.innerHTML = `
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                Logging out...
+            `;
+
+
+            const result =
+                await logoutStudent();
+
+
+            if (result.success) {
+
+                window.location.reload();
+
+            }
+
+            else {
+
+                link.style.pointerEvents = "auto";
+
+                link.innerHTML = `
+                    <i class="fa-solid fa-user"></i>
+                    ${userName}
+                    <span style="opacity:.55;">|</span>
+                    <span>Logout</span>
+                `;
+
+                alert(
+                    result.message ||
+                    "Unable to logout."
+                );
+
+            }
+
+        };
+
+    }
+
+
+    // ============================================================
+    // SHOW STUDENT LOGIN
+    // ============================================================
+
+    function createLoginButton(link) {
+
+        link.innerHTML = `
+            <i class="fa-solid fa-lock"></i>
+            Student Login
+        `;
+
+        link.href = "#";
+
+        link.onclick = function (event) {
+
+            event.preventDefault();
+
+            openLogin();
+
+        };
+
+    }
+
+
+    // ============================================================
+    // UPDATE HOMEPAGE AUTH UI
+    // ============================================================
+
+    async function updateStudentAuthUI(user) {
+
+        const links =
+            getStudentLoginLinks();
+
+
+        // --------------------------------------------------------
+        // NOT LOGGED IN
+        // --------------------------------------------------------
+
+        if (!user) {
+
+            links.forEach(function (link) {
+
+                createLoginButton(link);
+
+            });
+
+            return;
+
+        }
+
+
+        // --------------------------------------------------------
+        // LOGGED IN
+        // --------------------------------------------------------
+
+        let userName =
+            user.displayName ||
+            "";
+
+
+        // --------------------------------------------------------
+        // GET STUDENT NAME FROM FIRESTORE
+        // --------------------------------------------------------
+
+        try {
+
+            const {
+                db
+            } = await import(
+                "./firebase-auth.js"
+            );
+
+
+            const {
+                doc,
+                getDoc
+            } = await import(
+                "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+            );
+
+
+            const studentRef =
+                doc(
+                    db,
+                    "students",
+                    user.uid
+                );
+
+
+            const studentSnap =
+                await getDoc(
+                    studentRef
+                );
+
+
+            if (
+                studentSnap.exists()
+            ) {
+
+                const studentData =
+                    studentSnap.data();
+
+
+                if (
+                    studentData.name
+                ) {
+
+                    userName =
+                        studentData.name;
+
+                }
+
+            }
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Unable to load student profile:",
+                error
+            );
+
+        }
+
+
+        // --------------------------------------------------------
+        // FALLBACK NAME
+        // --------------------------------------------------------
+
+        if (!userName) {
+
+            userName =
+                user.email ||
+                "Student";
+
+        }
+
+
+        // --------------------------------------------------------
+        // UPDATE ALL LOGIN LINKS
+        // --------------------------------------------------------
+
+        links.forEach(function (link) {
+
+            createLogoutButton(
+                link,
+                userName
+            );
+
+        });
+
+    }
+
+
+    // ============================================================
+    // FIREBASE AUTH STATE
+    // ============================================================
+
+    watchAuthState(
+        function (user) {
+
+            updateStudentAuthUI(
+                user
+            );
+
+        }
+    );
 
 </script>
 
