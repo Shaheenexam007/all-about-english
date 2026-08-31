@@ -1,1479 +1,1348 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+```
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta
-        name="description"
-        content="HSC English by Shaheen Sir — English 1st Paper and English 2nd Paper."
-    >
+<meta
+    name="description"
+    content="All About English — HSC English by Shaheen Sir."
+>
 
-    <meta
-        name="theme-color"
-        content="#101b36"
-    >
+<meta
+    name="theme-color"
+    content="#101b36"
+>
 
-    <title>
-        HSC English | All About English
-    </title>
+<title>
+    HSC English | All About English
+</title>
 
 
-    <!-- =====================================================
-         GOOGLE FONTS
-    ====================================================== -->
+<!-- =====================================================
+     GOOGLE FONTS
+====================================================== -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
-        rel="stylesheet"
-    >
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+    rel="stylesheet"
+>
 
 
-    <!-- =====================================================
-         FONT AWESOME
-    ====================================================== -->
+<!-- =====================================================
+     FONT AWESOME
+====================================================== -->
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
 
 
-    <!-- =====================================================
-         STYLE
-    ====================================================== -->
+<!-- =====================================================
+     STYLE
+====================================================== -->
 
-    <style>
+<style>
 
-        /* =====================================================
-           ROOT
-        ====================================================== */
+    :root {
 
-        :root {
+        --navy: #101b36;
+        --navy-dark: #091126;
+        --gold: #c9a45c;
+        --gold-light: #ead9ae;
+        --ivory: #fbfaf6;
+        --white: #ffffff;
+        --text: #1d2940;
+        --muted: #68748a;
+        --border: #e7e4dc;
+        --soft: #f4f2eb;
+        --danger: #9b3028;
 
-            --navy:
-                #101b36;
+        --shadow:
+            0 18px 55px rgba(16,27,54,.10);
+    }
 
-            --navy-dark:
-                #091126;
 
-            --navy-light:
-                #1b2b52;
+    * {
 
-            --gold:
-                #c9a45c;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
 
-            --gold-light:
-                #ead9ae;
+    }
 
-            --ivory:
-                #fbfaf6;
 
-            --white:
-                #ffffff;
+    html {
 
-            --text:
-                #1d2940;
+        scroll-behavior: smooth;
 
-            --muted:
-                #68748a;
+    }
 
-            --border:
-                #e7e4dc;
 
-            --soft:
-                #f4f2eb;
+    body {
 
-            --shadow:
-                0 18px 55px rgba(16,27,54,0.10);
-        }
+        font-family:
+            "Inter",
+            sans-serif;
 
+        color:
+            var(--text);
 
-        /* =====================================================
-           RESET
-        ====================================================== */
+        background:
+            var(--ivory);
 
-        * {
+        overflow-x:
+            hidden;
 
-            margin:
-                0;
+    }
 
-            padding:
-                0;
 
-            box-sizing:
-                border-box;
-        }
+    a {
 
+        text-decoration:
+            none;
 
-        html {
+        color:
+            inherit;
 
-            scroll-behavior:
-                smooth;
-        }
+    }
 
 
-        body {
+    button {
 
-            font-family:
-                "Inter",
-                sans-serif;
+        font-family:
+            inherit;
 
-            color:
-                var(--text);
+    }
 
-            background:
-                var(--ivory);
 
-            overflow-x:
-                hidden;
-        }
+    /* =====================================================
+       TOP BAR
+    ====================================================== */
 
+    .top-bar {
 
-        a {
+        background:
+            var(--navy-dark);
 
-            text-decoration:
-                none;
+        color:
+            #e9e4d5;
 
-            color:
-                inherit;
-        }
+        text-align:
+            center;
 
+        padding:
+            8px 15px;
 
-        button {
+        font-size:
+            11px;
 
-            font-family:
-                inherit;
-        }
+        letter-spacing:
+            .5px;
 
+    }
 
-        /* =====================================================
-           TOP BAR
-        ====================================================== */
 
-        .top-bar {
+    /* =====================================================
+       HEADER
+    ====================================================== */
 
-            background:
-                var(--navy-dark);
+    header {
 
-            color:
-                #e9e4d5;
+        position:
+            sticky;
 
-            text-align:
-                center;
+        top:
+            0;
 
-            padding:
-                8px 15px;
+        z-index:
+            1000;
 
-            font-size:
-                11px;
+        background:
+            rgba(251,250,246,.95);
 
-            letter-spacing:
-                .5px;
-        }
+        backdrop-filter:
+            blur(18px);
 
+        -webkit-backdrop-filter:
+            blur(18px);
 
-        /* =====================================================
-           HEADER
-        ====================================================== */
+        border-bottom:
+            1px solid rgba(16,27,54,.08);
 
-        header {
+    }
 
-            position:
-                sticky;
 
-            top:
-                0;
+    .nav-container {
 
-            z-index:
-                1000;
+        width:
+            min(1180px,92%);
 
-            background:
-                rgba(251,250,246,.94);
+        min-height:
+            76px;
 
-            backdrop-filter:
-                blur(18px);
+        margin:
+            auto;
 
-            -webkit-backdrop-filter:
-                blur(18px);
+        display:
+            flex;
 
-            border-bottom:
-                1px solid rgba(16,27,54,.08);
-        }
+        align-items:
+            center;
 
+        justify-content:
+            space-between;
+
+        gap:
+            20px;
+
+    }
+
+
+    /* =====================================================
+       BRAND
+    ====================================================== */
+
+    .brand {
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        gap:
+            12px;
+
+    }
+
+
+    .brand-icon {
+
+        width:
+            45px;
+
+        height:
+            45px;
+
+        border-radius:
+            14px;
+
+        background:
+            var(--navy);
+
+        color:
+            var(--gold-light);
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        font-size:
+            18px;
+
+    }
+
+
+    .brand-text strong {
+
+        display:
+            block;
+
+        color:
+            var(--navy);
+
+        font-size:
+            16px;
+
+        font-weight:
+            800;
+
+        letter-spacing:
+            .4px;
+
+    }
+
+
+    .brand-text span {
+
+        display:
+            block;
+
+        color:
+            var(--gold);
+
+        font-size:
+            9px;
+
+        font-weight:
+            700;
+
+        letter-spacing:
+            1px;
+
+        margin-top:
+            3px;
+
+    }
+
+
+    /* =====================================================
+       NAV
+    ====================================================== */
+
+    .nav-links {
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        gap:
+            7px;
+
+    }
+
+
+    .nav-links a {
+
+        color:
+            #536078;
+
+        font-size:
+            11px;
+
+        font-weight:
+            700;
+
+        padding:
+            9px 12px;
+
+        border-radius:
+            9px;
+
+        transition:
+            .25s ease;
+
+    }
+
+
+    .nav-links a:hover {
+
+        color:
+            var(--navy);
+
+        background:
+            #f1eee5;
+
+    }
+
+
+    .home-btn {
+
+        background:
+            var(--navy);
+
+        color:
+            white !important;
+
+    }
+
+
+    /* =====================================================
+       HERO
+    ====================================================== */
+
+    .hero {
+
+        width:
+            min(1050px,92%);
+
+        margin:
+            auto;
+
+        padding:
+            75px 0 55px;
+
+        text-align:
+            center;
+
+    }
+
+
+    .hero-label {
+
+        display:
+            inline-flex;
+
+        align-items:
+            center;
+
+        gap:
+            8px;
+
+        padding:
+            8px 14px;
+
+        border:
+            1px solid var(--gold-light);
+
+        background:
+            #f8f2e4;
+
+        color:
+            #856b34;
+
+        border-radius:
+            999px;
+
+        font-size:
+            10px;
+
+        font-weight:
+            800;
+
+        letter-spacing:
+            1px;
+
+        margin-bottom:
+            18px;
+
+    }
+
+
+    .hero-label i {
+
+        font-size:
+            9px;
+
+    }
+
+
+    .hero h1 {
+
+        font-family:
+            "Playfair Display",
+            serif;
+
+        color:
+            var(--navy);
+
+        font-size:
+            clamp(42px,6vw,68px);
+
+        line-height:
+            1.05;
+
+        letter-spacing:
+            -1.5px;
+
+        margin-bottom:
+            15px;
+
+    }
+
+
+    .hero h1 span {
+
+        color:
+            var(--gold);
+
+    }
+
+
+    .hero p {
+
+        max-width:
+            700px;
+
+        margin:
+            auto;
+
+        color:
+            var(--muted);
+
+        font-size:
+            13px;
+
+        line-height:
+            1.8;
+
+    }
+
+
+    .breadcrumb {
+
+        margin-top:
+            18px;
+
+        color:
+            #8a93a2;
+
+        font-size:
+            10px;
+
+    }
+
+
+    .breadcrumb strong {
+
+        color:
+            var(--navy);
+
+    }
+
+
+    /* =====================================================
+       SECTION
+    ====================================================== */
+
+    .section {
+
+        width:
+            min(1100px,92%);
+
+        margin:
+            auto;
+
+        padding:
+            20px 0 75px;
+
+    }
+
+
+    .section-heading {
+
+        text-align:
+            center;
+
+        margin-bottom:
+            35px;
+
+    }
+
+
+    .section-heading .eyebrow {
+
+        color:
+            var(--gold);
+
+        font-size:
+            10px;
+
+        font-weight:
+            800;
+
+        letter-spacing:
+            2px;
+
+        text-transform:
+            uppercase;
+
+        margin-bottom:
+            7px;
+
+    }
+
+
+    .section-heading h2 {
+
+        font-family:
+            "Playfair Display",
+            serif;
+
+        color:
+            var(--navy);
+
+        font-size:
+            32px;
+
+    }
+
+
+    .section-heading p {
+
+        margin-top:
+            8px;
+
+        color:
+            var(--muted);
+
+        font-size:
+            11px;
+
+    }
+
+
+    /* =====================================================
+       PAPER GRID
+    ====================================================== */
+
+    .paper-grid {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:
+            18px;
+
+    }
+
+
+    .paper-card {
+
+        background:
+            white;
+
+        border:
+            1px solid var(--border);
+
+        border-radius:
+            22px;
+
+        padding:
+            28px;
+
+        min-height:
+            245px;
+
+        position:
+            relative;
+
+        overflow:
+            hidden;
+
+        transition:
+            .3s ease;
+
+    }
+
+
+    .paper-card::after {
+
+        content:
+            "";
+
+        position:
+            absolute;
+
+        width:
+            150px;
+
+        height:
+            150px;
+
+        border-radius:
+            50%;
+
+        background:
+            #f6efdf;
+
+        right:
+            -70px;
+
+        bottom:
+            -70px;
+
+    }
+
+
+    .paper-card:hover {
+
+        transform:
+            translateY(-5px);
+
+        box-shadow:
+            var(--shadow);
+
+        border-color:
+            #d8c89f;
+
+    }
+
+
+    .paper-icon {
+
+        width:
+            50px;
+
+        height:
+            50px;
+
+        border-radius:
+            14px;
+
+        background:
+            #f5efe1;
+
+        color:
+            var(--navy);
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        font-size:
+            18px;
+
+        margin-bottom:
+            18px;
+
+        position:
+            relative;
+
+        z-index:
+            2;
+
+    }
+
+
+    .paper-card h3 {
+
+        color:
+            var(--navy);
+
+        font-size:
+            20px;
+
+        margin-bottom:
+            9px;
+
+        position:
+            relative;
+
+        z-index:
+            2;
+
+    }
+
+
+    .paper-card p {
+
+        color:
+            var(--muted);
+
+        font-size:
+            11px;
+
+        line-height:
+            1.75;
+
+        max-width:
+            470px;
+
+        position:
+            relative;
+
+        z-index:
+            2;
+
+    }
+
+
+    .paper-arrow {
+
+        display:
+            inline-flex;
+
+        align-items:
+            center;
+
+        gap:
+            7px;
+
+        margin-top:
+            22px;
+
+        color:
+            var(--gold);
+
+        font-size:
+            10px;
+
+        font-weight:
+            800;
+
+        position:
+            relative;
+
+        z-index:
+            2;
+
+    }
+
+
+    /* =====================================================
+       UNIT PREVIEW
+    ====================================================== */
+
+    .unit-section {
+
+        margin-top:
+            30px;
+
+    }
+
+
+    .unit-grid {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:
+            15px;
+
+    }
+
+
+    .unit-card {
+
+        background:
+            white;
+
+        border:
+            1px solid var(--border);
+
+        border-radius:
+            18px;
+
+        padding:
+            20px;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        gap:
+            15px;
+
+        transition:
+            .25s ease;
+
+    }
+
+
+    .unit-card:hover {
+
+        transform:
+            translateY(-3px);
+
+        box-shadow:
+            0 12px 35px rgba(16,27,54,.08);
+
+    }
+
+
+    .unit-number {
+
+        width:
+            45px;
+
+        height:
+            45px;
+
+        flex-shrink:
+            0;
+
+        border-radius:
+            13px;
+
+        background:
+            var(--navy);
+
+        color:
+            var(--gold-light);
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        font-size:
+            13px;
+
+        font-weight:
+            800;
+
+    }
+
+
+    .unit-info {
+
+        flex:
+            1;
+
+    }
+
+
+    .unit-info h4 {
+
+        color:
+            var(--navy);
+
+        font-size:
+            13px;
+
+        margin-bottom:
+            4px;
+
+    }
+
+
+    .unit-info p {
+
+        color:
+            var(--muted);
+
+        font-size:
+            9px;
+
+    }
+
+
+    .unit-link {
+
+        color:
+            var(--gold);
+
+        font-size:
+            9px;
+
+        font-weight:
+            800;
+
+    }
+
+
+    /* =====================================================
+       NOTE
+    ====================================================== */
+
+    .note-box {
+
+        margin-top:
+            35px;
+
+        padding:
+            22px 25px;
+
+        background:
+            var(--navy);
+
+        color:
+            white;
+
+        border-radius:
+            18px;
+
+        text-align:
+            center;
+
+    }
+
+
+    .note-box i {
+
+        color:
+            var(--gold-light);
+
+        margin-right:
+            5px;
+
+    }
+
+
+    .note-box p {
+
+        color:
+            #cbd3df;
+
+        font-size:
+            10px;
+
+        line-height:
+            1.7;
+
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ====================================================== */
+
+    footer {
+
+        background:
+            var(--navy-dark);
+
+        color:
+            #cbd3df;
+
+        padding:
+            35px 0 18px;
+
+    }
+
+
+    .footer-container {
+
+        width:
+            min(1100px,92%);
+
+        margin:
+            auto;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            space-between;
+
+        gap:
+            20px;
+
+    }
+
+
+    .footer-brand {
+
+        color:
+            white;
+
+        font-family:
+            "Playfair Display",
+            serif;
+
+        font-size:
+            19px;
+
+    }
+
+
+    .footer-text {
+
+        color:
+            #8f9bad;
+
+        font-size:
+            9px;
+
+        line-height:
+            1.7;
+
+        margin-top:
+            4px;
+
+    }
+
+
+    .footer-links {
+
+        display:
+            flex;
+
+        gap:
+            8px;
+
+    }
+
+
+    .footer-links a {
+
+        color:
+            #aeb7c5;
+
+        font-size:
+            9px;
+
+        padding:
+            8px 10px;
+
+        border:
+            1px solid rgba(255,255,255,.08);
+
+        border-radius:
+            8px;
+
+    }
+
+
+    .footer-bottom {
+
+        width:
+            min(1100px,92%);
+
+        margin:
+            22px auto 0;
+
+        padding-top:
+            15px;
+
+        border-top:
+            1px solid rgba(255,255,255,.08);
+
+        text-align:
+            center;
+
+        color:
+            #687386;
+
+        font-size:
+            8px;
+
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ====================================================== */
+
+    @media (max-width: 700px) {
 
         .nav-container {
 
-            width:
-                min(1180px,92%);
-
             min-height:
-                76px;
+                67px;
 
-            margin:
-                auto;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            gap:
-                20px;
-        }
-
-
-        /* =====================================================
-           BRAND
-        ====================================================== */
-
-        .brand {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                12px;
         }
 
 
         .brand-icon {
 
             width:
-                45px;
+                39px;
 
             height:
-                45px;
+                39px;
 
             border-radius:
-                14px;
+                11px;
 
-            background:
-                var(--navy);
-
-            color:
-                var(--gold-light);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            font-size:
-                18px;
-
-            box-shadow:
-                0 8px 22px rgba(16,27,54,.18);
         }
 
 
         .brand-text strong {
 
-            display:
-                block;
-
-            color:
-                var(--navy);
-
             font-size:
-                16px;
+                13px;
 
-            font-weight:
-                800;
-
-            letter-spacing:
-                .4px;
         }
 
 
         .brand-text span {
 
-            display:
-                block;
-
-            color:
-                var(--gold);
-
             font-size:
-                9px;
-
-            font-weight:
-                700;
-
-            letter-spacing:
-                1px;
-
-            margin-top:
-                3px;
-        }
-
-
-        /* =====================================================
-           NAVIGATION
-        ====================================================== */
-
-        .nav-links {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                5px;
-        }
-
-
-        .nav-links a {
-
-            color:
-                #536078;
-
-            font-size:
-                12px;
-
-            font-weight:
-                700;
-
-            padding:
-                9px 12px;
-
-            border-radius:
-                9px;
-
-            transition:
-                .25s ease;
-        }
-
-
-        .nav-links a:hover {
-
-            color:
-                var(--navy);
-
-            background:
-                #f1eee5;
-        }
-
-
-        .login-nav {
-
-            background:
-                var(--navy) !important;
-
-            color:
-                white !important;
-
-            padding:
-                10px 16px !important;
-
-            box-shadow:
-                0 8px 20px rgba(16,27,54,.18);
-        }
-
-
-        /* =====================================================
-           PAGE HERO
-        ====================================================== */
-
-        .page-hero {
-
-            width:
-                min(1180px,92%);
-
-            margin:
-                auto;
-
-            padding:
-                70px 0 45px;
-
-            text-align:
-                center;
-
-            position:
-                relative;
-        }
-
-
-        .page-hero::before {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                330px;
-
-            height:
-                330px;
-
-            border-radius:
-                50%;
-
-            background:
-                rgba(201,164,92,.08);
-
-            right:
-                -150px;
-
-            top:
-                15px;
-
-            z-index:
-                -1;
-        }
-
-
-        .page-label {
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            gap:
-                8px;
-
-            padding:
-                8px 14px;
-
-            border:
-                1px solid var(--gold-light);
-
-            background:
-                #f8f2e4;
-
-            color:
-                #856b34;
-
-            border-radius:
-                999px;
-
-            font-size:
-                10px;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                1.5px;
-
-            margin-bottom:
-                18px;
-        }
-
-
-        .page-label i {
-
-            font-size:
-                9px;
-        }
-
-
-        .page-hero h1 {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            color:
-                var(--navy);
-
-            font-size:
-                clamp(40px,6vw,64px);
-
-            line-height:
-                1.05;
-
-            letter-spacing:
-                -1.5px;
-
-            margin-bottom:
-                14px;
-        }
-
-
-        .page-hero h1 span {
-
-            color:
-                var(--gold);
-        }
-
-
-        .page-hero p {
-
-            max-width:
-                680px;
-
-            margin:
-                auto;
-
-            color:
-                var(--muted);
-
-            font-size:
-                13px;
-
-            line-height:
-                1.8;
-        }
-
-
-        /* =====================================================
-           BREADCRUMB
-        ====================================================== */
-
-        .breadcrumb {
-
-            width:
-                min(1180px,92%);
-
-            margin:
-                0 auto;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            flex-wrap:
-                wrap;
-
-            gap:
                 7px;
 
-            color:
-                #7b8494;
-
-            font-size:
-                10px;
-
-            font-weight:
-                700;
         }
 
 
-        .breadcrumb a {
-
-            color:
-                var(--navy);
-        }
-
-
-        .breadcrumb i {
-
-            color:
-                var(--gold);
-
-            font-size:
-                8px;
-        }
-
-
-        /* =====================================================
-           MAIN SECTION
-        ====================================================== */
-
-        .section {
-
-            width:
-                min(1100px,92%);
-
-            margin:
-                auto;
-
-            padding:
-                45px 0 80px;
-        }
-
-
-        .section-heading {
-
-            text-align:
-                center;
-
-            max-width:
-                650px;
-
-            margin:
-                0 auto 35px;
-        }
-
-
-        .eyebrow {
-
-            color:
-                var(--gold);
-
-            font-size:
-                10px;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                2px;
-
-            text-transform:
-                uppercase;
-
-            margin-bottom:
-                8px;
-        }
-
-
-        .section-heading h2 {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            color:
-                var(--navy);
-
-            font-size:
-                clamp(27px,4vw,38px);
-
-            margin-bottom:
-                10px;
-        }
-
-
-        .section-heading p {
-
-            color:
-                var(--muted);
-
-            font-size:
-                12px;
-
-            line-height:
-                1.7;
-        }
-
-
-        /* =====================================================
-           PAPER GRID
-        ====================================================== */
-
-        .paper-grid {
+        .nav-links a:not(.home-btn) {
 
             display:
-                grid;
+                none;
 
-            grid-template-columns:
-                repeat(2,1fr);
-
-            gap:
-                20px;
         }
 
 
-        /* =====================================================
-           PAPER CARD
-        ====================================================== */
+        .home-btn {
 
-        .paper-card {
-
-            min-height:
-                260px;
-
-            background:
-                white;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                23px;
+            font-size:
+                9px !important;
 
             padding:
-                28px;
+                8px 10px !important;
 
-            position:
-                relative;
-
-            overflow:
-                hidden;
-
-            transition:
-                .3s ease;
-
-            box-shadow:
-                0 8px 25px rgba(16,27,54,.04);
         }
 
 
-        .paper-card::before {
+        .hero {
 
-            content:
-                "";
+            padding:
+                55px 0 40px;
 
-            position:
-                absolute;
-
-            width:
-                180px;
-
-            height:
-                180px;
-
-            border-radius:
-                50%;
-
-            background:
-                #f6efdf;
-
-            right:
-                -75px;
-
-            bottom:
-                -75px;
-
-            transition:
-                .35s ease;
         }
 
 
-        .paper-card:hover {
-
-            transform:
-                translateY(-6px);
-
-            border-color:
-                #d8c89f;
-
-            box-shadow:
-                var(--shadow);
-        }
-
-
-        .paper-card:hover::before {
-
-            transform:
-                scale(1.35);
-        }
-
-
-        /* =====================================================
-           PAPER ICON
-        ====================================================== */
-
-        .paper-icon {
-
-            width:
-                54px;
-
-            height:
-                54px;
-
-            border-radius:
-                16px;
-
-            background:
-                #f5efe1;
-
-            color:
-                var(--navy);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
+        .hero h1 {
 
             font-size:
-                20px;
+                43px;
 
-            margin-bottom:
-                18px;
-
-            position:
-                relative;
-
-            z-index:
-                2;
         }
 
 
-        /* =====================================================
-           PAPER CONTENT
-        ====================================================== */
-
-        .paper-card h3 {
-
-            color:
-                var(--navy);
-
-            font-size:
-                20px;
-
-            line-height:
-                1.35;
-
-            margin-bottom:
-                9px;
-
-            position:
-                relative;
-
-            z-index:
-                2;
-        }
-
-
-        .paper-card p {
-
-            color:
-                var(--muted);
+        .hero p {
 
             font-size:
                 11px;
 
-            line-height:
-                1.75;
-
-            max-width:
-                430px;
-
-            position:
-                relative;
-
-            z-index:
-                2;
         }
 
 
-        /* =====================================================
-           PAPER TOPIC LIST
-        ====================================================== */
+        .paper-grid {
 
-        .topic-list {
+            grid-template-columns:
+                1fr;
 
-            display:
-                flex;
-
-            flex-wrap:
-                wrap;
-
-            gap:
-                7px;
-
-            margin-top:
-                17px;
-
-            position:
-                relative;
-
-            z-index:
-                2;
         }
 
 
-        .topic {
+        .unit-grid {
 
-            padding:
-                6px 9px;
+            grid-template-columns:
+                1fr;
 
-            background:
-                #f8f7f2;
-
-            border:
-                1px solid #ece9df;
-
-            border-radius:
-                7px;
-
-            color:
-                #596477;
-
-            font-size:
-                8px;
-
-            font-weight:
-                700;
-        }
-
-
-        /* =====================================================
-           ENTER BUTTON
-        ====================================================== */
-
-        .enter-paper {
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            gap:
-                7px;
-
-            margin-top:
-                21px;
-
-            padding:
-                10px 14px;
-
-            background:
-                var(--navy);
-
-            color:
-                white;
-
-            border-radius:
-                9px;
-
-            font-size:
-                9px;
-
-            font-weight:
-                800;
-
-            position:
-                relative;
-
-            z-index:
-                3;
-
-            transition:
-                .25s ease;
-        }
-
-
-        .enter-paper:hover {
-
-            background:
-                var(--navy-light);
-
-            transform:
-                translateX(3px);
-        }
-
-
-        /* =====================================================
-           INFO BOX
-        ====================================================== */
-
-        .info-box {
-
-            margin-top:
-                35px;
-
-            padding:
-                24px 26px;
-
-            border-radius:
-                18px;
-
-            background:
-                var(--navy);
-
-            color:
-                white;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                17px;
-
-            box-shadow:
-                0 18px 45px rgba(16,27,54,.14);
-        }
-
-
-        .info-icon {
-
-            width:
-                44px;
-
-            height:
-                44px;
-
-            min-width:
-                44px;
-
-            border-radius:
-                13px;
-
-            background:
-                rgba(255,255,255,.09);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            color:
-                var(--gold-light);
-
-            font-size:
-                16px;
-        }
-
-
-        .info-box h4 {
-
-            font-size:
-                12px;
-
-            margin-bottom:
-                5px;
-        }
-
-
-        .info-box p {
-
-            color:
-                #c9d0dd;
-
-            font-size:
-                10px;
-
-            line-height:
-                1.7;
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ====================================================== */
-
-        footer {
-
-            background:
-                var(--navy-dark);
-
-            color:
-                #cbd3df;
-
-            padding:
-                40px 0 20px;
-
-            margin-top:
-                20px;
         }
 
 
         .footer-container {
 
-            width:
-                min(1100px,92%);
-
-            margin:
-                auto;
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1.4fr 1fr 1fr;
-
-            gap:
-                35px;
-        }
-
-
-        .footer-brand h3 {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            color:
-                white;
-
-            font-size:
-                23px;
-
-            margin-bottom:
-                8px;
-        }
-
-
-        .footer-brand p {
-
-            color:
-                #8f9bad;
-
-            font-size:
-                10px;
-
-            line-height:
-                1.8;
-
-            max-width:
-                370px;
-        }
-
-
-        .footer-column h4 {
-
-            color:
-                var(--gold-light);
-
-            font-size:
-                10px;
-
-            letter-spacing:
-                1.5px;
-
-            margin-bottom:
-                14px;
-        }
-
-
-        .footer-column a {
-
-            display:
-                block;
-
-            color:
-                #9ba5b5;
-
-            font-size:
-                10px;
-
-            margin-bottom:
-                9px;
-
-            transition:
-                .2s ease;
-        }
-
-
-        .footer-column a:hover {
-
-            color:
-                white;
-        }
-
-
-        .footer-bottom {
-
-            width:
-                min(1100px,92%);
-
-            margin:
-                25px auto 0;
-
-            padding-top:
-                16px;
-
-            border-top:
-                1px solid rgba(255,255,255,.08);
+            flex-direction:
+                column;
 
             text-align:
                 center;
 
-            color:
-                #687386;
-
-            font-size:
-                9px;
         }
 
+    }
 
-        /* =====================================================
-           RESPONSIVE
-        ====================================================== */
-
-        @media (max-width: 750px) {
-
-            .paper-grid {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .info-box {
-
-                align-items:
-                    flex-start;
-            }
-
-
-            .footer-container {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-        }
-
-
-        @media (max-width: 600px) {
-
-            .top-bar {
-
-                font-size:
-                    9px;
-            }
-
-
-            .nav-container {
-
-                min-height:
-                    67px;
-            }
-
-
-            .brand-icon {
-
-                width:
-                    39px;
-
-                height:
-                    39px;
-
-                border-radius:
-                    11px;
-            }
-
-
-            .brand-text strong {
-
-                font-size:
-                    13px;
-            }
-
-
-            .brand-text span {
-
-                font-size:
-                    7px;
-            }
-
-
-            .nav-links a:not(.login-nav) {
-
-                display:
-                    none;
-            }
-
-
-            .login-nav {
-
-                font-size:
-                    10px !important;
-
-                padding:
-                    9px 12px !important;
-            }
-
-
-            .page-hero {
-
-                padding:
-                    50px 0 35px;
-            }
-
-
-            .page-hero h1 {
-
-                font-size:
-                    43px;
-            }
-
-
-            .page-hero p {
-
-                font-size:
-                    11px;
-            }
-
-
-            .section {
-
-                padding:
-                    35px 0 55px;
-            }
-
-
-            .paper-card {
-
-                min-height:
-                    auto;
-
-                padding:
-                    22px;
-            }
-
-
-            .paper-card h3 {
-
-                font-size:
-                    18px;
-            }
-
-
-            .paper-card p {
-
-                font-size:
-                    10px;
-            }
-
-
-            .info-box {
-
-                padding:
-                    20px;
-            }
-
-        }
-
-    </style>
+</style>
+```
 
 </head>
 
-
 <body>
 
+```
+<!-- =====================================================
+     TOP BAR
+====================================================== -->
 
-    <!-- =====================================================
-         TOP BAR
-    ====================================================== -->
+<div class="top-bar">
 
-    <div class="top-bar">
+    ALL ABOUT ENGLISH • HSC PROGRAM • SHAHEEN SIR
 
-        ALL ABOUT ENGLISH • HSC ENGLISH • BY SHAHEEN SIR
-
-    </div>
-
-
-
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
-
-    <header>
-
-        <div class="nav-container">
+</div>
 
 
-            <!-- BRAND -->
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header>
+
+    <div class="nav-container">
+
+
+        <a
+            href="../"
+            class="brand"
+        >
+
+            <div class="brand-icon">
+
+                <i class="fa-solid fa-book-open"></i>
+
+            </div>
+
+
+            <div class="brand-text">
+
+                <strong>
+                    ALL ABOUT ENGLISH
+                </strong>
+
+                <span>
+                    SHAHEEN SIR
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="../">
+                Home
+            </a>
 
             <a
-                href="../"
-                class="brand"
+                href="../login.html"
+                class="home-btn"
             >
 
-                <div class="brand-icon">
+                <i class="fa-solid fa-lock"></i>
 
-                    <i class="fa-solid fa-book-open"></i>
-
-                </div>
-
-
-                <div class="brand-text">
-
-                    <strong>
-                        ALL ABOUT ENGLISH
-                    </strong>
-
-                    <span>
-                        BY SHAHEEN SIR
-                    </span>
-
-                </div>
+                Student Login
 
             </a>
 
+        </nav>
 
+    </div>
 
-            <!-- NAVIGATION -->
-
-            <nav class="nav-links">
-
-
-                <a
-                    href="../#programs"
-                >
-                    Programs
-                </a>
-
-
-                <a
-                    href="../#about"
-                >
-                    About
-                </a>
-
-
-                <a
-                    href="../login.html"
-                    class="login-nav"
-                >
-
-                    <i class="fa-solid fa-lock"></i>
-
-                    Student Login
-
-                </a>
-
-
-            </nav>
-
-        </div>
-
-    </header>
+</header>
 
 
 
-    <!-- =====================================================
-         PAGE HERO
-    ====================================================== -->
+<!-- =====================================================
+     HERO
+====================================================== -->
 
-    <section class="page-hero">
+<main>
 
 
-        <div class="page-label">
+    <section class="hero">
+
+
+        <div class="hero-label">
 
             <i class="fa-solid fa-graduation-cap"></i>
 
@@ -1484,419 +1353,345 @@
 
         <h1>
 
-            HSC <span>English</span>
+            HSC
+
+            <span>
+                English
+            </span>
 
         </h1>
 
 
         <p>
 
-            A structured learning space for HSC students,
-            covering English 1st Paper and English 2nd Paper
-            with lessons, vocabulary, grammar and examination
-            preparation.
+            A structured learning environment for HSC
+            students, covering English 1st Paper and
+            English 2nd Paper with organized units,
+            lessons, vocabulary and grammar resources.
 
         </p>
+
+
+        <div class="breadcrumb">
+
+            <strong>
+                All About English
+            </strong>
+
+            &nbsp; / &nbsp;
+
+            HSC
+
+        </div>
 
     </section>
 
 
 
     <!-- =====================================================
-         BREADCRUMB
+         ENGLISH PAPERS
     ====================================================== -->
 
-    <div class="breadcrumb">
-
-        <a href="../">
-            Home
-        </a>
-
-        <i class="fa-solid fa-chevron-right"></i>
-
-        <span>
-            HSC English
-        </span>
-
-    </div>
+    <section class="section">
 
 
+        <div class="section-heading">
 
-    <!-- =====================================================
-         MAIN CONTENT
-    ====================================================== -->
-
-    <main>
-
-
-        <section class="section">
-
-
-            <!-- SECTION HEADING -->
-
-            <div class="section-heading">
-
-
-                <div class="eyebrow">
-                    HSC Curriculum
-                </div>
-
-
-                <h2>
-                    Choose Your Paper
-                </h2>
-
-
-                <p>
-
-                    Select the paper you want to study.
-                    Each section can contain units, lessons,
-                    practice materials and other resources.
-
-                </p>
-
+            <div class="eyebrow">
+                HSC Curriculum
             </div>
 
+            <h2>
+                Choose Your Paper
+            </h2>
+
+            <p>
+                Select the paper you want to study.
+            </p>
+
+        </div>
+
+
+
+        <div class="paper-grid">
 
 
             <!-- =================================================
-                 PAPER GRID
+                 ENGLISH 1ST PAPER
             ================================================== -->
 
-            <div class="paper-grid">
+            <a
+                href="./english-first-paper/"
+                class="paper-card"
+            >
 
+                <div class="paper-icon">
 
-
-                <!-- =============================================
-                     ENGLISH 1ST PAPER
-                ============================================== -->
-
-                <div class="paper-card">
-
-
-                    <div class="paper-icon">
-
-                        <i class="fa-solid fa-book-open"></i>
-
-                    </div>
-
-
-                    <h3>
-                        English 1st Paper
-                    </h3>
-
-
-                    <p>
-
-                        Reading, comprehension, vocabulary,
-                        literary texts, passages and structured
-                        lessons for HSC English 1st Paper.
-
-                    </p>
-
-
-                    <div class="topic-list">
-
-
-                        <span class="topic">
-                            Reading
-                        </span>
-
-
-                        <span class="topic">
-                            Vocabulary
-                        </span>
-
-
-                        <span class="topic">
-                            Comprehension
-                        </span>
-
-
-                        <span class="topic">
-                            Units & Lessons
-                        </span>
-
-
-                    </div>
-
-
-                    <!-- =========================================
-                         CHANGE ONLY THIS URL IF NEEDED
-
-                         Current:
-                         ./1st-paper/
-
-                    ========================================== -->
-
-                    <a
-                        href="./1st-paper/"
-                        class="enter-paper"
-                    >
-
-                        Enter 1st Paper
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </a>
-
+                    <i class="fa-solid fa-book-open"></i>
 
                 </div>
 
-
-
-                <!-- =============================================
-                     ENGLISH 2ND PAPER
-                ============================================== -->
-
-                <div class="paper-card">
-
-
-                    <div class="paper-icon">
-
-                        <i class="fa-solid fa-pen-nib"></i>
-
-                    </div>
-
-
-                    <h3>
-                        English 2nd Paper
-                    </h3>
-
-
-                    <p>
-
-                        Grammar, writing, sentence transformation,
-                        connectors, modifiers, narration,
-                        vocabulary and examination-focused practice.
-
-                    </p>
-
-
-                    <div class="topic-list">
-
-
-                        <span class="topic">
-                            Grammar
-                        </span>
-
-
-                        <span class="topic">
-                            Writing
-                        </span>
-
-
-                        <span class="topic">
-                            Transformation
-                        </span>
-
-
-                        <span class="topic">
-                            Practice
-                        </span>
-
-
-                    </div>
-
-
-                    <!-- =========================================
-                         CHANGE ONLY THIS URL IF NEEDED
-
-                         Current:
-                         ./2nd-paper/
-
-                    ========================================== -->
-
-                    <a
-                        href="./2nd-paper/"
-                        class="enter-paper"
-                    >
-
-                        Enter 2nd Paper
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </a>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- =================================================
-                 INFORMATION BOX
-            ================================================== -->
-
-            <div class="info-box">
-
-
-                <div class="info-icon">
-
-                    <i class="fa-solid fa-circle-info"></i>
-
-                </div>
-
-
-                <div>
-
-
-                    <h4>
-                        HSC English Learning Platform
-                    </h4>
-
-
-                    <p>
-
-                        New units, lessons, vocabulary resources,
-                        grammar materials and examination practice
-                        can be added gradually under the two papers.
-
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-    </main>
-
-
-
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer>
-
-
-        <div class="footer-container">
-
-
-            <!-- BRAND -->
-
-            <div class="footer-brand">
 
                 <h3>
-                    ALL ABOUT ENGLISH
+                    English 1st Paper
                 </h3>
 
 
                 <p>
 
-                    By Shaheen Sir<br>
+                    Reading-based lessons, textbook units,
+                    vocabulary analysis, comprehension,
+                    literary texts and structured practice
+                    for HSC examination preparation.
 
-                    Assistant Professor & Head of the
-                    English Department<br>
+                </p>
 
-                    Bangladesh Air Force Shaheen College Kurmitola
 
+                <div class="paper-arrow">
+
+                    ENTER ENGLISH 1ST PAPER
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- =================================================
+                 ENGLISH 2ND PAPER
+            ================================================== -->
+
+            <a
+                href="./english-second-paper/"
+                class="paper-card"
+            >
+
+                <div class="paper-icon">
+
+                    <i class="fa-solid fa-pen-nib"></i>
+
+                </div>
+
+
+                <h3>
+                    English 2nd Paper
+                </h3>
+
+
+                <p>
+
+                    Grammar, writing, transformation,
+                    completing sentences, modifiers,
+                    connectors, narration, punctuation and
+                    other HSC-focused language skills.
+
+                </p>
+
+
+                <div class="paper-arrow">
+
+                    ENTER ENGLISH 2ND PAPER
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+
+
+        <!-- =====================================================
+             UNIT PREVIEW
+        ====================================================== -->
+
+        <div class="unit-section">
+
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    English 1st Paper
+                </div>
+
+                <h2>
+                    Available Units
+                </h2>
+
+                <p>
+                    Approved students can access their assigned units.
                 </p>
 
             </div>
 
 
-
-            <!-- LEARNING -->
-
-            <div class="footer-column">
-
-                <h4>
-                    HSC ENGLISH
-                </h4>
+            <div class="unit-grid">
 
 
-                <a href="./1st-paper/">
+                <!-- UNIT 11 -->
 
-                    English 1st Paper
+                <a
+                    href="./english-first-paper/unit-11/"
+                    class="unit-card"
+                >
+
+                    <div class="unit-number">
+                        11
+                    </div>
+
+
+                    <div class="unit-info">
+
+                        <h4>
+                            Unit 11
+                        </h4>
+
+                        <p>
+                            Lessons and learning materials
+                        </p>
+
+                    </div>
+
+
+                    <div class="unit-link">
+
+                        OPEN
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
 
                 </a>
 
 
-                <a href="./2nd-paper/">
 
-                    English 2nd Paper
+                <!-- UNIT 12 -->
+
+                <a
+                    href="./english-first-paper/unit-12/"
+                    class="unit-card"
+                >
+
+                    <div class="unit-number">
+                        12
+                    </div>
+
+
+                    <div class="unit-info">
+
+                        <h4>
+                            Unit 12
+                        </h4>
+
+                        <p>
+                            Lessons and learning materials
+                        </p>
+
+                    </div>
+
+
+                    <div class="unit-link">
+
+                        OPEN
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
 
                 </a>
+
 
             </div>
 
 
+            <!-- =================================================
+                 ACCESS NOTE
+            ================================================== -->
 
-            <!-- CONNECT -->
+            <div class="note-box">
 
-            <div class="footer-column">
+                <p>
 
-                <h4>
-                    CONNECT
-                </h4>
+                    <i class="fa-solid fa-shield-halved"></i>
 
+                    Unit content is protected.
+                    Students must log in and have the
+                    corresponding unit approved by the administrator.
 
-                <a href="tel:01671642358">
+                </p>
 
-                    <i class="fa-solid fa-phone"></i>
+            </div>
 
-                    Call: 01671642358
+        </div>
 
-                </a>
-
-
-                <a
-                    href="https://wa.me/8801671642358"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-
-                    <i class="fa-brands fa-whatsapp"></i>
-
-                    WhatsApp
-
-                </a>
+    </section>
 
 
-                <a
-                    href="https://www.facebook.com/profile.php?id=61553493074328"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-
-                    <i class="fa-brands fa-facebook"></i>
-
-                    Facebook
-
-                </a>
+</main>
 
 
-                <a href="../login.html">
 
-                    <i class="fa-solid fa-lock"></i>
+<!-- =====================================================
+     FOOTER
+====================================================== -->
 
-                    Student Login
+<footer>
 
-                </a>
+
+    <div class="footer-container">
+
+
+        <div>
+
+            <div class="footer-brand">
+
+                ALL ABOUT ENGLISH
 
             </div>
 
 
-        </div>
+            <div class="footer-text">
 
+                HSC English • By Shaheen Sir
 
-
-        <div class="footer-bottom">
-
-            © 2026 ALL ABOUT ENGLISH • BY SHAHEEN SIR •
-            All Rights Reserved
+            </div>
 
         </div>
 
 
-    </footer>
+        <div class="footer-links">
 
+            <a href="../">
+                Home
+            </a>
+
+
+            <a href="../login.html">
+
+                <i class="fa-solid fa-lock"></i>
+
+                Student Login
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 ALL ABOUT ENGLISH • BY SHAHEEN SIR •
+        All Rights Reserved
+
+    </div>
+
+</footer>
+```
 
 </body>
 
