@@ -11,23 +11,28 @@
     >
 
     <meta
+        name="description"
+        content="All About English by Shaheen Sir — Student Login and Account Creation."
+    >
+
+    <meta
         name="theme-color"
         content="#101b36"
     >
 
-    <meta
-        name="description"
-        content="Student Login Portal - All About English by Shaheen Sir"
-    >
-
-    <title>Student Login | All About English</title>
+    <title>
+        Student Login | All About English
+    </title>
 
 
     <!-- =====================================================
          GOOGLE FONTS
     ====================================================== -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
     <link
         rel="preconnect"
@@ -42,81 +47,126 @@
 
 
     <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
          STYLE
     ====================================================== -->
 
     <style>
 
+        /* =====================================================
+           ROOT
+        ====================================================== */
+
         :root {
 
-            --navy: #101b36;
-            --navy-dark: #091126;
+            --navy:
+                #101b36;
 
-            --gold: #c9a45c;
-            --gold-light: #ead9ae;
+            --navy-dark:
+                #091126;
 
-            --ivory: #fbfaf6;
-            --white: #ffffff;
+            --gold:
+                #c9a45c;
 
-            --text: #1d2940;
-            --muted: #68748a;
+            --gold-light:
+                #ead9ae;
 
-            --border: #e7e4dc;
+            --ivory:
+                #fbfaf6;
 
-            --success: #18794e;
-            --danger: #b42318;
+            --white:
+                #ffffff;
+
+            --text:
+                #1d2940;
+
+            --muted:
+                #68748a;
+
+            --border:
+                #e7e4dc;
+
+            --soft:
+                #f4f2eb;
+
+            --danger:
+                #b43b32;
+
+            --success:
+                #28784b;
+
+            --shadow:
+                0 20px 60px rgba(16,27,54,.12);
 
         }
 
 
+        /* =====================================================
+           RESET
+        ====================================================== */
+
         * {
 
-            margin: 0;
-            padding: 0;
+            margin:
+                0;
 
-            box-sizing: border-box;
+            padding:
+                0;
+
+            box-sizing:
+                border-box;
 
         }
 
 
         html {
 
-            scroll-behavior: smooth;
+            scroll-behavior:
+                smooth;
 
         }
 
 
         body {
 
-            min-height: 100vh;
+            min-height:
+                100vh;
 
             font-family:
                 "Inter",
-                Arial,
                 sans-serif;
 
+            color:
+                var(--text);
+
             background:
-                linear-gradient(
-                    135deg,
-                    #fbfaf6 0%,
-                    #f4f0e5 50%,
-                    #eef1f6 100%
-                );
+                var(--ivory);
 
-            color: var(--text);
+            display:
+                flex;
 
-            display: flex;
-
-            flex-direction: column;
+            flex-direction:
+                column;
 
         }
 
 
         a {
 
-            text-decoration: none;
+            color:
+                inherit;
 
-            color: inherit;
+            text-decoration:
+                none;
 
         }
 
@@ -124,7 +174,35 @@
         button,
         input {
 
-            font-family: inherit;
+            font-family:
+                inherit;
+
+        }
+
+
+        /* =====================================================
+           TOP BAR
+        ====================================================== */
+
+        .top-bar {
+
+            background:
+                var(--navy-dark);
+
+            color:
+                #e9e4d5;
+
+            text-align:
+                center;
+
+            padding:
+                8px 15px;
+
+            font-size:
+                10px;
+
+            letter-spacing:
+                .5px;
 
         }
 
@@ -136,13 +214,7 @@
         header {
 
             background:
-                rgba(255,255,255,.92);
-
-            backdrop-filter:
-                blur(16px);
-
-            -webkit-backdrop-filter:
-                blur(16px);
+                rgba(251,250,246,.96);
 
             border-bottom:
                 1px solid rgba(16,27,54,.08);
@@ -150,13 +222,13 @@
         }
 
 
-        .header-inner {
+        .nav-container {
 
             width:
                 min(1100px,92%);
 
             min-height:
-                72px;
+                70px;
 
             margin:
                 auto;
@@ -171,10 +243,14 @@
                 space-between;
 
             gap:
-                15px;
+                20px;
 
         }
 
+
+        /* =====================================================
+           BRAND
+        ====================================================== */
 
         .brand {
 
@@ -185,7 +261,7 @@
                 center;
 
             gap:
-                10px;
+                11px;
 
         }
 
@@ -217,12 +293,12 @@
                 center;
 
             font-size:
-                18px;
+                17px;
 
         }
 
 
-        .brand strong {
+        .brand-text strong {
 
             display:
                 block;
@@ -237,12 +313,12 @@
                 800;
 
             letter-spacing:
-                .2px;
+                .4px;
 
         }
 
 
-        .brand span {
+        .brand-text span {
 
             display:
                 block;
@@ -260,7 +336,7 @@
                 1px;
 
             margin-top:
-                2px;
+                3px;
 
         }
 
@@ -276,15 +352,6 @@
             gap:
                 7px;
 
-            color:
-                var(--navy);
-
-            font-size:
-                10px;
-
-            font-weight:
-                800;
-
             padding:
                 9px 13px;
 
@@ -297,19 +364,28 @@
             background:
                 white;
 
+            color:
+                var(--navy);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
             transition:
-                .2s ease;
+                .25s ease;
 
         }
 
 
         .home-link:hover {
 
-            border-color:
-                var(--gold);
+            background:
+                var(--navy);
 
-            transform:
-                translateY(-1px);
+            color:
+                white;
 
         }
 
@@ -323,6 +399,15 @@
             flex:
                 1;
 
+            width:
+                min(1100px,92%);
+
+            margin:
+                auto;
+
+            padding:
+                55px 0 70px;
+
             display:
                 flex;
 
@@ -332,22 +417,23 @@
             justify-content:
                 center;
 
-            padding:
-                45px 15px;
-
         }
 
 
-        .auth-wrapper {
+        /* =====================================================
+           LOGIN WRAPPER
+        ====================================================== */
+
+        .login-wrapper {
 
             width:
-                min(930px,100%);
+                min(880px,100%);
 
             display:
                 grid;
 
             grid-template-columns:
-                .85fr 1.15fr;
+                1fr 1fr;
 
             background:
                 white;
@@ -356,13 +442,13 @@
                 1px solid var(--border);
 
             border-radius:
-                26px;
+                25px;
 
             overflow:
                 hidden;
 
             box-shadow:
-                0 25px 70px rgba(16,27,54,.12);
+                var(--shadow);
 
         }
 
@@ -371,7 +457,7 @@
            LEFT PANEL
         ====================================================== */
 
-        .welcome-panel {
+        .intro-panel {
 
             background:
                 var(--navy);
@@ -380,7 +466,16 @@
                 white;
 
             padding:
-                42px 35px;
+                45px 38px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            justify-content:
+                center;
 
             position:
                 relative;
@@ -391,7 +486,7 @@
         }
 
 
-        .welcome-panel::before {
+        .intro-panel::before {
 
             content:
                 "";
@@ -412,7 +507,7 @@
                 50%;
 
             right:
-                -130px;
+                -120px;
 
             top:
                 -100px;
@@ -420,7 +515,7 @@
         }
 
 
-        .welcome-panel::after {
+        .intro-panel::after {
 
             content:
                 "";
@@ -429,10 +524,10 @@
                 absolute;
 
             width:
-                170px;
+                180px;
 
             height:
-                170px;
+                180px;
 
             border:
                 1px solid rgba(234,217,174,.10);
@@ -441,7 +536,7 @@
                 50%;
 
             left:
-                -90px;
+                -100px;
 
             bottom:
                 -80px;
@@ -449,7 +544,7 @@
         }
 
 
-        .welcome-content {
+        .intro-content {
 
             position:
                 relative;
@@ -460,123 +555,25 @@
         }
 
 
-        .small-label {
+        .intro-icon {
+
+            width:
+                55px;
+
+            height:
+                55px;
+
+            border-radius:
+                16px;
+
+            background:
+                rgba(255,255,255,.08);
+
+            border:
+                1px solid rgba(255,255,255,.10);
 
             color:
                 var(--gold-light);
-
-            font-size:
-                9px;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                2px;
-
-            margin-bottom:
-                17px;
-
-        }
-
-
-        .welcome-panel h1 {
-
-            font-family:
-                "Playfair Display",
-                Georgia,
-                serif;
-
-            font-size:
-                36px;
-
-            line-height:
-                1.1;
-
-            margin-bottom:
-                15px;
-
-        }
-
-
-        .welcome-panel h1 span {
-
-            color:
-                var(--gold);
-
-        }
-
-
-        .welcome-panel p {
-
-            color:
-                #c7cfdb;
-
-            font-size:
-                11px;
-
-            line-height:
-                1.8;
-
-            margin-bottom:
-                25px;
-
-        }
-
-
-        .benefit-list {
-
-            display:
-                grid;
-
-            gap:
-                12px;
-
-        }
-
-
-        .benefit {
-
-            display:
-                flex;
-
-            gap:
-                10px;
-
-            align-items:
-                flex-start;
-
-            color:
-                #dce1e9;
-
-            font-size:
-                10px;
-
-            line-height:
-                1.5;
-
-        }
-
-
-        .benefit-icon {
-
-            width:
-                20px;
-
-            min-width:
-                20px;
-
-            height:
-                20px;
-
-            border-radius:
-                50%;
-
-            background:
-                rgba(201,164,92,.12);
-
-            color:
-                var(--gold);
 
             display:
                 flex;
@@ -588,24 +585,7 @@
                 center;
 
             font-size:
-                10px;
-
-        }
-
-
-        /* =====================================================
-           AUTH PANEL
-        ====================================================== */
-
-        .auth-panel {
-
-            padding:
-                40px;
-
-        }
-
-
-        .auth-heading {
+                21px;
 
             margin-bottom:
                 23px;
@@ -613,11 +593,144 @@
         }
 
 
-        .auth-heading h2 {
+        .intro-panel h1 {
 
             font-family:
                 "Playfair Display",
-                Georgia,
+                serif;
+
+            font-size:
+                clamp(30px,4vw,43px);
+
+            line-height:
+                1.08;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .intro-panel h1 span {
+
+            color:
+                var(--gold-light);
+
+        }
+
+
+        .intro-panel p {
+
+            color:
+                #c9d1df;
+
+            font-size:
+                11px;
+
+            line-height:
+                1.85;
+
+            max-width:
+                360px;
+
+        }
+
+
+        .intro-points {
+
+            margin-top:
+                25px;
+
+            display:
+                grid;
+
+            gap:
+                11px;
+
+        }
+
+
+        .intro-point {
+
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            gap:
+                9px;
+
+            color:
+                #d8deea;
+
+            font-size:
+                10px;
+
+            line-height:
+                1.5;
+
+        }
+
+
+        .intro-point i {
+
+            color:
+                var(--gold);
+
+            margin-top:
+                2px;
+
+        }
+
+
+        /* =====================================================
+           FORM PANEL
+        ====================================================== */
+
+        .form-panel {
+
+            padding:
+                38px;
+
+        }
+
+
+        .form-heading {
+
+            margin-bottom:
+                25px;
+
+        }
+
+
+        .form-heading .eyebrow {
+
+            color:
+                var(--gold);
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                2px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .form-heading h2 {
+
+            font-family:
+                "Playfair Display",
                 serif;
 
             color:
@@ -632,7 +745,7 @@
         }
 
 
-        .auth-heading p {
+        .form-heading p {
 
             color:
                 var(--muted);
@@ -662,10 +775,13 @@
                 5px;
 
             padding:
-                4px;
+                5px;
 
             background:
-                #f4f2eb;
+                var(--soft);
+
+            border:
+                1px solid var(--border);
 
             border-radius:
                 11px;
@@ -676,7 +792,7 @@
         }
 
 
-        .tab {
+        .tab-btn {
 
             border:
                 none;
@@ -693,22 +809,22 @@
             border-radius:
                 8px;
 
+            cursor:
+                pointer;
+
             font-size:
                 10px;
 
             font-weight:
                 800;
 
-            cursor:
-                pointer;
-
             transition:
-                .2s ease;
+                .25s ease;
 
         }
 
 
-        .tab.active {
+        .tab-btn.active {
 
             background:
                 white;
@@ -717,7 +833,7 @@
                 var(--navy);
 
             box-shadow:
-                0 3px 10px rgba(16,27,54,.08);
+                0 4px 12px rgba(16,27,54,.07);
 
         }
 
@@ -726,7 +842,7 @@
            FORM
         ====================================================== */
 
-        .form {
+        .auth-form {
 
             display:
                 none;
@@ -734,7 +850,7 @@
         }
 
 
-        .form.active {
+        .auth-form.active {
 
             display:
                 block;
@@ -745,7 +861,7 @@
         .field {
 
             margin-bottom:
-                13px;
+                15px;
 
         }
 
@@ -759,7 +875,7 @@
                 var(--navy);
 
             font-size:
-                9px;
+                10px;
 
             font-weight:
                 800;
@@ -778,13 +894,13 @@
         }
 
 
-        .input-icon {
+        .input-wrap > i {
 
             position:
                 absolute;
 
             left:
-                13px;
+                12px;
 
             top:
                 50%;
@@ -793,16 +909,10 @@
                 translateY(-50%);
 
             color:
-                #929aaa;
+                #9ba3b1;
 
             font-size:
-                12px;
-
-            width:
-                15px;
-
-            text-align:
-                center;
+                11px;
 
             pointer-events:
                 none;
@@ -810,7 +920,7 @@
         }
 
 
-        .input-wrap input {
+        .field input {
 
             width:
                 100%;
@@ -824,23 +934,20 @@
             border-radius:
                 9px;
 
+            background:
+                #fcfbf8;
+
+            color:
+                var(--text);
+
             padding:
-                0 40px;
-
-            font-family:
-                inherit;
-
-            font-size:
-                11px;
+                0 12px 0 35px;
 
             outline:
                 none;
 
-            background:
-                #fcfcfa;
-
-            color:
-                var(--text);
+            font-size:
+                11px;
 
             transition:
                 .2s ease;
@@ -848,7 +955,7 @@
         }
 
 
-        .input-wrap input:focus {
+        .field input:focus {
 
             border-color:
                 var(--gold);
@@ -861,87 +968,6 @@
 
         }
 
-
-        .password-toggle {
-
-            position:
-                absolute;
-
-            right:
-                12px;
-
-            top:
-                50%;
-
-            transform:
-                translateY(-50%);
-
-            border:
-                none;
-
-            background:
-                transparent;
-
-            color:
-                #8992a2;
-
-            cursor:
-                pointer;
-
-            font-size:
-                11px;
-
-            padding:
-                5px;
-
-        }
-
-
-        .forgot-row {
-
-            text-align:
-                right;
-
-            margin:
-                -3px 0 15px;
-
-        }
-
-
-        .forgot-btn {
-
-            border:
-                none;
-
-            background:
-                none;
-
-            color:
-                #8a6d35;
-
-            font-size:
-                9px;
-
-            font-weight:
-                800;
-
-            cursor:
-                pointer;
-
-        }
-
-
-        .forgot-btn:hover {
-
-            text-decoration:
-                underline;
-
-        }
-
-
-        /* =====================================================
-           BUTTON
-        ====================================================== */
 
         .submit-btn {
 
@@ -963,20 +989,32 @@
             color:
                 white;
 
+            cursor:
+                pointer;
+
             font-size:
                 10px;
 
             font-weight:
                 800;
 
-            cursor:
-                pointer;
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                8px;
+
+            margin-top:
+                5px;
 
             transition:
                 .25s ease;
-
-            box-shadow:
-                0 9px 22px rgba(16,27,54,.16);
 
         }
 
@@ -984,7 +1022,7 @@
         .submit-btn:hover {
 
             background:
-                #1a2b53;
+                var(--navy-dark);
 
             transform:
                 translateY(-1px);
@@ -998,7 +1036,7 @@
                 .65;
 
             cursor:
-                wait;
+                not-allowed;
 
             transform:
                 none;
@@ -1016,19 +1054,19 @@
                 none;
 
             padding:
-                10px 12px;
+                11px 12px;
 
             border-radius:
-                8px;
-
-            font-size:
                 9px;
 
-            line-height:
-                1.5;
-
             margin-bottom:
-                13px;
+                15px;
+
+            font-size:
+                10px;
+
+            line-height:
+                1.55;
 
         }
 
@@ -1041,50 +1079,235 @@
         }
 
 
-        .message.success {
-
-            background:
-                #eaf7f0;
-
-            color:
-                var(--success);
-
-            border:
-                1px solid #c9ead8;
-
-        }
-
-
         .message.error {
 
             background:
-                #fff0ee;
+                #fbefed;
 
             color:
                 var(--danger);
 
             border:
-                1px solid #f3d0cb;
+                1px solid #efd5d1;
 
         }
 
 
-        .register-note {
+        .message.success {
+
+            background:
+                #edf7f0;
+
+            color:
+                var(--success);
+
+            border:
+                1px solid #d2e8d8;
+
+        }
+
+
+        .message.info {
+
+            background:
+                #eef3f9;
+
+            color:
+                #3e5b7d;
+
+            border:
+                1px solid #d8e2ef;
+
+        }
+
+
+        /* =====================================================
+           NOTE
+        ====================================================== */
+
+        .form-note {
+
+            margin-top:
+                17px;
+
+            color:
+                #8992a1;
 
             text-align:
                 center;
 
-            color:
-                #929aaa;
-
             font-size:
                 8px;
 
-            margin-top:
-                15px;
-
             line-height:
                 1.6;
+
+        }
+
+
+        /* =====================================================
+           LOGGED-IN PANEL
+        ====================================================== */
+
+        .logged-in-panel {
+
+            display:
+                none;
+
+            text-align:
+                center;
+
+        }
+
+
+        .logged-in-panel.show {
+
+            display:
+                block;
+
+        }
+
+
+        .logged-icon {
+
+            width:
+                65px;
+
+            height:
+                65px;
+
+            margin:
+                0 auto 15px;
+
+            border-radius:
+                50%;
+
+            background:
+                #edf7f0;
+
+            color:
+                var(--success);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                25px;
+
+        }
+
+
+        .logged-in-panel h2 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            color:
+                var(--navy);
+
+            font-size:
+                27px;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .logged-in-panel p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                10px;
+
+            line-height:
+                1.7;
+
+            margin-bottom:
+                20px;
+
+        }
+
+
+        .logged-actions {
+
+            display:
+                grid;
+
+            gap:
+                9px;
+
+        }
+
+
+        .logged-action {
+
+            width:
+                100%;
+
+            min-height:
+                42px;
+
+            border:
+                none;
+
+            border-radius:
+                9px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                7px;
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            cursor:
+                pointer;
+
+        }
+
+
+        .go-home {
+
+            background:
+                var(--navy);
+
+            color:
+                white;
+
+        }
+
+
+        .logout-action {
+
+            background:
+                #f8eeee;
+
+            color:
+                var(--danger);
+
+            border:
+                1px solid #ead4d1;
 
         }
 
@@ -1095,14 +1318,17 @@
 
         footer {
 
+            background:
+                var(--navy-dark);
+
+            color:
+                #7f899b;
+
             text-align:
                 center;
 
             padding:
-                17px;
-
-            color:
-                #8791a2;
+                18px 15px;
 
             font-size:
                 8px;
@@ -1111,12 +1337,12 @@
 
 
         /* =====================================================
-           MOBILE
+           RESPONSIVE
         ====================================================== */
 
         @media (max-width: 760px) {
 
-            .auth-wrapper {
+            .login-wrapper {
 
                 grid-template-columns:
                     1fr;
@@ -1124,7 +1350,7 @@
             }
 
 
-            .welcome-panel {
+            .intro-panel {
 
                 padding:
                     30px 25px;
@@ -1132,15 +1358,15 @@
             }
 
 
-            .welcome-panel h1 {
+            .intro-panel p {
 
-                font-size:
-                    30px;
+                max-width:
+                    none;
 
             }
 
 
-            .benefit-list {
+            .intro-points {
 
                 grid-template-columns:
                     1fr 1fr;
@@ -1148,27 +1374,46 @@
             }
 
 
-            .auth-panel {
+            .form-panel {
 
                 padding:
-                    28px 22px;
+                    30px 25px;
 
             }
 
         }
 
 
-        @media (max-width: 480px) {
+        @media (max-width: 500px) {
 
-            .header-inner {
+            .top-bar {
 
-                min-height:
-                    64px;
+                font-size:
+                    8px;
 
             }
 
 
-            .brand strong {
+            .nav-container {
+
+                min-height:
+                    62px;
+
+            }
+
+
+            .brand-icon {
+
+                width:
+                    37px;
+
+                height:
+                    37px;
+
+            }
+
+
+            .brand-text strong {
 
                 font-size:
                     12px;
@@ -1176,7 +1421,7 @@
             }
 
 
-            .brand span {
+            .brand-text span {
 
                 font-size:
                     7px;
@@ -1184,23 +1429,29 @@
             }
 
 
-            main {
+            .home-link {
 
                 padding:
-                    25px 10px;
+                    8px 10px;
+
+                font-size:
+                    9px;
 
             }
 
 
-            .auth-wrapper {
+            main {
 
-                border-radius:
-                    20px;
+                width:
+                    94%;
+
+                padding:
+                    30px 0 45px;
 
             }
 
 
-            .benefit-list {
+            .intro-points {
 
                 grid-template-columns:
                     1fr;
@@ -1208,18 +1459,18 @@
             }
 
 
-            .welcome-panel {
+            .intro-panel {
 
                 padding:
-                    27px 22px;
+                    28px 22px;
 
             }
 
 
-            .auth-panel {
+            .form-panel {
 
                 padding:
-                    25px 18px;
+                    27px 20px;
 
             }
 
@@ -1234,32 +1485,45 @@
 
 
     <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
+
+    <div class="top-bar">
+
+        ALL ABOUT ENGLISH • STUDENT PORTAL • SHAHEEN SIR
+
+    </div>
+
+
+    <!-- =====================================================
          HEADER
     ====================================================== -->
 
     <header>
 
-        <div class="header-inner">
+        <div class="nav-container">
 
 
             <a
-                href="./index.html"
+                href="./"
                 class="brand"
             >
 
                 <div class="brand-icon">
-                    📖
+
+                    <i class="fa-solid fa-book-open"></i>
+
                 </div>
 
 
-                <div>
+                <div class="brand-text">
 
                     <strong>
                         ALL ABOUT ENGLISH
                     </strong>
 
                     <span>
-                        BY SHAHEEN SIR
+                        SHAHEEN SIR
                     </span>
 
                 </div>
@@ -1268,11 +1532,12 @@
 
 
             <a
-                href="./index.html"
+                href="./"
                 class="home-link"
             >
 
-                🏠
+                <i class="fa-solid fa-house"></i>
+
                 Home
 
             </a>
@@ -1282,7 +1547,6 @@
     </header>
 
 
-
     <!-- =====================================================
          MAIN
     ====================================================== -->
@@ -1290,55 +1554,51 @@
     <main>
 
 
-        <div class="auth-wrapper">
+        <div class="login-wrapper">
 
 
             <!-- =================================================
-                 WELCOME PANEL
+                 INTRO
             ================================================== -->
 
-            <section class="welcome-panel">
+            <section class="intro-panel">
+
+                <div class="intro-content">
 
 
-                <div class="welcome-content">
+                    <div class="intro-icon">
 
-
-                    <div class="small-label">
-
-                        STUDENT PORTAL
+                        <i class="fa-solid fa-graduation-cap"></i>
 
                     </div>
 
 
                     <h1>
 
-                        Learn.
+                        Welcome to
 
                         <span>
-                            Grow.
+                            All About English
                         </span>
-
-                        Succeed.
 
                     </h1>
 
 
                     <p>
 
-                        Access your approved learning materials
-                        through the All About English student portal.
+                        Login to your student account to access
+                        your approved English learning materials,
+                        lessons and resources.
 
                     </p>
 
 
-                    <div class="benefit-list">
+                    <div class="intro-points">
 
 
-                        <div class="benefit">
+                        <div class="intro-point">
 
-                            <div class="benefit-icon">
-                                ✓
-                            </div>
+                            <i class="fa-solid fa-circle-check"></i>
 
                             <span>
                                 Secure student account
@@ -1347,40 +1607,34 @@
                         </div>
 
 
-                        <div class="benefit">
+                        <div class="intro-point">
 
-                            <div class="benefit-icon">
-                                📖
-                            </div>
+                            <i class="fa-solid fa-circle-check"></i>
 
                             <span>
-                                Access approved learning content
+                                Approved learning materials
                             </span>
 
                         </div>
 
 
-                        <div class="benefit">
+                        <div class="intro-point">
 
-                            <div class="benefit-icon">
-                                📱
-                            </div>
+                            <i class="fa-solid fa-circle-check"></i>
 
                             <span>
-                                Designed for mobile and desktop
+                                HSC-focused English resources
                             </span>
 
                         </div>
 
 
-                        <div class="benefit">
+                        <div class="intro-point">
 
-                            <div class="benefit-icon">
-                                🔑
-                            </div>
+                            <i class="fa-solid fa-circle-check"></i>
 
                             <span>
-                                Easy password recovery
+                                Continuous course expansion
                             </span>
 
                         </div>
@@ -1393,59 +1647,35 @@
             </section>
 
 
-
             <!-- =================================================
-                 AUTH PANEL
+                 FORM PANEL
             ================================================== -->
 
-            <section class="auth-panel">
+            <section class="form-panel">
 
 
-                <div class="auth-heading">
+                <!-- =================================================
+                     FORM HEADING
+                ================================================== -->
+
+                <div
+                    class="form-heading"
+                    id="formHeading"
+                >
+
+                    <div class="eyebrow">
+                        Student Portal
+                    </div>
 
                     <h2>
                         Student Account
                     </h2>
 
                     <p>
-                        Login to continue learning.
+                        Login to continue or create your account.
                     </p>
 
                 </div>
-
-
-
-                <!-- =================================================
-                     TABS
-                ================================================== -->
-
-                <div class="tabs">
-
-
-                    <button
-                        type="button"
-                        class="tab active"
-                        id="loginTab"
-                    >
-
-                        Login
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="tab"
-                        id="registerTab"
-                    >
-
-                        Create Account
-
-                    </button>
-
-
-                </div>
-
 
 
                 <!-- =================================================
@@ -1453,349 +1683,300 @@
                 ================================================== -->
 
                 <div
-                    id="message"
                     class="message"
-                    role="alert"
-                    aria-live="polite"
+                    id="messageBox"
                 ></div>
 
 
-
                 <!-- =================================================
-                     LOGIN FORM
+                     AUTH AREA
                 ================================================== -->
 
-                <form
-                    id="loginForm"
-                    class="form active"
-                    novalidate
-                >
+                <div id="authArea">
 
 
-                    <div class="field">
+                    <!-- =================================================
+                         TABS
+                    ================================================== -->
 
-                        <label for="loginEmail">
-                            EMAIL ADDRESS
-                        </label>
+                    <div class="tabs">
 
-
-                        <div class="input-wrap">
-
-                            <span class="input-icon">
-                                ✉
-                            </span>
-
-                            <input
-                                type="email"
-                                id="loginEmail"
-                                placeholder="Enter your email"
-                                autocomplete="email"
-                                required
-                            >
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="field">
-
-                        <label for="loginPassword">
-                            PASSWORD
-                        </label>
-
-
-                        <div class="input-wrap">
-
-                            <span class="input-icon">
-                                🔒
-                            </span>
-
-                            <input
-                                type="password"
-                                id="loginPassword"
-                                placeholder="Enter your password"
-                                autocomplete="current-password"
-                                required
-                            >
-
-
-                            <button
-                                type="button"
-                                class="password-toggle"
-                                id="loginPasswordToggle"
-                                aria-label="Show password"
-                            >
-
-                                👁
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="forgot-row">
 
                         <button
                             type="button"
-                            class="forgot-btn"
-                            id="forgotPasswordButton"
+                            class="tab-btn active"
+                            id="loginTab"
                         >
 
-                            Forgot Password?
+                            Login
 
                         </button>
 
+
+                        <button
+                            type="button"
+                            class="tab-btn"
+                            id="registerTab"
+                        >
+
+                            Create Account
+
+                        </button>
+
+
                     </div>
 
 
+                    <!-- =================================================
+                         LOGIN FORM
+                    ================================================== -->
 
-                    <button
-                        type="submit"
-                        class="submit-btn"
-                        id="loginButton"
+                    <form
+                        id="loginForm"
+                        class="auth-form active"
                     >
 
-                        → &nbsp; LOGIN
 
-                    </button>
+                        <div class="field">
+
+                            <label for="loginEmail">
+                                Email Address
+                            </label>
 
 
-                    <div class="register-note">
+                            <div class="input-wrap">
 
-                        Don't have an account?
-                        Select <b>Create Account</b> above.
+                                <i class="fa-solid fa-envelope"></i>
+
+                                <input
+                                    type="email"
+                                    id="loginEmail"
+                                    placeholder="Enter your email"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="loginPassword">
+                                Password
+                            </label>
+
+
+                            <div class="input-wrap">
+
+                                <i class="fa-solid fa-lock"></i>
+
+                                <input
+                                    type="password"
+                                    id="loginPassword"
+                                    placeholder="Enter your password"
+                                    autocomplete="current-password"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="submit-btn"
+                            id="loginSubmit"
+                        >
+
+                            <i class="fa-solid fa-right-to-bracket"></i>
+
+                            Login
+
+                        </button>
+
+
+                    </form>
+
+
+                    <!-- =================================================
+                         REGISTER FORM
+                    ================================================== -->
+
+                    <form
+                        id="registerForm"
+                        class="auth-form"
+                    >
+
+
+                        <div class="field">
+
+                            <label for="registerName">
+                                Full Name
+                            </label>
+
+
+                            <div class="input-wrap">
+
+                                <i class="fa-solid fa-user"></i>
+
+                                <input
+                                    type="text"
+                                    id="registerName"
+                                    placeholder="Enter your full name"
+                                    autocomplete="name"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="registerEmail">
+                                Email Address
+                            </label>
+
+
+                            <div class="input-wrap">
+
+                                <i class="fa-solid fa-envelope"></i>
+
+                                <input
+                                    type="email"
+                                    id="registerEmail"
+                                    placeholder="Enter your email"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="registerPassword">
+                                Password
+                            </label>
+
+
+                            <div class="input-wrap">
+
+                                <i class="fa-solid fa-lock"></i>
+
+                                <input
+                                    type="password"
+                                    id="registerPassword"
+                                    placeholder="Create a password"
+                                    autocomplete="new-password"
+                                    minlength="6"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="submit-btn"
+                            id="registerSubmit"
+                        >
+
+                            <i class="fa-solid fa-user-plus"></i>
+
+                            Create Account
+
+                        </button>
+
+
+                    </form>
+
+
+                    <div class="form-note">
+
+                        Your account may require approval before
+                        accessing protected lessons.
 
                     </div>
 
-
-                </form>
-
+                </div>
 
 
                 <!-- =================================================
-                     REGISTER FORM
+                     LOGGED IN PANEL
                 ================================================== -->
 
-                <form
-                    id="registerForm"
-                    class="form"
-                    novalidate
+                <div
+                    class="logged-in-panel"
+                    id="loggedInPanel"
                 >
 
 
-                    <div class="field">
+                    <div class="logged-icon">
 
-                        <label for="registerName">
-                            STUDENT NAME
-                        </label>
-
-
-                        <div class="input-wrap">
-
-                            <span class="input-icon">
-                                👤
-                            </span>
-
-                            <input
-                                type="text"
-                                id="registerName"
-                                placeholder="Your full name"
-                                autocomplete="name"
-                                required
-                            >
-
-                        </div>
+                        <i class="fa-solid fa-circle-check"></i>
 
                     </div>
 
 
-
-                    <div class="field">
-
-                        <label for="registerMobile">
-                            MOBILE NUMBER
-                        </label>
+                    <h2>
+                        You Are Logged In
+                    </h2>
 
 
-                        <div class="input-wrap">
+                    <p>
 
-                            <span class="input-icon">
-                                ☎
-                            </span>
+                        Welcome,
 
-                            <input
-                                type="tel"
-                                id="registerMobile"
-                                placeholder="01XXXXXXXXX"
-                                autocomplete="tel"
-                                required
-                            >
+                        <strong id="loggedUserName">
+                            Student
+                        </strong>.
 
-                        </div>
+                        Your student account is active on this device.
+
+                    </p>
+
+
+                    <div class="logged-actions">
+
+
+                        <button
+                            type="button"
+                            class="logged-action go-home"
+                            id="goHomeBtn"
+                        >
+
+                            <i class="fa-solid fa-house"></i>
+
+                            Go to Homepage
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="logged-action logout-action"
+                            id="logoutBtn"
+                        >
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            Logout
+
+                        </button>
+
 
                     </div>
 
-
-
-                    <div class="field">
-
-                        <label for="registerCollege">
-                            COLLEGE / INSTITUTION
-                        </label>
-
-
-                        <div class="input-wrap">
-
-                            <span class="input-icon">
-                                🏫
-                            </span>
-
-                            <input
-                                type="text"
-                                id="registerCollege"
-                                placeholder="College / Institution"
-                                autocomplete="organization"
-                                required
-                            >
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="field">
-
-                        <label for="registerEmail">
-                            EMAIL ADDRESS
-                        </label>
-
-
-                        <div class="input-wrap">
-
-                            <span class="input-icon">
-                                ✉
-                            </span>
-
-                            <input
-                                type="email"
-                                id="registerEmail"
-                                placeholder="Enter your email"
-                                autocomplete="email"
-                                required
-                            >
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="field">
-
-                        <label for="registerPassword">
-                            PASSWORD
-                        </label>
-
-
-                        <div class="input-wrap">
-
-                            <span class="input-icon">
-                                🔒
-                            </span>
-
-                            <input
-                                type="password"
-                                id="registerPassword"
-                                placeholder="At least 6 characters"
-                                minlength="6"
-                                autocomplete="new-password"
-                                required
-                            >
-
-
-                            <button
-                                type="button"
-                                class="password-toggle"
-                                id="registerPasswordToggle"
-                                aria-label="Show password"
-                            >
-
-                                👁
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="field">
-
-                        <label for="confirmPassword">
-                            CONFIRM PASSWORD
-                        </label>
-
-
-                        <div class="input-wrap">
-
-                            <span class="input-icon">
-                                🔒
-                            </span>
-
-                            <input
-                                type="password"
-                                id="confirmPassword"
-                                placeholder="Repeat your password"
-                                minlength="6"
-                                autocomplete="new-password"
-                                required
-                            >
-
-
-                            <button
-                                type="button"
-                                class="password-toggle"
-                                id="confirmPasswordToggle"
-                                aria-label="Show password"
-                            >
-
-                                👁
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <button
-                        type="submit"
-                        class="submit-btn"
-                        id="registerButton"
-                    >
-
-                        + &nbsp; CREATE ACCOUNT
-
-                    </button>
-
-
-                    <div class="register-note">
-
-                        Your account will require approval before
-                        restricted learning content becomes available.
-
-                    </div>
-
-
-                </form>
+                </div>
 
 
             </section>
@@ -1806,336 +1987,267 @@
     </main>
 
 
-
     <!-- =====================================================
          FOOTER
     ====================================================== -->
 
     <footer>
 
-        © 2026 ALL ABOUT ENGLISH • BY SHAHEEN SIR
+        © 2026 ALL ABOUT ENGLISH • BY SHAHEEN SIR •
+        All Rights Reserved
 
     </footer>
 
 
-
     <!-- =====================================================
-         JAVASCRIPT
+         FIREBASE AUTH
     ====================================================== -->
 
     <script type="module">
 
-        /* =====================================================
-           FIREBASE AUTH IMPORT
-        ====================================================== */
+        // ====================================================
+        // IMPORT AUTH FUNCTIONS
+        // ====================================================
 
         import {
+
+            createStudentAccount,
+
             loginStudent,
-            registerStudent,
-            resetStudentPassword
+
+            logoutStudent,
+
+            watchAuthState
+
         } from "./firebase-auth.js";
 
 
-        /* =====================================================
-           ELEMENTS
-        ====================================================== */
-
-        const loginForm =
-            document.getElementById("loginForm");
-
-        const registerForm =
-            document.getElementById("registerForm");
+        // ====================================================
+        // ELEMENTS
+        // ====================================================
 
         const loginTab =
-            document.getElementById("loginTab");
-
-        const registerTab =
-            document.getElementById("registerTab");
-
-        const loginButton =
-            document.getElementById("loginButton");
-
-        const registerButton =
-            document.getElementById("registerButton");
-
-        const message =
-            document.getElementById("message");
-
-
-        /* =====================================================
-           FORM SWITCH
-        ====================================================== */
-
-        function showForm(type) {
-
-            clearMessage();
-
-            if (type === "login") {
-
-                loginForm.classList.add("active");
-
-                registerForm.classList.remove("active");
-
-                loginTab.classList.add("active");
-
-                registerTab.classList.remove("active");
-
-            }
-
-            else {
-
-                loginForm.classList.remove("active");
-
-                registerForm.classList.add("active");
-
-                loginTab.classList.remove("active");
-
-                registerTab.classList.add("active");
-
-            }
-
-        }
-
-
-        loginTab.addEventListener(
-            "click",
-            function() {
-
-                showForm("login");
-
-            }
-        );
-
-
-        registerTab.addEventListener(
-            "click",
-            function() {
-
-                showForm("register");
-
-            }
-        );
-
-
-        /* =====================================================
-           MAKE SHOWFORM AVAILABLE
-           FOR OTHER POSSIBLE INLINE CALLS
-        ====================================================== */
-
-        window.showForm = showForm;
-
-
-        /* =====================================================
-           PASSWORD TOGGLE
-        ====================================================== */
-
-        function setupPasswordToggle(
-            inputId,
-            buttonId
-        ) {
-
-            const input =
-                document.getElementById(inputId);
-
-            const button =
-                document.getElementById(buttonId);
-
-
-            button.addEventListener(
-                "click",
-                function() {
-
-                    if (input.type === "password") {
-
-                        input.type = "text";
-
-                        button.textContent = "🙈";
-
-                        button.setAttribute(
-                            "aria-label",
-                            "Hide password"
-                        );
-
-                    }
-
-                    else {
-
-                        input.type = "password";
-
-                        button.textContent = "👁";
-
-                        button.setAttribute(
-                            "aria-label",
-                            "Show password"
-                        );
-
-                    }
-
-                }
+            document.getElementById(
+                "loginTab"
             );
 
-        }
+
+        const registerTab =
+            document.getElementById(
+                "registerTab"
+            );
 
 
-        setupPasswordToggle(
-            "loginPassword",
-            "loginPasswordToggle"
-        );
+        const loginForm =
+            document.getElementById(
+                "loginForm"
+            );
 
 
-        setupPasswordToggle(
-            "registerPassword",
-            "registerPasswordToggle"
-        );
+        const registerForm =
+            document.getElementById(
+                "registerForm"
+            );
 
 
-        setupPasswordToggle(
-            "confirmPassword",
-            "confirmPasswordToggle"
-        );
+        const messageBox =
+            document.getElementById(
+                "messageBox"
+            );
 
 
-        /* =====================================================
-           MESSAGE
-        ====================================================== */
+        const authArea =
+            document.getElementById(
+                "authArea"
+            );
+
+
+        const loggedInPanel =
+            document.getElementById(
+                "loggedInPanel"
+            );
+
+
+        const loggedUserName =
+            document.getElementById(
+                "loggedUserName"
+            );
+
+
+        const goHomeBtn =
+            document.getElementById(
+                "goHomeBtn"
+            );
+
+
+        const logoutBtn =
+            document.getElementById(
+                "logoutBtn"
+            );
+
+
+        const loginSubmit =
+            document.getElementById(
+                "loginSubmit"
+            );
+
+
+        const registerSubmit =
+            document.getElementById(
+                "registerSubmit"
+            );
+
+
+        // ====================================================
+        // SHOW MESSAGE
+        // ====================================================
 
         function showMessage(
-            text,
-            type
+            message,
+            type = "info"
         ) {
 
-            message.textContent =
-                text;
+            messageBox.textContent =
+                message;
 
-            message.className =
+            messageBox.className =
                 "message show " + type;
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
 
         }
 
 
-        function clearMessage() {
+        // ====================================================
+        // HIDE MESSAGE
+        // ====================================================
 
-            message.textContent =
+        function hideMessage() {
+
+            messageBox.textContent =
                 "";
 
-            message.className =
+            messageBox.className =
                 "message";
 
         }
 
 
-        /* =====================================================
-           FIREBASE TIMEOUT PROTECTION
-        ====================================================== */
+        // ====================================================
+        // SWITCH TO LOGIN
+        // ====================================================
 
-        function withTimeout(
-            promise,
-            milliseconds
-        ) {
+        function showLoginForm() {
 
-            return Promise.race([
+            hideMessage();
 
-                promise,
+            loginTab.classList.add(
+                "active"
+            );
 
-                new Promise(
-                    function(resolve) {
+            registerTab.classList.remove(
+                "active"
+            );
 
-                        setTimeout(
-                            function() {
+            loginForm.classList.add(
+                "active"
+            );
 
-                                resolve({
-
-                                    success: false,
-
-                                    message:
-                                        "The request is taking too long. Please check your internet connection and try again."
-
-                                });
-
-                            },
-                            milliseconds
-                        );
-
-                    }
-                )
-
-            ]);
+            registerForm.classList.remove(
+                "active"
+            );
 
         }
 
 
-        /* =====================================================
-           LOGIN
-        ====================================================== */
+        // ====================================================
+        // SWITCH TO REGISTER
+        // ====================================================
+
+        function showRegisterForm() {
+
+            hideMessage();
+
+            registerTab.classList.add(
+                "active"
+            );
+
+            loginTab.classList.remove(
+                "active"
+            );
+
+            registerForm.classList.add(
+                "active"
+            );
+
+            loginForm.classList.remove(
+                "active"
+            );
+
+        }
+
+
+        // ====================================================
+        // TAB EVENTS
+        // ====================================================
+
+        loginTab.addEventListener(
+            "click",
+            showLoginForm
+        );
+
+
+        registerTab.addEventListener(
+            "click",
+            showRegisterForm
+        );
+
+
+        // ====================================================
+        // LOGIN
+        // ====================================================
 
         loginForm.addEventListener(
             "submit",
-            async function(event) {
+            async function (event) {
 
                 event.preventDefault();
 
-                clearMessage();
+                hideMessage();
+
+                loginSubmit.disabled =
+                    true;
+
+                loginSubmit.innerHTML = `
+
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+
+                    Logging in...
+
+                `;
 
 
                 const email =
                     document
-                        .getElementById("loginEmail")
+                        .getElementById(
+                            "loginEmail"
+                        )
                         .value
                         .trim();
 
 
                 const password =
                     document
-                        .getElementById("loginPassword")
+                        .getElementById(
+                            "loginPassword"
+                        )
                         .value;
-
-
-                if (!email) {
-
-                    showMessage(
-                        "Please enter your email address.",
-                        "error"
-                    );
-
-                    return;
-
-                }
-
-
-                if (!password) {
-
-                    showMessage(
-                        "Please enter your password.",
-                        "error"
-                    );
-
-                    return;
-
-                }
-
-
-                loginButton.disabled =
-                    true;
-
-
-                loginButton.textContent =
-                    "LOGGING IN...";
 
 
                 try {
 
                     const result =
-                        await withTimeout(
-                            loginStudent(
-                                email,
-                                password
-                            ),
-                            15000
+                        await loginStudent(
+                            email,
+                            password
                         );
 
 
@@ -2145,66 +2257,56 @@
                     ) {
 
                         showMessage(
-                            "Login successful. Redirecting...",
+                            "Login successful.",
                             "success"
                         );
 
-
-                        setTimeout(
-                            function() {
-
-                                window.location.replace(
-                                    "./index.html"
-                                );
-
-                            },
-                            700
-                        );
-
-
-                        return;
+                        loginForm.reset();
 
                     }
 
+                    else {
 
-                    showMessage(
-                        result &&
-                        result.message
-                            ? result.message
-                            : "Login failed. Please try again.",
-                        "error"
-                    );
+                        showMessage(
+                            (
+                                result &&
+                                result.message
+                            ) ||
+                            "Login failed. Please check your email and password.",
+                            "error"
+                        );
 
-
-                    loginButton.disabled =
-                        false;
-
-
-                    loginButton.textContent =
-                        "→  LOGIN";
+                    }
 
                 }
 
                 catch (error) {
 
                     console.error(
-                        "Login Error:",
+                        "Login error:",
                         error
                     );
 
 
                     showMessage(
-                        getFriendlyFirebaseError(error),
+                        "Unable to login. Please try again.",
                         "error"
                     );
 
+                }
 
-                    loginButton.disabled =
+                finally {
+
+                    loginSubmit.disabled =
                         false;
 
+                    loginSubmit.innerHTML = `
 
-                    loginButton.textContent =
-                        "→  LOGIN";
+                        <i class="fa-solid fa-right-to-bracket"></i>
+
+                        Login
+
+                    `;
 
                 }
 
@@ -2212,154 +2314,63 @@
         );
 
 
-        /* =====================================================
-           REGISTER
-        ====================================================== */
+        // ====================================================
+        // CREATE ACCOUNT
+        // ====================================================
 
         registerForm.addEventListener(
             "submit",
-            async function(event) {
+            async function (event) {
 
                 event.preventDefault();
 
-                clearMessage();
+                hideMessage();
+
+                registerSubmit.disabled =
+                    true;
+
+                registerSubmit.innerHTML = `
+
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+
+                    Creating Account...
+
+                `;
 
 
                 const name =
                     document
-                        .getElementById("registerName")
-                        .value
-                        .trim();
-
-
-                const mobile =
-                    document
-                        .getElementById("registerMobile")
-                        .value
-                        .trim();
-
-
-                const college =
-                    document
-                        .getElementById("registerCollege")
+                        .getElementById(
+                            "registerName"
+                        )
                         .value
                         .trim();
 
 
                 const email =
                     document
-                        .getElementById("registerEmail")
+                        .getElementById(
+                            "registerEmail"
+                        )
                         .value
                         .trim();
 
 
                 const password =
                     document
-                        .getElementById("registerPassword")
+                        .getElementById(
+                            "registerPassword"
+                        )
                         .value;
-
-
-                const confirmPassword =
-                    document
-                        .getElementById("confirmPassword")
-                        .value;
-
-
-                if (!name) {
-
-                    showMessage(
-                        "Please enter your full name.",
-                        "error"
-                    );
-
-                    return;
-
-                }
-
-
-                if (!mobile) {
-
-                    showMessage(
-                        "Please enter your mobile number.",
-                        "error"
-                    );
-
-                    return;
-
-                }
-
-
-                if (!college) {
-
-                    showMessage(
-                        "Please enter your college or institution.",
-                        "error"
-                    );
-
-                    return;
-
-                }
-
-
-                if (!email) {
-
-                    showMessage(
-                        "Please enter your email address.",
-                        "error"
-                    );
-
-                    return;
-
-                }
-
-
-                if (password.length < 6) {
-
-                    showMessage(
-                        "Password must contain at least 6 characters.",
-                        "error"
-                    );
-
-                    return;
-
-                }
-
-
-                if (
-                    password !==
-                    confirmPassword
-                ) {
-
-                    showMessage(
-                        "Passwords do not match.",
-                        "error"
-                    );
-
-                    return;
-
-                }
-
-
-                registerButton.disabled =
-                    true;
-
-
-                registerButton.textContent =
-                    "CREATING...";
 
 
                 try {
 
                     const result =
-                        await withTimeout(
-                            registerStudent(
-                                name,
-                                mobile,
-                                email,
-                                college,
-                                password
-                            ),
-                            15000
+                        await createStudentAccount(
+                            name,
+                            email,
+                            password
                         );
 
 
@@ -2369,34 +2380,22 @@
                     ) {
 
                         showMessage(
-                            "Account created successfully. Your account is now pending approval.",
+                            "Account created successfully. Please wait for approval before accessing protected lessons.",
                             "success"
                         );
-
 
                         registerForm.reset();
 
-
-                        setTimeout(
-                            function() {
-
-                                showForm(
-                                    "login"
-                                );
-
-                            },
-                            1800
-                        );
-
                     }
 
                     else {
 
                         showMessage(
-                            result &&
-                            result.message
-                                ? result.message
-                                : "Registration failed. Please try again.",
+                            (
+                                result &&
+                                result.message
+                            ) ||
+                            "Unable to create account.",
                             "error"
                         );
 
@@ -2407,108 +2406,136 @@
                 catch (error) {
 
                     console.error(
-                        "Registration Error:",
+                        "Create account error:",
                         error
                     );
 
 
                     showMessage(
-                        getFriendlyFirebaseError(error),
+                        "Unable to create account. Please try again.",
                         "error"
                     );
 
                 }
 
+                finally {
 
-                registerButton.disabled =
-                    false;
+                    registerSubmit.disabled =
+                        false;
 
+                    registerSubmit.innerHTML = `
 
-                registerButton.textContent =
-                    "+  CREATE ACCOUNT";
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        Create Account
+
+                    `;
+
+                }
 
             }
         );
 
 
-        /* =====================================================
-           PASSWORD RESET
-        ====================================================== */
+        // ====================================================
+        // AUTH STATE
+        // ====================================================
 
-        const forgotPasswordButton =
-            document.getElementById(
-                "forgotPasswordButton"
-            );
+        watchAuthState(
+            function (user) {
 
+                if (!user) {
 
-        forgotPasswordButton.addEventListener(
-            "click",
-            async function() {
+                    authArea.style.display =
+                        "block";
 
-                const email =
-                    document
-                        .getElementById("loginEmail")
-                        .value
-                        .trim();
-
-
-                if (!email) {
-
-                    showMessage(
-                        "Please enter your email address first.",
-                        "error"
+                    loggedInPanel.classList.remove(
+                        "show"
                     );
-
-
-                    document
-                        .getElementById("loginEmail")
-                        .focus();
 
                     return;
 
                 }
 
 
-                forgotPasswordButton.disabled =
+                // --------------------------------------------
+                // USER IS LOGGED IN
+                // --------------------------------------------
+
+                authArea.style.display =
+                    "none";
+
+
+                loggedInPanel.classList.add(
+                    "show"
+                );
+
+
+                const name =
+                    user.displayName ||
+                    user.email ||
+                    "Student";
+
+
+                loggedUserName.textContent =
+                    name;
+
+            }
+        );
+
+
+        // ====================================================
+        // GO HOME
+        // ====================================================
+
+        goHomeBtn.addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "./";
+
+            }
+        );
+
+
+        // ====================================================
+        // LOGOUT
+        // ====================================================
+
+        logoutBtn.addEventListener(
+            "click",
+            async function () {
+
+                logoutBtn.disabled =
                     true;
 
+                logoutBtn.innerHTML = `
 
-                showMessage(
-                    "Sending password reset email...",
-                    "success"
-                );
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+
+                    Logging out...
+
+                `;
 
 
                 try {
 
                     const result =
-                        await withTimeout(
-                            resetStudentPassword(
-                                email
-                            ),
-                            15000
-                        );
+                        await logoutStudent();
 
 
                     if (
-                        result &&
-                        result.success
+                        !result ||
+                        !result.success
                     ) {
 
                         showMessage(
-                            "Password reset email sent. Please check your inbox and follow the instructions.",
-                            "success"
-                        );
-
-                    }
-
-                    else {
-
-                        showMessage(
-                            result &&
-                            result.message
-                                ? result.message
-                                : "Password reset could not be completed.",
+                            (
+                                result &&
+                                result.message
+                            ) ||
+                            "Unable to logout.",
                             "error"
                         );
 
@@ -2519,160 +2546,36 @@
                 catch (error) {
 
                     console.error(
-                        "Password Reset Error:",
+                        "Logout error:",
                         error
                     );
 
 
                     showMessage(
-                        getFriendlyFirebaseError(error),
+                        "Unable to logout. Please try again.",
                         "error"
                     );
 
                 }
 
+                finally {
 
-                forgotPasswordButton.disabled =
-                    false;
+                    logoutBtn.disabled =
+                        false;
+
+                    logoutBtn.innerHTML = `
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        Logout
+
+                    `;
+
+                }
 
             }
         );
 
-
-        /* =====================================================
-           FIREBASE ERROR TRANSLATION
-        ====================================================== */
-
-        function getFriendlyFirebaseError(
-            error
-        ) {
-
-            const code =
-                error &&
-                error.code
-                    ? error.code
-                    : "";
-
-
-            if (
-                code.includes(
-                    "auth/invalid-credential"
-                )
-            ) {
-
-                return "Incorrect email or password.";
-
-            }
-
-
-            if (
-                code.includes(
-                    "auth/user-not-found"
-                )
-            ) {
-
-                return "No account was found with this email address.";
-
-            }
-
-
-            if (
-                code.includes(
-                    "auth/wrong-password"
-                )
-            ) {
-
-                return "Incorrect password.";
-
-            }
-
-
-            if (
-                code.includes(
-                    "auth/email-already-in-use"
-                )
-            ) {
-
-                return "An account already exists with this email address. Please login instead.";
-
-            }
-
-
-            if (
-                code.includes(
-                    "auth/weak-password"
-                )
-            ) {
-
-                return "Password is too weak. Please use at least 6 characters.";
-
-            }
-
-
-            if (
-                code.includes(
-                    "auth/invalid-email"
-                )
-            ) {
-
-                return "Please enter a valid email address.";
-
-            }
-
-
-            if (
-                code.includes(
-                    "auth/too-many-requests"
-                )
-            ) {
-
-                return "Too many attempts. Please wait a while and try again.";
-
-            }
-
-
-            if (
-                code.includes(
-                    "auth/network-request-failed"
-                )
-            ) {
-
-                return "Network error. Please check your internet connection.";
-
-            }
-
-
-            if (
-                code.includes(
-                    "permission-denied"
-                )
-            ) {
-
-                return "Access was denied by the security rules. Please contact the administrator.";
-
-            }
-
-
-            return (
-                error &&
-                error.message
-                    ? error.message
-                    : "Something went wrong. Please try again."
-            );
-
-        }
-
-
-        /* =====================================================
-           INITIAL STATE
-        ====================================================== */
-
-        showForm("login");
-
-
-        console.log(
-            "All About English Login System Ready."
-        );
 
     </script>
 
