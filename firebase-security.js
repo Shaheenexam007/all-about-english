@@ -1,4 +1,3 @@
-```javascript
 // ============================================================
 // ALL ABOUT ENGLISH
 // FIREBASE SECURITY & ACCESS CONTROL
@@ -8,7 +7,7 @@
 
 
 // ============================================================
-// FIREBASE IMPORTS
+// FIREBASE FIRESTORE IMPORTS
 // ============================================================
 
 import {
@@ -17,13 +16,28 @@ import {
     getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+
+// ============================================================
+// FIREBASE AUTH IMPORTS
+// ============================================================
+
 import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
+
+// ============================================================
+// FIREBASE AUTH
+// ============================================================
+
 import {
     auth
 } from "./firebase-auth.js";
+
+
+// ============================================================
+// FIREBASE APP
+// ============================================================
 
 import {
     app
@@ -31,7 +45,7 @@ import {
 
 
 // ============================================================
-// FIRESTORE
+// INITIALIZE FIRESTORE
 // ============================================================
 
 const db =
@@ -39,7 +53,7 @@ const db =
 
 
 // ============================================================
-// CURRENT USER
+// GET CURRENT LOGGED-IN USER
 // ============================================================
 
 function getLoggedInUser() {
@@ -52,12 +66,29 @@ function getLoggedInUser() {
 // ============================================================
 // GET CURRENT STUDENT DATA
 // ============================================================
+//
+// Firestore structure:
+//
+// students
+//     └── UID
+//          ├── name
+//          ├── email
+//          ├── mobile
+//          ├── college
+//          ├── accountStatus
+//          └── approvedUnits
+//
+// ============================================================
 
 async function getStudentData() {
 
     const user =
         getLoggedInUser();
 
+
+    // --------------------------------------------------------
+    // No logged-in user
+    // --------------------------------------------------------
 
     if (!user) {
 
@@ -82,6 +113,10 @@ async function getStudentData() {
             );
 
 
+        // ----------------------------------------------------
+        // Student document does not exist
+        // ----------------------------------------------------
+
         if (
             !studentSnap.exists()
         ) {
@@ -102,6 +137,7 @@ async function getStudentData() {
             error
         );
 
+
         return null;
 
     }
@@ -111,6 +147,10 @@ async function getStudentData() {
 
 // ============================================================
 // CHECK ACCOUNT STATUS
+// ============================================================
+//
+// Only "active" accounts can access approved Units.
+//
 // ============================================================
 
 async function isAccountActive() {
@@ -135,14 +175,16 @@ async function isAccountActive() {
 
 
 // ============================================================
-// CHECK APPROVED UNIT
+// CHECK UNIT APPROVAL
 // ============================================================
 //
 // Firestore example:
 //
 // approvedUnits: {
+//
 //     "unit-11": true,
 //     "unit-12": false
+//
 // }
 //
 // ============================================================
@@ -155,12 +197,20 @@ async function isUnitApproved(
         await getStudentData();
 
 
+    // --------------------------------------------------------
+    // Student not found
+    // --------------------------------------------------------
+
     if (!student) {
 
         return false;
 
     }
 
+
+    // --------------------------------------------------------
+    // Account must be active
+    // --------------------------------------------------------
 
     if (
         student.accountStatus !==
@@ -172,9 +222,17 @@ async function isUnitApproved(
     }
 
 
+    // --------------------------------------------------------
+    // Get approvedUnits
+    // --------------------------------------------------------
+
     const approvedUnits =
         student.approvedUnits || {};
 
+
+    // --------------------------------------------------------
+    // Exact Unit check
+    // --------------------------------------------------------
 
     return (
         approvedUnits[unitId] ===
@@ -193,6 +251,10 @@ async function requireLogin() {
     const user =
         getLoggedInUser();
 
+
+    // --------------------------------------------------------
+    // Not logged in
+    // --------------------------------------------------------
 
     if (!user) {
 
@@ -214,56 +276,6 @@ async function requireLogin() {
 // ============================================================
 
 async function requireActiveAccount() {
-
-    const loggedIn =
-        await requireLogin();
-
-
-    if (!loggedIn) {
-
-        return false;
-
-    }
-
-
-    const active =
-        await isAccountActive();
-
-
-    if (!active) {
-
-        alert(
-            "Your account is not approved yet. Please contact Shaheen Sir."
-        );
-
-        return false;
-
-    }
-
-
-    return true;
-
-}
-
-
-// ============================================================
-// REQUIRE APPROVED UNIT
-// ============================================================
-//
-// IMPORTANT:
-//
-// এখানে কোনো device-manager নেই।
-//
-// Unit access শুধুমাত্র:
-// 1. Login
-// 2. Active account
-// 3. approvedUnits[unitId] === true
-//
-// ============================================================
-
-async function requireApprovedUnit(
-    unitId
-) {
 
     // --------------------------------------------------------
     // STEP 1 — Login
@@ -294,13 +306,70 @@ async function requireApprovedUnit(
             "Your account is not approved yet. Please contact Shaheen Sir."
         );
 
+
+        return false;
+
+    }
+
+
+    return true;
+
+}
+
+
+// ============================================================
+// REQUIRE APPROVED UNIT
+// ============================================================
+//
+// Unit access requires:
+//
+// 1. Login
+// 2. Active account
+// 3. approvedUnits[unitId] === true
+//
+// ============================================================
+
+async function requireApprovedUnit(
+    unitId
+) {
+
+    // --------------------------------------------------------
+    // STEP 1 — LOGIN
+    // --------------------------------------------------------
+
+    const loggedIn =
+        await requireLogin();
+
+
+    if (!loggedIn) {
+
         return false;
 
     }
 
 
     // --------------------------------------------------------
-    // STEP 3 — Unit approval
+    // STEP 2 — ACTIVE ACCOUNT
+    // --------------------------------------------------------
+
+    const active =
+        await isAccountActive();
+
+
+    if (!active) {
+
+        alert(
+            "Your account is not approved yet. Please contact Shaheen Sir."
+        );
+
+
+        return false;
+
+    }
+
+
+    // --------------------------------------------------------
+    // STEP 3 — UNIT APPROVAL
     // --------------------------------------------------------
 
     const approved =
@@ -328,6 +397,14 @@ async function requireApprovedUnit(
 // ============================================================
 // WAIT FOR FIREBASE AUTHENTICATION
 // ============================================================
+//
+// Firebase may need a short time to restore the login session
+// after a page refresh.
+//
+// This function waits for Firebase to report the current
+// authentication state.
+//
+// ============================================================
 
 function waitForAuth() {
 
@@ -336,6 +413,10 @@ function waitForAuth() {
             resolve
         ) => {
 
+            let finished =
+                false;
+
+
             const unsubscribe =
                 onAuthStateChanged(
                     auth,
@@ -343,7 +424,21 @@ function waitForAuth() {
                         user
                     ) => {
 
+                        if (
+                            finished
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        finished =
+                            true;
+
+
                         unsubscribe();
+
 
                         resolve(
                             user
@@ -369,12 +464,33 @@ function waitForAuth() {
 //     "unit-11"
 // );
 //
+//
 // LESSON:
 //
 // protectPage(
 //     "lesson",
 //     "unit-11"
 // );
+//
+//
+// IMPORTANT:
+//
+// Lessons do NOT need individual approval.
+//
+// A lesson checks its parent Unit.
+//
+// Example:
+//
+// Unit 11
+//     ├── Lesson 1
+//     ├── Lesson 2
+//     ├── Lesson 3
+//     ├── Lesson 4
+//     └── Lesson 5
+//
+// approvedUnits["unit-11"] === true
+//
+// gives access to all Unit 11 lessons.
 //
 // ============================================================
 
@@ -383,85 +499,101 @@ async function protectPage(
     requiredId
 ) {
 
-    // --------------------------------------------------------
-    // STEP 1 — Wait for Firebase Auth
-    // --------------------------------------------------------
+    try {
 
-    const user =
-        await waitForAuth();
+        // ----------------------------------------------------
+        // STEP 1 — WAIT FOR AUTH
+        // ----------------------------------------------------
+
+        const user =
+            await waitForAuth();
 
 
-    // --------------------------------------------------------
-    // STEP 2 — Login check
-    // --------------------------------------------------------
+        // ----------------------------------------------------
+        // STEP 2 — LOGIN CHECK
+        // ----------------------------------------------------
 
-    if (!user) {
+        if (!user) {
 
-        window.location.href =
-            "/all-about-english/login.html";
+            window.location.href =
+                "/all-about-english/login.html";
+
+            return false;
+
+        }
+
+
+        // ----------------------------------------------------
+        // STEP 3 — UNIT PROTECTION
+        // ----------------------------------------------------
+
+        if (
+            requiredType ===
+            "unit"
+        ) {
+
+            return await requireApprovedUnit(
+                requiredId
+            );
+
+        }
+
+
+        // ----------------------------------------------------
+        // STEP 4 — LESSON PROTECTION
+        // ----------------------------------------------------
+
+        if (
+            requiredType ===
+            "lesson"
+        ) {
+
+            return await requireApprovedUnit(
+                requiredId
+            );
+
+        }
+
+
+        // ----------------------------------------------------
+        // STEP 5 — ACTIVE ACCOUNT
+        // ----------------------------------------------------
+
+        if (
+            requiredType ===
+            "active"
+        ) {
+
+            return await requireActiveAccount();
+
+        }
+
+
+        // ----------------------------------------------------
+        // UNKNOWN TYPE
+        // ----------------------------------------------------
+
+        console.error(
+            "Unknown protection type:",
+            requiredType
+        );
+
 
         return false;
 
     }
 
+    catch (error) {
 
-    // --------------------------------------------------------
-    // STEP 3 — UNIT
-    // --------------------------------------------------------
-
-    if (
-        requiredType ===
-        "unit"
-    ) {
-
-        return await requireApprovedUnit(
-            requiredId
+        console.error(
+            "Protection error:",
+            error
         );
 
-    }
 
-
-    // --------------------------------------------------------
-    // STEP 4 — LESSON
-    // --------------------------------------------------------
-
-    if (
-        requiredType ===
-        "lesson"
-    ) {
-
-        return await requireApprovedUnit(
-            requiredId
-        );
+        return false;
 
     }
-
-
-    // --------------------------------------------------------
-    // STEP 5 — ACTIVE ACCOUNT
-    // --------------------------------------------------------
-
-    if (
-        requiredType ===
-        "active"
-    ) {
-
-        return await requireActiveAccount();
-
-    }
-
-
-    // --------------------------------------------------------
-    // UNKNOWN TYPE
-    // --------------------------------------------------------
-
-    console.error(
-        "Unknown protection type:",
-        requiredType
-    );
-
-
-    return false;
 
 }
 
@@ -491,4 +623,3 @@ export {
     protectPage
 
 };
-```
