@@ -1,29 +1,28 @@
-```html
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta
-    name="description"
-    content="HSC English 1st Paper — All About English by Shaheen Sir."
+name="description"
+content="HSC English 1st Paper — All About English by Shaheen Sir."
+
 >
 
-<title>
-    English 1st Paper | All About English
-</title>
+<meta name="theme-color" content="#101b36">
 
-<link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
->
+<title>English 1st Paper | All About English</title>
+
+<!-- =========================================================
+     GOOGLE FONTS
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link
     rel="preconnect"
@@ -36,11 +35,14 @@
     rel="stylesheet"
 >
 
+<!-- =========================================================
+     FONT AWESOME
+========================================================= -->
+
 <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 >
-
 
 <style>
 
@@ -379,7 +381,7 @@ header {
 
 
 /* =========================================================
-   UNITS
+   SECTION
 ========================================================= */
 
 .section {
@@ -436,6 +438,10 @@ header {
 }
 
 
+/* =========================================================
+   UNIT GRID
+========================================================= */
+
 .unit-grid {
 
     display:
@@ -453,7 +459,7 @@ header {
 .unit-card {
 
     background:
-        white;
+        var(--white);
 
     border:
         1px solid var(--border);
@@ -649,6 +655,10 @@ footer {
 }
 
 
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
 @media (max-width: 650px) {
 
     .nav-container {
@@ -718,9 +728,7 @@ footer {
 
 </head>
 
-
 <body>
-
 
 <!-- =========================================================
      HEADER
@@ -728,60 +736,76 @@ footer {
 
 <header>
 
-    <div class="nav-container">
+```
+<div class="nav-container">
 
 
-        <a
-            href="../../"
-            class="brand"
-        >
+    <!-- HSC INDEX:
+         hsc/1st-paper/index.html
+         থেকে এক ধাপ উপরে = hsc/
+    -->
 
-            <div class="brand-icon">
+    <a
+        href="../"
+        class="brand"
+    >
 
-                <i class="fa-solid fa-book-open"></i>
+        <div class="brand-icon">
 
-            </div>
+            <i class="fa-solid fa-book-open"></i>
+
+        </div>
 
 
-            <div class="brand-text">
+        <div class="brand-text">
 
-                <strong>
-                    ALL ABOUT ENGLISH
-                </strong>
+            <strong>
+                ALL ABOUT ENGLISH
+            </strong>
 
-                <span>
-                    SHAHEEN SIR
-                </span>
+            <span>
+                SHAHEEN SIR
+            </span>
 
-            </div>
+        </div>
 
+    </a>
+
+
+    <nav class="nav-links">
+
+
+        <!-- HSC INDEX -->
+
+        <a href="../">
+            Home
         </a>
 
 
-        <nav class="nav-links">
+        <!-- ROOT LOGIN:
+             hsc/1st-paper/
+             → hsc/
+             → root/
+             → login.html
+        -->
 
-            <a href="../../">
-                Home
-            </a>
+        <a
+            href="../../login.html"
+            class="login-btn"
+        >
 
-            <a
-                href="../../login.html"
-                class="login-btn"
-            >
+            <i class="fa-solid fa-lock"></i>
 
-                <i class="fa-solid fa-lock"></i>
+            Student Login
 
-                Student Login
+        </a>
 
-            </a>
+    </nav>
 
-        </nav>
-
-    </div>
+</div>
+```
 
 </header>
-
-
 
 <!-- =========================================================
      HERO
@@ -789,36 +813,35 @@ footer {
 
 <main>
 
-
 <section class="hero">
 
-    <div class="eyebrow">
-        HSC English
-    </div>
+```
+<div class="eyebrow">
+    HSC English
+</div>
 
 
-    <h1>
+<h1>
 
-        English
+    English
 
-        <span>
-            1st Paper
-        </span>
+    <span>
+        1st Paper
+    </span>
 
-    </h1>
+</h1>
 
 
-    <p>
+<p>
 
-        Explore the textbook units, reading lessons,
-        vocabulary analysis, comprehension and
-        examination-focused learning materials.
+    Explore the textbook units, reading lessons,
+    vocabulary analysis, comprehension and
+    examination-focused learning materials.
 
-    </p>
+</p>
+```
 
 </section>
-
-
 
 <!-- =========================================================
      UNITS
@@ -826,133 +849,150 @@ footer {
 
 <section class="section">
 
+```
+<div class="section-heading">
 
-    <div class="section-heading">
+    <h2>
+        Available Units
+    </h2>
 
-        <h2>
-            Available Units
-        </h2>
+    <p>
+        Select a unit to continue your learning.
+    </p>
 
-        <p>
-            Select a unit to continue your learning.
-        </p>
-
-    </div>
-
-
-
-    <div class="unit-grid">
-
-
-        <!-- =================================================
-             UNIT 11
-        ================================================== -->
-
-        <a
-            href="./unit-11/"
-            class="unit-card"
-        >
-
-            <div class="unit-number">
-                11
-            </div>
-
-
-            <div class="unit-info">
-
-                <h3>
-                    Unit 11
-                </h3>
-
-                <p>
-                    Lessons, vocabulary analysis
-                    and learning materials.
-                </p>
-
-            </div>
-
-
-            <div class="unit-open">
-
-                OPEN
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </div>
-
-        </a>
+</div>
 
 
 
-        <!-- =================================================
-             UNIT 12
-        ================================================== -->
-
-        <a
-            href="./unit-12/"
-            class="unit-card"
-        >
-
-            <div class="unit-number">
-                12
-            </div>
+<div class="unit-grid">
 
 
-            <div class="unit-info">
+    <!-- =================================================
+         UNIT 11
 
-                <h3>
-                    Unit 12
-                </h3>
+         CURRENT:
+         hsc/1st-paper/index.html
 
-                <p>
-                    Lessons, vocabulary analysis
-                    and learning materials.
-                </p>
+         TARGET:
+         hsc/1st-paper/unit-11/index.html
+    ================================================== -->
 
-            </div>
+    <a
+        href="./unit-11/"
+        class="unit-card"
+    >
 
-
-            <div class="unit-open">
-
-                OPEN
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </div>
-
-        </a>
+        <div class="unit-number">
+            11
+        </div>
 
 
-    </div>
+        <div class="unit-info">
+
+            <h3>
+                Unit 11
+            </h3>
+
+            <p>
+                Lessons, vocabulary analysis
+                and learning materials.
+            </p>
+
+        </div>
+
+
+        <div class="unit-open">
+
+            OPEN
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
 
 
 
-    <div class="notice">
+    <!-- =================================================
+         UNIT 12
 
-        <i class="fa-solid fa-shield-halved"></i>
+         CURRENT:
+         hsc/1st-paper/index.html
 
-        Unit content is protected.
-        Students must log in and have the
-        corresponding unit approved by the administrator.
+         TARGET:
+         hsc/1st-paper/unit-12/index.html
+    ================================================== -->
 
-    </div>
+    <a
+        href="./unit-12/"
+        class="unit-card"
+    >
 
+        <div class="unit-number">
+            12
+        </div>
+
+
+        <div class="unit-info">
+
+            <h3>
+                Unit 12
+            </h3>
+
+            <p>
+                Lessons, vocabulary analysis
+                and learning materials.
+            </p>
+
+        </div>
+
+
+        <div class="unit-open">
+
+            OPEN
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
+
+
+</div>
+
+
+
+<!-- =================================================
+     NOTICE
+================================================== -->
+
+<div class="notice">
+
+    <i class="fa-solid fa-shield-halved"></i>
+
+    Unit content is protected.
+    Students must log in and have the
+    corresponding unit approved by the administrator.
+
+</div>
+```
 
 </section>
 
-
 </main>
 
-
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
 
-    © 2026 ALL ABOUT ENGLISH • BY SHAHEEN SIR
+```
+© 2026 ALL ABOUT ENGLISH • BY SHAHEEN SIR
+```
 
 </footer>
-
 
 </body>
 
 </html>
-```
