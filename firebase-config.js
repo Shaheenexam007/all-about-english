@@ -1,3 +1,4 @@
+```javascript
 // ============================================================
 // ALL ABOUT ENGLISH
 // FIREBASE CONFIGURATION
@@ -59,3 +60,4 @@ const app =
 export {
     app
 };
+```
