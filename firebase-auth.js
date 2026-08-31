@@ -4,6 +4,11 @@
 // BY SHAHEEN SIR
 // ============================================================
 
+
+// ============================================================
+// FIREBASE AUTH IMPORTS
+// ============================================================
+
 import {
     getAuth,
     createUserWithEmailAndPassword,
@@ -13,6 +18,11 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
+
+// ============================================================
+// FIRESTORE IMPORTS
+// ============================================================
+
 import {
     getFirestore,
     doc,
@@ -21,16 +31,25 @@ import {
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-import { app } from "./firebase-config.js";
+
+// ============================================================
+// FIREBASE APP
+// ============================================================
+
+import {
+    app
+} from "./firebase-config.js";
 
 
 // ============================================================
 // INITIALIZE
 // ============================================================
 
-const auth = getAuth(app);
+const auth =
+    getAuth(app);
 
-const db = getFirestore(app);
+const db =
+    getFirestore(app);
 
 
 // ============================================================
@@ -64,7 +83,7 @@ async function registerStudent(
 
 
         // ----------------------------------------------------
-        // CREATE STUDENT FIRESTORE DOCUMENT
+        // CREATE STUDENT DOCUMENT
         // ----------------------------------------------------
 
         await setDoc(
@@ -97,10 +116,15 @@ async function registerStudent(
                     "pending",
 
                 approvedUnits:
-                    {},
+                    {
 
-                approvedLessons:
-                    {}
+                        "unit-11":
+                            false,
+
+                        "unit-12":
+                            false
+
+                    }
 
             }
         );
@@ -110,7 +134,9 @@ async function registerStudent(
         // LOGOUT AFTER REGISTRATION
         // ----------------------------------------------------
 
-        await signOut(auth);
+        await signOut(
+            auth
+        );
 
 
         return {
@@ -139,7 +165,9 @@ async function registerStudent(
                 false,
 
             message:
-                getFriendlyAuthError(error)
+                getFriendlyAuthError(
+                    error
+                )
 
         };
 
@@ -160,7 +188,7 @@ async function loginStudent(
     try {
 
         // ----------------------------------------------------
-        // FIREBASE AUTHENTICATION
+        // FIREBASE LOGIN
         // ----------------------------------------------------
 
         const userCredential =
@@ -182,7 +210,7 @@ async function loginStudent(
 
 
         // ----------------------------------------------------
-        // LOAD STUDENT DATA
+        // GET STUDENT DOCUMENT
         // ----------------------------------------------------
 
         let studentData =
@@ -223,11 +251,14 @@ async function loginStudent(
                 firestoreError
             );
 
+            // Authentication successful.
+            // Do not sign the user out here.
+
         }
 
 
         // ----------------------------------------------------
-        // CHECK BLOCKED ACCOUNT
+        // BLOCKED ACCOUNT
         // ----------------------------------------------------
 
         if (
@@ -258,19 +289,29 @@ async function loginStudent(
         // LOGIN SUCCESS
         // ----------------------------------------------------
 
+        let message =
+            "Login successful.";
+
+
+        if (
+            studentData &&
+            studentData.accountStatus ===
+            "pending"
+        ) {
+
+            message =
+                "Login successful. Your account is waiting for approval.";
+
+        }
+
+
         return {
 
             success:
                 true,
 
             message:
-                studentData &&
-                studentData.accountStatus ===
-                "pending"
-
-                ? "Login successful. Your account is waiting for approval."
-
-                : "Login successful.",
+                message,
 
             user:
                 user,
@@ -296,7 +337,9 @@ async function loginStudent(
                 false,
 
             message:
-                getFriendlyAuthError(error)
+                getFriendlyAuthError(
+                    error
+                )
 
         };
 
@@ -347,7 +390,9 @@ async function resetStudentPassword(
                 false,
 
             message:
-                getFriendlyAuthError(error)
+                getFriendlyAuthError(
+                    error
+                )
 
         };
 
@@ -372,7 +417,10 @@ async function logoutStudent() {
         return {
 
             success:
-                true
+                true,
+
+            message:
+                "Logged out successfully."
 
         };
 
@@ -402,7 +450,7 @@ async function logoutStudent() {
 
 
 // ============================================================
-// CURRENT USER
+// GET CURRENT USER
 // ============================================================
 
 function getCurrentUser() {
@@ -413,7 +461,7 @@ function getCurrentUser() {
 
 
 // ============================================================
-// AUTH STATE
+// WATCH AUTH STATE
 // ============================================================
 
 function watchAuthState(
@@ -490,6 +538,11 @@ function getFriendlyAuthError(
         case "auth/operation-not-allowed":
 
             return "Email/password authentication is not enabled.";
+
+
+        case "auth/password-does-not-meet-requirements":
+
+            return "Password does not meet the required security rules.";
 
 
         default:
