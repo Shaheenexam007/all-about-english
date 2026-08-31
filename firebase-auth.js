@@ -45,22 +45,18 @@ import {
 // INITIALIZE
 // ============================================================
 
-const auth =
-    getAuth(app);
+const auth = getAuth(app);
 
-const db =
-    getFirestore(app);
+const db = getFirestore(app);
 
 
 // ============================================================
-// REGISTER STUDENT
+// CREATE STUDENT ACCOUNT
 // ============================================================
 
-async function registerStudent(
+async function createStudentAccount(
     name,
-    mobile,
     email,
-    college,
     password
 ) {
 
@@ -83,7 +79,7 @@ async function registerStudent(
 
 
         // ----------------------------------------------------
-        // CREATE STUDENT DOCUMENT
+        // CREATE STUDENT FIRESTORE DOCUMENT
         // ----------------------------------------------------
 
         await setDoc(
@@ -100,14 +96,8 @@ async function registerStudent(
                 name:
                     name,
 
-                mobile:
-                    mobile,
-
                 email:
                     email,
-
-                college:
-                    college,
 
                 createdAt:
                     serverTimestamp(),
@@ -117,13 +107,11 @@ async function registerStudent(
 
                 approvedUnits:
                     {
-
                         "unit-11":
                             false,
 
                         "unit-12":
                             false
-
                     }
 
             }
@@ -131,7 +119,7 @@ async function registerStudent(
 
 
         // ----------------------------------------------------
-        // LOGOUT AFTER REGISTRATION
+        // LOGOUT AFTER ACCOUNT CREATION
         // ----------------------------------------------------
 
         await signOut(
@@ -251,8 +239,8 @@ async function loginStudent(
                 firestoreError
             );
 
-            // Authentication successful.
-            // Do not sign the user out here.
+            // Authentication succeeded.
+            // DO NOT sign the user out here.
 
         }
 
@@ -286,7 +274,7 @@ async function loginStudent(
 
 
         // ----------------------------------------------------
-        // LOGIN SUCCESS
+        // LOGIN MESSAGE
         // ----------------------------------------------------
 
         let message =
@@ -537,7 +525,7 @@ function getFriendlyAuthError(
 
         case "auth/operation-not-allowed":
 
-            return "Email/password authentication is not enabled.";
+            return "Email/password authentication is not enabled in Firebase.";
 
 
         case "auth/password-does-not-meet-requirements":
@@ -567,7 +555,7 @@ export {
 
     db,
 
-    registerStudent,
+    createStudentAccount,
 
     loginStudent,
 
