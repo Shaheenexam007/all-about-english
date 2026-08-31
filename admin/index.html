@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,32 +11,9 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <meta
-        name="theme-color"
-        content="#101b36"
-    >
-
     <title>
         Admin Dashboard | All About English
     </title>
-
-
-    <!-- =====================================================
-         GOOGLE FONTS
-    ====================================================== -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
-        rel="stylesheet"
-    >
 
 
     <!-- =====================================================
@@ -50,62 +28,96 @@
 
     <style>
 
+        /* =====================================================
+           ROOT
+        ====================================================== */
+
         :root {
 
-            --navy: #101b36;
-            --navy-dark: #091126;
-            --gold: #c9a45c;
-            --gold-light: #ead9ae;
+            --navy:
+                #101b36;
 
-            --ivory: #fbfaf6;
-            --white: #ffffff;
+            --navy-dark:
+                #091126;
 
-            --text: #1d2940;
-            --muted: #68748a;
+            --gold:
+                #c9a45c;
 
-            --border: #e7e4dc;
-            --soft: #f4f2eb;
+            --gold-light:
+                #ead9ae;
 
-            --green: #18794e;
-            --green-bg: #eaf7f0;
+            --ivory:
+                #fbfaf6;
 
-            --red: #b42318;
-            --red-bg: #fff0ee;
+            --white:
+                #ffffff;
 
-            --orange: #9a6700;
-            --orange-bg: #fff7df;
+            --text:
+                #1d2940;
+
+            --muted:
+                #68748a;
+
+            --border:
+                #e5e1d8;
+
+            --green:
+                #237a52;
+
+            --green-bg:
+                #eaf6ef;
+
+            --red:
+                #a33b35;
+
+            --red-bg:
+                #faeeee;
+
+            --yellow:
+                #9a711b;
+
+            --yellow-bg:
+                #fff8df;
 
             --shadow:
-                0 18px 55px rgba(16,27,54,.10);
+                0 15px 45px rgba(16,27,54,.08);
+
         }
 
 
+        /* =====================================================
+           RESET
+        ====================================================== */
+
         * {
 
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin:
+                0;
+
+            padding:
+                0;
+
+            box-sizing:
+                border-box;
+
         }
 
 
         body {
 
-            min-height: 100vh;
-
             font-family:
-                "Inter",
+                Arial,
                 sans-serif;
 
             background:
-                linear-gradient(
-                    135deg,
-                    #fbfaf6 0%,
-                    #f4f0e5 50%,
-                    #eef1f6 100%
-                );
+                var(--ivory);
 
             color:
                 var(--text);
+
+            min-height:
+                100vh;
+
         }
 
 
@@ -115,6 +127,7 @@
 
             font-family:
                 inherit;
+
         }
 
 
@@ -122,6 +135,7 @@
 
             cursor:
                 pointer;
+
         }
 
 
@@ -132,22 +146,14 @@
         header {
 
             background:
-                rgba(255,255,255,.94);
+                var(--navy-dark);
 
-            backdrop-filter:
-                blur(15px);
+            color:
+                white;
 
-            border-bottom:
-                1px solid rgba(16,27,54,.08);
+            padding:
+                16px 20px;
 
-            position:
-                sticky;
-
-            top:
-                0;
-
-            z-index:
-                1000;
         }
 
 
@@ -155,9 +161,6 @@
 
             width:
                 min(1250px,94%);
-
-            min-height:
-                70px;
 
             margin:
                 auto;
@@ -172,7 +175,8 @@
                 space-between;
 
             gap:
-                15px;
+                20px;
+
         }
 
 
@@ -185,7 +189,8 @@
                 center;
 
             gap:
-                10px;
+                11px;
+
         }
 
 
@@ -201,7 +206,7 @@
                 12px;
 
             background:
-                var(--navy);
+                rgba(255,255,255,.08);
 
             color:
                 var(--gold-light);
@@ -214,44 +219,38 @@
 
             justify-content:
                 center;
+
         }
 
 
-        .brand-title strong {
+        .brand strong {
+
+            display:
+                block;
+
+            font-size:
+                15px;
+
+        }
+
+
+        .brand span {
 
             display:
                 block;
 
             color:
-                var(--navy);
+                var(--gold-light);
 
             font-size:
-                14px;
-
-            font-weight:
-                800;
-        }
-
-
-        .brand-title span {
-
-            display:
-                block;
-
-            color:
-                var(--gold);
-
-            font-size:
-                8px;
-
-            font-weight:
-                800;
+                9px;
 
             letter-spacing:
                 1px;
 
             margin-top:
-                2px;
+                3px;
+
         }
 
 
@@ -265,75 +264,44 @@
 
             gap:
                 8px;
+
         }
 
 
-        .admin-badge {
+        .header-btn {
 
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            gap:
-                6px;
+            border:
+                1px solid rgba(255,255,255,.14);
 
             background:
-                var(--green-bg);
+                rgba(255,255,255,.07);
 
             color:
-                var(--green);
-
-            border:
-                1px solid #c9ead8;
-
-            border-radius:
-                999px;
-
-            padding:
-                8px 12px;
-
-            font-size:
-                9px;
-
-            font-weight:
-                800;
-        }
-
-
-        .logout-btn {
-
-            border:
-                1px solid var(--border);
-
-            background:
                 white;
-
-            color:
-                var(--navy);
-
-            border-radius:
-                9px;
 
             padding:
                 9px 12px;
 
-            font-size:
+            border-radius:
                 9px;
 
+            font-size:
+                10px;
+
             font-weight:
-                800;
+                700;
+
+            text-decoration:
+                none;
+
         }
 
 
-        .logout-btn:hover {
+        .header-btn:hover {
 
             background:
-                var(--navy);
+                rgba(255,255,255,.13);
 
-            color:
-                white;
         }
 
 
@@ -350,7 +318,8 @@
                 auto;
 
             padding:
-                32px 0 55px;
+                35px 0 60px;
+
         }
 
 
@@ -358,42 +327,21 @@
 
             margin-bottom:
                 25px;
-        }
 
-
-        .eyebrow {
-
-            color:
-                var(--gold);
-
-            font-size:
-                9px;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                2px;
-
-            margin-bottom:
-                6px;
         }
 
 
         .page-heading h1 {
 
-            font-family:
-                "Playfair Display",
-                serif;
+            font-size:
+                28px;
 
             color:
                 var(--navy);
 
-            font-size:
-                34px;
-
             margin-bottom:
-                5px;
+                6px;
+
         }
 
 
@@ -403,71 +351,73 @@
                 var(--muted);
 
             font-size:
-                10px;
+                12px;
+
         }
 
 
         /* =====================================================
-           MESSAGE
+           ADMIN CHECK
         ====================================================== */
 
-        #message {
+        #adminChecking {
+
+            background:
+                white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                18px;
+
+            padding:
+                35px;
+
+            text-align:
+                center;
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        #adminChecking i {
+
+            color:
+                var(--gold);
+
+            font-size:
+                25px;
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        #adminChecking p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                12px;
+
+        }
+
+
+        #dashboard {
 
             display:
                 none;
 
-            padding:
-                12px 15px;
-
-            border-radius:
-                10px;
-
-            margin-bottom:
-                18px;
-
-            font-size:
-                10px;
-
-            line-height:
-                1.5;
-        }
-
-
-        #message.show {
-
-            display:
-                block;
-        }
-
-
-        #message.success {
-
-            color:
-                var(--green);
-
-            background:
-                var(--green-bg);
-
-            border:
-                1px solid #c9ead8;
-        }
-
-
-        #message.error {
-
-            color:
-                var(--red);
-
-            background:
-                var(--red-bg);
-
-            border:
-                1px solid #f3d0cb;
         }
 
 
         /* =====================================================
-           STAT CARDS
+           STATS
         ====================================================== */
 
         .stats-grid {
@@ -479,10 +429,11 @@
                 repeat(4,1fr);
 
             gap:
-                13px;
+                14px;
 
             margin-bottom:
-                25px;
+                22px;
+
         }
 
 
@@ -495,13 +446,14 @@
                 1px solid var(--border);
 
             border-radius:
-                16px;
+                17px;
 
             padding:
-                18px;
+                20px;
 
             box-shadow:
-                0 8px 25px rgba(16,27,54,.05);
+                var(--shadow);
+
         }
 
 
@@ -517,17 +469,18 @@
                 space-between;
 
             margin-bottom:
-                13px;
+                15px;
+
         }
 
 
         .stat-icon {
 
             width:
-                38px;
+                40px;
 
             height:
-                38px;
+                40px;
 
             border-radius:
                 11px;
@@ -547,25 +500,10 @@
             justify-content:
                 center;
 
-            font-size:
-                14px;
         }
 
 
-        .stat-card h3 {
-
-            font-size:
-                25px;
-
-            color:
-                var(--navy);
-
-            margin-bottom:
-                2px;
-        }
-
-
-        .stat-card p {
+        .stat-card small {
 
             color:
                 var(--muted);
@@ -574,12 +512,30 @@
                 9px;
 
             font-weight:
-                700;
+                800;
+
+            letter-spacing:
+                .8px;
+
+        }
+
+
+        .stat-card strong {
+
+            display:
+                block;
+
+            font-size:
+                27px;
+
+            color:
+                var(--navy);
+
         }
 
 
         /* =====================================================
-           SEARCH PANEL
+           CONTROL PANEL
         ====================================================== */
 
         .control-panel {
@@ -596,35 +552,38 @@
             padding:
                 18px;
 
+            box-shadow:
+                var(--shadow);
+
             margin-bottom:
                 18px;
 
-            box-shadow:
-                0 8px 25px rgba(16,27,54,.04);
         }
 
 
-        .control-row {
+        .controls {
 
             display:
                 grid;
 
             grid-template-columns:
-                1fr 180px 120px;
+                1fr 170px;
 
             gap:
                 10px;
+
         }
 
 
-        .search-wrap {
+        .search-box {
 
             position:
                 relative;
+
         }
 
 
-        .search-wrap i {
+        .search-box i {
 
             position:
                 absolute;
@@ -639,147 +598,88 @@
                 translateY(-50%);
 
             color:
-                #929aaa;
+                #9aa1ae;
 
             font-size:
-                11px;
+                12px;
+
         }
 
 
-        .search-input {
+        .search-box input {
 
             width:
                 100%;
 
             height:
-                43px;
+                42px;
 
             border:
                 1px solid var(--border);
 
             border-radius:
-                9px;
-
-            background:
-                #fcfcfa;
+                10px;
 
             padding:
-                0 13px 0 37px;
+                0 13px 0 36px;
 
             outline:
                 none;
 
-            font-size:
-                10px;
-
             color:
                 var(--text);
+
+            font-size:
+                11px;
+
+            background:
+                #fcfbf8;
+
         }
 
 
-        .search-input:focus {
+        .search-box input:focus {
 
             border-color:
                 var(--gold);
 
-            background:
-                white;
         }
 
 
-        .filter-select {
-
-            width:
-                100%;
+        select {
 
             height:
-                43px;
+                42px;
 
             border:
                 1px solid var(--border);
 
             border-radius:
-                9px;
-
-            background:
-                #fcfcfa;
+                10px;
 
             padding:
-                0 10px;
+                0 12px;
 
             outline:
                 none;
 
-            font-size:
-                10px;
-
             color:
                 var(--text);
-        }
-
-
-        .refresh-btn {
-
-            height:
-                43px;
-
-            border:
-                none;
-
-            border-radius:
-                9px;
-
-            background:
-                var(--navy);
-
-            color:
-                white;
 
             font-size:
-                10px;
-
-            font-weight:
-                800;
-        }
-
-
-        .refresh-btn:hover {
+                11px;
 
             background:
-                var(--navy-dark);
+                #fcfbf8;
+
         }
 
 
         /* =====================================================
-           STUDENT TABLE
+           STUDENT LIST HEADER
         ====================================================== */
 
-        .students-panel {
-
-            background:
-                white;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                18px;
-
-            overflow:
-                hidden;
-
-            box-shadow:
-                0 8px 25px rgba(16,27,54,.04);
-        }
-
-
-        .panel-heading {
-
-            padding:
-                18px;
-
-            border-bottom:
-                1px solid var(--border);
+        .list-heading {
 
             display:
                 flex;
@@ -790,136 +690,175 @@
             justify-content:
                 space-between;
 
-            gap:
-                10px;
+            margin:
+                25px 0 12px;
+
         }
 
 
-        .panel-heading h2 {
+        .list-heading h2 {
+
+            font-size:
+                17px;
 
             color:
                 var(--navy);
 
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                21px;
         }
 
 
-        .result-count {
+        .student-count {
 
             color:
                 var(--muted);
 
             font-size:
-                9px;
+                10px;
 
-            font-weight:
-                700;
         }
 
 
-        .table-wrap {
+        /* =====================================================
+           STUDENT CARD
+        ====================================================== */
 
-            overflow-x:
-                auto;
+        .student-list {
+
+            display:
+                grid;
+
+            gap:
+                12px;
+
         }
 
 
-        table {
+        .student-card {
 
-            width:
-                100%;
+            background:
+                white;
 
-            border-collapse:
-                collapse;
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                17px;
+
+            padding:
+                18px;
+
+            box-shadow:
+                0 7px 25px rgba(16,27,54,.045);
+
+        }
+
+
+        .student-top {
+
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
+
+        }
+
+
+        .student-identity {
+
+            display:
+                flex;
+
+            gap:
+                12px;
 
             min-width:
-                850px;
+                0;
+
         }
 
 
-        th {
+        .student-avatar {
+
+            width:
+                43px;
+
+            height:
+                43px;
+
+            min-width:
+                43px;
+
+            border-radius:
+                12px;
 
             background:
-                #f7f5ee;
+                var(--navy);
+
+            color:
+                var(--gold-light);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                15px;
+
+        }
+
+
+        .student-info {
+
+            min-width:
+                0;
+
+        }
+
+
+        .student-info h3 {
 
             color:
                 var(--navy);
 
-            text-align:
-                left;
-
-            padding:
-                12px 14px;
-
             font-size:
-                8px;
+                14px;
 
-            letter-spacing:
-                .6px;
+            margin-bottom:
+                5px;
 
-            font-weight:
-                800;
-
-            white-space:
-                nowrap;
         }
 
 
-        td {
-
-            padding:
-                13px 14px;
-
-            border-top:
-                1px solid #f0eee8;
-
-            font-size:
-                9px;
-
-            color:
-                var(--text);
-
-            vertical-align:
-                middle;
-        }
-
-
-        tr:hover td {
-
-            background:
-                #fcfbf8;
-        }
-
-
-        .student-name {
-
-            font-weight:
-                800;
-
-            color:
-                var(--navy);
-        }
-
-
-        .student-email {
+        .student-info p {
 
             color:
                 var(--muted);
 
-            margin-top:
-                3px;
-
             font-size:
-                8px;
+                10px;
+
+            line-height:
+                1.6;
+
+            word-break:
+                break-word;
+
         }
 
 
-        .status {
+        .status-badge {
 
             display:
                 inline-flex;
@@ -931,78 +870,10 @@
                 5px;
 
             padding:
-                5px 8px;
+                6px 9px;
 
             border-radius:
                 999px;
-
-            font-size:
-                7px;
-
-            font-weight:
-                800;
-
-            text-transform:
-                uppercase;
-        }
-
-
-        .status.active {
-
-            color:
-                var(--green);
-
-            background:
-                var(--green-bg);
-        }
-
-
-        .status.pending {
-
-            color:
-                var(--orange);
-
-            background:
-                var(--orange-bg);
-        }
-
-
-        .status.inactive {
-
-            color:
-                var(--red);
-
-            background:
-                var(--red-bg);
-        }
-
-
-        .status.unknown {
-
-            color:
-                var(--muted);
-
-            background:
-                #f1f2f4;
-        }
-
-
-        .action-btn {
-
-            border:
-                1px solid var(--border);
-
-            background:
-                white;
-
-            color:
-                var(--navy);
-
-            border-radius:
-                7px;
-
-            padding:
-                7px 9px;
 
             font-size:
                 8px;
@@ -1012,219 +883,78 @@
 
             white-space:
                 nowrap;
+
         }
 
 
-        .action-btn:hover {
+        .status-active {
+
+            color:
+                var(--green);
 
             background:
-                var(--navy);
+                var(--green-bg);
 
-            color:
-                white;
         }
 
 
-        .empty-state {
-
-            text-align:
-                center;
-
-            padding:
-                55px 20px;
+        .status-pending {
 
             color:
-                var(--muted);
+                var(--yellow);
 
-            font-size:
-                10px;
+            background:
+                var(--yellow-bg);
+
         }
 
 
-        .empty-state i {
-
-            font-size:
-                30px;
-
-            margin-bottom:
-                10px;
+        .status-unknown {
 
             color:
-                #aeb5c0;
-        }
+                var(--red);
 
+            background:
+                var(--red-bg);
 
-        .loading {
-
-            text-align:
-                center;
-
-            padding:
-                45px;
-
-            color:
-                var(--muted);
-
-            font-size:
-                10px;
         }
 
 
         /* =====================================================
-           MODAL
+           STUDENT DETAILS
         ====================================================== */
 
-        .modal-overlay {
-
-            position:
-                fixed;
-
-            inset:
-                0;
-
-            background:
-                rgba(9,17,38,.62);
-
-            display:
-                none;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            padding:
-                15px;
-
-            z-index:
-                3000;
-        }
-
-
-        .modal-overlay.show {
-
-            display:
-                flex;
-        }
-
-
-        .modal {
-
-            width:
-                min(620px,100%);
-
-            max-height:
-                90vh;
-
-            overflow-y:
-                auto;
-
-            background:
-                white;
-
-            border-radius:
-                20px;
-
-            box-shadow:
-                0 30px 80px rgba(0,0,0,.25);
-        }
-
-
-        .modal-header {
-
-            padding:
-                19px;
-
-            border-bottom:
-                1px solid var(--border);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            gap:
-                10px;
-        }
-
-
-        .modal-header h2 {
-
-            color:
-                var(--navy);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                22px;
-        }
-
-
-        .close-btn {
-
-            width:
-                32px;
-
-            height:
-                32px;
-
-            border:
-                none;
-
-            border-radius:
-                9px;
-
-            background:
-                #f2f1ed;
-
-            color:
-                var(--navy);
-        }
-
-
-        .modal-body {
-
-            padding:
-                20px;
-        }
-
-
-        .student-profile {
+        .student-details {
 
             display:
                 grid;
 
             grid-template-columns:
-                repeat(2,1fr);
+                repeat(3,1fr);
 
             gap:
-                10px;
+                8px;
 
-            margin-bottom:
-                22px;
+            margin-top:
+                15px;
+
         }
 
 
         .detail-box {
 
-            padding:
-                12px;
+            background:
+                #faf9f5;
 
             border:
-                1px solid var(--border);
+                1px solid #eeeae0;
 
             border-radius:
                 10px;
 
-            background:
-                #fcfcfa;
+            padding:
+                10px;
+
         }
 
 
@@ -1237,49 +967,70 @@
                 #929aaa;
 
             font-size:
-                7px;
-
-            font-weight:
-                800;
+                8px;
 
             margin-bottom:
-                5px;
+                4px;
 
-            letter-spacing:
-                .7px;
+            font-weight:
+                700;
+
         }
 
 
         .detail-box strong {
 
+            display:
+                block;
+
             color:
-                var(--navy);
+                var(--text);
 
             font-size:
                 10px;
 
             word-break:
                 break-word;
+
         }
 
 
-        .section-title {
+        /* =====================================================
+           UNIT APPROVAL
+        ====================================================== */
+
+        .approval-area {
+
+            margin-top:
+                15px;
+
+            padding-top:
+                15px;
+
+            border-top:
+                1px solid #eeeae0;
+
+        }
+
+
+        .approval-title {
 
             color:
                 var(--navy);
 
             font-size:
-                11px;
+                10px;
 
             font-weight:
                 800;
 
             margin-bottom:
-                10px;
+                9px;
+
         }
 
 
-        .status-actions {
+        .unit-buttons {
 
             display:
                 flex;
@@ -1288,99 +1039,269 @@
                 wrap;
 
             gap:
-                8px;
+                7px;
 
-            margin-bottom:
-                22px;
         }
 
 
-        .status-btn {
+        .unit-btn {
 
             border:
                 1px solid var(--border);
 
             background:
-                white;
+                #faf9f5;
 
             color:
                 var(--navy);
 
             padding:
-                9px 12px;
+                8px 11px;
 
             border-radius:
-                8px;
+                9px;
 
             font-size:
-                8px;
+                9px;
 
             font-weight:
                 800;
+
         }
 
 
-        .status-btn:hover {
+        .unit-btn.approved {
 
             background:
-                var(--navy);
+                var(--green-bg);
+
+            border-color:
+                #b9dfc8;
 
             color:
-                white;
+                var(--green);
+
         }
 
 
-        .approval-box {
+        .unit-btn:hover {
+
+            transform:
+                translateY(-1px);
+
+        }
+
+
+        .account-actions {
+
+            margin-top:
+                12px;
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                7px;
+
+        }
+
+
+        .action-btn {
 
             border:
-                1px dashed #d8d1be;
+                none;
+
+            padding:
+                8px 11px;
+
+            border-radius:
+                9px;
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .activate-btn {
 
             background:
-                #fffdf7;
+                var(--green-bg);
+
+            color:
+                var(--green);
+
+        }
+
+
+        .pending-btn {
+
+            background:
+                var(--yellow-bg);
+
+            color:
+                var(--yellow);
+
+        }
+
+
+        /* =====================================================
+           EMPTY
+        ====================================================== */
+
+        .empty-state {
+
+            background:
+                white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                17px;
+
+            padding:
+                40px 20px;
+
+            text-align:
+                center;
+
+        }
+
+
+        .empty-state i {
+
+            font-size:
+                28px;
+
+            color:
+                #c4c8d0;
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        .empty-state h3 {
+
+            font-size:
+                15px;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        .empty-state p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                10px;
+
+        }
+
+
+        /* =====================================================
+           ERROR
+        ====================================================== */
+
+        .error-box {
+
+            background:
+                var(--red-bg);
+
+            color:
+                var(--red);
+
+            border:
+                1px solid #efd1ce;
 
             border-radius:
                 12px;
 
             padding:
-                15px;
-        }
-
-
-        .approval-box p {
-
-            color:
-                var(--muted);
+                14px;
 
             font-size:
-                9px;
+                10px;
 
             line-height:
                 1.6;
 
-            margin-bottom:
-                10px;
         }
 
 
-        .future-note {
+        /* =====================================================
+           TOAST
+        ====================================================== */
 
-            padding:
-                10px;
+        #toast {
 
-            border-radius:
-                8px;
+            position:
+                fixed;
+
+            left:
+                50%;
+
+            bottom:
+                25px;
+
+            transform:
+                translateX(-50%)
+                translateY(20px);
 
             background:
-                #f5f6f8;
+                var(--navy-dark);
 
             color:
-                var(--muted);
+                white;
+
+            padding:
+                11px 16px;
+
+            border-radius:
+                10px;
 
             font-size:
-                8px;
+                10px;
 
-            line-height:
-                1.6;
+            font-weight:
+                700;
+
+            opacity:
+                0;
+
+            pointer-events:
+                none;
+
+            transition:
+                .25s ease;
+
+            z-index:
+                9999;
+
+        }
+
+
+        #toast.show {
+
+            opacity:
+                1;
+
+            transform:
+                translateX(-50%)
+                translateY(0);
+
         }
 
 
@@ -1394,54 +1315,80 @@
 
                 grid-template-columns:
                     repeat(2,1fr);
-            }
 
-
-            .control-row {
-
-                grid-template-columns:
-                    1fr 1fr;
-            }
-
-
-            .refresh-btn {
-
-                grid-column:
-                    span 2;
             }
 
         }
 
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
 
             .header-inner {
 
-                min-height:
-                    64px;
+                width:
+                    100%;
+
             }
 
+            .brand strong {
 
-            .admin-badge {
+                font-size:
+                    12px;
 
-                display:
-                    none;
             }
 
+            .header-btn {
+
+                padding:
+                    8px 9px;
+
+                font-size:
+                    9px;
+
+            }
 
             main {
 
-                padding-top:
-                    22px;
-            }
+                width:
+                    92%;
 
+                padding-top:
+                    25px;
+
+            }
 
             .page-heading h1 {
 
                 font-size:
-                    29px;
+                    23px;
+
             }
 
+            .controls {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+            .student-top {
+
+                flex-direction:
+                    column;
+
+            }
+
+            .student-details {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 450px) {
 
             .stats-grid {
 
@@ -1450,48 +1397,28 @@
 
                 gap:
                     8px;
-            }
 
+            }
 
             .stat-card {
 
                 padding:
                     14px;
+
             }
 
-
-            .stat-card h3 {
+            .stat-card strong {
 
                 font-size:
-                    21px;
+                    22px;
+
             }
 
-
-            .control-row {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .refresh-btn {
-
-                grid-column:
-                    auto;
-            }
-
-
-            .student-profile {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .modal-body {
+            .student-card {
 
                 padding:
-                    15px;
+                    14px;
+
             }
 
         }
@@ -1504,1243 +1431,470 @@
 <body>
 
 
-<!-- =====================================================
-     HEADER
-====================================================== -->
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
-<header>
+    <header>
 
-    <div class="header-inner">
-
-
-        <div class="brand">
-
-            <div class="brand-icon">
-
-                <i class="fa-solid fa-shield-halved"></i>
-
-            </div>
+        <div class="header-inner">
 
 
-            <div class="brand-title">
+            <div class="brand">
 
-                <strong>
-                    ALL ABOUT ENGLISH
-                </strong>
+                <div class="brand-icon">
 
-                <span>
-                    ADMIN DASHBOARD
-                </span>
+                    <i class="fa-solid fa-shield-halved"></i>
 
-            </div>
+                </div>
 
-        </div>
+                <div>
 
+                    <strong>
+                        ALL ABOUT ENGLISH
+                    </strong>
 
-        <div class="header-actions">
-
-            <div class="admin-badge">
-
-                <i class="fa-solid fa-circle-check"></i>
-
-                ADMIN
-
-            </div>
-
-
-            <button
-                type="button"
-                class="logout-btn"
-                id="logoutButton"
-            >
-
-                <i class="fa-solid fa-right-from-bracket"></i>
-
-                Logout
-
-            </button>
-
-        </div>
-
-    </div>
-
-</header>
-
-
-
-<!-- =====================================================
-     MAIN
-====================================================== -->
-
-<main>
-
-
-    <div class="page-heading">
-
-        <div class="eyebrow">
-            STUDENT MANAGEMENT
-        </div>
-
-        <h1>
-            Admin Dashboard
-        </h1>
-
-        <p>
-            Manage student accounts and learning access.
-        </p>
-
-    </div>
-
-
-
-    <!-- MESSAGE -->
-
-    <div id="message"></div>
-
-
-
-    <!-- =================================================
-         STATISTICS
-    ================================================== -->
-
-    <section class="stats-grid">
-
-
-        <div class="stat-card">
-
-            <div class="stat-top">
-
-                <div class="stat-icon">
-
-                    <i class="fa-solid fa-users"></i>
+                    <span>
+                        ADMIN DASHBOARD
+                    </span>
 
                 </div>
 
             </div>
 
-            <h3 id="totalStudents">
-                0
-            </h3>
 
-            <p>
-                TOTAL STUDENTS
-            </p>
+            <div class="header-actions">
 
-        </div>
-
-
-
-        <div class="stat-card">
-
-            <div class="stat-top">
-
-                <div class="stat-icon">
-
-                    <i class="fa-solid fa-user-clock"></i>
-
-                </div>
-
-            </div>
-
-            <h3 id="pendingStudents">
-                0
-            </h3>
-
-            <p>
-                PENDING
-            </p>
-
-        </div>
-
-
-
-        <div class="stat-card">
-
-            <div class="stat-top">
-
-                <div class="stat-icon">
-
-                    <i class="fa-solid fa-user-check"></i>
-
-                </div>
-
-            </div>
-
-            <h3 id="activeStudents">
-                0
-            </h3>
-
-            <p>
-                ACTIVE
-            </p>
-
-        </div>
-
-
-
-        <div class="stat-card">
-
-            <div class="stat-top">
-
-                <div class="stat-icon">
-
-                    <i class="fa-solid fa-user-plus"></i>
-
-                </div>
-
-            </div>
-
-            <h3 id="newStudents">
-                0
-            </h3>
-
-            <p>
-                NEW / 7 DAYS
-            </p>
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- =================================================
-         SEARCH
-    ================================================== -->
-
-    <section class="control-panel">
-
-
-        <div class="control-row">
-
-
-            <div class="search-wrap">
-
-                <i class="fa-solid fa-magnifying-glass"></i>
-
-                <input
-                    type="search"
-                    id="searchInput"
-                    class="search-input"
-                    placeholder="Search by student name, mobile or email..."
-                    autocomplete="off"
+                <a
+                    href="../"
+                    class="header-btn"
                 >
 
-            </div>
+                    <i class="fa-solid fa-house"></i>
 
+                    Home
 
-            <select
-                id="statusFilter"
-                class="filter-select"
-            >
-
-                <option value="all">
-                    All Students
-                </option>
-
-                <option value="pending">
-                    Pending
-                </option>
-
-                <option value="active">
-                    Active
-                </option>
-
-                <option value="inactive">
-                    Inactive
-                </option>
-
-            </select>
-
-
-            <button
-                type="button"
-                class="refresh-btn"
-                id="refreshButton"
-            >
-
-                <i class="fa-solid fa-rotate"></i>
-
-                Refresh
-
-            </button>
-
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- =================================================
-         STUDENTS
-    ================================================== -->
-
-    <section class="students-panel">
-
-
-        <div class="panel-heading">
-
-            <h2>
-                Students
-            </h2>
-
-            <div
-                class="result-count"
-                id="resultCount"
-            >
-                0 students
-            </div>
-
-        </div>
-
-
-        <div
-            class="table-wrap"
-            id="tableContainer"
-        >
-
-            <div class="loading">
-
-                <i class="fa-solid fa-spinner fa-spin"></i>
-
-                &nbsp;
-
-                Loading students...
-
-            </div>
-
-        </div>
-
-
-    </section>
-
-
-</main>
-
-
-
-<!-- =====================================================
-     STUDENT MODAL
-====================================================== -->
-
-<div
-    class="modal-overlay"
-    id="studentModal"
->
-
-
-    <div class="modal">
-
-
-        <div class="modal-header">
-
-            <h2>
-                Student Details
-            </h2>
-
-
-            <button
-                type="button"
-                class="close-btn"
-                id="closeModal"
-            >
-
-                <i class="fa-solid fa-xmark"></i>
-
-            </button>
-
-        </div>
-
-
-        <div class="modal-body">
-
-
-            <div
-                class="student-profile"
-                id="studentDetails"
-            ></div>
-
-
-
-            <div class="section-title">
-
-                ACCOUNT STATUS
-
-            </div>
-
-
-            <div class="status-actions">
+                </a>
 
 
                 <button
                     type="button"
-                    class="status-btn"
-                    data-status="active"
+                    class="header-btn"
+                    id="logoutBtn"
                 >
 
-                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-right-from-bracket"></i>
 
-                    Set Active
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="status-btn"
-                    data-status="pending"
-                >
-
-                    <i class="fa-solid fa-clock"></i>
-
-                    Set Pending
+                    Logout
 
                 </button>
-
-
-                <button
-                    type="button"
-                    class="status-btn"
-                    data-status="inactive"
-                >
-
-                    <i class="fa-solid fa-ban"></i>
-
-                    Set Inactive
-
-                </button>
-
 
             </div>
 
+        </div>
 
-
-            <div class="section-title">
-
-                CONTENT ACCESS
-
-            </div>
-
-
-          <div class="approval-box">
-
-    <p>
-        Approve or remove access to specific folders / units
-        for this student.
-    </p>
+    </header>
 
 
     <!-- =====================================================
-         UNIT APPROVAL LIST
+         MAIN
     ====================================================== -->
 
-    <div
-        id="unitApprovalList"
-        style="
-            display:flex;
-            flex-direction:column;
-            gap:8px;
-        "
-    >
+    <main>
 
-        <div
-            style="
-                padding:15px;
-                text-align:center;
-                color:#68748a;
-                font-size:9px;
-            "
-        >
+
+        <!-- =================================================
+             ADMIN CHECKING
+        ================================================== -->
+
+        <div id="adminChecking">
 
             <i class="fa-solid fa-spinner fa-spin"></i>
 
-            &nbsp;
-
-            Loading units...
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         NOTE
-    ====================================================== -->
-
-    <div
-        class="future-note"
-        style="margin-top:12px;"
-    >
-
-        <i class="fa-solid fa-circle-info"></i>
-
-        &nbsp;
-
-        Approval is saved directly to the student's
-        <strong>approvedUnits</strong> field in Firestore.
-
-    </div>
-
-</div>
-
+            <p>
+                Checking admin access...
+            </p>
 
         </div>
 
-    </div>
 
-</div>
+        <!-- =================================================
+             DASHBOARD
+        ================================================== -->
 
+        <div id="dashboard">
 
 
-<!-- =====================================================
-     FIREBASE
-====================================================== -->
+            <div class="page-heading">
 
-<script type="module">
+                <h1>
+                    Student Management
+                </h1>
 
-    import {
-        app
-    } from "../firebase-config.js";
-
-
-    import {
-        getAuth,
-        onAuthStateChanged,
-        signOut
-    }
-    from
-        "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-
-    import {
-        getFirestore,
-        collection,
-        getDocs,
-        doc,
-        getDoc,
-        updateDoc
-    }
-    from
-        "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-
-
-    /* =====================================================
-       FIREBASE INITIALIZATION
-    ====================================================== */
-
-    const auth =
-        getAuth(app);
-
-
-    const db =
-        getFirestore(app);
-
-
-
-    /* =====================================================
-       DOM
-    ====================================================== */
-
-    const tableContainer =
-        document.getElementById(
-            "tableContainer"
-        );
-
-
-    const searchInput =
-        document.getElementById(
-            "searchInput"
-        );
-
-
-    const statusFilter =
-        document.getElementById(
-            "statusFilter"
-        );
-
-
-    const resultCount =
-        document.getElementById(
-            "resultCount"
-        );
-
-
-    const studentModal =
-        document.getElementById(
-            "studentModal"
-        );
-
-
-    const studentDetails =
-        document.getElementById(
-            "studentDetails"
-        );
-
-
-
-    /* =====================================================
-       DATA
-    ====================================================== */
-
-    let students = [];
-
-    let selectedStudent = null;
-
-    /* =====================================================
-   UNIT CONFIGURATION
-
-   ভবিষ্যতে নতুন Unit যোগ করতে হলে
-   শুধু এই list-এ নতুন Unit যোগ করবেন।
-===================================================== */
-
-const UNIT_LIST = [
-
-    {
-        id: "unit-11",
-        name: "Unit 11",
-        description: "English 1st Paper — Unit 11"
-    },
-
-    {
-        id: "unit-12",
-        name: "Unit 12",
-        description: "English 1st Paper — Unit 12"
-    },
-
-    {
-        id: "unit-13",
-        name: "Unit 13",
-        description: "English 1st Paper — Unit 13"
-    },
-
-    {
-        id: "unit-14",
-        name: "Unit 14",
-        description: "English 1st Paper — Unit 14"
-    }
-
-];
-
-
-    /* =====================================================
-       MESSAGE
-    ====================================================== */
-
-    function showMessage(
-        text,
-        type = "success"
-    ) {
-
-        const message =
-            document.getElementById(
-                "message"
-            );
-
-
-        message.textContent =
-            text;
-
-
-        message.className =
-            "show " + type;
-
-
-        setTimeout(
-            function() {
-
-                message.className = "";
-
-            },
-            4000
-        );
-
-    }
-
-
-
-    /* =====================================================
-       DATE
-    ====================================================== */
-
-    function getCreatedDate(
-        value
-    ) {
-
-        if (!value) {
-
-            return null;
-
-        }
-
-
-        if (
-            typeof value.toDate ===
-            "function"
-        ) {
-
-            return value.toDate();
-
-        }
-
-
-        if (
-            value instanceof Date
-        ) {
-
-            return value;
-
-        }
-
-
-        if (
-            typeof value ===
-            "string"
-        ) {
-
-            const date =
-                new Date(value);
-
-            if (
-                !isNaN(
-                    date.getTime()
-                )
-            ) {
-
-                return date;
-
-            }
-
-        }
-
-
-        return null;
-
-    }
-
-
-
-    function formatDate(
-        value
-    ) {
-
-        const date =
-            getCreatedDate(value);
-
-
-        if (!date) {
-
-            return "—";
-
-        }
-
-
-        return date.toLocaleDateString(
-            "en-GB",
-            {
-                day: "2-digit",
-                month: "short",
-                year: "numeric"
-            }
-        );
-
-    }
-
-
-
-    /* =====================================================
-       STATUS
-    ====================================================== */
-
-    function normalizeStatus(
-        value
-    ) {
-
-        if (!value) {
-
-            return "unknown";
-
-        }
-
-
-        const status =
-            String(value)
-                .toLowerCase()
-                .trim();
-
-
-        if (
-            status === "active"
-        ) {
-
-            return "active";
-
-        }
-
-
-        if (
-            status === "pending"
-        ) {
-
-            return "pending";
-
-        }
-
-
-        if (
-            status === "inactive"
-        ) {
-
-            return "inactive";
-
-        }
-
-
-        return "unknown";
-
-    }
-
-
-
-    function statusHTML(
-        status
-    ) {
-
-        const normalized =
-            normalizeStatus(status);
-
-
-        if (
-            normalized === "active"
-        ) {
-
-            return `
-                <span class="status active">
-                    <i class="fa-solid fa-circle-check"></i>
-                    Active
-                </span>
-            `;
-
-        }
-
-
-        if (
-            normalized === "pending"
-        ) {
-
-            return `
-                <span class="status pending">
-                    <i class="fa-solid fa-clock"></i>
-                    Pending
-                </span>
-            `;
-
-        }
-
-
-        if (
-            normalized === "inactive"
-        ) {
-
-            return `
-                <span class="status inactive">
-                    <i class="fa-solid fa-ban"></i>
-                    Inactive
-                </span>
-            `;
-
-        }
-
-
-        return `
-            <span class="status unknown">
-                Unknown
-            </span>
-        `;
-
-    }
-
-
-
-    /* =====================================================
-       LOAD ADMIN
-    ====================================================== */
-
-    async function verifyAdmin(
-        user
-    ) {
-
-        if (!user) {
-
-            window.location.href =
-                "../login.html";
-
-            return false;
-
-        }
-
-
-        try {
-
-            const adminRef =
-                doc(
-                    db,
-                    "admins",
-                    user.uid
-                );
-
-
-            const adminSnap =
-                await getDoc(
-                    adminRef
-                );
-
-
-            if (
-                !adminSnap.exists()
-            ) {
-
-                showMessage(
-                    "Access denied. Admin account not found.",
-                    "error"
-                );
-
-
-                await signOut(auth);
-
-
-                setTimeout(
-                    function() {
-
-                        window.location.href =
-                            "../login.html";
-
-                    },
-                    1200
-                );
-
-
-                return false;
-
-            }
-
-
-            const adminData =
-                adminSnap.data();
-
-
-            const role =
-                String(
-                    adminData.role || ""
-                )
-                    .toLowerCase()
-                    .trim();
-
-
-            const status =
-                String(
-                    adminData.status || ""
-                )
-                    .toLowerCase()
-                    .trim();
-
-
-            if (
-                role !== "admin" ||
-                status !== "active"
-            ) {
-
-                showMessage(
-                    "Access denied. You are not an active administrator.",
-                    "error"
-                );
-
-
-                await signOut(auth);
-
-
-                setTimeout(
-                    function() {
-
-                        window.location.href =
-                            "../login.html";
-
-                    },
-                    1200
-                );
-
-
-                return false;
-
-            }
-
-
-            return true;
-
-        }
-
-        catch (error) {
-
-            console.error(
-                "Admin verification error:",
-                error
-            );
-
-
-            showMessage(
-                "Could not verify administrator access.",
-                "error"
-            );
-
-
-            return false;
-
-        }
-
-    }
-
-
-
-    /* =====================================================
-       LOAD STUDENTS
-    ====================================================== */
-
-    async function loadStudents() {
-
-        tableContainer.innerHTML = `
-
-            <div class="loading">
-
-                <i class="fa-solid fa-spinner fa-spin"></i>
-
-                &nbsp;
-
-                Loading students...
+                <p>
+                    Manage student accounts and approve learning units.
+                </p>
 
             </div>
 
-        `;
+
+            <!-- =================================================
+                 STATS
+            ================================================== -->
+
+            <div class="stats-grid">
 
 
-        try {
+                <div class="stat-card">
 
-            const snapshot =
-                await getDocs(
-                    collection(
-                        db,
-                        "students"
-                    )
-                );
+                    <div class="stat-top">
 
+                        <small>
+                            TOTAL STUDENTS
+                        </small>
 
-            students = [];
+                        <div class="stat-icon">
 
+                            <i class="fa-solid fa-users"></i>
 
-            snapshot.forEach(
-                function(studentDoc) {
+                        </div>
 
-                    students.push({
+                    </div>
 
-                        id:
-                            studentDoc.id,
-
-                        ...studentDoc.data()
-
-                    });
-
-                }
-            );
-
-
-            students.sort(
-                function(a,b) {
-
-                    const dateA =
-                        getCreatedDate(
-                            a.createdAt
-                        ) || new Date(0);
-
-
-                    const dateB =
-                        getCreatedDate(
-                            b.createdAt
-                        ) || new Date(0);
-
-
-                    return (
-                        dateB - dateA
-                    );
-
-                }
-            );
-
-
-            updateStatistics();
-
-            renderStudents();
-
-        }
-
-        catch (error) {
-
-            console.error(
-                "Student loading error:",
-                error
-            );
-
-
-            tableContainer.innerHTML = `
-
-                <div class="empty-state">
-
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-
-                    <br>
-
-                    Could not load students.
-
-                    <br><br>
-
-                    <small>
-                        ${escapeHTML(
-                            error.message ||
-                            "Firestore permission denied."
-                        )}
-                    </small>
+                    <strong id="totalStudents">
+                        0
+                    </strong>
 
                 </div>
 
-            `;
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <small>
+                            ACTIVE
+                        </small>
+
+                        <div class="stat-icon">
+
+                            <i class="fa-solid fa-user-check"></i>
+
+                        </div>
+
+                    </div>
+
+                    <strong id="activeStudents">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <small>
+                            UNIT 11
+                        </small>
+
+                        <div class="stat-icon">
+
+                            <i class="fa-solid fa-book"></i>
+
+                        </div>
+
+                    </div>
+
+                    <strong id="unit11Students">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <small>
+                            UNIT 12
+                        </small>
+
+                        <div class="stat-icon">
+
+                            <i class="fa-solid fa-book-open"></i>
+
+                        </div>
+
+                    </div>
+
+                    <strong id="unit12Students">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 SEARCH / FILTER
+            ================================================== -->
+
+            <div class="control-panel">
+
+                <div class="controls">
+
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="searchInput"
+                            placeholder="Search by name, mobile or email..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <select id="statusFilter">
+
+                        <option value="all">
+                            All Students
+                        </option>
+
+                        <option value="active">
+                            Active
+                        </option>
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LIST HEADING
+            ================================================== -->
+
+            <div class="list-heading">
+
+                <h2>
+                    Students
+                </h2>
+
+                <span
+                    class="student-count"
+                    id="studentCount"
+                >
+                    0 students
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 STUDENT LIST
+            ================================================== -->
+
+            <div
+                class="student-list"
+                id="studentList"
+            ></div>
+
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div id="toast"></div>
+
+
+    <!-- =====================================================
+         FIREBASE ADMIN SCRIPT
+    ====================================================== -->
+
+    <script type="module">
+
+
+        // ====================================================
+        // FIREBASE IMPORTS
+        // ====================================================
+
+        import {
+            auth
+        }
+        from "../firebase-auth.js";
+
+
+        import {
+            app
+        }
+        from "../firebase-config.js";
+
+
+        import {
+            onAuthStateChanged,
+            signOut
+        }
+        from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+        import {
+            getFirestore,
+            collection,
+            getDocs,
+            doc,
+            updateDoc
+        }
+        from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+        // ====================================================
+        // FIRESTORE
+        // ====================================================
+
+        const db =
+            getFirestore(app);
+
+
+        // ====================================================
+        // ELEMENTS
+        // ====================================================
+
+        const adminChecking =
+            document.getElementById(
+                "adminChecking"
+            );
+
+
+        const dashboard =
+            document.getElementById(
+                "dashboard"
+            );
+
+
+        const studentList =
+            document.getElementById(
+                "studentList"
+            );
+
+
+        const searchInput =
+            document.getElementById(
+                "searchInput"
+            );
+
+
+        const statusFilter =
+            document.getElementById(
+                "statusFilter"
+            );
+
+
+        const studentCount =
+            document.getElementById(
+                "studentCount"
+            );
+
+
+        const logoutBtn =
+            document.getElementById(
+                "logoutBtn"
+            );
+
+
+        // ====================================================
+        // DATA
+        // ====================================================
+
+        let students =
+            [];
+
+
+        // ====================================================
+        // ADMIN EMAIL
+        // ====================================================
+        //
+        // IMPORTANT:
+        // নিজের Firebase Admin account-এর email এখানে বসাবেন.
+        //
+        // উদাহরণ:
+        //
+        // const ADMIN_EMAIL = "youradmin@email.com";
+        //
+        // ====================================================
+
+        const ADMIN_EMAIL =
+            "Shaheenexam007";
+
+
+        // ====================================================
+        // TOAST
+        // ====================================================
+
+        function showToast(
+            message
+        ) {
+
+            const toast =
+                document.getElementById(
+                    "toast"
+                );
+
+
+            toast.textContent =
+                message;
+
+
+            toast.classList.add(
+                "show"
+            );
+
+
+            setTimeout(
+                function () {
+
+                    toast.classList.remove(
+                        "show"
+                    );
+
+                },
+                2500
+            );
 
         }
 
-    }
 
+        // ====================================================
+        // ESCAPE HTML
+        // ====================================================
 
+        function escapeHtml(
+            value
+        ) {
 
-    /* =====================================================
-       STATISTICS
-    ====================================================== */
-
-    function updateStatistics() {
-
-        const total =
-            students.length;
-
-
-        const pending =
-            students.filter(
-                function(student) {
-
-                    return (
-                        normalizeStatus(
-                            student.accountStatus
-                        ) ===
-                        "pending"
-                    );
-
-                }
-            ).length;
-
-
-        const active =
-            students.filter(
-                function(student) {
-
-                    return (
-                        normalizeStatus(
-                            student.accountStatus
-                        ) ===
-                        "active"
-                    );
-
-                }
-            ).length;
-
-
-        const now =
-            new Date();
-
-
-        const sevenDays =
-            7 * 24 * 60 * 60 * 1000;
-
-
-        const newStudents =
-            students.filter(
-                function(student) {
-
-                    const date =
-                        getCreatedDate(
-                            student.createdAt
-                        );
-
-
-                    if (!date) {
-
-                        return false;
-
-                    }
-
-
-                    return (
-                        now - date <=
-                        sevenDays
-                    );
-
-                }
-            ).length;
-
-
-        document
-            .getElementById(
-                "totalStudents"
+            return String(
+                value || ""
             )
-            .textContent =
-            total;
-
-
-        document
-            .getElementById(
-                "pendingStudents"
-            )
-            .textContent =
-            pending;
-
-
-        document
-            .getElementById(
-                "activeStudents"
-            )
-            .textContent =
-            active;
-
-
-        document
-            .getElementById(
-                "newStudents"
-            )
-            .textContent =
-            newStudents;
-
-    }
-
-
-
-    /* =====================================================
-       ESCAPE HTML
-    ====================================================== */
-
-    function escapeHTML(
-        value
-    ) {
-
-        return String(
-            value ?? ""
-        )
             .replace(
                 /&/g,
                 "&amp;"
@@ -2762,941 +1916,1002 @@ const UNIT_LIST = [
                 "&#039;"
             );
 
-    }
+        }
 
 
+        // ====================================================
+        // INITIAL
+        // ====================================================
 
-    /* =====================================================
-       RENDER
-    ====================================================== */
+        onAuthStateChanged(
+            auth,
+            async function (user) {
 
-    function renderStudents() {
+                if (!user) {
 
-        const search =
-            searchInput.value
-                .trim()
-                .toLowerCase();
+                    window.location.href =
+                        "../login.html";
 
+                    return;
 
-        const filter =
-            statusFilter.value;
+                }
 
 
-        const filtered =
-            students.filter(
-                function(student) {
+                // ============================================
+                // ADMIN CHECK
+                // ============================================
 
+                if (
+                    user.email !==
+                    ADMIN_EMAIL
+                ) {
+
+                    adminChecking.innerHTML = `
+
+                        <i
+                            class="fa-solid fa-lock"
+                        ></i>
+
+                        <p>
+                            Admin access denied.
+                        </p>
+
+                    `;
+
+                    return;
+
+                }
+
+
+                // ============================================
+                // ADMIN VERIFIED
+                // ============================================
+
+                adminChecking.style.display =
+                    "none";
+
+
+                dashboard.style.display =
+                    "block";
+
+
+                await loadStudents();
+
+            }
+        );
+
+
+        // ====================================================
+        // LOAD STUDENTS
+        // ====================================================
+
+        async function loadStudents() {
+
+            try {
+
+                studentList.innerHTML = `
+
+                    <div class="empty-state">
+
+                        <i
+                            class="fa-solid fa-spinner fa-spin"
+                        ></i>
+
+                        <h3>
+                            Loading students...
+                        </h3>
+
+                        <p>
+                            Please wait.
+                        </p>
+
+                    </div>
+
+                `;
+
+
+                const snapshot =
+                    await getDocs(
+                        collection(
+                            db,
+                            "students"
+                        )
+                    );
+
+
+                students =
+                    [];
+
+
+                snapshot.forEach(
+                    function (studentDoc) {
+
+                        students.push({
+
+                            id:
+                                studentDoc.id,
+
+                            ...studentDoc.data()
+
+                        });
+
+                    }
+                );
+
+
+                updateStats();
+
+                renderStudents();
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Load students error:",
+                    error
+                );
+
+
+                studentList.innerHTML = `
+
+                    <div class="error-box">
+
+                        <strong>
+                            Unable to load students.
+                        </strong>
+
+                        <br><br>
+
+                        ${escapeHtml(
+                            error.message
+                        )}
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+        // ====================================================
+        // UPDATE STATS
+        // ====================================================
+
+        function updateStats() {
+
+            const total =
+                students.length;
+
+
+            const active =
+                students.filter(
+                    function (student) {
+
+                        return (
+                            student.accountStatus ===
+                            "active"
+                        );
+
+                    }
+                ).length;
+
+
+            const unit11 =
+                students.filter(
+                    function (student) {
+
+                        return (
+                            student.approvedUnits &&
+                            student.approvedUnits[
+                                "unit-11"
+                            ] === true
+                        );
+
+                    }
+                ).length;
+
+
+            const unit12 =
+                students.filter(
+                    function (student) {
+
+                        return (
+                            student.approvedUnits &&
+                            student.approvedUnits[
+                                "unit-12"
+                            ] === true
+                        );
+
+                    }
+                ).length;
+
+
+            document.getElementById(
+                "totalStudents"
+            ).textContent =
+                total;
+
+
+            document.getElementById(
+                "activeStudents"
+            ).textContent =
+                active;
+
+
+            document.getElementById(
+                "unit11Students"
+            ).textContent =
+                unit11;
+
+
+            document.getElementById(
+                "unit12Students"
+            ).textContent =
+                unit12;
+
+        }
+
+
+        // ====================================================
+        // FILTER STUDENTS
+        // ====================================================
+
+        function getFilteredStudents() {
+
+            const search =
+                searchInput.value
+                    .trim()
+                    .toLowerCase();
+
+
+            const filter =
+                statusFilter.value;
+
+
+            return students.filter(
+                function (student) {
+
+
+                    // ========================================
+                    // SEARCH
+                    // ========================================
 
                     const name =
                         String(
                             student.name || ""
-                        )
-                            .toLowerCase();
-
-
-                    const email =
-                        String(
-                            student.email || ""
-                        )
-                            .toLowerCase();
+                        ).toLowerCase();
 
 
                     const mobile =
                         String(
                             student.mobile || ""
-                        )
-                            .toLowerCase();
+                        ).toLowerCase();
+
+
+                    const email =
+                        String(
+                            student.email || ""
+                        ).toLowerCase();
 
 
                     const matchesSearch =
                         !search ||
                         name.includes(search) ||
-                        email.includes(search) ||
-                        mobile.includes(search);
+                        mobile.includes(search) ||
+                        email.includes(search);
 
 
-                    const currentStatus =
-                        normalizeStatus(
-                            student.accountStatus
-                        );
+                    if (!matchesSearch) {
 
-
-                    const matchesFilter =
-                        filter === "all" ||
-                        currentStatus === filter;
-
-
-                    return (
-                        matchesSearch &&
-                        matchesFilter
-                    );
-
-                }
-            );
-
-
-        resultCount.textContent =
-            filtered.length +
-            (
-                filtered.length === 1
-                    ? " student"
-                    : " students"
-            );
-
-
-        if (
-            filtered.length === 0
-        ) {
-
-            tableContainer.innerHTML = `
-
-                <div class="empty-state">
-
-                    <i class="fa-solid fa-user-slash"></i>
-
-                    <br>
-
-                    No students found.
-
-                </div>
-
-            `;
-
-            return;
-
-        }
-
-
-        let html = `
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            STUDENT
-                        </th>
-
-                        <th>
-                            MOBILE
-                        </th>
-
-                        <th>
-                            COLLEGE
-                        </th>
-
-                        <th>
-                            STATUS
-                        </th>
-
-                        <th>
-                            CREATED
-                        </th>
-
-                        <th>
-                            ACTION
-                        </th>
-
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-        `;
-
-
-        filtered.forEach(
-            function(student) {
-
-                html += `
-
-                    <tr>
-
-                        <td>
-
-                            <div class="student-name">
-
-                                ${escapeHTML(
-                                    student.name ||
-                                    "Unnamed Student"
-                                )}
-
-                            </div>
-
-                            <div class="student-email">
-
-                                ${escapeHTML(
-                                    student.email ||
-                                    "No email"
-                                )}
-
-                            </div>
-
-                        </td>
-
-
-                        <td>
-
-                            ${escapeHTML(
-                                student.mobile ||
-                                "—"
-                            )}
-
-                        </td>
-
-
-                        <td>
-
-                            ${escapeHTML(
-                                student.college ||
-                                "—"
-                            )}
-
-                        </td>
-
-
-                        <td>
-
-                            ${statusHTML(
-                                student.accountStatus
-                            )}
-
-                        </td>
-
-
-                        <td>
-
-                            ${formatDate(
-                                student.createdAt
-                            )}
-
-                        </td>
-
-
-                        <td>
-
-                            <button
-                                type="button"
-                                class="action-btn"
-                                data-student-id="${escapeHTML(
-                                    student.id
-                                )}"
-                            >
-
-                                <i class="fa-solid fa-eye"></i>
-
-                                View
-
-                            </button>
-
-                        </td>
-
-                    </tr>
-
-                `;
-
-            }
-        );
-
-
-        html += `
-
-                </tbody>
-
-            </table>
-
-        `;
-
-
-        tableContainer.innerHTML =
-            html;
-
-
-        document
-            .querySelectorAll(
-                ".action-btn"
-            )
-            .forEach(
-                function(button) {
-
-                    button.addEventListener(
-                        "click",
-                        function() {
-
-                            openStudent(
-                                this.dataset.studentId
-                            );
-
-                        }
-                    );
-
-                }
-            );
-
-    }
-
-/* =====================================================
-   RENDER UNIT APPROVALS
-===================================================== */
-
-function renderUnitApprovals() {
-
-    const container =
-        document.getElementById(
-            "unitApprovalList"
-        );
-
-
-    if (!container) {
-
-        return;
-
-    }
-
-
-    if (!selectedStudent) {
-
-        container.innerHTML = "";
-
-        return;
-
-    }
-
-
-    const approvedUnits =
-        selectedStudent.approvedUnits || {};
-
-
-    let html = "";
-
-
-    UNIT_LIST.forEach(
-        function(unit) {
-
-            const approved =
-                approvedUnits[unit.id] === true;
-
-
-            html += `
-
-                <div
-                    style="
-                        display:flex;
-                        align-items:center;
-                        justify-content:space-between;
-                        gap:12px;
-                        padding:12px;
-                        border:1px solid #e7e4dc;
-                        border-radius:10px;
-                        background:#fcfcfa;
-                    "
-                >
-
-                    <div
-                        style="
-                            min-width:0;
-                            flex:1;
-                        "
-                    >
-
-                        <div
-                            style="
-                                font-size:10px;
-                                font-weight:800;
-                                color:#101b36;
-                            "
-                        >
-
-                            ${escapeHTML(
-                                unit.name
-                            )}
-
-                        </div>
-
-
-                        <div
-                            style="
-                                margin-top:3px;
-                                font-size:8px;
-                                color:#68748a;
-                            "
-                        >
-
-                            ${escapeHTML(
-                                unit.description
-                            )}
-
-                        </div>
-
-                    </div>
-
-
-                    <button
-                        type="button"
-                        class="unit-approval-btn"
-                        data-unit-id="${escapeHTML(
-                            unit.id
-                        )}"
-                        data-approved="${approved}"
-                        style="
-                            border:none;
-                            border-radius:8px;
-                            padding:8px 11px;
-                            font-size:8px;
-                            font-weight:800;
-                            white-space:nowrap;
-                            cursor:pointer;
-
-                            ${
-                                approved
-                                    ? `
-                                        background:#eaf7f0;
-                                        color:#18794e;
-                                        border:1px solid #c9ead8;
-                                      `
-                                    : `
-                                        background:#101b36;
-                                        color:white;
-                                      `
-                            }
-                        "
-                    >
-
-                        ${
-                            approved
-                                ? `
-                                    <i class="fa-solid fa-circle-check"></i>
-                                    Approved
-                                  `
-                                : `
-                                    <i class="fa-solid fa-lock-open"></i>
-                                    Approve
-                                  `
-                        }
-
-                    </button>
-
-                </div>
-
-            `;
-
-        }
-    );
-
-
-    container.innerHTML =
-        html;
-
-
-    container
-        .querySelectorAll(
-            ".unit-approval-btn"
-        )
-        .forEach(
-            function(button) {
-
-                button.addEventListener(
-                    "click",
-                    function() {
-
-                        toggleUnitApproval(
-                            this.dataset.unitId
-                        );
+                        return false;
 
                     }
-                );
 
-            }
-        );
 
-}
+                    // ========================================
+                    // STATUS
+                    // ========================================
 
-
-
-    /* =====================================================
-   TOGGLE UNIT APPROVAL
-===================================================== */
-
-async function toggleUnitApproval(
-    unitId
-) {
-
-    if (!selectedStudent) {
-
-        return;
-
-    }
-
-
-    const studentId =
-        selectedStudent.id;
-
-
-    const approvedUnits = {
-
-        ...(selectedStudent.approvedUnits || {})
-
-    };
-
-
-    const currentlyApproved =
-        approvedUnits[unitId] === true;
-
-
-    const newApproval =
-        !currentlyApproved;
-
-
-    approvedUnits[unitId] =
-        newApproval;
-
-
-    try {
-
-        await updateDoc(
-            doc(
-                db,
-                "students",
-                studentId
-            ),
-            {
-                approvedUnits:
-                    approvedUnits
-            }
-        );
-
-
-        /* =============================================
-           UPDATE LOCAL DATA
-        ============================================= */
-
-        selectedStudent.approvedUnits =
-            approvedUnits;
-
-
-        const index =
-            students.findIndex(
-                function(student) {
-
-                    return (
-                        student.id ===
-                        studentId
-                    );
-
-                }
-            );
-
-
-        if (
-            index !== -1
-        ) {
-
-            students[index].approvedUnits =
-                approvedUnits;
-
-        }
-
-
-        /* =============================================
-           REFRESH UNIT LIST
-        ============================================= */
-
-        renderUnitApprovals();
-
-
-        /* =============================================
-           REFRESH STUDENT DETAILS
-        ============================================= */
-
-        openStudent(
-            studentId
-        );
-
-
-        showMessage(
-
-            newApproval
-                ? "Unit access approved successfully."
-                : "Unit access removed successfully.",
-
-            "success"
-
-        );
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Unit approval error:",
-            error
-        );
-
-
-        /* Roll back local change */
-
-        approvedUnits[unitId] =
-            currentlyApproved;
-
-
-        selectedStudent.approvedUnits =
-            approvedUnits;
-
-
-        showMessage(
-            "Could not update unit access. Check Firestore Rules.",
-            "error"
-        );
-
-    }
-
-}
-
-    
-
-    /* =====================================================
-       OPEN STUDENT
-    ====================================================== */
-
-    function openStudent(
-        studentId
-    ) {
-
-        selectedStudent =
-            students.find(
-                function(student) {
-
-                    return (
-                        student.id ===
-                        studentId
-                    );
-
-                }
-            );
-
-
-        if (!selectedStudent) {
-
-            return;
-
-        }
-
-
-        studentDetails.innerHTML = `
-
-            <div class="detail-box">
-
-                <small>
-                    STUDENT NAME
-                </small>
-
-                <strong>
-                    ${escapeHTML(
-                        selectedStudent.name ||
-                        "—"
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div class="detail-box">
-
-                <small>
-                    EMAIL
-                </small>
-
-                <strong>
-                    ${escapeHTML(
-                        selectedStudent.email ||
-                        "—"
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div class="detail-box">
-
-                <small>
-                    MOBILE
-                </small>
-
-                <strong>
-                    ${escapeHTML(
-                        selectedStudent.mobile ||
-                        "—"
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div class="detail-box">
-
-                <small>
-                    COLLEGE / INSTITUTION
-                </small>
-
-                <strong>
-                    ${escapeHTML(
-                        selectedStudent.college ||
-                        "—"
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div class="detail-box">
-
-                <small>
-                    ACCOUNT STATUS
-                </small>
-
-                <strong>
-                    ${escapeHTML(
-                        selectedStudent.accountStatus ||
-                        "Not set"
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div class="detail-box">
-
-                <small>
-                    CREATED
-                </small>
-
-                <strong>
-                    ${formatDate(
-                        selectedStudent.createdAt
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div class="detail-box">
-
-                <small>
-                    USER UID
-                </small>
-
-                <strong>
-                    ${escapeHTML(
-                        selectedStudent.uid ||
-                        selectedStudent.id ||
-                        "—"
-                    )}
-                </strong>
-
-            </div>
-
-
-        <div class="detail-box">
-
-    <small>
-        APPROVED UNITS
-    </small>
-
-    <strong>
-        ${
-            selectedStudent.approvedUnits
-                ? Object.entries(
-                    selectedStudent.approvedUnits
-                  ).filter(
-                    ([unitId, approved]) =>
-                        approved === true
-                  ).length
-                : 0
-        }
-    </strong>
-
-</div>
-
-
-<div class="detail-box">
-
-    <small>
-        APPROVED LESSONS
-    </small>
-
-    <strong>
-        ${
-            selectedStudent.approvedLessons
-                ? Object.entries(
-                    selectedStudent.approvedLessons
-                  ).filter(
-                    ([lessonId, approved]) =>
-                        approved === true
-                  ).length
-                : 0
-        }
-    </strong>
-
-</div>
-
-        `;
-
-
-        studentModal.classList.add(
-            "show"
-        );
-        renderUnitApprovals();
-
-    }
-
-
-
-    /* =====================================================
-       UPDATE ACCOUNT STATUS
-    ====================================================== */
-
-    async function updateStudentStatus(
-        newStatus
-    ) {
-
-        if (
-            !selectedStudent
-        ) {
-
-            return;
-
-        }
-
-
-        const studentId =
-            selectedStudent.id;
-
-
-        try {
-
-            await updateDoc(
-                doc(
-                    db,
-                    "students",
-                    studentId
-                ),
-                {
-                    accountStatus:
-                        newStatus
-                }
-            );
-
-
-            selectedStudent.accountStatus =
-                newStatus;
-
-
-            const index =
-                students.findIndex(
-                    function(student) {
+                    if (
+                        filter ===
+                        "active"
+                    ) {
 
                         return (
-                            student.id ===
-                            studentId
+                            student.accountStatus ===
+                            "active"
                         );
 
                     }
+
+
+                    if (
+                        filter ===
+                        "pending"
+                    ) {
+
+                        return (
+                            student.accountStatus !==
+                            "active"
+                        );
+
+                    }
+
+
+                    return true;
+
+                }
+            );
+
+        }
+
+
+        // ====================================================
+        // RENDER STUDENTS
+        // ====================================================
+
+        function renderStudents() {
+
+            const filtered =
+                getFilteredStudents();
+
+
+            studentCount.textContent =
+                filtered.length +
+                (
+                    filtered.length === 1
+                    ? " student"
+                    : " students"
                 );
 
 
             if (
-                index !== -1
+                filtered.length ===
+                0
             ) {
 
-                students[index]
-                    .accountStatus =
-                    newStatus;
+                studentList.innerHTML = `
+
+                    <div class="empty-state">
+
+                        <i
+                            class="fa-solid fa-user-slash"
+                        ></i>
+
+                        <h3>
+                            No students found
+                        </h3>
+
+                        <p>
+                            Try another search or filter.
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
 
             }
 
 
-            updateStatistics();
-
-            renderStudents();
-
-
-            openStudent(
-                studentId
-            );
-
-
-            showMessage(
-                "Student account status updated successfully.",
-                "success"
-            );
+            studentList.innerHTML =
+                filtered.map(
+                    createStudentCard
+                ).join("");
 
         }
 
-        catch (error) {
 
-            console.error(
-                "Status update error:",
-                error
-            );
+        // ====================================================
+        // CREATE STUDENT CARD
+        // ====================================================
+
+        function createStudentCard(
+            student
+        ) {
+
+            const name =
+                student.name ||
+                "Unnamed Student";
 
 
-            showMessage(
-                "Could not update account status. Check Firestore Rules.",
-                "error"
-            );
+            const mobile =
+                student.mobile ||
+                "Not provided";
+
+
+            const email =
+                student.email ||
+                "Not provided";
+
+
+            const college =
+                student.college ||
+                "Not provided";
+
+
+            const accountStatus =
+                student.accountStatus ||
+                "pending";
+
+
+            const isActive =
+                accountStatus ===
+                "active";
+
+
+            const approvedUnits =
+                student.approvedUnits ||
+                {};
+
+
+            const unit11Approved =
+                approvedUnits[
+                    "unit-11"
+                ] === true;
+
+
+            const unit12Approved =
+                approvedUnits[
+                    "unit-12"
+                ] === true;
+
+
+            const firstLetter =
+                name
+                    .charAt(0)
+                    .toUpperCase();
+
+
+            return `
+
+                <div
+                    class="student-card"
+                    data-id="${escapeHtml(student.id)}"
+                >
+
+
+                    <!-- ====================================
+                         STUDENT TOP
+                    ===================================== -->
+
+                    <div class="student-top">
+
+
+                        <div class="student-identity">
+
+
+                            <div class="student-avatar">
+
+                                ${escapeHtml(
+                                    firstLetter
+                                )}
+
+                            </div>
+
+
+                            <div class="student-info">
+
+                                <h3>
+
+                                    ${escapeHtml(
+                                        name
+                                    )}
+
+                                </h3>
+
+
+                                <p>
+
+                                    UID:
+                                    ${escapeHtml(
+                                        student.uid ||
+                                        student.id
+                                    )}
+
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div
+                            class="
+                                status-badge
+                                ${
+                                    isActive
+                                    ? "status-active"
+                                    : "status-pending"
+                                }
+                            "
+                        >
+
+                            <i
+                                class="
+                                    fa-solid
+                                    ${
+                                        isActive
+                                        ? "fa-circle-check"
+                                        : "fa-clock"
+                                    }
+                                "
+                            ></i>
+
+                            ${
+                                isActive
+                                ? "ACTIVE"
+                                : "PENDING"
+                            }
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- ====================================
+                         DETAILS
+                    ===================================== -->
+
+                    <div class="student-details">
+
+
+                        <div class="detail-box">
+
+                            <small>
+                                MOBILE
+                            </small>
+
+                            <strong>
+                                ${escapeHtml(
+                                    mobile
+                                )}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="detail-box">
+
+                            <small>
+                                EMAIL
+                            </small>
+
+                            <strong>
+                                ${escapeHtml(
+                                    email
+                                )}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="detail-box">
+
+                            <small>
+                                COLLEGE
+                            </small>
+
+                            <strong>
+                                ${escapeHtml(
+                                    college
+                                )}
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- ====================================
+                         UNIT APPROVAL
+                    ===================================== -->
+
+                    <div class="approval-area">
+
+
+                        <div class="approval-title">
+
+                            UNIT APPROVAL
+
+                        </div>
+
+
+                        <div class="unit-buttons">
+
+
+                            <button
+                                type="button"
+                                class="
+                                    unit-btn
+                                    ${
+                                        unit11Approved
+                                        ? "approved"
+                                        : ""
+                                    }
+                                "
+                                onclick="
+                                    toggleUnit(
+                                        '${escapeHtml(student.id)}',
+                                        'unit-11'
+                                    )
+                                "
+                            >
+
+                                <i
+                                    class="
+                                        fa-solid
+                                        ${
+                                            unit11Approved
+                                            ? "fa-circle-check"
+                                            : "fa-lock"
+                                        }
+                                    "
+                                ></i>
+
+                                Unit 11
+
+                                ${
+                                    unit11Approved
+                                    ? " ✓"
+                                    : ""
+                                }
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="
+                                    unit-btn
+                                    ${
+                                        unit12Approved
+                                        ? "approved"
+                                        : ""
+                                    }
+                                "
+                                onclick="
+                                    toggleUnit(
+                                        '${escapeHtml(student.id)}',
+                                        'unit-12'
+                                    )
+                                "
+                            >
+
+                                <i
+                                    class="
+                                        fa-solid
+                                        ${
+                                            unit12Approved
+                                            ? "fa-circle-check"
+                                            : "fa-lock"
+                                        }
+                                    "
+                                ></i>
+
+                                Unit 12
+
+                                ${
+                                    unit12Approved
+                                    ? " ✓"
+                                    : ""
+                                }
+
+                            </button>
+
+
+                        </div>
+
+
+                        <!-- =================================
+                             ACCOUNT STATUS
+                        ================================== -->
+
+                        <div class="account-actions">
+
+
+                            ${
+                                !isActive
+                                ? `
+
+                                    <button
+                                        type="button"
+                                        class="
+                                            action-btn
+                                            activate-btn
+                                        "
+                                        onclick="
+                                            setAccountStatus(
+                                                '${escapeHtml(student.id)}',
+                                                'active'
+                                            )
+                                        "
+                                    >
+
+                                        <i
+                                            class="
+                                                fa-solid
+                                                fa-user-check
+                                            "
+                                        ></i>
+
+                                        Activate Account
+
+                                    </button>
+
+                                `
+                                : ""
+                            }
+
+
+                            ${
+                                isActive
+                                ? `
+
+                                    <button
+                                        type="button"
+                                        class="
+                                            action-btn
+                                            pending-btn
+                                        "
+                                        onclick="
+                                            setAccountStatus(
+                                                '${escapeHtml(student.id)}',
+                                                'pending'
+                                            )
+                                        "
+                                    >
+
+                                        <i
+                                            class="
+                                                fa-solid
+                                                fa-user-clock
+                                            "
+                                        ></i>
+
+                                        Set Pending
+
+                                    </button>
+
+                                `
+                                : ""
+                            }
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            `;
 
         }
 
-    }
+
+        // ====================================================
+        // TOGGLE UNIT
+        // ====================================================
+
+        window.toggleUnit =
+            async function (
+                studentId,
+                unitId
+            ) {
+
+                try {
+
+                    const student =
+                        students.find(
+                            function (item) {
+
+                                return (
+                                    item.id ===
+                                    studentId
+                                );
+
+                            }
+                        );
 
 
+                    if (!student) {
 
-    /* =====================================================
-       SEARCH
-    ====================================================== */
+                        return;
 
-    searchInput.addEventListener(
-        "input",
-        renderStudents
-    );
+                    }
 
 
-    statusFilter.addEventListener(
-        "change",
-        renderStudents
-    );
+                    const approvedUnits =
+                        {
+                            ...(
+                                student.approvedUnits ||
+                                {}
+                            )
+                        };
 
 
+                    const current =
+                        approvedUnits[
+                            unitId
+                        ] === true;
 
-    /* =====================================================
-       REFRESH
-    ====================================================== */
 
-    document
-        .getElementById(
-            "refreshButton"
-        )
-        .addEventListener(
-            "click",
-            loadStudents
+                    approvedUnits[
+                        unitId
+                    ] =
+                        !current;
+
+
+                    await updateDoc(
+                        doc(
+                            db,
+                            "students",
+                            studentId
+                        ),
+                        {
+                            approvedUnits:
+                                approvedUnits
+                        }
+                    );
+
+
+                    student.approvedUnits =
+                        approvedUnits;
+
+
+                    updateStats();
+
+                    renderStudents();
+
+
+                    showToast(
+
+                        !current
+                        ? unitId +
+                          " approved successfully."
+                        : unitId +
+                          " approval removed."
+
+                    );
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "Unit update error:",
+                        error
+                    );
+
+
+                    alert(
+                        "Unable to update unit approval.\n\n" +
+                        error.message
+                    );
+
+                }
+
+            };
+
+
+        // ====================================================
+        // ACCOUNT STATUS
+        // ====================================================
+
+        window.setAccountStatus =
+            async function (
+                studentId,
+                status
+            ) {
+
+                try {
+
+                    await updateDoc(
+                        doc(
+                            db,
+                            "students",
+                            studentId
+                        ),
+                        {
+                            accountStatus:
+                                status
+                        }
+                    );
+
+
+                    const student =
+                        students.find(
+                            function (item) {
+
+                                return (
+                                    item.id ===
+                                    studentId
+                                );
+
+                            }
+                        );
+
+
+                    if (student) {
+
+                        student.accountStatus =
+                            status;
+
+                    }
+
+
+                    updateStats();
+
+                    renderStudents();
+
+
+                    showToast(
+
+                        status ===
+                        "active"
+
+                        ? "Student account activated."
+
+                        : "Student account set to pending."
+
+                    );
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "Account status error:",
+                        error
+                    );
+
+
+                    alert(
+                        "Unable to update account status.\n\n" +
+                        error.message
+                    );
+
+                }
+
+            };
+
+
+        // ====================================================
+        // SEARCH
+        // ====================================================
+
+        searchInput.addEventListener(
+            "input",
+            renderStudents
         );
 
 
+        // ====================================================
+        // FILTER
+        // ====================================================
 
-    /* =====================================================
-       LOGOUT
-    ====================================================== */
+        statusFilter.addEventListener(
+            "change",
+            renderStudents
+        );
 
-    document
-        .getElementById(
-            "logoutButton"
-        )
-        .addEventListener(
+
+        // ====================================================
+        // LOGOUT
+        // ====================================================
+
+        logoutBtn.addEventListener(
             "click",
-            async function() {
+            async function () {
 
                 try {
 
@@ -3713,7 +2928,13 @@ async function toggleUnitApproval(
                 catch (error) {
 
                     console.error(
+                        "Logout error:",
                         error
+                    );
+
+
+                    alert(
+                        "Unable to logout."
                     );
 
                 }
@@ -3722,102 +2943,10 @@ async function toggleUnitApproval(
         );
 
 
-
-    /* =====================================================
-       MODAL CLOSE
-    ====================================================== */
-
-    document
-        .getElementById(
-            "closeModal"
-        )
-        .addEventListener(
-            "click",
-            function() {
-
-                studentModal.classList.remove(
-                    "show"
-                );
-
-            }
-        );
-
-
-    studentModal.addEventListener(
-        "click",
-        function(event) {
-
-            if (
-                event.target ===
-                studentModal
-            ) {
-
-                studentModal.classList.remove(
-                    "show"
-                );
-
-            }
-
-        }
-    );
-
-
-
-    /* =====================================================
-       STATUS BUTTONS
-    ====================================================== */
-
-    document
-        .querySelectorAll(
-            ".status-btn"
-        )
-        .forEach(
-            function(button) {
-
-                button.addEventListener(
-                    "click",
-                    function() {
-
-                        updateStudentStatus(
-                            this.dataset.status
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-
-    /* =====================================================
-       AUTH STATE
-    ====================================================== */
-
-    onAuthStateChanged(
-        auth,
-        async function(user) {
-
-            const isAdmin =
-                await verifyAdmin(
-                    user
-                );
-
-
-            if (
-                isAdmin
-            ) {
-
-                await loadStudents();
-
-            }
-
-        }
-    );
-
-</script>
+    </script>
 
 
 </body>
 
 </html>
+```
