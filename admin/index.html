@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,73 +10,38 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="description"
+        content="All About English Admin Dashboard"
+    >
+
     <title>
         Admin Dashboard | All About English
     </title>
 
 
-    <!-- =====================================================
-         FONT AWESOME
-    ====================================================== -->
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
-
-
     <style>
-
-        /* =====================================================
-           ROOT
-        ====================================================== */
 
         :root {
 
-            --navy:
-                #101b36;
+            --navy:#101b36;
+            --navy-dark:#091126;
+            --gold:#c9a45c;
+            --gold-light:#ead9ae;
+            --ivory:#fbfaf6;
+            --white:#ffffff;
+            --text:#1d2940;
+            --muted:#68748a;
+            --border:#e5e1d8;
 
-            --navy-dark:
-                #091126;
+            --green:#237a52;
+            --green-bg:#eaf6ef;
 
-            --gold:
-                #c9a45c;
+            --red:#a33b35;
+            --red-bg:#faeeee;
 
-            --gold-light:
-                #ead9ae;
-
-            --ivory:
-                #fbfaf6;
-
-            --white:
-                #ffffff;
-
-            --text:
-                #1d2940;
-
-            --muted:
-                #68748a;
-
-            --border:
-                #e5e1d8;
-
-            --green:
-                #237a52;
-
-            --green-bg:
-                #eaf6ef;
-
-            --red:
-                #a33b35;
-
-            --red-bg:
-                #faeeee;
-
-            --yellow:
-                #9a711b;
-
-            --yellow-bg:
-                #fff8df;
+            --yellow:#9a711b;
+            --yellow-bg:#fff8df;
 
             --shadow:
                 0 15px 45px rgba(16,27,54,.08);
@@ -85,20 +49,11 @@
         }
 
 
-        /* =====================================================
-           RESET
-        ====================================================== */
-
         * {
 
-            margin:
-                0;
-
-            padding:
-                0;
-
-            box-sizing:
-                border-box;
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
 
         }
 
@@ -125,31 +80,24 @@
         input,
         select {
 
-            font-family:
-                inherit;
+            font-family:inherit;
 
         }
 
 
         button {
 
-            cursor:
-                pointer;
+            cursor:pointer;
 
         }
 
-
-        /* =====================================================
-           HEADER
-        ====================================================== */
 
         header {
 
             background:
                 var(--navy-dark);
 
-            color:
-                white;
+            color:white;
 
             padding:
                 16px 20px;
@@ -162,48 +110,36 @@
             width:
                 min(1250px,94%);
 
-            margin:
-                auto;
+            margin:auto;
 
-            display:
-                flex;
+            display:flex;
 
-            align-items:
-                center;
+            align-items:center;
 
-            justify-content:
-                space-between;
+            justify-content:space-between;
 
-            gap:
-                20px;
+            gap:20px;
 
         }
 
 
         .brand {
 
-            display:
-                flex;
+            display:flex;
 
-            align-items:
-                center;
+            align-items:center;
 
-            gap:
-                11px;
+            gap:11px;
 
         }
 
 
         .brand-icon {
 
-            width:
-                42px;
+            width:42px;
+            height:42px;
 
-            height:
-                42px;
-
-            border-radius:
-                12px;
+            border-radius:12px;
 
             background:
                 rgba(255,255,255,.08);
@@ -211,59 +147,47 @@
             color:
                 var(--gold-light);
 
-            display:
-                flex;
+            display:flex;
 
-            align-items:
-                center;
+            align-items:center;
 
-            justify-content:
-                center;
+            justify-content:center;
+
+            font-size:18px;
 
         }
 
 
         .brand strong {
 
-            display:
-                block;
+            display:block;
 
-            font-size:
-                15px;
+            font-size:15px;
 
         }
 
 
         .brand span {
 
-            display:
-                block;
+            display:block;
 
             color:
                 var(--gold-light);
 
-            font-size:
-                9px;
+            font-size:9px;
 
-            letter-spacing:
-                1px;
+            letter-spacing:1px;
 
-            margin-top:
-                3px;
+            margin-top:3px;
 
         }
 
 
         .header-actions {
 
-            display:
-                flex;
+            display:flex;
 
-            align-items:
-                center;
-
-            gap:
-                8px;
+            gap:8px;
 
         }
 
@@ -276,23 +200,18 @@
             background:
                 rgba(255,255,255,.07);
 
-            color:
-                white;
+            color:white;
 
             padding:
                 9px 12px;
 
-            border-radius:
-                9px;
+            border-radius:9px;
 
-            font-size:
-                10px;
+            font-size:10px;
 
-            font-weight:
-                700;
+            font-weight:700;
 
-            text-decoration:
-                none;
+            text-decoration:none;
 
         }
 
@@ -300,22 +219,17 @@
         .header-btn:hover {
 
             background:
-                rgba(255,255,255,.13);
+                rgba(255,255,255,.15);
 
         }
 
-
-        /* =====================================================
-           MAIN
-        ====================================================== */
 
         main {
 
             width:
                 min(1250px,94%);
 
-            margin:
-                auto;
+            margin:auto;
 
             padding:
                 35px 0 60px;
@@ -323,59 +237,18 @@
         }
 
 
-        .page-heading {
+        .checking {
 
-            margin-bottom:
-                25px;
-
-        }
-
-
-        .page-heading h1 {
-
-            font-size:
-                28px;
-
-            color:
-                var(--navy);
-
-            margin-bottom:
-                6px;
-
-        }
-
-
-        .page-heading p {
-
-            color:
-                var(--muted);
-
-            font-size:
-                12px;
-
-        }
-
-
-        /* =====================================================
-           ADMIN CHECK
-        ====================================================== */
-
-        #adminChecking {
-
-            background:
-                white;
+            background:white;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                18px;
+            border-radius:18px;
 
-            padding:
-                35px;
+            padding:50px 25px;
 
-            text-align:
-                center;
+            text-align:center;
 
             box-shadow:
                 var(--shadow);
@@ -383,257 +256,217 @@
         }
 
 
-        #adminChecking i {
+        .checking h2 {
 
-            color:
-                var(--gold);
+            margin-top:15px;
 
-            font-size:
-                25px;
+            color:var(--navy);
 
-            margin-bottom:
-                12px;
+            font-size:20px;
 
         }
 
 
-        #adminChecking p {
+        .checking p {
 
-            color:
-                var(--muted);
+            color:var(--muted);
 
-            font-size:
-                12px;
+            font-size:11px;
+
+            margin-top:7px;
+
+        }
+
+
+        .spinner {
+
+            width:35px;
+            height:35px;
+
+            border:
+                4px solid #eee;
+
+            border-top-color:
+                var(--gold);
+
+            border-radius:50%;
+
+            animation:
+                spin 1s linear infinite;
+
+            margin:auto;
+
+        }
+
+
+        @keyframes spin {
+
+            to {
+                transform:rotate(360deg);
+            }
 
         }
 
 
         #dashboard {
 
-            display:
-                none;
+            display:none;
 
         }
 
 
-        /* =====================================================
-           STATS
-        ====================================================== */
+        .page-heading {
+
+            margin-bottom:25px;
+
+        }
+
+
+        .page-heading h1 {
+
+            font-size:28px;
+
+            color:var(--navy);
+
+            margin-bottom:6px;
+
+        }
+
+
+        .page-heading p {
+
+            color:var(--muted);
+
+            font-size:12px;
+
+        }
+
+
+        .admin-email {
+
+            margin-top:8px;
+
+            font-size:10px;
+
+            color:var(--gold);
+
+            font-weight:700;
+
+        }
+
 
         .stats-grid {
 
-            display:
-                grid;
+            display:grid;
 
             grid-template-columns:
                 repeat(4,1fr);
 
-            gap:
-                14px;
+            gap:14px;
 
-            margin-bottom:
-                22px;
+            margin-bottom:22px;
 
         }
 
 
         .stat-card {
 
-            background:
-                white;
+            background:white;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                17px;
+            border-radius:17px;
 
-            padding:
-                20px;
+            padding:20px;
 
             box-shadow:
                 var(--shadow);
-
-        }
-
-
-        .stat-top {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            margin-bottom:
-                15px;
-
-        }
-
-
-        .stat-icon {
-
-            width:
-                40px;
-
-            height:
-                40px;
-
-            border-radius:
-                11px;
-
-            background:
-                #f5efe1;
-
-            color:
-                var(--navy);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
 
         }
 
 
         .stat-card small {
 
-            color:
-                var(--muted);
+            color:var(--muted);
 
-            font-size:
-                9px;
+            font-size:9px;
 
-            font-weight:
-                800;
+            font-weight:800;
 
-            letter-spacing:
-                .8px;
+            letter-spacing:.8px;
 
         }
 
 
         .stat-card strong {
 
-            display:
-                block;
+            display:block;
 
-            font-size:
-                27px;
+            margin-top:12px;
 
-            color:
-                var(--navy);
+            font-size:27px;
+
+            color:var(--navy);
 
         }
 
 
-        /* =====================================================
-           CONTROL PANEL
-        ====================================================== */
-
         .control-panel {
 
-            background:
-                white;
+            background:white;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                18px;
+            border-radius:18px;
 
-            padding:
-                18px;
+            padding:18px;
 
             box-shadow:
                 var(--shadow);
-
-            margin-bottom:
-                18px;
 
         }
 
 
         .controls {
 
-            display:
-                grid;
+            display:grid;
 
             grid-template-columns:
-                1fr 170px;
+                1fr 180px;
 
-            gap:
-                10px;
+            gap:10px;
 
         }
 
 
         .search-box {
 
-            position:
-                relative;
-
-        }
-
-
-        .search-box i {
-
-            position:
-                absolute;
-
-            left:
-                13px;
-
-            top:
-                50%;
-
-            transform:
-                translateY(-50%);
-
-            color:
-                #9aa1ae;
-
-            font-size:
-                12px;
+            position:relative;
 
         }
 
 
         .search-box input {
 
-            width:
-                100%;
+            width:100%;
 
-            height:
-                42px;
+            height:42px;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                10px;
+            border-radius:10px;
 
             padding:
-                0 13px 0 36px;
+                0 13px;
 
-            outline:
-                none;
+            outline:none;
 
-            color:
-                var(--text);
+            background:#fcfbf8;
 
-            font-size:
-                11px;
-
-            background:
-                #fcfbf8;
+            font-size:11px;
 
         }
 
@@ -648,47 +481,32 @@
 
         select {
 
-            height:
-                42px;
+            height:42px;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                10px;
+            border-radius:10px;
 
             padding:
                 0 12px;
 
-            outline:
-                none;
+            outline:none;
 
-            color:
-                var(--text);
+            background:#fcfbf8;
 
-            font-size:
-                11px;
-
-            background:
-                #fcfbf8;
+            color:var(--text);
 
         }
 
 
-        /* =====================================================
-           STUDENT LIST HEADER
-        ====================================================== */
-
         .list-heading {
 
-            display:
-                flex;
+            display:flex;
 
-            align-items:
-                center;
+            justify-content:space-between;
 
-            justify-content:
-                space-between;
+            align-items:center;
 
             margin:
                 25px 0 12px;
@@ -698,54 +516,41 @@
 
         .list-heading h2 {
 
-            font-size:
-                17px;
+            color:var(--navy);
 
-            color:
-                var(--navy);
+            font-size:17px;
 
         }
 
 
         .student-count {
 
-            color:
-                var(--muted);
+            color:var(--muted);
 
-            font-size:
-                10px;
+            font-size:10px;
 
         }
 
 
-        /* =====================================================
-           STUDENT CARD
-        ====================================================== */
-
         .student-list {
 
-            display:
-                grid;
+            display:grid;
 
-            gap:
-                12px;
+            gap:12px;
 
         }
 
 
         .student-card {
 
-            background:
-                white;
+            background:white;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                17px;
+            border-radius:17px;
 
-            padding:
-                18px;
+            padding:18px;
 
             box-shadow:
                 0 7px 25px rgba(16,27,54,.045);
@@ -755,257 +560,167 @@
 
         .student-top {
 
-            display:
-                flex;
+            display:flex;
 
-            align-items:
-                flex-start;
+            justify-content:space-between;
 
-            justify-content:
-                space-between;
+            align-items:flex-start;
 
-            gap:
-                15px;
+            gap:15px;
 
         }
 
 
         .student-identity {
 
-            display:
-                flex;
+            display:flex;
 
-            gap:
-                12px;
-
-            min-width:
-                0;
+            gap:12px;
 
         }
 
 
         .student-avatar {
 
-            width:
-                43px;
+            width:43px;
+            height:43px;
 
-            height:
-                43px;
+            min-width:43px;
 
-            min-width:
-                43px;
+            border-radius:12px;
 
-            border-radius:
-                12px;
+            background:var(--navy);
 
-            background:
-                var(--navy);
+            color:var(--gold-light);
 
-            color:
-                var(--gold-light);
+            display:flex;
 
-            display:
-                flex;
+            align-items:center;
 
-            align-items:
-                center;
+            justify-content:center;
 
-            justify-content:
-                center;
+            font-size:15px;
 
-            font-size:
-                15px;
-
-        }
-
-
-        .student-info {
-
-            min-width:
-                0;
+            font-weight:bold;
 
         }
 
 
         .student-info h3 {
 
-            color:
-                var(--navy);
+            color:var(--navy);
 
-            font-size:
-                14px;
+            font-size:14px;
 
-            margin-bottom:
-                5px;
+            margin-bottom:5px;
 
         }
 
 
         .student-info p {
 
-            color:
-                var(--muted);
+            color:var(--muted);
 
-            font-size:
-                10px;
+            font-size:9px;
 
-            line-height:
-                1.6;
+            line-height:1.6;
 
-            word-break:
-                break-word;
+            word-break:break-all;
 
         }
 
 
-        .status-badge {
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            gap:
-                5px;
+        .status {
 
             padding:
-                6px 9px;
+                6px 10px;
 
-            border-radius:
-                999px;
+            border-radius:999px;
 
-            font-size:
-                8px;
+            font-size:8px;
 
-            font-weight:
-                800;
-
-            white-space:
-                nowrap;
+            font-weight:800;
 
         }
 
 
-        .status-active {
+        .active {
 
-            color:
-                var(--green);
+            color:var(--green);
 
-            background:
-                var(--green-bg);
+            background:var(--green-bg);
 
         }
 
 
-        .status-pending {
+        .pending {
 
-            color:
-                var(--yellow);
+            color:var(--yellow);
 
-            background:
-                var(--yellow-bg);
+            background:var(--yellow-bg);
 
         }
 
 
-        .status-unknown {
+        .details {
 
-            color:
-                var(--red);
-
-            background:
-                var(--red-bg);
-
-        }
-
-
-        /* =====================================================
-           STUDENT DETAILS
-        ====================================================== */
-
-        .student-details {
-
-            display:
-                grid;
+            display:grid;
 
             grid-template-columns:
                 repeat(3,1fr);
 
-            gap:
-                8px;
+            gap:8px;
 
-            margin-top:
-                15px;
+            margin-top:15px;
 
         }
 
 
-        .detail-box {
+        .detail {
 
-            background:
-                #faf9f5;
+            background:#faf9f5;
 
             border:
                 1px solid #eeeae0;
 
-            border-radius:
-                10px;
+            border-radius:10px;
 
-            padding:
-                10px;
+            padding:10px;
 
         }
 
 
-        .detail-box small {
+        .detail small {
 
-            display:
-                block;
+            display:block;
 
-            color:
-                #929aaa;
+            color:#929aaa;
 
-            font-size:
-                8px;
+            font-size:8px;
 
-            margin-bottom:
-                4px;
-
-            font-weight:
-                700;
+            margin-bottom:4px;
 
         }
 
 
-        .detail-box strong {
+        .detail strong {
 
-            display:
-                block;
+            display:block;
 
-            color:
-                var(--text);
+            color:var(--text);
 
-            font-size:
-                10px;
+            font-size:10px;
 
-            word-break:
-                break-word;
+            word-break:break-word;
 
         }
 
 
-        /* =====================================================
-           UNIT APPROVAL
-        ====================================================== */
+        .approval {
 
-        .approval-area {
+            margin-top:15px;
 
-            margin-top:
-                15px;
-
-            padding-top:
-                15px;
+            padding-top:15px;
 
             border-top:
                 1px solid #eeeae0;
@@ -1015,31 +730,24 @@
 
         .approval-title {
 
-            color:
-                var(--navy);
+            color:var(--navy);
 
-            font-size:
-                10px;
+            font-size:10px;
 
-            font-weight:
-                800;
+            font-weight:800;
 
-            margin-bottom:
-                9px;
+            margin-bottom:9px;
 
         }
 
 
         .unit-buttons {
 
-            display:
-                flex;
+            display:flex;
 
-            flex-wrap:
-                wrap;
+            flex-wrap:wrap;
 
-            gap:
-                7px;
+            gap:7px;
 
         }
 
@@ -1049,267 +757,166 @@
             border:
                 1px solid var(--border);
 
-            background:
-                #faf9f5;
+            background:#faf9f5;
 
-            color:
-                var(--navy);
+            color:var(--navy);
 
             padding:
                 8px 11px;
 
-            border-radius:
-                9px;
+            border-radius:9px;
 
-            font-size:
-                9px;
+            font-size:9px;
 
-            font-weight:
-                800;
+            font-weight:800;
 
         }
 
 
         .unit-btn.approved {
 
-            background:
-                var(--green-bg);
+            background:var(--green-bg);
 
-            border-color:
-                #b9dfc8;
+            border-color:#b9dfc8;
 
-            color:
-                var(--green);
-
-        }
-
-
-        .unit-btn:hover {
-
-            transform:
-                translateY(-1px);
+            color:var(--green);
 
         }
 
 
         .account-actions {
 
-            margin-top:
-                12px;
+            margin-top:12px;
 
-            display:
-                flex;
+            display:flex;
 
-            flex-wrap:
-                wrap;
+            gap:7px;
 
-            gap:
-                7px;
+            flex-wrap:wrap;
 
         }
 
 
         .action-btn {
 
-            border:
-                none;
+            border:none;
 
             padding:
                 8px 11px;
 
-            border-radius:
-                9px;
+            border-radius:9px;
 
-            font-size:
-                9px;
+            font-size:9px;
 
-            font-weight:
-                800;
+            font-weight:800;
 
         }
 
 
-        .activate-btn {
+        .activate {
 
-            background:
-                var(--green-bg);
+            background:var(--green-bg);
 
-            color:
-                var(--green);
+            color:var(--green);
 
         }
 
 
-        .pending-btn {
+        .deactivate {
 
-            background:
-                var(--yellow-bg);
+            background:var(--yellow-bg);
 
-            color:
-                var(--yellow);
+            color:var(--yellow);
 
         }
 
 
-        /* =====================================================
-           EMPTY
-        ====================================================== */
+        .empty {
 
-        .empty-state {
-
-            background:
-                white;
+            background:white;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                17px;
+            border-radius:17px;
 
-            padding:
-                40px 20px;
+            padding:40px;
 
-            text-align:
-                center;
+            text-align:center;
 
-        }
+            color:var(--muted);
 
-
-        .empty-state i {
-
-            font-size:
-                28px;
-
-            color:
-                #c4c8d0;
-
-            margin-bottom:
-                12px;
+            font-size:11px;
 
         }
 
 
-        .empty-state h3 {
+        .error {
 
-            font-size:
-                15px;
+            background:var(--red-bg);
 
-            margin-bottom:
-                5px;
-
-        }
-
-
-        .empty-state p {
-
-            color:
-                var(--muted);
-
-            font-size:
-                10px;
-
-        }
-
-
-        /* =====================================================
-           ERROR
-        ====================================================== */
-
-        .error-box {
-
-            background:
-                var(--red-bg);
-
-            color:
-                var(--red);
+            color:var(--red);
 
             border:
                 1px solid #efd1ce;
 
-            border-radius:
-                12px;
+            border-radius:12px;
 
-            padding:
-                14px;
+            padding:15px;
 
-            font-size:
-                10px;
+            font-size:10px;
 
-            line-height:
-                1.6;
+            line-height:1.6;
 
         }
 
 
-        /* =====================================================
-           TOAST
-        ====================================================== */
-
         #toast {
 
-            position:
-                fixed;
+            position:fixed;
 
-            left:
-                50%;
+            left:50%;
 
-            bottom:
-                25px;
+            bottom:25px;
 
             transform:
-                translateX(-50%)
-                translateY(20px);
+                translate(-50%,20px);
 
-            background:
-                var(--navy-dark);
+            background:var(--navy-dark);
 
-            color:
-                white;
+            color:white;
 
             padding:
                 11px 16px;
 
-            border-radius:
-                10px;
+            border-radius:10px;
 
-            font-size:
-                10px;
+            font-size:10px;
 
-            font-weight:
-                700;
+            font-weight:700;
 
-            opacity:
-                0;
+            opacity:0;
 
-            pointer-events:
-                none;
+            pointer-events:none;
 
-            transition:
-                .25s ease;
+            transition:.25s;
 
-            z-index:
-                9999;
+            z-index:9999;
 
         }
 
 
         #toast.show {
 
-            opacity:
-                1;
+            opacity:1;
 
             transform:
-                translateX(-50%)
-                translateY(0);
+                translate(-50%,0);
 
         }
 
 
-        /* =====================================================
-           RESPONSIVE
-        ====================================================== */
-
-        @media (max-width: 900px) {
+        @media(max-width:900px) {
 
             .stats-grid {
 
@@ -1321,107 +928,48 @@
         }
 
 
-        @media (max-width: 650px) {
+        @media(max-width:650px) {
 
             .header-inner {
 
-                width:
-                    100%;
-
-            }
-
-            .brand strong {
-
-                font-size:
-                    12px;
+                width:100%;
 
             }
 
             .header-btn {
 
-                padding:
-                    8px 9px;
+                padding:8px 9px;
 
-                font-size:
-                    9px;
+                font-size:9px;
 
             }
 
             main {
 
-                width:
-                    92%;
-
-                padding-top:
-                    25px;
-
-            }
-
-            .page-heading h1 {
-
-                font-size:
-                    23px;
+                width:92%;
 
             }
 
             .controls {
 
-                grid-template-columns:
-                    1fr;
+                grid-template-columns:1fr;
 
             }
 
             .student-top {
 
-                flex-direction:
-                    column;
+                flex-direction:column;
 
             }
 
-            .student-details {
+            .details {
 
-                grid-template-columns:
-                    1fr;
-
-            }
-
-        }
-
-
-        @media (max-width: 450px) {
-
-            .stats-grid {
-
-                grid-template-columns:
-                    1fr 1fr;
-
-                gap:
-                    8px;
-
-            }
-
-            .stat-card {
-
-                padding:
-                    14px;
-
-            }
-
-            .stat-card strong {
-
-                font-size:
-                    22px;
-
-            }
-
-            .student-card {
-
-                padding:
-                    14px;
+                grid-template-columns:1fr;
 
             }
 
         }
+
 
     </style>
 
@@ -1431,1522 +979,1307 @@
 <body>
 
 
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
+<header>
 
-    <header>
-
-        <div class="header-inner">
+    <div class="header-inner">
 
 
-            <div class="brand">
+        <div class="brand">
 
-                <div class="brand-icon">
-
-                    <i class="fa-solid fa-shield-halved"></i>
-
-                </div>
-
-                <div>
-
-                    <strong>
-                        ALL ABOUT ENGLISH
-                    </strong>
-
-                    <span>
-                        ADMIN DASHBOARD
-                    </span>
-
-                </div>
-
+            <div class="brand-icon">
+                🛡
             </div>
 
+            <div>
 
-            <div class="header-actions">
+                <strong>
+                    ALL ABOUT ENGLISH
+                </strong>
 
-                <a
-                    href="../"
-                    class="header-btn"
-                >
-
-                    <i class="fa-solid fa-house"></i>
-
-                    Home
-
-                </a>
-
-
-                <button
-                    type="button"
-                    class="header-btn"
-                    id="logoutBtn"
-                >
-
-                    <i class="fa-solid fa-right-from-bracket"></i>
-
-                    Logout
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </header>
-
-
-    <!-- =====================================================
-         MAIN
-    ====================================================== -->
-
-    <main>
-
-
-        <!-- =================================================
-             ADMIN CHECKING
-        ================================================== -->
-
-        <div id="adminChecking">
-
-            <i class="fa-solid fa-spinner fa-spin"></i>
-
-            <p>
-                Checking admin access...
-            </p>
-
-        </div>
-
-
-        <!-- =================================================
-             DASHBOARD
-        ================================================== -->
-
-        <div id="dashboard">
-
-
-            <div class="page-heading">
-
-                <h1>
-                    Student Management
-                </h1>
-
-                <p>
-                    Manage student accounts and approve learning units.
-                </p>
-
-            </div>
-
-
-            <!-- =================================================
-                 STATS
-            ================================================== -->
-
-            <div class="stats-grid">
-
-
-                <div class="stat-card">
-
-                    <div class="stat-top">
-
-                        <small>
-                            TOTAL STUDENTS
-                        </small>
-
-                        <div class="stat-icon">
-
-                            <i class="fa-solid fa-users"></i>
-
-                        </div>
-
-                    </div>
-
-                    <strong id="totalStudents">
-                        0
-                    </strong>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <div class="stat-top">
-
-                        <small>
-                            ACTIVE
-                        </small>
-
-                        <div class="stat-icon">
-
-                            <i class="fa-solid fa-user-check"></i>
-
-                        </div>
-
-                    </div>
-
-                    <strong id="activeStudents">
-                        0
-                    </strong>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <div class="stat-top">
-
-                        <small>
-                            UNIT 11
-                        </small>
-
-                        <div class="stat-icon">
-
-                            <i class="fa-solid fa-book"></i>
-
-                        </div>
-
-                    </div>
-
-                    <strong id="unit11Students">
-                        0
-                    </strong>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <div class="stat-top">
-
-                        <small>
-                            UNIT 12
-                        </small>
-
-                        <div class="stat-icon">
-
-                            <i class="fa-solid fa-book-open"></i>
-
-                        </div>
-
-                    </div>
-
-                    <strong id="unit12Students">
-                        0
-                    </strong>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- =================================================
-                 SEARCH / FILTER
-            ================================================== -->
-
-            <div class="control-panel">
-
-                <div class="controls">
-
-
-                    <div class="search-box">
-
-                        <i class="fa-solid fa-magnifying-glass"></i>
-
-                        <input
-                            type="search"
-                            id="searchInput"
-                            placeholder="Search by name, mobile or email..."
-                            autocomplete="off"
-                        >
-
-                    </div>
-
-
-                    <select id="statusFilter">
-
-                        <option value="all">
-                            All Students
-                        </option>
-
-                        <option value="active">
-                            Active
-                        </option>
-
-                        <option value="pending">
-                            Pending
-                        </option>
-
-                    </select>
-
-
-                </div>
-
-            </div>
-
-
-            <!-- =================================================
-                 LIST HEADING
-            ================================================== -->
-
-            <div class="list-heading">
-
-                <h2>
-                    Students
-                </h2>
-
-                <span
-                    class="student-count"
-                    id="studentCount"
-                >
-                    0 students
+                <span>
+                    ADMIN DASHBOARD
                 </span>
 
             </div>
 
+        </div>
 
-            <!-- =================================================
-                 STUDENT LIST
-            ================================================== -->
+
+        <div class="header-actions">
+
+            <a
+                href="../"
+                class="header-btn"
+            >
+                Home
+            </a>
+
+
+            <button
+                id="logoutBtn"
+                class="header-btn"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+    <div
+        id="adminChecking"
+        class="checking"
+    >
+
+        <div class="spinner"></div>
+
+        <h2>
+            Checking Admin Access
+        </h2>
+
+        <p>
+            Please wait while Firebase verifies your account.
+        </p>
+
+    </div>
+
+
+    <div id="dashboard">
+
+
+        <div class="page-heading">
+
+            <h1>
+                Student Management
+            </h1>
+
+            <p>
+                Manage student accounts and approve learning units.
+            </p>
 
             <div
-                class="student-list"
-                id="studentList"
+                id="adminEmailDisplay"
+                class="admin-email"
             ></div>
+
+        </div>
+
+
+        <div class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <small>
+                    TOTAL STUDENTS
+                </small>
+
+                <strong id="totalStudents">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <small>
+                    ACTIVE STUDENTS
+                </small>
+
+                <strong id="activeStudents">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <small>
+                    UNIT 11
+                </small>
+
+                <strong id="unit11Students">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <small>
+                    UNIT 12
+                </small>
+
+                <strong id="unit12Students">
+                    0
+                </strong>
+
+            </div>
 
 
         </div>
 
 
-    </main>
+        <div class="control-panel">
+
+            <div class="controls">
+
+                <div class="search-box">
+
+                    <input
+                        id="searchInput"
+                        type="search"
+                        placeholder="Search name, mobile or email..."
+                        autocomplete="off"
+                    >
+
+                </div>
 
 
-    <!-- =====================================================
-         TOAST
-    ====================================================== -->
+                <select id="statusFilter">
 
-    <div id="toast"></div>
+                    <option value="all">
+                        All Students
+                    </option>
+
+                    <option value="active">
+                        Active
+                    </option>
+
+                    <option value="pending">
+                        Pending
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
 
 
-    <!-- =====================================================
-         FIREBASE ADMIN SCRIPT
-    ====================================================== -->
+        <div class="list-heading">
 
-    <script type="module">
+            <h2>
+                Students
+            </h2>
+
+            <span
+                id="studentCount"
+                class="student-count"
+            >
+                0 students
+            </span>
+
+        </div>
 
 
-        // ====================================================
-        // FIREBASE IMPORTS
-        // ====================================================
+        <div
+            id="studentList"
+            class="student-list"
+        ></div>
 
-        import {
-            auth
+
+    </div>
+
+</main>
+
+
+<div id="toast"></div>
+
+
+<script type="module">
+
+
+// ============================================================
+// FIREBASE IMPORTS
+// ============================================================
+
+import {
+    auth
+} from "../firebase-auth.js";
+
+
+import {
+    app
+} from "../firebase-config.js";
+
+
+import {
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    doc,
+    updateDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+// ============================================================
+// FIRESTORE
+// ============================================================
+
+const db =
+    getFirestore(app);
+
+
+// ============================================================
+// ADMIN EMAIL
+// ============================================================
+//
+// IMPORTANT:
+// Firebase Authentication-এ আপনার ADMIN account-এর
+// exact email এখানে লিখবেন.
+//
+// Example:
+//
+// const ADMIN_EMAIL =
+//     "shaheenexam007@gmail.com";
+//
+// ============================================================
+
+const ADMIN_EMAIL =
+    "shaheenexam007@gmail.com";
+
+
+// ============================================================
+// ELEMENTS
+// ============================================================
+
+const adminChecking =
+    document.getElementById(
+        "adminChecking"
+    );
+
+
+const dashboard =
+    document.getElementById(
+        "dashboard"
+    );
+
+
+const studentList =
+    document.getElementById(
+        "studentList"
+    );
+
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+
+const statusFilter =
+    document.getElementById(
+        "statusFilter"
+    );
+
+
+const studentCount =
+    document.getElementById(
+        "studentCount"
+    );
+
+
+const logoutBtn =
+    document.getElementById(
+        "logoutBtn"
+    );
+
+
+const adminEmailDisplay =
+    document.getElementById(
+        "adminEmailDisplay"
+    );
+
+
+// ============================================================
+// DATA
+// ============================================================
+
+let students = [];
+
+
+// ============================================================
+// ESCAPE HTML
+// ============================================================
+
+function escapeHtml(value) {
+
+    return String(
+        value ?? ""
+    )
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
+
+
+// ============================================================
+// TOAST
+// ============================================================
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    setTimeout(() => {
+
+        toast.classList.remove(
+            "show"
+        );
+
+    }, 2500);
+
+}
+
+
+// ============================================================
+// ADMIN AUTH CHECK
+// ============================================================
+
+onAuthStateChanged(
+    auth,
+    async (user) => {
+
+        // ----------------------------------------------------
+        // NOT LOGGED IN
+        // ----------------------------------------------------
+
+        if (!user) {
+
+            window.location.href =
+                "../login.html";
+
+            return;
+
         }
-        from "../firebase-auth.js";
 
 
-        import {
-            app
-        }
-        from "../firebase-config.js";
+        console.log(
+            "Logged-in user:",
+            user.email
+        );
 
 
-        import {
-            onAuthStateChanged,
-            signOut
-        }
-        from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        // ----------------------------------------------------
+        // ADMIN EMAIL CHECK
+        // ----------------------------------------------------
 
-
-        import {
-            getFirestore,
-            collection,
-            getDocs,
-            doc,
-            updateDoc
-        }
-        from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-
-        // ====================================================
-        // FIRESTORE
-        // ====================================================
-
-        const db =
-            getFirestore(app);
-
-
-        // ====================================================
-        // ELEMENTS
-        // ====================================================
-
-        const adminChecking =
-            document.getElementById(
-                "adminChecking"
-            );
-
-
-        const dashboard =
-            document.getElementById(
-                "dashboard"
-            );
-
-
-        const studentList =
-            document.getElementById(
-                "studentList"
-            );
-
-
-        const searchInput =
-            document.getElementById(
-                "searchInput"
-            );
-
-
-        const statusFilter =
-            document.getElementById(
-                "statusFilter"
-            );
-
-
-        const studentCount =
-            document.getElementById(
-                "studentCount"
-            );
-
-
-        const logoutBtn =
-            document.getElementById(
-                "logoutBtn"
-            );
-
-
-        // ====================================================
-        // DATA
-        // ====================================================
-
-        let students =
-            [];
-
-
-        // ====================================================
-        // ADMIN EMAIL
-        // ====================================================
-        //
-        // IMPORTANT:
-        // নিজের Firebase Admin account-এর email এখানে বসাবেন.
-        //
-        // উদাহরণ:
-        //
-        // const ADMIN_EMAIL = "youradmin@email.com";
-        //
-        // ====================================================
-
-        const ADMIN_EMAIL =
-            "Shaheenexam007";
-
-
-        // ====================================================
-        // TOAST
-        // ====================================================
-
-        function showToast(
-            message
+        if (
+            user.email !==
+            ADMIN_EMAIL
         ) {
 
-            const toast =
-                document.getElementById(
-                    "toast"
-                );
+            adminChecking.innerHTML = `
 
+                <div
+                    style="
+                        font-size:42px;
+                        margin-bottom:15px;
+                    "
+                >
+                    🔒
+                </div>
 
-            toast.textContent =
-                message;
+                <h2>
+                    Admin Access Denied
+                </h2>
 
+                <p>
+                    This Firebase account is not registered as an administrator.
+                </p>
 
-            toast.classList.add(
-                "show"
-            );
+                <p
+                    style="
+                        margin-top:10px;
+                        color:#a33b35;
+                    "
+                >
+                    Logged in as:
+                    ${escapeHtml(user.email)}
+                </p>
 
+            `;
 
-            setTimeout(
-                function () {
-
-                    toast.classList.remove(
-                        "show"
-                    );
-
-                },
-                2500
-            );
-
-        }
-
-
-        // ====================================================
-        // ESCAPE HTML
-        // ====================================================
-
-        function escapeHtml(
-            value
-        ) {
-
-            return String(
-                value || ""
-            )
-            .replace(
-                /&/g,
-                "&amp;"
-            )
-            .replace(
-                /</g,
-                "&lt;"
-            )
-            .replace(
-                />/g,
-                "&gt;"
-            )
-            .replace(
-                /"/g,
-                "&quot;"
-            )
-            .replace(
-                /'/g,
-                "&#039;"
-            );
+            return;
 
         }
 
 
-        // ====================================================
-        // INITIAL
-        // ====================================================
+        // ----------------------------------------------------
+        // ADMIN VERIFIED
+        // ----------------------------------------------------
 
-        onAuthStateChanged(
-            auth,
-            async function (user) {
-
-                if (!user) {
-
-                    window.location.href =
-                        "../login.html";
-
-                    return;
-
-                }
+        console.log(
+            "ADMIN VERIFIED"
+        );
 
 
-                // ============================================
-                // ADMIN CHECK
-                // ============================================
-
-                if (
-                    user.email !==
-                    ADMIN_EMAIL
-                ) {
-
-                    adminChecking.innerHTML = `
-
-                        <i
-                            class="fa-solid fa-lock"
-                        ></i>
-
-                        <p>
-                            Admin access denied.
-                        </p>
-
-                    `;
-
-                    return;
-
-                }
+        adminChecking.style.display =
+            "none";
 
 
-                // ============================================
-                // ADMIN VERIFIED
-                // ============================================
-
-                adminChecking.style.display =
-                    "none";
+        dashboard.style.display =
+            "block";
 
 
-                dashboard.style.display =
-                    "block";
+        adminEmailDisplay.textContent =
+            "Admin: " + user.email;
 
 
-                await loadStudents();
+        await loadStudents();
+
+    }
+);
+
+
+// ============================================================
+// LOAD STUDENTS
+// ============================================================
+
+async function loadStudents() {
+
+    try {
+
+        studentList.innerHTML = `
+
+            <div class="empty">
+
+                Loading students...
+
+            </div>
+
+        `;
+
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "students"
+                )
+            );
+
+
+        students = [];
+
+
+        snapshot.forEach(
+            (studentDoc) => {
+
+                students.push({
+
+                    id:
+                        studentDoc.id,
+
+                    ...studentDoc.data()
+
+                });
 
             }
         );
 
 
-        // ====================================================
-        // LOAD STUDENTS
-        // ====================================================
-
-        async function loadStudents() {
-
-            try {
-
-                studentList.innerHTML = `
-
-                    <div class="empty-state">
-
-                        <i
-                            class="fa-solid fa-spinner fa-spin"
-                        ></i>
-
-                        <h3>
-                            Loading students...
-                        </h3>
-
-                        <p>
-                            Please wait.
-                        </p>
-
-                    </div>
-
-                `;
+        console.log(
+            "Students loaded:",
+            students.length
+        );
 
 
-                const snapshot =
-                    await getDocs(
-                        collection(
-                            db,
-                            "students"
-                        )
-                    );
+        updateStats();
+
+        renderStudents();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Load students error:",
+            error
+        );
 
 
-                students =
-                    [];
+        studentList.innerHTML = `
+
+            <div class="error">
+
+                <strong>
+                    Unable to load students.
+                </strong>
+
+                <br><br>
+
+                ${escapeHtml(
+                    error.message
+                )}
+
+                <br><br>
+
+                Check your Firestore Rules.
+
+            </div>
+
+        `;
+
+    }
+
+}
 
 
-                snapshot.forEach(
-                    function (studentDoc) {
+// ============================================================
+// UPDATE STATS
+// ============================================================
 
-                        students.push({
+function updateStats() {
 
-                            id:
-                                studentDoc.id,
-
-                            ...studentDoc.data()
-
-                        });
-
-                    }
-                );
+    const total =
+        students.length;
 
 
-                updateStats();
+    const active =
+        students.filter(
+            student =>
+                student.accountStatus ===
+                "active"
+        ).length;
 
-                renderStudents();
+
+    const unit11 =
+        students.filter(
+            student =>
+                student.approvedUnits &&
+                student.approvedUnits["unit-11"] === true
+        ).length;
+
+
+    const unit12 =
+        students.filter(
+            student =>
+                student.approvedUnits &&
+                student.approvedUnits["unit-12"] === true
+        ).length;
+
+
+    document.getElementById(
+        "totalStudents"
+    ).textContent =
+        total;
+
+
+    document.getElementById(
+        "activeStudents"
+    ).textContent =
+        active;
+
+
+    document.getElementById(
+        "unit11Students"
+    ).textContent =
+        unit11;
+
+
+    document.getElementById(
+        "unit12Students"
+    ).textContent =
+        unit12;
+
+}
+
+
+// ============================================================
+// FILTER
+// ============================================================
+
+function getFilteredStudents() {
+
+    const search =
+        searchInput.value
+            .trim()
+            .toLowerCase();
+
+
+    const filter =
+        statusFilter.value;
+
+
+    return students.filter(
+        student => {
+
+            const name =
+                String(
+                    student.name || ""
+                ).toLowerCase();
+
+
+            const mobile =
+                String(
+                    student.mobile || ""
+                ).toLowerCase();
+
+
+            const email =
+                String(
+                    student.email || ""
+                ).toLowerCase();
+
+
+            const matchesSearch =
+                !search ||
+                name.includes(search) ||
+                mobile.includes(search) ||
+                email.includes(search);
+
+
+            if (!matchesSearch) {
+
+                return false;
 
             }
 
-            catch (error) {
 
-                console.error(
-                    "Load students error:",
-                    error
+            if (
+                filter ===
+                "active"
+            ) {
+
+                return (
+                    student.accountStatus ===
+                    "active"
                 );
 
+            }
 
-                studentList.innerHTML = `
 
-                    <div class="error-box">
+            if (
+                filter ===
+                "pending"
+            ) {
 
-                        <strong>
-                            Unable to load students.
-                        </strong>
+                return (
+                    student.accountStatus !==
+                    "active"
+                );
 
-                        <br><br>
+            }
+
+
+            return true;
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// RENDER
+// ============================================================
+
+function renderStudents() {
+
+    const filtered =
+        getFilteredStudents();
+
+
+    studentCount.textContent =
+        filtered.length +
+        (
+            filtered.length === 1
+                ? " student"
+                : " students"
+        );
+
+
+    if (
+        filtered.length === 0
+    ) {
+
+        studentList.innerHTML = `
+
+            <div class="empty">
+
+                No students found.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    studentList.innerHTML =
+        filtered
+            .map(createStudentCard)
+            .join("");
+
+}
+
+
+// ============================================================
+// CREATE STUDENT CARD
+// ============================================================
+
+function createStudentCard(
+    student
+) {
+
+    const name =
+        student.name ||
+        "Unnamed Student";
+
+
+    const mobile =
+        student.mobile ||
+        "Not provided";
+
+
+    const email =
+        student.email ||
+        "Not provided";
+
+
+    const college =
+        student.college ||
+        "Not provided";
+
+
+    const status =
+        student.accountStatus ||
+        "pending";
+
+
+    const isActive =
+        status === "active";
+
+
+    const approvedUnits =
+        student.approvedUnits ||
+        {};
+
+
+    const unit11 =
+        approvedUnits["unit-11"] === true;
+
+
+    const unit12 =
+        approvedUnits["unit-12"] === true;
+
+
+    const firstLetter =
+        name
+            .charAt(0)
+            .toUpperCase();
+
+
+    return `
+
+        <div
+            class="student-card"
+        >
+
+
+            <div class="student-top">
+
+
+                <div class="student-identity">
+
+
+                    <div class="student-avatar">
 
                         ${escapeHtml(
-                            error.message
+                            firstLetter
                         )}
 
                     </div>
 
-                `;
 
-            }
-
-        }
-
-
-        // ====================================================
-        // UPDATE STATS
-        // ====================================================
-
-        function updateStats() {
-
-            const total =
-                students.length;
-
-
-            const active =
-                students.filter(
-                    function (student) {
-
-                        return (
-                            student.accountStatus ===
-                            "active"
-                        );
-
-                    }
-                ).length;
-
-
-            const unit11 =
-                students.filter(
-                    function (student) {
-
-                        return (
-                            student.approvedUnits &&
-                            student.approvedUnits[
-                                "unit-11"
-                            ] === true
-                        );
-
-                    }
-                ).length;
-
-
-            const unit12 =
-                students.filter(
-                    function (student) {
-
-                        return (
-                            student.approvedUnits &&
-                            student.approvedUnits[
-                                "unit-12"
-                            ] === true
-                        );
-
-                    }
-                ).length;
-
-
-            document.getElementById(
-                "totalStudents"
-            ).textContent =
-                total;
-
-
-            document.getElementById(
-                "activeStudents"
-            ).textContent =
-                active;
-
-
-            document.getElementById(
-                "unit11Students"
-            ).textContent =
-                unit11;
-
-
-            document.getElementById(
-                "unit12Students"
-            ).textContent =
-                unit12;
-
-        }
-
-
-        // ====================================================
-        // FILTER STUDENTS
-        // ====================================================
-
-        function getFilteredStudents() {
-
-            const search =
-                searchInput.value
-                    .trim()
-                    .toLowerCase();
-
-
-            const filter =
-                statusFilter.value;
-
-
-            return students.filter(
-                function (student) {
-
-
-                    // ========================================
-                    // SEARCH
-                    // ========================================
-
-                    const name =
-                        String(
-                            student.name || ""
-                        ).toLowerCase();
-
-
-                    const mobile =
-                        String(
-                            student.mobile || ""
-                        ).toLowerCase();
-
-
-                    const email =
-                        String(
-                            student.email || ""
-                        ).toLowerCase();
-
-
-                    const matchesSearch =
-                        !search ||
-                        name.includes(search) ||
-                        mobile.includes(search) ||
-                        email.includes(search);
-
-
-                    if (!matchesSearch) {
-
-                        return false;
-
-                    }
-
-
-                    // ========================================
-                    // STATUS
-                    // ========================================
-
-                    if (
-                        filter ===
-                        "active"
-                    ) {
-
-                        return (
-                            student.accountStatus ===
-                            "active"
-                        );
-
-                    }
-
-
-                    if (
-                        filter ===
-                        "pending"
-                    ) {
-
-                        return (
-                            student.accountStatus !==
-                            "active"
-                        );
-
-                    }
-
-
-                    return true;
-
-                }
-            );
-
-        }
-
-
-        // ====================================================
-        // RENDER STUDENTS
-        // ====================================================
-
-        function renderStudents() {
-
-            const filtered =
-                getFilteredStudents();
-
-
-            studentCount.textContent =
-                filtered.length +
-                (
-                    filtered.length === 1
-                    ? " student"
-                    : " students"
-                );
-
-
-            if (
-                filtered.length ===
-                0
-            ) {
-
-                studentList.innerHTML = `
-
-                    <div class="empty-state">
-
-                        <i
-                            class="fa-solid fa-user-slash"
-                        ></i>
+                    <div class="student-info">
 
                         <h3>
-                            No students found
+
+                            ${escapeHtml(
+                                name
+                            )}
+
                         </h3>
 
+
                         <p>
-                            Try another search or filter.
+
+                            UID:
+                            ${escapeHtml(
+                                student.uid ||
+                                student.id
+                            )}
+
                         </p>
 
                     </div>
 
-                `;
+                </div>
 
-                return;
-
-            }
-
-
-            studentList.innerHTML =
-                filtered.map(
-                    createStudentCard
-                ).join("");
-
-        }
-
-
-        // ====================================================
-        // CREATE STUDENT CARD
-        // ====================================================
-
-        function createStudentCard(
-            student
-        ) {
-
-            const name =
-                student.name ||
-                "Unnamed Student";
-
-
-            const mobile =
-                student.mobile ||
-                "Not provided";
-
-
-            const email =
-                student.email ||
-                "Not provided";
-
-
-            const college =
-                student.college ||
-                "Not provided";
-
-
-            const accountStatus =
-                student.accountStatus ||
-                "pending";
-
-
-            const isActive =
-                accountStatus ===
-                "active";
-
-
-            const approvedUnits =
-                student.approvedUnits ||
-                {};
-
-
-            const unit11Approved =
-                approvedUnits[
-                    "unit-11"
-                ] === true;
-
-
-            const unit12Approved =
-                approvedUnits[
-                    "unit-12"
-                ] === true;
-
-
-            const firstLetter =
-                name
-                    .charAt(0)
-                    .toUpperCase();
-
-
-            return `
 
                 <div
-                    class="student-card"
-                    data-id="${escapeHtml(student.id)}"
+                    class="
+                        status
+                        ${
+                            isActive
+                                ? "active"
+                                : "pending"
+                        }
+                    "
                 >
 
+                    ${
+                        isActive
+                            ? "ACTIVE"
+                            : "PENDING"
+                    }
 
-                    <!-- ====================================
-                         STUDENT TOP
-                    ===================================== -->
+                </div>
 
-                    <div class="student-top">
 
+            </div>
 
-                        <div class="student-identity">
 
+            <div class="details">
 
-                            <div class="student-avatar">
 
-                                ${escapeHtml(
-                                    firstLetter
-                                )}
+                <div class="detail">
 
-                            </div>
+                    <small>
+                        MOBILE
+                    </small>
 
+                    <strong>
+                        ${escapeHtml(
+                            mobile
+                        )}
+                    </strong>
 
-                            <div class="student-info">
+                </div>
 
-                                <h3>
 
-                                    ${escapeHtml(
-                                        name
-                                    )}
+                <div class="detail">
 
-                                </h3>
+                    <small>
+                        EMAIL
+                    </small>
 
+                    <strong>
+                        ${escapeHtml(
+                            email
+                        )}
+                    </strong>
 
-                                <p>
+                </div>
 
-                                    UID:
-                                    ${escapeHtml(
-                                        student.uid ||
-                                        student.id
-                                    )}
 
-                                </p>
+                <div class="detail">
 
-                            </div>
+                    <small>
+                        COLLEGE
+                    </small>
 
+                    <strong>
+                        ${escapeHtml(
+                            college
+                        )}
+                    </strong>
 
-                        </div>
+                </div>
 
 
-                        <div
-                            class="
-                                status-badge
-                                ${
-                                    isActive
-                                    ? "status-active"
-                                    : "status-pending"
-                                }
-                            "
-                        >
+            </div>
 
-                            <i
-                                class="
-                                    fa-solid
-                                    ${
-                                        isActive
-                                        ? "fa-circle-check"
-                                        : "fa-clock"
-                                    }
-                                "
-                            ></i>
 
-                            ${
-                                isActive
-                                ? "ACTIVE"
-                                : "PENDING"
-                            }
+            <div class="approval">
 
-                        </div>
 
+                <div class="approval-title">
 
-                    </div>
+                    UNIT APPROVAL
 
+                </div>
 
-                    <!-- ====================================
-                         DETAILS
-                    ===================================== -->
 
-                    <div class="student-details">
+                <div class="unit-buttons">
 
 
-                        <div class="detail-box">
+                    <button
+                        class="
+                            unit-btn
+                            ${unit11 ? "approved" : ""}
+                        "
+                        onclick="
+                            toggleUnit(
+                                '${escapeHtml(student.id)}',
+                                'unit-11'
+                            )
+                        "
+                    >
 
-                            <small>
-                                MOBILE
-                            </small>
+                        ${unit11
+                            ? "✓ Unit 11"
+                            : "🔒 Unit 11"
+                        }
 
-                            <strong>
-                                ${escapeHtml(
-                                    mobile
-                                )}
-                            </strong>
+                    </button>
 
-                        </div>
 
-
-                        <div class="detail-box">
-
-                            <small>
-                                EMAIL
-                            </small>
-
-                            <strong>
-                                ${escapeHtml(
-                                    email
-                                )}
-                            </strong>
-
-                        </div>
-
-
-                        <div class="detail-box">
-
-                            <small>
-                                COLLEGE
-                            </small>
-
-                            <strong>
-                                ${escapeHtml(
-                                    college
-                                )}
-                            </strong>
-
-                        </div>
-
-
-                    </div>
-
-
-                    <!-- ====================================
-                         UNIT APPROVAL
-                    ===================================== -->
-
-                    <div class="approval-area">
-
-
-                        <div class="approval-title">
-
-                            UNIT APPROVAL
-
-                        </div>
-
-
-                        <div class="unit-buttons">
-
-
-                            <button
-                                type="button"
-                                class="
-                                    unit-btn
-                                    ${
-                                        unit11Approved
-                                        ? "approved"
-                                        : ""
-                                    }
-                                "
-                                onclick="
-                                    toggleUnit(
-                                        '${escapeHtml(student.id)}',
-                                        'unit-11'
-                                    )
-                                "
-                            >
-
-                                <i
-                                    class="
-                                        fa-solid
-                                        ${
-                                            unit11Approved
-                                            ? "fa-circle-check"
-                                            : "fa-lock"
-                                        }
-                                    "
-                                ></i>
-
-                                Unit 11
-
-                                ${
-                                    unit11Approved
-                                    ? " ✓"
-                                    : ""
-                                }
-
-                            </button>
-
-
-                            <button
-                                type="button"
-                                class="
-                                    unit-btn
-                                    ${
-                                        unit12Approved
-                                        ? "approved"
-                                        : ""
-                                    }
-                                "
-                                onclick="
-                                    toggleUnit(
-                                        '${escapeHtml(student.id)}',
-                                        'unit-12'
-                                    )
-                                "
-                            >
-
-                                <i
-                                    class="
-                                        fa-solid
-                                        ${
-                                            unit12Approved
-                                            ? "fa-circle-check"
-                                            : "fa-lock"
-                                        }
-                                    "
-                                ></i>
-
-                                Unit 12
-
-                                ${
-                                    unit12Approved
-                                    ? " ✓"
-                                    : ""
-                                }
-
-                            </button>
-
-
-                        </div>
-
-
-                        <!-- =================================
-                             ACCOUNT STATUS
-                        ================================== -->
-
-                        <div class="account-actions">
-
-
-                            ${
-                                !isActive
-                                ? `
-
-                                    <button
-                                        type="button"
-                                        class="
-                                            action-btn
-                                            activate-btn
-                                        "
-                                        onclick="
-                                            setAccountStatus(
-                                                '${escapeHtml(student.id)}',
-                                                'active'
-                                            )
-                                        "
-                                    >
-
-                                        <i
-                                            class="
-                                                fa-solid
-                                                fa-user-check
-                                            "
-                                        ></i>
-
-                                        Activate Account
-
-                                    </button>
-
-                                `
-                                : ""
-                            }
-
-
-                            ${
-                                isActive
-                                ? `
-
-                                    <button
-                                        type="button"
-                                        class="
-                                            action-btn
-                                            pending-btn
-                                        "
-                                        onclick="
-                                            setAccountStatus(
-                                                '${escapeHtml(student.id)}',
-                                                'pending'
-                                            )
-                                        "
-                                    >
-
-                                        <i
-                                            class="
-                                                fa-solid
-                                                fa-user-clock
-                                            "
-                                        ></i>
-
-                                        Set Pending
-
-                                    </button>
-
-                                `
-                                : ""
-                            }
-
-
-                        </div>
-
-
-                    </div>
+                    <button
+                        class="
+                            unit-btn
+                            ${unit12 ? "approved" : ""}
+                        "
+                        onclick="
+                            toggleUnit(
+                                '${escapeHtml(student.id)}',
+                                'unit-12'
+                            )
+                        "
+                    >
+
+                        ${unit12
+                            ? "✓ Unit 12"
+                            : "🔒 Unit 12"
+                        }
+
+                    </button>
 
 
                 </div>
 
-            `;
+
+                <div class="account-actions">
+
+
+                    ${
+                        !isActive
+                            ? `
+
+                                <button
+                                    class="
+                                        action-btn
+                                        activate
+                                    "
+                                    onclick="
+                                        setAccountStatus(
+                                            '${escapeHtml(student.id)}',
+                                            'active'
+                                        )
+                                    "
+                                >
+
+                                    ✓ Activate Account
+
+                                </button>
+
+                            `
+                            : `
+
+                                <button
+                                    class="
+                                        action-btn
+                                        deactivate
+                                    "
+                                    onclick="
+                                        setAccountStatus(
+                                            '${escapeHtml(student.id)}',
+                                            'pending'
+                                        )
+                                    "
+                                >
+
+                                    Set Pending
+
+                                </button>
+
+                            `
+                    }
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    `;
+
+}
+
+
+// ============================================================
+// TOGGLE UNIT
+// ============================================================
+
+window.toggleUnit =
+async function (
+    studentId,
+    unitId
+) {
+
+    try {
+
+        const student =
+            students.find(
+                item =>
+                    item.id ===
+                    studentId
+            );
+
+
+        if (!student) {
+
+            return;
 
         }
 
 
-        // ====================================================
-        // TOGGLE UNIT
-        // ====================================================
+        const approvedUnits = {
 
-        window.toggleUnit =
-            async function (
-                studentId,
-                unitId
-            ) {
+            ...(student.approvedUnits || {})
 
-                try {
+        };
 
-                    const student =
-                        students.find(
-                            function (item) {
 
-                                return (
-                                    item.id ===
-                                    studentId
-                                );
+        const current =
+            approvedUnits[unitId] === true;
 
-                            }
-                        );
 
+        approvedUnits[unitId] =
+            !current;
 
-                    if (!student) {
 
-                        return;
+        await updateDoc(
 
-                    }
+            doc(
+                db,
+                "students",
+                studentId
+            ),
 
-
-                    const approvedUnits =
-                        {
-                            ...(
-                                student.approvedUnits ||
-                                {}
-                            )
-                        };
-
-
-                    const current =
-                        approvedUnits[
-                            unitId
-                        ] === true;
-
-
-                    approvedUnits[
-                        unitId
-                    ] =
-                        !current;
-
-
-                    await updateDoc(
-                        doc(
-                            db,
-                            "students",
-                            studentId
-                        ),
-                        {
-                            approvedUnits:
-                                approvedUnits
-                        }
-                    );
-
-
-                    student.approvedUnits =
-                        approvedUnits;
-
-
-                    updateStats();
-
-                    renderStudents();
-
-
-                    showToast(
-
-                        !current
-                        ? unitId +
-                          " approved successfully."
-                        : unitId +
-                          " approval removed."
-
-                    );
-
-                }
-
-                catch (error) {
-
-                    console.error(
-                        "Unit update error:",
-                        error
-                    );
-
-
-                    alert(
-                        "Unable to update unit approval.\n\n" +
-                        error.message
-                    );
-
-                }
-
-            };
-
-
-        // ====================================================
-        // ACCOUNT STATUS
-        // ====================================================
-
-        window.setAccountStatus =
-            async function (
-                studentId,
-                status
-            ) {
-
-                try {
-
-                    await updateDoc(
-                        doc(
-                            db,
-                            "students",
-                            studentId
-                        ),
-                        {
-                            accountStatus:
-                                status
-                        }
-                    );
-
-
-                    const student =
-                        students.find(
-                            function (item) {
-
-                                return (
-                                    item.id ===
-                                    studentId
-                                );
-
-                            }
-                        );
-
-
-                    if (student) {
-
-                        student.accountStatus =
-                            status;
-
-                    }
-
-
-                    updateStats();
-
-                    renderStudents();
-
-
-                    showToast(
-
-                        status ===
-                        "active"
-
-                        ? "Student account activated."
-
-                        : "Student account set to pending."
-
-                    );
-
-                }
-
-                catch (error) {
-
-                    console.error(
-                        "Account status error:",
-                        error
-                    );
-
-
-                    alert(
-                        "Unable to update account status.\n\n" +
-                        error.message
-                    );
-
-                }
-
-            };
-
-
-        // ====================================================
-        // SEARCH
-        // ====================================================
-
-        searchInput.addEventListener(
-            "input",
-            renderStudents
-        );
-
-
-        // ====================================================
-        // FILTER
-        // ====================================================
-
-        statusFilter.addEventListener(
-            "change",
-            renderStudents
-        );
-
-
-        // ====================================================
-        // LOGOUT
-        // ====================================================
-
-        logoutBtn.addEventListener(
-            "click",
-            async function () {
-
-                try {
-
-                    await signOut(
-                        auth
-                    );
-
-
-                    window.location.href =
-                        "../login.html";
-
-                }
-
-                catch (error) {
-
-                    console.error(
-                        "Logout error:",
-                        error
-                    );
-
-
-                    alert(
-                        "Unable to logout."
-                    );
-
-                }
-
+            {
+                approvedUnits:
+                    approvedUnits
             }
+
         );
 
 
-    </script>
+        student.approvedUnits =
+            approvedUnits;
+
+
+        updateStats();
+
+        renderStudents();
+
+
+        showToast(
+
+            !current
+                ? unitId +
+                  " approved successfully."
+                : unitId +
+                  " approval removed."
+
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Unit update error:",
+            error
+        );
+
+
+        alert(
+            "Unable to update unit approval.\n\n" +
+            error.message
+        );
+
+    }
+
+};
+
+
+// ============================================================
+// ACCOUNT STATUS
+// ============================================================
+
+window.setAccountStatus =
+async function (
+    studentId,
+    status
+) {
+
+    try {
+
+        await updateDoc(
+
+            doc(
+                db,
+                "students",
+                studentId
+            ),
+
+            {
+                accountStatus:
+                    status
+            }
+
+        );
+
+
+        const student =
+            students.find(
+                item =>
+                    item.id ===
+                    studentId
+            );
+
+
+        if (student) {
+
+            student.accountStatus =
+                status;
+
+        }
+
+
+        updateStats();
+
+        renderStudents();
+
+
+        showToast(
+
+            status === "active"
+
+                ? "Student account activated."
+
+                : "Student account set to pending."
+
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Account status error:",
+            error
+        );
+
+
+        alert(
+            "Unable to update account status.\n\n" +
+            error.message
+        );
+
+    }
+
+};
+
+
+// ============================================================
+// SEARCH
+// ============================================================
+
+searchInput.addEventListener(
+    "input",
+    renderStudents
+);
+
+
+// ============================================================
+// FILTER
+// ============================================================
+
+statusFilter.addEventListener(
+    "change",
+    renderStudents
+);
+
+
+// ============================================================
+// LOGOUT
+// ============================================================
+
+logoutBtn.addEventListener(
+    "click",
+    async () => {
+
+        try {
+
+            await signOut(auth);
+
+
+            window.location.href =
+                "../login.html";
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Logout error:",
+                error
+            );
+
+            alert(
+                "Unable to logout."
+            );
+
+        }
+
+    }
+);
+
+
+</script>
 
 
 </body>
 
 </html>
-```
