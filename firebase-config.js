@@ -1,4 +1,3 @@
-```javascript
 // ============================================================
 // ALL ABOUT ENGLISH
 // FIREBASE CONFIGURATION
@@ -47,17 +46,11 @@ const firebaseConfig = {
 // INITIALIZE FIREBASE
 // ============================================================
 
-const app =
-    initializeApp(
-        firebaseConfig
-    );
+const app = initializeApp(firebaseConfig);
 
 
 // ============================================================
-// EXPORT
+// EXPORT APP
 // ============================================================
 
-export {
-    app
-};
-```
+export { app };
