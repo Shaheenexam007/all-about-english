@@ -1,37 +1,66 @@
-import { initializeApp } from
-    "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+// ============================================================
+// ALL ABOUT ENGLISH
+// FIREBASE CONFIGURATION
+// BY SHAHEEN SIR
+// ============================================================
 
+
+// ============================================================
+// FIREBASE APP IMPORT
+// ============================================================
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+// ============================================================
+// FIREBASE CONFIGURATION
+// ============================================================
+//
+// IMPORTANT:
+// নিচের configuration আপনার Firebase project-এর
+// configuration অনুযায়ী থাকতে হবে.
+//
+// ============================================================
 
 const firebaseConfig = {
 
     apiKey:
-        "AIzaSyB6xJFLJC9KReEJQAzHbOmB67DBg-zX4gE",
+        "YOUR_API_KEY",
 
     authDomain:
-        "all-about-english-007.firebaseapp.com",
-
-    databaseURL:
-        "https://all-about-english-007-default-rtdb.asia-southeast1.firebasedatabase.app",
+        "YOUR_PROJECT.firebaseapp.com",
 
     projectId:
-        "all-about-english-007",
+        "YOUR_PROJECT_ID",
 
     storageBucket:
-        "all-about-english-007.firebasestorage.app",
+        "YOUR_PROJECT.firebasestorage.app",
 
     messagingSenderId:
-        "251678333411",
+        "YOUR_MESSAGING_SENDER_ID",
 
     appId:
-        "1:251678333411:web:889369210cb79442f0a8d6",
-
-    measurementId:
-        "G-RVFY5YEX6L"
+        "YOUR_APP_ID"
 
 };
 
 
-const app = initializeApp(firebaseConfig);
+// ============================================================
+// INITIALIZE FIREBASE
+// ============================================================
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
 
 
-export { app };
+// ============================================================
+// EXPORT
+// ============================================================
+
+export {
+    app
+};
