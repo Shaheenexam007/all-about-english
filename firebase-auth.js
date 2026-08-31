@@ -50,6 +50,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
+```javascript
 // ============================================================
 // CREATE STUDENT ACCOUNT
 // ============================================================
@@ -72,7 +73,6 @@ async function createStudentAccount(
                 email,
                 password
             );
-
 
         const user =
             userCredential.user;
@@ -99,27 +99,30 @@ async function createStudentAccount(
                 email:
                     email,
 
+                mobile:
+                    "",
+
+                college:
+                    "",
+
                 createdAt:
                     serverTimestamp(),
 
                 accountStatus:
                     "pending",
 
-                approvedUnits:
-                    {
-                        "unit-11":
-                            false,
+                device1:
+                    "",
 
-                        "unit-12":
-                            false
-                    }
+                device2:
+                    ""
 
             }
         );
 
 
         // ----------------------------------------------------
-        // LOGOUT AFTER ACCOUNT CREATION
+        // LOGOUT AFTER REGISTRATION
         // ----------------------------------------------------
 
         await signOut(
@@ -133,7 +136,7 @@ async function createStudentAccount(
                 true,
 
             message:
-                "Account created successfully. Please wait for approval."
+                "Account created successfully. Please wait for admin approval."
 
         };
 
@@ -162,6 +165,8 @@ async function createStudentAccount(
     }
 
 }
+```
+
 
 
 // ============================================================
