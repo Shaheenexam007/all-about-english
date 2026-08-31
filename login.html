@@ -2009,18 +2009,14 @@
         // IMPORT AUTH FUNCTIONS
         // ====================================================
 
-        import {
+        import * as FirebaseAuth from "./firebase-auth.js";
 
-            createStudentAccount,
-
-            loginStudent,
-
-            logoutStudent,
-
-            watchAuthState
-
-        } from "./firebase-auth.js";
-
+const {
+    createStudentAccount,
+    loginStudent,
+    logoutStudent,
+    watchAuthState
+} = FirebaseAuth;
 
         // ====================================================
         // ELEMENTS
