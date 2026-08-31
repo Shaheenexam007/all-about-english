@@ -51,6 +51,15 @@ const db = getFirestore(app);
 
 
 // ============================================================
+// DEBUG
+// ============================================================
+
+console.log(
+    "🔥 firebase-auth.js loaded successfully."
+);
+
+
+// ============================================================
 // CREATE STUDENT ACCOUNT
 // ============================================================
 
@@ -70,21 +79,28 @@ async function createStudentAccount(
             String(name || "").trim();
 
         email =
-            String(email || "").trim().toLowerCase();
+            String(email || "")
+                .trim()
+                .toLowerCase();
 
         password =
             String(password || "");
 
 
         // ----------------------------------------------------
-        // BASIC VALIDATION
+        // VALIDATION
         // ----------------------------------------------------
 
         if (!name) {
 
             return {
-                success: false,
-                message: "Please enter your full name."
+
+                success:
+                    false,
+
+                message:
+                    "Please enter your full name."
+
             };
 
         }
@@ -93,27 +109,56 @@ async function createStudentAccount(
         if (!email) {
 
             return {
-                success: false,
-                message: "Please enter your email address."
+
+                success:
+                    false,
+
+                message:
+                    "Please enter your email address."
+
             };
 
         }
 
 
-        if (!password || password.length < 6) {
+        if (!password) {
 
             return {
-                success: false,
+
+                success:
+                    false,
+
+                message:
+                    "Please enter your password."
+
+            };
+
+        }
+
+
+        if (password.length < 6) {
+
+            return {
+
+                success:
+                    false,
+
                 message:
                     "Password must contain at least 6 characters."
+
             };
 
         }
 
 
         // ----------------------------------------------------
-        // CREATE FIREBASE AUTH USER
+        // CREATE FIREBASE AUTH ACCOUNT
         // ----------------------------------------------------
+
+        console.log(
+            "Creating Firebase Auth account..."
+        );
+
 
         const userCredential =
             await createUserWithEmailAndPassword(
@@ -128,28 +173,30 @@ async function createStudentAccount(
 
 
         console.log(
-            "Firebase account created:",
+            "✅ Firebase Auth account created:",
             user.uid
         );
 
 
         // ----------------------------------------------------
-        // CREATE STUDENT FIRESTORE DOCUMENT
+        // CREATE FIRESTORE STUDENT DOCUMENT
         // ----------------------------------------------------
         //
-        // IMPORTANT:
-        //
-        // These fields exactly match the current
-        // Firestore create rule.
+        // This structure matches the current Firestore
+        // registration rule.
         //
         // ----------------------------------------------------
 
-        await setDoc(
+        const studentRef =
             doc(
                 db,
                 "students",
                 user.uid
-            ),
+            );
+
+
+        await setDoc(
+            studentRef,
             {
 
                 uid:
@@ -183,6 +230,12 @@ async function createStudentAccount(
         );
 
 
+        console.log(
+            "✅ Student Firestore document created:",
+            user.uid
+        );
+
+
         // ----------------------------------------------------
         // LOGOUT AFTER REGISTRATION
         // ----------------------------------------------------
@@ -193,7 +246,7 @@ async function createStudentAccount(
 
 
         console.log(
-            "Student document created successfully."
+            "✅ Registration completed successfully."
         );
 
 
@@ -212,23 +265,14 @@ async function createStudentAccount(
     catch (error) {
 
         console.error(
-            "Registration Error:",
+            "❌ Registration Error:",
             error
         );
 
 
         // ----------------------------------------------------
-        // IF AUTH ACCOUNT WAS CREATED BUT FIRESTORE FAILED
+        // RETURN FRIENDLY ERROR
         // ----------------------------------------------------
-        //
-        // We do NOT automatically delete the Firebase
-        // Auth account from the browser.
-        //
-        // The admin can handle such an exceptional account
-        // if necessary.
-        //
-        // ----------------------------------------------------
-
 
         return {
 
@@ -263,11 +307,17 @@ async function loginStudent(
         // ----------------------------------------------------
 
         email =
-            String(email || "").trim().toLowerCase();
+            String(email || "")
+                .trim()
+                .toLowerCase();
 
         password =
             String(password || "");
 
+
+        // ----------------------------------------------------
+        // VALIDATION
+        // ----------------------------------------------------
 
         if (!email) {
 
@@ -300,8 +350,13 @@ async function loginStudent(
 
 
         // ----------------------------------------------------
-        // FIREBASE AUTH LOGIN
+        // FIREBASE LOGIN
         // ----------------------------------------------------
+
+        console.log(
+            "Attempting Firebase login..."
+        );
+
 
         const userCredential =
             await signInWithEmailAndPassword(
@@ -316,7 +371,7 @@ async function loginStudent(
 
 
         console.log(
-            "Firebase login successful:",
+            "✅ Firebase login successful:",
             user.uid
         );
 
@@ -329,15 +384,15 @@ async function loginStudent(
             null;
 
 
-        const studentRef =
-            doc(
-                db,
-                "students",
-                user.uid
-            );
-
-
         try {
+
+            const studentRef =
+                doc(
+                    db,
+                    "students",
+                    user.uid
+                );
+
 
             const studentSnap =
                 await getDoc(
@@ -352,6 +407,19 @@ async function loginStudent(
                 studentData =
                     studentSnap.data();
 
+
+                console.log(
+                    "✅ Student document loaded."
+                );
+
+            }
+
+            else {
+
+                console.warn(
+                    "⚠️ Student document does not exist."
+                );
+
             }
 
         }
@@ -359,15 +427,21 @@ async function loginStudent(
         catch (firestoreError) {
 
             console.error(
-                "Student document read error:",
+                "❌ Firestore student document error:",
                 firestoreError
             );
 
 
-            // Authentication itself succeeded.
-            // Do not automatically sign the user out.
+            // ------------------------------------------------
+            // IMPORTANT
+            // ------------------------------------------------
             //
-            // The page can still recognize the Firebase user.
+            // Authentication itself succeeded.
+            //
+            // Therefore we do NOT automatically sign out
+            // the student here.
+            //
+            // ------------------------------------------------
 
         }
 
@@ -401,7 +475,7 @@ async function loginStudent(
 
 
         // ----------------------------------------------------
-        // ACCOUNT STATUS MESSAGE
+        // ACCOUNT STATUS
         // ----------------------------------------------------
 
         let message =
@@ -457,7 +531,7 @@ async function loginStudent(
     catch (error) {
 
         console.error(
-            "Login Error:",
+            "❌ Login Error:",
             error
         );
 
@@ -490,7 +564,9 @@ async function resetStudentPassword(
     try {
 
         email =
-            String(email || "").trim().toLowerCase();
+            String(email || "")
+                .trim()
+                .toLowerCase();
 
 
         if (!email) {
@@ -529,7 +605,7 @@ async function resetStudentPassword(
     catch (error) {
 
         console.error(
-            "Password Reset Error:",
+            "❌ Password Reset Error:",
             error
         );
 
@@ -552,7 +628,7 @@ async function resetStudentPassword(
 
 
 // ============================================================
-// LOGOUT
+// LOGOUT STUDENT
 // ============================================================
 
 async function logoutStudent() {
@@ -561,6 +637,11 @@ async function logoutStudent() {
 
         await signOut(
             auth
+        );
+
+
+        console.log(
+            "✅ Student logged out."
         );
 
 
@@ -579,7 +660,7 @@ async function logoutStudent() {
     catch (error) {
 
         console.error(
-            "Logout Error:",
+            "❌ Logout Error:",
             error
         );
 
@@ -641,91 +722,139 @@ function getFriendlyAuthError(
     switch (code) {
 
 
-        // ----------------------------------------------------
-        // AUTH
-        // ----------------------------------------------------
+        // ====================================================
+        // AUTHENTICATION ERRORS
+        // ====================================================
 
         case "auth/email-already-in-use":
 
-            return "This email is already registered. Please use Login instead.";
+            return (
+                "This email is already registered. " +
+                "Please use Login instead."
+            );
 
 
         case "auth/invalid-email":
 
-            return "Please enter a valid email address.";
+            return (
+                "Please enter a valid email address."
+            );
 
 
         case "auth/weak-password":
 
-            return "Password must contain at least 6 characters.";
-
-
-        case "auth/invalid-credential":
-
-            return "Incorrect email or password.";
-
-
-        case "auth/user-not-found":
-
-            return "No account was found with this email.";
-
-
-        case "auth/wrong-password":
-
-            return "Incorrect email or password.";
-
-
-        case "auth/too-many-requests":
-
-            return "Too many attempts. Please wait and try again later.";
-
-
-        case "auth/network-request-failed":
-
-            return "Network problem. Please check your internet connection.";
-
-
-        case "auth/user-disabled":
-
-            return "This account has been disabled.";
-
-
-        case "auth/operation-not-allowed":
-
-            return "Email/password authentication is not enabled in Firebase.";
+            return (
+                "Password must contain at least 6 characters."
+            );
 
 
         case "auth/password-does-not-meet-requirements":
 
-            return "Password does not meet the required security rules.";
+            return (
+                "Password does not meet the required security rules."
+            );
 
 
-        // ----------------------------------------------------
-        // FIRESTORE
-        // ----------------------------------------------------
+        case "auth/invalid-credential":
+
+            return (
+                "Incorrect email or password."
+            );
+
+
+        case "auth/user-not-found":
+
+            return (
+                "No account was found with this email."
+            );
+
+
+        case "auth/wrong-password":
+
+            return (
+                "Incorrect email or password."
+            );
+
+
+        case "auth/too-many-requests":
+
+            return (
+                "Too many attempts. Please wait and try again later."
+            );
+
+
+        case "auth/network-request-failed":
+
+            return (
+                "Network problem. Please check your internet connection."
+            );
+
+
+        case "auth/user-disabled":
+
+            return (
+                "This account has been disabled."
+            );
+
+
+        case "auth/operation-not-allowed":
+
+            return (
+                "Email/password authentication is not enabled in Firebase."
+            );
+
+
+        // ====================================================
+        // FIRESTORE ERRORS
+        // ====================================================
 
         case "permission-denied":
 
-            return "Account authentication succeeded, but Firestore permission was denied. Please check the Firestore Rules.";
+        case "firestore/permission-denied":
+
+            return (
+                "Account authentication succeeded, " +
+                "but Firestore permission was denied. " +
+                "Please check the Firestore Rules."
+            );
 
 
         case "failed-precondition":
 
-            return "Firebase could not complete this operation. Please check your Firebase configuration.";
+        case "firestore/failed-precondition":
+
+            return (
+                "Firebase could not complete this operation. " +
+                "Please check your Firebase configuration."
+            );
 
 
-        // ----------------------------------------------------
+        // ====================================================
         // API KEY
-        // ----------------------------------------------------
+        // ====================================================
 
         case "auth/api-key-not-valid.-please-pass-a-valid-api-key.":
 
-            return "Firebase API key is invalid. Please check firebase-config.js.";
+            return (
+                "Firebase API key is invalid. " +
+                "Please check firebase-config.js."
+            );
 
 
-        // ----------------------------------------------------
+        // ====================================================
+        // APP CONFIGURATION
+        // ====================================================
+
+        case "auth/app-deleted":
+
+            return (
+                "Firebase application configuration is invalid."
+            );
+
+
+        // ====================================================
         // DEFAULT
-        // ----------------------------------------------------
+        // ====================================================
 
         default:
 
@@ -762,4 +891,8 @@ export {
     watchAuthState
 
 };
-```
+
+
+// ============================================================
+// END OF FIREBASE AUTHENTICATION
+// ============================================================
