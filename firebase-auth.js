@@ -3,7 +3,7 @@
 // FIREBASE AUTHENTICATION
 // BY SHAHEEN SIR
 // ============================================================
-
+console.log("🔥 NEW firebase-auth.js LOADED — createStudentAccount VERSION");
 
 // ============================================================
 // FIREBASE AUTH IMPORTS
