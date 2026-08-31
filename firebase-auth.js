@@ -1,4 +1,3 @@
-```javascript
 // ============================================================
 // ALL ABOUT ENGLISH
 // FIREBASE AUTHENTICATION
