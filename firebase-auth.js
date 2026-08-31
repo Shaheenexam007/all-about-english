@@ -1,9 +1,10 @@
+```javascript
 // ============================================================
 // ALL ABOUT ENGLISH
 // FIREBASE AUTHENTICATION
 // BY SHAHEEN SIR
 // ============================================================
-console.log("🔥 NEW firebase-auth.js LOADED — createStudentAccount VERSION");
+
 
 // ============================================================
 // FIREBASE AUTH IMPORTS
@@ -45,12 +46,13 @@ import {
 // INITIALIZE
 // ============================================================
 
-const auth = getAuth(app);
+const auth =
+    getAuth(app);
 
-const db = getFirestore(app);
+const db =
+    getFirestore(app);
 
 
-```javascript
 // ============================================================
 // CREATE STUDENT ACCOUNT
 // ============================================================
@@ -74,12 +76,13 @@ async function createStudentAccount(
                 password
             );
 
+
         const user =
             userCredential.user;
 
 
         // ----------------------------------------------------
-        // CREATE STUDENT FIRESTORE DOCUMENT
+        // CREATE STUDENT DOCUMENT
         // ----------------------------------------------------
 
         await setDoc(
@@ -136,7 +139,7 @@ async function createStudentAccount(
                 true,
 
             message:
-                "Account created successfully. Please wait for admin approval."
+                "Account created successfully. Please wait for approval."
 
         };
 
@@ -165,8 +168,6 @@ async function createStudentAccount(
     }
 
 }
-```
-
 
 
 // ============================================================
@@ -244,9 +245,6 @@ async function loginStudent(
                 firestoreError
             );
 
-            // Authentication succeeded.
-            // DO NOT sign the user out here.
-
         }
 
 
@@ -279,7 +277,7 @@ async function loginStudent(
 
 
         // ----------------------------------------------------
-        // LOGIN MESSAGE
+        // LOGIN SUCCESS
         // ----------------------------------------------------
 
         let message =
@@ -530,7 +528,7 @@ function getFriendlyAuthError(
 
         case "auth/operation-not-allowed":
 
-            return "Email/password authentication is not enabled in Firebase.";
+            return "Email/password authentication is not enabled.";
 
 
         case "auth/password-does-not-meet-requirements":
@@ -573,3 +571,4 @@ export {
     watchAuthState
 
 };
+```
