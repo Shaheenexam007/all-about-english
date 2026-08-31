@@ -10,14 +10,24 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="description"
+        content="All About English | Unit 11 by Shaheen Sir"
+    >
+
+    <meta
+        name="theme-color"
+        content="#101b36"
+    >
+
     <title>
         Unit 11 | All About English
     </title>
 
-    <meta
-        name="description"
-        content="Unit 11 English lessons by Shaheen Sir."
-    >
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
 
     <link
         rel="preconnect"
@@ -35,57 +45,160 @@
         rel="stylesheet"
     >
 
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
 
 
+    <!-- =====================================================
+         STYLE
+    ====================================================== -->
+
     <style>
+
+        /* =====================================================
+           ROOT
+        ====================================================== */
 
         :root {
 
-            --navy: #101b36;
-            --navy-dark: #091126;
-            --gold: #c9a45c;
-            --gold-light: #ead9ae;
-            --ivory: #fbfaf6;
-            --white: #ffffff;
-            --text: #1d2940;
-            --muted: #68748a;
-            --border: #e7e4dc;
-            --soft: #f4f2eb;
+            --navy:
+                #101b36;
+
+            --navy-dark:
+                #091126;
+
+            --gold:
+                #c9a45c;
+
+            --gold-light:
+                #ead9ae;
+
+            --ivory:
+                #fbfaf6;
+
+            --white:
+                #ffffff;
+
+            --text:
+                #1d2940;
+
+            --muted:
+                #68748a;
+
+            --border:
+                #e7e4dc;
+
+            --soft:
+                #f4f2eb;
+
+            --danger:
+                #b43b32;
+
+            --success:
+                #28784b;
+
+            --shadow:
+                0 18px 55px rgba(16,27,54,.10);
 
         }
 
 
+        /* =====================================================
+           RESET
+        ====================================================== */
+
         * {
 
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin:
+                0;
+
+            padding:
+                0;
+
+            box-sizing:
+                border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior:
+                smooth;
 
         }
 
 
         body {
 
-            font-family: "Inter", sans-serif;
+            min-height:
+                100vh;
 
-            background: var(--ivory);
+            font-family:
+                "Inter",
+                sans-serif;
 
-            color: var(--text);
+            color:
+                var(--text);
 
-            min-height: 100vh;
+            background:
+                var(--ivory);
+
+            overflow-x:
+                hidden;
 
         }
 
 
         a {
 
-            text-decoration: none;
+            text-decoration:
+                none;
 
-            color: inherit;
+            color:
+                inherit;
+
+        }
+
+
+        button {
+
+            font-family:
+                inherit;
+
+        }
+
+
+        /* =====================================================
+           TOP BAR
+        ====================================================== */
+
+        .top-bar {
+
+            background:
+                var(--navy-dark);
+
+            color:
+                #e9e4d5;
+
+            text-align:
+                center;
+
+            padding:
+                8px 15px;
+
+            font-size:
+                10px;
+
+            letter-spacing:
+                .6px;
 
         }
 
@@ -96,120 +209,201 @@
 
         header {
 
-            background: var(--navy-dark);
+            position:
+                sticky;
 
-            color: white;
+            top:
+                0;
 
-            padding: 18px 20px;
+            z-index:
+                1000;
+
+            background:
+                rgba(251,250,246,.95);
+
+            backdrop-filter:
+                blur(15px);
+
+            -webkit-backdrop-filter:
+                blur(15px);
+
+            border-bottom:
+                1px solid rgba(16,27,54,.08);
+
+        }
+
+
+        .nav-container {
+
+            width:
+                min(1100px,92%);
+
+            min-height:
+                70px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
 
         }
 
 
-        .header-inner {
-
-            width: min(1100px, 92%);
-
-            margin: auto;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 15px;
-
-        }
-
+        /* =====================================================
+           BRAND
+        ====================================================== */
 
         .brand {
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            gap: 10px;
+            gap:
+                11px;
 
         }
 
 
         .brand-icon {
 
-            width: 42px;
+            width:
+                42px;
 
-            height: 42px;
+            height:
+                42px;
 
-            border-radius: 12px;
+            border-radius:
+                12px;
 
-            background: var(--navy);
+            background:
+                var(--navy);
 
-            border: 1px solid rgba(255,255,255,.1);
+            color:
+                var(--gold-light);
 
-            color: var(--gold-light);
+            display:
+                flex;
 
-            display: flex;
+            align-items:
+                center;
 
-            align-items: center;
+            justify-content:
+                center;
 
-            justify-content: center;
+            font-size:
+                17px;
 
         }
 
 
         .brand-text strong {
 
-            display: block;
+            display:
+                block;
 
-            font-size: 14px;
+            color:
+                var(--navy);
 
-            font-weight: 800;
+            font-size:
+                14px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                .4px;
 
         }
 
 
         .brand-text span {
 
-            display: block;
+            display:
+                block;
 
-            font-size: 8px;
+            color:
+                var(--gold);
 
-            color: var(--gold-light);
+            font-size:
+                8px;
 
-            letter-spacing: 1px;
+            font-weight:
+                800;
 
-            margin-top: 3px;
+            letter-spacing:
+                1px;
+
+            margin-top:
+                3px;
 
         }
 
 
+        /* =====================================================
+           HOME BUTTON
+        ====================================================== */
+
         .home-btn {
 
-            display: inline-flex;
+            display:
+                inline-flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            gap: 7px;
+            justify-content:
+                center;
 
-            padding: 9px 13px;
+            gap:
+                7px;
 
-            border-radius: 9px;
+            padding:
+                9px 13px;
 
-            background: rgba(255,255,255,.08);
+            border:
+                1px solid var(--border);
 
-            color: white;
+            border-radius:
+                9px;
 
-            font-size: 10px;
+            background:
+                white;
 
-            font-weight: 700;
+            color:
+                var(--navy);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            transition:
+                .25s ease;
 
         }
 
 
         .home-btn:hover {
 
-            background: var(--gold);
+            background:
+                var(--navy);
 
-            color: var(--navy);
+            color:
+                white;
 
         }
 
@@ -220,65 +414,311 @@
 
         main {
 
-            width: min(1000px, 92%);
+            width:
+                min(1100px,92%);
 
-            margin: auto;
+            margin:
+                auto;
 
-            padding: 55px 0 70px;
-
-        }
-
-
-        .unit-header {
-
-            text-align: center;
-
-            margin-bottom: 40px;
+            padding:
+                55px 0 70px;
 
         }
 
 
-        .eyebrow {
+        /* =====================================================
+           HERO
+        ====================================================== */
 
-            color: var(--gold);
+        .unit-hero {
 
-            font-size: 10px;
+            background:
+                var(--navy);
 
-            font-weight: 800;
+            color:
+                white;
 
-            letter-spacing: 2px;
+            border-radius:
+                25px;
 
-            text-transform: uppercase;
+            padding:
+                42px;
 
-            margin-bottom: 9px;
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            box-shadow:
+                0 22px 55px rgba(16,27,54,.15);
 
         }
 
 
-        .unit-header h1 {
+        .unit-hero::before {
 
-            font-family: "Playfair Display", serif;
+            content:
+                "";
 
-            color: var(--navy);
+            position:
+                absolute;
 
-            font-size: clamp(32px, 6vw, 48px);
+            width:
+                280px;
 
-            margin-bottom: 10px;
+            height:
+                280px;
+
+            border:
+                1px solid rgba(234,217,174,.16);
+
+            border-radius:
+                50%;
+
+            right:
+                -110px;
+
+            top:
+                -130px;
 
         }
 
 
-        .unit-header p {
+        .unit-hero::after {
 
-            color: var(--muted);
+            content:
+                "";
 
-            font-size: 12px;
+            position:
+                absolute;
 
-            line-height: 1.7;
+            width:
+                170px;
 
-            max-width: 650px;
+            height:
+                170px;
 
-            margin: auto;
+            border:
+                1px solid rgba(234,217,174,.10);
+
+            border-radius:
+                50%;
+
+            left:
+                -90px;
+
+            bottom:
+                -100px;
+
+        }
+
+
+        .unit-hero-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+        }
+
+
+        .unit-label {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+            padding:
+                7px 12px;
+
+            border:
+                1px solid rgba(234,217,174,.25);
+
+            border-radius:
+                999px;
+
+            color:
+                var(--gold-light);
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.5px;
+
+            margin-bottom:
+                17px;
+
+        }
+
+
+        .unit-hero h1 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                clamp(34px,5vw,55px);
+
+            line-height:
+                1.05;
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        .unit-hero h1 span {
+
+            color:
+                var(--gold-light);
+
+        }
+
+
+        .unit-hero p {
+
+            max-width:
+                700px;
+
+            color:
+                #cbd3df;
+
+            font-size:
+                11px;
+
+            line-height:
+                1.8;
+
+        }
+
+
+        /* =====================================================
+           ACCESS LOADING
+        ====================================================== */
+
+        #loading-box {
+
+            margin-top:
+                25px;
+
+            background:
+                white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                20px;
+
+            padding:
+                45px 25px;
+
+            text-align:
+                center;
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .loading-icon {
+
+            width:
+                55px;
+
+            height:
+                55px;
+
+            margin:
+                0 auto 15px;
+
+            border-radius:
+                50%;
+
+            background:
+                #f5efe1;
+
+            color:
+                var(--navy);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                20px;
+
+        }
+
+
+        .loading-icon i {
+
+            animation:
+                spin 1s linear infinite;
+
+        }
+
+
+        @keyframes spin {
+
+            from {
+                transform:
+                    rotate(0deg);
+            }
+
+            to {
+                transform:
+                    rotate(360deg);
+            }
+
+        }
+
+
+        #loading-box h2 {
+
+            color:
+                var(--navy);
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                23px;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        #loading-box p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                10px;
 
         }
 
@@ -289,50 +729,218 @@
 
         #access-message {
 
-            text-align: center;
+            display:
+                none;
 
-            padding: 35px 20px;
+            margin-top:
+                25px;
 
-            background: white;
+            background:
+                white;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid #ead4d1;
 
-            border-radius: 18px;
+            border-radius:
+                20px;
 
-            margin-bottom: 25px;
+            padding:
+                45px 25px;
+
+            text-align:
+                center;
+
+            box-shadow:
+                var(--shadow);
 
         }
 
 
-        #access-message i {
+        .access-icon {
 
-            font-size: 30px;
+            width:
+                65px;
 
-            color: var(--gold);
+            height:
+                65px;
 
-            margin-bottom: 12px;
+            margin:
+                0 auto 17px;
+
+            border-radius:
+                50%;
+
+            background:
+                #fbefed;
+
+            color:
+                var(--danger);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                24px;
 
         }
 
 
         #access-message h2 {
 
-            color: var(--navy);
+            font-family:
+                "Playfair Display",
+                serif;
 
-            font-size: 18px;
+            color:
+                var(--navy);
 
-            margin-bottom: 7px;
+            font-size:
+                26px;
+
+            margin-bottom:
+                9px;
 
         }
 
 
         #access-message p {
 
-            color: var(--muted);
+            max-width:
+                520px;
 
-            font-size: 11px;
+            margin:
+                0 auto;
 
-            line-height: 1.7;
+            color:
+                var(--muted);
+
+            font-size:
+                10px;
+
+            line-height:
+                1.8;
+
+        }
+
+
+        .back-login-btn {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                7px;
+
+            margin-top:
+                20px;
+
+            padding:
+                11px 17px;
+
+            border-radius:
+                10px;
+
+            background:
+                var(--navy);
+
+            color:
+                white;
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        /* =====================================================
+           LESSON AREA
+        ====================================================== */
+
+        #lesson-area {
+
+            display:
+                none;
+
+            margin-top:
+                25px;
+
+        }
+
+
+        .section-heading {
+
+            text-align:
+                center;
+
+            margin-bottom:
+                28px;
+
+        }
+
+
+        .section-heading .eyebrow {
+
+            color:
+                var(--gold);
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                2px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .section-heading h2 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            color:
+                var(--navy);
+
+            font-size:
+                31px;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .section-heading p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                10px;
 
         }
 
@@ -343,189 +951,202 @@
 
         .lesson-grid {
 
-            display: grid;
+            display:
+                grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(3,1fr);
 
-            gap: 18px;
+            gap:
+                15px;
 
         }
 
 
         .lesson-card {
 
-            background: white;
+            display:
+                block;
 
-            border: 1px solid var(--border);
+            background:
+                white;
 
-            border-radius: 18px;
+            border:
+                1px solid var(--border);
 
-            padding: 22px;
+            border-radius:
+                17px;
 
-            min-height: 210px;
+            padding:
+                21px;
 
-            position: relative;
+            min-height:
+                175px;
 
-            overflow: hidden;
+            position:
+                relative;
 
-            transition: .25s ease;
+            overflow:
+                hidden;
+
+            transition:
+                .25s ease;
 
         }
 
 
         .lesson-card::after {
 
-            content: "";
+            content:
+                "";
 
-            position: absolute;
+            position:
+                absolute;
 
-            width: 100px;
+            width:
+                90px;
 
-            height: 100px;
+            height:
+                90px;
 
-            border-radius: 50%;
+            border-radius:
+                50%;
 
-            background: #f5efe1;
+            background:
+                #f7f0df;
 
-            right: -35px;
+            right:
+                -35px;
 
-            bottom: -35px;
-
-            z-index: 0;
+            bottom:
+                -35px;
 
         }
 
 
         .lesson-card:hover {
 
-            transform: translateY(-5px);
+            transform:
+                translateY(-5px);
 
-            border-color: #d8c89f;
+            border-color:
+                #d7c69b;
 
             box-shadow:
-                0 18px 45px rgba(16,27,54,.10);
+                var(--shadow);
 
         }
 
 
         .lesson-number {
 
-            width: 43px;
+            width:
+                39px;
 
-            height: 43px;
+            height:
+                39px;
 
-            border-radius: 12px;
+            border-radius:
+                11px;
 
-            background: #f5efe1;
+            background:
+                #f5efe1;
 
-            color: var(--navy);
+            color:
+                var(--navy);
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: center;
+            justify-content:
+                center;
 
-            font-weight: 800;
+            font-size:
+                11px;
 
-            font-size: 13px;
+            font-weight:
+                800;
 
-            margin-bottom: 17px;
+            margin-bottom:
+                15px;
 
-            position: relative;
+            position:
+                relative;
 
-            z-index: 2;
+            z-index:
+                2;
 
         }
 
 
-        .lesson-card h2 {
+        .lesson-card h3 {
 
-            color: var(--navy);
+            color:
+                var(--navy);
 
-            font-size: 16px;
+            font-size:
+                14px;
 
-            margin-bottom: 8px;
+            line-height:
+                1.4;
 
-            position: relative;
+            margin-bottom:
+                7px;
 
-            z-index: 2;
+            position:
+                relative;
+
+            z-index:
+                2;
 
         }
 
 
         .lesson-card p {
 
-            color: var(--muted);
+            color:
+                var(--muted);
 
-            font-size: 10px;
+            font-size:
+                9px;
 
-            line-height: 1.7;
+            line-height:
+                1.6;
 
-            margin-bottom: 18px;
+            position:
+                relative;
 
-            position: relative;
-
-            z-index: 2;
-
-        }
-
-
-        .lesson-btn {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 7px;
-
-            padding: 9px 13px;
-
-            border-radius: 9px;
-
-            background: var(--navy);
-
-            color: white;
-
-            font-size: 9px;
-
-            font-weight: 800;
-
-            position: relative;
-
-            z-index: 3;
+            z-index:
+                2;
 
         }
 
 
-        .lesson-btn:hover {
+        .lesson-enter {
 
-            background: var(--gold);
+            position:
+                absolute;
 
-            color: var(--navy);
+            left:
+                21px;
 
-        }
+            bottom:
+                17px;
 
+            color:
+                var(--gold);
 
-        /* =====================================================
-           LOCKED CARD
-        ====================================================== */
+            font-size:
+                8px;
 
-        .lesson-card.locked {
+            font-weight:
+                800;
 
-            opacity: .75;
-
-        }
-
-
-        .lesson-card.locked .lesson-btn {
-
-            background: #d9d9d9;
-
-            color: #777;
-
-            cursor: not-allowed;
+            z-index:
+                3;
 
         }
 
@@ -536,22 +1157,20 @@
 
         footer {
 
-            background: var(--navy-dark);
+            background:
+                var(--navy-dark);
 
-            color: #9da7b8;
+            color:
+                #7f899b;
 
-            text-align: center;
+            text-align:
+                center;
 
-            padding: 22px 15px;
+            padding:
+                18px 15px;
 
-            font-size: 9px;
-
-        }
-
-
-        footer strong {
-
-            color: var(--gold-light);
+            font-size:
+                8px;
 
         }
 
@@ -560,63 +1179,159 @@
            RESPONSIVE
         ====================================================== */
 
-        @media (max-width: 750px) {
+        @media (max-width: 800px) {
 
             .lesson-grid {
 
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    repeat(2,1fr);
 
             }
 
         }
 
 
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
 
-            .header-inner {
+            .top-bar {
 
-                width: 94%;
+                font-size:
+                    8px;
+
+            }
+
+
+            .nav-container {
+
+                min-height:
+                    62px;
+
+            }
+
+
+            .brand-icon {
+
+                width:
+                    37px;
+
+                height:
+                    37px;
 
             }
 
 
             .brand-text strong {
 
-                font-size: 12px;
+                font-size:
+                    12px;
+
+            }
+
+
+            .brand-text span {
+
+                font-size:
+                    7px;
 
             }
 
 
             .home-btn {
 
-                font-size: 9px;
+                padding:
+                    8px 10px;
 
-                padding: 8px 10px;
+                font-size:
+                    9px;
 
             }
 
 
             main {
 
-                padding-top: 40px;
+                width:
+                    94%;
+
+                padding:
+                    35px 0 50px;
+
+            }
+
+
+            .unit-hero {
+
+                padding:
+                    30px 23px;
+
+                border-radius:
+                    20px;
+
+            }
+
+
+            .unit-hero h1 {
+
+                font-size:
+                    37px;
+
+            }
+
+
+            .unit-hero p {
+
+                font-size:
+                    10px;
 
             }
 
 
             .lesson-grid {
 
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap:
+                    10px;
 
             }
 
 
             .lesson-card {
 
-                min-height: 185px;
+                min-height:
+                    175px;
+
+                padding:
+                    16px;
+
+            }
+
+
+            .lesson-card h3 {
+
+                font-size:
+                    12px;
+
+            }
+
+
+            .lesson-card p {
+
+                font-size:
+                    8px;
+
+            }
+
+
+            .lesson-enter {
+
+                left:
+                    16px;
 
             }
 
         }
+
 
     </style>
 
@@ -627,12 +1342,23 @@
 
 
     <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
+
+    <div class="top-bar">
+
+        ALL ABOUT ENGLISH • UNIT 11 • SHAHEEN SIR
+
+    </div>
+
+
+    <!-- =====================================================
          HEADER
     ====================================================== -->
 
     <header>
 
-        <div class="header-inner">
+        <div class="nav-container">
 
 
             <a
@@ -654,7 +1380,7 @@
                     </strong>
 
                     <span>
-                        BY SHAHEEN SIR
+                        SHAHEEN SIR
                     </span>
 
                 </div>
@@ -669,7 +1395,7 @@
 
                 <i class="fa-solid fa-house"></i>
 
-                HOME
+                Home
 
             </a>
 
@@ -677,7 +1403,6 @@
         </div>
 
     </header>
-
 
 
     <!-- =====================================================
@@ -688,181 +1413,365 @@
 
 
         <!-- =================================================
-             UNIT INFORMATION
+             UNIT HERO
         ================================================== -->
 
-        <div class="unit-header">
+        <section class="unit-hero">
 
-            <div class="eyebrow">
-                HSC English 1st Paper
+            <div class="unit-hero-content">
+
+
+                <div class="unit-label">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    PROTECTED UNIT
+
+                </div>
+
+
+                <h1>
+
+                    Unit 11
+
+                    <span>
+                        English
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    Welcome to Unit 11 of All About English.
+                    Access to this unit is available only to
+                    students whose accounts have been approved
+                    by Shaheen Sir.
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LOADING
+        ================================================== -->
+
+        <section
+            id="loading-box"
+        >
+
+            <div class="loading-icon">
+
+                <i class="fa-solid fa-spinner"></i>
+
             </div>
 
 
-            <h1>
-                Unit 11
-            </h1>
+            <h2>
+                Checking Access
+            </h2>
 
 
             <p>
-
-                Explore the lessons of Unit 11.
-                Access is available to students whose
-                account has been approved for this unit.
-
+                Please wait while we verify your student account.
             </p>
 
-        </div>
-
+        </section>
 
 
         <!-- =================================================
              ACCESS MESSAGE
-
-             এই অংশটি শুরুতে loading দেখাবে।
-             JavaScript পরে প্রয়োজন অনুযায়ী পরিবর্তন করবে।
         ================================================== -->
 
-        <div id="access-message">
+        <section
+            id="access-message"
+        >
 
-            <i class="fa-solid fa-spinner fa-spin"></i>
+            <div class="access-icon">
+
+                <i class="fa-solid fa-lock"></i>
+
+            </div>
+
 
             <h2>
-                Checking Access...
+                Access Restricted
             </h2>
 
-            <p>
-                Please wait while we verify your account.
+
+            <p id="access-message-text">
+
+                You do not currently have permission to access
+                Unit 11. Please contact Shaheen Sir for approval.
+
             </p>
 
-        </div>
 
+            <a
+                href="/all-about-english/login.html"
+                class="back-login-btn"
+            >
+
+                <i class="fa-solid fa-right-to-bracket"></i>
+
+                Student Login
+
+            </a>
+
+        </section>
 
 
         <!-- =================================================
-             LESSON GRID
-
-             IMPORTANT:
-             Unit approval সফল হলে এই অংশ দেখা যাবে।
+             LESSON AREA
         ================================================== -->
 
-        <div
-            class="lesson-grid"
-            id="lesson-grid"
-            style="display:none;"
+        <section
+            id="lesson-area"
         >
 
 
-            <!-- =================================================
-                 LESSON 1
-            ================================================== -->
+            <div class="section-heading">
 
-            <div class="lesson-card">
-
-                <div class="lesson-number">
-                    01
+                <div class="eyebrow">
+                    Unit 11
                 </div>
 
 
                 <h2>
-                    Lesson 1
+                    Lessons
                 </h2>
 
 
                 <p>
-                    Unit 11 — Lesson 1
+                    Select a lesson to continue learning.
                 </p>
 
+            </div>
+
+
+            <div class="lesson-grid">
+
+
+                <!-- =================================================
+                     LESSON 1
+                ================================================== -->
 
                 <a
                     href="./lesson-1/"
-                    class="lesson-btn"
+                    class="lesson-card"
                 >
 
-                    OPEN LESSON
+                    <div class="lesson-number">
+                        01
+                    </div>
 
-                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <h3>
+                        Lesson 1
+                    </h3>
+
+
+                    <p>
+                        Unit 11 Lesson 1 learning materials.
+                    </p>
+
+
+                    <div class="lesson-enter">
+
+                        ENTER LESSON
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
 
                 </a>
 
-            </div>
 
-
-
-            <!-- =================================================
-                 LESSON 2
-            ================================================== -->
-
-            <div class="lesson-card">
-
-                <div class="lesson-number">
-                    02
-                </div>
-
-
-                <h2>
-                    Lesson 2
-                </h2>
-
-
-                <p>
-                    Unit 11 — Lesson 2
-                </p>
-
+                <!-- =================================================
+                     LESSON 2
+                ================================================== -->
 
                 <a
                     href="./lesson-2/"
-                    class="lesson-btn"
+                    class="lesson-card"
                 >
 
-                    OPEN LESSON
+                    <div class="lesson-number">
+                        02
+                    </div>
 
-                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <h3>
+                        Lesson 2
+                    </h3>
+
+
+                    <p>
+                        Unit 11 Lesson 2 learning materials.
+                    </p>
+
+
+                    <div class="lesson-enter">
+
+                        ENTER LESSON
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
 
                 </a>
 
-            </div>
 
-
-
-            <!-- =================================================
-                 LESSON 3
-            ================================================== -->
-
-            <div class="lesson-card">
-
-                <div class="lesson-number">
-                    03
-                </div>
-
-
-                <h2>
-                    Lesson 3
-                </h2>
-
-
-                <p>
-                    Unit 11 — Lesson 3
-                </p>
-
+                <!-- =================================================
+                     LESSON 3
+                ================================================== -->
 
                 <a
                     href="./lesson-3/"
-                    class="lesson-btn"
+                    class="lesson-card"
                 >
 
-                    OPEN LESSON
+                    <div class="lesson-number">
+                        03
+                    </div>
 
-                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <h3>
+                        Lesson 3
+                    </h3>
+
+
+                    <p>
+                        Unit 11 Lesson 3 learning materials.
+                    </p>
+
+
+                    <div class="lesson-enter">
+
+                        ENTER LESSON
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
 
                 </a>
 
+
+                <!-- =================================================
+                     LESSON 4
+                ================================================== -->
+
+                <a
+                    href="./lesson-4/"
+                    class="lesson-card"
+                >
+
+                    <div class="lesson-number">
+                        04
+                    </div>
+
+
+                    <h3>
+                        Lesson 4
+                    </h3>
+
+
+                    <p>
+                        Unit 11 Lesson 4 learning materials.
+                    </p>
+
+
+                    <div class="lesson-enter">
+
+                        ENTER LESSON
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
+
+                </a>
+
+
+                <!-- =================================================
+                     LESSON 5
+                ================================================== -->
+
+                <a
+                    href="./lesson-5/"
+                    class="lesson-card"
+                >
+
+                    <div class="lesson-number">
+                        05
+                    </div>
+
+
+                    <h3>
+                        Lesson 5
+                    </h3>
+
+
+                    <p>
+                        Unit 11 Lesson 5 learning materials.
+                    </p>
+
+
+                    <div class="lesson-enter">
+
+                        ENTER LESSON
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
+
+                </a>
+
+
+                <!-- =================================================
+                     LESSON 6
+                ================================================== -->
+
+                <a
+                    href="./lesson-6/"
+                    class="lesson-card"
+                >
+
+                    <div class="lesson-number">
+                        06
+                    </div>
+
+
+                    <h3>
+                        Lesson 6
+                    </h3>
+
+
+                    <p>
+                        Unit 11 Lesson 6 learning materials.
+                    </p>
+
+
+                    <div class="lesson-enter">
+
+                        ENTER LESSON
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
+
+                </a>
+
+
             </div>
 
+        </section>
 
-        </div>
 
     </main>
-
 
 
     <!-- =====================================================
@@ -871,39 +1780,28 @@
 
     <footer>
 
-        © 2026
-        <strong>
-            ALL ABOUT ENGLISH
-        </strong>
-        • BY SHAHEEN SIR
+        © 2026 ALL ABOUT ENGLISH • BY SHAHEEN SIR •
+        All Rights Reserved
 
     </footer>
 
 
-
     <!-- =====================================================
          FIREBASE UNIT SECURITY
-
-         IMPORTANT:
-
-         এই Unit ID-টি Firestore-এর
-         approvedUnits object-এর key-এর সঙ্গে
-         EXACTLY একই হতে হবে।
-
-         উদাহরণ:
-
-         approvedUnits:
-         {
-             "unit-11": true
-         }
-
     ====================================================== -->
 
     <script type="module">
 
+
+        // ====================================================
+        // IMPORT SECURITY FUNCTION
+        // ====================================================
+
         import {
-            protectPage
-        } from "../../../firebase-security.js";
+
+            requireApprovedUnit
+
+        } from "/all-about-english/firebase-security.js";
 
 
         // ====================================================
@@ -918,15 +1816,27 @@
         // ELEMENTS
         // ====================================================
 
+        const loadingBox =
+            document.getElementById(
+                "loading-box"
+            );
+
+
         const accessMessage =
             document.getElementById(
                 "access-message"
             );
 
 
-        const lessonGrid =
+        const accessMessageText =
             document.getElementById(
-                "lesson-grid"
+                "access-message-text"
+            );
+
+
+        const lessonArea =
+            document.getElementById(
+                "lesson-area"
             );
 
 
@@ -938,46 +1848,50 @@
 
             try {
 
+
+                // --------------------------------------------
+                // CHECK APPROVAL
+                // --------------------------------------------
+
                 const allowed =
-                    await protectPage(
-                        "unit",
+                    await requireApprovedUnit(
                         UNIT_ID
                     );
 
 
+                // --------------------------------------------
+                // REMOVE LOADING
+                // --------------------------------------------
+
+                loadingBox.style.display =
+                    "none";
+
+
+                // --------------------------------------------
+                // ACCESS DENIED
+                // --------------------------------------------
+
                 if (!allowed) {
 
-                    accessMessage.innerHTML = `
+                    accessMessage.style.display =
+                        "block";
 
-                        <i class="fa-solid fa-lock"></i>
 
-                        <h2>
-                            Access Restricted
-                        </h2>
+                    accessMessageText.textContent =
+                        "Your account is logged in, but Unit 11 has not been approved for your account yet. Please contact Shaheen Sir for access.";
 
-                        <p>
-                            You do not have permission
-                            to access Unit 11.
-                            Please contact Shaheen Sir.
-                        </p>
-
-                    `;
 
                     return;
 
                 }
 
 
-                // ============================================
+                // --------------------------------------------
                 // ACCESS GRANTED
-                // ============================================
+                // --------------------------------------------
 
-                accessMessage.style.display =
-                    "none";
-
-
-                lessonGrid.style.display =
-                    "grid";
+                lessonArea.style.display =
+                    "block";
 
 
             }
@@ -985,26 +1899,21 @@
             catch (error) {
 
                 console.error(
-                    "Unit access error:",
+                    "Unit 11 access error:",
                     error
                 );
 
 
-                accessMessage.innerHTML = `
+                loadingBox.style.display =
+                    "none";
 
-                    <i class="fa-solid fa-triangle-exclamation"></i>
 
-                    <h2>
-                        Access Error
-                    </h2>
+                accessMessage.style.display =
+                    "block";
 
-                    <p>
-                        Something went wrong while
-                        checking your access.
-                        Please try again.
-                    </p>
 
-                `;
+                accessMessageText.textContent =
+                    "We could not verify your access right now. Please refresh the page and try again.";
 
             }
 
@@ -1012,10 +1921,11 @@
 
 
         // ====================================================
-        // START
+        // START ACCESS CHECK
         // ====================================================
 
         checkUnitAccess();
+
 
     </script>
 
