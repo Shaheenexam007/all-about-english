@@ -46,11 +46,16 @@ const firebaseConfig = {
 // INITIALIZE FIREBASE
 // ============================================================
 
-const app = initializeApp(firebaseConfig);
+const app =
+    initializeApp(
+        firebaseConfig
+    );
 
 
 // ============================================================
-// EXPORT APP
+// EXPORT
 // ============================================================
 
-export { app };
+export {
+    app
+};
