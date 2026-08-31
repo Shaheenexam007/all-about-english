@@ -2,6 +2,7 @@
 // ALL ABOUT ENGLISH
 // FIREBASE SECURITY & ACCESS CONTROL
 // FOLDER / UNIT BASED SYSTEM
+// ADMIN + STUDENT SUPPORT
 // BY SHAHEEN SIR
 // ============================================================
 
@@ -48,8 +49,43 @@ import {
 // INITIALIZE FIRESTORE
 // ============================================================
 
-const db =
-    getFirestore(app);
+const db = getFirestore(app);
+
+
+// ============================================================
+// ADMIN EMAIL
+// ============================================================
+//
+// IMPORTANT:
+// Put the SAME admin email here that you use to login
+// to the Admin Dashboard.
+//
+// Change ONLY this email if your admin email is different.
+//
+// ============================================================
+
+const ADMIN_EMAIL =
+    "shaheenexam007@gmail.com";
+
+
+// ============================================================
+// ADMIN UID
+// ============================================================
+//
+// OPTIONAL BUT STRONGLY RECOMMENDED
+//
+// If you know your Firebase Admin UID, put it here.
+//
+// Example:
+//
+// const ADMIN_UID =
+//     "xxxxxxxxxxxxxxxxxxxxxxxx";
+//
+// If you don't know the UID, leave it empty.
+//
+// ============================================================
+
+const ADMIN_UID = "";
 
 
 // ============================================================
@@ -64,10 +100,65 @@ function getLoggedInUser() {
 
 
 // ============================================================
+// CHECK WHETHER CURRENT USER IS ADMIN
+// ============================================================
+
+function isAdmin() {
+
+    const user =
+        getLoggedInUser();
+
+
+    // --------------------------------------------------------
+    // No user
+    // --------------------------------------------------------
+
+    if (!user) {
+
+        return false;
+
+    }
+
+
+    // --------------------------------------------------------
+    // Check UID first
+    // --------------------------------------------------------
+
+    if (
+        ADMIN_UID &&
+        user.uid === ADMIN_UID
+    ) {
+
+        return true;
+
+    }
+
+
+    // --------------------------------------------------------
+    // Check email
+    // --------------------------------------------------------
+
+    if (
+        user.email &&
+        user.email.toLowerCase() ===
+        ADMIN_EMAIL.toLowerCase()
+    ) {
+
+        return true;
+
+    }
+
+
+    return false;
+
+}
+
+
+// ============================================================
 // GET CURRENT STUDENT DATA
 // ============================================================
 //
-// Firestore structure:
+// Firestore:
 //
 // students
 //     └── UID
@@ -93,6 +184,27 @@ async function getStudentData() {
     if (!user) {
 
         return null;
+
+    }
+
+
+    // --------------------------------------------------------
+    // ADMIN DOES NOT NEED STUDENT DATA
+    // --------------------------------------------------------
+
+    if (isAdmin()) {
+
+        return {
+
+            role: "admin",
+
+            email:
+                user.email || "",
+
+            uid:
+                user.uid
+
+        };
 
     }
 
@@ -149,11 +261,30 @@ async function getStudentData() {
 // CHECK ACCOUNT STATUS
 // ============================================================
 //
-// Only "active" accounts can access approved Units.
+// ADMIN:
+//     Always active.
+//
+// STUDENT:
+//     accountStatus must be "active".
 //
 // ============================================================
 
 async function isAccountActive() {
+
+    // --------------------------------------------------------
+    // ADMIN BYPASS
+    // --------------------------------------------------------
+
+    if (isAdmin()) {
+
+        return true;
+
+    }
+
+
+    // --------------------------------------------------------
+    // STUDENT CHECK
+    // --------------------------------------------------------
 
     const student =
         await getStudentData();
@@ -178,20 +309,32 @@ async function isAccountActive() {
 // CHECK UNIT APPROVAL
 // ============================================================
 //
-// Firestore example:
+// ADMIN:
+//     Always approved.
 //
-// approvedUnits: {
-//
-//     "unit-11": true,
-//     "unit-12": false
-//
-// }
+// STUDENT:
+//     approvedUnits[unitId] === true
 //
 // ============================================================
 
 async function isUnitApproved(
     unitId
 ) {
+
+    // --------------------------------------------------------
+    // ADMIN HAS FULL ACCESS
+    // --------------------------------------------------------
+
+    if (isAdmin()) {
+
+        return true;
+
+    }
+
+
+    // --------------------------------------------------------
+    // STUDENT DATA
+    // --------------------------------------------------------
 
     const student =
         await getStudentData();
@@ -274,11 +417,19 @@ async function requireLogin() {
 // ============================================================
 // REQUIRE ACTIVE ACCOUNT
 // ============================================================
+//
+// ADMIN:
+//     Automatically allowed.
+//
+// STUDENT:
+//     accountStatus must be "active".
+//
+// ============================================================
 
 async function requireActiveAccount() {
 
     // --------------------------------------------------------
-    // STEP 1 — Login
+    // STEP 1 — LOGIN
     // --------------------------------------------------------
 
     const loggedIn =
@@ -293,7 +444,18 @@ async function requireActiveAccount() {
 
 
     // --------------------------------------------------------
-    // STEP 2 — Active account
+    // STEP 2 — ADMIN BYPASS
+    // --------------------------------------------------------
+
+    if (isAdmin()) {
+
+        return true;
+
+    }
+
+
+    // --------------------------------------------------------
+    // STEP 3 — STUDENT ACTIVE CHECK
     // --------------------------------------------------------
 
     const active =
@@ -321,11 +483,15 @@ async function requireActiveAccount() {
 // REQUIRE APPROVED UNIT
 // ============================================================
 //
-// Unit access requires:
+// ADMIN:
+//     Full access to every Unit.
 //
-// 1. Login
-// 2. Active account
-// 3. approvedUnits[unitId] === true
+// STUDENT:
+//     Login
+//     +
+//     Active account
+//     +
+//     Unit approved
 //
 // ============================================================
 
@@ -349,7 +515,23 @@ async function requireApprovedUnit(
 
 
     // --------------------------------------------------------
-    // STEP 2 — ACTIVE ACCOUNT
+    // STEP 2 — ADMIN BYPASS
+    // --------------------------------------------------------
+
+    if (isAdmin()) {
+
+        console.log(
+            "ADMIN ACCESS GRANTED:",
+            unitId
+        );
+
+        return true;
+
+    }
+
+
+    // --------------------------------------------------------
+    // STEP 3 — ACTIVE ACCOUNT
     // --------------------------------------------------------
 
     const active =
@@ -369,7 +551,7 @@ async function requireApprovedUnit(
 
 
     // --------------------------------------------------------
-    // STEP 3 — UNIT APPROVAL
+    // STEP 4 — UNIT APPROVAL
     // --------------------------------------------------------
 
     const approved =
@@ -380,6 +562,11 @@ async function requireApprovedUnit(
 
     if (!approved) {
 
+        console.log(
+            "UNIT ACCESS DENIED:",
+            unitId
+        );
+
         return false;
 
     }
@@ -388,6 +575,12 @@ async function requireApprovedUnit(
     // --------------------------------------------------------
     // ACCESS GRANTED
     // --------------------------------------------------------
+
+    console.log(
+        "STUDENT UNIT ACCESS GRANTED:",
+        unitId
+    );
+
 
     return true;
 
@@ -398,11 +591,8 @@ async function requireApprovedUnit(
 // WAIT FOR FIREBASE AUTHENTICATION
 // ============================================================
 //
-// Firebase may need a short time to restore the login session
+// Firebase may need time to restore the login session
 // after a page refresh.
-//
-// This function waits for Firebase to report the current
-// authentication state.
 //
 // ============================================================
 
@@ -464,7 +654,6 @@ function waitForAuth() {
 //     "unit-11"
 // );
 //
-//
 // LESSON:
 //
 // protectPage(
@@ -472,25 +661,12 @@ function waitForAuth() {
 //     "unit-11"
 // );
 //
+// ACTIVE:
 //
-// IMPORTANT:
-//
-// Lessons do NOT need individual approval.
-//
-// A lesson checks its parent Unit.
-//
-// Example:
-//
-// Unit 11
-//     ├── Lesson 1
-//     ├── Lesson 2
-//     ├── Lesson 3
-//     ├── Lesson 4
-//     └── Lesson 5
-//
-// approvedUnits["unit-11"] === true
-//
-// gives access to all Unit 11 lessons.
+// protectPage(
+//     "active",
+//     "active"
+// );
 //
 // ============================================================
 
@@ -524,7 +700,22 @@ async function protectPage(
 
 
         // ----------------------------------------------------
-        // STEP 3 — UNIT PROTECTION
+        // STEP 3 — ADMIN FULL ACCESS
+        // ----------------------------------------------------
+
+        if (isAdmin()) {
+
+            console.log(
+                "ADMIN FULL ACCESS GRANTED"
+            );
+
+            return true;
+
+        }
+
+
+        // ----------------------------------------------------
+        // STEP 4 — UNIT PROTECTION
         // ----------------------------------------------------
 
         if (
@@ -540,7 +731,7 @@ async function protectPage(
 
 
         // ----------------------------------------------------
-        // STEP 4 — LESSON PROTECTION
+        // STEP 5 — LESSON PROTECTION
         // ----------------------------------------------------
 
         if (
@@ -556,7 +747,7 @@ async function protectPage(
 
 
         // ----------------------------------------------------
-        // STEP 5 — ACTIVE ACCOUNT
+        // STEP 6 — ACTIVE ACCOUNT
         // ----------------------------------------------------
 
         if (
@@ -607,6 +798,8 @@ export {
     getLoggedInUser,
 
     getStudentData,
+
+    isAdmin,
 
     isAccountActive,
 
