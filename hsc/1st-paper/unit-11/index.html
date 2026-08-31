@@ -1,1934 +1,2082 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="All About English | Unit 11 by Shaheen Sir"
-    >
+<meta name="description"
+   content="All About English | Unit 11 by Shaheen Sir">
 
-    <meta
-        name="theme-color"
-        content="#101b36"
-    >
+<meta name="theme-color"
+   content="#101b36">
 
-    <title>
-        Unit 11 | All About English
-    </title>
+<title>
+    Unit 11 | All About English
+</title>
 
+<!-- =====================================================
+     GOOGLE FONTS
+====================================================== -->
 
-    <!-- =====================================================
-         GOOGLE FONTS
-    ====================================================== -->
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
 
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+    rel="stylesheet"
+>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
-        rel="stylesheet"
-    >
+<!-- =====================================================
+     FONT AWESOME
+====================================================== -->
 
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
 
-    <!-- =====================================================
-         FONT AWESOME
-    ====================================================== -->
+<style>
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
+:root {
 
+    --navy: #101b36;
+    --navy-dark: #091126;
+    --gold: #c9a45c;
+    --gold-light: #ead9ae;
 
-    <!-- =====================================================
-         STYLE
-    ====================================================== -->
+    --ivory: #fbfaf6;
+    --white: #ffffff;
 
-    <style>
+    --text: #1d2940;
+    --muted: #68748a;
 
-        /* =====================================================
-           ROOT
-        ====================================================== */
+    --border: #e7e4dc;
 
-        :root {
+    --danger: #b43b32;
 
-            --navy:
-                #101b36;
+    --success: #28784b;
 
-            --navy-dark:
-                #091126;
+    --shadow:
+        0 18px 55px rgba(16,27,54,.10);
 
-            --gold:
-                #c9a45c;
+}
 
-            --gold-light:
-                #ead9ae;
 
-            --ivory:
-                #fbfaf6;
+* {
 
-            --white:
-                #ffffff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
-            --text:
-                #1d2940;
+}
 
-            --muted:
-                #68748a;
 
-            --border:
-                #e7e4dc;
+html {
 
-            --soft:
-                #f4f2eb;
+    scroll-behavior: smooth;
 
-            --danger:
-                #b43b32;
+}
 
-            --success:
-                #28784b;
 
-            --shadow:
-                0 18px 55px rgba(16,27,54,.10);
+body {
 
-        }
+    min-height: 100vh;
 
+    font-family:
+        "Inter",
+        sans-serif;
 
-        /* =====================================================
-           RESET
-        ====================================================== */
+    color:
+        var(--text);
 
-        * {
+    background:
+        var(--ivory);
 
-            margin:
-                0;
+    overflow-x:
+        hidden;
 
-            padding:
-                0;
+}
 
-            box-sizing:
-                border-box;
 
-        }
+a {
 
+    text-decoration:
+        none;
 
-        html {
+    color:
+        inherit;
 
-            scroll-behavior:
-                smooth;
+}
 
-        }
 
+button {
 
-        body {
+    font-family:
+        inherit;
 
-            min-height:
-                100vh;
+}
 
-            font-family:
-                "Inter",
-                sans-serif;
 
-            color:
-                var(--text);
+/* =====================================================
+   TOP BAR
+====================================================== */
 
-            background:
-                var(--ivory);
+.top-bar {
 
-            overflow-x:
-                hidden;
+    background:
+        var(--navy-dark);
 
-        }
+    color:
+        #e9e4d5;
 
+    text-align:
+        center;
 
-        a {
+    padding:
+        8px 15px;
 
-            text-decoration:
-                none;
+    font-size:
+        10px;
 
-            color:
-                inherit;
+    letter-spacing:
+        .6px;
 
-        }
+}
 
 
-        button {
+/* =====================================================
+   HEADER
+====================================================== */
 
-            font-family:
-                inherit;
+header {
 
-        }
+    position:
+        sticky;
 
+    top:
+        0;
 
-        /* =====================================================
-           TOP BAR
-        ====================================================== */
+    z-index:
+        1000;
 
-        .top-bar {
+    background:
+        rgba(251,250,246,.95);
 
-            background:
-                var(--navy-dark);
+    backdrop-filter:
+        blur(15px);
 
-            color:
-                #e9e4d5;
+    -webkit-backdrop-filter:
+        blur(15px);
 
-            text-align:
-                center;
+    border-bottom:
+        1px solid rgba(16,27,54,.08);
 
-            padding:
-                8px 15px;
+}
 
-            font-size:
-                10px;
 
-            letter-spacing:
-                .6px;
+.nav-container {
 
-        }
+    width:
+        min(1100px,92%);
 
+    min-height:
+        70px;
 
-        /* =====================================================
-           HEADER
-        ====================================================== */
+    margin:
+        auto;
 
-        header {
+    display:
+        flex;
 
-            position:
-                sticky;
+    align-items:
+        center;
 
-            top:
-                0;
+    justify-content:
+        space-between;
 
-            z-index:
-                1000;
+    gap:
+        15px;
 
-            background:
-                rgba(251,250,246,.95);
+}
 
-            backdrop-filter:
-                blur(15px);
 
-            -webkit-backdrop-filter:
-                blur(15px);
+.brand {
 
-            border-bottom:
-                1px solid rgba(16,27,54,.08);
+    display:
+        flex;
 
-        }
+    align-items:
+        center;
 
+    gap:
+        11px;
 
-        .nav-container {
+}
 
-            width:
-                min(1100px,92%);
 
-            min-height:
-                70px;
+.brand-icon {
 
-            margin:
-                auto;
+    width:
+        42px;
 
-            display:
-                flex;
+    height:
+        42px;
 
-            align-items:
-                center;
+    border-radius:
+        12px;
 
-            justify-content:
-                space-between;
+    background:
+        var(--navy);
 
-            gap:
-                15px;
+    color:
+        var(--gold-light);
 
-        }
+    display:
+        flex;
 
+    align-items:
+        center;
 
-        /* =====================================================
-           BRAND
-        ====================================================== */
+    justify-content:
+        center;
 
-        .brand {
+    font-size:
+        17px;
 
-            display:
-                flex;
+}
 
-            align-items:
-                center;
 
-            gap:
-                11px;
+.brand-text strong {
 
-        }
+    display:
+        block;
 
+    color:
+        var(--navy);
 
-        .brand-icon {
+    font-size:
+        14px;
 
-            width:
-                42px;
+    font-weight:
+        800;
 
-            height:
-                42px;
+    letter-spacing:
+        .4px;
 
-            border-radius:
-                12px;
+}
 
-            background:
-                var(--navy);
 
-            color:
-                var(--gold-light);
+.brand-text span {
 
-            display:
-                flex;
+    display:
+        block;
 
-            align-items:
-                center;
+    color:
+        var(--gold);
 
-            justify-content:
-                center;
+    font-size:
+        8px;
 
-            font-size:
-                17px;
+    font-weight:
+        800;
 
-        }
+    letter-spacing:
+        1px;
 
+    margin-top:
+        3px;
 
-        .brand-text strong {
+}
 
-            display:
-                block;
 
-            color:
-                var(--navy);
+.home-btn {
 
-            font-size:
-                14px;
+    display:
+        inline-flex;
 
-            font-weight:
-                800;
+    align-items:
+        center;
 
-            letter-spacing:
-                .4px;
+    justify-content:
+        center;
 
-        }
+    gap:
+        7px;
 
+    padding:
+        9px 13px;
 
-        .brand-text span {
+    border:
+        1px solid var(--border);
 
-            display:
-                block;
+    border-radius:
+        9px;
 
-            color:
-                var(--gold);
+    background:
+        white;
 
-            font-size:
-                8px;
+    color:
+        var(--navy);
 
-            font-weight:
-                800;
+    font-size:
+        10px;
 
-            letter-spacing:
-                1px;
+    font-weight:
+        800;
 
-            margin-top:
-                3px;
+    transition:
+        .25s ease;
 
-        }
+}
 
 
-        /* =====================================================
-           HOME BUTTON
-        ====================================================== */
+.home-btn:hover {
 
-        .home-btn {
+    background:
+        var(--navy);
 
-            display:
-                inline-flex;
+    color:
+        white;
 
-            align-items:
-                center;
+}
 
-            justify-content:
-                center;
 
-            gap:
-                7px;
+/* =====================================================
+   MAIN
+====================================================== */
 
-            padding:
-                9px 13px;
+main {
 
-            border:
-                1px solid var(--border);
+    width:
+        min(1100px,92%);
 
-            border-radius:
-                9px;
+    margin:
+        auto;
 
-            background:
-                white;
+    padding:
+        55px 0 70px;
 
-            color:
-                var(--navy);
+}
 
-            font-size:
-                10px;
 
-            font-weight:
-                800;
+/* =====================================================
+   HERO
+====================================================== */
 
-            transition:
-                .25s ease;
+.unit-hero {
 
-        }
+    background:
+        var(--navy);
 
+    color:
+        white;
 
-        .home-btn:hover {
+    border-radius:
+        25px;
 
-            background:
-                var(--navy);
+    padding:
+        42px;
 
-            color:
-                white;
+    position:
+        relative;
 
-        }
+    overflow:
+        hidden;
 
+    box-shadow:
+        0 22px 55px rgba(16,27,54,.15);
 
-        /* =====================================================
-           MAIN
-        ====================================================== */
+}
 
-        main {
 
-            width:
-                min(1100px,92%);
+.unit-hero::before {
 
-            margin:
-                auto;
+    content:
+        "";
 
-            padding:
-                55px 0 70px;
+    position:
+        absolute;
 
-        }
+    width:
+        280px;
 
+    height:
+        280px;
 
-        /* =====================================================
-           HERO
-        ====================================================== */
+    border:
+        1px solid rgba(234,217,174,.16);
 
-        .unit-hero {
+    border-radius:
+        50%;
 
-            background:
-                var(--navy);
+    right:
+        -110px;
 
-            color:
-                white;
+    top:
+        -130px;
 
-            border-radius:
-                25px;
+}
 
-            padding:
-                42px;
 
-            position:
-                relative;
+.unit-hero::after {
 
-            overflow:
-                hidden;
+    content:
+        "";
 
-            box-shadow:
-                0 22px 55px rgba(16,27,54,.15);
+    position:
+        absolute;
 
-        }
+    width:
+        170px;
 
+    height:
+        170px;
 
-        .unit-hero::before {
+    border:
+        1px solid rgba(234,217,174,.10);
 
-            content:
-                "";
+    border-radius:
+        50%;
 
-            position:
-                absolute;
+    left:
+        -90px;
 
-            width:
-                280px;
+    bottom:
+        -100px;
 
-            height:
-                280px;
+}
 
-            border:
-                1px solid rgba(234,217,174,.16);
 
-            border-radius:
-                50%;
+.unit-hero-content {
 
-            right:
-                -110px;
+    position:
+        relative;
 
-            top:
-                -130px;
+    z-index:
+        2;
 
-        }
+}
 
 
-        .unit-hero::after {
+.unit-label {
 
-            content:
-                "";
+    display:
+        inline-flex;
 
-            position:
-                absolute;
+    align-items:
+        center;
 
-            width:
-                170px;
+    gap:
+        7px;
 
-            height:
-                170px;
+    padding:
+        7px 12px;
 
-            border:
-                1px solid rgba(234,217,174,.10);
+    border:
+        1px solid rgba(234,217,174,.25);
 
-            border-radius:
-                50%;
+    border-radius:
+        999px;
 
-            left:
-                -90px;
+    color:
+        var(--gold-light);
 
-            bottom:
-                -100px;
+    font-size:
+        9px;
 
-        }
+    font-weight:
+        800;
 
+    letter-spacing:
+        1.5px;
 
-        .unit-hero-content {
+    margin-bottom:
+        17px;
 
-            position:
-                relative;
+}
 
-            z-index:
-                2;
 
-        }
+.unit-hero h1 {
 
+    font-family:
+        "Playfair Display",
+        serif;
 
-        .unit-label {
+    font-size:
+        clamp(34px,5vw,55px);
 
-            display:
-                inline-flex;
+    line-height:
+        1.05;
 
-            align-items:
-                center;
+    margin-bottom:
+        12px;
 
-            gap:
-                7px;
+}
 
-            padding:
-                7px 12px;
 
-            border:
-                1px solid rgba(234,217,174,.25);
+.unit-hero h1 span {
 
-            border-radius:
-                999px;
+    color:
+        var(--gold-light);
 
-            color:
-                var(--gold-light);
+}
 
-            font-size:
-                9px;
 
-            font-weight:
-                800;
+.unit-hero p {
 
-            letter-spacing:
-                1.5px;
+    max-width:
+        700px;
 
-            margin-bottom:
-                17px;
+    color:
+        #cbd3df;
 
-        }
+    font-size:
+        11px;
 
+    line-height:
+        1.8;
 
-        .unit-hero h1 {
+}
 
-            font-family:
-                "Playfair Display",
-                serif;
 
-            font-size:
-                clamp(34px,5vw,55px);
+/* =====================================================
+   LOADING
+====================================================== */
 
-            line-height:
-                1.05;
+#loading-box {
 
-            margin-bottom:
-                12px;
+    margin-top:
+        25px;
 
-        }
+    background:
+        white;
 
+    border:
+        1px solid var(--border);
 
-        .unit-hero h1 span {
+    border-radius:
+        20px;
 
-            color:
-                var(--gold-light);
+    padding:
+        45px 25px;
 
-        }
+    text-align:
+        center;
 
+    box-shadow:
+        var(--shadow);
 
-        .unit-hero p {
+}
 
-            max-width:
-                700px;
 
-            color:
-                #cbd3df;
+.loading-icon {
 
-            font-size:
-                11px;
+    width:
+        55px;
 
-            line-height:
-                1.8;
+    height:
+        55px;
 
-        }
+    margin:
+        0 auto 15px;
 
+    border-radius:
+        50%;
 
-        /* =====================================================
-           ACCESS LOADING
-        ====================================================== */
+    background:
+        #f5efe1;
 
-        #loading-box {
+    color:
+        var(--navy);
 
-            margin-top:
-                25px;
+    display:
+        flex;
 
-            background:
-                white;
+    align-items:
+        center;
 
-            border:
-                1px solid var(--border);
+    justify-content:
+        center;
 
-            border-radius:
-                20px;
+    font-size:
+        20px;
 
-            padding:
-                45px 25px;
+}
 
-            text-align:
-                center;
 
-            box-shadow:
-                var(--shadow);
+.loading-icon i {
 
-        }
+    animation:
+        spin 1s linear infinite;
 
+}
 
-        .loading-icon {
 
-            width:
-                55px;
+@keyframes spin {
 
-            height:
-                55px;
+    from {
+        transform: rotate(0deg);
+    }
 
-            margin:
-                0 auto 15px;
+    to {
+        transform: rotate(360deg);
+    }
 
-            border-radius:
-                50%;
+}
 
-            background:
-                #f5efe1;
 
-            color:
-                var(--navy);
+#loading-box h2 {
 
-            display:
-                flex;
+    color:
+        var(--navy);
 
-            align-items:
-                center;
+    font-family:
+        "Playfair Display",
+        serif;
 
-            justify-content:
-                center;
+    font-size:
+        23px;
 
-            font-size:
-                20px;
+    margin-bottom:
+        7px;
 
-        }
+}
 
 
-        .loading-icon i {
+#loading-box p {
 
-            animation:
-                spin 1s linear infinite;
+    color:
+        var(--muted);
 
-        }
+    font-size:
+        10px;
 
+}
 
-        @keyframes spin {
 
-            from {
-                transform:
-                    rotate(0deg);
-            }
+/* =====================================================
+   ACCESS MESSAGE
+====================================================== */
 
-            to {
-                transform:
-                    rotate(360deg);
-            }
+#access-message {
 
-        }
+    display:
+        none;
 
+    margin-top:
+        25px;
 
-        #loading-box h2 {
+    background:
+        white;
 
-            color:
-                var(--navy);
+    border:
+        1px solid #ead4d1;
 
-            font-family:
-                "Playfair Display",
-                serif;
+    border-radius:
+        20px;
 
-            font-size:
-                23px;
+    padding:
+        45px 25px;
 
-            margin-bottom:
-                7px;
+    text-align:
+        center;
 
-        }
+    box-shadow:
+        var(--shadow);
 
+}
 
-        #loading-box p {
 
-            color:
-                var(--muted);
+.access-icon {
 
-            font-size:
-                10px;
+    width:
+        65px;
 
-        }
+    height:
+        65px;
 
+    margin:
+        0 auto 17px;
 
-        /* =====================================================
-           ACCESS MESSAGE
-        ====================================================== */
+    border-radius:
+        50%;
 
-        #access-message {
+    background:
+        #fbefed;
 
-            display:
-                none;
+    color:
+        var(--danger);
 
-            margin-top:
-                25px;
+    display:
+        flex;
 
-            background:
-                white;
+    align-items:
+        center;
 
-            border:
-                1px solid #ead4d1;
+    justify-content:
+        center;
 
-            border-radius:
-                20px;
+    font-size:
+        24px;
 
-            padding:
-                45px 25px;
+}
 
-            text-align:
-                center;
 
-            box-shadow:
-                var(--shadow);
+#access-message h2 {
 
-        }
+    font-family:
+        "Playfair Display",
+        serif;
 
+    color:
+        var(--navy);
 
-        .access-icon {
+    font-size:
+        26px;
 
-            width:
-                65px;
+    margin-bottom:
+        9px;
 
-            height:
-                65px;
+}
 
-            margin:
-                0 auto 17px;
 
-            border-radius:
-                50%;
+#access-message p {
 
-            background:
-                #fbefed;
+    max-width:
+        520px;
 
-            color:
-                var(--danger);
+    margin:
+        0 auto;
 
-            display:
-                flex;
+    color:
+        var(--muted);
 
-            align-items:
-                center;
+    font-size:
+        10px;
 
-            justify-content:
-                center;
+    line-height:
+        1.8;
 
-            font-size:
-                24px;
+}
 
-        }
 
+.back-login-btn {
 
-        #access-message h2 {
+    display:
+        inline-flex;
 
-            font-family:
-                "Playfair Display",
-                serif;
+    align-items:
+        center;
 
-            color:
-                var(--navy);
+    justify-content:
+        center;
 
-            font-size:
-                26px;
+    gap:
+        7px;
 
-            margin-bottom:
-                9px;
+    margin-top:
+        20px;
 
-        }
+    padding:
+        11px 17px;
 
+    border-radius:
+        10px;
 
-        #access-message p {
+    background:
+        var(--navy);
 
-            max-width:
-                520px;
+    color:
+        white;
 
-            margin:
-                0 auto;
+    font-size:
+        10px;
 
-            color:
-                var(--muted);
+    font-weight:
+        800;
 
-            font-size:
-                10px;
+}
 
-            line-height:
-                1.8;
 
-        }
+/* =====================================================
+   LESSON AREA
+====================================================== */
 
+#lesson-area {
 
-        .back-login-btn {
+    display:
+        none;
 
-            display:
-                inline-flex;
+    margin-top:
+        25px;
 
-            align-items:
-                center;
+}
 
-            justify-content:
-                center;
 
-            gap:
-                7px;
+.section-heading {
 
-            margin-top:
-                20px;
+    text-align:
+        center;
 
-            padding:
-                11px 17px;
+    margin-bottom:
+        28px;
 
-            border-radius:
-                10px;
+}
 
-            background:
-                var(--navy);
 
-            color:
-                white;
+.section-heading .eyebrow {
 
-            font-size:
-                10px;
+    color:
+        var(--gold);
 
-            font-weight:
-                800;
+    font-size:
+        9px;
 
-        }
+    font-weight:
+        800;
 
+    letter-spacing:
+        2px;
 
-        /* =====================================================
-           LESSON AREA
-        ====================================================== */
+    text-transform:
+        uppercase;
 
-        #lesson-area {
+    margin-bottom:
+        7px;
 
-            display:
-                none;
+}
 
-            margin-top:
-                25px;
 
-        }
+.section-heading h2 {
 
+    font-family:
+        "Playfair Display",
+        serif;
 
-        .section-heading {
+    color:
+        var(--navy);
 
-            text-align:
-                center;
+    font-size:
+        31px;
 
-            margin-bottom:
-                28px;
+    margin-bottom:
+        7px;
 
-        }
+}
 
 
-        .section-heading .eyebrow {
+.section-heading p {
 
-            color:
-                var(--gold);
+    color:
+        var(--muted);
 
-            font-size:
-                9px;
+    font-size:
+        10px;
 
-            font-weight:
-                800;
+}
 
-            letter-spacing:
-                2px;
 
-            text-transform:
-                uppercase;
+/* =====================================================
+   LESSON GRID
+====================================================== */
 
-            margin-bottom:
-                7px;
+.lesson-grid {
 
-        }
+    display:
+        grid;
 
+    grid-template-columns:
+        repeat(3,1fr);
 
-        .section-heading h2 {
+    gap:
+        15px;
 
-            font-family:
-                "Playfair Display",
-                serif;
+}
 
-            color:
-                var(--navy);
 
-            font-size:
-                31px;
+.lesson-card {
 
-            margin-bottom:
-                7px;
+    display:
+        block;
 
-        }
+    background:
+        white;
 
+    border:
+        1px solid var(--border);
 
-        .section-heading p {
+    border-radius:
+        17px;
 
-            color:
-                var(--muted);
+    padding:
+        21px;
 
-            font-size:
-                10px;
+    min-height:
+        175px;
 
-        }
+    position:
+        relative;
 
+    overflow:
+        hidden;
 
-        /* =====================================================
-           LESSON GRID
-        ====================================================== */
+    transition:
+        .25s ease;
 
-        .lesson-grid {
+}
 
-            display:
-                grid;
 
-            grid-template-columns:
-                repeat(3,1fr);
+.lesson-card::after {
 
-            gap:
-                15px;
+    content:
+        "";
 
-        }
+    position:
+        absolute;
 
+    width:
+        90px;
 
-        .lesson-card {
+    height:
+        90px;
 
-            display:
-                block;
+    border-radius:
+        50%;
 
-            background:
-                white;
+    background:
+        #f7f0df;
 
-            border:
-                1px solid var(--border);
+    right:
+        -35px;
 
-            border-radius:
-                17px;
+    bottom:
+        -35px;
 
-            padding:
-                21px;
+}
 
-            min-height:
-                175px;
 
-            position:
-                relative;
+.lesson-card:hover {
 
-            overflow:
-                hidden;
+    transform:
+        translateY(-5px);
 
-            transition:
-                .25s ease;
+    border-color:
+        #d7c69b;
 
-        }
+    box-shadow:
+        var(--shadow);
 
+}
 
-        .lesson-card::after {
 
-            content:
-                "";
+.lesson-number {
 
-            position:
-                absolute;
+    width:
+        39px;
 
-            width:
-                90px;
+    height:
+        39px;
 
-            height:
-                90px;
+    border-radius:
+        11px;
 
-            border-radius:
-                50%;
+    background:
+        #f5efe1;
 
-            background:
-                #f7f0df;
+    color:
+        var(--navy);
 
-            right:
-                -35px;
+    display:
+        flex;
 
-            bottom:
-                -35px;
+    align-items:
+        center;
 
-        }
+    justify-content:
+        center;
 
+    font-size:
+        11px;
 
-        .lesson-card:hover {
+    font-weight:
+        800;
 
-            transform:
-                translateY(-5px);
+    margin-bottom:
+        15px;
 
-            border-color:
-                #d7c69b;
+    position:
+        relative;
 
-            box-shadow:
-                var(--shadow);
+    z-index:
+        2;
 
-        }
+}
 
 
-        .lesson-number {
+.lesson-card h3 {
 
-            width:
-                39px;
+    color:
+        var(--navy);
 
-            height:
-                39px;
+    font-size:
+        14px;
 
-            border-radius:
-                11px;
+    line-height:
+        1.4;
 
-            background:
-                #f5efe1;
+    margin-bottom:
+        7px;
 
-            color:
-                var(--navy);
+    position:
+        relative;
 
-            display:
-                flex;
+    z-index:
+        2;
 
-            align-items:
-                center;
+}
 
-            justify-content:
-                center;
 
-            font-size:
-                11px;
+.lesson-card p {
 
-            font-weight:
-                800;
+    color:
+        var(--muted);
 
-            margin-bottom:
-                15px;
+    font-size:
+        9px;
 
-            position:
-                relative;
+    line-height:
+        1.6;
 
-            z-index:
-                2;
+    position:
+        relative;
 
-        }
+    z-index:
+        2;
 
+}
 
-        .lesson-card h3 {
 
-            color:
-                var(--navy);
+.lesson-enter {
 
-            font-size:
-                14px;
+    position:
+        absolute;
 
-            line-height:
-                1.4;
+    left:
+        21px;
 
-            margin-bottom:
-                7px;
+    bottom:
+        17px;
 
-            position:
-                relative;
+    color:
+        var(--gold);
 
-            z-index:
-                2;
+    font-size:
+        8px;
 
-        }
+    font-weight:
+        800;
 
+    z-index:
+        3;
 
-        .lesson-card p {
+}
 
-            color:
-                var(--muted);
 
-            font-size:
-                9px;
+/* =====================================================
+   FOOTER
+====================================================== */
 
-            line-height:
-                1.6;
+footer {
 
-            position:
-                relative;
+    background:
+        var(--navy-dark);
 
-            z-index:
-                2;
+    color:
+        #7f899b;
 
-        }
+    text-align:
+        center;
 
+    padding:
+        18px 15px;
 
-        .lesson-enter {
+    font-size:
+        8px;
 
-            position:
-                absolute;
+}
 
-            left:
-                21px;
 
-            bottom:
-                17px;
+/* =====================================================
+   RESPONSIVE
+====================================================== */
 
-            color:
-                var(--gold);
+@media (max-width: 800px) {
 
-            font-size:
-                8px;
+    .lesson-grid {
 
-            font-weight:
-                800;
+        grid-template-columns:
+            repeat(2,1fr);
 
-            z-index:
-                3;
+    }
 
-        }
+}
 
 
-        /* =====================================================
-           FOOTER
-        ====================================================== */
+@media (max-width: 600px) {
 
-        footer {
+    .top-bar {
 
-            background:
-                var(--navy-dark);
+        font-size:
+            8px;
 
-            color:
-                #7f899b;
+    }
 
-            text-align:
-                center;
 
-            padding:
-                18px 15px;
+    .nav-container {
 
-            font-size:
-                8px;
+        min-height:
+            62px;
 
-        }
+    }
 
 
-        /* =====================================================
-           RESPONSIVE
-        ====================================================== */
+    .brand-icon {
 
-        @media (max-width: 800px) {
+        width:
+            37px;
 
-            .lesson-grid {
+        height:
+            37px;
 
-                grid-template-columns:
-                    repeat(2,1fr);
+    }
 
-            }
 
-        }
+    .brand-text strong {
 
+        font-size:
+            12px;
 
-        @media (max-width: 600px) {
+    }
 
-            .top-bar {
 
-                font-size:
-                    8px;
+    .brand-text span {
 
-            }
+        font-size:
+            7px;
 
+    }
 
-            .nav-container {
 
-                min-height:
-                    62px;
+    .home-btn {
 
-            }
+        padding:
+            8px 10px;
 
+        font-size:
+            9px;
 
-            .brand-icon {
+    }
 
-                width:
-                    37px;
 
-                height:
-                    37px;
+    main {
 
-            }
+        width:
+            94%;
 
+        padding:
+            35px 0 50px;
 
-            .brand-text strong {
+    }
 
-                font-size:
-                    12px;
 
-            }
+    .unit-hero {
 
+        padding:
+            30px 23px;
 
-            .brand-text span {
+        border-radius:
+            20px;
 
-                font-size:
-                    7px;
+    }
 
-            }
 
+    .unit-hero h1 {
 
-            .home-btn {
+        font-size:
+            37px;
 
-                padding:
-                    8px 10px;
+    }
 
-                font-size:
-                    9px;
 
-            }
+    .unit-hero p {
 
+        font-size:
+            10px;
 
-            main {
+    }
 
-                width:
-                    94%;
 
-                padding:
-                    35px 0 50px;
+    .lesson-grid {
 
-            }
+        grid-template-columns:
+            1fr 1fr;
 
+        gap:
+            10px;
 
-            .unit-hero {
+    }
 
-                padding:
-                    30px 23px;
 
-                border-radius:
-                    20px;
+    .lesson-card {
 
-            }
+        min-height:
+            175px;
 
+        padding:
+            16px;
 
-            .unit-hero h1 {
+    }
 
-                font-size:
-                    37px;
 
-            }
+    .lesson-card h3 {
 
+        font-size:
+            12px;
 
-            .unit-hero p {
+    }
 
-                font-size:
-                    10px;
 
-            }
+    .lesson-card p {
 
+        font-size:
+            8px;
 
-            .lesson-grid {
+    }
 
-                grid-template-columns:
-                    1fr 1fr;
 
-                gap:
-                    10px;
+    .lesson-enter {
 
-            }
+        left:
+            16px;
 
+    }
 
-            .lesson-card {
+}
 
-                min-height:
-                    175px;
-
-                padding:
-                    16px;
-
-            }
-
-
-            .lesson-card h3 {
-
-                font-size:
-                    12px;
-
-            }
-
-
-            .lesson-card p {
-
-                font-size:
-                    8px;
-
-            }
-
-
-            .lesson-enter {
-
-                left:
-                    16px;
-
-            }
-
-        }
-
-
-    </style>
+</style>
 
 </head>
 
-
 <body>
 
+<!-- =====================================================
+     TOP BAR
+====================================================== -->
 
-    <!-- =====================================================
-         TOP BAR
-    ====================================================== -->
+<div class="top-bar">
 
-    <div class="top-bar">
+```
+ALL ABOUT ENGLISH • UNIT 11 • SHAHEEN SIR
+```
 
-        ALL ABOUT ENGLISH • UNIT 11 • SHAHEEN SIR
+</div>
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header>
+
+```
+<div class="nav-container">
+
+
+    <a
+        href="../../../"
+        class="brand"
+    >
+
+        <div class="brand-icon">
+
+            <i class="fa-solid fa-book-open"></i>
+
+        </div>
+
+
+        <div class="brand-text">
+
+            <strong>
+                ALL ABOUT ENGLISH
+            </strong>
+
+            <span>
+                SHAHEEN SIR
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <a
+        href="../../../"
+        class="home-btn"
+    >
+
+        <i class="fa-solid fa-house"></i>
+
+        Home
+
+    </a>
+
+
+</div>
+```
+
+</header>
+
+<!-- =====================================================
+     MAIN
+====================================================== -->
+
+<main>
+
+<section class="unit-hero">
+
+```
+<div class="unit-hero-content">
+
+
+    <div class="unit-label">
+
+        <i class="fa-solid fa-lock"></i>
+
+        PROTECTED UNIT
 
     </div>
 
 
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
+    <h1>
 
-    <header>
+        Unit 11
 
-        <div class="nav-container">
+        <span>
+            English
+        </span>
 
-
-            <a
-                href="/all-about-english/"
-                class="brand"
-            >
-
-                <div class="brand-icon">
-
-                    <i class="fa-solid fa-book-open"></i>
-
-                </div>
+    </h1>
 
 
-                <div class="brand-text">
+    <p>
 
-                    <strong>
-                        ALL ABOUT ENGLISH
-                    </strong>
+        Welcome to Unit 11 of All About English.
+        Access to this unit is available only to
+        students whose accounts have been approved
+        by Shaheen Sir.
 
-                    <span>
-                        SHAHEEN SIR
-                    </span>
-
-                </div>
-
-            </a>
+    </p>
 
 
-            <a
-                href="/all-about-english/"
-                class="home-btn"
-            >
+</div>
+```
 
-                <i class="fa-solid fa-house"></i>
+</section>
 
-                Home
+<!-- =====================================================
+     LOADING
+====================================================== -->
 
-            </a>
+<section id="loading-box">
+
+```
+<div class="loading-icon">
+
+    <i class="fa-solid fa-spinner"></i>
+
+</div>
 
 
+<h2>
+    Checking Access
+</h2>
+
+
+<p>
+    Please wait while we verify your student account.
+</p>
+```
+
+</section>
+
+<!-- =====================================================
+     ACCESS MESSAGE
+====================================================== -->
+
+<section id="access-message">
+
+```
+<div class="access-icon">
+
+    <i class="fa-solid fa-lock"></i>
+
+</div>
+
+
+<h2>
+    Access Restricted
+</h2>
+
+
+<p id="access-message-text">
+
+    You do not currently have permission to access
+    Unit 11. Please contact Shaheen Sir for approval.
+
+</p>
+
+
+<a
+    href="../../../login.html"
+    class="back-login-btn"
+>
+
+    <i class="fa-solid fa-right-to-bracket"></i>
+
+    Student Login
+
+</a>
+```
+
+</section>
+
+<!-- =====================================================
+     LESSON AREA
+====================================================== -->
+
+<section id="lesson-area">
+
+```
+<div class="section-heading">
+
+    <div class="eyebrow">
+        Unit 11
+    </div>
+
+
+    <h2>
+        Lessons
+    </h2>
+
+
+    <p>
+        Select a lesson to continue learning.
+    </p>
+
+</div>
+
+
+<div class="lesson-grid">
+
+
+    <a
+        href="./lesson-1/"
+        class="lesson-card"
+    >
+
+        <div class="lesson-number">
+            01
         </div>
 
-    </header>
+        <h3>
+            Lesson 1
+        </h3>
 
+        <p>
+            Unit 11 Lesson 1 learning materials.
+        </p>
 
-    <!-- =====================================================
-         MAIN
-    ====================================================== -->
+        <div class="lesson-enter">
+            ENTER LESSON
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
 
-    <main>
+    </a>
 
 
-        <!-- =================================================
-             UNIT HERO
-        ================================================== -->
+    <a
+        href="./lesson-2/"
+        class="lesson-card"
+    >
 
-        <section class="unit-hero">
+        <div class="lesson-number">
+            02
+        </div>
 
-            <div class="unit-hero-content">
+        <h3>
+            Lesson 2
+        </h3>
 
+        <p>
+            Unit 11 Lesson 2 learning materials.
+        </p>
 
-                <div class="unit-label">
+        <div class="lesson-enter">
+            ENTER LESSON
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
 
-                    <i class="fa-solid fa-lock"></i>
+    </a>
 
-                    PROTECTED UNIT
 
-                </div>
+    <a
+        href="./lesson-3/"
+        class="lesson-card"
+    >
 
+        <div class="lesson-number">
+            03
+        </div>
 
-                <h1>
+        <h3>
+            Lesson 3
+        </h3>
 
-                    Unit 11
+        <p>
+            Unit 11 Lesson 3 learning materials.
+        </p>
 
-                    <span>
-                        English
-                    </span>
+        <div class="lesson-enter">
+            ENTER LESSON
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
 
-                </h1>
+    </a>
 
 
-                <p>
+    <a
+        href="./lesson-4/"
+        class="lesson-card"
+    >
 
-                    Welcome to Unit 11 of All About English.
-                    Access to this unit is available only to
-                    students whose accounts have been approved
-                    by Shaheen Sir.
+        <div class="lesson-number">
+            04
+        </div>
 
-                </p>
+        <h3>
+            Lesson 4
+        </h3>
 
+        <p>
+            Unit 11 Lesson 4 learning materials.
+        </p>
 
-            </div>
+        <div class="lesson-enter">
+            ENTER LESSON
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
 
-        </section>
+    </a>
 
 
-        <!-- =================================================
-             LOADING
-        ================================================== -->
+    <a
+        href="./lesson-5/"
+        class="lesson-card"
+    >
 
-        <section
-            id="loading-box"
-        >
+        <div class="lesson-number">
+            05
+        </div>
 
-            <div class="loading-icon">
+        <h3>
+            Lesson 5
+        </h3>
 
-                <i class="fa-solid fa-spinner"></i>
+        <p>
+            Unit 11 Lesson 5 learning materials.
+        </p>
 
-            </div>
+        <div class="lesson-enter">
+            ENTER LESSON
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
 
+    </a>
 
-            <h2>
-                Checking Access
-            </h2>
 
+    <a
+        href="./lesson-6/"
+        class="lesson-card"
+    >
 
-            <p>
-                Please wait while we verify your student account.
-            </p>
+        <div class="lesson-number">
+            06
+        </div>
 
-        </section>
+        <h3>
+            Lesson 6
+        </h3>
 
+        <p>
+            Unit 11 Lesson 6 learning materials.
+        </p>
 
-        <!-- =================================================
-             ACCESS MESSAGE
-        ================================================== -->
+        <div class="lesson-enter">
+            ENTER LESSON
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
 
-        <section
-            id="access-message"
-        >
+    </a>
 
-            <div class="access-icon">
 
-                <i class="fa-solid fa-lock"></i>
+</div>
+```
 
-            </div>
+</section>
 
+</main>
 
-            <h2>
-                Access Restricted
-            </h2>
+<footer>
 
+```
+© 2026 ALL ABOUT ENGLISH • BY SHAHEEN SIR •
+All Rights Reserved
+```
 
-            <p id="access-message-text">
+</footer>
 
-                You do not currently have permission to access
-                Unit 11. Please contact Shaheen Sir for approval.
+<!-- =====================================================
+     FIREBASE ACCESS CONTROL
+====================================================== -->
 
-            </p>
+<script type="module">
 
+import {
+    getAuth,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-            <a
-                href="/all-about-english/login.html"
-                class="back-login-btn"
-            >
 
-                <i class="fa-solid fa-right-to-bracket"></i>
+import {
+    getFirestore,
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-                Student Login
 
-            </a>
+import {
+    app
+} from "../../../firebase-config.js";
 
-        </section>
 
+/* =====================================================
+   FIREBASE INITIALIZATION
+====================================================== */
 
-        <!-- =================================================
-             LESSON AREA
-        ================================================== -->
+const auth =
+    getAuth(app);
 
-        <section
-            id="lesson-area"
-        >
 
+const db =
+    getFirestore(app);
 
-            <div class="section-heading">
 
-                <div class="eyebrow">
-                    Unit 11
-                </div>
+/* =====================================================
+   CONFIGURATION
+====================================================== */
 
+const UNIT_ID =
+    "unit-11";
 
-                <h2>
-                    Lessons
-                </h2>
 
+/* =====================================================
+   ELEMENTS
+====================================================== */
 
-                <p>
-                    Select a lesson to continue learning.
-                </p>
+const loadingBox =
+    document.getElementById(
+        "loading-box"
+    );
 
-            </div>
 
+const accessMessage =
+    document.getElementById(
+        "access-message"
+    );
 
-            <div class="lesson-grid">
 
+const accessMessageText =
+    document.getElementById(
+        "access-message-text"
+    );
 
-                <!-- =================================================
-                     LESSON 1
-                ================================================== -->
 
-                <a
-                    href="./lesson-1/"
-                    class="lesson-card"
-                >
+const lessonArea =
+    document.getElementById(
+        "lesson-area"
+    );
 
-                    <div class="lesson-number">
-                        01
-                    </div>
 
+/* =====================================================
+   SHOW ACCESS DENIED
+====================================================== */
 
-                    <h3>
-                        Lesson 1
-                    </h3>
+function showAccessDenied(message) {
 
+    loadingBox.style.display =
+        "none";
 
-                    <p>
-                        Unit 11 Lesson 1 learning materials.
-                    </p>
 
+    lessonArea.style.display =
+        "none";
 
-                    <div class="lesson-enter">
 
-                        ENTER LESSON
+    accessMessage.style.display =
+        "block";
 
-                        <i class="fa-solid fa-arrow-right"></i>
 
-                    </div>
+    accessMessageText.textContent =
+        message;
 
-                </a>
+}
 
 
-                <!-- =================================================
-                     LESSON 2
-                ================================================== -->
+/* =====================================================
+   SHOW LESSONS
+====================================================== */
 
-                <a
-                    href="./lesson-2/"
-                    class="lesson-card"
-                >
+function showLessons() {
 
-                    <div class="lesson-number">
-                        02
-                    </div>
+    loadingBox.style.display =
+        "none";
 
 
-                    <h3>
-                        Lesson 2
-                    </h3>
+    accessMessage.style.display =
+        "none";
 
 
-                    <p>
-                        Unit 11 Lesson 2 learning materials.
-                    </p>
+    lessonArea.style.display =
+        "block";
 
+}
 
-                    <div class="lesson-enter">
 
-                        ENTER LESSON
+/* =====================================================
+   CHECK APPROVAL
+====================================================== */
 
-                        <i class="fa-solid fa-arrow-right"></i>
+async function checkStudentAccess(user) {
 
-                    </div>
+    try {
 
-                </a>
 
+        console.log(
+            "Logged-in Firebase user:",
+            user.uid
+        );
 
-                <!-- =================================================
-                     LESSON 3
-                ================================================== -->
 
-                <a
-                    href="./lesson-3/"
-                    class="lesson-card"
-                >
-
-                    <div class="lesson-number">
-                        03
-                    </div>
-
-
-                    <h3>
-                        Lesson 3
-                    </h3>
-
-
-                    <p>
-                        Unit 11 Lesson 3 learning materials.
-                    </p>
-
-
-                    <div class="lesson-enter">
-
-                        ENTER LESSON
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </div>
-
-                </a>
-
-
-                <!-- =================================================
-                     LESSON 4
-                ================================================== -->
-
-                <a
-                    href="./lesson-4/"
-                    class="lesson-card"
-                >
-
-                    <div class="lesson-number">
-                        04
-                    </div>
-
-
-                    <h3>
-                        Lesson 4
-                    </h3>
-
-
-                    <p>
-                        Unit 11 Lesson 4 learning materials.
-                    </p>
-
-
-                    <div class="lesson-enter">
-
-                        ENTER LESSON
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </div>
-
-                </a>
-
-
-                <!-- =================================================
-                     LESSON 5
-                ================================================== -->
-
-                <a
-                    href="./lesson-5/"
-                    class="lesson-card"
-                >
-
-                    <div class="lesson-number">
-                        05
-                    </div>
-
-
-                    <h3>
-                        Lesson 5
-                    </h3>
-
-
-                    <p>
-                        Unit 11 Lesson 5 learning materials.
-                    </p>
-
-
-                    <div class="lesson-enter">
-
-                        ENTER LESSON
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </div>
-
-                </a>
-
-
-                <!-- =================================================
-                     LESSON 6
-                ================================================== -->
-
-                <a
-                    href="./lesson-6/"
-                    class="lesson-card"
-                >
-
-                    <div class="lesson-number">
-                        06
-                    </div>
-
-
-                    <h3>
-                        Lesson 6
-                    </h3>
-
-
-                    <p>
-                        Unit 11 Lesson 6 learning materials.
-                    </p>
-
-
-                    <div class="lesson-enter">
-
-                        ENTER LESSON
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </div>
-
-                </a>
-
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer>
-
-        © 2026 ALL ABOUT ENGLISH • BY SHAHEEN SIR •
-        All Rights Reserved
-
-    </footer>
-
-
-    <!-- =====================================================
-         FIREBASE UNIT SECURITY
-    ====================================================== -->
-
-    <script type="module">
-
-
-        // ====================================================
-        // IMPORT SECURITY FUNCTION
-        // ====================================================
-
-        import {
-
-            requireApprovedUnit
-
-        } from "/all-about-english/firebase-security.js";
-
-
-        // ====================================================
-        // UNIT CONFIGURATION
-        // ====================================================
-
-        const UNIT_ID =
-            "unit-11";
-
-
-        // ====================================================
-        // ELEMENTS
-        // ====================================================
-
-        const loadingBox =
-            document.getElementById(
-                "loading-box"
+        const studentRef =
+            doc(
+                db,
+                "students",
+                user.uid
             );
 
 
-        const accessMessage =
-            document.getElementById(
-                "access-message"
+        const studentSnap =
+            await getDoc(
+                studentRef
             );
 
 
-        const accessMessageText =
-            document.getElementById(
-                "access-message-text"
+        if (!studentSnap.exists()) {
+
+            showAccessDenied(
+                "Your student profile could not be found. Please contact Shaheen Sir."
             );
 
+            return;
 
-        const lessonArea =
-            document.getElementById(
-                "lesson-area"
+        }
+
+
+        const student =
+            studentSnap.data();
+
+
+        console.log(
+            "Student document:",
+            student
+        );
+
+
+        /* =================================================
+           BLOCKED ACCOUNT
+        ================================================= */
+
+        if (
+            student.accountStatus ===
+            "blocked"
+        ) {
+
+            showAccessDenied(
+                "Your account has been blocked. Please contact Shaheen Sir."
             );
 
+            return;
 
-        // ====================================================
-        // CHECK UNIT ACCESS
-        // ====================================================
-
-        async function checkUnitAccess() {
-
-            try {
+        }
 
 
-                // --------------------------------------------
-                // CHECK APPROVAL
-                // --------------------------------------------
+        /* =================================================
+           CHECK APPROVED LESSONS
+        ================================================= */
 
-                const allowed =
-                    await requireApprovedUnit(
-                        UNIT_ID
-                    );
+        const approvedLessons =
+            student.approvedLessons;
 
 
-                // --------------------------------------------
-                // REMOVE LOADING
-                // --------------------------------------------
-
-                loadingBox.style.display =
-                    "none";
+        let unitApproved =
+            false;
 
 
-                // --------------------------------------------
-                // ACCESS DENIED
-                // --------------------------------------------
+        /*
+         * Supported structure:
+         *
+         * approvedLessons:
+         * {
+         *     "unit-11": true
+         * }
+         *
+         * OR
+         *
+         * approvedLessons:
+         * {
+         *     "unit-11": {
+         *         "lesson-1": true
+         *     }
+         * }
+         *
+         * OR
+         *
+         * approvedLessons:
+         * [
+         *     "unit-11"
+         * ]
+         *
+         * OR
+         *
+         * approvedLessons:
+         * [
+         *     "unit-11-lesson-1"
+         * ]
+         */
 
-                if (!allowed) {
 
-                    accessMessage.style.display =
-                        "block";
-
-
-                    accessMessageText.textContent =
-                        "Your account is logged in, but Unit 11 has not been approved for your account yet. Please contact Shaheen Sir for access.";
+        if (
+            approvedLessons &&
+            typeof approvedLessons === "object" &&
+            !Array.isArray(approvedLessons)
+        ) {
 
 
-                    return;
+            if (
+                approvedLessons[UNIT_ID] === true
+            ) {
 
-                }
-
-
-                // --------------------------------------------
-                // ACCESS GRANTED
-                // --------------------------------------------
-
-                lessonArea.style.display =
-                    "block";
-
+                unitApproved =
+                    true;
 
             }
 
-            catch (error) {
 
-                console.error(
-                    "Unit 11 access error:",
-                    error
-                );
+            if (
+                approvedLessons[UNIT_ID] &&
+                typeof approvedLessons[UNIT_ID] === "object"
+            ) {
 
-
-                loadingBox.style.display =
-                    "none";
-
-
-                accessMessage.style.display =
-                    "block";
-
-
-                accessMessageText.textContent =
-                    "We could not verify your access right now. Please refresh the page and try again.";
+                unitApproved =
+                    true;
 
             }
 
         }
 
 
-        // ====================================================
-        // START ACCESS CHECK
-        // ====================================================
+        if (
+            Array.isArray(
+                approvedLessons
+            )
+        ) {
 
-        checkUnitAccess();
+            if (
+                approvedLessons.includes(
+                    UNIT_ID
+                )
+            ) {
+
+                unitApproved =
+                    true;
+
+            }
 
 
-    </script>
+            if (
+                approvedLessons.includes(
+                    UNIT_ID + "-lesson-1"
+                )
+            ) {
 
+                unitApproved =
+                    true;
+
+            }
+
+        }
+
+
+        /* =================================================
+           APPROVED UNITS FALLBACK
+        ================================================= */
+
+        const approvedUnits =
+            student.approvedUnits;
+
+
+        if (
+            approvedUnits &&
+            typeof approvedUnits === "object" &&
+            !Array.isArray(approvedUnits)
+        ) {
+
+            if (
+                approvedUnits[UNIT_ID] === true
+            ) {
+
+                unitApproved =
+                    true;
+
+            }
+
+        }
+
+
+        if (
+            Array.isArray(approvedUnits)
+        ) {
+
+            if (
+                approvedUnits.includes(
+                    UNIT_ID
+                )
+            ) {
+
+                unitApproved =
+                    true;
+
+            }
+
+        }
+
+
+        /* =================================================
+           FINAL ACCESS DECISION
+        ================================================= */
+
+        if (!unitApproved) {
+
+            showAccessDenied(
+                "Your account is logged in, but Unit 11 has not been approved for your account yet. Please contact Shaheen Sir for access."
+            );
+
+            return;
+
+        }
+
+
+        /* =================================================
+           ACCESS GRANTED
+        ================================================= */
+
+        console.log(
+            "Unit 11 access granted."
+        );
+
+
+        showLessons();
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Unit 11 access error:",
+            error
+        );
+
+
+        showAccessDenied(
+            "We could not verify your access right now. Please refresh the page and try again."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   FIREBASE AUTH STATE
+====================================================== */
+
+onAuthStateChanged(
+    auth,
+    async (user) => {
+
+
+        console.log(
+            "Auth state:",
+            user
+                ? "LOGGED IN"
+                : "NOT LOGGED IN"
+        );
+
+
+        /* =============================================
+           NOT LOGGED IN
+        ============================================= */
+
+        if (!user) {
+
+            showAccessDenied(
+                "Please log in first to access Unit 11."
+            );
+
+            return;
+
+        }
+
+
+        /* =============================================
+           LOGGED IN
+        ============================================= */
+
+        await checkStudentAccess(
+            user
+        );
+
+    }
+);
+
+</script>
 
 </body>
 
