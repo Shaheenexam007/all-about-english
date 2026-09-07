@@ -1100,19 +1100,6 @@
             </div>
 
 
-              <div class="stat-card">
-
-                <small>
-                    UNIT 1
-                </small>
-
-                <strong id="unit11Students">
-                    0
-                </strong>
-
-            </div>
-
-
             <div class="stat-card">
 
                 <small>
@@ -1804,10 +1791,6 @@ function createStudentCard(
         {};
 
 
- const unit11 =
-        approvedUnits["unit-1"] === true;
-
-    
     const unit11 =
         approvedUnits["unit-11"] === true;
 
@@ -1955,27 +1938,6 @@ function createStudentCard(
 
 
                 <div class="unit-buttons">
-
-
-                  <button
-                        class="
-                            unit-btn
-                            ${unit1 ? "approved" : ""}
-                        "
-                        onclick="
-                            toggleUnit(
-                                '${escapeHtml(student.id)}',
-                                'unit-1'
-                            )
-                        "
-                    >
-
-                        ${unit11
-                            ? "✓ Unit 1"
-                            : "🔒 Unit 1"
-                        }
-
-                    </button>
 
 
                     <button
