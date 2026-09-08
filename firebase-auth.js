@@ -624,6 +624,9 @@ async function createStudentAccount(
 
                 approvedUnits: {
 
+                     "unit-1":
+                        false,
+
                     "unit-11":
                         false,
 
@@ -637,6 +640,9 @@ async function createStudentAccount(
                 // ------------------------------------------------
 
                 approvalDates: {
+
+                     "unit-11":
+                        null,
 
                     "unit-11":
                         null,
