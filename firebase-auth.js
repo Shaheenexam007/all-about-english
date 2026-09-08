@@ -28,6 +28,8 @@ import {
     doc,
     setDoc,
     getDoc,
+    updateDoc,
+    runTransaction,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -51,6 +53,17 @@ const db = getFirestore(app);
 
 
 // ============================================================
+// DEVICE SETTINGS
+// ============================================================
+
+const DEVICE_STORAGE_KEY =
+    "aae_student_device_id";
+
+const DEVICE_ALLOWED_KEY =
+    "aae_device_allowed";
+
+
+// ============================================================
 // DEBUG
 // ============================================================
 
@@ -60,13 +73,391 @@ console.log(
 
 
 // ============================================================
+// GET DEVICE ID
+// ============================================================
+
+function getDeviceId() {
+
+    try {
+
+        let deviceId =
+            localStorage.getItem(
+                DEVICE_STORAGE_KEY
+            );
+
+
+        // ----------------------------------------------------
+        // EXISTING DEVICE
+        // ----------------------------------------------------
+
+        if (deviceId) {
+
+            return deviceId;
+
+        }
+
+
+        // ----------------------------------------------------
+        // CREATE NEW DEVICE ID
+        // ----------------------------------------------------
+
+        deviceId =
+            "AAE-" +
+            Date.now().toString(36) +
+            "-" +
+            crypto.randomUUID();
+
+
+        localStorage.setItem(
+            DEVICE_STORAGE_KEY,
+            deviceId
+        );
+
+
+        return deviceId;
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "❌ Device ID error:",
+            error
+        );
+
+        return null;
+
+    }
+
+}
+
+
+// ============================================================
+// REGISTER CURRENT DEVICE
+// ============================================================
+//
+// Maximum 2 devices per student.
+//
+// Device 1 → allowed
+// Device 2 → allowed
+// Device 3 → blocked
+//
+// IMPORTANT:
+// Device limit NEVER signs the Firebase user out.
+// ============================================================
+
+async function registerCurrentDevice(
+    uid
+) {
+
+    try {
+
+        if (!uid) {
+
+            return {
+                success: false,
+                allowed: false,
+                message:
+                    "Student account could not be identified."
+            };
+
+        }
+
+
+        const currentDevice =
+            getDeviceId();
+
+
+        if (!currentDevice) {
+
+            return {
+                success: false,
+                allowed: false,
+                message:
+                    "Unable to identify this device."
+            };
+
+        }
+
+
+        const studentRef =
+            doc(
+                db,
+                "students",
+                uid
+            );
+
+
+        // ----------------------------------------------------
+        // TRANSACTION
+        // ----------------------------------------------------
+        //
+        // Transaction prevents two new devices from
+        // simultaneously occupying the same device slot.
+        //
+        // ----------------------------------------------------
+
+        const result =
+            await runTransaction(
+                db,
+                async (transaction) => {
+
+                    const snapshot =
+                        await transaction.get(
+                            studentRef
+                        );
+
+
+                    if (!snapshot.exists()) {
+
+                        return {
+                            allowed: false,
+                            reason:
+                                "Student account record was not found."
+                        };
+
+                    }
+
+
+                    const data =
+                        snapshot.data();
+
+
+                    const device1 =
+                        String(
+                            data.device1 || ""
+                        ).trim();
+
+
+                    const device2 =
+                        String(
+                            data.device2 || ""
+                        ).trim();
+
+
+                    // ------------------------------------------------
+                    // EXISTING DEVICE 1
+                    // ------------------------------------------------
+
+                    if (
+                        device1 &&
+                        device1 ===
+                            currentDevice
+                    ) {
+
+                        return {
+                            allowed: true,
+                            existing: true,
+                            slot: 1
+                        };
+
+                    }
+
+
+                    // ------------------------------------------------
+                    // EXISTING DEVICE 2
+                    // ------------------------------------------------
+
+                    if (
+                        device2 &&
+                        device2 ===
+                            currentDevice
+                    ) {
+
+                        return {
+                            allowed: true,
+                            existing: true,
+                            slot: 2
+                        };
+
+                    }
+
+
+                    // ------------------------------------------------
+                    // DEVICE 1 EMPTY
+                    // ------------------------------------------------
+
+                    if (!device1) {
+
+                        transaction.update(
+                            studentRef,
+                            {
+                                device1:
+                                    currentDevice
+                            }
+                        );
+
+
+                        return {
+                            allowed: true,
+                            existing: false,
+                            slot: 1
+                        };
+
+                    }
+
+
+                    // ------------------------------------------------
+                    // DEVICE 2 EMPTY
+                    // ------------------------------------------------
+
+                    if (!device2) {
+
+                        transaction.update(
+                            studentRef,
+                            {
+                                device2:
+                                    currentDevice
+                            }
+                        );
+
+
+                        return {
+                            allowed: true,
+                            existing: false,
+                            slot: 2
+                        };
+
+                    }
+
+
+                    // ------------------------------------------------
+                    // THIRD DEVICE
+                    // ------------------------------------------------
+
+                    return {
+                        allowed: false,
+                        existing: false,
+                        slot: 3,
+                        reason:
+                            "This account is already registered on two devices."
+                    };
+
+                }
+            );
+
+
+        // ----------------------------------------------------
+        // ALLOWED
+        // ----------------------------------------------------
+
+        if (result.allowed) {
+
+            localStorage.setItem(
+                DEVICE_ALLOWED_KEY,
+                "true"
+            );
+
+
+            console.log(
+                "✅ Device allowed. Slot:",
+                result.slot
+            );
+
+
+            return {
+                success: true,
+                allowed: true,
+                existing:
+                    result.existing,
+                slot:
+                    result.slot,
+                message:
+                    result.existing
+                        ? "Existing device recognized."
+                        : "This device has been registered successfully."
+            };
+
+        }
+
+
+        // ----------------------------------------------------
+        // NOT ALLOWED
+        // ----------------------------------------------------
+
+        localStorage.setItem(
+            DEVICE_ALLOWED_KEY,
+            "false"
+        );
+
+
+        console.warn(
+            "🚫 Device limit reached."
+        );
+
+
+        return {
+            success: false,
+            allowed: false,
+            existing: false,
+            message:
+                result.reason ||
+                "This account is already registered on two devices. This device cannot be added."
+        };
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "❌ Device registration error:",
+            error
+        );
+
+
+        // ----------------------------------------------------
+        // IMPORTANT
+        // ----------------------------------------------------
+        //
+        // DO NOT SIGN OUT.
+        //
+        // Authentication remains active.
+        //
+        // ----------------------------------------------------
+
+        localStorage.setItem(
+            DEVICE_ALLOWED_KEY,
+            "false"
+        );
+
+
+        return {
+            success: false,
+            allowed: false,
+            message:
+                "Unable to verify this device right now. Please try again."
+        };
+
+    }
+
+}
+
+
+// ============================================================
+// CHECK CURRENT DEVICE STATUS
+// ============================================================
+
+function isCurrentDeviceAllowed() {
+
+    return (
+        localStorage.getItem(
+            DEVICE_ALLOWED_KEY
+        ) === "true"
+    );
+
+}
+
+
+// ============================================================
 // CREATE STUDENT ACCOUNT
 // ============================================================
 
 async function createStudentAccount(
     name,
     email,
-    password
+    password,
+    mobile,
+    college
 ) {
 
     try {
@@ -86,6 +477,12 @@ async function createStudentAccount(
         password =
             String(password || "");
 
+        mobile =
+            String(mobile || "").trim();
+
+        college =
+            String(college || "").trim();
+
 
         // ----------------------------------------------------
         // VALIDATION
@@ -94,13 +491,31 @@ async function createStudentAccount(
         if (!name) {
 
             return {
-
-                success:
-                    false,
-
+                success: false,
                 message:
                     "Please enter your full name."
+            };
 
+        }
+
+
+        if (!mobile) {
+
+            return {
+                success: false,
+                message:
+                    "Please enter your mobile number."
+            };
+
+        }
+
+
+        if (!college) {
+
+            return {
+                success: false,
+                message:
+                    "Please enter your college name."
             };
 
         }
@@ -109,13 +524,9 @@ async function createStudentAccount(
         if (!email) {
 
             return {
-
-                success:
-                    false,
-
+                success: false,
                 message:
                     "Please enter your email address."
-
             };
 
         }
@@ -124,13 +535,9 @@ async function createStudentAccount(
         if (!password) {
 
             return {
-
-                success:
-                    false,
-
+                success: false,
                 message:
                     "Please enter your password."
-
             };
 
         }
@@ -139,13 +546,9 @@ async function createStudentAccount(
         if (password.length < 6) {
 
             return {
-
-                success:
-                    false,
-
+                success: false,
                 message:
                     "Password must contain at least 6 characters."
-
             };
 
         }
@@ -181,11 +584,6 @@ async function createStudentAccount(
         // ----------------------------------------------------
         // CREATE FIRESTORE STUDENT DOCUMENT
         // ----------------------------------------------------
-        //
-        // This structure matches the current Firestore
-        // registration rule.
-        //
-        // ----------------------------------------------------
 
         const studentRef =
             doc(
@@ -209,16 +607,48 @@ async function createStudentAccount(
                     email,
 
                 mobile:
-                    "",
+                    mobile,
 
                 college:
-                    "",
+                    college,
 
                 createdAt:
                     serverTimestamp(),
 
                 accountStatus:
                     "pending",
+
+                // ------------------------------------------------
+                // KEEP EXISTING UNIT STRUCTURE COMPATIBLE
+                // ------------------------------------------------
+
+                approvedUnits: {
+
+                    "unit-11":
+                        false,
+
+                    "unit-12":
+                        false
+
+                },
+
+                // ------------------------------------------------
+                // APPROVAL DATES
+                // ------------------------------------------------
+
+                approvalDates: {
+
+                    "unit-11":
+                        null,
+
+                    "unit-12":
+                        null
+
+                },
+
+                // ------------------------------------------------
+                // DEVICE SYSTEM
+                // ------------------------------------------------
 
                 device1:
                     "",
@@ -270,10 +700,6 @@ async function createStudentAccount(
         );
 
 
-        // ----------------------------------------------------
-        // RETURN FRIENDLY ERROR
-        // ----------------------------------------------------
-
         return {
 
             success:
@@ -322,13 +748,9 @@ async function loginStudent(
         if (!email) {
 
             return {
-
-                success:
-                    false,
-
+                success: false,
                 message:
                     "Please enter your email address."
-
             };
 
         }
@@ -337,13 +759,9 @@ async function loginStudent(
         if (!password) {
 
             return {
-
-                success:
-                    false,
-
+                success: false,
                 message:
                     "Please enter your password."
-
             };
 
         }
@@ -432,16 +850,9 @@ async function loginStudent(
             );
 
 
-            // ------------------------------------------------
-            // IMPORTANT
-            // ------------------------------------------------
-            //
-            // Authentication itself succeeded.
-            //
-            // Therefore we do NOT automatically sign out
-            // the student here.
-            //
-            // ------------------------------------------------
+            // IMPORTANT:
+            // Authentication succeeded.
+            // DO NOT automatically sign out.
 
         }
 
@@ -453,7 +864,7 @@ async function loginStudent(
         if (
             studentData &&
             studentData.accountStatus ===
-            "blocked"
+                "blocked"
         ) {
 
             await signOut(
@@ -475,6 +886,60 @@ async function loginStudent(
 
 
         // ----------------------------------------------------
+        // DEVICE REGISTRATION
+        // ----------------------------------------------------
+        //
+        // IMPORTANT:
+        // If device 3 is detected, DO NOT sign out.
+        //
+        // ----------------------------------------------------
+
+        if (studentData) {
+
+            const deviceResult =
+                await registerCurrentDevice(
+                    user.uid
+                );
+
+
+            // ------------------------------------------------
+            // THIRD DEVICE / DEVICE ERROR
+            // ------------------------------------------------
+
+            if (
+                !deviceResult.allowed
+            ) {
+
+                console.warn(
+                    "🚫 Current device is not allowed."
+                );
+
+
+                return {
+
+                    success:
+                        false,
+
+                    deviceBlocked:
+                        true,
+
+                    user:
+                        user,
+
+                    student:
+                        studentData,
+
+                    message:
+                        deviceResult.message
+
+                };
+
+            }
+
+        }
+
+
+        // ----------------------------------------------------
         // ACCOUNT STATUS
         // ----------------------------------------------------
 
@@ -485,7 +950,7 @@ async function loginStudent(
         if (
             studentData &&
             studentData.accountStatus ===
-            "pending"
+                "pending"
         ) {
 
             message =
@@ -497,7 +962,7 @@ async function loginStudent(
         if (
             studentData &&
             studentData.accountStatus ===
-            "active"
+                "active"
         ) {
 
             message =
@@ -522,7 +987,10 @@ async function loginStudent(
                 user,
 
             student:
-                studentData
+                studentData,
+
+            deviceAllowed:
+                true
 
         };
 
@@ -640,6 +1108,11 @@ async function logoutStudent() {
         );
 
 
+        localStorage.removeItem(
+            DEVICE_ALLOWED_KEY
+        );
+
+
         console.log(
             "✅ Student logged out."
         );
@@ -721,11 +1194,6 @@ function getFriendlyAuthError(
 
     switch (code) {
 
-
-        // ====================================================
-        // AUTHENTICATION ERRORS
-        // ====================================================
-
         case "auth/email-already-in-use":
 
             return (
@@ -804,10 +1272,6 @@ function getFriendlyAuthError(
             );
 
 
-        // ====================================================
-        // FIRESTORE ERRORS
-        // ====================================================
-
         case "permission-denied":
 
         case "firestore/permission-denied":
@@ -829,10 +1293,6 @@ function getFriendlyAuthError(
             );
 
 
-        // ====================================================
-        // API KEY
-        // ====================================================
-
         case "auth/api-key-not-valid.-please-pass-a-valid-api-key.":
 
             return (
@@ -841,20 +1301,12 @@ function getFriendlyAuthError(
             );
 
 
-        // ====================================================
-        // APP CONFIGURATION
-        // ====================================================
-
         case "auth/app-deleted":
 
             return (
                 "Firebase application configuration is invalid."
             );
 
-
-        // ====================================================
-        // DEFAULT
-        // ====================================================
 
         default:
 
@@ -881,6 +1333,10 @@ export {
     createStudentAccount,
 
     loginStudent,
+
+    registerCurrentDevice,
+
+    isCurrentDeviceAllowed,
 
     resetStudentPassword,
 
