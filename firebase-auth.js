@@ -28,7 +28,6 @@ import {
     doc,
     setDoc,
     getDoc,
-    updateDoc,
     runTransaction,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
@@ -143,7 +142,8 @@ function getDeviceId() {
 // Device 3 → blocked
 //
 // IMPORTANT:
-// Device limit NEVER signs the Firebase user out.
+// Device 3 is NOT allowed to remain logged in.
+// The actual signOut() is handled inside loginStudent().
 // ============================================================
 
 async function registerCurrentDevice(
@@ -330,7 +330,7 @@ async function registerCurrentDevice(
                         existing: false,
                         slot: 3,
                         reason:
-                            "This account is already registered on two devices."
+                            "Your ID is already registered on two devices. This device cannot log in."
                     };
 
                 }
@@ -338,7 +338,7 @@ async function registerCurrentDevice(
 
 
         // ----------------------------------------------------
-        // ALLOWED
+        // ALLOWED DEVICE
         // ----------------------------------------------------
 
         if (result.allowed) {
@@ -372,7 +372,7 @@ async function registerCurrentDevice(
 
 
         // ----------------------------------------------------
-        // NOT ALLOWED
+        // DEVICE NOT ALLOWED
         // ----------------------------------------------------
 
         localStorage.setItem(
@@ -392,7 +392,7 @@ async function registerCurrentDevice(
             existing: false,
             message:
                 result.reason ||
-                "This account is already registered on two devices. This device cannot be added."
+                "Your ID is already registered on two devices. This device cannot log in."
         };
 
     }
@@ -406,13 +406,7 @@ async function registerCurrentDevice(
 
 
         // ----------------------------------------------------
-        // IMPORTANT
-        // ----------------------------------------------------
-        //
-        // DO NOT SIGN OUT.
-        //
-        // Authentication remains active.
-        //
+        // DEVICE VERIFICATION FAILED
         // ----------------------------------------------------
 
         localStorage.setItem(
@@ -618,13 +612,14 @@ async function createStudentAccount(
                 accountStatus:
                     "pending",
 
+
                 // ------------------------------------------------
-                // KEEP EXISTING UNIT STRUCTURE COMPATIBLE
+                // APPROVED UNITS
                 // ------------------------------------------------
 
                 approvedUnits: {
 
-                     "unit-1":
+                    "unit-1":
                         false,
 
                     "unit-11":
@@ -635,13 +630,14 @@ async function createStudentAccount(
 
                 },
 
+
                 // ------------------------------------------------
                 // APPROVAL DATES
                 // ------------------------------------------------
 
                 approvalDates: {
 
-                     "unit-11":
+                    "unit-1":
                         null,
 
                     "unit-11":
@@ -651,6 +647,7 @@ async function createStudentAccount(
                         null
 
                 },
+
 
                 // ------------------------------------------------
                 // DEVICE SYSTEM
@@ -856,9 +853,10 @@ async function loginStudent(
             );
 
 
-            // IMPORTANT:
             // Authentication succeeded.
-            // DO NOT automatically sign out.
+            // We do not automatically sign out here
+            // because this is a Firestore read problem,
+            // not a confirmed device-limit problem.
 
         }
 
@@ -894,11 +892,6 @@ async function loginStudent(
         // ----------------------------------------------------
         // DEVICE REGISTRATION
         // ----------------------------------------------------
-        //
-        // IMPORTANT:
-        // If device 3 is detected, DO NOT sign out.
-        //
-        // ----------------------------------------------------
 
         if (studentData) {
 
@@ -909,7 +902,20 @@ async function loginStudent(
 
 
             // ------------------------------------------------
-            // THIRD DEVICE / DEVICE ERROR
+            // DEVICE NOT ALLOWED
+            // ------------------------------------------------
+            //
+            // THIS IS THE IMPORTANT FIX.
+            //
+            // If this is Device 3:
+            //
+            // 1. Show device-limit result
+            // 2. SIGN OUT FROM FIREBASE
+            // 3. Return failure
+            // 4. Do NOT return student data
+            //
+            // Therefore the user cannot remain logged in.
+            //
             // ------------------------------------------------
 
             if (
@@ -917,7 +923,29 @@ async function loginStudent(
             ) {
 
                 console.warn(
-                    "🚫 Current device is not allowed."
+                    "🚫 Login blocked: current device is not allowed."
+                );
+
+
+                // Make sure this browser is not
+                // considered an allowed device.
+                localStorage.setItem(
+                    DEVICE_ALLOWED_KEY,
+                    "false"
+                );
+
+
+                // ------------------------------------------------
+                // FORCE FIREBASE LOGOUT
+                // ------------------------------------------------
+
+                await signOut(
+                    auth
+                );
+
+
+                console.log(
+                    "🔒 Firebase user signed out because device is not allowed."
                 );
 
 
@@ -930,13 +958,17 @@ async function loginStudent(
                         true,
 
                     user:
-                        user,
+                        null,
 
                     student:
-                        studentData,
+                        null,
+
+                    deviceAllowed:
+                        false,
 
                     message:
-                        deviceResult.message
+                        deviceResult.message ||
+                        "Your ID is already registered on two devices. This device cannot log in."
 
                 };
 
