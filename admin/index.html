@@ -1237,7 +1237,8 @@ import {
     collection,
     getDocs,
     doc,
-    updateDoc
+    updateDoc,
+    Timestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
@@ -1780,6 +1781,66 @@ function renderStudents() {
 // CREATE STUDENT CARD
 // ============================================================
 
+function formatApprovalDate(
+    value
+) {
+
+    if (!value) {
+        return "Not approved";
+    }
+
+
+    try {
+
+        if (
+            value &&
+            typeof value.toDate ===
+                "function"
+        ) {
+
+            return value
+                .toDate()
+                .toLocaleDateString(
+                    "en-GB",
+                    {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric"
+                    }
+                );
+
+        }
+
+
+        if (
+            value instanceof Date
+        ) {
+
+            return value.toLocaleDateString(
+                "en-GB",
+                {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric"
+                }
+            );
+
+        }
+
+
+        return "Not approved";
+
+    }
+
+    catch (error) {
+
+        return "Not approved";
+
+    }
+
+}
+
+    
 function createStudentCard(
     student
 ) {
@@ -1828,6 +1889,19 @@ function createStudentCard(
 
     const unit12 =
         approvedUnits["unit-12"] === true;
+
+    const approvalDates =
+    student.approvalDates ||
+    {};
+
+    const unit1Date =
+    approvalDates["unit-1"];
+
+const unit11Date =
+    approvalDates["unit-11"];
+
+const unit12Date =
+    approvalDates["unit-12"];
 
 
     const firstLetter =
@@ -2038,6 +2112,67 @@ function createStudentCard(
                 </div>
 
 
+                <div
+    style="
+        margin-top:10px;
+        display:grid;
+        gap:5px;
+    "
+>
+
+
+ <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit1
+                ? "✓ Unit 1 Approved: " +
+                  formatApprovalDate(
+                      unit1Date
+                  )
+                : "🔒 Unit 1: Not Approved"
+        }
+    </div>
+
+    <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit11
+                ? "✓ Unit 11 Approved: " +
+                  formatApprovalDate(
+                      unit11Date
+                  )
+                : "🔒 Unit 11: Not Approved"
+        }
+    </div>
+
+
+    <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit12
+                ? "✓ Unit 12 Approved: " +
+                  formatApprovalDate(
+                      unit12Date
+                  )
+                : "🔒 Unit 12: Not Approved"
+        }
+    </div>
+
+</div>
+
+
                 <div class="account-actions">
 
 
@@ -2126,9 +2261,24 @@ async function (
         }
 
 
+        // ----------------------------------------------------
+        // APPROVED UNITS
+        // ----------------------------------------------------
+
         const approvedUnits = {
 
             ...(student.approvedUnits || {})
+
+        };
+
+
+        // ----------------------------------------------------
+        // APPROVAL DATES
+        // ----------------------------------------------------
+
+        const approvalDates = {
+
+            ...(student.approvalDates || {})
 
         };
 
@@ -2137,9 +2287,41 @@ async function (
             approvedUnits[unitId] === true;
 
 
-        approvedUnits[unitId] =
+        const newStatus =
             !current;
 
+
+        // ----------------------------------------------------
+        // CHANGE APPROVAL STATUS
+        // ----------------------------------------------------
+
+        approvedUnits[unitId] =
+            newStatus;
+
+
+        // ----------------------------------------------------
+        // ON → SAVE CURRENT DATE
+        // OFF → REMOVE CURRENT APPROVAL DATE
+        // ----------------------------------------------------
+
+        if (newStatus) {
+
+            approvalDates[unitId] =
+                Timestamp.now();
+
+        }
+
+        else {
+
+            approvalDates[unitId] =
+                null;
+
+        }
+
+
+        // ----------------------------------------------------
+        // UPDATE FIRESTORE
+        // ----------------------------------------------------
 
         await updateDoc(
 
@@ -2150,27 +2332,49 @@ async function (
             ),
 
             {
+
                 approvedUnits:
-                    approvedUnits
+                    approvedUnits,
+
+                approvalDates:
+                    approvalDates
+
             }
 
         );
 
 
+        // ----------------------------------------------------
+        // UPDATE LOCAL DATA
+        // ----------------------------------------------------
+
         student.approvedUnits =
             approvedUnits;
 
+        student.approvalDates =
+            approvalDates;
+
+
+        // ----------------------------------------------------
+        // REFRESH
+        // ----------------------------------------------------
 
         updateStats();
 
         renderStudents();
 
 
+        // ----------------------------------------------------
+        // MESSAGE
+        // ----------------------------------------------------
+
         showToast(
 
-            !current
+            newStatus
+
                 ? unitId +
                   " approved successfully."
+
                 : unitId +
                   " approval removed."
 
