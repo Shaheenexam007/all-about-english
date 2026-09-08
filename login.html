@@ -1834,6 +1834,44 @@
 
                         </div>
 
+                        <div class="field">
+    <label for="registerMobile">
+        Mobile Number
+    </label>
+
+    <div class="input-wrap">
+        <i class="fa-solid fa-phone"></i>
+
+        <input
+            type="tel"
+            id="registerMobile"
+            placeholder="Enter your mobile number"
+            autocomplete="tel"
+            inputmode="tel"
+            required
+        >
+    </div>
+</div>
+
+
+<div class="field">
+    <label for="registerCollege">
+        College
+    </label>
+
+    <div class="input-wrap">
+        <i class="fa-solid fa-school"></i>
+
+        <input
+            type="text"
+            id="registerCollege"
+            placeholder="Enter your college name"
+            autocomplete="organization"
+            required
+        >
+    </div>
+</div>
+
 
                         <div class="field">
 
@@ -2360,14 +2398,34 @@
                         .value;
 
 
+                const mobile =
+    document
+        .getElementById(
+            "registerMobile"
+        )
+        .value
+        .trim();
+
+
+const college =
+    document
+        .getElementById(
+            "registerCollege"
+        )
+        .value
+        .trim();
+
+
                 try {
 
                     const result =
-                        await createStudentAccount(
-                            name,
-                            email,
-                            password
-                        );
+    await createStudentAccount(
+        name,
+        email,
+        password,
+        mobile,
+        college
+    );
 
 
                     if (
