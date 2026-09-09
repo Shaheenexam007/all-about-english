@@ -831,6 +831,24 @@
         }
 
 
+        .reset-devices {
+
+            background:#eef2f8;
+
+            color:var(--navy);
+
+            border:1px solid #d8dfeb;
+
+        }
+
+
+        .reset-devices:hover {
+
+            background:#e3e9f3;
+
+        }
+
+
         .empty {
 
             background:white;
@@ -2221,6 +2239,23 @@ const unit12Date =
                     }
 
 
+                    <button
+                        class="
+                            action-btn
+                            reset-devices
+                        "
+                        onclick="
+                            resetStudentDevices(
+                                '${escapeHtml(student.id)}'
+                            )
+                        "
+                    >
+
+                        🔄 Reset Devices
+
+                    </button>
+
+
                 </div>
 
 
@@ -2392,6 +2427,133 @@ async function (
 
         alert(
             "Unable to update unit approval.\n\n" +
+            error.message
+        );
+
+    }
+
+};
+
+
+// ============================================================
+// RESET STUDENT DEVICES
+// ============================================================
+//
+// Admin can reset both registered devices.
+//
+// After reset:
+// Device 1 → empty
+// Device 2 → empty
+//
+// The next device that logs in will be registered
+// as Device 1, and the following device as Device 2.
+//
+// ============================================================
+
+window.resetStudentDevices =
+async function (
+    studentId
+) {
+
+    try {
+
+        const student =
+            students.find(
+                item =>
+                    item.id ===
+                    studentId
+            );
+
+
+        if (!student) {
+
+            alert(
+                "Student record was not found."
+            );
+
+            return;
+
+        }
+
+
+        const studentName =
+            student.name ||
+            "this student";
+
+
+        const confirmed =
+            confirm(
+                "Reset both registered devices for " +
+                studentName +
+                "?\n\n" +
+                "After reset, this student can register up to two devices again."
+            );
+
+
+        if (!confirmed) {
+
+            return;
+
+        }
+
+
+        // ----------------------------------------------------
+        // RESET BOTH DEVICE SLOTS
+        // ----------------------------------------------------
+
+        await updateDoc(
+
+            doc(
+                db,
+                "students",
+                studentId
+            ),
+
+            {
+                device1: "",
+                device2: ""
+            }
+
+        );
+
+
+        // ----------------------------------------------------
+        // UPDATE LOCAL DATA
+        // ----------------------------------------------------
+
+        student.device1 = "";
+        student.device2 = "";
+
+
+        // ----------------------------------------------------
+        // REFRESH UI
+        // ----------------------------------------------------
+
+        renderStudents();
+
+
+        showToast(
+            "Both devices have been reset successfully."
+        );
+
+
+        console.log(
+            "✅ Devices reset for student:",
+            studentId
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Device reset error:",
+            error
+        );
+
+
+        alert(
+            "Unable to reset devices.\n\n" +
             error.message
         );
 
