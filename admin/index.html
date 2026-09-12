@@ -434,10 +434,7 @@
             display:grid;
 
             grid-template-columns:
-                minmax(260px,1fr)
-                180px
-                160px
-                140px;
+                1fr 180px;
 
             gap:10px;
 
@@ -1195,56 +1192,6 @@
 
                 </select>
 
-
-                <select id="monthFilter">
-
-                    <option value="all">
-                        All Months
-                    </option>
-
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-
-                </select>
-
-
-                <select id="yearFilter">
-
-                    <option value="all">
-                        All Years
-                    </option>
-
-                </select>
-
-            </div>
-
-
-                <select id="statusFilter">
-
-                    <option value="all">
-                        All Students
-                    </option>
-
-                    <option value="active">
-                        Active
-                    </option>
-
-                    <option value="pending">
-                        Pending
-                    </option>
-
-                </select>
-
             </div>
 
         </div>
@@ -1374,18 +1321,6 @@ const statusFilter =
     );
 
 
-const monthFilter =
-    document.getElementById(
-        "monthFilter"
-    );
-
-
-const yearFilter =
-    document.getElementById(
-        "yearFilter"
-    );
-
-
 const studentCount =
     document.getElementById(
         "studentCount"
@@ -1409,8 +1344,6 @@ const adminEmailDisplay =
 // ============================================================
 
 let students = [];
-
-let expiryInterval = null;
 
 
 // ============================================================
@@ -1459,329 +1392,6 @@ function showToast(message) {
         );
 
     }, 2500);
-
-}
-
-
-// ============================================================
-// ACCESS EXPIRY HELPERS
-// ============================================================
-
-const EXPIRY_CHECK_INTERVAL =
-    5 * 60 * 1000;
-
-
-function toDateValue(value) {
-
-    if (!value) return null;
-
-    try {
-
-        if (
-            value &&
-            typeof value.toDate === "function"
-        ) {
-            return value.toDate();
-        }
-
-        if (value instanceof Date) {
-            return value;
-        }
-
-        if (
-            typeof value === "string" ||
-            typeof value === "number"
-        ) {
-            const date = new Date(value);
-
-            if (!Number.isNaN(date.getTime())) {
-                return date;
-            }
-        }
-
-    } catch (error) {
-
-        console.error(
-            "Expiry date conversion error:",
-            error
-        );
-
-    }
-
-    return null;
-}
-
-
-function addAccessMonths(
-    sourceDate,
-    months
-) {
-
-    const date =
-        new Date(sourceDate);
-
-    const originalDay =
-        date.getDate();
-
-    date.setDate(1);
-
-    date.setMonth(
-        date.getMonth() + months
-    );
-
-    const lastDay =
-        new Date(
-            date.getFullYear(),
-            date.getMonth() + 1,
-            0
-        ).getDate();
-
-    date.setDate(
-        Math.min(
-            originalDay,
-            lastDay
-        )
-    );
-
-    return date;
-}
-
-
-function formatDate(value) {
-
-    const date =
-        toDateValue(value);
-
-    if (!date) {
-        return "Not available";
-    }
-
-    return date.toLocaleDateString(
-        "en-GB",
-        {
-            day: "2-digit",
-            month: "short",
-            year: "numeric"
-        }
-    );
-}
-
-
-function isExpired(value) {
-
-    const date =
-        toDateValue(value);
-
-    return (
-        !!date &&
-        date.getTime() <= Date.now()
-    );
-}
-
-
-async function expireOverdueUnits() {
-
-    let anyChanged = false;
-
-    for (
-        const student of students
-    ) {
-
-        const approvedUnits = {
-            ...(student.approvedUnits || {})
-        };
-
-        const accessExpiryDates = {
-            ...(student.accessExpiryDates || {})
-        };
-
-        let studentChanged = false;
-
-        Object.keys(
-            accessExpiryDates
-        ).forEach(
-            (unitId) => {
-
-                if (
-                    approvedUnits[unitId] === true &&
-                    isExpired(
-                        accessExpiryDates[unitId]
-                    )
-                ) {
-
-                    approvedUnits[unitId] =
-                        false;
-
-                    studentChanged = true;
-                    anyChanged = true;
-
-                }
-
-            }
-        );
-
-        if (studentChanged) {
-
-            try {
-
-                await updateDoc(
-                    doc(
-                        db,
-                        "students",
-                        student.id
-                    ),
-                    {
-                        approvedUnits:
-                            approvedUnits
-                    }
-                );
-
-                student.approvedUnits =
-                    approvedUnits;
-
-            }
-
-            catch (error) {
-
-                console.error(
-                    "Automatic expiry update error:",
-                    student.id,
-                    error
-                );
-
-            }
-
-        }
-
-    }
-
-    if (anyChanged) {
-
-        updateStats();
-        renderStudents();
-
-    }
-
-    return anyChanged;
-}
-
-
-function getApprovalDatesForStudent(
-    student
-) {
-
-    return Object.values(
-        student.approvalDates || {}
-    )
-        .map(toDateValue)
-        .filter(Boolean);
-
-}
-
-
-function studentMatchesMonthYear(
-    student,
-    selectedMonth,
-    selectedYear
-) {
-
-    if (
-        selectedMonth === "all" &&
-        selectedYear === "all"
-    ) {
-        return true;
-    }
-
-    const dates =
-        getApprovalDatesForStudent(
-            student
-        );
-
-    return dates.some(
-        (date) => {
-
-            const monthMatches =
-                selectedMonth === "all" ||
-                String(
-                    date.getMonth() + 1
-                ) === selectedMonth;
-
-            const yearMatches =
-                selectedYear === "all" ||
-                String(
-                    date.getFullYear()
-                ) === selectedYear;
-
-            return (
-                monthMatches &&
-                yearMatches
-            );
-
-        }
-    );
-}
-
-
-function populateYearFilter() {
-
-    const years =
-        new Set();
-
-    years.add(
-        new Date().getFullYear()
-    );
-
-    students.forEach(
-        (student) => {
-
-            getApprovalDatesForStudent(
-                student
-            ).forEach(
-                (date) => {
-
-                    years.add(
-                        date.getFullYear()
-                    );
-
-                }
-            );
-
-        }
-    );
-
-    const selected =
-        yearFilter.value;
-
-    yearFilter.innerHTML = `
-        <option value="all">
-            All Years
-        </option>
-        ${
-            Array.from(years)
-                .sort(
-                    (a, b) => b - a
-                )
-                .map(
-                    (year) =>
-                        `<option value="${year}">
-                            ${year}
-                        </option>`
-                )
-                .join("")
-        }
-    `;
-
-    if (
-        selected !== "all" &&
-        Array.from(years)
-            .map(String)
-            .includes(selected)
-    ) {
-
-        yearFilter.value =
-            selected;
-
-    }
 
 }
 
@@ -1882,21 +1492,6 @@ onAuthStateChanged(
 
         await loadStudents();
 
-
-        if (!expiryInterval) {
-
-            expiryInterval =
-                setInterval(
-                    async () => {
-
-                        await expireOverdueUnits();
-
-                    },
-                    EXPIRY_CHECK_INTERVAL
-                );
-
-        }
-
     }
 );
 
@@ -1953,10 +1548,6 @@ async function loadStudents() {
             students.length
         );
 
-
-        populateYearFilter();
-
-        await expireOverdueUnits();
 
         updateStats();
 
@@ -2118,21 +1709,6 @@ function getFilteredStudents() {
 
 
             if (!matchesSearch) {
-
-                return false;
-
-            }
-
-
-            const matchesMonthYear =
-                studentMatchesMonthYear(
-                    student,
-                    monthFilter.value,
-                    yearFilter.value
-                );
-
-
-            if (!matchesMonthYear) {
 
                 return false;
 
@@ -2346,23 +1922,6 @@ const unit12Date =
     approvalDates["unit-12"];
 
 
-    const accessExpiryDates =
-        student.accessExpiryDates ||
-        {};
-
-
-    const unit1Expiry =
-        accessExpiryDates["unit-1"];
-
-
-    const unit11Expiry =
-        accessExpiryDates["unit-11"];
-
-
-    const unit12Expiry =
-        accessExpiryDates["unit-12"];
-
-
     const firstLetter =
         name
             .charAt(0)
@@ -2508,119 +2067,95 @@ const unit12Date =
                    <button
                         class="
                             unit-btn
-                            ${
+                            ${unit1 ? "approved" : ""}
+                        "
+                        onclick="
+                            toggleUnit(
+                                '${escapeHtml(student.id)}',
+                                'unit-1'
+                            )
+                        "
+                    >
+
+                        ${unit1
+                            ? "✓ Unit 1"
+                            : "🔒 Unit 1"
+                        }
+
+                    </button>
+
+
+                    <button
+                        class="
+                            unit-btn
+                            ${unit11 ? "approved" : ""}
+                        "
+                        onclick="
+                            toggleUnit(
+                                '${escapeHtml(student.id)}',
+                                'unit-11'
+                            )
+                        "
+                    >
+
+                        ${unit11
+                            ? "✓ Unit 11"
+                            : "🔒 Unit 11"
+                        }
+
+                    </button>
+
+
+                    <button
+                        class="
+                            unit-btn
+                            ${unit12 ? "approved" : ""}
+                        "
+                        onclick="
+                            toggleUnit(
+                                '${escapeHtml(student.id)}',
+                                'unit-12'
+                            )
+                        "
+                    >
+
+                        ${unit12
+                            ? "✓ Unit 12"
+                            : "🔒 Unit 12"
+                        }
+
+                    </button>
+
+
+                </div>
+
+
+                <div
+    style="
+        margin-top:10px;
+        display:grid;
+        gap:5px;
+    "
+>
+
+
+ <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
             unit1
                 ? "✓ Unit 1 Approved: " +
                   formatApprovalDate(
                       unit1Date
-                  ) +
-                  (
-                      unit1Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit1Expiry
-                            )
-                          : ""
                   )
-                : (
-                    unit1Date
-                        ? "⏰ Unit 1 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit1Date
-                          ) +
-                          (
-                              unit1Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit1Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 1: Not Approved"
-                  )
+                : "🔒 Unit 1: Not Approved"
         }
     </div>
 
     <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit11
-                ? "✓ Unit 11 Approved: " +
-                  formatApprovalDate(
-                      unit11Date
-                  ) +
-                  (
-                      unit11Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit11Expiry
-                            )
-                          : ""
-                  )
-                : (
-                    unit11Date
-                        ? "⏰ Unit 11 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit11Date
-                          ) +
-                          (
-                              unit11Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit11Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 11: Not Approved"
-                  )
-        }
-    </div>
-
-
-    <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit12
-                ? "✓ Unit 12 Approved: " +
-                  formatApprovalDate(
-                      unit12Date
-                  ) +
-                  (
-                      unit12Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit12Expiry
-                            )
-                          : ""
-                  )
-                : (
-                    unit12Date
-                        ? "⏰ Unit 12 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit12Date
-                          ) +
-                          (
-                              unit12Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit12Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 12: Not Approved"
-                  )
-        }
-    </div>
-
-<div
         style="
             font-size:8px;
             color:#68748a;
@@ -2761,18 +2296,25 @@ async function (
         }
 
 
+        // ----------------------------------------------------
+        // APPROVED UNITS
+        // ----------------------------------------------------
+
         const approvedUnits = {
+
             ...(student.approvedUnits || {})
+
         };
 
+
+        // ----------------------------------------------------
+        // APPROVAL DATES
+        // ----------------------------------------------------
 
         const approvalDates = {
+
             ...(student.approvalDates || {})
-        };
 
-
-        const accessExpiryDates = {
-            ...(student.accessExpiryDates || {})
         };
 
 
@@ -2780,140 +2322,41 @@ async function (
             approvedUnits[unitId] === true;
 
 
+        const newStatus =
+            !current;
+
+
         // ----------------------------------------------------
-        // MANUAL DISAPPROVAL
+        // CHANGE APPROVAL STATUS
         // ----------------------------------------------------
 
-        if (current) {
+        approvedUnits[unitId] =
+            newStatus;
 
-            approvedUnits[unitId] =
-                false;
+
+        // ----------------------------------------------------
+        // ON → SAVE CURRENT DATE
+        // OFF → REMOVE CURRENT APPROVAL DATE
+        // ----------------------------------------------------
+
+        if (newStatus) {
+
+            approvalDates[unitId] =
+                Timestamp.now();
+
+        }
+
+        else {
 
             approvalDates[unitId] =
                 null;
 
-            accessExpiryDates[unitId] =
-                null;
-
-
-            await updateDoc(
-
-                doc(
-                    db,
-                    "students",
-                    studentId
-                ),
-
-                {
-                    approvedUnits:
-                        approvedUnits,
-
-                    approvalDates:
-                        approvalDates,
-
-                    accessExpiryDates:
-                        accessExpiryDates
-                }
-
-            );
-
-
-            student.approvedUnits =
-                approvedUnits;
-
-            student.approvalDates =
-                approvalDates;
-
-            student.accessExpiryDates =
-                accessExpiryDates;
-
-
-            updateStats();
-            renderStudents();
-
-
-            showToast(
-                unitId +
-                " approval removed."
-            );
-
-
-            return;
-
         }
 
 
         // ----------------------------------------------------
-        // NEW APPROVAL
+        // UPDATE FIRESTORE
         // ----------------------------------------------------
-
-        const durationInput =
-            prompt(
-                "Enter access duration for " +
-                unitId +
-                ":\n\n" +
-                "6 = 6 Months\n" +
-                "12 = 12 Months\n\n" +
-                "Please enter 6 or 12."
-            );
-
-
-        if (
-            durationInput === null
-        ) {
-
-            return;
-
-        }
-
-
-        const duration =
-            Number(
-                String(
-                    durationInput
-                ).trim()
-            );
-
-
-        if (
-            duration !== 6 &&
-            duration !== 12
-        ) {
-
-            alert(
-                "Invalid duration.\n\n" +
-                "Please enter only 6 or 12."
-            );
-
-            return;
-
-        }
-
-
-        const approvalDate =
-            new Date();
-
-
-        const expiryDate =
-            addAccessMonths(
-                approvalDate,
-                duration
-            );
-
-
-        approvedUnits[unitId] =
-            true;
-
-        approvalDates[unitId] =
-            Timestamp.fromDate(
-                approvalDate
-            );
-
-        accessExpiryDates[unitId] =
-            Timestamp.fromDate(
-                expiryDate
-            );
-
 
         await updateDoc(
 
@@ -2924,18 +2367,21 @@ async function (
             ),
 
             {
+
                 approvedUnits:
                     approvedUnits,
 
                 approvalDates:
-                    approvalDates,
+                    approvalDates
 
-                accessExpiryDates:
-                    accessExpiryDates
             }
 
         );
 
+
+        // ----------------------------------------------------
+        // UPDATE LOCAL DATA
+        // ----------------------------------------------------
 
         student.approvedUnits =
             approvedUnits;
@@ -2943,25 +2389,30 @@ async function (
         student.approvalDates =
             approvalDates;
 
-        student.accessExpiryDates =
-            accessExpiryDates;
 
-
-        populateYearFilter();
+        // ----------------------------------------------------
+        // REFRESH
+        // ----------------------------------------------------
 
         updateStats();
 
         renderStudents();
 
 
+        // ----------------------------------------------------
+        // MESSAGE
+        // ----------------------------------------------------
+
         showToast(
-            unitId +
-            " approved for " +
-            duration +
-            " months. Expires: " +
-            formatDate(
-                expiryDate
-            )
+
+            newStatus
+
+                ? unitId +
+                  " approved successfully."
+
+                : unitId +
+                  " approval removed."
+
         );
 
     }
@@ -3205,22 +2656,6 @@ searchInput.addEventListener(
 // ============================================================
 
 statusFilter.addEventListener(
-    "change",
-    renderStudents
-);
-
-
-// ============================================================
-// MONTH / YEAR FILTERS
-// ============================================================
-
-monthFilter.addEventListener(
-    "change",
-    renderStudents
-);
-
-
-yearFilter.addEventListener(
     "change",
     renderStudents
 );
