@@ -528,6 +528,96 @@ function isCurrentDeviceAllowed() {
 
 
 // ============================================================
+// ACCESS EXPIRY HELPERS
+// ============================================================
+
+function toExpiryDateValue(value) {
+
+    if (!value) return null;
+
+    try {
+
+        if (
+            value &&
+            typeof value.toDate === "function"
+        ) {
+            return value.toDate();
+        }
+
+        if (value instanceof Date) {
+            return value;
+        }
+
+        if (
+            typeof value === "string" ||
+            typeof value === "number"
+        ) {
+
+            const date = new Date(value);
+
+            if (!Number.isNaN(date.getTime())) {
+                return date;
+            }
+        }
+
+    } catch (error) {
+
+        console.error(
+            "❌ Expiry date conversion error:",
+            error
+        );
+
+    }
+
+    return null;
+}
+
+
+function isAccessExpired(value) {
+
+    const expiryDate =
+        toExpiryDateValue(value);
+
+    return (
+        !!expiryDate &&
+        expiryDate.getTime() <= Date.now()
+    );
+}
+
+
+function getExpiredUnitIds(studentData) {
+
+    const expiredUnitIds = [];
+
+    if (!studentData) {
+        return expiredUnitIds;
+    }
+
+    const approvedUnits =
+        studentData.approvedUnits || {};
+
+    const accessExpiryDates =
+        studentData.accessExpiryDates || {};
+
+    Object.keys(accessExpiryDates)
+        .forEach((unitId) => {
+
+            if (
+                approvedUnits[unitId] === true &&
+                isAccessExpired(
+                    accessExpiryDates[unitId]
+                )
+            ) {
+
+                expiredUnitIds.push(unitId);
+            }
+
+        });
+
+    return expiredUnitIds;
+}
+
+// ============================================================
 // CREATE STUDENT ACCOUNT
 // ============================================================
 
@@ -746,6 +836,19 @@ async function createStudentAccount(
                         null
 
                 },
+
+
+                accessExpiryDates: {
+
+    "unit-1":
+        null,
+
+    "unit-11":
+        null,
+
+    "unit-12":
+        null
+},
 
 
 
@@ -977,6 +1080,43 @@ async function loginStudent(
             // not a confirmed device-limit problem.
 
         }
+
+
+        // ----------------------------------------------------
+// CHECK EXPIRED UNIT ACCESS
+// ----------------------------------------------------
+
+if (studentData) {
+
+    const expiredUnitIds =
+        getExpiredUnitIds(
+            studentData
+        );
+
+    if (
+        expiredUnitIds.length > 0
+    ) {
+
+        if (!studentData.approvedUnits) {
+            studentData.approvedUnits = {};
+        }
+
+        expiredUnitIds.forEach(
+            (unitId) => {
+
+                studentData.approvedUnits[
+                    unitId
+                ] = false;
+
+            }
+        );
+
+        console.log(
+            "⏰ Expired unit access:",
+            expiredUnitIds
+        );
+    }
+}
 
 
 
