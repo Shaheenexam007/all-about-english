@@ -644,6 +644,193 @@
         }
 
 
+
+        /* =============================================================
+           PERFORMANCE DASHBOARD — ADDITION ONLY
+           Existing lesson design/features remain unchanged.
+        ============================================================= */
+        .performance-open-btn {
+            flex: 0 0 auto;
+            min-width: 42px;
+            height: 38px;
+            padding: 0 10px;
+            border: 1px solid #d7c09e;
+            border-radius: 10px;
+            background: #fff;
+            color: #78350f;
+            font-family: inherit;
+            font-size: .72rem;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform .15s ease, background .15s ease;
+            white-space: nowrap;
+        }
+        .performance-open-btn:hover { background:#fff8ed; transform:scale(1.03); }
+
+        .performance-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(11,19,43,.62);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1400;
+            padding: 12px;
+        }
+        .performance-overlay.open { display:flex; }
+
+        .performance-modal {
+            width:100%;
+            max-width:700px;
+            max-height:90vh;
+            max-height:90dvh;
+            background:#fff;
+            border:2px solid #e0a96d;
+            border-radius:16px;
+            box-shadow:0 22px 55px rgba(0,0,0,.3);
+            overflow:hidden;
+            display:flex;
+            flex-direction:column;
+            animation:modalPop .22s ease-out;
+        }
+        .performance-header {
+            position:sticky;
+            top:0;
+            z-index:5;
+            padding:12px 15px;
+            background:#fffbf5;
+            border-bottom:2px solid #f3e5ab;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:10px;
+            flex-shrink:0;
+        }
+        .performance-title {
+            color:#78350f;
+            font-size:1rem;
+            font-weight:950;
+            line-height:1.3;
+        }
+        .performance-subtitle {
+            color:#64748b;
+            font-size:.7rem;
+            margin-top:2px;
+        }
+        .performance-close {
+            flex:0 0 auto;
+            border:0;
+            width:30px;
+            height:30px;
+            border-radius:50%;
+            background:#f1f5f9;
+            color:#475569;
+            font-size:1.15rem;
+            cursor:pointer;
+        }
+        .performance-close:hover { background:#ef4444; color:#fff; }
+        .performance-body {
+            padding:13px;
+            overflow-y:auto;
+            -webkit-overflow-scrolling:touch;
+        }
+        .performance-overall {
+            padding:14px;
+            border-radius:14px;
+            background:linear-gradient(135deg,#fff8ed,#fff3dd);
+            border:1px solid #e0a96d;
+            text-align:center;
+            margin-bottom:10px;
+        }
+        .performance-percent {
+            font-size:2rem;
+            font-weight:1000;
+            color:#78350f;
+            line-height:1.1;
+        }
+        .performance-percent-label {
+            margin-top:4px;
+            color:#64748b;
+            font-size:.72rem;
+            font-weight:800;
+        }
+        .performance-progress {
+            height:8px;
+            margin-top:10px;
+            border-radius:99px;
+            overflow:hidden;
+            background:#f1f5f9;
+            border:1px solid #eadbc7;
+        }
+        .performance-progress > i {
+            display:block;
+            height:100%;
+            width:0%;
+            background:linear-gradient(90deg,#d9ad68,#f3d27a);
+            transition:width .25s ease;
+        }
+        .performance-section-title {
+            margin:12px 2px 7px;
+            color:#78350f;
+            font-size:.76rem;
+            font-weight:950;
+            text-transform:uppercase;
+            letter-spacing:.5px;
+        }
+        .performance-grid {
+            display:grid;
+            grid-template-columns:repeat(2,minmax(0,1fr));
+            gap:7px;
+        }
+        .performance-card {
+            padding:10px 11px;
+            border-radius:11px;
+            border:1px solid #eadbc7;
+            background:#fff;
+            box-shadow:0 2px 8px rgba(0,0,0,.035);
+        }
+        .performance-card-label {
+            color:#64748b;
+            font-size:.68rem;
+            font-weight:800;
+        }
+        .performance-card-value {
+            color:#0f172a;
+            font-size:1rem;
+            font-weight:950;
+            margin-top:2px;
+        }
+        .performance-card-value span {
+            color:#64748b;
+            font-size:.68rem;
+            font-weight:700;
+        }
+        .performance-note {
+            margin-top:10px;
+            padding:9px 10px;
+            border-radius:10px;
+            background:#eff6ff;
+            border-left:4px solid #3b82f6;
+            color:#334155;
+            font-size:.72rem;
+            line-height:1.5;
+        }
+        @media(max-width:560px){
+            .performance-open-btn {
+                min-width:38px;
+                height:36px;
+                padding:0 7px;
+                font-size:.64rem;
+            }
+            .performance-modal { max-height:94vh; max-height:94dvh; }
+            .performance-body { padding:10px; }
+            .performance-grid { grid-template-columns:1fr 1fr; gap:6px; }
+            .performance-card { padding:9px; }
+            .performance-percent { font-size:1.8rem; }
+        }
+
         /* =============================================================
            EXAM CORNER & PRACTICE — ADDITION ONLY
            Existing lesson CSS/features remain untouched.
@@ -879,6 +1066,7 @@
                 <input id="lessonSearchInput" type="search" autocomplete="off" placeholder="Search any word or phrase..." aria-label="Search any word or phrase">
                 <button id="searchClearBtn" type="button" onclick="clearLessonSearch()" aria-label="Clear search">✕</button>
             </div>
+            <button class="performance-open-btn" type="button" onclick="openPerformanceDashboard()" aria-label="Open performance dashboard" title="Performance Dashboard">PERFORMANCE</button>
             <button class="notebook-open-btn" type="button" onclick="openNotebook()" aria-label="Open personal notebook" title="My Notebook">+</button>
         </div>
         <div class="search-results" id="searchResults"></div>
@@ -907,6 +1095,72 @@
                 </div>
                 <div class="notebook-hint">Tip: Press Ctrl + Enter to save a note.</div>
                 <div class="notes-list" id="notesList"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- PERFORMANCE DASHBOARD — ADDITION ONLY -->
+    <div class="performance-overlay" id="performanceOverlay" onclick="closePerformanceOnBackdrop(event)">
+        <div class="performance-modal" onclick="event.stopPropagation()">
+            <div class="performance-header">
+                <div>
+                    <div class="performance-title">📊 PERFORMANCE DASHBOARD</div>
+                    <div class="performance-subtitle" id="performanceLessonMeta">Current Lesson</div>
+                </div>
+                <button class="performance-close" type="button" onclick="closePerformanceDashboard()">&times;</button>
+            </div>
+            <div class="performance-body" id="performanceBody">
+                <div class="performance-overall">
+                    <div class="performance-percent" id="performanceOverallPercent">0%</div>
+                    <div class="performance-percent-label">CONTENT COMPLETION</div>
+                    <div class="performance-progress"><i id="performanceOverallBar"></i></div>
+                </div>
+
+                <div class="performance-section-title">Lesson Reading / Touch Progress</div>
+                <div class="performance-grid">
+                    <div class="performance-card">
+                        <div class="performance-card-label">Words / Clickable Units</div>
+                        <div class="performance-card-value" id="performanceWords">0 / 0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">Sentences</div>
+                        <div class="performance-card-value" id="performanceSentences">0 / 0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">Phrases</div>
+                        <div class="performance-card-value" id="performancePhrases">0 / 0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">Clauses</div>
+                        <div class="performance-card-value" id="performanceClauses">0 / 0</div>
+                    </div>
+                </div>
+
+                <div class="performance-section-title">Notebook & Practice</div>
+                <div class="performance-grid">
+                    <div class="performance-card">
+                        <div class="performance-card-label">Notebook Notes</div>
+                        <div class="performance-card-value" id="performanceNotes">0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">MCQs in Notebook</div>
+                        <div class="performance-card-value" id="performanceMCQNotebook">0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">MCQs Attempted</div>
+                        <div class="performance-card-value" id="performanceMCQAttempted">0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">MCQ Correct / Wrong</div>
+                        <div class="performance-card-value" id="performanceMCQResult">0 / 0</div>
+                    </div>
+                </div>
+
+                <div class="performance-note">
+                    এই dashboard এই lesson-এর activity হিসাব করে। Word/sentence/phrase/clause একবার touch করলে সেটি unique completed হিসেবে গণনা হবে। Progress এই device/browser-এ সংরক্ষিত থাকবে।
+                </div>
             </div>
         </div>
     </div>
@@ -1054,6 +1308,11 @@
         ============================================================= */
         const FLOW_CHART_RAW_CONTENT = String.raw`
 TITLE: FLOW CHART PRACTICE
+
+Important flow charts are given below.
+
+
+
 FLOW CHART 1: ENVIRONMENTAL DISASTERS AND THEIR IMPACTS
 
 Environmental Disasters
@@ -1097,11 +1356,15 @@ Addressing ecological devastation
 Protecting vulnerable and disadvantaged people
 ↓
 Creating a future where dignity and rights are respected
+
+
 `;
 
         const SUMMARY_RAW_CONTENT = String.raw`
 TITLE: SUMMARY PRACTICE
+
 Environmental Justice (পরিবেশগত ন্যায়বিচার) emphasizes (গুরুত্ব দেয়) that environmental disasters (পরিবেশগত বিপর্যয়) are not isolated (বিচ্ছিন্ন) events but are interconnected (পরস্পর সংযুক্ত) and often caused (সৃষ্ট) by human activities (মানব কর্মকাণ্ড). These disasters disproportionately (অসমভাবে) affect (প্রভাবিত করে) poor (দরিদ্র) and vulnerable (ঝুঁকিপূর্ণ/অসহায়) people, especially women and children, while the privileged (সুবিধাভোগী) primarily (প্রধানত) enjoy (উপভোগ করে) the benefits (সুবিধা) of excessive (অতিরিক্ত) resource consumption (সম্পদ ভোগ). Environmental Justice connects (সংযুক্ত করে) environmental protection (পরিবেশ সংরক্ষণ) with social justice (সামাজিক ন্যায়বিচার) and human rights (মানবাধিকার). It seeks (চায়) equal (সমান) sharing (বণ্টন) of environmental burdens (পরিবেশগত বোঝা) and benefits and aims (লক্ষ্য রাখে) to create (সৃষ্টি করতে) a future where the dignity (মর্যাদা) and rights (অধিকার) of all people are respected (সম্মানিত).
+
 
 `;
 
@@ -1161,6 +1424,7 @@ Environmental Justice (পরিবেশগত ন্যায়বিচা�
            • Answer and Bangla Meaning may contain multiple lines.
         ============================================================= */
         const QUESTION_ANSWER_RAW_CONTENT = String.raw`
+
 1. Question: What happened at the Union Carbide Chemical Plant in Bhopal on December 2, 1984?
    Answer:
    An explosion at the Union Carbide Chemical Plant in Bhopal killed thousands of people on the night of December 2, 1984.
@@ -1481,7 +1745,6 @@ Environmental Justice (পরিবেশগত ন্যায়বিচা�
     Source Sentence IDs: 17
     Source Keywords: search, fair ways, sharing, environmental burdens and benefits, collectively creating, dignity, rights, respected
 
-
 `;
 
         let qaQuestions = [];
@@ -1625,8 +1888,6 @@ Environmental Justice (পরিবেশগত ন্যায়বিচা�
            4) No automatic MCQ generation is used here.
         ============================================================= */
         const MCQ_RAW_CONTENT = String.raw`
-
-
 1. What does the word 'explosion' mean?
 
 A. Eruption
@@ -3227,6 +3488,7 @@ d. Complex Sentence-জটিল বাক্য
 Correct Answer: D. Complex Sentence
 Explanation: বাক্যটির একটি principal/main clause আছে এবং “in which the dignity and rights of all people are respected” একটি Relative/Adjective Subordinate Clause হিসেবে কাজ করছে। তাই এটি Complex Sentence।
 
+
 `;
 
         const MCQ_NEGATIVE_MARK = 0.25;
@@ -3267,7 +3529,7 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
                 const q=qLine.replace(/^\d+\.\s*/,'').trim();
                 const opts={};
                 lines.forEach(line=>{
-                    const m=line.match(/^([A-D])\.\s*(.*)$/i);
+                    const m=line.match(/^([A-D])\.\s*(.*)$/);
                     if(m) opts[m[1].toUpperCase()]=m[2].trim();
                 });
                 const meaningStart=lines.findIndex(x=>/^Bangla Meaning\s*:/i.test(x));
@@ -3326,7 +3588,11 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
             const unit=document.querySelector('.meta-pill:nth-child(1)'); const lesson=document.querySelector('.meta-pill:nth-child(2)');
             const pageTitle=[unit?.textContent,lesson?.textContent,title?.textContent].filter(Boolean).join(' • ');
             document.getElementById('mcqLessonTitle').textContent=pageTitle||'ALL ABOUT ENGLISH';
-            if(!mcqQuestionsPool.length){ mcqQuestionsPool=mcqParseContent(MCQ_RAW_CONTENT); mcqRounds=mcqMakeFourRounds(mcqQuestionsPool); }
+            if(!mcqQuestionsPool.length){
+                mcqQuestionsPool=mcqParseContent(MCQ_RAW_CONTENT);
+                mcqQuestionsPool=mcqShuffleAnswerPositions(mcqQuestionsPool);
+                mcqRounds=mcqMakeFourRounds(mcqQuestionsPool);
+            }
             loadMCQNotebook(); renderRoundPicker(); startMCQRound(0);
             window.scrollTo({top:0,behavior:'smooth'});
         }
@@ -3335,6 +3601,91 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
             const overlay=document.getElementById('mcqPracticeOverlay'); if(overlay){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');}
             delete document.body.dataset.mcqOpen;
         }
+        /* =============================================================
+           SMART MCQ ANSWER-POSITION SHUFFLING
+           - Shuffles answer positions across the whole question pool.
+           - Keeps A/B/C/D reasonably balanced.
+           - Avoids long runs of the same correct option.
+           - The four rounds are created AFTER this global shuffle, so
+             one round cannot accidentally contain all A's, all B's, etc.
+           - Question text, option text, meanings and explanations stay
+             exactly the same; only their displayed positions change.
+        ============================================================= */
+        function mcqShuffleAnswerPositions(pool){
+            if(!Array.isArray(pool) || pool.length < 2) return pool;
+
+            const letters=['A','B','C','D'];
+            const shuffledPool=pool.slice();
+
+            /*
+               mcqMakeFourRounds() uses round-robin distribution:
+               index 0,4,8,... -> Round 1
+               index 1,5,9,... -> Round 2
+               index 2,6,10,... -> Round 3
+               index 3,7,11,... -> Round 4
+
+               So we generate the target answer position PER ROUND.
+               Each round gets its own random A/B/C/D cycle. This makes
+               the A/B/C/D distribution in every round as balanced as
+               mathematically possible (difference is never more than 1).
+            */
+            const targets=new Array(shuffledPool.length);
+            const roundOrders=[];
+
+            for(let r=0;r<4;r++){
+                const order=letters.slice();
+                for(let i=order.length-1;i>0;i--){
+                    const j=Math.floor(Math.random()*(i+1));
+                    [order[i],order[j]]=[order[j],order[i]];
+                }
+                roundOrders[r]=order;
+            }
+
+            for(let i=0;i<shuffledPool.length;i++){
+                const roundIndex=i%4;
+                const positionInRound=Math.floor(i/4);
+                targets[i]=roundOrders[roundIndex][positionInRound%4];
+            }
+
+            return shuffledPool.map((q,index)=>{
+                const available=letters.filter(l=>q.options && q.options[l]);
+                if(available.length<2) return q;
+
+                const oldCorrect=q.correct;
+                const oldOptions={...q.options};
+                const oldMeanings={...q.meanings};
+                const targetCorrect=targets[index % targets.length];
+
+                /* If the question has fewer than four options, use one of
+                   its real option positions instead of inventing an option. */
+                const target=available.includes(targetCorrect) ? targetCorrect : available[index % available.length];
+                const remaining=available.filter(l=>l!==oldCorrect);
+                const destination=available.filter(l=>l!==target);
+
+                /* Put the original correct answer at the selected target,
+                   then randomly distribute the remaining answers. */
+                const shuffledRemaining=remaining.slice();
+                for(let i=shuffledRemaining.length-1;i>0;i--){
+                    const j=Math.floor(Math.random()*(i+1));
+                    [shuffledRemaining[i],shuffledRemaining[j]]=[shuffledRemaining[j],shuffledRemaining[i]];
+                }
+
+                const newOptions={};
+                const newMeanings={};
+                newOptions[target]=oldOptions[oldCorrect];
+                if(oldMeanings[oldCorrect]!==undefined) newMeanings[target]=oldMeanings[oldCorrect];
+
+                destination.forEach((dest,i)=>{
+                    const source=shuffledRemaining[i];
+                    if(source===undefined) return;
+                    newOptions[dest]=oldOptions[source];
+                    if(oldMeanings[source]!==undefined) newMeanings[dest]=oldMeanings[source];
+                });
+
+                return {...q, options:newOptions, meanings:newMeanings, correct:target};
+            });
+        }
+
         function mcqMakeFourRounds(pool){
             const rounds=[[],[],[],[]]; pool.forEach((q,i)=>rounds[i%4].push(q)); return rounds;
         }
@@ -3375,6 +3726,7 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
             if(mcqRoundAnswers[qid])return;
             const q=mcqQuestionsPool.find(x=>x.id===qid)||mcqRounds[mcqCurrentRound].find(x=>x.id===qid); if(!q)return;
             mcqRoundAnswers[qid]=letter; mcqSession.answered++;
+            performanceRecordMCQ(qid, letter===q.correct);
             const optionWrap=button.closest('.mcq-options'); optionWrap.querySelectorAll('.mcq-option').forEach(b=>{b.classList.add('locked');b.disabled=true;});
             const correctBtn=[...optionWrap.querySelectorAll('.mcq-option')].find(b=>b.querySelector('.mcq-letter')?.textContent===q.correct);
             const isCorrect=letter===q.correct;
@@ -3452,6 +3804,7 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
 
         /* EDITABLE AREA: Every sentence contains its own Words, Phrases, and Clauses Data */
         const passageSentencesData = [
+
   {
     "id": 1,
     "fullText": "When an ‘explosion’ in the Union Carbide Chemical Plant in Bhopal, India, ‘killed’ thousands of people on the night of December 2, 1984, it was ‘regarded’ as a ‘terrible’ but ‘singular’ ‘disaster’.",
@@ -6622,6 +6975,7 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
       }
     ]
   }
+
 ];
 
         /* Helper function to find word data dynamically across sentences */
@@ -6803,6 +7157,7 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
         ------------------------------------------------------------- */
         function openWordModal(wordOrPhrase) {
             playClickSound();
+            performanceRecordWord(wordOrPhrase);
             const modal = document.getElementById('wordModal');
             document.getElementById('popWordTitle').innerText = wordOrPhrase.toUpperCase();
             
@@ -6873,6 +7228,7 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
 
         function openSentenceModal(sentenceId) {
             playClickSound();
+            performanceRecordSentence(sentenceId);
             currentActiveSentenceObj = passageSentencesData.find(s => s.id === sentenceId);
             const modal = document.getElementById('sentenceModal');
 
@@ -6944,6 +7300,7 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
 
         function highlightExactTargetText(targetText, itemType) {
             playClickSound();
+            performanceRecordStructure(targetText, itemType);
             
             const meaningBox = document.getElementById('stickySentenceMeaning');
             const activeBar = document.getElementById('activeSelectionBar');
@@ -7071,6 +7428,185 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
             input.focus();
         }
 
+
+        /* =============================================================
+           PERFORMANCE DASHBOARD — PERSISTENT LESSON ACTIVITY
+           Addition only. Existing lesson functions remain intact.
+        ============================================================= */
+        const PERFORMANCE_STORAGE_PREFIX = 'aae_performance_v1::';
+        let performanceState = null;
+
+        function performanceLessonKey() {
+            const meta = practiceMetaText();
+            const raw = [location.pathname, meta.unit, meta.lesson, meta.title, meta.page].join('::');
+            try { return PERFORMANCE_STORAGE_PREFIX + btoa(unescape(encodeURIComponent(raw))).replace(/[^a-zA-Z0-9]/g,'').slice(0,80); }
+            catch(e) { return PERFORMANCE_STORAGE_PREFIX + encodeURIComponent(raw); }
+        }
+
+        function performanceEmptyState() {
+            return {
+                words: [],
+                sentences: [],
+                phrases: [],
+                clauses: [],
+                mcqAnswered: [],
+                mcqCorrect: 0,
+                mcqWrong: 0
+            };
+        }
+
+        function loadPerformanceState() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(performanceLessonKey()) || 'null');
+                performanceState = Object.assign(performanceEmptyState(), saved || {});
+                ['words','sentences','phrases','clauses','mcqAnswered'].forEach(k => {
+                    if (!Array.isArray(performanceState[k])) performanceState[k] = [];
+                });
+                performanceState.mcqCorrect = Number(performanceState.mcqCorrect) || 0;
+                performanceState.mcqWrong = Number(performanceState.mcqWrong) || 0;
+            } catch(e) {
+                performanceState = performanceEmptyState();
+            }
+        }
+
+        function savePerformanceState() {
+            if (!performanceState) loadPerformanceState();
+            try { localStorage.setItem(performanceLessonKey(), JSON.stringify(performanceState)); } catch(e) {}
+        }
+
+        function performanceUniqueAdd(listName, key) {
+            if (!performanceState) loadPerformanceState();
+            const value = String(key ?? '').trim().toLowerCase();
+            if (!value) return;
+            if (!performanceState[listName].includes(value)) {
+                performanceState[listName].push(value);
+                savePerformanceState();
+            }
+        }
+
+        function performanceGetCounts() {
+            const wordSet = new Set();
+            const phraseSet = new Set();
+            const clauseSet = new Set();
+            const sentenceSet = new Set();
+
+            passageSentencesData.forEach(s => {
+                sentenceSet.add(String(s.id));
+                if (s.wordsData) Object.keys(s.wordsData).forEach(w => wordSet.add(String(w).trim().toLowerCase()));
+                (s.phrases || []).forEach(p => phraseSet.add(String(p.text || '').trim().toLowerCase()));
+                (s.clauses || []).forEach(c => clauseSet.add(String(c.text || '').trim().toLowerCase()));
+            });
+
+            return {
+                wordsTotal: wordSet.size,
+                sentencesTotal: sentenceSet.size,
+                phrasesTotal: phraseSet.size,
+                clausesTotal: clauseSet.size
+            };
+        }
+
+        function performanceNoteCount() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(NOTEBOOK_STORAGE_KEY) || '[]');
+                return Array.isArray(saved) ? saved.length : 0;
+            } catch(e) { return 0; }
+        }
+
+        function performanceMCQNotebookCount() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(mcqStorageKey()) || '[]');
+                return Array.isArray(saved) ? saved.length : 0;
+            } catch(e) { return 0; }
+        }
+
+        function performanceRecordWord(wordOrPhrase) {
+            performanceUniqueAdd('words', wordOrPhrase);
+        }
+
+        function performanceRecordSentence(sentenceId) {
+            performanceUniqueAdd('sentences', sentenceId);
+        }
+
+        function performanceRecordStructure(itemText, itemType) {
+            const target = String(itemText || '').trim().toLowerCase();
+            if (!target) return;
+            const type = String(itemType || '').toLowerCase();
+            if (type.includes('clause')) performanceUniqueAdd('clauses', target);
+            else performanceUniqueAdd('phrases', target);
+        }
+
+        function performanceRecordMCQ(qid, isCorrect) {
+            if (!performanceState) loadPerformanceState();
+            const id = String(qid || '');
+            if (!id) return;
+            if (!performanceState.mcqAnswered.includes(id)) {
+                performanceState.mcqAnswered.push(id);
+                if (isCorrect) performanceState.mcqCorrect++;
+                else performanceState.mcqWrong++;
+                savePerformanceState();
+            }
+        }
+
+        function performanceUpdateDashboard() {
+            if (!performanceState) loadPerformanceState();
+            const totals = performanceGetCounts();
+
+            const wordDone = Math.min(performanceState.words.length, totals.wordsTotal);
+            const sentenceDone = Math.min(performanceState.sentences.length, totals.sentencesTotal);
+            const phraseDone = Math.min(performanceState.phrases.length, totals.phrasesTotal);
+            const clauseDone = Math.min(performanceState.clauses.length, totals.clausesTotal);
+
+            const totalItems = totals.wordsTotal + totals.sentencesTotal + totals.phrasesTotal + totals.clausesTotal;
+            const completedItems = wordDone + sentenceDone + phraseDone + clauseDone;
+            const overall = totalItems ? Math.round((completedItems / totalItems) * 100) : 0;
+
+            const set = (id, value) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = value;
+            };
+
+            set('performanceOverallPercent', overall + '%');
+            set('performanceWords', wordDone + ' / ' + totals.wordsTotal);
+            set('performanceSentences', sentenceDone + ' / ' + totals.sentencesTotal);
+            set('performancePhrases', phraseDone + ' / ' + totals.phrasesTotal);
+            set('performanceClauses', clauseDone + ' / ' + totals.clausesTotal);
+            set('performanceNotes', performanceNoteCount());
+            set('performanceMCQNotebook', performanceMCQNotebookCount());
+            set('performanceMCQAttempted', performanceState.mcqAnswered.length);
+            set('performanceMCQResult', performanceState.mcqCorrect + ' / ' + performanceState.mcqWrong);
+
+            const bar = document.getElementById('performanceOverallBar');
+            if (bar) bar.style.width = overall + '%';
+
+            const meta = practiceMetaText();
+            const metaText = [meta.unit, meta.lesson, meta.title, meta.page].filter(Boolean).join(' • ');
+            set('performanceLessonMeta', metaText || 'Current Lesson');
+        }
+
+        function openPerformanceDashboard() {
+            try { playClickSound(); } catch(e) {}
+            loadPerformanceState();
+            performanceUpdateDashboard();
+            const overlay = document.getElementById('performanceOverlay');
+            if (overlay) {
+                overlay.classList.add('open');
+                overlay.setAttribute('aria-hidden','false');
+            }
+        }
+
+        function closePerformanceDashboard() {
+            try { playClickSound(); } catch(e) {}
+            const overlay = document.getElementById('performanceOverlay');
+            if (overlay) {
+                overlay.classList.remove('open');
+                overlay.setAttribute('aria-hidden','true');
+            }
+        }
+
+        function closePerformanceOnBackdrop(e) {
+            if (e.target.id === 'performanceOverlay') closePerformanceDashboard();
+        }
+
         /* =============================================================
            7. PERSONAL NOTEBOOK — localStorage persistence
         ============================================================= */
@@ -7127,6 +7663,7 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
             if (!text) { input.focus(); return; }
             notebookNotes.unshift({ text:text, createdAt:Date.now() });
             saveNotebookNotes();
+            if (document.getElementById('performanceOverlay')?.classList.contains('open')) performanceUpdateDashboard();
             input.value='';
             renderNotebookNotes();
             input.focus();
@@ -7137,6 +7674,7 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
             notebookNotes.splice(index,1);
             saveNotebookNotes();
             renderNotebookNotes();
+            if (document.getElementById('performanceOverlay')?.classList.contains('open')) performanceUpdateDashboard();
         }
 
         function clearAllNotebookNotes() {
@@ -7145,6 +7683,7 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
             notebookNotes=[];
             saveNotebookNotes();
             renderNotebookNotes();
+            if (document.getElementById('performanceOverlay')?.classList.contains('open')) performanceUpdateDashboard();
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -7153,6 +7692,9 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
             if (searchInput) searchInput.addEventListener('keydown', function(e){ if(e.key==='Escape') clearLessonSearch(); });
             const noteInput=document.getElementById('noteInput');
             if(noteInput) noteInput.addEventListener('keydown', function(e){ if(e.ctrlKey && e.key==='Enter'){ e.preventDefault(); addNotebookNote(); } });
+            document.addEventListener('keydown', function(e){
+                if(e.key === 'Escape' && document.getElementById('performanceOverlay')?.classList.contains('open')) closePerformanceDashboard();
+            });
         });
 
         /* Security Key Blockers — inputs remain fully usable */
@@ -7164,12 +7706,14 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
         });
 
         window.onload = function() {
+            loadPerformanceState();
             renderPassage();
             loadNotebookNotes();
             renderNotebookNotes();
         };
     </script>
-     <!-- =========================================================
+
+<!-- =========================================================
      ALL ABOUT ENGLISH
      UNIT ACCESS SECURITY
      ========================================================= -->
@@ -7195,5 +7739,6 @@ Explanation: বাক্যটির একটি principal/main clause আছ�
     }
 
 </script>
+
 </body>
 </html>
