@@ -644,6 +644,193 @@
         }
 
 
+
+        /* =============================================================
+           PERFORMANCE DASHBOARD — ADDITION ONLY
+           Existing lesson design/features remain unchanged.
+        ============================================================= */
+        .performance-open-btn {
+            flex: 0 0 auto;
+            min-width: 42px;
+            height: 38px;
+            padding: 0 10px;
+            border: 1px solid #d7c09e;
+            border-radius: 10px;
+            background: #fff;
+            color: #78350f;
+            font-family: inherit;
+            font-size: .72rem;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform .15s ease, background .15s ease;
+            white-space: nowrap;
+        }
+        .performance-open-btn:hover { background:#fff8ed; transform:scale(1.03); }
+
+        .performance-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(11,19,43,.62);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1400;
+            padding: 12px;
+        }
+        .performance-overlay.open { display:flex; }
+
+        .performance-modal {
+            width:100%;
+            max-width:700px;
+            max-height:90vh;
+            max-height:90dvh;
+            background:#fff;
+            border:2px solid #e0a96d;
+            border-radius:16px;
+            box-shadow:0 22px 55px rgba(0,0,0,.3);
+            overflow:hidden;
+            display:flex;
+            flex-direction:column;
+            animation:modalPop .22s ease-out;
+        }
+        .performance-header {
+            position:sticky;
+            top:0;
+            z-index:5;
+            padding:12px 15px;
+            background:#fffbf5;
+            border-bottom:2px solid #f3e5ab;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:10px;
+            flex-shrink:0;
+        }
+        .performance-title {
+            color:#78350f;
+            font-size:1rem;
+            font-weight:950;
+            line-height:1.3;
+        }
+        .performance-subtitle {
+            color:#64748b;
+            font-size:.7rem;
+            margin-top:2px;
+        }
+        .performance-close {
+            flex:0 0 auto;
+            border:0;
+            width:30px;
+            height:30px;
+            border-radius:50%;
+            background:#f1f5f9;
+            color:#475569;
+            font-size:1.15rem;
+            cursor:pointer;
+        }
+        .performance-close:hover { background:#ef4444; color:#fff; }
+        .performance-body {
+            padding:13px;
+            overflow-y:auto;
+            -webkit-overflow-scrolling:touch;
+        }
+        .performance-overall {
+            padding:14px;
+            border-radius:14px;
+            background:linear-gradient(135deg,#fff8ed,#fff3dd);
+            border:1px solid #e0a96d;
+            text-align:center;
+            margin-bottom:10px;
+        }
+        .performance-percent {
+            font-size:2rem;
+            font-weight:1000;
+            color:#78350f;
+            line-height:1.1;
+        }
+        .performance-percent-label {
+            margin-top:4px;
+            color:#64748b;
+            font-size:.72rem;
+            font-weight:800;
+        }
+        .performance-progress {
+            height:8px;
+            margin-top:10px;
+            border-radius:99px;
+            overflow:hidden;
+            background:#f1f5f9;
+            border:1px solid #eadbc7;
+        }
+        .performance-progress > i {
+            display:block;
+            height:100%;
+            width:0%;
+            background:linear-gradient(90deg,#d9ad68,#f3d27a);
+            transition:width .25s ease;
+        }
+        .performance-section-title {
+            margin:12px 2px 7px;
+            color:#78350f;
+            font-size:.76rem;
+            font-weight:950;
+            text-transform:uppercase;
+            letter-spacing:.5px;
+        }
+        .performance-grid {
+            display:grid;
+            grid-template-columns:repeat(2,minmax(0,1fr));
+            gap:7px;
+        }
+        .performance-card {
+            padding:10px 11px;
+            border-radius:11px;
+            border:1px solid #eadbc7;
+            background:#fff;
+            box-shadow:0 2px 8px rgba(0,0,0,.035);
+        }
+        .performance-card-label {
+            color:#64748b;
+            font-size:.68rem;
+            font-weight:800;
+        }
+        .performance-card-value {
+            color:#0f172a;
+            font-size:1rem;
+            font-weight:950;
+            margin-top:2px;
+        }
+        .performance-card-value span {
+            color:#64748b;
+            font-size:.68rem;
+            font-weight:700;
+        }
+        .performance-note {
+            margin-top:10px;
+            padding:9px 10px;
+            border-radius:10px;
+            background:#eff6ff;
+            border-left:4px solid #3b82f6;
+            color:#334155;
+            font-size:.72rem;
+            line-height:1.5;
+        }
+        @media(max-width:560px){
+            .performance-open-btn {
+                min-width:38px;
+                height:36px;
+                padding:0 7px;
+                font-size:.64rem;
+            }
+            .performance-modal { max-height:94vh; max-height:94dvh; }
+            .performance-body { padding:10px; }
+            .performance-grid { grid-template-columns:1fr 1fr; gap:6px; }
+            .performance-card { padding:9px; }
+            .performance-percent { font-size:1.8rem; }
+        }
+
         /* =============================================================
            EXAM CORNER & PRACTICE — ADDITION ONLY
            Existing lesson CSS/features remain untouched.
@@ -871,7 +1058,7 @@
     <div class="meta-sticky-box">
         <span class="meta-pill">UNIT NO: 12</span>
         <span class="meta-pill">LESSON NO: 05</span>
-        <span class="meta-pill">TITLE: THE LIMITS OF THE SCIETIFIC METHODS</span>
+        <span class="meta-pill">TITLE: THE LIMITS OF THE SCIENTIFIC METHODS</span>
         <span class="meta-pill">PAGE NO: 235</span>
         <div class="lesson-tools-row">
             <div class="lesson-search-wrap">
@@ -879,6 +1066,7 @@
                 <input id="lessonSearchInput" type="search" autocomplete="off" placeholder="Search any word or phrase..." aria-label="Search any word or phrase">
                 <button id="searchClearBtn" type="button" onclick="clearLessonSearch()" aria-label="Clear search">✕</button>
             </div>
+            <button class="performance-open-btn" type="button" onclick="openPerformanceDashboard()" aria-label="Open performance dashboard" title="Performance Dashboard">PERFORMANCE</button>
             <button class="notebook-open-btn" type="button" onclick="openNotebook()" aria-label="Open personal notebook" title="My Notebook">+</button>
         </div>
         <div class="search-results" id="searchResults"></div>
@@ -907,6 +1095,72 @@
                 </div>
                 <div class="notebook-hint">Tip: Press Ctrl + Enter to save a note.</div>
                 <div class="notes-list" id="notesList"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- PERFORMANCE DASHBOARD — ADDITION ONLY -->
+    <div class="performance-overlay" id="performanceOverlay" onclick="closePerformanceOnBackdrop(event)">
+        <div class="performance-modal" onclick="event.stopPropagation()">
+            <div class="performance-header">
+                <div>
+                    <div class="performance-title">📊 PERFORMANCE DASHBOARD</div>
+                    <div class="performance-subtitle" id="performanceLessonMeta">Current Lesson</div>
+                </div>
+                <button class="performance-close" type="button" onclick="closePerformanceDashboard()">&times;</button>
+            </div>
+            <div class="performance-body" id="performanceBody">
+                <div class="performance-overall">
+                    <div class="performance-percent" id="performanceOverallPercent">0%</div>
+                    <div class="performance-percent-label">CONTENT COMPLETION</div>
+                    <div class="performance-progress"><i id="performanceOverallBar"></i></div>
+                </div>
+
+                <div class="performance-section-title">Lesson Reading / Touch Progress</div>
+                <div class="performance-grid">
+                    <div class="performance-card">
+                        <div class="performance-card-label">Words / Clickable Units</div>
+                        <div class="performance-card-value" id="performanceWords">0 / 0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">Sentences</div>
+                        <div class="performance-card-value" id="performanceSentences">0 / 0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">Phrases</div>
+                        <div class="performance-card-value" id="performancePhrases">0 / 0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">Clauses</div>
+                        <div class="performance-card-value" id="performanceClauses">0 / 0</div>
+                    </div>
+                </div>
+
+                <div class="performance-section-title">Notebook & Practice</div>
+                <div class="performance-grid">
+                    <div class="performance-card">
+                        <div class="performance-card-label">Notebook Notes</div>
+                        <div class="performance-card-value" id="performanceNotes">0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">MCQs in Notebook</div>
+                        <div class="performance-card-value" id="performanceMCQNotebook">0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">MCQs Attempted</div>
+                        <div class="performance-card-value" id="performanceMCQAttempted">0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">MCQ Correct / Wrong</div>
+                        <div class="performance-card-value" id="performanceMCQResult">0 / 0</div>
+                    </div>
+                </div>
+
+                <div class="performance-note">
+                    এই dashboard এই lesson-এর activity হিসাব করে। Word/sentence/phrase/clause একবার touch করলে সেটি unique completed হিসেবে গণনা হবে। Progress এই device/browser-এ সংরক্ষিত থাকবে।
+                </div>
             </div>
         </div>
     </div>
@@ -1055,38 +1309,51 @@
         const FLOW_CHART_RAW_CONTENT = String.raw`
 TITLE: FLOW CHART PRACTICE
 
+Important flow charts are given below.
+
+
 Flow Chart 1: Fukuoka’s Life and Career
 
 Masanobu Fukuoka’s Life and Career
 ↓
-Born on the Japanese island of Shikoku as the eldest son of a rice farmer and local mayor — Source ID: 1
+Born on the Japanese island of Shikoku as the eldest son of a rice farmer and local mayor 
 ↓
-Studied plant diseases and worked as a produce inspector — Source ID: 2
+Studied plant diseases and worked as a produce inspector 
 ↓
-Returned to his village in 1938 to focus on natural farming — Source ID: 2
+Returned to his village in 1938 to focus on natural farming 
 ↓
-Worked as a food production researcher during World War II — Source ID: 3
+Worked as a food production researcher during World War II 
 ↓
-Wrote The One-Straw Revolution in 1975 — Source ID: 4
+Wrote The One-Straw Revolution in 1975 
 ↓
-Received the Magsaysay Award for Public Service in 1988 — Source ID: 7
+Received the Magsaysay Award for Public Service in 1988 
+Source IDs: 1, 2, 3, 4, 7
+
+
+
+
 
 
 Flow Chart 2: Problems of Modern Scientific Agriculture
 
 Problems of Modern Scientific Agriculture
 ↓
-Modern scientific agriculture has no such vision — Source ID: 14
+Modern scientific agriculture has no such vision 
 ↓
-Research wanders about aimlessly, with each researcher seeing just one part of the infinite array — Source ID: 15
+Research wanders about aimlessly, with each researcher seeing just one part of the infinite array 
 ↓
-Natural factors change from place to place and from year to year — Source ID: 17
+Natural factors change from place to place and from year to year 
 ↓
-Farmers must grow their crops differently each year according to variations in natural factors — Source ID: 18
+Farmers must grow their crops differently each year according to variations in natural factors 
 ↓
-Modern research divides nature into tiny pieces and conducts impractical tests — Source ID: 20
+Modern research divides nature into tiny pieces and conducts impractical tests 
 ↓
-Research results are arranged for the convenience of research, not according to the needs of the farmer — Source ID: 21
+Research results are arranged for the convenience of research, not according to the needs of the farmer 
+Source IDs: 14, 15, 17, 18, 20, 21
+
+
+
+
 
 
 Flow Chart 3: Natural Farming and Soil Restoration
@@ -1104,12 +1371,17 @@ The life of the soil is destroyed and crops become dependent on nutrients added 
 Natural fertility has been destroyed, so rescue is necessary — Source ID: 41
 ↓
 Natural farming can effectively rehabilitate damaged fields — Source ID: 43
+Source IDs: 37, 38, 39, 41, 43
+
+
+
 `;
 
         const SUMMARY_RAW_CONTENT = String.raw`
 TITLE: SUMMARY PRACTICE
 
 Masanobu Fukuoka, a Japanese natural farming practitioner (প্রাকৃতিক কৃষিচর্চাকারী) and philosopher (দার্শনিক), criticized (সমালোচনা করেছিলেন) modern scientific agriculture (আধুনিক বৈজ্ঞানিক কৃষি) for ignoring (উপেক্ষা করার জন্য) the complex (জটিল) and changing nature (পরিবর্তনশীল প্রকৃতি) of natural factors (প্রাকৃতিক উপাদান). He believed (বিশ্বাস করতেন) that excessive (অতিরিক্ত) scientific farming practices (বৈজ্ঞানিক কৃষিপদ্ধতি), including (অন্তর্ভুক্ত করে) the use of chemicals (রাসায়নিক পদার্থ) and insecticides (কীটনাশক), destroy (ধ্বংস করে) soil fertility (মাটির উর্বরতা) and make crops (ফসল) dependent (নির্ভরশীল) on artificial nutrients (কৃত্রিম পুষ্টি উপাদান). He advocated (সমর্থন করেছিলেন) natural farming methods (প্রাকৃতিক কৃষিপদ্ধতি) such as spreading (ছড়িয়ে দেওয়া) straw (খড়), growing (চাষ করা) clover (ক্লোভার), and returning organic residues (জৈব অবশিষ্টাংশ ফিরিয়ে দেওয়া) to the soil. According to Fukuoka (ফুকুওকার মতে), these methods (পদ্ধতিগুলো) can restore (পুনরুদ্ধার করতে পারে) soil fertility (মাটির উর্বরতা) and rehabilitate (পুনরুদ্ধার করতে পারে) damaged fields (ক্ষতিগ্রস্ত জমি) effectively (কার্যকরভাবে).
+
 
 `;
 
@@ -1169,6 +1441,7 @@ Masanobu Fukuoka, a Japanese natural farming practitioner (প্রাকৃত
            • Answer and Bangla Meaning may contain multiple lines.
         ============================================================= */
         const QUESTION_ANSWER_RAW_CONTENT = String.raw`
+
 1. Question: Where was Masanobu Fukuoka born?
    Answer:
    Masanobu Fukuoka was born on the Japanese island of Shikoku.
@@ -1489,7 +1762,6 @@ Masanobu Fukuoka, a Japanese natural farming practitioner (প্রাকৃত
     Source Sentence IDs: 41
     Source Keywords: rescue, necessary, natural fertility, destroyed
 
-
 `;
 
         let qaQuestions = [];
@@ -1633,6 +1905,7 @@ Masanobu Fukuoka, a Japanese natural farming practitioner (প্রাকৃত
            4) No automatic MCQ generation is used here.
         ============================================================= */
         const MCQ_RAW_CONTENT = String.raw`
+
 1. What does the word 'results' mean?
 
 A. Outcomes
@@ -3673,6 +3946,7 @@ Correct Answer: D. Adjective/relative clause
 
 Explanation: “that have already been damaged by cultivation” সরাসরি “fields”-কে modify করছে এবং “that” relative pronoun হিসেবে কাজ করছে; তাই এটি Adjective/Relative Clause।
 
+
 `;
 
         const MCQ_NEGATIVE_MARK = 0.25;
@@ -3713,7 +3987,7 @@ Explanation: “that have already been damaged by cultivation” সরাসর
                 const q=qLine.replace(/^\d+\.\s*/,'').trim();
                 const opts={};
                 lines.forEach(line=>{
-                    const m=line.match(/^([A-D])\.\s*(.*)$/i);
+                    const m=line.match(/^([A-D])\.\s*(.*)$/);
                     if(m) opts[m[1].toUpperCase()]=m[2].trim();
                 });
                 const meaningStart=lines.findIndex(x=>/^Bangla Meaning\s*:/i.test(x));
@@ -3910,6 +4184,7 @@ Explanation: “that have already been damaged by cultivation” সরাসর
             if(mcqRoundAnswers[qid])return;
             const q=mcqQuestionsPool.find(x=>x.id===qid)||mcqRounds[mcqCurrentRound].find(x=>x.id===qid); if(!q)return;
             mcqRoundAnswers[qid]=letter; mcqSession.answered++;
+            performanceRecordMCQ(qid, letter===q.correct);
             const optionWrap=button.closest('.mcq-options'); optionWrap.querySelectorAll('.mcq-option').forEach(b=>{b.classList.add('locked');b.disabled=true;});
             const correctBtn=[...optionWrap.querySelectorAll('.mcq-option')].find(b=>b.querySelector('.mcq-letter')?.textContent===q.correct);
             const isCorrect=letter===q.correct;
@@ -3987,8 +4262,8 @@ Explanation: “that have already been damaged by cultivation” সরাসর
 
         /* EDITABLE AREA: Every sentence contains its own Words, Phrases, and Clauses Data */
         const passageSentencesData = [
- 
-  {
+
+    {
     "id": 1,
     "fullText": "Masanobu Fukuoka (1913-2008) was ‘born’ on the Japanese island of Shikoku, the ‘eldest’ son of a rice farmer and ‘local’ mayor.",
     "cleanText": "Masanobu Fukuoka (1913-2008) was born on the Japanese island of Shikoku, the eldest son of a rice farmer and local mayor.",
@@ -5968,6 +6243,7 @@ Explanation: “that have already been damaged by cultivation” সরাসর
         ------------------------------------------------------------- */
         function openWordModal(wordOrPhrase) {
             playClickSound();
+            performanceRecordWord(wordOrPhrase);
             const modal = document.getElementById('wordModal');
             document.getElementById('popWordTitle').innerText = wordOrPhrase.toUpperCase();
             
@@ -6038,6 +6314,7 @@ Explanation: “that have already been damaged by cultivation” সরাসর
 
         function openSentenceModal(sentenceId) {
             playClickSound();
+            performanceRecordSentence(sentenceId);
             currentActiveSentenceObj = passageSentencesData.find(s => s.id === sentenceId);
             const modal = document.getElementById('sentenceModal');
 
@@ -6109,6 +6386,7 @@ Explanation: “that have already been damaged by cultivation” সরাসর
 
         function highlightExactTargetText(targetText, itemType) {
             playClickSound();
+            performanceRecordStructure(targetText, itemType);
             
             const meaningBox = document.getElementById('stickySentenceMeaning');
             const activeBar = document.getElementById('activeSelectionBar');
@@ -6236,6 +6514,185 @@ Explanation: “that have already been damaged by cultivation” সরাসর
             input.focus();
         }
 
+
+        /* =============================================================
+           PERFORMANCE DASHBOARD — PERSISTENT LESSON ACTIVITY
+           Addition only. Existing lesson functions remain intact.
+        ============================================================= */
+        const PERFORMANCE_STORAGE_PREFIX = 'aae_performance_v1::';
+        let performanceState = null;
+
+        function performanceLessonKey() {
+            const meta = practiceMetaText();
+            const raw = [location.pathname, meta.unit, meta.lesson, meta.title, meta.page].join('::');
+            try { return PERFORMANCE_STORAGE_PREFIX + btoa(unescape(encodeURIComponent(raw))).replace(/[^a-zA-Z0-9]/g,'').slice(0,80); }
+            catch(e) { return PERFORMANCE_STORAGE_PREFIX + encodeURIComponent(raw); }
+        }
+
+        function performanceEmptyState() {
+            return {
+                words: [],
+                sentences: [],
+                phrases: [],
+                clauses: [],
+                mcqAnswered: [],
+                mcqCorrect: 0,
+                mcqWrong: 0
+            };
+        }
+
+        function loadPerformanceState() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(performanceLessonKey()) || 'null');
+                performanceState = Object.assign(performanceEmptyState(), saved || {});
+                ['words','sentences','phrases','clauses','mcqAnswered'].forEach(k => {
+                    if (!Array.isArray(performanceState[k])) performanceState[k] = [];
+                });
+                performanceState.mcqCorrect = Number(performanceState.mcqCorrect) || 0;
+                performanceState.mcqWrong = Number(performanceState.mcqWrong) || 0;
+            } catch(e) {
+                performanceState = performanceEmptyState();
+            }
+        }
+
+        function savePerformanceState() {
+            if (!performanceState) loadPerformanceState();
+            try { localStorage.setItem(performanceLessonKey(), JSON.stringify(performanceState)); } catch(e) {}
+        }
+
+        function performanceUniqueAdd(listName, key) {
+            if (!performanceState) loadPerformanceState();
+            const value = String(key ?? '').trim().toLowerCase();
+            if (!value) return;
+            if (!performanceState[listName].includes(value)) {
+                performanceState[listName].push(value);
+                savePerformanceState();
+            }
+        }
+
+        function performanceGetCounts() {
+            const wordSet = new Set();
+            const phraseSet = new Set();
+            const clauseSet = new Set();
+            const sentenceSet = new Set();
+
+            passageSentencesData.forEach(s => {
+                sentenceSet.add(String(s.id));
+                if (s.wordsData) Object.keys(s.wordsData).forEach(w => wordSet.add(String(w).trim().toLowerCase()));
+                (s.phrases || []).forEach(p => phraseSet.add(String(p.text || '').trim().toLowerCase()));
+                (s.clauses || []).forEach(c => clauseSet.add(String(c.text || '').trim().toLowerCase()));
+            });
+
+            return {
+                wordsTotal: wordSet.size,
+                sentencesTotal: sentenceSet.size,
+                phrasesTotal: phraseSet.size,
+                clausesTotal: clauseSet.size
+            };
+        }
+
+        function performanceNoteCount() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(NOTEBOOK_STORAGE_KEY) || '[]');
+                return Array.isArray(saved) ? saved.length : 0;
+            } catch(e) { return 0; }
+        }
+
+        function performanceMCQNotebookCount() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(mcqStorageKey()) || '[]');
+                return Array.isArray(saved) ? saved.length : 0;
+            } catch(e) { return 0; }
+        }
+
+        function performanceRecordWord(wordOrPhrase) {
+            performanceUniqueAdd('words', wordOrPhrase);
+        }
+
+        function performanceRecordSentence(sentenceId) {
+            performanceUniqueAdd('sentences', sentenceId);
+        }
+
+        function performanceRecordStructure(itemText, itemType) {
+            const target = String(itemText || '').trim().toLowerCase();
+            if (!target) return;
+            const type = String(itemType || '').toLowerCase();
+            if (type.includes('clause')) performanceUniqueAdd('clauses', target);
+            else performanceUniqueAdd('phrases', target);
+        }
+
+        function performanceRecordMCQ(qid, isCorrect) {
+            if (!performanceState) loadPerformanceState();
+            const id = String(qid || '');
+            if (!id) return;
+            if (!performanceState.mcqAnswered.includes(id)) {
+                performanceState.mcqAnswered.push(id);
+                if (isCorrect) performanceState.mcqCorrect++;
+                else performanceState.mcqWrong++;
+                savePerformanceState();
+            }
+        }
+
+        function performanceUpdateDashboard() {
+            if (!performanceState) loadPerformanceState();
+            const totals = performanceGetCounts();
+
+            const wordDone = Math.min(performanceState.words.length, totals.wordsTotal);
+            const sentenceDone = Math.min(performanceState.sentences.length, totals.sentencesTotal);
+            const phraseDone = Math.min(performanceState.phrases.length, totals.phrasesTotal);
+            const clauseDone = Math.min(performanceState.clauses.length, totals.clausesTotal);
+
+            const totalItems = totals.wordsTotal + totals.sentencesTotal + totals.phrasesTotal + totals.clausesTotal;
+            const completedItems = wordDone + sentenceDone + phraseDone + clauseDone;
+            const overall = totalItems ? Math.round((completedItems / totalItems) * 100) : 0;
+
+            const set = (id, value) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = value;
+            };
+
+            set('performanceOverallPercent', overall + '%');
+            set('performanceWords', wordDone + ' / ' + totals.wordsTotal);
+            set('performanceSentences', sentenceDone + ' / ' + totals.sentencesTotal);
+            set('performancePhrases', phraseDone + ' / ' + totals.phrasesTotal);
+            set('performanceClauses', clauseDone + ' / ' + totals.clausesTotal);
+            set('performanceNotes', performanceNoteCount());
+            set('performanceMCQNotebook', performanceMCQNotebookCount());
+            set('performanceMCQAttempted', performanceState.mcqAnswered.length);
+            set('performanceMCQResult', performanceState.mcqCorrect + ' / ' + performanceState.mcqWrong);
+
+            const bar = document.getElementById('performanceOverallBar');
+            if (bar) bar.style.width = overall + '%';
+
+            const meta = practiceMetaText();
+            const metaText = [meta.unit, meta.lesson, meta.title, meta.page].filter(Boolean).join(' • ');
+            set('performanceLessonMeta', metaText || 'Current Lesson');
+        }
+
+        function openPerformanceDashboard() {
+            try { playClickSound(); } catch(e) {}
+            loadPerformanceState();
+            performanceUpdateDashboard();
+            const overlay = document.getElementById('performanceOverlay');
+            if (overlay) {
+                overlay.classList.add('open');
+                overlay.setAttribute('aria-hidden','false');
+            }
+        }
+
+        function closePerformanceDashboard() {
+            try { playClickSound(); } catch(e) {}
+            const overlay = document.getElementById('performanceOverlay');
+            if (overlay) {
+                overlay.classList.remove('open');
+                overlay.setAttribute('aria-hidden','true');
+            }
+        }
+
+        function closePerformanceOnBackdrop(e) {
+            if (e.target.id === 'performanceOverlay') closePerformanceDashboard();
+        }
+
         /* =============================================================
            7. PERSONAL NOTEBOOK — localStorage persistence
         ============================================================= */
@@ -6292,6 +6749,7 @@ Explanation: “that have already been damaged by cultivation” সরাসর
             if (!text) { input.focus(); return; }
             notebookNotes.unshift({ text:text, createdAt:Date.now() });
             saveNotebookNotes();
+            if (document.getElementById('performanceOverlay')?.classList.contains('open')) performanceUpdateDashboard();
             input.value='';
             renderNotebookNotes();
             input.focus();
@@ -6302,6 +6760,7 @@ Explanation: “that have already been damaged by cultivation” সরাসর
             notebookNotes.splice(index,1);
             saveNotebookNotes();
             renderNotebookNotes();
+            if (document.getElementById('performanceOverlay')?.classList.contains('open')) performanceUpdateDashboard();
         }
 
         function clearAllNotebookNotes() {
@@ -6310,6 +6769,7 @@ Explanation: “that have already been damaged by cultivation” সরাসর
             notebookNotes=[];
             saveNotebookNotes();
             renderNotebookNotes();
+            if (document.getElementById('performanceOverlay')?.classList.contains('open')) performanceUpdateDashboard();
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -6318,6 +6778,9 @@ Explanation: “that have already been damaged by cultivation” সরাসর
             if (searchInput) searchInput.addEventListener('keydown', function(e){ if(e.key==='Escape') clearLessonSearch(); });
             const noteInput=document.getElementById('noteInput');
             if(noteInput) noteInput.addEventListener('keydown', function(e){ if(e.ctrlKey && e.key==='Enter'){ e.preventDefault(); addNotebookNote(); } });
+            document.addEventListener('keydown', function(e){
+                if(e.key === 'Escape' && document.getElementById('performanceOverlay')?.classList.contains('open')) closePerformanceDashboard();
+            });
         });
 
         /* Security Key Blockers — inputs remain fully usable */
@@ -6329,13 +6792,14 @@ Explanation: “that have already been damaged by cultivation” সরাসর
         });
 
         window.onload = function() {
+            loadPerformanceState();
             renderPassage();
             loadNotebookNotes();
             renderNotebookNotes();
         };
     </script>
 
-     <!-- =========================================================
+<!-- =========================================================
      ALL ABOUT ENGLISH
      UNIT ACCESS SECURITY
      ========================================================= -->
@@ -6361,5 +6825,6 @@ Explanation: “that have already been damaged by cultivation” সরাসর
     }
 
 </script>
+
 </body>
 </html>
