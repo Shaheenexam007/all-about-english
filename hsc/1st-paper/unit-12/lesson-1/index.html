@@ -644,6 +644,193 @@
         }
 
 
+
+        /* =============================================================
+           PERFORMANCE DASHBOARD — ADDITION ONLY
+           Existing lesson design/features remain unchanged.
+        ============================================================= */
+        .performance-open-btn {
+            flex: 0 0 auto;
+            min-width: 42px;
+            height: 38px;
+            padding: 0 10px;
+            border: 1px solid #d7c09e;
+            border-radius: 10px;
+            background: #fff;
+            color: #78350f;
+            font-family: inherit;
+            font-size: .72rem;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform .15s ease, background .15s ease;
+            white-space: nowrap;
+        }
+        .performance-open-btn:hover { background:#fff8ed; transform:scale(1.03); }
+
+        .performance-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(11,19,43,.62);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1400;
+            padding: 12px;
+        }
+        .performance-overlay.open { display:flex; }
+
+        .performance-modal {
+            width:100%;
+            max-width:700px;
+            max-height:90vh;
+            max-height:90dvh;
+            background:#fff;
+            border:2px solid #e0a96d;
+            border-radius:16px;
+            box-shadow:0 22px 55px rgba(0,0,0,.3);
+            overflow:hidden;
+            display:flex;
+            flex-direction:column;
+            animation:modalPop .22s ease-out;
+        }
+        .performance-header {
+            position:sticky;
+            top:0;
+            z-index:5;
+            padding:12px 15px;
+            background:#fffbf5;
+            border-bottom:2px solid #f3e5ab;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:10px;
+            flex-shrink:0;
+        }
+        .performance-title {
+            color:#78350f;
+            font-size:1rem;
+            font-weight:950;
+            line-height:1.3;
+        }
+        .performance-subtitle {
+            color:#64748b;
+            font-size:.7rem;
+            margin-top:2px;
+        }
+        .performance-close {
+            flex:0 0 auto;
+            border:0;
+            width:30px;
+            height:30px;
+            border-radius:50%;
+            background:#f1f5f9;
+            color:#475569;
+            font-size:1.15rem;
+            cursor:pointer;
+        }
+        .performance-close:hover { background:#ef4444; color:#fff; }
+        .performance-body {
+            padding:13px;
+            overflow-y:auto;
+            -webkit-overflow-scrolling:touch;
+        }
+        .performance-overall {
+            padding:14px;
+            border-radius:14px;
+            background:linear-gradient(135deg,#fff8ed,#fff3dd);
+            border:1px solid #e0a96d;
+            text-align:center;
+            margin-bottom:10px;
+        }
+        .performance-percent {
+            font-size:2rem;
+            font-weight:1000;
+            color:#78350f;
+            line-height:1.1;
+        }
+        .performance-percent-label {
+            margin-top:4px;
+            color:#64748b;
+            font-size:.72rem;
+            font-weight:800;
+        }
+        .performance-progress {
+            height:8px;
+            margin-top:10px;
+            border-radius:99px;
+            overflow:hidden;
+            background:#f1f5f9;
+            border:1px solid #eadbc7;
+        }
+        .performance-progress > i {
+            display:block;
+            height:100%;
+            width:0%;
+            background:linear-gradient(90deg,#d9ad68,#f3d27a);
+            transition:width .25s ease;
+        }
+        .performance-section-title {
+            margin:12px 2px 7px;
+            color:#78350f;
+            font-size:.76rem;
+            font-weight:950;
+            text-transform:uppercase;
+            letter-spacing:.5px;
+        }
+        .performance-grid {
+            display:grid;
+            grid-template-columns:repeat(2,minmax(0,1fr));
+            gap:7px;
+        }
+        .performance-card {
+            padding:10px 11px;
+            border-radius:11px;
+            border:1px solid #eadbc7;
+            background:#fff;
+            box-shadow:0 2px 8px rgba(0,0,0,.035);
+        }
+        .performance-card-label {
+            color:#64748b;
+            font-size:.68rem;
+            font-weight:800;
+        }
+        .performance-card-value {
+            color:#0f172a;
+            font-size:1rem;
+            font-weight:950;
+            margin-top:2px;
+        }
+        .performance-card-value span {
+            color:#64748b;
+            font-size:.68rem;
+            font-weight:700;
+        }
+        .performance-note {
+            margin-top:10px;
+            padding:9px 10px;
+            border-radius:10px;
+            background:#eff6ff;
+            border-left:4px solid #3b82f6;
+            color:#334155;
+            font-size:.72rem;
+            line-height:1.5;
+        }
+        @media(max-width:560px){
+            .performance-open-btn {
+                min-width:38px;
+                height:36px;
+                padding:0 7px;
+                font-size:.64rem;
+            }
+            .performance-modal { max-height:94vh; max-height:94dvh; }
+            .performance-body { padding:10px; }
+            .performance-grid { grid-template-columns:1fr 1fr; gap:6px; }
+            .performance-card { padding:9px; }
+            .performance-percent { font-size:1.8rem; }
+        }
+
         /* =============================================================
            EXAM CORNER & PRACTICE — ADDITION ONLY
            Existing lesson CSS/features remain untouched.
@@ -871,7 +1058,7 @@
     <div class="meta-sticky-box">
         <span class="meta-pill">UNIT NO: 12</span>
         <span class="meta-pill">LESSON NO: 01</span>
-        <span class="meta-pill">TITLE: WATER, WATER, EVERYWHERE...</span>
+        <span class="meta-pill">TITLE: WATER, WATER, EVERYWHERE</span>
         <span class="meta-pill">PAGE NO: 218</span>
         <div class="lesson-tools-row">
             <div class="lesson-search-wrap">
@@ -879,6 +1066,7 @@
                 <input id="lessonSearchInput" type="search" autocomplete="off" placeholder="Search any word or phrase..." aria-label="Search any word or phrase">
                 <button id="searchClearBtn" type="button" onclick="clearLessonSearch()" aria-label="Clear search">✕</button>
             </div>
+            <button class="performance-open-btn" type="button" onclick="openPerformanceDashboard()" aria-label="Open performance dashboard" title="Performance Dashboard">PERFORMANCE</button>
             <button class="notebook-open-btn" type="button" onclick="openNotebook()" aria-label="Open personal notebook" title="My Notebook">+</button>
         </div>
         <div class="search-results" id="searchResults"></div>
@@ -907,6 +1095,72 @@
                 </div>
                 <div class="notebook-hint">Tip: Press Ctrl + Enter to save a note.</div>
                 <div class="notes-list" id="notesList"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- PERFORMANCE DASHBOARD — ADDITION ONLY -->
+    <div class="performance-overlay" id="performanceOverlay" onclick="closePerformanceOnBackdrop(event)">
+        <div class="performance-modal" onclick="event.stopPropagation()">
+            <div class="performance-header">
+                <div>
+                    <div class="performance-title">📊 PERFORMANCE DASHBOARD</div>
+                    <div class="performance-subtitle" id="performanceLessonMeta">Current Lesson</div>
+                </div>
+                <button class="performance-close" type="button" onclick="closePerformanceDashboard()">&times;</button>
+            </div>
+            <div class="performance-body" id="performanceBody">
+                <div class="performance-overall">
+                    <div class="performance-percent" id="performanceOverallPercent">0%</div>
+                    <div class="performance-percent-label">CONTENT COMPLETION</div>
+                    <div class="performance-progress"><i id="performanceOverallBar"></i></div>
+                </div>
+
+                <div class="performance-section-title">Lesson Reading / Touch Progress</div>
+                <div class="performance-grid">
+                    <div class="performance-card">
+                        <div class="performance-card-label">Words / Clickable Units</div>
+                        <div class="performance-card-value" id="performanceWords">0 / 0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">Sentences</div>
+                        <div class="performance-card-value" id="performanceSentences">0 / 0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">Phrases</div>
+                        <div class="performance-card-value" id="performancePhrases">0 / 0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">Clauses</div>
+                        <div class="performance-card-value" id="performanceClauses">0 / 0</div>
+                    </div>
+                </div>
+
+                <div class="performance-section-title">Notebook & Practice</div>
+                <div class="performance-grid">
+                    <div class="performance-card">
+                        <div class="performance-card-label">Notebook Notes</div>
+                        <div class="performance-card-value" id="performanceNotes">0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">MCQs in Notebook</div>
+                        <div class="performance-card-value" id="performanceMCQNotebook">0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">MCQs Attempted</div>
+                        <div class="performance-card-value" id="performanceMCQAttempted">0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">MCQ Correct / Wrong</div>
+                        <div class="performance-card-value" id="performanceMCQResult">0 / 0</div>
+                    </div>
+                </div>
+
+                <div class="performance-note">
+                    এই dashboard এই lesson-এর activity হিসাব করে। Word/sentence/phrase/clause একবার touch করলে সেটি unique completed হিসেবে গণনা হবে। Progress এই device/browser-এ সংরক্ষিত থাকবে।
+                </div>
             </div>
         </div>
     </div>
@@ -1055,8 +1309,6 @@
         const FLOW_CHART_RAW_CONTENT = String.raw`
 TITLE: FLOW CHART PRACTICE
 
-
-
 FLOW CHART 1: Historical Development of the Buriganga
 
 Once a tributary of the mighty Ganges
@@ -1178,12 +1430,15 @@ Otherwise, will face a time when we will cry “water, water”
 We to find water nowhere
 
 Source Sentences: 17, 35, 36
+
+
 `;
 
         const SUMMARY_RAW_CONTENT = String.raw`
 TITLE: SUMMARY PRACTICE
 
 Water is essential (অপরিহার্য) for our life, and we cannot survive (বেঁচে থাকতে পারি) without it. Although Bangladesh is a land of rivers with plenty of rainfall (প্রচুর বৃষ্টিপাত), many of its rivers are now in a critical condition (সংকটজনক অবস্থায়). The Buriganga is a clear example (স্পষ্ট উদাহরণ) of a dying river (মৃতপ্রায় নদী). Once a glorious (গৌরবময়) river and a tributary (শাখা নদী) of the Ganges, it supplied (সরবরাহ করত) drinking water and supported (সহায়তা করত) trade and commerce (ব্যবসা-বাণিজ্য). But with the growth (বৃদ্ধি) of Dhaka, the river has gradually (ক্রমে) lost its life because huge amounts (বিপুল পরিমাণ) of toxic (বিষাক্ত) chemicals (রাসায়নিক পদার্থ), industrial waste (শিল্পবর্জ্য), household waste (গৃহস্থালির বর্জ্য) and tannery waste (ট্যানারি বর্জ্য) are dumped (ফেলে দেওয়া হয়) into it every day. As a result (ফলস্বরূপ), its water is polluted (দূষিত) and a perpetual (চিরস্থায়ী/সর্বক্ষণকার) stench (দুর্গন্ধ) fills the surrounding air (আশপাশের বাতাস). Other rivers in the country are also suffering (ভুগছে) the same fate (একই পরিণতি). Unless (যদি না) we take proper care (যথাযথ যত্ন) of our rivers and protect (রক্ষা করি) them from pollution (দূষণ), a day may come when we will desperately (মরিয়া হয়ে) search for water but find it nowhere (কোথাও খুঁজে পাব না)।
+
 
 `;
 
@@ -1243,8 +1498,6 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
            • Answer and Bangla Meaning may contain multiple lines.
         ============================================================= */
         const QUESTION_ANSWER_RAW_CONTENT = String.raw`
-নিচে passage-এর **প্রতিটি প্রশ্নের উত্তরের সঙ্গে শুধু সেই sentence ID-গুলোই দেওয়া হয়েছে যেগুলো সত্যিই উত্তরটি তৈরি করতে ব্যবহৃত হয়েছে**। একই sentence-এর তথ্য দিয়ে উত্তর হলে একটিমাত্র Source Sentence ID রাখা হয়েছে।
-
 1. Question: What does Coleridge's poem narrate?
    Answer:
    Coleridge's poem narrates the harrowing sea-voyage of an old mariner who at one point of his journey did not have any water to drink because of a curse.
@@ -1564,7 +1817,6 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
     পরিবেশ অধিদপ্তর (DOE)-এর মতে, প্রতিদিন ২০,০০০ টন ট্যানারি বর্জ্য নদীতে ছেড়ে দেওয়া হয়।
     Source Sentence IDs: 31
     Source Keywords: DOE, 20,000 tons, tannery waste, released, every day
-
 `;
 
         let qaQuestions = [];
@@ -1679,12 +1931,20 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
             const host=document.getElementById('qaQuestionList');
             host.innerHTML=`<div class="qa-view-card qa-source-card">
                 <div class="qa-sticky-question"><div class="qa-sticky-question-label">Sticky Question ${q.number}</div><div class="qa-sticky-question-text">${qaEscapeHTML(q.question)}</div></div>
-                <div class="qa-source-top-actions"><button class="qa-back-answer-near-question" type="button" onclick="backToQAAnswer()">← BACK TO ANSWER</button></div>
+                <div class="qa-source-top-actions"><button class="qa-back-answer-near-question" type="button" onclick="backToQAAnswer()">← BACK TO ANSWER</button><button class="qa-back-answer-near-question qa-source-question-list-btn" type="button" onclick="backToQAQuestionList()">← QUESTION LIST</button></div>
                 <div class="qa-view-label">Source of Answer</div>
                 <div class="qa-source-instruction">${modeText}</div>
                 <div class="qa-passage">${sourceLines||'<div class="qa-no-source">No passage source could be found.</div>'}</div>
             </div>`;
-            document.getElementById('qaPracticeOverlay').scrollTo({top:0,behavior:'smooth'});
+            const qaOverlay=document.getElementById('qaPracticeOverlay');
+            requestAnimationFrame(()=>{
+                const firstSource=qaOverlay.querySelector('.qa-passage-line.source-highlight, .qa-source-keyword');
+                if(firstSource){
+                    firstSource.scrollIntoView({behavior:'smooth',block:'center',inline:'nearest'});
+                }else{
+                    qaOverlay.scrollTo({top:0,behavior:'smooth'});
+                }
+            });
         }
         function backToQAAnswer(){ if(qaCurrentQuestion)renderQAAnswerView(qaCurrentQuestion); }
         function backToQAQuestionList(){ qaCurrentQuestion=null; renderQAQuestionList(); document.getElementById('qaPracticeOverlay').scrollTo({top:0,behavior:'smooth'}); }
@@ -1700,7 +1960,6 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
            4) No automatic MCQ generation is used here.
         ============================================================= */
         const MCQ_RAW_CONTENT = String.raw`
-
 1. What does the word 'ballad' mean in the passage?
    A. Narrative poem
    B. Polemical essay
@@ -3780,6 +4039,7 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
      Correct Answer: D. Assimilate
      Explanation: ‘The river would need a monster's stomach to digest all the wastes’—এখানে ‘digest’ শব্দটি রূপকভাবে বিপুল পরিমাণ waste গ্রহণ ও প্রক্রিয়াজাত করার অর্থে ব্যবহৃত হয়েছে। তাই Assimilate সবচেয়ে উপযুক্ত।
 
+
 `;
 
         const MCQ_NEGATIVE_MARK = 0.25;
@@ -3820,7 +4080,7 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
                 const q=qLine.replace(/^\d+\.\s*/,'').trim();
                 const opts={};
                 lines.forEach(line=>{
-                    const m=line.match(/^([A-D])\.\s*(.*)$/i);
+                    const m=line.match(/^([A-D])\.\s*(.*)$/);
                     if(m) opts[m[1].toUpperCase()]=m[2].trim();
                 });
                 const meaningStart=lines.findIndex(x=>/^Bangla Meaning\s*:/i.test(x));
@@ -3879,7 +4139,11 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
             const unit=document.querySelector('.meta-pill:nth-child(1)'); const lesson=document.querySelector('.meta-pill:nth-child(2)');
             const pageTitle=[unit?.textContent,lesson?.textContent,title?.textContent].filter(Boolean).join(' • ');
             document.getElementById('mcqLessonTitle').textContent=pageTitle||'ALL ABOUT ENGLISH';
-            if(!mcqQuestionsPool.length){ mcqQuestionsPool=mcqParseContent(MCQ_RAW_CONTENT); mcqRounds=mcqMakeFourRounds(mcqQuestionsPool); }
+            if(!mcqQuestionsPool.length){
+                mcqQuestionsPool=mcqParseContent(MCQ_RAW_CONTENT);
+                mcqQuestionsPool=mcqShuffleAnswerPositions(mcqQuestionsPool);
+                mcqRounds=mcqMakeFourRounds(mcqQuestionsPool);
+            }
             loadMCQNotebook(); renderRoundPicker(); startMCQRound(0);
             window.scrollTo({top:0,behavior:'smooth'});
         }
@@ -3888,6 +4152,91 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
             const overlay=document.getElementById('mcqPracticeOverlay'); if(overlay){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');}
             delete document.body.dataset.mcqOpen;
         }
+        /* =============================================================
+           SMART MCQ ANSWER-POSITION SHUFFLING
+           - Shuffles answer positions across the whole question pool.
+           - Keeps A/B/C/D reasonably balanced.
+           - Avoids long runs of the same correct option.
+           - The four rounds are created AFTER this global shuffle, so
+             one round cannot accidentally contain all A's, all B's, etc.
+           - Question text, option text, meanings and explanations stay
+             exactly the same; only their displayed positions change.
+        ============================================================= */
+        function mcqShuffleAnswerPositions(pool){
+            if(!Array.isArray(pool) || pool.length < 2) return pool;
+
+            const letters=['A','B','C','D'];
+            const shuffledPool=pool.slice();
+
+            /*
+               mcqMakeFourRounds() uses round-robin distribution:
+               index 0,4,8,... -> Round 1
+               index 1,5,9,... -> Round 2
+               index 2,6,10,... -> Round 3
+               index 3,7,11,... -> Round 4
+
+               So we generate the target answer position PER ROUND.
+               Each round gets its own random A/B/C/D cycle. This makes
+               the A/B/C/D distribution in every round as balanced as
+               mathematically possible (difference is never more than 1).
+            */
+            const targets=new Array(shuffledPool.length);
+            const roundOrders=[];
+
+            for(let r=0;r<4;r++){
+                const order=letters.slice();
+                for(let i=order.length-1;i>0;i--){
+                    const j=Math.floor(Math.random()*(i+1));
+                    [order[i],order[j]]=[order[j],order[i]];
+                }
+                roundOrders[r]=order;
+            }
+
+            for(let i=0;i<shuffledPool.length;i++){
+                const roundIndex=i%4;
+                const positionInRound=Math.floor(i/4);
+                targets[i]=roundOrders[roundIndex][positionInRound%4];
+            }
+
+            return shuffledPool.map((q,index)=>{
+                const available=letters.filter(l=>q.options && q.options[l]);
+                if(available.length<2) return q;
+
+                const oldCorrect=q.correct;
+                const oldOptions={...q.options};
+                const oldMeanings={...q.meanings};
+                const targetCorrect=targets[index % targets.length];
+
+                /* If the question has fewer than four options, use one of
+                   its real option positions instead of inventing an option. */
+                const target=available.includes(targetCorrect) ? targetCorrect : available[index % available.length];
+                const remaining=available.filter(l=>l!==oldCorrect);
+                const destination=available.filter(l=>l!==target);
+
+                /* Put the original correct answer at the selected target,
+                   then randomly distribute the remaining answers. */
+                const shuffledRemaining=remaining.slice();
+                for(let i=shuffledRemaining.length-1;i>0;i--){
+                    const j=Math.floor(Math.random()*(i+1));
+                    [shuffledRemaining[i],shuffledRemaining[j]]=[shuffledRemaining[j],shuffledRemaining[i]];
+                }
+
+                const newOptions={};
+                const newMeanings={};
+                newOptions[target]=oldOptions[oldCorrect];
+                if(oldMeanings[oldCorrect]!==undefined) newMeanings[target]=oldMeanings[oldCorrect];
+
+                destination.forEach((dest,i)=>{
+                    const source=shuffledRemaining[i];
+                    if(source===undefined) return;
+                    newOptions[dest]=oldOptions[source];
+                    if(oldMeanings[source]!==undefined) newMeanings[dest]=oldMeanings[source];
+                });
+
+                return {...q, options:newOptions, meanings:newMeanings, correct:target};
+            });
+        }
+
         function mcqMakeFourRounds(pool){
             const rounds=[[],[],[],[]]; pool.forEach((q,i)=>rounds[i%4].push(q)); return rounds;
         }
@@ -3928,6 +4277,7 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
             if(mcqRoundAnswers[qid])return;
             const q=mcqQuestionsPool.find(x=>x.id===qid)||mcqRounds[mcqCurrentRound].find(x=>x.id===qid); if(!q)return;
             mcqRoundAnswers[qid]=letter; mcqSession.answered++;
+            performanceRecordMCQ(qid, letter===q.correct);
             const optionWrap=button.closest('.mcq-options'); optionWrap.querySelectorAll('.mcq-option').forEach(b=>{b.classList.add('locked');b.disabled=true;});
             const correctBtn=[...optionWrap.querySelectorAll('.mcq-option')].find(b=>b.querySelector('.mcq-letter')?.textContent===q.correct);
             const isCorrect=letter===q.correct;
@@ -4005,6 +4355,7 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
 
         /* EDITABLE AREA: Every sentence contains its own Words, Phrases, and Clauses Data */
         const passageSentencesData = [
+
   {
     "id": 1,
     "fullText": "Water, water, every where,",
@@ -5284,45 +5635,146 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
 
             let colorIndexCounter = 0;
 
+            /*
+               SMART SINGLE-QUOTE PARSER
+               - Apostrophes inside words (won't, don't, students') are NOT quote marks.
+               - A single-quoted unit is accepted only when it has a real opening
+                 boundary and a real closing boundary.
+               - Multi-word quoted phrases are rendered as ONE clickable unit.
+               - The rest of the passage keeps the existing word-by-word click behavior.
+            */
+            function isSingleQuote(ch) {
+                return ch === "'" || ch === '‘' || ch === '’';
+            }
+
+            function isWordChar(ch) {
+                return !!ch && /[A-Za-z0-9]/.test(ch);
+            }
+
+            function isQuoteOpening(text, index) {
+                const ch = text[index];
+                if (ch !== "'" && ch !== '‘') return false;
+                const prev = index > 0 ? text[index - 1] : '';
+                const next = index + 1 < text.length ? text[index + 1] : '';
+
+                // Never treat the apostrophe in contractions/possessives as an opener.
+                if (isWordChar(prev) || isWordChar(next) && isWordChar(prev)) return false;
+
+                // Opening quote must be followed by actual content.
+                return !!next && !/\s/.test(next);
+            }
+
+            function isQuoteClosing(text, index) {
+                const ch = text[index];
+                if (ch !== "'" && ch !== '’') return false;
+                const prev = index > 0 ? text[index - 1] : '';
+                const next = index + 1 < text.length ? text[index + 1] : '';
+
+                // An apostrophe between two word characters is always part of a word.
+                if (isWordChar(prev) && isWordChar(next)) return false;
+
+                // A closing quote must have content immediately before it.
+                if (!prev || /\s/.test(prev)) return false;
+
+                // After the closing quote may come punctuation, whitespace or sentence end.
+                return !isWordChar(next);
+            }
+
+            function findQuotedUnits(text) {
+                const units = [];
+                let i = 0;
+
+                while (i < text.length) {
+                    if (!isQuoteOpening(text, i)) {
+                        i++;
+                        continue;
+                    }
+
+                    const openIndex = i;
+                    let j = i + 1;
+                    let closeIndex = -1;
+
+                    while (j < text.length) {
+                        if (isQuoteClosing(text, j)) {
+                            closeIndex = j;
+                            break;
+                        }
+                        j++;
+                    }
+
+                    if (closeIndex === -1) {
+                        i++;
+                        continue;
+                    }
+
+                    const content = text.slice(openIndex + 1, closeIndex);
+                    if (content.trim()) {
+                        units.push({
+                            start: openIndex,
+                            end: closeIndex + 1,
+                            text: text.slice(openIndex, closeIndex + 1),
+                            content: content.trim()
+                        });
+                        i = closeIndex + 1;
+                    } else {
+                        i++;
+                    }
+                }
+
+                return units;
+            }
+
+            function appendRegularText(parent, text) {
+                const parts = text.split(/(\s+)/);
+                parts.forEach(part => {
+                    if (!part) return;
+                    if (/^\s+$/.test(part)) {
+                        parent.appendChild(document.createTextNode(part));
+                        return;
+                    }
+
+                    const wordSpan = document.createElement('span');
+                    wordSpan.className = 'p-word-clickable';
+                    wordSpan.innerText = part;
+                    const cleanWord = part.replace(/[^a-zA-Z]/g, '').toLowerCase();
+                    wordSpan.onclick = () => openWordModal(cleanWord, false);
+                    parent.appendChild(wordSpan);
+                });
+            }
+
             passageSentencesData.forEach((sObj) => {
                 const sentenceSpan = document.createElement('span');
                 sentenceSpan.className = 'sentence-rendered';
                 sentenceSpan.dataset.sentenceId = sObj.id;
-                
-                // Regular Expression to match quoted words/phrases (including smart quotes like ‘ ’ or " ")
-                const tokens = sObj.fullText.split(/([‘’“”'"][\w\s-]+[‘’“”'"])/g);
 
-                tokens.forEach(token => {
-                    if (!token) return;
+                const text = String(sObj.fullText || '');
+                const quotedUnits = findQuotedUnits(text);
+                let cursor = 0;
 
-                    // Check if the token is wrapped inside any kind of quote marks
-                    if (/^[‘’“”'"].*[‘’“”'"]$/.test(token)) {
-                        const cleanPhrase = token.replace(/[‘’“”'"]/g, "").trim();
-                        const wordSpan = document.createElement('span');
-                        wordSpan.className = 'p-word-clickable q-word';
-                        wordSpan.innerText = token; // Keeping original quote characters intact
-
-                        const color = vibrantColors[colorIndexCounter % vibrantColors.length];
-                        wordSpan.style.color = color;
-                        colorIndexCounter++;
-
-                        wordSpan.onclick = () => openWordModal(cleanPhrase.toLowerCase(), true);
-                        sentenceSpan.appendChild(wordSpan);
-                        sentenceSpan.appendChild(document.createTextNode(' '));
-                    } else {
-                        // Regular unquoted text split into individual clickable words
-                        const regularWords = token.split(' ');
-                        regularWords.forEach(w => {
-                            if(!w) return;
-                            const cleanWord = w.replace(/[^a-zA-Z]/g, "").toLowerCase();
-                            const wordSpan = document.createElement('span');
-                            wordSpan.className = 'p-word-clickable';
-                            wordSpan.innerText = w + ' ';
-                            wordSpan.onclick = () => openWordModal(cleanWord, false);
-                            sentenceSpan.appendChild(wordSpan);
-                        });
+                quotedUnits.forEach(unit => {
+                    if (unit.start > cursor) {
+                        appendRegularText(sentenceSpan, text.slice(cursor, unit.start));
                     }
+
+                    const cleanPhrase = unit.content.trim();
+                    const wordSpan = document.createElement('span');
+                    wordSpan.className = 'p-word-clickable q-word';
+                    wordSpan.innerText = unit.text;
+
+                    const color = vibrantColors[colorIndexCounter % vibrantColors.length];
+                    wordSpan.style.color = color;
+                    colorIndexCounter++;
+
+                    // One quoted phrase = one entry/click target.
+                    wordSpan.onclick = () => openWordModal(cleanPhrase.toLowerCase(), true);
+                    sentenceSpan.appendChild(wordSpan);
+
+                    cursor = unit.end;
                 });
+
+                if (cursor < text.length) {
+                    appendRegularText(sentenceSpan, text.slice(cursor));
+                }
 
                 // Add Dive Into Button per sentence
                 const diveBtn = document.createElement('button');
@@ -5330,6 +5782,7 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
                 diveBtn.innerText = 'dive into';
                 diveBtn.onclick = () => openSentenceModal(sObj.id);
 
+                sentenceSpan.appendChild(document.createTextNode(' '));
                 sentenceSpan.appendChild(diveBtn);
                 sentenceSpan.appendChild(document.createTextNode(' '));
                 container.appendChild(sentenceSpan);
@@ -5341,6 +5794,7 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
         ------------------------------------------------------------- */
         function openWordModal(wordOrPhrase) {
             playClickSound();
+            performanceRecordWord(wordOrPhrase);
             const modal = document.getElementById('wordModal');
             document.getElementById('popWordTitle').innerText = wordOrPhrase.toUpperCase();
             
@@ -5411,6 +5865,7 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
 
         function openSentenceModal(sentenceId) {
             playClickSound();
+            performanceRecordSentence(sentenceId);
             currentActiveSentenceObj = passageSentencesData.find(s => s.id === sentenceId);
             const modal = document.getElementById('sentenceModal');
 
@@ -5482,6 +5937,7 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
 
         function highlightExactTargetText(targetText, itemType) {
             playClickSound();
+            performanceRecordStructure(targetText, itemType);
             
             const meaningBox = document.getElementById('stickySentenceMeaning');
             const activeBar = document.getElementById('activeSelectionBar');
@@ -5609,6 +6065,185 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
             input.focus();
         }
 
+
+        /* =============================================================
+           PERFORMANCE DASHBOARD — PERSISTENT LESSON ACTIVITY
+           Addition only. Existing lesson functions remain intact.
+        ============================================================= */
+        const PERFORMANCE_STORAGE_PREFIX = 'aae_performance_v1::';
+        let performanceState = null;
+
+        function performanceLessonKey() {
+            const meta = practiceMetaText();
+            const raw = [location.pathname, meta.unit, meta.lesson, meta.title, meta.page].join('::');
+            try { return PERFORMANCE_STORAGE_PREFIX + btoa(unescape(encodeURIComponent(raw))).replace(/[^a-zA-Z0-9]/g,'').slice(0,80); }
+            catch(e) { return PERFORMANCE_STORAGE_PREFIX + encodeURIComponent(raw); }
+        }
+
+        function performanceEmptyState() {
+            return {
+                words: [],
+                sentences: [],
+                phrases: [],
+                clauses: [],
+                mcqAnswered: [],
+                mcqCorrect: 0,
+                mcqWrong: 0
+            };
+        }
+
+        function loadPerformanceState() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(performanceLessonKey()) || 'null');
+                performanceState = Object.assign(performanceEmptyState(), saved || {});
+                ['words','sentences','phrases','clauses','mcqAnswered'].forEach(k => {
+                    if (!Array.isArray(performanceState[k])) performanceState[k] = [];
+                });
+                performanceState.mcqCorrect = Number(performanceState.mcqCorrect) || 0;
+                performanceState.mcqWrong = Number(performanceState.mcqWrong) || 0;
+            } catch(e) {
+                performanceState = performanceEmptyState();
+            }
+        }
+
+        function savePerformanceState() {
+            if (!performanceState) loadPerformanceState();
+            try { localStorage.setItem(performanceLessonKey(), JSON.stringify(performanceState)); } catch(e) {}
+        }
+
+        function performanceUniqueAdd(listName, key) {
+            if (!performanceState) loadPerformanceState();
+            const value = String(key ?? '').trim().toLowerCase();
+            if (!value) return;
+            if (!performanceState[listName].includes(value)) {
+                performanceState[listName].push(value);
+                savePerformanceState();
+            }
+        }
+
+        function performanceGetCounts() {
+            const wordSet = new Set();
+            const phraseSet = new Set();
+            const clauseSet = new Set();
+            const sentenceSet = new Set();
+
+            passageSentencesData.forEach(s => {
+                sentenceSet.add(String(s.id));
+                if (s.wordsData) Object.keys(s.wordsData).forEach(w => wordSet.add(String(w).trim().toLowerCase()));
+                (s.phrases || []).forEach(p => phraseSet.add(String(p.text || '').trim().toLowerCase()));
+                (s.clauses || []).forEach(c => clauseSet.add(String(c.text || '').trim().toLowerCase()));
+            });
+
+            return {
+                wordsTotal: wordSet.size,
+                sentencesTotal: sentenceSet.size,
+                phrasesTotal: phraseSet.size,
+                clausesTotal: clauseSet.size
+            };
+        }
+
+        function performanceNoteCount() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(NOTEBOOK_STORAGE_KEY) || '[]');
+                return Array.isArray(saved) ? saved.length : 0;
+            } catch(e) { return 0; }
+        }
+
+        function performanceMCQNotebookCount() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(mcqStorageKey()) || '[]');
+                return Array.isArray(saved) ? saved.length : 0;
+            } catch(e) { return 0; }
+        }
+
+        function performanceRecordWord(wordOrPhrase) {
+            performanceUniqueAdd('words', wordOrPhrase);
+        }
+
+        function performanceRecordSentence(sentenceId) {
+            performanceUniqueAdd('sentences', sentenceId);
+        }
+
+        function performanceRecordStructure(itemText, itemType) {
+            const target = String(itemText || '').trim().toLowerCase();
+            if (!target) return;
+            const type = String(itemType || '').toLowerCase();
+            if (type.includes('clause')) performanceUniqueAdd('clauses', target);
+            else performanceUniqueAdd('phrases', target);
+        }
+
+        function performanceRecordMCQ(qid, isCorrect) {
+            if (!performanceState) loadPerformanceState();
+            const id = String(qid || '');
+            if (!id) return;
+            if (!performanceState.mcqAnswered.includes(id)) {
+                performanceState.mcqAnswered.push(id);
+                if (isCorrect) performanceState.mcqCorrect++;
+                else performanceState.mcqWrong++;
+                savePerformanceState();
+            }
+        }
+
+        function performanceUpdateDashboard() {
+            if (!performanceState) loadPerformanceState();
+            const totals = performanceGetCounts();
+
+            const wordDone = Math.min(performanceState.words.length, totals.wordsTotal);
+            const sentenceDone = Math.min(performanceState.sentences.length, totals.sentencesTotal);
+            const phraseDone = Math.min(performanceState.phrases.length, totals.phrasesTotal);
+            const clauseDone = Math.min(performanceState.clauses.length, totals.clausesTotal);
+
+            const totalItems = totals.wordsTotal + totals.sentencesTotal + totals.phrasesTotal + totals.clausesTotal;
+            const completedItems = wordDone + sentenceDone + phraseDone + clauseDone;
+            const overall = totalItems ? Math.round((completedItems / totalItems) * 100) : 0;
+
+            const set = (id, value) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = value;
+            };
+
+            set('performanceOverallPercent', overall + '%');
+            set('performanceWords', wordDone + ' / ' + totals.wordsTotal);
+            set('performanceSentences', sentenceDone + ' / ' + totals.sentencesTotal);
+            set('performancePhrases', phraseDone + ' / ' + totals.phrasesTotal);
+            set('performanceClauses', clauseDone + ' / ' + totals.clausesTotal);
+            set('performanceNotes', performanceNoteCount());
+            set('performanceMCQNotebook', performanceMCQNotebookCount());
+            set('performanceMCQAttempted', performanceState.mcqAnswered.length);
+            set('performanceMCQResult', performanceState.mcqCorrect + ' / ' + performanceState.mcqWrong);
+
+            const bar = document.getElementById('performanceOverallBar');
+            if (bar) bar.style.width = overall + '%';
+
+            const meta = practiceMetaText();
+            const metaText = [meta.unit, meta.lesson, meta.title, meta.page].filter(Boolean).join(' • ');
+            set('performanceLessonMeta', metaText || 'Current Lesson');
+        }
+
+        function openPerformanceDashboard() {
+            try { playClickSound(); } catch(e) {}
+            loadPerformanceState();
+            performanceUpdateDashboard();
+            const overlay = document.getElementById('performanceOverlay');
+            if (overlay) {
+                overlay.classList.add('open');
+                overlay.setAttribute('aria-hidden','false');
+            }
+        }
+
+        function closePerformanceDashboard() {
+            try { playClickSound(); } catch(e) {}
+            const overlay = document.getElementById('performanceOverlay');
+            if (overlay) {
+                overlay.classList.remove('open');
+                overlay.setAttribute('aria-hidden','true');
+            }
+        }
+
+        function closePerformanceOnBackdrop(e) {
+            if (e.target.id === 'performanceOverlay') closePerformanceDashboard();
+        }
+
         /* =============================================================
            7. PERSONAL NOTEBOOK — localStorage persistence
         ============================================================= */
@@ -5665,6 +6300,7 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
             if (!text) { input.focus(); return; }
             notebookNotes.unshift({ text:text, createdAt:Date.now() });
             saveNotebookNotes();
+            if (document.getElementById('performanceOverlay')?.classList.contains('open')) performanceUpdateDashboard();
             input.value='';
             renderNotebookNotes();
             input.focus();
@@ -5675,6 +6311,7 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
             notebookNotes.splice(index,1);
             saveNotebookNotes();
             renderNotebookNotes();
+            if (document.getElementById('performanceOverlay')?.classList.contains('open')) performanceUpdateDashboard();
         }
 
         function clearAllNotebookNotes() {
@@ -5683,6 +6320,7 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
             notebookNotes=[];
             saveNotebookNotes();
             renderNotebookNotes();
+            if (document.getElementById('performanceOverlay')?.classList.contains('open')) performanceUpdateDashboard();
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -5691,6 +6329,9 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
             if (searchInput) searchInput.addEventListener('keydown', function(e){ if(e.key==='Escape') clearLessonSearch(); });
             const noteInput=document.getElementById('noteInput');
             if(noteInput) noteInput.addEventListener('keydown', function(e){ if(e.ctrlKey && e.key==='Enter'){ e.preventDefault(); addNotebookNote(); } });
+            document.addEventListener('keydown', function(e){
+                if(e.key === 'Escape' && document.getElementById('performanceOverlay')?.classList.contains('open')) closePerformanceDashboard();
+            });
         });
 
         /* Security Key Blockers — inputs remain fully usable */
@@ -5702,13 +6343,14 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
         });
 
         window.onload = function() {
+            loadPerformanceState();
             renderPassage();
             loadNotebookNotes();
             renderNotebookNotes();
         };
     </script>
 
-    <!-- =========================================================
+<!-- =========================================================
      ALL ABOUT ENGLISH
      UNIT ACCESS SECURITY
      ========================================================= -->
@@ -5734,5 +6376,6 @@ Water is essential (অপরিহার্য) for our life, and we cannot sur
     }
 
 </script>
+
 </body>
 </html>
