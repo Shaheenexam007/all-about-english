@@ -644,6 +644,193 @@
         }
 
 
+
+        /* =============================================================
+           PERFORMANCE DASHBOARD — ADDITION ONLY
+           Existing lesson design/features remain unchanged.
+        ============================================================= */
+        .performance-open-btn {
+            flex: 0 0 auto;
+            min-width: 42px;
+            height: 38px;
+            padding: 0 10px;
+            border: 1px solid #d7c09e;
+            border-radius: 10px;
+            background: #fff;
+            color: #78350f;
+            font-family: inherit;
+            font-size: .72rem;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform .15s ease, background .15s ease;
+            white-space: nowrap;
+        }
+        .performance-open-btn:hover { background:#fff8ed; transform:scale(1.03); }
+
+        .performance-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(11,19,43,.62);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1400;
+            padding: 12px;
+        }
+        .performance-overlay.open { display:flex; }
+
+        .performance-modal {
+            width:100%;
+            max-width:700px;
+            max-height:90vh;
+            max-height:90dvh;
+            background:#fff;
+            border:2px solid #e0a96d;
+            border-radius:16px;
+            box-shadow:0 22px 55px rgba(0,0,0,.3);
+            overflow:hidden;
+            display:flex;
+            flex-direction:column;
+            animation:modalPop .22s ease-out;
+        }
+        .performance-header {
+            position:sticky;
+            top:0;
+            z-index:5;
+            padding:12px 15px;
+            background:#fffbf5;
+            border-bottom:2px solid #f3e5ab;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:10px;
+            flex-shrink:0;
+        }
+        .performance-title {
+            color:#78350f;
+            font-size:1rem;
+            font-weight:950;
+            line-height:1.3;
+        }
+        .performance-subtitle {
+            color:#64748b;
+            font-size:.7rem;
+            margin-top:2px;
+        }
+        .performance-close {
+            flex:0 0 auto;
+            border:0;
+            width:30px;
+            height:30px;
+            border-radius:50%;
+            background:#f1f5f9;
+            color:#475569;
+            font-size:1.15rem;
+            cursor:pointer;
+        }
+        .performance-close:hover { background:#ef4444; color:#fff; }
+        .performance-body {
+            padding:13px;
+            overflow-y:auto;
+            -webkit-overflow-scrolling:touch;
+        }
+        .performance-overall {
+            padding:14px;
+            border-radius:14px;
+            background:linear-gradient(135deg,#fff8ed,#fff3dd);
+            border:1px solid #e0a96d;
+            text-align:center;
+            margin-bottom:10px;
+        }
+        .performance-percent {
+            font-size:2rem;
+            font-weight:1000;
+            color:#78350f;
+            line-height:1.1;
+        }
+        .performance-percent-label {
+            margin-top:4px;
+            color:#64748b;
+            font-size:.72rem;
+            font-weight:800;
+        }
+        .performance-progress {
+            height:8px;
+            margin-top:10px;
+            border-radius:99px;
+            overflow:hidden;
+            background:#f1f5f9;
+            border:1px solid #eadbc7;
+        }
+        .performance-progress > i {
+            display:block;
+            height:100%;
+            width:0%;
+            background:linear-gradient(90deg,#d9ad68,#f3d27a);
+            transition:width .25s ease;
+        }
+        .performance-section-title {
+            margin:12px 2px 7px;
+            color:#78350f;
+            font-size:.76rem;
+            font-weight:950;
+            text-transform:uppercase;
+            letter-spacing:.5px;
+        }
+        .performance-grid {
+            display:grid;
+            grid-template-columns:repeat(2,minmax(0,1fr));
+            gap:7px;
+        }
+        .performance-card {
+            padding:10px 11px;
+            border-radius:11px;
+            border:1px solid #eadbc7;
+            background:#fff;
+            box-shadow:0 2px 8px rgba(0,0,0,.035);
+        }
+        .performance-card-label {
+            color:#64748b;
+            font-size:.68rem;
+            font-weight:800;
+        }
+        .performance-card-value {
+            color:#0f172a;
+            font-size:1rem;
+            font-weight:950;
+            margin-top:2px;
+        }
+        .performance-card-value span {
+            color:#64748b;
+            font-size:.68rem;
+            font-weight:700;
+        }
+        .performance-note {
+            margin-top:10px;
+            padding:9px 10px;
+            border-radius:10px;
+            background:#eff6ff;
+            border-left:4px solid #3b82f6;
+            color:#334155;
+            font-size:.72rem;
+            line-height:1.5;
+        }
+        @media(max-width:560px){
+            .performance-open-btn {
+                min-width:38px;
+                height:36px;
+                padding:0 7px;
+                font-size:.64rem;
+            }
+            .performance-modal { max-height:94vh; max-height:94dvh; }
+            .performance-body { padding:10px; }
+            .performance-grid { grid-template-columns:1fr 1fr; gap:6px; }
+            .performance-card { padding:9px; }
+            .performance-percent { font-size:1.8rem; }
+        }
+
         /* =============================================================
            EXAM CORNER & PRACTICE — ADDITION ONLY
            Existing lesson CSS/features remain untouched.
@@ -879,6 +1066,7 @@
                 <input id="lessonSearchInput" type="search" autocomplete="off" placeholder="Search any word or phrase..." aria-label="Search any word or phrase">
                 <button id="searchClearBtn" type="button" onclick="clearLessonSearch()" aria-label="Clear search">✕</button>
             </div>
+            <button class="performance-open-btn" type="button" onclick="openPerformanceDashboard()" aria-label="Open performance dashboard" title="Performance Dashboard">PERFORMANCE</button>
             <button class="notebook-open-btn" type="button" onclick="openNotebook()" aria-label="Open personal notebook" title="My Notebook">+</button>
         </div>
         <div class="search-results" id="searchResults"></div>
@@ -907,6 +1095,72 @@
                 </div>
                 <div class="notebook-hint">Tip: Press Ctrl + Enter to save a note.</div>
                 <div class="notes-list" id="notesList"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- PERFORMANCE DASHBOARD — ADDITION ONLY -->
+    <div class="performance-overlay" id="performanceOverlay" onclick="closePerformanceOnBackdrop(event)">
+        <div class="performance-modal" onclick="event.stopPropagation()">
+            <div class="performance-header">
+                <div>
+                    <div class="performance-title">📊 PERFORMANCE DASHBOARD</div>
+                    <div class="performance-subtitle" id="performanceLessonMeta">Current Lesson</div>
+                </div>
+                <button class="performance-close" type="button" onclick="closePerformanceDashboard()">&times;</button>
+            </div>
+            <div class="performance-body" id="performanceBody">
+                <div class="performance-overall">
+                    <div class="performance-percent" id="performanceOverallPercent">0%</div>
+                    <div class="performance-percent-label">CONTENT COMPLETION</div>
+                    <div class="performance-progress"><i id="performanceOverallBar"></i></div>
+                </div>
+
+                <div class="performance-section-title">Lesson Reading / Touch Progress</div>
+                <div class="performance-grid">
+                    <div class="performance-card">
+                        <div class="performance-card-label">Words / Clickable Units</div>
+                        <div class="performance-card-value" id="performanceWords">0 / 0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">Sentences</div>
+                        <div class="performance-card-value" id="performanceSentences">0 / 0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">Phrases</div>
+                        <div class="performance-card-value" id="performancePhrases">0 / 0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">Clauses</div>
+                        <div class="performance-card-value" id="performanceClauses">0 / 0</div>
+                    </div>
+                </div>
+
+                <div class="performance-section-title">Notebook & Practice</div>
+                <div class="performance-grid">
+                    <div class="performance-card">
+                        <div class="performance-card-label">Notebook Notes</div>
+                        <div class="performance-card-value" id="performanceNotes">0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">MCQs in Notebook</div>
+                        <div class="performance-card-value" id="performanceMCQNotebook">0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">MCQs Attempted</div>
+                        <div class="performance-card-value" id="performanceMCQAttempted">0</div>
+                    </div>
+                    <div class="performance-card">
+                        <div class="performance-card-label">MCQ Correct / Wrong</div>
+                        <div class="performance-card-value" id="performanceMCQResult">0 / 0</div>
+                    </div>
+                </div>
+
+                <div class="performance-note">
+                    এই dashboard এই lesson-এর activity হিসাব করে। Word/sentence/phrase/clause একবার touch করলে সেটি unique completed হিসেবে গণনা হবে। Progress এই device/browser-এ সংরক্ষিত থাকবে।
+                </div>
             </div>
         </div>
     </div>
@@ -1054,11 +1308,12 @@
         ============================================================= */
         const FLOW_CHART_RAW_CONTENT = String.raw`
 TITLE: FLOW CHART PRACTICE
+
 Important flow charts are given below.
 
 
 
-**1. Topic: Greta Thunberg’s Early Life and Activism**
+1. Topic: Greta Thunberg’s Early Life and Activism
 Working as an environmental activist
 ↓
 Being born in Stockholm, Sweden, in 2003
@@ -1074,7 +1329,7 @@ Source Sentence IDs: 1, 2, 3, 4, 5
 
 
 
-**2. Topic: Greta's Perspective on Her Asperger Syndrome**
+2. Topic: Greta's Perspective on Her Asperger Syndrome
 Having Asperger syndrome as a medical condition
 ↓
 Dealing with a condition that affects how people socialise
@@ -1088,7 +1343,7 @@ Using it to help her see the world in black and white
 Believing there are no grey areas when it comes to climate change
 Source Sentence IDs: 6, 7, 8
 
-**3. Topic: The Beginning of Climate Protests**
+3. Topic: The Beginning of Climate Protests
 Deciding to take direct action in August 2018
 ↓
 Choosing to skip school instead of attending classes
@@ -1104,7 +1359,7 @@ Source Sentence IDs: 9, 10, 11, 12
 
 
 
-**4. Topic: Spread and Growth of the Climate Strikes**
+4. Topic: Spread and Growth of the Climate Strikes
 Getting picked up and covered by the Swedish media
 ↓
 Watching the news and word of the strike start to spread
@@ -1118,7 +1373,7 @@ Protesting against the worsening climate change crisis
 Campaigners worldwide coming together in March 2019 to co-ordinate the first Global Strike
 Source Sentence IDs: 13, 14, 15
 
-**5. Topic: Greta's Global Impact and Achievements**
+5. Topic: Greta's Global Impact and Achievements
 Seeing over 6 million people from 125 countries take part in global strikes
 ↓
 Experiencing a complete whirlwind in her life since the strike began
@@ -1134,7 +1389,7 @@ Source Sentence IDs: 16, 17, 18, 19, 20
 
 
 
-**6. Topic: Key Events and Notable Speeches**
+6. Topic: Key Events and Notable Speeches
 Travelling across the ocean on a wind and solar-powered boat
 ↓
 Sailing from Plymouth, UK, to New York, USA
@@ -1150,7 +1405,7 @@ Source Sentence IDs: 21, 22
 
 
 
-**7. Topic: The Greta Effect and Historical Inspirations**
+7. Topic: The Greta Effect and Historical Inspirations
 Changing how people think and act about climate change
 ↓
 Creating a widespread cultural impact known as "the Greta effect"
@@ -1163,12 +1418,15 @@ Referencing the historic 1950s civil rights movement sparked by Rosa
 ↓
 Improving the lives and treatment of millions of African Americans through that legacy
 Source Sentence IDs: 23, 24, 25, 26
+
+
 `;
 
         const SUMMARY_RAW_CONTENT = String.raw`
 TITLE: SUMMARY PRACTICE
 
 Greta Thunberg, a Swedish environmental (পরিবেশগত) activist (আন্দোলনকর্মী) born in 2003, developed a profound (গভীর) concern (উদ্বেগ) for climate change at a young age. Diagnosed (রোগ নির্ণয় করা হয়েছে এমন) with Asperger syndrome—a condition (অবস্থা) she embraces (স্বাগত জানায়) as her "superpower"—she began a solitary (একাকী) school strike outside the Swedish parliament (সংসদ) in August 2018 to demand (দাবি করা) political (রাজনৈতিক) action (পদক্ষেপ). Her protest rapidly catalyzed (ত্বরান্বিত করেছে) a global movement (আন্দোলন), inspiring (অনুপ্রাণিত করা) millions of students and campaigners (কর্মী) worldwide (বিশ্বব্যাপী) to participate in #FridaysforFuture and international climate strikes. This unprecedented (অভপূর্ব) activism (সক্রিয়তা) catapulted (হঠাৎ শীর্ষে পৌঁছে দেওয়া) her onto the global stage, leading to high-profile (বিশিষ্ট) speeches at international parliaments, a transatlantic (মহাসাগর পাড়ি দেওয়া) voyage (সমুদ্রযাত্রা) on a zero-emission (দূষণমুক্ত) boat, a Nobel Peace Prize nomination (মনোনয়ন), and a lasting cultural (সাংস্কৃতিক) impact (প্রভাব) known as "the Greta effect."
+
 
 `;
 
@@ -1661,12 +1919,20 @@ Source Keywords: EU parliament, UK parliament
             const host=document.getElementById('qaQuestionList');
             host.innerHTML=`<div class="qa-view-card qa-source-card">
                 <div class="qa-sticky-question"><div class="qa-sticky-question-label">Sticky Question ${q.number}</div><div class="qa-sticky-question-text">${qaEscapeHTML(q.question)}</div></div>
-                <div class="qa-source-top-actions"><button class="qa-back-answer-near-question" type="button" onclick="backToQAAnswer()">← BACK TO ANSWER</button></div>
+                <div class="qa-source-top-actions"><button class="qa-back-answer-near-question" type="button" onclick="backToQAAnswer()">← BACK TO ANSWER</button><button class="qa-back-answer-near-question qa-source-question-list-btn" type="button" onclick="backToQAQuestionList()">← QUESTION LIST</button></div>
                 <div class="qa-view-label">Source of Answer</div>
                 <div class="qa-source-instruction">${modeText}</div>
                 <div class="qa-passage">${sourceLines||'<div class="qa-no-source">No passage source could be found.</div>'}</div>
             </div>`;
-            document.getElementById('qaPracticeOverlay').scrollTo({top:0,behavior:'smooth'});
+            const qaOverlay=document.getElementById('qaPracticeOverlay');
+            requestAnimationFrame(()=>{
+                const firstSource=qaOverlay.querySelector('.qa-passage-line.source-highlight, .qa-source-keyword');
+                if(firstSource){
+                    firstSource.scrollIntoView({behavior:'smooth',block:'center',inline:'nearest'});
+                }else{
+                    qaOverlay.scrollTo({top:0,behavior:'smooth'});
+                }
+            });
         }
         function backToQAAnswer(){ if(qaCurrentQuestion)renderQAAnswerView(qaCurrentQuestion); }
         function backToQAQuestionList(){ qaCurrentQuestion=null; renderQAQuestionList(); document.getElementById('qaPracticeOverlay').scrollTo({top:0,behavior:'smooth'}); }
@@ -1682,7 +1948,6 @@ Source Keywords: EU parliament, UK parliament
            4) No automatic MCQ generation is used here.
         ============================================================= */
         const MCQ_RAW_CONTENT = String.raw`
-
 1. What is the meaning of the word 'environmental' in the sentence "Greta Thunberg is an ‘environmental’ ‘activist’"?
 A. Ecological
 B. Industrial
@@ -1706,7 +1971,7 @@ a. Spectator-দর্শক
 b. Campaigner-কর্মী/আন্দোলনকারী
 c. Opponent-বিরোধী
 d. Bystander-নিদ্রিত দর্শক
-Correct Answer: A. Campaigner
+Correct Answer: B. Campaigner
 Explanation: Activist বলতে এমন একজন ব্যক্তিকে বোঝায় যিনি কোনো সামাজিক বা পরিবেশগত পরিবর্তনের জন্য সক্রিয়ভাবে আন্দোলন করেন।
 
 3. The word 'born' in the sentence "She was ‘born’ in Stockholm, Sweden, in 2003" implies which of the following?
@@ -1719,7 +1984,7 @@ a. Terminated-সমাপ্ত
 b. Constructed-গঠিত
 c. Manufactured-নির্মিত
 d. Originated-জন্মগ্রহণকারী/উদ্ভূত
-Correct Answer: A. Originated
+Correct Answer: D. Originated
 Explanation: এখানে জন্ম নেওয়া বা নির্দিষ্ট স্থানে পৃথিবীতে আসার সূচনা বা উৎপত্তিকে বোঝাতে Originated শব্দটি উপযুক্ত।
 
 4. What is the closest synonym of the word 'started' in the sentence "When she was eight, she ‘started’ ‘learning’ about ‘climate’ ‘change’"?
@@ -1732,7 +1997,7 @@ a. Concluded-উপসংহারে পৌঁছানো
 b. Commenced-শুরু করেছিল
 c. Halted-থামো
 d. Terminated-বরখাস্ত/শেষ করা
-Correct Answer: A. Commenced
+Correct Answer: B. Commenced
 Explanation: Started বা শুরু করার ক্ষেত্রে একাডেমিক ও ফরমাল ডিকশনারি অনুযায়ী Commenced হলো এর সঠিক সমার্থক শব্দ।
 
 5. What does the word 'learning' mean in the sentence "When she was eight, she ‘started’ ‘learning’ about ‘climate’ ‘change’"?
@@ -1745,21 +2010,21 @@ a. Forgetting-ভুলে যাওয়া
 b. Ignoring-উপেক্ষা করা
 c. Acquiring-অর্জয়ন করা/শিক্ষা গ্রহণ
 d. Neglecting-অবহেলা করা
-Correct Answer: A. Acquiring
+Correct Answer: C. Acquiring
 Explanation: জলবায়ু পরিবর্তন সম্পর্কে শেখা বা জ্ঞান অর্জন করা অর্থে acquiring knowledge ব্যবহৃত হয়।
 
-6. What is the antonym of the word 'climate' as used in the sentence "When she was eight, she ‘started’ ‘learning’ about ‘climate’ ‘change’"?
-A. Atmosphere
-B. Environment
-C. Weather
-D. Stagnation
+6. What does the word 'climate' mean in the sentence "When she was eight, she ‘started’ ‘learning’ about ‘climate’ ‘change’"?
+A. Long-term weather pattern
+B. Short-term weather condition
+C. Permanent stability
+D. Social movement
 Bangla Meaning:
-a. Atmosphere-বায়ুমণ্ডল
-b. Environment-পরিবেশ
-c. Weather-আবহাওয়া
-d. Stagnation-স্থবিরতা
-Correct Answer: B. Stagnation
-Explanation: জলবায়ু বা পরিবেশের গতিশীল অবস্থার বিপরীত হিসেবে স্থবিরতা বা Stagnation ধারণাটি প্রযোজ্য হতে পারে।
+a. Long-term weather pattern-দীর্ঘমেয়াদি আবহাওয়ার ধরন
+b. Short-term weather condition-স্বল্পমেয়াদি আবহাওয়ার অবস্থা
+c. Permanent stability-স্থায়ী স্থিতিশীলতা
+d. Social movement-সামাজিক আন্দোলন
+Correct Answer: A. Long-term weather pattern
+Explanation: Climate বলতে দীর্ঘ সময় ধরে কোনো স্থানের আবহাওয়ার গড় ধরন বা pattern of weather বোঝায়।
 
 7. What does the word 'change' imply in the sentence "When she was eight, she ‘started’ ‘learning’ about ‘climate’ ‘change’"?
 A. Permanence
@@ -1784,7 +2049,7 @@ a. Ignorant-অজ্ঞ
 b. Oblivious-বিস্মৃত
 c. Enlightened-অবহিত/জ্ঞানপ্রাপ্ত
 d. Unaware-অসচেতন
-Correct Answer: B. Enlightened
+Correct Answer: C. Enlightened
 Explanation: শেখা বা জ্ঞান লাভ করা অর্থে এখানে নতুন কিছু জানা বা অবহীত হওয়া (enlightened) বোঝানো হয়েছে।
 
 9. What does the word 'baffled' signify in the sentence "The more she ‘learned’, the more ‘baffled’ she became"?
@@ -1797,7 +2062,7 @@ a. Certain-নিশ্চিত
 b. Satisfied-সন্তুষ্ট
 c. Enlightened-আলোকিত
 d. Perplexed-হতভম্ব বা বিভ্রান্ত
-Correct Answer: B. Perplexed
+Correct Answer: D. Perplexed
 Explanation: কোনো বিষয় বুঝতে না পেরে বিভ্রান্ত বা হতভম্ব হয়ে যাওয়া বোঝাতে baffled-এর পরিবর্তে perplexed ব্যবহার করা হয়।
 
 10. What is the exact meaning of 'sad' in the sentence "At the age of 11, Greta became so ‘sad’ about climate change"?
@@ -1836,7 +2101,7 @@ a. Ceased-বন্ধ করা বা ক্ষান্ত হওয়া
 b. Proceeded-এগিয়ে যাওয়া
 c. Advanced-অগ্রসর হওয়া
 d. Continued-চালিয়ে যাওয়া
-Correct Answer: C. Ceased
+Correct Answer: A. Ceased
 Explanation: কথা বলা সাময়িকভাবে থামিয়ে দেওয়া অর্থে stopped বা ceased ব্যবহার করা হয়েছে।
 
 13. What is the meaning of the word 'speaking' in the sentence "she ‘temporarily’ ‘stopped’ ‘speaking’"?
@@ -1849,7 +2114,7 @@ a. Whispering-ফিসফিস করা
 b. Uttering-উচ্চারণ করা বা কথা বলা
 c. Suppressing-দমন করা
 d. Muting-নীরব রাখা
-Correct Answer: C. Uttering
+Correct Answer: B. Uttering
 Explanation: মুখ দিয়ে শব্দ বের করা বা কথা বলার প্রক্রিয়াকে utterance বা speaking বলা হয়।
 
 14. What does the word 'Asperger' refer to in the sentence "Greta has ‘Asperger’ ‘syndrome’"?
@@ -1862,7 +2127,7 @@ a. A neurological condition-স্নায়বিক অবস্থা ব�
 b. A physical injury-শারীরিক আঘাত
 c. A mental weakness-মানসিক দুর্বলতা
 d. A common cold-সাধারণ সর্দি
-Correct Answer: C. A neurological condition
+Correct Answer: A. A neurological condition
 Explanation: Asperger syndrome হলো মানুষের মস্তিষ্কের গঠন ও সামাজিক আচরণ সম্পর্কিত একটি স্নায়বিক বা নিউরোলজিক্যাল অবস্থা।
 
 15. What is the meaning of 'syndrome' in the sentence "Greta has ‘Asperger’ ‘syndrome’"?
@@ -1875,7 +2140,7 @@ a. Disorder-অসঙ্গতি বা রোগলক্ষণ সমষ্�
 b. Remedy-প্রতিকার
 c. Health-স্বাস্থ্য
 d. Cure-নিরাময়
-Correct Answer: C. Disorder
+Correct Answer: A. Disorder
 Explanation: সিনড্রোম বলতে শরীরের বা মনের নির্দিষ্ট কিছু উপসর্গের সমষ্টি বা ডিসঅর্ডারকে বোঝায়।
 
 16. What does the word 'condition' mean in the sentence "a ‘condition’ that ‘affects’ how people ‘socialise’"?
@@ -1888,7 +2153,7 @@ a. Stage-পর্যায়
 b. Malady-রোগ বা শারীরিক/মানসিক অবস্থা
 c. Status-মর্যাদা
 d. Position-অবস্থান
-Correct Answer: D. Malady
+Correct Answer: B. Malady
 Explanation: এখানে শারীরিক বা মানসিক স্বাস্থ্যগত অবস্থাকে বোঝাতে condition বা malady শব্দটি ব্যবহৃত হয়েছে।
 
 17. What is the meaning of the verb 'affects' in the sentence "a ‘condition’ that ‘affects’ how people ‘socialise’"?
@@ -1901,7 +2166,7 @@ a. Cures-নিরাময় করে
 b. Preserves-সংরক্ষণ করে
 c. Influences-প্রভাবিত করে
 d. Ignores-উপেক্ষা করে
-Correct Answer: D. Influences
+Correct Answer: C. Influences
 Explanation: কোনো কিছুর ওপর প্রভাব বিস্তার করা অর্থে affect বা influence ব্যবহার করা হয়।
 
 18. What does the word 'socialise' mean in the sentence "a ‘condition’ that ‘affects’ how people ‘socialise’"?
@@ -1914,7 +2179,7 @@ a. Alienate-পর করে দেওয়া
 b. Isolate-বিচ্ছিন্ন করা
 c. Interact-মেলামেশা বা ভাববিনিময় করা
 d. Seclude-আলাদা রাখা
-Correct Answer: D. Interact
+Correct Answer: C. Interact
 Explanation: মানুষের সাথে মেলামেশা করা বা যোগাযোগ রক্ষা করার প্রক্রিয়াকে socialise বা interact বলে।
 
 19. What does the word 'views' mean in the sentence "But Greta ‘views’ her condition as a ‘positive’"?
@@ -1927,7 +2192,7 @@ a. Regards-বিবেচনা করা বা দেখা
 b. Misses-হারানো
 c. Overlooks-এড়িয়ে যাওয়া
 d. Disregards-অমান্য করা
-Correct Answer: D. Regards
+Correct Answer: A. Regards
 Explanation: কোনো বিষয়কে কীভাবে দেখা বা মূল্যায়ন করা হয়, তা বোঝাতে views বা regards ব্যবহার করা হয়।
 
 20. What is the meaning of the word 'positive' in the sentence "But Greta ‘views’ her condition as a ‘positive’"?
@@ -1979,7 +2244,7 @@ a. Present Participle-প্রেজেন্ট পার্টিসিপল
 b. Past Participle-পাস্ট পার্টিসিপল
 c. Gerund-জিরান্ড
 d. Infinitive-ইনফিনিটিভ
-Correct Answer: A. Present Participle
+Correct Answer: B. Past Participle
 Explanation: 'She was born' গঠনে passive voice-এর মূল verb হিসেবে born শব্দটি Past Participle রূপে ব্যবহৃত হয়েছে।
 
 24. Identify the clause type of 'When she was eight' in the sentence "When she was eight, she ‘started’ ‘learning’ about ‘climate’ ‘change’".
@@ -1992,7 +2257,7 @@ a. Principal Clause-প্রধান ক্লজ
 b. Adjective Clause-বিশেষণ স্থানীয় ক্লজ
 c. Noun Clause-বিশেষ্য স্থানীয় ক্লজ
 d. Adverbial Clause of Time-সময়বাচক ক্লজ
-Correct Answer: A. Adverbial Clause of Time
+Correct Answer: D. Adverbial Clause of Time
 Explanation: 'When' দ্বারা শুরু হয়ে মূল ক্লজের সংঘটনের সময় নির্দেশ করায় এটি Adverbial Clause of Time.
 
 25. What is the part of speech of the word 'baffled' in the sentence "The more she ‘learned’, the more ‘baffled’ she became"?
@@ -2018,7 +2283,7 @@ a. Complex Sentence-জটিল বাক্য
 b. Compound Sentence-যৌগিক বাক্য
 c. Simple Sentence-সরল বাক্য
 d. Imperative Sentence-অনূজ্ঞাসূচক বাক্য
-Correct Answer: B. Compound Sentence
+Correct Answer: A. Complex Sentence
 Explanation: একাধিক সাবজেক্ট ও ফাইনাইট ভার্ব এবং 'The more... the more' কাঠামো থাকায় বাক্যটি Complex Sentence.
 
 27. Identify the part of speech of 'temporarily' in the sentence "she ‘temporarily’ ‘stopped’ ‘speaking’".
@@ -2031,7 +2296,7 @@ a. Adverb-ক্রিয়া-বিশেষণ
 b. Adjective-বিশেষণ
 c. Noun-বিশেষ্য
 d. Pronoun-সর্বনাম
-Correct Answer: B. Adjective
+Correct Answer: A. Adverb
 Explanation: 'stopped' নামক verb-কে modify করার কারণে temporarily শব্দটির পার্টস অফ স্পিচ হলো Adverb.
 
 28. What kind of phrase is 'at the age of 11' in the sentence "At the age of 11, Greta became so ‘sad’ about climate change"?
@@ -2044,7 +2309,7 @@ a. Prepositional Phrase functioning as Adverbial-অ্যাডভার্ব�
 b. Noun Phrase-বিশেষ্য ফ্রেজ
 c. Adjective Phrase-বিশেষণ ফ্রেজ
 d. Verb Phrase-ভার্ব ফ্রেজ
-Correct Answer: B. Prepositional Phrase functioning as Adverbial
+Correct Answer: A. Prepositional Phrase functioning as Adverbial
 Explanation: Preposition দিয়ে শুরু হয়ে বাক্যের কখন (when) প্রশ্নের উত্তর দেওয়ায় এটি Adverbial Phrase হিসেবে কাজ করেছে।
 
 29. What is the grammatical role of 'Asperger syndrome' in the sentence "Greta has ‘Asperger’ ‘syndrome’"?
@@ -2057,7 +2322,7 @@ a. Appositive / Object noun phrase-অ্যাপোজিটিভ বা অ�
 b. Subject-কর্তা
 c. Adverb-অ্যাডভার্ব
 d. Conjunction-কনজাংশন
-Correct Answer: B. Subject
+Correct Answer: A. Appositive / Object noun phrase
 Explanation: Verb-এর অবজেক্ট হিসেবে বসে noun-এর কাজ করায় এটি Noun Phrase হিসেবে গণ্য।
 
 30. Identify the type of clause introduced by 'that' in the sentence "Greta has ‘Asperger’ ‘syndrome’, a ‘condition’ that ‘affects’ how people ‘socialise’".
@@ -2070,7 +2335,7 @@ a. Adjective Clause / Relative Clause-অ্যাডজেক্টিভ ব�
 b. Noun Clause-নাউন ক্লজ
 c. Adverbial Clause-অ্যাডভার্বিয়াল ক্লজ
 d. Principal Clause-প্রধান ক্লজ
-Correct Answer: B. Noun Clause
+Correct Answer: A. Adjective Clause / Relative Clause
 Explanation: পূর্ববর্তী noun 'condition'-কে modify করায় 'that' দিয়ে শুরু হওয়া অংশটি Adjective Clause.
 
 31. What does the word 'superpower' metaphorically mean in the sentence "calling it her 'superpower'"?
@@ -2096,7 +2361,7 @@ a. Hinders-বাধা দেয়
 b. Assists-সহায়তা করে
 c. Impedes-প্রতিহত করে
 d. Blocks-বন্ধ করে
-Correct Answer: C. Impedes
+Correct Answer: B. Assists
 Explanation: সাহায্য করা বা কোনো কাজে সহযোগিতা করা অর্থে helps-এর সমার্থক হলো assists.
 
 33. What is the meaning of the word 'grey' in the phrase 'grey areas'?
@@ -2109,7 +2374,7 @@ a. Transparent-স্বচ্ছ
 b. Ambiguous-অস্পষ্ট বা অনিশ্চিত
 c. Clear-পরিষ্কার
 d. Absolute-পরম
-Correct Answer: C. Clear
+Correct Answer: B. Ambiguous
 Explanation: যে বিষয়ে কোনো নির্দিষ্ট স্পষ্ট ধারণা বা নিয়ম নেই, সেই অস্পষ্ট বা ধূসর ক্ষেত্রকে ambiguous বলা হয়।
 
 34. What does the word 'decided' signify in the sentence "Greta ‘decided’ to take ‘action’"?
@@ -2122,7 +2387,7 @@ a. Resolved-দৃঢ়প্রতিজ্ঞ হওয়া বা সিদ্�
 b. Wavered-টলমলে হওয়া
 c. Hesitated-দ্বিধাগ্রস্ত হওয়া
 d. Postponed-স্থগিত করা
-Correct Answer: C. Hesitated
+Correct Answer: A. Resolved
 Explanation: কোনো কাজের জন্য দৃঢ় সিদ্ধান্ত গ্রহণ করা অর্থে decided বা resolved ব্যবহৃত হয়।
 
 35. What does the word 'action' mean in the phrase 'take action'?
@@ -2148,7 +2413,7 @@ a. Placard-প্লেকার্ড বা ফেস্টুন
 b. Blank paper-ফাঁকা কাগজ
 c. Speech-বক্তব্য
 d. Book-বই
-Correct Answer: D. Book
+Correct Answer: A. Placard
 Explanation: প্রতিবাদ প্রদর্শনের জন্য হাতে লেখা যে বোর্ড বা পোস্টার ব্যবহার করা হয়, তাকে sign বা placard বলা হয়।
 
 37. What is the meaning of the word 'strike' in the phrase 'SCHOOL ‘STRIKE’ FOR CLIMATE'?
@@ -2161,7 +2426,7 @@ a. Boycott-কর্মবিরতি বা ধর্মঘট
 b. Compliance-সম্মতি
 c. Surrender-আত্মসমর্পণ
 d. Submission-জমা দেওয়া
-Correct Answer: D. Submission
+Correct Answer: A. Boycott
 Explanation: বিদ্যালয়ে যাওয়া বন্ধ রেখে প্রতিবাদ জানানো বা ধর্মঘট করার ক্ষেত্রে strike বা boycott শব্দটি প্রযোজ্য।
 
 38. What does the word 'calmly' mean in the sentence "and ‘calmly’ sat down outside"?
@@ -2174,7 +2439,7 @@ a. Serenely-শান্তভাবে বা স্থিরচিত্তে
 b. Frantically-উন্মত্তভাবে
 c. Violently-হিংসাত্মকভাবে
 d. Hysterically-উত্তেজিতভাবে
-Correct Answer: D. Hysterically
+Correct Answer: A. Serenely
 Explanation: কোনো প্রকার গোলমাল ছাড়াই অত্যন্ত শান্তভাবে বসে থাকা বোঝাতে calmly বা serenely ব্যবহৃত হয়।
 
 39. What does the word 'politicians' mean in the sentence "To make ‘politicians’ take ‘notice’"?
@@ -2200,7 +2465,7 @@ a. Attention-নজর বা মনোযোগ
 b. Neglect-অবহেলা
 c. Oversight-ভুলত্রুটি
 d. Ignorance-অজ্ঞানতা
-Correct Answer: D. Ignorance
+Correct Answer: A. Attention
 Explanation: রাজনীতিবিদেরা যেন পরিবেশের বিষয়টি লক্ষ্য করেন বা দৃষ্টি দেন, সে অর্থে notice বা attention বোঝানো হয়েছে।
 
 41. What is the clause type of 'how people socialise' in the sentence "Greta has ‘Asperger’ ‘syndrome’, a ‘condition’ that ‘affects’ how people ‘socialise’"?
@@ -2278,7 +2543,7 @@ a. Adjective Clause modifying 'sign'-'sign' কে modify করা অ্যা
 b. Noun Clause-নাউন ক্লজ
 c. Adverbial Clause of Place-স্থানবাচক ক্লজ
 d. Independent Clause-স্বাধীন ক্লজ
-Correct Answer: B. Noun Clause
+Correct Answer: A. Adjective Clause modifying 'sign'
 Explanation: Relative pronoun 'that' দিয়ে শুরু হয়ে পূর্ববর্তী noun 'sign'-কে বিশেষিত করায় এটি Adjective Clause.
 
 47. What part of speech is 'calmly' in the sentence "and ‘calmly’ sat down outside"?
@@ -2291,7 +2556,7 @@ a. Adverb-ক্রিয়া-বিশেষণ
 b. Adjective-বিশেষণ
 c. Noun-বিশেষ্য
 d. Pronoun-সর্বনাম
-Correct Answer: B. Adjective
+Correct Answer: A. Adverb
 Explanation: 'sat down' (verb)-কে কীভাবে সম্পন্ন হয়েছে তা প্রকাশ করায় calmly হলো একটি Adverb.
 
 48. What is the grammatical category of 'Her aim?' in the text?
@@ -2304,7 +2569,7 @@ a. Minor sentence / Fragment-ক্ষুদ্র বাক্য বা খণ
 b. Complete declarative sentence-পূর্ণাঙ্গ বর্ণনাত্মক বাক্য
 c. Compound sentence-যৌগিক বাক্য
 d. Complex sentence-জটিল বাক্য
-Correct Answer: B. Complete declarative sentence
+Correct Answer: A. Minor sentence / Fragment
 Explanation: কোনো সমাপিকা ক্রিয়া ছাড়াই সংক্ষিপ্ত প্রশ্ন বা অভিব্যক্তি প্রকাশ করায় এটি একটি Minor sentence বা ফ্রেজাল খণ্ডবাক্য।
 
 49. Identify the grammatical role of 'To make politicians take notice...' in the sentence "To make ‘politicians’ take ‘notice’ and act"?
@@ -2317,7 +2582,7 @@ a. Adverbial Infinitive Phrase expressing purpose-উদ্দেশ্য প�
 b. Noun Phrase-নাউন ফ্রেজ
 c. Adjective Phrase-অ্যাডজেক্টিভ ফ্রেজ
 d. Relative Clause-রিলেটিভ ক্লজ
-Correct Answer: B. Noun Phrase
+Correct Answer: A. Adverbial Infinitive Phrase expressing purpose
 Explanation: লক্ষ্য বা উদ্দেশ্য প্রকাশ করার জন্য ইনফিনিটিভ দিয়ে শুরু হওয়া এই ফ্রেজটি Adverbial Phrase-এর কাজ করেছে।
 
 50. What is the part of speech of the word 'global' in the sentence "and act to stop ‘global’ ‘warming’"?
@@ -2330,7 +2595,7 @@ a. Adjective-বিশেষণ
 b. Noun-বিশেষ্য
 c. Adverb-অ্যাডভার্ব
 d. Verb-ক্রিয়া
-Correct Answer: B. Noun
+Correct Answer: A. Adjective
 Explanation: 'warming' নামক noun-টিকে modify করায় global শব্দটির পার্টস অফ স্পিচ হলো Adjective.
 
 51. What does the word 'global' mean in the sentence "To make ‘politicians’ take ‘notice’ and act to stop ‘global’ ‘warming’"?
@@ -2343,7 +2608,7 @@ a. Universal-সার্বজনীন বা বিশ্বব্যাপ�
 b. Local-স্থানীয়
 c. Regional-আঞ্চলিক
 d. Narrow-সংকীর্ণ
-Correct Answer: C. Regional
+Correct Answer: A. Universal
 Explanation: সারা পৃথিবী বা বিশ্বজুড়ে যা প্রযোজ্য, তাকে global বা universal বলা হয়।
 
 52. What is the meaning of the word 'warming' in the sentence "stop ‘global’ ‘warming’"?
@@ -2356,7 +2621,7 @@ a. Heating-উত্তপ্তকরণ বা তাপমাত্রা ব
 b. Cooling-শীতলীকরণ
 c. Freezing-জমে যাওয়া
 d. Chilling-ঠান্ডা করা
-Correct Answer: C. Freezing
+Correct Answer: A. Heating
 Explanation: পৃথিবীর তাপমাত্রা বৃদ্ধি পাওয়া বা উত্তপ্ত হওয়াকে global warming বা heating বলা হয়।
 
 53. What does the phrasal verb 'picked up' mean in the sentence "Greta's strike was ‘picked up’ by the Swedish ‘media’"?
@@ -2369,7 +2634,7 @@ a. Gained traction-প্রচার পাওয়া বা গুরুত্�
 b. Dropped-ফেলে দেওয়া
 c. Ignored-উপেক্ষা করা
 d. Abandoned-পরিত্যাগ করা
-Correct Answer: C. Ignored
+Correct Answer: A. Gained traction
 Explanation: কোনো সংবাদ বা আন্দোলন সবার মাঝে ছড়িয়ে পড়া বা গুরুত্ব লাভ করা বোঝাতে picked up ব্যবহৃত হয়।
 
 54. What does the word 'media' refer to in the sentence "picked up by the Swedish ‘media’"?
@@ -2382,7 +2647,7 @@ a. Press-সংবাদমাধ্যম বা প্রেস
 b. Silence-নীরবতা
 c. Isolation-বিচ্ছিন্নতা
 d. Secrecy-গোপনীয়তা
-Correct Answer: C. Isolation
+Correct Answer: A. Press
 Explanation: খবরাখবর প্রচারের মাধ্যম যেমন সংবাদপত্র, টেলিভিশন ইত্যাদিকে media বা press বলা হয়।
 
 55. What does the word 'spread' mean in the sentence "and the word started to ‘spread’"?
@@ -2395,7 +2660,7 @@ a. Disseminate-ছড়িয়ে পড়া বা প্রচার করা
 b. Contain-নিয়ন্ত্রণ করা
 c. Restrict-সীমাবদ্ধ করা
 d. Limit-সীমিত রাখা
-Correct Answer: C. Restrict
+Correct Answer: A. Disseminate
 Explanation: আন্দোলন বা বার্তাটি চারিদিকে ছড়িয়ে পড়ার ক্ষেত্রে spread বা disseminate শব্দটি ব্যবহার করা যায়।
 
 56. What is the meaning of the word 'joined' in the sentence "students... ‘joined’ her #FridaysforFuture strikes"?
@@ -2408,7 +2673,7 @@ a. Associated-যুক্ত হওয়া বা অংশগ্রহণ ক�
 b. Separated-বিচ্ছিন্ন
 c. Disconnected-বিচ্ছিন্ন করা
 d. Parted-আলাদা হওয়া
-Correct Answer: D. Parted
+Correct Answer: A. Associated
 Explanation: কোনো কার্যক্রমে অন্যদের সাথে সম্পৃক্ত হওয়া বা যোগ দেওয়া অর্থে joined ব্যবহৃত হয়।
 
 57. What does the word 'skipping' mean in the phrase 'skipping school'?
@@ -2421,7 +2686,7 @@ a. Truanting-অনুমতি ছাড়া বিদ্যালয় বা ক
 b. Attending-উপস্থিত থাকা
 c. Joining-যোগ দেওয়া
 d. Completing-সম্পন্ন করা
-Correct Answer: D. Completing
+Correct Answer: A. Truanting
 Explanation: ক্লাস বা বিদ্যালয়ে না গিয়ে বিনা অনুমতিতে তা বাদ দেওয়াকে skipping বা truanting বলা হয়।
 
 58. What does the word 'protest' signify in the sentence "to ‘protest’ against climate change"?
@@ -2434,7 +2699,7 @@ a. Object-আপত্তি জানানো বা প্রতিবাদ 
 b. Support-সমর্থন
 c. Praise-প্রশংসা
 d. Endorse-সমর্থন করা
-Correct Answer: D. Endorse
+Correct Answer: A. Object
 Explanation: কোনো নীতির বিরুদ্ধে অসন্তোষ প্রকাশ করা বা প্রতিবাদ করা অর্থে protest বা object ব্যবহৃত হয়।
 
 59. What is the meaning of the word 'campaigners' in the sentence "climate ‘campaigners’ across the world"?
@@ -2447,7 +2712,7 @@ a. Activists-আন্দোলনকর্মী বা প্রচারক�
 b. Opponents-বিরোধীরা
 c. Spectators-দর্শকরা
 d. Critics-সমালোচকরা
-Correct Answer: D. Critics
+Correct Answer: A. Activists
 Explanation: যারা সুনির্দিষ্ট কোনো ক্যাম্পেইন বা আন্দোলনে যুক্ত থাকেন, তাদের campaigners বা activists বলা হয়।
 
 60. What does the word 'inspired' mean in the sentence "and ‘inspired’ by Greta"?
@@ -2460,7 +2725,7 @@ a. Motivated-অনুপ্রাণিত বা উদ্দীপ্ত
 b. Discouraged-নিরুৎসাহিত
 c. Demoralized-মনোবল ভেঙে যাওয়া
 d. Deterred-বাধাগ্রস্ত
-Correct Answer: D. Deterred
+Correct Answer: A. Motivated
 Explanation: কারও দ্বারা অনুপ্রাণিত হয়ে কোনো কাজ করার শক্তি পাওয়া বোঝাতে inspired বা motivated ব্যবহৃত হয়।
 
 61. Identify the phrase type of 'picked up' in the sentence "Greta's strike was ‘picked up’ by the Swedish ‘media’".
@@ -2476,18 +2741,18 @@ d. Prepositional Phrase-প্রিপজিশনাল ফ্রেজ
 Correct Answer: A. Phrasal Verb
 Explanation: Verb এবং preposition একত্রে মিলিত হয়ে বিশেষ অর্থ (প্রচার পাওয়া) প্রকাশ করায় এটি Phrasal Verb.
 
-62. What type of clause is 'that the word started to spread' in the sentence "and the word ‘started’ to ‘spread’"?
-A. Noun Clause acting as object
-B. Adjective Clause
-C. Adverbial Clause
-D. Independent Clause
+62. What is the grammatical form of 'to spread' in the sentence "and the word started to ‘spread’"?
+A. Infinitive
+B. Gerund
+C. Present Participle
+D. Past Participle
 Bangla Meaning:
-a. Noun Clause acting as object-অবজেক্ট হিসেবে কাজ করা নাউন ক্লজ
-b. Adjective Clause-অ্যাডজেক্টিভ ক্লজ
-c. Adverbial Clause-অ্যাডভার্বিয়াল ক্লজ
-d. Independent Clause-স্বাধীন ক্লজ
-Correct Answer: A. Noun Clause acting as object
-Explanation: বাক্যটির প্রধান verb-এর অবজেক্ট হিসেবে তথ্য প্রকাশ করায় এটি Subordinate Noun Clause.
+a. Infinitive-ইনফিনিটিভ
+b. Gerund-জিরান্ড
+c. Present Participle-প্রেজেন্ট পার্টিসিপল
+d. Past Participle-পাস্ট পার্টিসিপল
+Correct Answer: A. Infinitive
+Explanation: 'to' এর সঙ্গে verb-এর base form 'spread' যুক্ত হয়ে 'to spread' একটি Infinitive গঠন করেছে।
 
 63. What is the grammatical form of 'skipping' in the sentence "– ‘skipping’ school on Fridays"?
 A. Present Participle
@@ -2538,7 +2803,7 @@ a. Past Participle functioning as adjective modifier-অ্যাডজেক্
 b. Noun-বিশেষ্য
 c. Adverb-অ্যাডভার্ব
 d. Conjunction-কনজাংশন
-Correct Answer: B. Noun
+Correct Answer: A. Past Participle functioning as adjective modifier
 Explanation: Participial phrase-এর অংশ হিসেবে inspired এখানে modifier-এর কাজ করেছে।
 
 67. What kind of phrase is 'from 125 countries' in the sentence "Over 6 million people from 125 countries ‘took part’!"?
@@ -2551,7 +2816,7 @@ a. Prepositional Phrase-প্রিপজিশনাল ফ্রেজ
 b. Noun Phrase-নাউন ফ্রেজ
 c. Adjective Phrase-অ্যাডজেক্টিভ ফ্রেজ
 d. Verb Phrase-ভার্ব ফ্রেজ
-Correct Answer: B. Noun Phrase
+Correct Answer: A. Prepositional Phrase
 Explanation: 'from' প্রিপজিশন দিয়ে শুরু হওয়ায় এটি একটি Prepositional Phrase.
 
 68. Identify the grammatical status of 'took part' in the sentence "Over 6 million people from 125 countries ‘took part’!"?
@@ -2564,7 +2829,7 @@ a. Idiomatic Verb Phrase-ইডিওমেটিক ভার্ব ফ্র�
 b. Noun Phrase-নাউন ফ্রেজ
 c. Adjective Phrase-অ্যাডজেক্টিভ ফ্রেজ
 d. Adverbial Phrase-অ্যাডভার্বিয়াল ফ্রেজ
-Correct Answer: B. Noun Phrase
+Correct Answer: A. Idiomatic Verb Phrase
 Explanation: অংশগ্রহণ করা অর্থে 'take part' একটি সুনির্দিষ্ট Verb Phrase বা Idiom হিসেবে কাজ করে।
 
 69. What is the part of speech of 'whirlwind' in the sentence "Greta's life has become a ‘whirlwind’!"?
@@ -2577,7 +2842,7 @@ a. Noun-বিশেষ্য
 b. Verb-ক্রিয়া
 c. Adjective-বিশেষণ
 d. Adverb-অ্যাডভার্ব
-Correct Answer: B. Verb
+Correct Answer: A. Noun
 Explanation: 'a whirlwind' গঠনে আর্টিকেল-এর পরে বসে অবজেক্ট রূপ নেওয়ায় এটি একটি Noun.
 
 70. Identify the non-finite verb form in the sentence "She's given ‘rousing speeches’ to politicians"?
@@ -2590,7 +2855,7 @@ a. Past Participle-পাস্ট পার্টিসিপল
 b. Present Participle-প্রেজেন্ট পার্টিসিপল
 c. Gerund-জিরান্ড
 d. Infinitive-ইনফিনিটিভ
-Correct Answer: B. Present Participle
+Correct Answer: A. Past Participle
 Explanation: Auxiliary verb 'has' (s)-এর পরে মূল verb-এর past participle রূপ (given) বসেছে।
 
 71. What does the word 'co-ordinate' mean in the sentence "came together to ‘co-ordinate’ the first Global Strike"?
@@ -2603,7 +2868,7 @@ a. Harmonize-সমন্বয় করা বা একসাথে পরি
 b. Disorganize-অগোছালো করা
 c. Scatter-ছড়িয়ে দেওয়া
 d. Separate-আলাদা করা
-Correct Answer: C. Scatter
+Correct Answer: A. Harmonize
 Explanation: বিভিন্ন কার্যক্রম বা শক্তিকে একসূত্রে গেঁথে পরিচালনা করাকে co-ordinate বা harmonize বলা হয়।
 
 72. What is the meaning of the word 'took' in the phrase 'took part'?
@@ -2616,7 +2881,7 @@ a. Participated-অংশগ্রহণ করেছিল
 b. Avoided-এড়িয়ে চলা
 c. Missed-মিস করা
 d. Refused-প্রত্যাখ্যান করা
-Correct Answer: C. Missed
+Correct Answer: A. Participated
 Explanation: কোনো অনুষ্ঠানে বা আন্দোলনে অংশগ্রহণ করা বোঝাতে took part বা participated ব্যবহৃত হয়।
 
 73. What does the word 'began' mean in the sentence "Since her strike ‘began’"?
@@ -2629,7 +2894,7 @@ a. Originated-শুরু হয়েছিল বা উদ্ভূত হল�
 b. Finished-শেষ হলো
 c. Concluded-উপসংহার টানা
 d. Terminated-সমাপ্ত
-Correct Answer: C. Concluded
+Correct Answer: A. Originated
 Explanation: আন্দোলন বা কোনো ঘটনার সূচনা হওয়া অর্থে began-এর সাথে originated সাদৃশ্যপূর্ণ।
 
 74. What does the metaphor 'whirlwind' imply about her life in the sentence "Greta's life has become a ‘whirlwind’!"?
@@ -2642,7 +2907,7 @@ a. Hectic and fast-paced-ব্যস্ত ও দ্রুত পরিবর�
 b. Calm and slow-শান্ত এবং ধীরগতির
 c. Boring and dull-বিরক্তিকর ও নিস্তেজ
 d. Empty and quiet-খালি এবং শান্ত
-Correct Answer: C. Boring and dull
+Correct Answer: A. Hectic and fast-paced
 Explanation: জীবনের তীব্র গতিশীলতা ও ব্যস্ততাকে বোঝাতে whirlwind বা ঝোড়ো হাওয়ার রূপক ব্যবহার করা হয়েছে।
 
 75. What is the meaning of the word 'rousing' in the phrase 'rousing speeches'?
@@ -2655,7 +2920,7 @@ a. Inspiring-উদ্দীপনাময় বা জোরালো
 b. Sedative-ঘুমপাড়ানিয়া
 c. Boring-বিরক্তিকর
 d. Dulling-নিস্তেজকারী
-Correct Answer: C. Boring
+Correct Answer: A. Inspiring
 Explanation: শ্রোতাদের মনে জোরালো প্রভাব ফেলা বা উদ্দীপ্ত করা ভাষণকে rousing বা inspiring বলা হয়।
 
 76. What does the word 'speeches' mean in the sentence "She's given ‘rousing speeches’ to politicians"?
@@ -2668,7 +2933,7 @@ a. Addresses-বক্তৃতা বা ভাষণসমূহ
 b. Silences-নীরবতা
 c. Whispers-ফিসফিসানি
 d. Murmurs-গুঞ্জন
-Correct Answer: D. Murmurs
+Correct Answer: A. Addresses
 Explanation: জনসমক্ষে দেওয়া প্রাতিষ্ঠানিক বক্তব্যকে speeches বা addresses বলা হয়।
 
 77. What does the word 'appeared' signify in the sentence "She's ‘appeared’ in ‘documentaries’"?
@@ -2681,7 +2946,7 @@ a. Featured-উপস্থিত হওয়া বা স্থান পাও�
 b. Vanished-উধাও হয়ে যাওয়া
 c. Hidden-লুকানো
 d. Concealed-গোপন করা
-Correct Answer: D. Concealed
+Correct Answer: A. Featured
 Explanation: ডকুমেন্টারি বা মিডিয়াতে আত্মপ্রকাশ করা বা উপস্থিত থাকাকে appeared বা featured বলা হয়।
 
 78. What is the meaning of the word 'documentaries' in the sentence "She's ‘appeared’ in ‘documentaries’"?
@@ -2694,7 +2959,7 @@ a. Factual films-তথ্যভিত্তিক চলচ্চিত্র �
 b. Fictions-কাল্পনিক গল্প
 c. Fairy tales-রূপকথার গল্প
 d. Myths-পৌরাণিক কাহিনী
-Correct Answer: D. Myths
+Correct Answer: A. Factual films
 Explanation: বাস্তব সত্য বা তথ্যের ওপর ভিত্তি করে নির্মিত চলচ্চিত্রকে documentary বলা হয়।
 
 79. What does the word 'loads' mean in the phrase 'loads of books'?
@@ -2707,7 +2972,7 @@ a. Plenty-প্রচুর বা বহু পরিমাণে
 b. Scarcity-স্বল্পতা
 c. Lack-ঘাটতি
 d. Deficiency-অভাব
-Correct Answer: D. Deficiency
+Correct Answer: A. Plenty
 Explanation: অনেক বা প্রচুর পরিমাণ কিছু বোঝাতে loads বা plenty ব্যবহার করা হয়।
 
 80. What is the meaning of the word 'nominated' in the sentence "She's even been ‘nominated’ for a Nobel Peace Prize!"?
@@ -2720,7 +2985,7 @@ a. Proposed-মনোনীত বা প্রস্তাবিত
 b. Dismissed-বরখাস্ত
 c. Rejected-প্রত্যাখ্যাত
 d. Excluded-বহিষ্কৃত
-Correct Answer: D. Excluded
+Correct Answer: A. Proposed
 Explanation: কোনো পুরস্কার বা পদের জন্য নাম প্রস্তাব করাকে nominated বা proposed বলা হয়।
 
 81. What part of speech is 'rousing' in the phrase 'rousing speeches'?
@@ -2789,17 +3054,17 @@ Correct Answer: A. Compound Sentence
 Explanation: হাইফেন বা কোলন দিয়ে দুটি স্বাধীন ভাব বা খণ্ডবাক্য যুক্ত থাকায় এটি মূলত Compound Sentence কাঠামোর অন্তর্ভুক্ত।
 
 86. Identify the grammatical function of the quoted direct speech in the sentence "Her ‘passionate’ ‘speech’ "You have ‘stolen’ my dreams..." has drawn much ‘attention’"?
-A. Direct Object of the verb/sentence structure
+A. Appositive / Content complement of 'speech'
 B. Subject Clause
 C. Adverbial Clause
 D. Relative Clause
 Bangla Meaning:
-a. Direct Object of the verb/sentence structure-সরাসরি অবজেক্ট বা উদ্ধৃত অংশ
+a. Appositive / Content complement of 'speech'-'speech'-এর বিষয়বস্তু নির্দেশকারী অ্যাপোজিটিভ বা কনটেন্ট কমপ্লিমেন্ট
 b. Subject Clause-সাবজেক্ট ক্লজ
-c. Adverbial Clause-অ্যাডভার্বিয়াল ক্লজ
+c. Adverbial Clause-অ্যাডভার্বিয়াল ক্লজ
 d. Relative Clause-রিলেটিভ ক্লজ
-Correct Answer: B. Subject Clause
-Explanation: স্পিচ বা বক্তার বক্তব্যটি পুরো বাক্যের ভেতরে কোটেশনের মাধ্যমে অবজেক্টের মতো কাজ করেছে।
+Correct Answer: A. Appositive / Content complement of 'speech'
+Explanation: উদ্ধৃত অংশটি 'speech'-এর বিষয়বস্তু বা বক্তব্যটি কী ছিল তা নির্দিষ্ট করছে; এটি পুরো বাক্যের Subject Clause নয়।
 
 87. What is the part of speech of 'passionate' in the sentence "Her ‘passionate’ ‘speech’..."?
 A. Adjective
@@ -2811,7 +3076,7 @@ a. Adjective-বিশেষণ
 b. Noun-বিশেষ্য
 c. Adverb-অ্যাডভার্ব
 d. Verb-ক্রিয়া
-Correct Answer: B. Noun
+Correct Answer: A. Adjective
 Explanation: 'speech' noun-টিকে modify করায় passionate শব্দটির পার্টস অফ স্পিচ হলো Adjective.
 
 88. Identify the clause type of 'how some people think and act' in the sentence "Thunberg was known for changing how some people ‘think’ and ‘act’ about climate change."
@@ -2824,7 +3089,7 @@ a. Subordinate Noun Clause-সাবঅর্ডিনেট নাউন ক্
 b. Adjective Clause-অ্যাডজেক্টিভ ক্লজ
 c. Adverbial Clause-অ্যাডভার্বিয়াল ক্লজ
 d. Principal Clause-প্রধান ক্লজ
-Correct Answer: B. Adjective Clause
+Correct Answer: A. Subordinate Noun Clause
 Explanation: 'changing' জেরাড বা ভার্বাল নাউনের অবজেক্ট হিসেবে how দ্বারা শুরু হওয়া এই ক্লজটি Noun Clause-এর কাজ করেছে।
 
 89. What is the grammatical voice of the sentence "Her ‘impact’ is called “the Greta effect.”"?
@@ -2837,7 +3102,7 @@ a. Passive Voice-প্যাসিভ ভয়েস
 b. Active Voice-্যাক্টিভ ভয়েস
 c. Middle Voice-মিডল ভয়েস
 d. Reflexive Voice-রিফ্লেক্সিভ ভয়েস
-Correct Answer: B. Active Voice
+Correct Answer: A. Passive Voice
 Explanation: বাক্যের সাবজেক্ট নিজে কাজ করছে না বরং তার ওপর কাজ করা হচ্ছে বোঝাতে 'is called' কাঠামোটি Passive Voice-এ আছে।
 
 90. Identify the structural classification of the sentence "In the 1950s, Rosa ‘sparked’ a civil rights ‘movement’ that ‘improved’ the lives..."?
@@ -2850,7 +3115,7 @@ a. Complex Sentence-জটিল বাক্য
 b. Simple Sentence-সরল বাক্য
 c. Compound Sentence-যৌগিক বাক্য
 d. Imperative Sentence-অনূজ্ঞাসূচক বাক্য
-Correct Answer: B. Simple Sentence
+Correct Answer: A. Complex Sentence
 Explanation: একটি Principal Clause ('Rosa sparked...') এবং 'that' দ্বারা শুরু হওয়া একটি Adjective Subordinate Clause যুক্ত থাকায় বাক্যটি Complex Sentence.
 
 91. What does the word 'travelled' mean in the sentence "Greta ‘travelled’ on a wind and ‘solar-powered’ boat"?
@@ -2863,7 +3128,7 @@ a. Journeyed-ভ্রমণ করেছিল
 b. Stayed-থাকা
 c. Halted-থামো
 d. Settled-স্থায়ী হওয়া
-Correct Answer: C. Halted
+Correct Answer: A. Journeyed
 Explanation: এক স্থান থেকে অন্য স্থানে যাতায়াত করা বা ভ্রমণ করা অর্থে travelled-এর পরিবর্তে journeyed ব্যবহার করা যায়।
 
 92. What does the compound word 'solar-powered' imply in the sentence "on a wind and ‘solar-powered’ boat"?
@@ -2876,7 +3141,7 @@ a. Sun-energized-সৌরশক্তিতে চালিত
 b. Fuel-driven-জ্বালানি চালিত
 c. Coal-run-কয়লা চালিত
 d. Gas-powered-গ্যাস চালিত
-Correct Answer: C. Coal-run
+Correct Answer: A. Sun-energized
 Explanation: সৌরশক্তি বা সূর্যের আলোর ওপর নির্ভর করে সচল কোনো মাধ্যমকে solar-powered বলা হয়।
 
 93. What is the meaning of the word 'journey' in the sentence "the ‘journey’ took 15 days"?
@@ -2889,7 +3154,7 @@ a. Voyage-জলপথ বা দীর্ঘ সমুদ্রযাত্র�
 b. Stagnation-স্থবিরতা
 c. Halt-বিরতি
 d. Rest-বিশ্রাম
-Correct Answer: C. Halt
+Correct Answer: A. Voyage
 Explanation: জলপথে নৌকা বা জাহাজে দীর্ঘ ভ্রমণ করাকে voyage বা journey বলা হয়।
 
 94. What does the word 'passionate' mean in the sentence "Her ‘passionate’ ‘speech’"?
@@ -2902,7 +3167,7 @@ a. Fervent-উদ্বুদ্ধ বা তীব্র আবেগপূর
 b. Apathetic-উদাসীন
 c. Indifferent-নিরাসক্ত
 d. Cold-শীতল
-Correct Answer: C. Indifferent
+Correct Answer: A. Fervent
 Explanation: তীব্র আবেগ ও আন্তরিকতা প্রকাশ করতে passionate বা fervent শব্দটি ব্যবহার করা হয়।
 
 95. What is the meaning of the word 'speech' in the sentence "Her ‘passionate’ ‘speech’"?
@@ -2915,7 +3180,7 @@ a. Oration-ভাষণ বা বক্তৃতা
 b. Silence-নীরবতা
 c. Quiet-শান্তি
 d. Murmur-গুঞ্জন
-Correct Answer: C. Quiet
+Correct Answer: A. Oration
 Explanation: জোরালো ও গুরুত্বপূর্ণ বক্তব্য বা ভাষণকে oration বা speech বলা হয়।
 
 96. What does the word 'stolen' signify in the sentence "You have ‘stolen’ my dreams"?
@@ -2928,7 +3193,7 @@ a. Pilfered-চুরি করা হয়েছে এমন বা আত্ম
 b. Restored-পুনরুদ্ধারকৃত
 c. Returned-ফেরত দেওয়া
 d. Given-প্রদত্ত
-Correct Answer: D. Given
+Correct Answer: A. Pilfered
 Explanation: জোর করে বা অবৈধভাবে কেড়ে নেওয়া বা চুরি করা অর্থে stolen বা pilfered ব্যবহৃত হয়।
 
 97. What does the word 'childhood' refer to in the sentence "and my ‘childhood’ with your ‘empty’ words"?
@@ -2941,7 +3206,7 @@ a. Early youth-বাল্যকাল বা শৈশব
 b. Ad adulthood-প্রাপ্তবয়স্ককাল
 c. Old age-বৃদ্ধ বয়স
 d. Maturity-পরিণতি
-Correct Answer: D. Maturity
+Correct Answer: A. Early youth
 Explanation: মানুষের জীবনের শুরুর সময় বা শিশুদের বয়সকালকে childhood বলা হয়।
 
 98. What is the meaning of the word 'empty' in the phrase 'empty words'?
@@ -2954,7 +3219,7 @@ a. Hollow-ফাঁপা বা সারগর্ভহীন
 b. Meaningful-অর্থপূর্ণ
 c. Substantial-শক্তিশালী
 d. Solid-কঠিন
-Correct Answer: D. Solid
+Correct Answer: A. Hollow
 Explanation: বাস্তব কোনো কার্যকারিতা বা অর্থ নেই এমন ফাঁকা প্রতিশ্রুতিকে empty বা hollow words বলা হয়।
 
 99. What does the word 'mass' mean in the phrase 'mass extinction'?
@@ -2967,7 +3232,7 @@ a. Widespread-ব্যাপক বা দলবদ্ধ
 b. Limited-সীমিত
 c. Individual-ব্যক্তিগত
 d. Scarse-দুর্লভ
-Correct Answer: D. Scarse
+Correct Answer: A. Widespread
 Explanation: কোনো কিছু যখন বৃহৎ পরিসরে বা ব্যাপকভাবে ঘটে, তখন তাকে mass বা widespread বলা হয়।
 
 100. What is the meaning of the word 'extinction' in the phrase 'mass extinction'?
@@ -2980,7 +3245,7 @@ a. Annihilation-বিলুপ্তি বা বিনাশ
 b. Survival-বেঁচে থাকা
 c. Existence-অস্তিত্ব
 d. Creation-সৃষ্টি
-Correct Answer: D. Creation
+Correct Answer: A. Annihilation
 Explanation: কোনো প্রজাতি বা সত্তার চিরতরে হারিয়ে যাওয়া বা ধ্বংস হয়ে যাওয়াকে extinction বা annihilation বলে।
 
 101. What does the word 'fairy' mean in the phrase 'fairy tales'?
@@ -3058,7 +3323,7 @@ a. Heed-মনোযোগ বা নজর
 b. Neglect-অবহেলা
 c. Ignorance-অজ্ঞানতা
 d. Inattention-অনবধানতা
-Correct Answer: B. Neglect
+Correct Answer: A. Heed
 Explanation: কোনো বিষয়ের প্রতি সবার নজর বা মনোযোগ আকর্ষণ করাকে attention বা heed বলা হয়।
 
 107. What does the word 'impact' signify in the sentence "Her ‘impact’ is called “the Greta effect.”"?
@@ -3071,7 +3336,7 @@ a. Influence-প্রভাব
 b. Cause-কারণ
 c. Origin-উৎপত্তি
 d. Source-উৎস
-Correct Answer: B. Cause
+Correct Answer: A. Influence
 Explanation: কারও কাজের ফলে সৃষ্ট গভীর প্রভাবকে impact বা influence বলা হয়।
 
 108. What does the word 'civil' mean in the phrase 'civil rights activist'?
@@ -3084,7 +3349,7 @@ a. Civic-নাগরিক বা সমাজের সাধারণ মা�
 b. Military-সামরিক
 c. Criminal-অপরাধমূলক
 d. Foreign-বিদেশী
-Correct Answer: B. Military
+Correct Answer: A. Civic
 Explanation: রাষ্ট্রের সাধারণ নাগরিকদের অধিকার বা সুযোগ-সুবিধাকে civil বা civic rights বলা হয়।
 
 109. What is the meaning of the word 'rights' in the phrase 'civil rights'?
@@ -3097,7 +3362,7 @@ a. Entitlements-অধিকার বা প্রাপ্যতা
 b. Duties-কর্তব্য
 c. Restrictions-নিষেধাজ্ঞা
 d. Limitations-সীমাবদ্ধতা
-Correct Answer: B. Duties
+Correct Answer: A. Entitlements
 Explanation: নাগরিক হিসেবে পাওয়ার যোগ্য আইনগত সুযোগ বা সুবিধাকে rights বা entitlements বলা হয়।
 
 110. What does the word 'greatest' mean in the sentence "one of her ‘greatest’ ‘inspirations’"?
@@ -3110,7 +3375,7 @@ a. Supreme-সর্বোচ্চ বা শ্রেষ্ঠ
 b. Lowest-সর্বনিম্ন
 c. Worst-সবচেয়ে খারাপ
 d. Least-সবচেয়ে কম
-Correct Answer: B. Lowest
+Correct Answer: A. Supreme
 Explanation: তুলনামূলকভাবে সবচেয়ে বড় বা শ্রেষ্ঠ বোঝাতে greatest বা supreme ব্যবহৃত হয়।
 
 111. What is the meaning of the word 'inspirations' in the sentence "one of her ‘greatest’ ‘inspirations’"?
@@ -3123,7 +3388,7 @@ a. Motivations-অনুপ্রেরণাসমূহ
 b. Discouragements-নিরুৎসাহ
 c. Deterrents-বাধা
 d. Hindrances-প্রতিরোধ
-Correct Answer: C. Deterrents
+Correct Answer: A. Motivations
 Explanation: কোনো কিছু করার জন্য মনে যে উৎসাহ বা উদ্দীপনা জাগে, তাকে inspirations বা motivations বলে।
 
 112. What does the word 'sparked' mean in the sentence "Rosa ‘sparked’ a civil rights ‘movement’"?
@@ -3136,7 +3401,7 @@ a. Triggered-সূচনা করা বা ত্বরান্বিত ক
 b. Extinguished-নির্বাপিত করা
 c. Quenched-প্রশমিত করা
 d. Suppressed-দমন করা
-Correct Answer: C. Quenched
+Correct Answer: A. Triggered
 Explanation: হঠাৎ করে কোনো বড় আন্দোলন বা ঘটনার সূত্রপাত ঘটানোকে sparked বা triggered বলা হয়।
 
 113. What does the word 'movement' mean in the sentence "sparked a civil rights ‘movement’"?
@@ -3149,7 +3414,7 @@ a. Campaign-অভিযান বা আন্দোলন
 b. Stagnation-স্থবিরতা
 c. Rest-বিশ্রাম
 d. Standstill-থামিয়ে দেওয়া
-Correct Answer: C. Rest
+Correct Answer: A. Campaign
 Explanation: সুনির্দিষ্ট কোনো লক্ষ্যে সংগঠিত আন্দোলনকে movement বা campaign বলা হয়।
 
 114. What is the meaning of the word 'improved' in the sentence "that ‘improved’ the lives and ‘treatment’"?
@@ -3162,7 +3427,7 @@ a. Enhanced-উন্নত বা শাণিত করা
 b. Worsened-অবনতি ঘটানো
 c. Deteriorated-খারাপ হওয়া
 d. Damaged-ক্ষতিগ্রস্ত করা
-Correct Answer: C. Deteriorated
+Correct Answer: A. Enhanced
 Explanation: কোনো কিছুর মান বা অবস্থাকে আরও ভালো করার ক্ষেত্রে improved বা enhanced ব্যবহার করা হয়।
 
 115. What does the word 'treatment' signify in the sentence "the lives and ‘treatment’ of millions"?
@@ -3175,7 +3440,7 @@ a. Handling-ব্যবহার বা আচরণ
 b. Abuse-অত্যাচার
 c. Neglect-অবহেলা
 d. Mistreatment-দুর্ব্যবহার
-Correct Answer: C. Neglect
+Correct Answer: A. Handling
 Explanation: মানুষের সাথে কেমন আচরণ বা ব্যবহার করা হচ্ছে, তা বোঝাতে treatment বা handling শব্দটি প্রযোজ্য।
 
 116. What is the meaning of the word 'world' in the sentence "from all over the world"?
@@ -3188,7 +3453,7 @@ a. Globe-পৃথিবী বা বিশ্বগোলক
 b. Cosmos-মহাবিশ্ব
 c. Void-শূন্যতা
 d. Vacuum-ভ্যাকুয়াম
-Correct Answer: D. Vacuum
+Correct Answer: A. Globe
 Explanation: সমগ্র পৃথিবী বা বিশ্বকে নির্দেশ করতে world বা globe শব্দটি ব্যবহার করা হয়।
 
 117. What does the term 'peace' imply in the phrase 'Nobel Peace Prize'?
@@ -3201,7 +3466,7 @@ a. Harmony-শান্তি বা সম্প্রীতি
 b. Conflict-সংঘাত
 c. War-যুদ্ধ
 d. Strife-কলহ
-Correct Answer: D. Strife
+Correct Answer: A. Harmony
 Explanation: সংঘাতহীন শান্তিময় অবস্থাকে peace বা harmony বলা হয়।
 
 118. What does the word 'prize' mean in the phrase 'Nobel Peace Prize'?
@@ -3214,7 +3479,7 @@ a. Award-পুরস্কার
 b. Penalty-শাস্তি
 c. Fine-জরিমানা
 d. Punishment-সাজা
-Correct Answer: D. Punishment
+Correct Answer: A. Award
 Explanation: অসাধারণ অবদানের স্বীকৃতিস্বরূপ যা প্রদান করা হয়, তাকে prize বা award বলা হয়।
 
 119. What does the word 'think' mean in the sentence "changing how some people ‘think’ and ‘act’"?
@@ -3227,7 +3492,7 @@ a. Ponder-চিন্তা করা বা বিবেচনা করা
 b. Neglect-উপেক্ষা করা
 c. Forget-ভুলে যাওয়া
 d. Ignore-এড়িয়ে যাওয়া
-Correct Answer: D. Ignore
+Correct Answer: A. Ponder
 Explanation: কোনো বিষয় নিয়ে গভীর চিন্তা বা দৃষ্টিভঙ্গি পোষণ করা অর্থে think বা ponder ব্যবহৃত হয়।
 
 120. What does the word 'act' mean in the sentence "changing how some people ‘think’ and ‘act’"?
@@ -3240,8 +3505,9 @@ a. Behave-আচরণ করা বা কাজ করা
 b. Realign-পুনরায় সাজানো
 c. Rest-বিশ্রাম নেওয়া
 d. Wait-অপেক্ষা করা
-Correct Answer: D. Wait
+Correct Answer: A. Behave
 Explanation: কোনো নির্দিষ্ট পরিস্থিতিতে মানুষ যেভাবে আচরণ করে তা বোঝাতে act বা behave ব্যবহৃত হয়।
+
 `;
 
         const MCQ_NEGATIVE_MARK = 0.25;
@@ -3282,7 +3548,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
                 const q=qLine.replace(/^\d+\.\s*/,'').trim();
                 const opts={};
                 lines.forEach(line=>{
-                    const m=line.match(/^([A-D])\.\s*(.*)$/i);
+                    const m=line.match(/^([A-D])\.\s*(.*)$/);
                     if(m) opts[m[1].toUpperCase()]=m[2].trim();
                 });
                 const meaningStart=lines.findIndex(x=>/^Bangla Meaning\s*:/i.test(x));
@@ -3341,7 +3607,11 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
             const unit=document.querySelector('.meta-pill:nth-child(1)'); const lesson=document.querySelector('.meta-pill:nth-child(2)');
             const pageTitle=[unit?.textContent,lesson?.textContent,title?.textContent].filter(Boolean).join(' • ');
             document.getElementById('mcqLessonTitle').textContent=pageTitle||'ALL ABOUT ENGLISH';
-            if(!mcqQuestionsPool.length){ mcqQuestionsPool=mcqParseContent(MCQ_RAW_CONTENT); mcqRounds=mcqMakeFourRounds(mcqQuestionsPool); }
+            if(!mcqQuestionsPool.length){
+                mcqQuestionsPool=mcqParseContent(MCQ_RAW_CONTENT);
+                mcqQuestionsPool=mcqShuffleAnswerPositions(mcqQuestionsPool);
+                mcqRounds=mcqMakeFourRounds(mcqQuestionsPool);
+            }
             loadMCQNotebook(); renderRoundPicker(); startMCQRound(0);
             window.scrollTo({top:0,behavior:'smooth'});
         }
@@ -3350,6 +3620,91 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
             const overlay=document.getElementById('mcqPracticeOverlay'); if(overlay){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');}
             delete document.body.dataset.mcqOpen;
         }
+        /* =============================================================
+           SMART MCQ ANSWER-POSITION SHUFFLING
+           - Shuffles answer positions across the whole question pool.
+           - Keeps A/B/C/D reasonably balanced.
+           - Avoids long runs of the same correct option.
+           - The four rounds are created AFTER this global shuffle, so
+             one round cannot accidentally contain all A's, all B's, etc.
+           - Question text, option text, meanings and explanations stay
+             exactly the same; only their displayed positions change.
+        ============================================================= */
+        function mcqShuffleAnswerPositions(pool){
+            if(!Array.isArray(pool) || pool.length < 2) return pool;
+
+            const letters=['A','B','C','D'];
+            const shuffledPool=pool.slice();
+
+            /*
+               mcqMakeFourRounds() uses round-robin distribution:
+               index 0,4,8,... -> Round 1
+               index 1,5,9,... -> Round 2
+               index 2,6,10,... -> Round 3
+               index 3,7,11,... -> Round 4
+
+               So we generate the target answer position PER ROUND.
+               Each round gets its own random A/B/C/D cycle. This makes
+               the A/B/C/D distribution in every round as balanced as
+               mathematically possible (difference is never more than 1).
+            */
+            const targets=new Array(shuffledPool.length);
+            const roundOrders=[];
+
+            for(let r=0;r<4;r++){
+                const order=letters.slice();
+                for(let i=order.length-1;i>0;i--){
+                    const j=Math.floor(Math.random()*(i+1));
+                    [order[i],order[j]]=[order[j],order[i]];
+                }
+                roundOrders[r]=order;
+            }
+
+            for(let i=0;i<shuffledPool.length;i++){
+                const roundIndex=i%4;
+                const positionInRound=Math.floor(i/4);
+                targets[i]=roundOrders[roundIndex][positionInRound%4];
+            }
+
+            return shuffledPool.map((q,index)=>{
+                const available=letters.filter(l=>q.options && q.options[l]);
+                if(available.length<2) return q;
+
+                const oldCorrect=q.correct;
+                const oldOptions={...q.options};
+                const oldMeanings={...q.meanings};
+                const targetCorrect=targets[index % targets.length];
+
+                /* If the question has fewer than four options, use one of
+                   its real option positions instead of inventing an option. */
+                const target=available.includes(targetCorrect) ? targetCorrect : available[index % available.length];
+                const remaining=available.filter(l=>l!==oldCorrect);
+                const destination=available.filter(l=>l!==target);
+
+                /* Put the original correct answer at the selected target,
+                   then randomly distribute the remaining answers. */
+                const shuffledRemaining=remaining.slice();
+                for(let i=shuffledRemaining.length-1;i>0;i--){
+                    const j=Math.floor(Math.random()*(i+1));
+                    [shuffledRemaining[i],shuffledRemaining[j]]=[shuffledRemaining[j],shuffledRemaining[i]];
+                }
+
+                const newOptions={};
+                const newMeanings={};
+                newOptions[target]=oldOptions[oldCorrect];
+                if(oldMeanings[oldCorrect]!==undefined) newMeanings[target]=oldMeanings[oldCorrect];
+
+                destination.forEach((dest,i)=>{
+                    const source=shuffledRemaining[i];
+                    if(source===undefined) return;
+                    newOptions[dest]=oldOptions[source];
+                    if(oldMeanings[source]!==undefined) newMeanings[dest]=oldMeanings[source];
+                });
+
+                return {...q, options:newOptions, meanings:newMeanings, correct:target};
+            });
+        }
+
         function mcqMakeFourRounds(pool){
             const rounds=[[],[],[],[]]; pool.forEach((q,i)=>rounds[i%4].push(q)); return rounds;
         }
@@ -3390,6 +3745,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
             if(mcqRoundAnswers[qid])return;
             const q=mcqQuestionsPool.find(x=>x.id===qid)||mcqRounds[mcqCurrentRound].find(x=>x.id===qid); if(!q)return;
             mcqRoundAnswers[qid]=letter; mcqSession.answered++;
+            performanceRecordMCQ(qid, letter===q.correct);
             const optionWrap=button.closest('.mcq-options'); optionWrap.querySelectorAll('.mcq-option').forEach(b=>{b.classList.add('locked');b.disabled=true;});
             const correctBtn=[...optionWrap.querySelectorAll('.mcq-option')].find(b=>b.querySelector('.mcq-letter')?.textContent===q.correct);
             const isCorrect=letter===q.correct;
@@ -3467,7 +3823,8 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
 
         /* EDITABLE AREA: Every sentence contains its own Words, Phrases, and Clauses Data */
         const passageSentencesData = [
-    {
+
+ {
         "id": 1,
         "fullText": "Greta Thunberg is an ‘environmental’ ‘activist’.",
         "cleanText": "Greta Thunberg is an environmental activist.",
@@ -3631,9 +3988,9 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
         "cleanText": "Greta has Asperger syndrome, a condition that affects how people socialise.",
         "banglaMeaning": "গ্রেটার অ্যাসপারগার সিনড্রোম রয়েছে, যা এমন একটি অবস্থা যা মানুষ কীভাবে সামাজিক যোগাযোগ করে তাকে প্রভাবিত করে।",
         "wordsData": {
-            "Greta": { "ipa": "/ˈɡreɪtə/", "banglaPron": "গ্রেটা", "meaning": "গ্রেটা", "pos": "Noun", "contextPos": "Proper Noun / Proper Name", "derivatives": "Greta (Proper Noun)", "synonyms": [], "antonyms": [] },
+            "greta": { "ipa": "/ˈɡreɪtə/", "banglaPron": "গ্রেটা", "meaning": "গ্রেটা", "pos": "Noun", "contextPos": "Proper Noun / Proper Name", "derivatives": "Greta (Proper Noun)", "synonyms": [], "antonyms": [] },
             "has": { "ipa": "/hæz/", "banglaPron": "হ্যাজ", "meaning": "আছে / রয়েছে", "pos": "Verb", "contextPos": "Finite Verb / Present Tense / Transitive Verb / Main Verb", "derivatives": "have (Verb), having (Verb/Noun), had (Verb)", "synonyms": ["possesses (ধারণ করে)", "owns (মালিকানায় রাখে)", "holds (ধারণ করে)", "contains (ধারণ করে)"], "antonyms": ["lacks (অভাবে থাকে)", "loses (হারায়)", "gives away (দিয়ে দেয়)", "surrenders (ত্যাগ করে)"] },
-            "Asperger": { "ipa": "/ˈæspɜːrɡər/", "banglaPron": "অ্যাসপারগার", "meaning": "অ্যাসপারগার", "pos": "Noun", "contextPos": "Proper Noun / Proper Name used attributively", "derivatives": "Asperger (Proper Noun), Asperger's (Adjective/Possessive)", "synonyms": [], "antonyms": [] },
+            "asperger": { "ipa": "/ˈæspɜːrɡər/", "banglaPron": "অ্যাসপারগার", "meaning": "অ্যাসপারগার", "pos": "Noun", "contextPos": "Proper Noun / Proper Name used attributively", "derivatives": "Asperger (Proper Noun), Asperger's (Adjective/Possessive)", "synonyms": [], "antonyms": [] },
             "syndrome": { "ipa": "/ˈsɪndrəʊm/", "banglaPron": "সিনড্রোম", "meaning": "লক্ষণসমষ্টি / সিনড্রোম", "pos": "Noun", "contextPos": "Common Noun / Countable Noun", "derivatives": "syndrome (Noun), syndromic (Adjective)", "synonyms": ["condition (অবস্থা)", "disorder (ব্যাধি)", "complex (লক্ষণসমষ্টি)", "set of symptoms (উপসর্গসমষ্টি)"], "antonyms": [] },
             "a": { "ipa": "/ə/", "banglaPron": "আ", "meaning": "একটি", "pos": "Article", "contextPos": "Indefinite Article / Article working as Adjective", "derivatives": "a (Article)", "synonyms": [], "antonyms": [] },
             "condition": { "ipa": "/kənˈdɪʃən/", "banglaPron": "কনডিশন", "meaning": "অবস্থা", "pos": "Noun", "contextPos": "Common Noun / Countable Noun", "derivatives": "condition (Noun/Verb), conditional (Adjective/Noun), conditionally (Adverb)", "synonyms": ["state (অবস্থা)", "circumstance (পরিস্থিতি)", "situation (পরিস্থিতি)", "disorder (ব্যাধি)"], "antonyms": ["unconditioned state (শর্তহীন অবস্থা)", "normality (স্বাভাবিকতা)", "certainty (নিশ্চয়তা)", "improvement (উন্নতি)"] },
@@ -3663,8 +4020,8 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
         "cleanText": "But Greta views her condition as a positive, calling it her superpower!",
         "banglaMeaning": "কিন্তু গ্রেটা তার অবস্থাকে ইতিবাচক একটি বিষয় হিসেবে দেখে এবং এটিকে তার সুপারপাওয়ার বলে অভিহিত করে।",
         "wordsData": {
-            "But": { "ipa": "/bʌt/", "banglaPron": "বাট", "meaning": "কিন্তু", "pos": "Conjunction", "contextPos": "Coordinating Conjunction / Contrast Marker", "derivatives": "but (Conjunction/Preposition/Adverb)", "synonyms": ["however (তবে)", "yet (তবুও)", "nevertheless (তবুও)", "although (যদিও)"], "antonyms": ["and (এবং)", "therefore (অতএব)", "similarly (একইভাবে)", "likewise (অনুরূপভাবে)"] },
-            "Greta": { "ipa": "/ˈɡreɪtə/", "banglaPron": "গ্রেটা", "meaning": "গ্রেটা", "pos": "Noun", "contextPos": "Proper Noun / Proper Name", "derivatives": "Greta (Proper Noun)", "synonyms": [], "antonyms": [] },
+            "but": { "ipa": "/bʌt/", "banglaPron": "বাট", "meaning": "কিন্তু", "pos": "Conjunction", "contextPos": "Coordinating Conjunction / Contrast Marker", "derivatives": "but (Conjunction/Preposition/Adverb)", "synonyms": ["however (তবে)", "yet (তবুও)", "nevertheless (তবুও)", "although (যদিও)"], "antonyms": ["and (এবং)", "therefore (অতএব)", "similarly (একইভাবে)", "likewise (অনুরূপভাবে)"] },
+            "greta": { "ipa": "/ˈɡreɪtə/", "banglaPron": "গ্রেটা", "meaning": "গ্রেটা", "pos": "Noun", "contextPos": "Proper Noun / Proper Name", "derivatives": "Greta (Proper Noun)", "synonyms": [], "antonyms": [] },
             "views": { "ipa": "/vjuːz/", "banglaPron": "ভিউজ", "meaning": "দেখে / বিবেচনা করে", "pos": "Verb", "contextPos": "Finite Verb / Present Tense / Third Person Singular / Transitive Verb", "derivatives": "view (Noun/Verb), viewer (Noun), visual (Adjective/Noun), visually (Adverb)", "synonyms": ["regards (মনে করে)", "considers (বিবেচনা করে)", "sees (দেখে)", "perceives (উপলব্ধি করে)"], "antonyms": ["ignores (উপেক্ষা করে)", "disregards (অগ্রাহ্য করে)", "overlooks (খেয়াল করে না)", "misjudges (ভুলভাবে বিচার করে)"] },
             "her": { "ipa": "/hɜːr/", "banglaPron": "হার", "meaning": "তার", "pos": "Pronoun", "contextPos": "Possessive Determiner / Possessive Pronoun form / Feminine Third Person", "derivatives": "her (Pronoun/Determiner)", "synonyms": [], "antonyms": [] },
             "condition": { "ipa": "/kənˈdɪʃən/", "banglaPron": "কনডিশন", "meaning": "অবস্থা", "pos": "Noun", "contextPos": "Common Noun / Countable Noun", "derivatives": "condition (Noun/Verb), conditional (Adjective/Noun), conditionally (Adverb)", "synonyms": ["state (অবস্থা)", "situation (পরিস্থিতি)", "circumstance (পরিস্থিতি)", "state of health (স্বাস্থ্যগত অবস্থা)"], "antonyms": ["normality (স্বাভাবিকতা)", "improvement (উন্নতি)", "wellness (সুস্থতা)", "certainty (নিশ্চয়তা)"] },
@@ -3692,11 +4049,11 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
 
     {
         "id": 8,
-        "fullText": "She says it ‘helps’ her see the world ‘in black and white’, and that there are no ‘grey areas’ when it comes to climate change.",
+        "fullText": "She says it ‘helps’ her see the world in black and white, and that there are no 'grey' 'areas' when it comes to climate change.",
         "cleanText": "She says it helps her see the world in black and white, and that there are no grey areas when it comes to climate change.",
         "banglaMeaning": "সে বলে যে এটি তাকে পৃথিবীকে সাদা-কালোভাবে দেখতে সাহায্য করে এবং জলবায়ু পরিবর্তনের ক্ষেত্রে কোনো ধূসর এলাকা নেই।",
         "wordsData": {
-            "She": { "ipa": "/ʃiː/", "banglaPron": "শি", "meaning": "সে", "pos": "Pronoun", "contextPos": "Personal Pronoun / Subjective Case / Third Person Singular / Feminine", "derivatives": "she (Pronoun)", "synonyms": [], "antonyms": [] },
+            "she": { "ipa": "/ʃiː/", "banglaPron": "শি", "meaning": "সে", "pos": "Pronoun", "contextPos": "Personal Pronoun / Subjective Case / Third Person Singular / Feminine", "derivatives": "she (Pronoun)", "synonyms": [], "antonyms": [] },
             "says": { "ipa": "/sez/", "banglaPron": "সেজ", "meaning": "বলে", "pos": "Verb", "contextPos": "Finite Verb / Present Tense / Third Person Singular / Transitive Verb", "derivatives": "say (Verb), saying (Noun/Verb), said (Verb), sayable (Adjective)", "synonyms": ["states (বলে)", "remarks (মন্তব্য করে)", "declares (ঘোষণা করে)", "expresses (প্রকাশ করে)"], "antonyms": ["silences (চুপ করায়)", "conceals (গোপন করে)", "withholds (প্রকাশ করে না)", "denies (অস্বীকার করে)"] },
             "it": { "ipa": "/ɪt/", "banglaPron": "ইট", "meaning": "এটি", "pos": "Pronoun", "contextPos": "Personal Pronoun / Subjective Case / Third Person Singular / Neuter / Refers to ‘Asperger syndrome / condition’", "derivatives": "it (Pronoun)", "synonyms": [], "antonyms": [] },
             "helps": { "ipa": "/helps/", "banglaPron": "হেল্পস", "meaning": "সাহায্য করে", "pos": "Verb", "contextPos": "Finite Verb / Present Tense / Third Person Singular / Causative-like Transitive Verb", "derivatives": "help (Verb/Noun), helpful (Adjective), helpfully (Adverb), helpless (Adjective), helplessness (Noun)", "synonyms": ["assists (সহায়তা করে)", "supports (সহায়তা করে)", "aids (সাহায্য করে)", "facilitates (সহজ করে)"], "antonyms": ["hinders (বাধা দেয়)", "obstructs (প্রতিবন্ধকতা সৃষ্টি করে)", "prevents (প্রতিরোধ করে)", "discourages (নিরুৎসাহিত করে)"] },
@@ -3870,7 +4227,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
         "cleanText": "Greta's strike was picked up by the Swedish media, and the word started to spread.",
         "banglaMeaning": "গ্রেটার ধর্মঘটটি সুইডিশ গণমাধ্যমে প্রচারিত হয় এবং কথাটি ছড়িয়ে পড়তে শুরু করে।",
         "wordsData": {
-            "Greta's": { "ipa": "/ˈɡreɪtəz/", "banglaPron": "গ্রেটাজ", "meaning": "গ্রেটার", "pos": "Noun", "contextPos": "Proper Noun / Possessive Case / Genitive Noun", "derivatives": "Greta (Proper Noun)", "synonyms": [], "antonyms": [] },
+            "greta's": { "ipa": "/ˈɡreɪtəz/", "banglaPron": "গ্রেটাজ", "meaning": "গ্রেটার", "pos": "Noun", "contextPos": "Proper Noun / Possessive Case / Genitive Noun", "derivatives": "Greta (Proper Noun)", "synonyms": [], "antonyms": [] },
             "strike": { "ipa": "/straɪk/", "banglaPron": "স্ট্রাইক", "meaning": "ধর্মঘট", "pos": "Noun", "contextPos": "Common Noun / Countable Noun", "derivatives": "strike (Noun/Verb), striker (Noun), striking (Adjective/Noun/Verb)", "synonyms": ["protest (প্রতিবাদ)", "walkout (কর্মবিরতি)", "demonstration (বিক্ষোভ)", "industrial action (শ্রমিক কর্মসূচি)"], "antonyms": ["work (কাজ)", "attendance (উপস্থিতি)", "cooperation (সহযোগিতা)", "employment (কর্মসংস্থান)"] },
             "was": { "ipa": "/wɒz/", "banglaPron": "ওয়াজ", "meaning": "হয়েছিল", "pos": "Verb", "contextPos": "Finite Auxiliary Verb / Past Tense / Passive Auxiliary", "derivatives": "be (Verb), being (Verb), been (Verb)", "synonyms": [], "antonyms": [] },
             "picked": { "ipa": "/pɪkt/", "banglaPron": "পিক্ট", "meaning": "তুলে নেওয়া / প্রচার করা", "pos": "Verb", "contextPos": "Non-finite Past Participle / Verb3 / Passive Phrasal Verb", "derivatives": "pick (Verb/Noun), picking (Noun/Verb), picked (Adjective/Verb)", "synonyms": ["selected (নির্বাচিত)", "chosen (বেছে নেওয়া)", "highlighted (গুরুত্ব দিয়ে প্রচার করা)", "covered (সংবাদে প্রচার করা)"], "antonyms": ["ignored (উপেক্ষা করা)", "dropped (বাদ দেওয়া)", "rejected (প্রত্যাখ্যান করা)", "overlooked (অগ্রাহ্য করা)"] },
@@ -3905,7 +4262,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
         "cleanText": "Soon enough, tens of thousands of students from around the world joined her #FridaysforFuture strikes – skipping school on Fridays to protest against climate change.",
         "banglaMeaning": "অল্প সময়ের মধ্যেই সারা বিশ্বের হাজার হাজার শিক্ষার্থী তার #FridaysforFuture ধর্মঘটে যোগ দেয়—শুক্রবারে স্কুল বাদ দিয়ে জলবায়ু পরিবর্তনের বিরুদ্ধে প্রতিবাদ করার জন্য।",
         "wordsData": {
-            "Soon": { "ipa": "/suːn/", "banglaPron": "সুন", "meaning": "শীঘ্রই", "pos": "Adverb", "contextPos": "Adverb of Time", "derivatives": "soon (Adverb), sooner (Adverb), soonest (Adverb)", "synonyms": ["shortly (শিগগির)", "quickly (দ্রুত)", "promptly (তৎক্ষণাৎ)", "before long (শিগগির)"], "antonyms": ["later (পরে)", "eventually (অবশেষে)", "afterward (পরবর্তীতে)", "eventually (শেষ পর্যন্ত)"] },
+            "soon": { "ipa": "/suːn/", "banglaPron": "সুন", "meaning": "শীঘ্রই", "pos": "Adverb", "contextPos": "Adverb of Time", "derivatives": "soon (Adverb), sooner (Adverb), soonest (Adverb)", "synonyms": ["shortly (শিগগির)", "quickly (দ্রুত)", "promptly (তৎক্ষণাৎ)", "before long (শিগগির)"], "antonyms": ["later (পরে)", "eventually (অবশেষে)", "afterward (পরবর্তীতে)", "eventually (শেষ পর্যন্ত)"] },
             "enough": { "ipa": "/ɪˈnʌf/", "banglaPron": "ইনাফ", "meaning": "যথেষ্ট", "pos": "Adverb", "contextPos": "Degree Adverb modifying ‘soon’", "derivatives": "enough (Adjective/Adverb/Determiner), sufficiently (Adverb), sufficiency (Noun)", "synonyms": ["sufficiently (যথেষ্টভাবে)", "adequately (পর্যাপ্তভাবে)", "satisfactorily (সন্তোষজনকভাবে)", "amply (প্রচুরভাবে)"], "antonyms": ["insufficiently (অপর্যাপ্তভাবে)", "barely (মাত্র)", "scarcely (কদাচিৎ)", "inadequately (অপর্যাপ্তভাবে)"] },
             "tens": { "ipa": "/tenz/", "banglaPron": "টেনস", "meaning": "দশের গুণিতক / দশ দশ করে সংখ্যা", "pos": "Noun", "contextPos": "Plural Countable Noun / Quantifying Noun", "derivatives": "ten (Noun/Adjective), tens (Noun), tenth (Noun/Adjective)", "synonyms": ["dozens (ডজন)", "scores (বিশটি করে সংখ্যা)", "large numbers (বড় সংখ্যা)", "many (অনেক)"], "antonyms": ["few (অল্প)", "single (একটি)", "one (এক)", "handful (মুষ্টিমেয়)"] },
             "of": { "ipa": "/əv/", "banglaPron": "অভ", "meaning": "এর", "pos": "Preposition", "contextPos": "Preposition linking quantity with noun", "derivatives": "of (Preposition)", "synonyms": [], "antonyms": [] },
@@ -3997,7 +4354,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
 
   {
     "id": 16,
-    "fullText": "Over 6 million people from 125 countries ‘took part’!",
+    "fullText": "Over 6 million people from 125 countries took part!",
     "cleanText": "Over 6 million people from 125 countries took part!",
     "banglaMeaning": "১২৫টি দেশের ৬০ লক্ষেরও বেশি মানুষ এতে অংশ নিয়েছিল।",
     "wordsData": {
@@ -4164,7 +4521,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
         "synonyms": ["started (শুরু করেছিল)", "commenced (আরম্ভ করেছিল)", "initiated (সূচনা করেছিল)", "originated (শুরু হয়েছিল)"],
         "antonyms": ["ended (শেষ করেছিল)", "finished (শেষ করেছিল)", "stopped (বন্ধ করেছিল)", "concluded (সমাপ্ত করেছিল)"]
       },
-      "Greta's": {
+      "greta's": {
         "ipa": "/ˈɡreɪtəz/",
         "banglaPron": "গ্রেটাজ",
         "meaning": "গ্রেটার",
@@ -4263,7 +4620,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
 
   {
     "id": 18,
-    "fullText": "She's given ‘rousing speeches’ to politicians, to the EU parliament, the UK parliament, to protesters and more.",
+    "fullText": "She's given 'rousing' 'speeches' to politicians, to the EU parliament, the UK parliament, to protesters and more.",
     "cleanText": "She's given rousing speeches to politicians, to the EU parliament, the UK parliament, to protesters and more.",
     "banglaMeaning": "সে রাজনীতিবিদ, ইউরোপীয় ইউনিয়নের সংসদ, যুক্তরাজ্যের সংসদ, প্রতিবাদকারী এবং আরও অনেকের উদ্দেশে উদ্দীপনামূলক বক্তৃতা দিয়েছে।",
     "wordsData": {
@@ -5075,7 +5432,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
 
     {
         "id": 22,
-        "fullText": "Her ‘passionate’ ‘speech’ \"You have ‘stolen’ my dreams and my ‘childhood’ with your ‘empty’ words; We are in the beginning of a ‘mass extinction’, and all you can talk about is money, and ‘fairy’ ‘tales’ of ‘eternal’ ‘economic growth’; How dare you!\" has drawn much ‘attention’ from all over the world.",
+        "fullText": "Her ‘passionate’ ‘speech’ \"You have ‘stolen’ my dreams and my ‘childhood’ with your ‘empty’ words; We are in the beginning of a 'mass' 'extinction', and all you can talk about is money, and ‘fairy’ ‘tales’ of ‘eternal’ ‘economic growth’; How dare you!\" has drawn much ‘attention’ from all over the world.",
         "cleanText": "Her passionate speech You have stolen my dreams and my childhood with your empty words; We are in the beginning of a mass extinction, and all you can talk about is money, and fairy tales of eternal economic growth; How dare you! has drawn much attention from all over the world.",
         "banglaMeaning": "তার আবেগপূর্ণ বক্তব্য \"আপনারা আপনাদের ফাঁকা কথায় আমার স্বপ্ন এবং আমার শৈশব চুরি করে নিয়েছেন; আমরা একটি ব্যাপক বিলুপ্তির দ্বারপ্রান্তে রয়েছি, আর আপনারা কেবল টাকা এবং অনন্ত অর্থনৈতিক প্রবৃদ্ধির রূপকথার গল্প নিয়ে কথা বলছেন; আপনাদের এত সাহস!\" বিশ্বজুড়ে প্রচুর মনোযোগ আকর্ষণ করেছে।",
         "wordsData": {
@@ -5275,6 +5632,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
             { "text": "that improved the lives and treatment of millions of African Americans", "type": "Subordinate Adjective Clause", "exp": "এটি that relative pronoun দিয়ে শুরু হয়ে পূর্ববর্তী noun (movement)-কে modify করায় এটি Subordinate Adjective Clause এবং সম্পূর্ণ বাক্যটি একটি Complex Sentence।" }
         ]
     }
+
 ];
 
         /* Helper function to find word data dynamically across sentences */
@@ -5297,45 +5655,146 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
 
             let colorIndexCounter = 0;
 
+            /*
+               SMART SINGLE-QUOTE PARSER
+               - Apostrophes inside words (won't, don't, students') are NOT quote marks.
+               - A single-quoted unit is accepted only when it has a real opening
+                 boundary and a real closing boundary.
+               - Multi-word quoted phrases are rendered as ONE clickable unit.
+               - The rest of the passage keeps the existing word-by-word click behavior.
+            */
+            function isSingleQuote(ch) {
+                return ch === "'" || ch === '‘' || ch === '’';
+            }
+
+            function isWordChar(ch) {
+                return !!ch && /[A-Za-z0-9]/.test(ch);
+            }
+
+            function isQuoteOpening(text, index) {
+                const ch = text[index];
+                if (ch !== "'" && ch !== '‘') return false;
+                const prev = index > 0 ? text[index - 1] : '';
+                const next = index + 1 < text.length ? text[index + 1] : '';
+
+                // Never treat the apostrophe in contractions/possessives as an opener.
+                if (isWordChar(prev) || isWordChar(next) && isWordChar(prev)) return false;
+
+                // Opening quote must be followed by actual content.
+                return !!next && !/\s/.test(next);
+            }
+
+            function isQuoteClosing(text, index) {
+                const ch = text[index];
+                if (ch !== "'" && ch !== '’') return false;
+                const prev = index > 0 ? text[index - 1] : '';
+                const next = index + 1 < text.length ? text[index + 1] : '';
+
+                // An apostrophe between two word characters is always part of a word.
+                if (isWordChar(prev) && isWordChar(next)) return false;
+
+                // A closing quote must have content immediately before it.
+                if (!prev || /\s/.test(prev)) return false;
+
+                // After the closing quote may come punctuation, whitespace or sentence end.
+                return !isWordChar(next);
+            }
+
+            function findQuotedUnits(text) {
+                const units = [];
+                let i = 0;
+
+                while (i < text.length) {
+                    if (!isQuoteOpening(text, i)) {
+                        i++;
+                        continue;
+                    }
+
+                    const openIndex = i;
+                    let j = i + 1;
+                    let closeIndex = -1;
+
+                    while (j < text.length) {
+                        if (isQuoteClosing(text, j)) {
+                            closeIndex = j;
+                            break;
+                        }
+                        j++;
+                    }
+
+                    if (closeIndex === -1) {
+                        i++;
+                        continue;
+                    }
+
+                    const content = text.slice(openIndex + 1, closeIndex);
+                    if (content.trim()) {
+                        units.push({
+                            start: openIndex,
+                            end: closeIndex + 1,
+                            text: text.slice(openIndex, closeIndex + 1),
+                            content: content.trim()
+                        });
+                        i = closeIndex + 1;
+                    } else {
+                        i++;
+                    }
+                }
+
+                return units;
+            }
+
+            function appendRegularText(parent, text) {
+                const parts = text.split(/(\s+)/);
+                parts.forEach(part => {
+                    if (!part) return;
+                    if (/^\s+$/.test(part)) {
+                        parent.appendChild(document.createTextNode(part));
+                        return;
+                    }
+
+                    const wordSpan = document.createElement('span');
+                    wordSpan.className = 'p-word-clickable';
+                    wordSpan.innerText = part;
+                    const cleanWord = part.replace(/[^a-zA-Z]/g, '').toLowerCase();
+                    wordSpan.onclick = () => openWordModal(cleanWord, false);
+                    parent.appendChild(wordSpan);
+                });
+            }
+
             passageSentencesData.forEach((sObj) => {
                 const sentenceSpan = document.createElement('span');
                 sentenceSpan.className = 'sentence-rendered';
                 sentenceSpan.dataset.sentenceId = sObj.id;
-                
-                // Regular Expression to match quoted words/phrases (including smart quotes like ‘ ’ or " ")
-                const tokens = sObj.fullText.split(/([‘’“”'"][\w\s-]+[‘’“”'"])/g);
 
-                tokens.forEach(token => {
-                    if (!token) return;
+                const text = String(sObj.fullText || '');
+                const quotedUnits = findQuotedUnits(text);
+                let cursor = 0;
 
-                    // Check if the token is wrapped inside any kind of quote marks
-                    if (/^[‘’“”'"].*[‘’“”'"]$/.test(token)) {
-                        const cleanPhrase = token.replace(/[‘’“”'"]/g, "").trim();
-                        const wordSpan = document.createElement('span');
-                        wordSpan.className = 'p-word-clickable q-word';
-                        wordSpan.innerText = token; // Keeping original quote characters intact
-
-                        const color = vibrantColors[colorIndexCounter % vibrantColors.length];
-                        wordSpan.style.color = color;
-                        colorIndexCounter++;
-
-                        wordSpan.onclick = () => openWordModal(cleanPhrase.toLowerCase(), true);
-                        sentenceSpan.appendChild(wordSpan);
-                        sentenceSpan.appendChild(document.createTextNode(' '));
-                    } else {
-                        // Regular unquoted text split into individual clickable words
-                        const regularWords = token.split(' ');
-                        regularWords.forEach(w => {
-                            if(!w) return;
-                            const cleanWord = w.replace(/[^a-zA-Z]/g, "").toLowerCase();
-                            const wordSpan = document.createElement('span');
-                            wordSpan.className = 'p-word-clickable';
-                            wordSpan.innerText = w + ' ';
-                            wordSpan.onclick = () => openWordModal(cleanWord, false);
-                            sentenceSpan.appendChild(wordSpan);
-                        });
+                quotedUnits.forEach(unit => {
+                    if (unit.start > cursor) {
+                        appendRegularText(sentenceSpan, text.slice(cursor, unit.start));
                     }
+
+                    const cleanPhrase = unit.content.trim();
+                    const wordSpan = document.createElement('span');
+                    wordSpan.className = 'p-word-clickable q-word';
+                    wordSpan.innerText = unit.text;
+
+                    const color = vibrantColors[colorIndexCounter % vibrantColors.length];
+                    wordSpan.style.color = color;
+                    colorIndexCounter++;
+
+                    // One quoted phrase = one entry/click target.
+                    wordSpan.onclick = () => openWordModal(cleanPhrase.toLowerCase(), true);
+                    sentenceSpan.appendChild(wordSpan);
+
+                    cursor = unit.end;
                 });
+
+                if (cursor < text.length) {
+                    appendRegularText(sentenceSpan, text.slice(cursor));
+                }
 
                 // Add Dive Into Button per sentence
                 const diveBtn = document.createElement('button');
@@ -5343,6 +5802,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
                 diveBtn.innerText = 'dive into';
                 diveBtn.onclick = () => openSentenceModal(sObj.id);
 
+                sentenceSpan.appendChild(document.createTextNode(' '));
                 sentenceSpan.appendChild(diveBtn);
                 sentenceSpan.appendChild(document.createTextNode(' '));
                 container.appendChild(sentenceSpan);
@@ -5354,6 +5814,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
         ------------------------------------------------------------- */
         function openWordModal(wordOrPhrase) {
             playClickSound();
+            performanceRecordWord(wordOrPhrase);
             const modal = document.getElementById('wordModal');
             document.getElementById('popWordTitle').innerText = wordOrPhrase.toUpperCase();
             
@@ -5424,6 +5885,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
 
         function openSentenceModal(sentenceId) {
             playClickSound();
+            performanceRecordSentence(sentenceId);
             currentActiveSentenceObj = passageSentencesData.find(s => s.id === sentenceId);
             const modal = document.getElementById('sentenceModal');
 
@@ -5495,6 +5957,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
 
         function highlightExactTargetText(targetText, itemType) {
             playClickSound();
+            performanceRecordStructure(targetText, itemType);
             
             const meaningBox = document.getElementById('stickySentenceMeaning');
             const activeBar = document.getElementById('activeSelectionBar');
@@ -5622,6 +6085,185 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
             input.focus();
         }
 
+
+        /* =============================================================
+           PERFORMANCE DASHBOARD — PERSISTENT LESSON ACTIVITY
+           Addition only. Existing lesson functions remain intact.
+        ============================================================= */
+        const PERFORMANCE_STORAGE_PREFIX = 'aae_performance_v1::';
+        let performanceState = null;
+
+        function performanceLessonKey() {
+            const meta = practiceMetaText();
+            const raw = [location.pathname, meta.unit, meta.lesson, meta.title, meta.page].join('::');
+            try { return PERFORMANCE_STORAGE_PREFIX + btoa(unescape(encodeURIComponent(raw))).replace(/[^a-zA-Z0-9]/g,'').slice(0,80); }
+            catch(e) { return PERFORMANCE_STORAGE_PREFIX + encodeURIComponent(raw); }
+        }
+
+        function performanceEmptyState() {
+            return {
+                words: [],
+                sentences: [],
+                phrases: [],
+                clauses: [],
+                mcqAnswered: [],
+                mcqCorrect: 0,
+                mcqWrong: 0
+            };
+        }
+
+        function loadPerformanceState() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(performanceLessonKey()) || 'null');
+                performanceState = Object.assign(performanceEmptyState(), saved || {});
+                ['words','sentences','phrases','clauses','mcqAnswered'].forEach(k => {
+                    if (!Array.isArray(performanceState[k])) performanceState[k] = [];
+                });
+                performanceState.mcqCorrect = Number(performanceState.mcqCorrect) || 0;
+                performanceState.mcqWrong = Number(performanceState.mcqWrong) || 0;
+            } catch(e) {
+                performanceState = performanceEmptyState();
+            }
+        }
+
+        function savePerformanceState() {
+            if (!performanceState) loadPerformanceState();
+            try { localStorage.setItem(performanceLessonKey(), JSON.stringify(performanceState)); } catch(e) {}
+        }
+
+        function performanceUniqueAdd(listName, key) {
+            if (!performanceState) loadPerformanceState();
+            const value = String(key ?? '').trim().toLowerCase();
+            if (!value) return;
+            if (!performanceState[listName].includes(value)) {
+                performanceState[listName].push(value);
+                savePerformanceState();
+            }
+        }
+
+        function performanceGetCounts() {
+            const wordSet = new Set();
+            const phraseSet = new Set();
+            const clauseSet = new Set();
+            const sentenceSet = new Set();
+
+            passageSentencesData.forEach(s => {
+                sentenceSet.add(String(s.id));
+                if (s.wordsData) Object.keys(s.wordsData).forEach(w => wordSet.add(String(w).trim().toLowerCase()));
+                (s.phrases || []).forEach(p => phraseSet.add(String(p.text || '').trim().toLowerCase()));
+                (s.clauses || []).forEach(c => clauseSet.add(String(c.text || '').trim().toLowerCase()));
+            });
+
+            return {
+                wordsTotal: wordSet.size,
+                sentencesTotal: sentenceSet.size,
+                phrasesTotal: phraseSet.size,
+                clausesTotal: clauseSet.size
+            };
+        }
+
+        function performanceNoteCount() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(NOTEBOOK_STORAGE_KEY) || '[]');
+                return Array.isArray(saved) ? saved.length : 0;
+            } catch(e) { return 0; }
+        }
+
+        function performanceMCQNotebookCount() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(mcqStorageKey()) || '[]');
+                return Array.isArray(saved) ? saved.length : 0;
+            } catch(e) { return 0; }
+        }
+
+        function performanceRecordWord(wordOrPhrase) {
+            performanceUniqueAdd('words', wordOrPhrase);
+        }
+
+        function performanceRecordSentence(sentenceId) {
+            performanceUniqueAdd('sentences', sentenceId);
+        }
+
+        function performanceRecordStructure(itemText, itemType) {
+            const target = String(itemText || '').trim().toLowerCase();
+            if (!target) return;
+            const type = String(itemType || '').toLowerCase();
+            if (type.includes('clause')) performanceUniqueAdd('clauses', target);
+            else performanceUniqueAdd('phrases', target);
+        }
+
+        function performanceRecordMCQ(qid, isCorrect) {
+            if (!performanceState) loadPerformanceState();
+            const id = String(qid || '');
+            if (!id) return;
+            if (!performanceState.mcqAnswered.includes(id)) {
+                performanceState.mcqAnswered.push(id);
+                if (isCorrect) performanceState.mcqCorrect++;
+                else performanceState.mcqWrong++;
+                savePerformanceState();
+            }
+        }
+
+        function performanceUpdateDashboard() {
+            if (!performanceState) loadPerformanceState();
+            const totals = performanceGetCounts();
+
+            const wordDone = Math.min(performanceState.words.length, totals.wordsTotal);
+            const sentenceDone = Math.min(performanceState.sentences.length, totals.sentencesTotal);
+            const phraseDone = Math.min(performanceState.phrases.length, totals.phrasesTotal);
+            const clauseDone = Math.min(performanceState.clauses.length, totals.clausesTotal);
+
+            const totalItems = totals.wordsTotal + totals.sentencesTotal + totals.phrasesTotal + totals.clausesTotal;
+            const completedItems = wordDone + sentenceDone + phraseDone + clauseDone;
+            const overall = totalItems ? Math.round((completedItems / totalItems) * 100) : 0;
+
+            const set = (id, value) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = value;
+            };
+
+            set('performanceOverallPercent', overall + '%');
+            set('performanceWords', wordDone + ' / ' + totals.wordsTotal);
+            set('performanceSentences', sentenceDone + ' / ' + totals.sentencesTotal);
+            set('performancePhrases', phraseDone + ' / ' + totals.phrasesTotal);
+            set('performanceClauses', clauseDone + ' / ' + totals.clausesTotal);
+            set('performanceNotes', performanceNoteCount());
+            set('performanceMCQNotebook', performanceMCQNotebookCount());
+            set('performanceMCQAttempted', performanceState.mcqAnswered.length);
+            set('performanceMCQResult', performanceState.mcqCorrect + ' / ' + performanceState.mcqWrong);
+
+            const bar = document.getElementById('performanceOverallBar');
+            if (bar) bar.style.width = overall + '%';
+
+            const meta = practiceMetaText();
+            const metaText = [meta.unit, meta.lesson, meta.title, meta.page].filter(Boolean).join(' • ');
+            set('performanceLessonMeta', metaText || 'Current Lesson');
+        }
+
+        function openPerformanceDashboard() {
+            try { playClickSound(); } catch(e) {}
+            loadPerformanceState();
+            performanceUpdateDashboard();
+            const overlay = document.getElementById('performanceOverlay');
+            if (overlay) {
+                overlay.classList.add('open');
+                overlay.setAttribute('aria-hidden','false');
+            }
+        }
+
+        function closePerformanceDashboard() {
+            try { playClickSound(); } catch(e) {}
+            const overlay = document.getElementById('performanceOverlay');
+            if (overlay) {
+                overlay.classList.remove('open');
+                overlay.setAttribute('aria-hidden','true');
+            }
+        }
+
+        function closePerformanceOnBackdrop(e) {
+            if (e.target.id === 'performanceOverlay') closePerformanceDashboard();
+        }
+
         /* =============================================================
            7. PERSONAL NOTEBOOK — localStorage persistence
         ============================================================= */
@@ -5678,6 +6320,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
             if (!text) { input.focus(); return; }
             notebookNotes.unshift({ text:text, createdAt:Date.now() });
             saveNotebookNotes();
+            if (document.getElementById('performanceOverlay')?.classList.contains('open')) performanceUpdateDashboard();
             input.value='';
             renderNotebookNotes();
             input.focus();
@@ -5688,6 +6331,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
             notebookNotes.splice(index,1);
             saveNotebookNotes();
             renderNotebookNotes();
+            if (document.getElementById('performanceOverlay')?.classList.contains('open')) performanceUpdateDashboard();
         }
 
         function clearAllNotebookNotes() {
@@ -5696,6 +6340,7 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
             notebookNotes=[];
             saveNotebookNotes();
             renderNotebookNotes();
+            if (document.getElementById('performanceOverlay')?.classList.contains('open')) performanceUpdateDashboard();
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -5704,6 +6349,9 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
             if (searchInput) searchInput.addEventListener('keydown', function(e){ if(e.key==='Escape') clearLessonSearch(); });
             const noteInput=document.getElementById('noteInput');
             if(noteInput) noteInput.addEventListener('keydown', function(e){ if(e.ctrlKey && e.key==='Enter'){ e.preventDefault(); addNotebookNote(); } });
+            document.addEventListener('keydown', function(e){
+                if(e.key === 'Escape' && document.getElementById('performanceOverlay')?.classList.contains('open')) closePerformanceDashboard();
+            });
         });
 
         /* Security Key Blockers — inputs remain fully usable */
@@ -5715,12 +6363,14 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
         });
 
         window.onload = function() {
+            loadPerformanceState();
             renderPassage();
             loadNotebookNotes();
             renderNotebookNotes();
         };
     </script>
-     <!-- =========================================================
+
+<!-- =========================================================
      ALL ABOUT ENGLISH
      UNIT ACCESS SECURITY
      ========================================================= -->
@@ -5746,5 +6396,6 @@ Explanation: কোনো নির্দিষ্ট পরিস্থিত�
     }
 
 </script>
+
 </body>
 </html>
