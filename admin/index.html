@@ -1134,6 +1134,19 @@
             </div>
 
 
+              <div class="stat-card">
+
+                <small>
+                    UNIT 2
+                </small>
+
+                <strong id="unit1Students">
+                    0
+                </strong>
+
+            </div>
+
+
             <div class="stat-card">
 
                 <small>
@@ -2024,6 +2037,13 @@ function updateStats() {
                 student.approvedUnits["unit-1"] === true
         ).length;
 
+      const unit2 =
+        students.filter(
+            student =>
+                student.approvedUnits &&
+                student.approvedUnits["unit-2"] === true
+        ).length;
+
 
     const unit11 =
         students.filter(
@@ -2324,6 +2344,9 @@ function createStudentCard(
      const unit1 =
         approvedUnits["unit-1"] === true;
 
+     const unit2 =
+        approvedUnits["unit-2"] === true;
+
 
     const unit11 =
         approvedUnits["unit-11"] === true;
@@ -2339,6 +2362,9 @@ function createStudentCard(
     const unit1Date =
     approvalDates["unit-1"];
 
+      const unit2Date =
+    approvalDates["unit-2"];
+
 const unit11Date =
     approvalDates["unit-11"];
 
@@ -2353,6 +2379,9 @@ const unit12Date =
 
     const unit1Expiry =
         accessExpiryDates["unit-1"];
+
+      const unit2Expiry =
+        accessExpiryDates["unit-2"];
 
 
     const unit11Expiry =
@@ -2521,6 +2550,24 @@ const unit12Date =
         }
     </button>
 
+      <button
+        class="
+            unit-btn
+            ${unit2 ? "approved" : ""}
+        "
+        onclick="
+            toggleUnit(
+                '${escapeHtml(student.id)}',
+                'unit-2'
+            )
+        "
+    >
+        ${unit2
+            ? "✓ Unit 2"
+            : "🔒 Unit 2"
+        }
+    </button>
+
 
     <button
         class="
@@ -2562,6 +2609,84 @@ const unit12Date =
 </div>
 
     <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit1
+                ? "✓ Unit 1 Approved: " +
+                  formatApprovalDate(
+                      unit1Date
+                  ) +
+                  (
+                      unit1Expiry
+                          ? " | Expires: " +
+                            formatDate(
+                                unit1Expiry
+                            )
+                          : ""
+                  )
+                : (
+                    unit1Date
+                        ? "⏰ Unit 1 Expired | Approved: " +
+                          formatApprovalDate(
+                              unit1Date
+                          ) +
+                          (
+                              unit1Expiry
+                                  ? " | Expired: " +
+                                    formatDate(
+                                        unit1Expiry
+                                    )
+                                  : ""
+                          )
+                        : "🔒 Unit 1: Not Approved"
+                  )
+        }
+    </div>
+
+       <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit2
+                ? "✓ Unit 2 Approved: " +
+                  formatApprovalDate(
+                      unit2Date
+                  ) +
+                  (
+                      unit2Expiry
+                          ? " | Expires: " +
+                            formatDate(
+                                unit2Expiry
+                            )
+                          : ""
+                  )
+                : (
+                    unit2Date
+                        ? "⏰ Unit 2 Expired | Approved: " +
+                          formatApprovalDate(
+                              unit2Date
+                          ) +
+                          (
+                              unit2Expiry
+                                  ? " | Expired: " +
+                                    formatDate(
+                                        unit2Expiry
+                                    )
+                                  : ""
+                          )
+                        : "🔒 Unit 2: Not Approved"
+                  )
+        }
+    </div>
+
+       <div
         style="
             font-size:8px;
             color:#68748a;
@@ -2641,6 +2766,38 @@ const unit12Date =
     </div>
 
 <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit1
+                ? "✓ Unit 1 Approved: " +
+                  formatApprovalDate(
+                      unit1Date
+                  )
+                : "🔒 Unit 1: Not Approved"
+        }
+    </div>
+
+    <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit2
+                ? "✓ Unit 2 Approved: " +
+                  formatApprovalDate(
+                      unit2Date
+                  )
+                : "🔒 Unit 2: Not Approved"
+        }
+    </div>
+
+    <div
         style="
             font-size:8px;
             color:#68748a;
