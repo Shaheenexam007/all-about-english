@@ -64,7 +64,7 @@
 
         /* =====================================================
            ROOT
-        ====================================================== */
+        ====================================================== -->
 
         :root {
 
@@ -112,7 +112,7 @@
 
         /* =====================================================
            RESET
-        ====================================================== */
+        ====================================================== -->
 
         * {
 
@@ -182,7 +182,7 @@
 
         /* =====================================================
            TOP BAR
-        ====================================================== */
+        ====================================================== -->
 
         .top-bar {
 
@@ -209,7 +209,7 @@
 
         /* =====================================================
            HEADER
-        ====================================================== */
+        ====================================================== -->
 
         header {
 
@@ -250,7 +250,7 @@
 
         /* =====================================================
            BRAND
-        ====================================================== */
+        ====================================================== -->
 
         .brand {
 
@@ -392,7 +392,7 @@
 
         /* =====================================================
            MAIN
-        ====================================================== */
+        ====================================================== -->
 
         main {
 
@@ -422,7 +422,7 @@
 
         /* =====================================================
            LOGIN WRAPPER
-        ====================================================== */
+        ====================================================== -->
 
         .login-wrapper {
 
@@ -455,7 +455,7 @@
 
         /* =====================================================
            LEFT PANEL
-        ====================================================== */
+        ====================================================== -->
 
         .intro-panel {
 
@@ -686,7 +686,7 @@
 
         /* =====================================================
            FORM PANEL
-        ====================================================== */
+        ====================================================== -->
 
         .form-panel {
 
@@ -761,7 +761,7 @@
 
         /* =====================================================
            TABS
-        ====================================================== */
+        ====================================================== -->
 
         .tabs {
 
@@ -840,7 +840,7 @@
 
         /* =====================================================
            FORM
-        ====================================================== */
+        ====================================================== -->
 
         .auth-form {
 
@@ -869,7 +869,13 @@
         .field label {
 
             display:
-                block;
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
 
             color:
                 var(--navy);
@@ -894,7 +900,7 @@
         }
 
 
-        .input-wrap > i {
+        .input-wrap > i:first-child {
 
             position:
                 absolute;
@@ -941,7 +947,7 @@
                 var(--text);
 
             padding:
-                0 12px 0 35px;
+                0 38px 0 35px;
 
             outline:
                 none;
@@ -965,6 +971,92 @@
 
             box-shadow:
                 0 0 0 3px rgba(201,164,92,.10);
+
+        }
+
+
+        /* Toggle Password Eye Icon */
+
+        .toggle-password {
+
+            position:
+                absolute;
+
+            right:
+                12px;
+
+            top:
+                50%;
+
+            transform:
+                translateY(-50%);
+
+            color:
+                #9ba3b1;
+
+            font-size:
+                11px;
+
+            cursor:
+                pointer;
+
+            background:
+                transparent;
+
+            border:
+                none;
+
+            padding:
+                4px;
+
+            transition:
+                color .2s;
+
+        }
+
+
+        .toggle-password:hover {
+
+            color:
+                var(--navy);
+
+        }
+
+
+        /* Forgot Password Link */
+
+        .forgot-link {
+
+            color:
+                var(--gold);
+
+            font-size:
+                9px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            background:
+                none;
+
+            border:
+                none;
+
+            padding:
+                0;
+
+            text-decoration:
+                underline;
+
+        }
+
+        .forgot-link:hover {
+
+            color:
+                var(--navy);
 
         }
 
@@ -1046,7 +1138,7 @@
 
         /* =====================================================
            MESSAGE
-        ====================================================== */
+        ====================================================== -->
 
         .message {
 
@@ -1123,7 +1215,7 @@
 
         /* =====================================================
            NOTE
-        ====================================================== */
+        ====================================================== -->
 
         .form-note {
 
@@ -1147,7 +1239,7 @@
 
         /* =====================================================
            LOGGED-IN PANEL
-        ====================================================== */
+        ====================================================== -->
 
         .logged-in-panel {
 
@@ -1314,7 +1406,7 @@
 
         /* =====================================================
            FOOTER
-        ====================================================== */
+        ====================================================== -->
 
         footer {
 
@@ -1338,7 +1430,7 @@
 
         /* =====================================================
            RESPONSIVE
-        ====================================================== */
+        ====================================================== -->
 
         @media (max-width: 760px) {
 
@@ -1764,7 +1856,8 @@
                         <div class="field">
 
                             <label for="loginPassword">
-                                Password
+                                <span>Password</span>
+                                <button type="button" class="forgot-link" id="forgotPasswordBtn">Forgot Password?</button>
                             </label>
 
 
@@ -1779,6 +1872,10 @@
                                     autocomplete="current-password"
                                     required
                                 >
+
+                                <button type="button" class="toggle-password" id="toggleLoginPassword" title="Show/Hide Password">
+                                    <i class="fa-solid fa-eye" id="loginEyeIcon"></i>
+                                </button>
 
                             </div>
 
@@ -1917,6 +2014,10 @@
                                     required
                                 >
 
+                                <button type="button" class="toggle-password" id="toggleRegisterPassword" title="Show/Hide Password">
+                                    <i class="fa-solid fa-eye" id="registerEyeIcon"></i>
+                                </button>
+
                             </div>
 
                         </div>
@@ -2048,11 +2149,12 @@
         // ====================================================
 
         import {
-    createStudentAccount,
-    loginStudent,
-    logoutStudent,
-    watchAuthState
-} from "./firebase-auth.js";
+            createStudentAccount,
+            loginStudent,
+            logoutStudent,
+            watchAuthState,
+            resetPassword // Make sure to export this from firebase-auth.js if needed, or handle below
+        } from "./firebase-auth.js";
 
 
 
@@ -2130,6 +2232,17 @@
             document.getElementById(
                 "registerSubmit"
             );
+
+            // Password Toggle and Reset Elements
+            const toggleLoginPassword = document.getElementById("toggleLoginPassword");
+            const loginPasswordInput = document.getElementById("loginPassword");
+            const loginEyeIcon = document.getElementById("loginEyeIcon");
+
+            const toggleRegisterPassword = document.getElementById("toggleRegisterPassword");
+            const registerPasswordInput = document.getElementById("registerPassword");
+            const registerEyeIcon = document.getElementById("registerEyeIcon");
+
+            const forgotPasswordBtn = document.getElementById("forgotPasswordBtn");
 
 
         // ====================================================
@@ -2233,6 +2346,65 @@
             "click",
             showRegisterForm
         );
+
+
+        // ====================================================
+        // PASSWORD VISIBILITY TOGGLE LOGIC
+        // ====================================================
+
+        toggleLoginPassword.addEventListener("click", function () {
+            if (loginPasswordInput.type === "password") {
+                loginPasswordInput.type = "text";
+                loginEyeIcon.className = "fa-solid fa-eye-slash";
+            } else {
+                loginPasswordInput.type = "password";
+                loginEyeIcon.className = "fa-solid fa-eye";
+            }
+        });
+
+        toggleRegisterPassword.addEventListener("click", function () {
+            if (registerPasswordInput.type === "password") {
+                registerPasswordInput.type = "text";
+                registerEyeIcon.className = "fa-solid fa-eye-slash";
+            } else {
+                registerPasswordInput.type = "password";
+                registerEyeIcon.className = "fa-solid fa-eye";
+            }
+        });
+
+
+        // ====================================================
+        // FORGOT PASSWORD LOGIC
+        // ====================================================
+
+        forgotPasswordBtn.addEventListener("click", async function () {
+            hideMessage();
+            const email = document.getElementById("loginEmail").value.trim();
+
+            if (!email) {
+                showMessage("Please enter your email address above first to reset your password.", "error");
+                document.getElementById("loginEmail").focus();
+                return;
+            }
+
+            try {
+                // If resetPassword is imported from firebase-auth.js
+                if (typeof resetPassword === "function") {
+                    const result = await resetPassword(email);
+                    if (result && result.success) {
+                        showMessage("Password reset link sent to your email. Please check your inbox.", "success");
+                    } else {
+                        showMessage((result && result.message) || "Unable to send reset email.", "error");
+                    }
+                } else {
+                    // Fallback direct Firebase call if not exported separately, or let user know
+                    showMessage("Password reset feature requires update in firebase-auth.js to handle sendPasswordResetEmail.", "info");
+                }
+            } catch (error) {
+                console.error("Reset error:", error);
+                showMessage("Unable to send password reset email. Please try again.", "error");
+            }
+        });
 
 
         // ====================================================
