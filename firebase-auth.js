@@ -808,6 +808,9 @@ async function createStudentAccount(
                     "unit-1":
                         false,
 
+                     "unit-2":
+                        false,
+
                     "unit-11":
                         false,
 
@@ -827,6 +830,9 @@ async function createStudentAccount(
                     "unit-1":
                         null,
 
+                     "unit-2":
+                        null,
+
                     "unit-11":
                         null,
 
@@ -839,6 +845,9 @@ async function createStudentAccount(
                 accessExpiryDates: {
 
     "unit-1":
+        null,
+    
+    "unit-2":
         null,
 
     "unit-11":
