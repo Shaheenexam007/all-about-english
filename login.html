@@ -894,7 +894,7 @@
         }
 
 
-        .input-wrap > i:first-child {
+        .input-wrap > i {
 
             position:
                 absolute;
@@ -968,22 +968,49 @@
 
         }
 
-        /* Password Toggle Icon Styling */
+        /* Password Toggle Button Style */
         .toggle-password {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: transparent;
-            border: none;
-            color: #9ba3b1;
-            font-size: 11px;
-            cursor: pointer;
-            padding: 4px;
+
+            position:
+                absolute;
+
+            right:
+                12px;
+
+            top:
+                50%;
+
+            transform:
+                translateY(-50%);
+
+            background:
+                transparent;
+
+            border:
+                none;
+
+            color:
+                #9ba3b1;
+
+            font-size:
+                11px;
+
+            cursor:
+                pointer;
+
+            padding:
+                4px;
+
+            z-index:
+                3;
+
         }
 
         .toggle-password:hover {
-            color: var(--navy);
+
+            color:
+                var(--navy);
+
         }
 
 
@@ -2275,25 +2302,29 @@
         // PASSWORD TOGGLE SCRIPT
         // ====================================================
 
-        toggleLoginPassword.addEventListener("click", function () {
-            if (loginPasswordInput.type === "password") {
-                loginPasswordInput.type = "text";
-                loginEyeIcon.className = "fa-solid fa-eye-slash";
-            } else {
-                loginPasswordInput.type = "password";
-                loginEyeIcon.className = "fa-solid fa-eye";
-            }
-        });
+        if (toggleLoginPassword) {
+            toggleLoginPassword.addEventListener("click", function () {
+                if (loginPasswordInput.type === "password") {
+                    loginPasswordInput.type = "text";
+                    loginEyeIcon.className = "fa-solid fa-eye-slash";
+                } else {
+                    loginPasswordInput.type = "password";
+                    loginEyeIcon.className = "fa-solid fa-eye";
+                }
+            });
+        }
 
-        toggleRegisterPassword.addEventListener("click", function () {
-            if (registerPasswordInput.type === "password") {
-                registerPasswordInput.type = "text";
-                registerEyeIcon.className = "fa-solid fa-eye-slash";
-            } else {
-                registerPasswordInput.type = "password";
-                registerEyeIcon.className = "fa-solid fa-eye";
-            }
-        });
+        if (toggleRegisterPassword) {
+            toggleRegisterPassword.addEventListener("click", function () {
+                if (registerPasswordInput.type === "password") {
+                    registerPasswordInput.type = "text";
+                    registerEyeIcon.className = "fa-solid fa-eye-slash";
+                } else {
+                    registerPasswordInput.type = "password";
+                    registerEyeIcon.className = "fa-solid fa-eye";
+                }
+            });
+        }
 
 
         // ====================================================
