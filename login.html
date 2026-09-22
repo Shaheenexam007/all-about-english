@@ -869,13 +869,7 @@
         .field label {
 
             display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            align-items:
-                center;
+                block;
 
             color:
                 var(--navy);
@@ -947,7 +941,7 @@
                 var(--text);
 
             padding:
-                0 38px 0 35px;
+                0 35px 0 35px;
 
             outline:
                 none;
@@ -974,90 +968,22 @@
 
         }
 
-
-        /* Toggle Password Eye Icon */
-
+        /* Password Toggle Icon Styling */
         .toggle-password {
-
-            position:
-                absolute;
-
-            right:
-                12px;
-
-            top:
-                50%;
-
-            transform:
-                translateY(-50%);
-
-            color:
-                #9ba3b1;
-
-            font-size:
-                11px;
-
-            cursor:
-                pointer;
-
-            background:
-                transparent;
-
-            border:
-                none;
-
-            padding:
-                4px;
-
-            transition:
-                color .2s;
-
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: #9ba3b1;
+            font-size: 11px;
+            cursor: pointer;
+            padding: 4px;
         }
-
 
         .toggle-password:hover {
-
-            color:
-                var(--navy);
-
-        }
-
-
-        /* Forgot Password Link */
-
-        .forgot-link {
-
-            color:
-                var(--gold);
-
-            font-size:
-                9px;
-
-            font-weight:
-                700;
-
-            cursor:
-                pointer;
-
-            background:
-                none;
-
-            border:
-                none;
-
-            padding:
-                0;
-
-            text-decoration:
-                underline;
-
-        }
-
-        .forgot-link:hover {
-
-            color:
-                var(--navy);
-
+            color: var(--navy);
         }
 
 
@@ -1856,8 +1782,7 @@
                         <div class="field">
 
                             <label for="loginPassword">
-                                <span>Password</span>
-                                <button type="button" class="forgot-link" id="forgotPasswordBtn">Forgot Password?</button>
+                                Password
                             </label>
 
 
@@ -1873,7 +1798,7 @@
                                     required
                                 >
 
-                                <button type="button" class="toggle-password" id="toggleLoginPassword" title="Show/Hide Password">
+                                <button type="button" class="toggle-password" id="toggleLoginPassword">
                                     <i class="fa-solid fa-eye" id="loginEyeIcon"></i>
                                 </button>
 
@@ -2014,7 +1939,7 @@
                                     required
                                 >
 
-                                <button type="button" class="toggle-password" id="toggleRegisterPassword" title="Show/Hide Password">
+                                <button type="button" class="toggle-password" id="toggleRegisterPassword">
                                     <i class="fa-solid fa-eye" id="registerEyeIcon"></i>
                                 </button>
 
@@ -2149,12 +2074,11 @@
         // ====================================================
 
         import {
-            createStudentAccount,
-            loginStudent,
-            logoutStudent,
-            watchAuthState,
-            resetPassword // Make sure to export this from firebase-auth.js if needed, or handle below
-        } from "./firebase-auth.js";
+    createStudentAccount,
+    loginStudent,
+    logoutStudent,
+    watchAuthState
+} from "./firebase-auth.js";
 
 
 
@@ -2233,16 +2157,15 @@
                 "registerSubmit"
             );
 
-            // Password Toggle and Reset Elements
-            const toggleLoginPassword = document.getElementById("toggleLoginPassword");
-            const loginPasswordInput = document.getElementById("loginPassword");
-            const loginEyeIcon = document.getElementById("loginEyeIcon");
 
-            const toggleRegisterPassword = document.getElementById("toggleRegisterPassword");
-            const registerPasswordInput = document.getElementById("registerPassword");
-            const registerEyeIcon = document.getElementById("registerEyeIcon");
+        // Password toggle elements
+        const toggleLoginPassword = document.getElementById("toggleLoginPassword");
+        const loginPasswordInput = document.getElementById("loginPassword");
+        const loginEyeIcon = document.getElementById("loginEyeIcon");
 
-            const forgotPasswordBtn = document.getElementById("forgotPasswordBtn");
+        const toggleRegisterPassword = document.getElementById("toggleRegisterPassword");
+        const registerPasswordInput = document.getElementById("registerPassword");
+        const registerEyeIcon = document.getElementById("registerEyeIcon");
 
 
         // ====================================================
@@ -2349,7 +2272,7 @@
 
 
         // ====================================================
-        // PASSWORD VISIBILITY TOGGLE LOGIC
+        // PASSWORD TOGGLE SCRIPT
         // ====================================================
 
         toggleLoginPassword.addEventListener("click", function () {
@@ -2369,40 +2292,6 @@
             } else {
                 registerPasswordInput.type = "password";
                 registerEyeIcon.className = "fa-solid fa-eye";
-            }
-        });
-
-
-        // ====================================================
-        // FORGOT PASSWORD LOGIC
-        // ====================================================
-
-        forgotPasswordBtn.addEventListener("click", async function () {
-            hideMessage();
-            const email = document.getElementById("loginEmail").value.trim();
-
-            if (!email) {
-                showMessage("Please enter your email address above first to reset your password.", "error");
-                document.getElementById("loginEmail").focus();
-                return;
-            }
-
-            try {
-                // If resetPassword is imported from firebase-auth.js
-                if (typeof resetPassword === "function") {
-                    const result = await resetPassword(email);
-                    if (result && result.success) {
-                        showMessage("Password reset link sent to your email. Please check your inbox.", "success");
-                    } else {
-                        showMessage((result && result.message) || "Unable to send reset email.", "error");
-                    }
-                } else {
-                    // Fallback direct Firebase call if not exported separately, or let user know
-                    showMessage("Password reset feature requires update in firebase-auth.js to handle sendPasswordResetEmail.", "info");
-                }
-            } catch (error) {
-                console.error("Reset error:", error);
-                showMessage("Unable to send password reset email. Please try again.", "error");
             }
         });
 
