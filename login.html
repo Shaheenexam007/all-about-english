@@ -920,64 +920,6 @@
         }
 
 
-        /* =====================================================
-           PASSWORD SHOW / HIDE + FORGOT PASSWORD
-        ====================================================== */
-
-        .password-input {
-            padding-right: 62px !important;
-        }
-
-        .password-toggle {
-            position: absolute;
-            right: 9px;
-            top: 50%;
-            transform: translateY(-50%);
-            border: none;
-            background: transparent;
-            color: var(--muted);
-            cursor: pointer;
-            font-size: 9px;
-            font-weight: 800;
-            padding: 5px 4px;
-            z-index: 3;
-        }
-
-        .password-toggle:hover {
-            color: var(--navy);
-        }
-
-        .password-toggle:focus {
-            outline: none;
-            color: var(--navy);
-        }
-
-        .forgot-password-btn {
-            display: block;
-            width: 100%;
-            margin-top: 9px;
-            border: none;
-            background: transparent;
-            color: var(--gold);
-            cursor: pointer;
-            font-size: 9px;
-            font-weight: 800;
-            text-align: right;
-            padding: 2px 0;
-        }
-
-        .forgot-password-btn:hover {
-            text-decoration: underline;
-        }
-
-        .forgot-password-btn:disabled {
-            opacity: .65;
-            cursor: not-allowed;
-            text-decoration: none;
-        }
-
-
-
         .field input {
 
             width:
@@ -1833,29 +1775,12 @@
                                 <input
                                     type="password"
                                     id="loginPassword"
-                                    class="password-input"
                                     placeholder="Enter your password"
                                     autocomplete="current-password"
                                     required
                                 >
 
-                                <button
-                                    type="button"
-                                    class="password-toggle"
-                                    id="toggleLoginPassword"
-                                    aria-label="Show password"
-                                    title="Show password"
-                                >Show</button>
-
                             </div>
-
-                            <button
-                                type="button"
-                                class="forgot-password-btn"
-                                id="forgotPasswordBtn"
-                            >
-                                Forgot Password?
-                            </button>
 
                         </div>
 
@@ -1986,20 +1911,11 @@
                                 <input
                                     type="password"
                                     id="registerPassword"
-                                    class="password-input"
                                     placeholder="Create a password"
                                     autocomplete="new-password"
                                     minlength="6"
                                     required
                                 >
-
-                                <button
-                                    type="button"
-                                    class="password-toggle"
-                                    id="toggleRegisterPassword"
-                                    aria-label="Show password"
-                                    title="Show password"
-                                >Show</button>
 
                             </div>
 
@@ -2135,8 +2051,7 @@
     createStudentAccount,
     loginStudent,
     logoutStudent,
-    watchAuthState,
-    sendStudentPasswordReset
+    watchAuthState
 } from "./firebase-auth.js";
 
 
@@ -2215,80 +2130,6 @@
             document.getElementById(
                 "registerSubmit"
             );
-
-        const toggleLoginPassword =
-            document.getElementById(
-                "toggleLoginPassword"
-            );
-
-        const toggleRegisterPassword =
-            document.getElementById(
-                "toggleRegisterPassword"
-            );
-
-        const forgotPasswordBtn =
-            document.getElementById(
-                "forgotPasswordBtn"
-            );
-
-
-        // ====================================================
-        // PASSWORD SHOW / HIDE
-        // ====================================================
-
-        function setupPasswordToggle(inputId, button) {
-
-            const input =
-                document.getElementById(inputId);
-
-            if (!input || !button) {
-                return;
-            }
-
-            button.addEventListener(
-                "click",
-                function () {
-
-                    if (input.type === "password") {
-
-                        input.type = "text";
-                        button.textContent = "Hide";
-                        button.setAttribute(
-                            "aria-label",
-                            "Hide password"
-                        );
-                        button.setAttribute(
-                            "title",
-                            "Hide password"
-                        );
-
-                    } else {
-
-                        input.type = "password";
-                        button.textContent = "Show";
-                        button.setAttribute(
-                            "aria-label",
-                            "Show password"
-                        );
-                        button.setAttribute(
-                            "title",
-                            "Show password"
-                        );
-
-                    }
-                }
-            );
-        }
-
-        setupPasswordToggle(
-            "loginPassword",
-            toggleLoginPassword
-        );
-
-        setupPasswordToggle(
-            "registerPassword",
-            toggleRegisterPassword
-        );
 
 
         // ====================================================
@@ -2395,92 +2236,6 @@
 
 
         // ====================================================
-        // FORGOT PASSWORD
-        // ====================================================
-
-        forgotPasswordBtn.addEventListener(
-            "click",
-            async function () {
-
-                hideMessage();
-
-                const emailInput =
-                    document.getElementById("loginEmail");
-
-                const email =
-                    emailInput.value.trim();
-
-                if (!email) {
-
-                    showMessage(
-                        "Please enter your email address first.",
-                        "info"
-                    );
-
-                    emailInput.focus();
-                    return;
-                }
-
-                if (!emailInput.checkValidity()) {
-
-                    showMessage(
-                        "Please enter a valid email address.",
-                        "error"
-                    );
-
-                    emailInput.focus();
-                    return;
-                }
-
-                forgotPasswordBtn.disabled = true;
-                forgotPasswordBtn.textContent =
-                    "Sending reset link...";
-
-                try {
-
-                    const result =
-                        await sendStudentPasswordReset(email);
-
-                    if (result && result.success) {
-
-                        showMessage(
-                            "Password reset link has been sent to your email. Please check your inbox and spam folder.",
-                            "success"
-                        );
-
-                    } else {
-
-                        showMessage(
-                            (result && result.message) ||
-                            "Unable to send password reset link. Please try again.",
-                            "error"
-                        );
-                    }
-
-                } catch (error) {
-
-                    console.error(
-                        "Password reset error:",
-                        error
-                    );
-
-                    showMessage(
-                        "Unable to send password reset link. Please try again.",
-                        "error"
-                    );
-
-                } finally {
-
-                    forgotPasswordBtn.disabled = false;
-                    forgotPasswordBtn.textContent =
-                        "Forgot Password?";
-
-                }
-            }
-        );
-
-
-        // ====================================================
         // LOGIN
         // ====================================================
 
@@ -2541,23 +2296,6 @@
                         );
 
                         loginForm.reset();
-
-                        document.getElementById(
-                            "loginPassword"
-                        ).type = "password";
-
-                        toggleLoginPassword.textContent =
-                            "Show";
-
-                        toggleLoginPassword.setAttribute(
-                            "aria-label",
-                            "Show password"
-                        );
-
-                        toggleLoginPassword.setAttribute(
-                            "title",
-                            "Show password"
-                        );
 
                     }
 
