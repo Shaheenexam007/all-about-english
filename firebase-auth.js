@@ -814,6 +814,9 @@ async function createStudentAccount(
                       "unit-3":
                         false,
 
+                       "unit-4":
+                        false,
+                    
                     "unit-11":
                         false,
 
@@ -839,6 +842,9 @@ async function createStudentAccount(
                       "unit-3":
                         null,
 
+                     "unit-4":
+                        null,
+
                     "unit-11":
                         null,
 
@@ -857,6 +863,9 @@ async function createStudentAccount(
         null,
 
      "unit-3":
+        null,
+
+     "unit-4":
         null,
 
     "unit-11":
