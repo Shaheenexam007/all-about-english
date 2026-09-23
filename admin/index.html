@@ -1159,6 +1159,18 @@
 
             </div>
 
+             <div class="stat-card">
+
+                <small>
+                    UNIT 4
+                </small>
+
+                <strong id="unit3Students">
+                    0
+                </strong>
+
+            </div>
+
 
             <div class="stat-card">
 
@@ -2064,6 +2076,13 @@ function updateStats() {
                 student.approvedUnits["unit-3"] === true
         ).length;
 
+      const unit4 =
+        students.filter(
+            student =>
+                student.approvedUnits &&
+                student.approvedUnits["unit-4"] === true
+        ).length;
+
 
     const unit11 =
         students.filter(
@@ -2107,6 +2126,11 @@ function updateStats() {
         "unit3Students"
     ).textContent =
         unit3;
+
+      document.getElementById(
+        "unit4Students"
+    ).textContent =
+        unit4;
 
 
     document.getElementById(
@@ -2380,6 +2404,9 @@ function createStudentCard(
      const unit3 =
         approvedUnits["unit-3"] === true;
 
+      const unit4 =
+        approvedUnits["unit-4"] === true;
+
 
     const unit11 =
         approvedUnits["unit-11"] === true;
@@ -2401,6 +2428,9 @@ function createStudentCard(
      const unit3Date =
     approvalDates["unit-3"];
 
+     const unit4Date =
+    approvalDates["unit-4"];
+
 const unit11Date =
     approvalDates["unit-11"];
 
@@ -2421,6 +2451,9 @@ const unit12Date =
 
       const unit3Expiry =
         accessExpiryDates["unit-3"];
+
+     const unit4Expiry =
+        accessExpiryDates["unit-4"];
 
 
     const unit11Expiry =
@@ -2625,6 +2658,24 @@ const unit12Date =
         }
     </button>
 
+    <button
+        class="
+            unit-btn
+            ${unit4 ? "approved" : ""}
+        "
+        onclick="
+            toggleUnit(
+                '${escapeHtml(student.id)}',
+                'unit-4'
+            )
+        "
+    >
+        ${unit4
+            ? "✓ Unit 4"
+            : "🔒 Unit 4"
+        }
+    </button>
+
 
     <button
         class="
@@ -2782,6 +2833,47 @@ const unit12Date =
         }
     </div>
 
+
+     <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit4
+                ? "✓ Unit 4 Approved: " +
+                  formatApprovalDate(
+                      unit4Date
+                  ) +
+                  (
+                      unit4Expiry
+                          ? " | Expires: " +
+                            formatDate(
+                                unit4Expiry
+                            )
+                          : ""
+                  )
+                : (
+                    unit4Date
+                        ? "⏰ Unit 4 Expired | Approved: " +
+                          formatApprovalDate(
+                              unit4Date
+                          ) +
+                          (
+                              unit4Expiry
+                                  ? " | Expired: " +
+                                    formatDate(
+                                        unit4Expiry
+                                    )
+                                  : ""
+                          )
+                        : "🔒 Unit 4: Not Approved"
+                  )
+        }
+    </div>
+
+
        <div
         style="
             font-size:8px;
@@ -2908,6 +3000,23 @@ const unit12Date =
                 : "🔒 Unit 3: Not Approved"
         }
     </div>
+
+     <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit4
+                ? "✓ Unit 4 Approved: " +
+                  formatApprovalDate(
+                      unit4Date
+                  )
+                : "🔒 Unit 4: Not Approved"
+        }
+    </div>
+    
 
     <div
         style="
