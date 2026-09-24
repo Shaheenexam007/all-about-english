@@ -1183,6 +1183,65 @@
 
             </div>
 
+             <div class="stat-card">
+
+                <small>
+                    UNIT 6
+                </small>
+
+                <strong id="unit5Students">
+                    0
+                </strong>
+
+            </div>
+
+             <div class="stat-card">
+
+                <small>
+                    UNIT 7
+                </small>
+
+                <strong id="unit5Students">
+                    0
+                </strong>
+
+            </div>
+
+             <div class="stat-card">
+
+                <small>
+                    UNIT 8
+                </small>
+
+                <strong id="unit5Students">
+                    0
+                </strong>
+
+            </div>
+
+             <div class="stat-card">
+
+                <small>
+                    UNIT 9
+                </small>
+
+                <strong id="unit5Students">
+                    0
+                </strong>
+
+            </div>
+
+             <div class="stat-card">
+
+                <small>
+                    UNIT 10
+                </small>
+
+                <strong id="unit5Students">
+                    0
+                </strong>
+
+            </div>
 
             <div class="stat-card">
 
@@ -2103,6 +2162,45 @@ function updateStats() {
                 student.approvedUnits["unit-5"] === true
         ).length;
 
+      const unit6 =
+        students.filter(
+            student =>
+                student.approvedUnits &&
+                student.approvedUnits["unit-6"] === true
+        ).length;
+
+
+      const unit7 =
+        students.filter(
+            student =>
+                student.approvedUnits &&
+                student.approvedUnits["unit-7"] === true
+        ).length;
+
+
+      const unit8 =
+        students.filter(
+            student =>
+                student.approvedUnits &&
+                student.approvedUnits["unit-8"] === true
+        ).length;
+
+
+      const unit9 =
+        students.filter(
+            student =>
+                student.approvedUnits &&
+                student.approvedUnits["unit-9"] === true
+        ).length;
+
+
+      const unit10 =
+        students.filter(
+            student =>
+                student.approvedUnits &&
+                student.approvedUnits["unit-10"] === true
+        ).length;
+
 
     const unit11 =
         students.filter(
@@ -2156,6 +2254,32 @@ function updateStats() {
         "unit5Students"
     ).textContent =
         unit5;
+
+     document.getElementById(
+        "unit6Students"
+    ).textContent =
+        unit6;
+
+
+     document.getElementById(
+        "unit7Students"
+    ).textContent =
+        unit7;
+
+     document.getElementById(
+        "unit8Students"
+    ).textContent =
+        unit8;
+
+     document.getElementById(
+        "unit9Students"
+    ).textContent =
+        unit9;
+
+     document.getElementById(
+        "unit10Students"
+    ).textContent =
+        unit10;
 
 
     document.getElementById(
@@ -2435,6 +2559,21 @@ function createStudentCard(
     const unit5 =
         approvedUnits["unit-5"] === true;
 
+      const unit6 =
+        approvedUnits["unit-6"] === true;
+
+      const unit7 =
+        approvedUnits["unit-7"] === true;
+
+      const unit8 =
+        approvedUnits["unit-8"] === true;
+
+      const unit9 =
+        approvedUnits["unit-9"] === true;
+
+      const unit10 =
+        approvedUnits["unit-10"] === true;
+
 
     const unit11 =
         approvedUnits["unit-11"] === true;
@@ -2462,6 +2601,21 @@ function createStudentCard(
     const unit5Date =
     approvalDates["unit-5"];
 
+     const unit6Date =
+    approvalDates["unit-6"];
+
+     const unit7Date =
+    approvalDates["unit-7"];
+    
+     const unit8Date =
+    approvalDates["unit-8"];
+
+     const unit9Date =
+    approvalDates["unit-9"];
+
+     const unit10Date =
+    approvalDates["unit-10"];
+
 const unit11Date =
     approvalDates["unit-11"];
 
@@ -2488,6 +2642,21 @@ const unit12Date =
 
     const unit5Expiry =
         accessExpiryDates["unit-5"];
+
+    const unit6Expiry =
+        accessExpiryDates["unit-6"];
+
+    const unit7Expiry =
+        accessExpiryDates["unit-7"];
+
+    const unit8Expiry =
+        accessExpiryDates["unit-8"];
+
+    const unit9Expiry =
+        accessExpiryDates["unit-9"];
+
+    const unit10Expiry =
+        accessExpiryDates["unit-10"];
 
 
     const unit11Expiry =
@@ -2729,6 +2898,101 @@ const unit12Date =
         }
     </button>
 
+      <button
+        class="
+            unit-btn
+            ${unit6 ? "approved" : ""}
+        "
+        onclick="
+            toggleUnit(
+                '${escapeHtml(student.id)}',
+                'unit-6'
+            )
+        "
+    >
+        ${unit6
+            ? "✓ Unit 6"
+            : "🔒 Unit 6"
+        }
+    </button>
+
+
+      <button
+        class="
+            unit-btn
+            ${unit7 ? "approved" : ""}
+        "
+        onclick="
+            toggleUnit(
+                '${escapeHtml(student.id)}',
+                'unit-7'
+            )
+        "
+    >
+        ${unit7
+            ? "✓ Unit 7"
+            : "🔒 Unit 7"
+        }
+    </button>
+
+
+      <button
+        class="
+            unit-btn
+            ${unit8 ? "approved" : ""}
+        "
+        onclick="
+            toggleUnit(
+                '${escapeHtml(student.id)}',
+                'unit-8'
+            )
+        "
+    >
+        ${unit8
+            ? "✓ Unit 8"
+            : "🔒 Unit 8"
+        }
+    </button>
+
+
+
+      <button
+        class="
+            unit-btn
+            ${unit9 ? "approved" : ""}
+        "
+        onclick="
+            toggleUnit(
+                '${escapeHtml(student.id)}',
+                'unit-9'
+            )
+        "
+    >
+        ${unit9
+            ? "✓ Unit 9"
+            : "🔒 Unit 9"
+        }
+    </button>
+
+
+      <button
+        class="
+            unit-btn
+            ${unit10 ? "approved" : ""}
+        "
+        onclick="
+            toggleUnit(
+                '${escapeHtml(student.id)}',
+                'unit-10'
+            )
+        "
+    >
+        ${unit10
+            ? "✓ Unit 10"
+            : "🔒 Unit 10"
+        }
+    </button>
+
 
     <button
         class="
@@ -2966,6 +3230,203 @@ const unit12Date =
         }
     </div>
 
+     <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit6
+                ? "✓ Unit 6 Approved: " +
+                  formatApprovalDate(
+                      unit6Date
+                  ) +
+                  (
+                      unit6Expiry
+                          ? " | Expires: " +
+                            formatDate(
+                                unit6Expiry
+                            )
+                          : ""
+                  )
+                : (
+                    unit6Date
+                        ? "⏰ Unit 6 Expired | Approved: " +
+                          formatApprovalDate(
+                              unit6Date
+                          ) +
+                          (
+                              unit6Expiry
+                                  ? " | Expired: " +
+                                    formatDate(
+                                        unit6Expiry
+                                    )
+                                  : ""
+                          )
+                        : "🔒 Unit 6: Not Approved"
+                  )
+        }
+    </div>
+
+
+     <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit7
+                ? "✓ Unit 7 Approved: " +
+                  formatApprovalDate(
+                      unit7Date
+                  ) +
+                  (
+                      unit7Expiry
+                          ? " | Expires: " +
+                            formatDate(
+                                unit7Expiry
+                            )
+                          : ""
+                  )
+                : (
+                    unit7Date
+                        ? "⏰ Unit 7 Expired | Approved: " +
+                          formatApprovalDate(
+                              unit7Date
+                          ) +
+                          (
+                              unit7Expiry
+                                  ? " | Expired: " +
+                                    formatDate(
+                                        unit7Expiry
+                                    )
+                                  : ""
+                          )
+                        : "🔒 Unit 7: Not Approved"
+                  )
+        }
+    </div>
+
+
+     <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit8
+                ? "✓ Unit 8 Approved: " +
+                  formatApprovalDate(
+                      unit8Date
+                  ) +
+                  (
+                      unit8Expiry
+                          ? " | Expires: " +
+                            formatDate(
+                                unit8Expiry
+                            )
+                          : ""
+                  )
+                : (
+                    unit8Date
+                        ? "⏰ Unit 8 Expired | Approved: " +
+                          formatApprovalDate(
+                              unit8Date
+                          ) +
+                          (
+                              unit8Expiry
+                                  ? " | Expired: " +
+                                    formatDate(
+                                        unit8Expiry
+                                    )
+                                  : ""
+                          )
+                        : "🔒 Unit 8: Not Approved"
+                  )
+        }
+    </div>
+
+     <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit9
+                ? "✓ Unit 9 Approved: " +
+                  formatApprovalDate(
+                      unit9Date
+                  ) +
+                  (
+                      unit9Expiry
+                          ? " | Expires: " +
+                            formatDate(
+                                unit9Expiry
+                            )
+                          : ""
+                  )
+                : (
+                    unit9Date
+                        ? "⏰ Unit 9 Expired | Approved: " +
+                          formatApprovalDate(
+                              unit9Date
+                          ) +
+                          (
+                              unit9Expiry
+                                  ? " | Expired: " +
+                                    formatDate(
+                                        unit9Expiry
+                                    )
+                                  : ""
+                          )
+                        : "🔒 Unit 9: Not Approved"
+                  )
+        }
+    </div>
+
+     <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit10
+                ? "✓ Unit 10 Approved: " +
+                  formatApprovalDate(
+                      unit10Date
+                  ) +
+                  (
+                      unit10Expiry
+                          ? " | Expires: " +
+                            formatDate(
+                                unit10Expiry
+                            )
+                          : ""
+                  )
+                : (
+                    unit10Date
+                        ? "⏰ Unit 10 Expired | Approved: " +
+                          formatApprovalDate(
+                              unit10Date
+                          ) +
+                          (
+                              unit10Expiry
+                                  ? " | Expired: " +
+                                    formatDate(
+                                        unit10Expiry
+                                    )
+                                  : ""
+                          )
+                        : "🔒 Unit 10: Not Approved"
+                  )
+        }
+    </div>
+
 
        <div
         style="
@@ -3124,6 +3585,90 @@ const unit12Date =
                       unit5Date
                   )
                 : "🔒 Unit 5: Not Approved"
+        }
+    </div>
+
+
+     <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit6
+                ? "✓ Unit 6 Approved: " +
+                  formatApprovalDate(
+                      unit6Date
+                  )
+                : "🔒 Unit 6: Not Approved"
+        }
+    </div>
+
+
+     <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit7
+                ? "✓ Unit 7 Approved: " +
+                  formatApprovalDate(
+                      unit7Date
+                  )
+                : "🔒 Unit 7: Not Approved"
+        }
+    </div>
+
+     <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit8
+                ? "✓ Unit 8 Approved: " +
+                  formatApprovalDate(
+                      unit8Date
+                  )
+                : "🔒 Unit 8: Not Approved"
+        }
+    </div>
+
+
+     <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit9
+                ? "✓ Unit 9 Approved: " +
+                  formatApprovalDate(
+                      unit9Date
+                  )
+                : "🔒 Unit 9: Not Approved"
+        }
+    </div>
+
+
+     <div
+        style="
+            font-size:8px;
+            color:#68748a;
+        "
+    >
+        ${
+            unit10
+                ? "✓ Unit 10 Approved: " +
+                  formatApprovalDate(
+                      unit10Date
+                  )
+                : "🔒 Unit 10: Not Approved"
         }
     </div>
     
