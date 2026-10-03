@@ -4,30 +4,15 @@
 // BY SHAHEEN SIR
 // ============================================================
 
-
-// ============================================================
-// FIREBASE FIRESTORE
-// ============================================================
-
 import {
     getFirestore,
     doc,
     getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
-// ============================================================
-// FIREBASE AUTH
-// ============================================================
-
 import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-
-// ============================================================
-// FIREBASE APP
-// ============================================================
 
 import {
     app
@@ -38,24 +23,17 @@ import {
 } from "./firebase-auth.js";
 
 
-// ============================================================
-// FIRESTORE
-// ============================================================
-
 const db = getFirestore(app);
 
-
-// ============================================================
-// LOGIN PAGE
-// ============================================================
 
 const LOGIN_PAGE =
     "/all-about-english/login.html";
 
 
-// ============================================================
-// GET CURRENT USER
-// ============================================================
+
+/* ============================================================
+   GET CURRENT LOGGED-IN USER
+   ============================================================ */
 
 function getLoggedInUser() {
 
@@ -64,9 +42,10 @@ function getLoggedInUser() {
 }
 
 
-// ============================================================
-// WAIT FOR AUTH
-// ============================================================
+
+/* ============================================================
+   WAIT FOR FIREBASE AUTH
+   ============================================================ */
 
 function waitForAuth() {
 
@@ -97,22 +76,19 @@ function waitForAuth() {
 }
 
 
-// ============================================================
-// GET STUDENT DATA
-// ============================================================
+
+/* ============================================================
+   GET STUDENT DATA
+   ============================================================ */
 
 async function getStudentData() {
 
     const user =
         auth.currentUser;
 
-
     if (!user) {
-
         return null;
-
     }
-
 
     try {
 
@@ -122,7 +98,6 @@ async function getStudentData() {
                 "students",
                 user.uid
             );
-
 
         const studentSnap =
             await getDoc(
@@ -139,9 +114,8 @@ async function getStudentData() {
 
         return studentSnap.data();
 
-    }
 
-    catch (error) {
+    } catch (error) {
 
         console.error(
             "getStudentData error:",
@@ -155,9 +129,10 @@ async function getStudentData() {
 }
 
 
-// ============================================================
-// CHECK ACTIVE ACCOUNT
-// ============================================================
+
+/* ============================================================
+   ACCOUNT ACTIVE CHECK
+   ============================================================ */
 
 async function isAccountActive() {
 
@@ -180,12 +155,162 @@ async function isAccountActive() {
 }
 
 
-// ============================================================
-// CHECK UNIT APPROVAL
-// ============================================================
 
-async function isUnitApproved(
-    unitId
+/* ============================================================
+   1ST PAPER — UNIT APPROVAL CHECK
+   EXISTING SYSTEM
+   ============================================================ */
+
+async function isUnitApproved(unitId) {
+
+    const student =
+        await getStudentData();
+
+
+    if (!student) {
+
+        return false;
+
+    }
+
+
+    if (
+        student.accountStatus !==
+        "active"
+    ) {
+
+        return false;
+
+    }
+
+
+    const approvedUnits =
+        student.approvedUnits ||
+        {};
+
+
+    return (
+        approvedUnits[unitId] ===
+        true
+    );
+
+}
+
+
+
+/* ============================================================
+   2ND PAPER — GRAMMAR ITEM EXPIRY HELPER
+   ============================================================ */
+
+/*
+   Grammar approval expiry is stored like this:
+
+   grammarAccessExpiryDates: {
+       "modifiers": Timestamp,
+       "article": Timestamp
+   }
+
+   The function below safely handles Firestore Timestamp,
+   JavaScript Date and timestamp-like values.
+*/
+
+function getExpiryTime(value) {
+
+    if (!value) {
+
+        return null;
+
+    }
+
+
+    /* Firestore Timestamp */
+
+    if (
+        typeof value.toDate ===
+        "function"
+    ) {
+
+        const date =
+            value.toDate();
+
+        if (
+            date instanceof Date &&
+            !isNaN(date.getTime())
+        ) {
+
+            return date.getTime();
+
+        }
+
+    }
+
+
+    /* JavaScript Date */
+
+    if (
+        value instanceof Date
+    ) {
+
+        if (
+            !isNaN(
+                value.getTime()
+            )
+        ) {
+
+            return value.getTime();
+
+        }
+
+    }
+
+
+    /* Number timestamp */
+
+    if (
+        typeof value ===
+        "number"
+    ) {
+
+        return value;
+
+    }
+
+
+    /* String date */
+
+    if (
+        typeof value ===
+        "string"
+    ) {
+
+        const time =
+            new Date(
+                value
+            ).getTime();
+
+        if (
+            !isNaN(time)
+        ) {
+
+            return time;
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+
+/* ============================================================
+   2ND PAPER — GRAMMAR ITEM APPROVAL CHECK
+   ============================================================ */
+
+async function isGrammarItemApproved(
+    grammarId
 ) {
 
     const student =
@@ -199,10 +324,6 @@ async function isUnitApproved(
     }
 
 
-    // --------------------------------------------------------
-    // ACCOUNT MUST BE ACTIVE
-    // --------------------------------------------------------
-
     if (
         student.accountStatus !==
         "active"
@@ -213,25 +334,94 @@ async function isUnitApproved(
     }
 
 
-    // --------------------------------------------------------
-    // APPROVED UNITS
-    // --------------------------------------------------------
-
-    const approvedUnits =
-        student.approvedUnits || {};
+    const approvedGrammarItems =
+        student.approvedGrammarItems ||
+        {};
 
 
-    return (
-        approvedUnits[unitId] ===
+    /*
+       Grammar item must first be approved.
+    */
+
+    if (
+        approvedGrammarItems[grammarId] !==
         true
-    );
+    ) {
+
+        return false;
+
+    }
+
+
+    /*
+       ----------------------------------------------------------
+       EXPIRY CHECK
+       ----------------------------------------------------------
+
+       If an expiry date exists and the current time has passed
+       that date, access is denied.
+
+       This means an expired grammar item cannot remain accessible
+       simply because approvedGrammarItems still says true.
+
+       The Admin Dashboard will also automatically revoke expired
+       grammar approvals from Firestore.
+    */
+
+    const grammarExpiryDates =
+        student.grammarAccessExpiryDates ||
+        {};
+
+
+    const expiryValue =
+        grammarExpiryDates[
+            grammarId
+        ];
+
+
+    const expiryTime =
+        getExpiryTime(
+            expiryValue
+        );
+
+
+    if (
+        expiryTime !== null
+    ) {
+
+        if (
+            Date.now() >=
+            expiryTime
+        ) {
+
+            console.log(
+                "Grammar item access expired:",
+                grammarId
+            );
+
+            return false;
+
+        }
+
+    }
+
+
+    /*
+       If no expiry date exists, preserve backward compatibility.
+
+       This allows an already-approved grammar item to continue
+       working until the Admin Dashboard assigns an expiry date.
+    */
+
+    return true;
 
 }
 
 
-// ============================================================
-// REQUIRE LOGIN
-// ============================================================
+
+/* ============================================================
+   REQUIRE LOGIN
+   ============================================================ */
 
 async function requireLogin() {
 
@@ -254,9 +444,10 @@ async function requireLogin() {
 }
 
 
-// ============================================================
-// REQUIRE ACTIVE ACCOUNT
-// ============================================================
+
+/* ============================================================
+   REQUIRE ACTIVE ACCOUNT
+   ============================================================ */
 
 async function requireActiveAccount() {
 
@@ -294,17 +485,11 @@ async function requireActiveAccount() {
 }
 
 
-// ============================================================
-// REQUIRE APPROVED UNIT
-// ============================================================
-//
-// Example:
-//
-// requireApprovedUnit("unit-11");
-//
-// requireApprovedUnit("unit-12");
-//
-// ============================================================
+
+/* ============================================================
+   REQUIRE APPROVED UNIT
+   1ST PAPER
+   ============================================================ */
 
 async function requireApprovedUnit(
     unitId
@@ -312,17 +497,9 @@ async function requireApprovedUnit(
 
     try {
 
-        // ----------------------------------------------------
-        // WAIT FOR FIREBASE AUTH
-        // ----------------------------------------------------
-
         const user =
             await waitForAuth();
 
-
-        // ----------------------------------------------------
-        // NOT LOGGED IN
-        // ----------------------------------------------------
 
         if (!user) {
 
@@ -333,10 +510,6 @@ async function requireApprovedUnit(
 
         }
 
-
-        // ----------------------------------------------------
-        // GET STUDENT
-        // ----------------------------------------------------
 
         const student =
             await getStudentData();
@@ -357,9 +530,109 @@ async function requireApprovedUnit(
         }
 
 
-        // ----------------------------------------------------
-        // ACCOUNT STATUS
-        // ----------------------------------------------------
+        if (
+            student.accountStatus !==
+            "active"
+        ) {
+
+            alert(
+                "Your account is not active yet. Please contact Shaheen Sir."
+            );
+
+            return false;
+
+        }
+
+
+        const approvedUnits =
+            student.approvedUnits ||
+            {};
+
+
+        const approved =
+            approvedUnits[unitId] ===
+            true;
+
+
+        if (!approved) {
+
+            console.log(
+                "Unit access denied:",
+                unitId
+            );
+
+            return false;
+
+        }
+
+
+        console.log(
+            "Unit access granted:",
+            unitId
+        );
+
+
+        return true;
+
+
+    } catch (error) {
+
+        console.error(
+            "requireApprovedUnit error:",
+            error
+        );
+
+        return false;
+
+    }
+
+}
+
+
+
+/* ============================================================
+   REQUIRE APPROVED GRAMMAR ITEM
+   2ND PAPER
+   ============================================================ */
+
+async function requireApprovedGrammarItem(
+    grammarId
+) {
+
+    try {
+
+        const user =
+            await waitForAuth();
+
+
+        if (!user) {
+
+            window.location.href =
+                LOGIN_PAGE;
+
+            return false;
+
+        }
+
+
+        const student =
+            await getStudentData();
+
+
+        if (!student) {
+
+            console.error(
+                "Student document not found."
+            );
+
+            alert(
+                "Your student account information could not be found. Please contact Shaheen Sir."
+            );
+
+            return false;
+
+        }
+
 
         if (
             student.accountStatus !==
@@ -375,28 +648,17 @@ async function requireApprovedUnit(
         }
 
 
-        // ----------------------------------------------------
-        // APPROVED UNITS
-        // ----------------------------------------------------
-
-        const approvedUnits =
-            student.approvedUnits || {};
-
-
         const approved =
-            approvedUnits[unitId] ===
-            true;
+            await isGrammarItemApproved(
+                grammarId
+            );
 
-
-        // ----------------------------------------------------
-        // UNIT NOT APPROVED
-        // ----------------------------------------------------
 
         if (!approved) {
 
             console.log(
-                "Unit access denied:",
-                unitId
+                "Grammar item access denied:",
+                grammarId
             );
 
             return false;
@@ -404,23 +666,19 @@ async function requireApprovedUnit(
         }
 
 
-        // ----------------------------------------------------
-        // ACCESS GRANTED
-        // ----------------------------------------------------
-
         console.log(
-            "Unit access granted:",
-            unitId
+            "Grammar item access granted:",
+            grammarId
         );
+
 
         return true;
 
-    }
 
-    catch (error) {
+    } catch (error) {
 
         console.error(
-            "requireApprovedUnit error:",
+            "requireApprovedGrammarItem error:",
             error
         );
 
@@ -431,26 +689,34 @@ async function requireApprovedUnit(
 }
 
 
-// ============================================================
-// PROTECT PAGE
-// ============================================================
-//
-// UNIT:
-//
-// protectPage(
-//     "unit",
-//     "unit-11"
-// );
-//
-//
-// LESSON:
-//
-// protectPage(
-//     "lesson",
-//     "unit-11"
-// );
-//
-// ============================================================
+
+/* ============================================================
+   UNIVERSAL PAGE PROTECTION
+   ============================================================ */
+
+/*
+   Existing usage:
+
+       protectPage(
+           "unit",
+           "unit-12"
+       );
+
+
+   New 2nd Paper usage:
+
+       protectPage(
+           "grammar",
+           "modifiers"
+       );
+
+
+   Other existing usage:
+
+       protectPage(
+           "active"
+       );
+*/
 
 async function protectPage(
     requiredType,
@@ -463,10 +729,6 @@ async function protectPage(
             await waitForAuth();
 
 
-        // ----------------------------------------------------
-        // LOGIN REQUIRED
-        // ----------------------------------------------------
-
         if (!user) {
 
             window.location.href =
@@ -477,9 +739,9 @@ async function protectPage(
         }
 
 
-        // ----------------------------------------------------
-        // UNIT
-        // ----------------------------------------------------
+        /* ====================================================
+           1ST PAPER — UNIT
+           ==================================================== */
 
         if (
             requiredType ===
@@ -493,9 +755,10 @@ async function protectPage(
         }
 
 
-        // ----------------------------------------------------
-        // LESSON
-        // ----------------------------------------------------
+        /* ====================================================
+           1ST PAPER — LESSON
+           Existing behaviour preserved.
+           ==================================================== */
 
         if (
             requiredType ===
@@ -509,9 +772,25 @@ async function protectPage(
         }
 
 
-        // ----------------------------------------------------
-        // ACTIVE ACCOUNT
-        // ----------------------------------------------------
+        /* ====================================================
+           2ND PAPER — GRAMMAR ITEM
+           ==================================================== */
+
+        if (
+            requiredType ===
+            "grammar"
+        ) {
+
+            return await requireApprovedGrammarItem(
+                requiredId
+            );
+
+        }
+
+
+        /* ====================================================
+           ACTIVE ACCOUNT
+           ==================================================== */
 
         if (
             requiredType ===
@@ -528,11 +807,11 @@ async function protectPage(
             requiredType
         );
 
+
         return false;
 
-    }
 
-    catch (error) {
+    } catch (error) {
 
         console.error(
             "protectPage error:",
@@ -546,9 +825,10 @@ async function protectPage(
 }
 
 
-// ============================================================
-// EXPORT
-// ============================================================
+
+/* ============================================================
+   EXPORT
+   ============================================================ */
 
 export {
 
@@ -560,11 +840,15 @@ export {
 
     isUnitApproved,
 
+    isGrammarItemApproved,
+
     requireLogin,
 
     requireActiveAccount,
 
     requireApprovedUnit,
+
+    requireApprovedGrammarItem,
 
     waitForAuth,
 
