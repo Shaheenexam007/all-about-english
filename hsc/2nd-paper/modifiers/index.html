@@ -1,1 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="description"
+          content="HSC English 2nd Paper Modifiers — Board Questions and Interactive Practice by Shaheen Sir.">
+
+    <meta name="author" content="Shaheen Sir">
+    <meta name="theme-color" content="#0b1f3a">
+
+    <title>Modifiers | HSC English 2nd Paper | All About English</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --navy: #0b1f3a;
+            --gold: #c89b3c;
+            --gold-light: #e6c66a;
+            --cream: #fffaf0;
+            --cream-dark: #f6edd9;
+            --white: #ffffff;
+            --text: #263238;
+            --muted: #667085;
+            --border: #e5d8bb;
+            --shadow: 0 15px 40px rgba(11,31,58,.10);
+            --radius: 18px;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(200,155,60,.08), transparent 30%),
+                linear-gradient(135deg,#fffdf8,var(--cream));
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            background: linear-gradient(135deg,var(--navy),#10294a);
+            color: white;
+            border-bottom: 3px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,.12);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg,var(--gold),var(--gold-light));
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .brand-text strong {
+            display: block;
+            font-family: "Playfair Display",serif;
+            font-size: 19px;
+        }
+
+        .brand-text span {
+            display: block;
+            font-size: 11px;
+            color: #e8edf4;
+            margin-top: 2px;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .nav-btn.home {
+            background: rgba(255,255,255,.10);
+            border: 1px solid rgba(255,255,255,.18);
+            color: white;
+        }
+
+        .nav-btn.login {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: auto;
+            padding: 55px 20px 30px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: var(--cream-dark);
+            border: 1px solid var(--border);
+            color: var(--navy);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display",serif;
+            color: var(--navy);
+            font-size: clamp(34px,5vw,56px);
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: auto;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .breadcrumb-wrap {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px 25px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .breadcrumb a {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .breadcrumb i {
+            color: var(--gold);
+            font-size: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .section-title h2 {
+            font-family: "Playfair Display",serif;
+            color: var(--navy);
+            font-size: 30px;
+            margin-bottom: 7px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(2,minmax(0,1fr));
+            gap: 24px;
+        }
+
+        .board-card {
+            position: relative;
+            background: rgba(255,255,255,.92);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: .3s ease;
+        }
+
+        .board-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg,var(--gold),var(--gold-light));
+        }
+
+        .board-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 50px rgba(11,31,58,.15);
+            border-color: var(--gold);
+        }
+
+        .card-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 15px;
+            background: var(--cream-dark);
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+            margin-bottom: 20px;
+        }
+
+        .board-card h3 {
+            font-family: "Playfair Display",serif;
+            color: var(--navy);
+            font-size: 25px;
+            margin-bottom: 9px;
+        }
+
+        .board-card .subtitle {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .board-card p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.75;
+            margin-bottom: 22px;
+        }
+
+        .open-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            background: var(--navy);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 11px;
+            font-size: 13px;
+            font-weight: 800;
+            transition: .25s ease;
+        }
+
+        .open-btn:hover {
+            background: var(--gold);
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+
+        .notice {
+            margin-top: 30px;
+            background: linear-gradient(135deg,#fff9e9,#fffdf8);
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--gold);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .notice-icon {
+            color: var(--gold);
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        .notice strong {
+            display: block;
+            color: var(--navy);
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .notice p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        footer {
+            background: var(--navy);
+            color: white;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: "Playfair Display",serif;
+            font-size: 20px;
+        }
+
+        .footer-line {
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+            margin: 15px auto;
+        }
+
+        .footer-inner p {
+            color: #d8dee8;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        @media (max-width:700px) {
+
+            .brand-text span {
+                display: none;
+            }
+
+            .brand-text strong {
+                font-size: 16px;
+            }
+
+            .brand-icon {
+                width: 39px;
+                height: 39px;
+                font-size: 17px;
+            }
+
+            .nav-btn span {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 40px;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .board-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .board-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="header-inner">
+
+        <a href="../../" class="brand">
+
+            <div class="brand-icon">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+
+            <div class="brand-text">
+                <strong>ALL ABOUT ENGLISH</strong>
+
+                <span>
+                    SHAHEEN SIR • ASSISTANT PROFESSOR &amp; HEAD OF THE ENGLISH DEPARTMENT
+                </span>
+            </div>
+
+        </a>
+
+        <div class="nav-actions">
+
+            <a href="../../" class="nav-btn home">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="../../../login.html" class="nav-btn login">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <span>Student Login</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="badge">
+        <i class="fa-solid fa-graduation-cap"></i>
+        HSC • ENGLISH 2ND PAPER
+    </div>
+
+    <h1>
+        <span>Modifiers</span>
+    </h1>
+
+    <p>
+        HSC English 2nd Paper-এর Modifiers অংশের
+        Board Questions এবং Interactive Practice।
+    </p>
+
+</section>
+
+
+<div class="breadcrumb-wrap">
+
+    <div class="breadcrumb">
+
+        <a href="../../">
+            HSC English 2nd Paper
+        </a>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <span>Modifiers</span>
+
+    </div>
+
+</div>
+
+
+<main class="container">
+
+    <div class="section-title">
+
+        <h2>Board Questions</h2>
+
+        <p>
+            Select a set to open the interactive Modifiers lesson.
+        </p>
+
+    </div>
+
+
+    <div class="board-grid">
+
+
+        <!-- KA SET -->
+
+        <article class="board-card">
+
+            <div class="card-icon">
+                <i class="fa-solid fa-file-lines"></i>
+            </div>
+
+            <div class="subtitle">
+                HSC Board Question
+            </div>
+
+            <h3>
+                Ka Set — Board 2018
+            </h3>
+
+            <p>
+                2018 সালের Ka Set-এর Modifiers question।
+                Practice এবং Exam mode-এ interactiveভাবে অনুশীলন করুন।
+            </p>
+
+            <a href="./ka-set-board-2018/" class="open-btn">
+                Open Ka Set
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </article>
+
+
+        <!-- KHA SET -->
+
+        <article class="board-card">
+
+            <div class="card-icon">
+                <i class="fa-solid fa-file-circle-check"></i>
+            </div>
+
+            <div class="subtitle">
+                HSC Board Question
+            </div>
+
+            <h3>
+                Kha Set — Board 2018
+            </h3>
+
+            <p>
+                2018 সালের Kha Set-এর Modifiers question।
+                Practice এবং Exam mode-এ interactiveভাবে অনুশীলন করুন।
+            </p>
+
+            <a href="./kha-set-board-2018/" class="open-btn">
+                Open Kha Set
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </article>
+
+
+    </div>
+
+
+    <div class="notice">
+
+        <div class="notice-icon">
+            <i class="fa-solid fa-lock"></i>
+        </div>
+
+        <div>
+
+            <strong>Modifiers Access Required</strong>
+
+            <p>
+                এই section-এ প্রবেশ করতে Student Login এবং
+                HSC English 2nd Paper-এর Modifiers Grammar Item-এর
+                administrator approval প্রয়োজন।
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+            ALL ABOUT ENGLISH
+        </div>
+
+        <div class="footer-line"></div>
+
+        <p>
+            SHAHEEN SIR<br>
+            ASSISTANT PROFESSOR &amp; HEAD OF THE ENGLISH DEPARTMENT<br>
+            BANGLADESH AIR FORCE SHAHEEN COLLEGE KURMITOLA
+        </p>
+
+        <p style="margin-top:12px;">
+            © 2026 All About English. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= SECURITY ================= -->
+
+<script type="module">
+
+    import { protectPage } from "../../../../firebase-security.js";
+
+    const allowed = await protectPage("grammar", "modifiers");
+
+    if (!allowed) {
+        document.body.innerHTML = "";
+    }
+
+</script>
+
+</body>
+</html>
