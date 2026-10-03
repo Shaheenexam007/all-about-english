@@ -787,6 +787,43 @@
         }
 
 
+        .grammar-section {
+            margin-top:18px;
+            padding-top:15px;
+            border-top:1px solid #eeeae0;
+        }
+
+        .grammar-buttons {
+            display:flex;
+            flex-wrap:wrap;
+            gap:7px;
+        }
+
+        .grammar-btn {
+            border:1px solid var(--border);
+            background:#faf9f5;
+            color:var(--navy);
+            padding:8px 11px;
+            border-radius:9px;
+            font-size:9px;
+            font-weight:800;
+            cursor:pointer;
+        }
+
+        .grammar-btn.approved {
+            background:var(--green-bg);
+            border-color:#b9dfc8;
+            color:var(--green);
+        }
+
+        .approval-meta {
+            margin-top:7px;
+            font-size:8px;
+            color:#68748a;
+            line-height:1.55;
+        }
+
+
         .account-actions {
 
             margin-top:12px;
@@ -1121,153 +1158,14 @@
             </div>
 
 
-              <div class="stat-card">
+              ${UNIT_NUMBERS.map(number => `
+                <div class="stat-card"><small>UNIT ${number}</small><strong id="unit${number}Students">0</strong></div>
+              `).join("")}
 
-                <small>
-                    UNIT 1
-                </small>
-
-                <strong id="unit1Students">
-                    0
-                </strong>
-
-            </div>
-
-
-              <div class="stat-card">
-
-                <small>
-                    UNIT 2
-                </small>
-
-                <strong id="unit2Students">
-                    0
-                </strong>
-
-            </div>
-
-
-              <div class="stat-card">
-
-                <small>
-                    UNIT 3
-                </small>
-
-                <strong id="unit3Students">
-                    0
-                </strong>
-
-            </div>
-
-             <div class="stat-card">
-
-                <small>
-                    UNIT 4
-                </small>
-
-                <strong id="unit4Students">
-                    0
-                </strong>
-
-            </div>
-
-             <div class="stat-card">
-
-                <small>
-                    UNIT 5
-                </small>
-
-                <strong id="unit5Students">
-                    0
-                </strong>
-
-            </div>
-
-             <div class="stat-card">
-
-                <small>
-                    UNIT 6
-                </small>
-
-                <strong id="unit6Students">
-                    0
-                </strong>
-
-            </div>
-
-             <div class="stat-card">
-
-                <small>
-                    UNIT 7
-                </small>
-
-                <strong id="unit7Students">
-                    0
-                </strong>
-
-            </div>
-
-             <div class="stat-card">
-
-                <small>
-                    UNIT 8
-                </small>
-
-                <strong id="unit8Students">
-                    0
-                </strong>
-
-            </div>
-
-             <div class="stat-card">
-
-                <small>
-                    UNIT 9
-                </small>
-
-                <strong id="unit9Students">
-                    0
-                </strong>
-
-            </div>
-
-             <div class="stat-card">
-
-                <small>
-                    UNIT 10
-                </small>
-
-                <strong id="unit10Students">
-                    0
-                </strong>
-
-            </div>
-
-            <div class="stat-card">
-
-                <small>
-                    UNIT 11
-                </small>
-
-                <strong id="unit11Students">
-                    0
-                </strong>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <small>
-                    UNIT 12
-                </small>
-
-                <strong id="unit12Students">
-                    0
-                </strong>
-
-            </div>
-
+              ${GRAMMAR_ITEMS.map(id => {
+                  const key = id.replace(/[^a-zA-Z0-9]/g, "");
+                  return `<div class="stat-card"><small>${GRAMMAR_LABELS[id]}</small><strong id="grammar-${key}-students">0</strong></div>`;
+              }).join("")}
 
         </div>
 
@@ -1688,6 +1586,47 @@ function isExpired(value) {
 }
 
 
+const UNIT_NUMBERS = [1,2,3,4,5,6,7,8,9,10,11,12];
+
+const GRAMMAR_ITEMS = [
+    "article", "preposition", "words-phrases", "completing-sentence",
+    "right-form-of-verbs", "transformation", "narration", "pronoun-reference",
+    "modifiers", "connectors", "synonyms-antonyms", "punctuation", "written-part"
+];
+
+const GRAMMAR_LABELS = {
+    "article":"Article", "preposition":"Preposition", "words-phrases":"Words & Phrases",
+    "completing-sentence":"Completing Sentence", "right-form-of-verbs":"Right Form of Verbs",
+    "transformation":"Transformation", "narration":"Narration", "pronoun-reference":"Pronoun Reference",
+    "modifiers":"Modifiers", "connectors":"Connectors", "synonyms-antonyms":"Synonyms & Antonyms",
+    "punctuation":"Punctuation", "written-part":"Written Part"
+};
+
+async function expireOverdueGrammarItems() {
+    for (const student of students) {
+        const approvedGrammarItems = { ...(student.approvedGrammarItems || {}) };
+        const grammarAccessExpiryDates = { ...(student.grammarAccessExpiryDates || {}) };
+        let changed = false;
+
+        Object.keys(grammarAccessExpiryDates).forEach((grammarId) => {
+            if (approvedGrammarItems[grammarId] === true && isExpired(grammarAccessExpiryDates[grammarId])) {
+                approvedGrammarItems[grammarId] = false;
+                changed = true;
+            }
+        });
+
+        if (changed) {
+            try {
+                await updateDoc(doc(db, "students", student.id), { approvedGrammarItems });
+                student.approvedGrammarItems = approvedGrammarItems;
+            } catch (error) {
+                console.error("Automatic grammar expiry update error:", student.id, error);
+            }
+        }
+    }
+}
+
+
 async function expireOverdueUnits() {
 
     let anyChanged = false;
@@ -1999,6 +1938,9 @@ onAuthStateChanged(
                     async () => {
 
                         await expireOverdueUnits();
+                        await expireOverdueGrammarItems();
+                        updateStats();
+                        renderStudents();
 
                     },
                     EXPIRY_CHECK_INTERVAL
@@ -2066,6 +2008,7 @@ async function loadStudents() {
         populateYearFilter();
 
         await expireOverdueUnits();
+        await expireOverdueGrammarItems();
 
         updateStats();
 
@@ -2113,186 +2056,19 @@ async function loadStudents() {
 // ============================================================
 
 function updateStats() {
-
-    const total =
-        students.length;
-
-
-    const active =
-        students.filter(
-            student =>
-                student.accountStatus ===
-                "active"
-        ).length;
-
-
-     const unit1 =
-        students.filter(
-            student =>
-                student.approvedUnits &&
-                student.approvedUnits["unit-1"] === true
-        ).length;
-
-      const unit2 =
-        students.filter(
-            student =>
-                student.approvedUnits &&
-                student.approvedUnits["unit-2"] === true
-        ).length;
-
-     const unit3 =
-        students.filter(
-            student =>
-                student.approvedUnits &&
-                student.approvedUnits["unit-3"] === true
-        ).length;
-
-      const unit4 =
-        students.filter(
-            student =>
-                student.approvedUnits &&
-                student.approvedUnits["unit-4"] === true
-        ).length;
-
-
-     const unit5 =
-        students.filter(
-            student =>
-                student.approvedUnits &&
-                student.approvedUnits["unit-5"] === true
-        ).length;
-
-      const unit6 =
-        students.filter(
-            student =>
-                student.approvedUnits &&
-                student.approvedUnits["unit-6"] === true
-        ).length;
-
-
-      const unit7 =
-        students.filter(
-            student =>
-                student.approvedUnits &&
-                student.approvedUnits["unit-7"] === true
-        ).length;
-
-
-      const unit8 =
-        students.filter(
-            student =>
-                student.approvedUnits &&
-                student.approvedUnits["unit-8"] === true
-        ).length;
-
-
-      const unit9 =
-        students.filter(
-            student =>
-                student.approvedUnits &&
-                student.approvedUnits["unit-9"] === true
-        ).length;
-
-
-      const unit10 =
-        students.filter(
-            student =>
-                student.approvedUnits &&
-                student.approvedUnits["unit-10"] === true
-        ).length;
-
-
-    const unit11 =
-        students.filter(
-            student =>
-                student.approvedUnits &&
-                student.approvedUnits["unit-11"] === true
-        ).length;
-
-
-    const unit12 =
-        students.filter(
-            student =>
-                student.approvedUnits &&
-                student.approvedUnits["unit-12"] === true
-        ).length;
-
-
-    document.getElementById(
-        "totalStudents"
-    ).textContent =
-        total;
-
-
-    document.getElementById(
-        "activeStudents"
-    ).textContent =
-        active;
-
-
-    document.getElementById(
-        "unit1Students"
-    ).textContent =
-        unit1;
-
-      document.getElementById(
-        "unit2Students"
-    ).textContent =
-        unit2;
-
-      document.getElementById(
-        "unit3Students"
-    ).textContent =
-        unit3;
-
-      document.getElementById(
-        "unit4Students"
-    ).textContent =
-        unit4;
-
-     document.getElementById(
-        "unit5Students"
-    ).textContent =
-        unit5;
-
-     document.getElementById(
-        "unit6Students"
-    ).textContent =
-        unit6;
-
-
-     document.getElementById(
-        "unit7Students"
-    ).textContent =
-        unit7;
-
-     document.getElementById(
-        "unit8Students"
-    ).textContent =
-        unit8;
-
-     document.getElementById(
-        "unit9Students"
-    ).textContent =
-        unit9;
-
-     document.getElementById(
-        "unit10Students"
-    ).textContent =
-        unit10;
-
-
-    document.getElementById(
-        "unit11Students"
-    ).textContent =
-        unit11;
-
-
-    document.getElementById(
-        "unit12Students"
-    ).textContent =
-        unit12;
-
+    const total = students.length;
+    const active = students.filter(student => student.accountStatus === "active").length;
+    document.getElementById("totalStudents").textContent = total;
+    document.getElementById("activeStudents").textContent = active;
+    UNIT_NUMBERS.forEach(number => {
+        const el = document.getElementById(`unit${number}Students`);
+        if (el) el.textContent = students.filter(student => student.approvedUnits?.[`unit-${number}`] === true).length;
+    });
+    GRAMMAR_ITEMS.forEach(id => {
+        const key = id.replace(/[^a-zA-Z0-9]/g, "");
+        const el = document.getElementById(`grammar-${key}-students`);
+        if (el) el.textContent = students.filter(student => student.approvedGrammarItems?.[id] === true).length;
+    });
 }
 
 
@@ -2539,133 +2315,19 @@ function createStudentCard(
         status === "active";
 
 
-    const approvedUnits =
-        student.approvedUnits ||
-        {};
+    const approvedUnits = student.approvedUnits || {};
+    const approvalDates = student.approvalDates || {};
+    const accessExpiryDates = student.accessExpiryDates || {};
 
-
-     const unit1 =
-        approvedUnits["unit-1"] === true;
-
-     const unit2 =
-        approvedUnits["unit-2"] === true;
-
-     const unit3 =
-        approvedUnits["unit-3"] === true;
-
-      const unit4 =
-        approvedUnits["unit-4"] === true;
-
-    const unit5 =
-        approvedUnits["unit-5"] === true;
-
-      const unit6 =
-        approvedUnits["unit-6"] === true;
-
-      const unit7 =
-        approvedUnits["unit-7"] === true;
-
-      const unit8 =
-        approvedUnits["unit-8"] === true;
-
-      const unit9 =
-        approvedUnits["unit-9"] === true;
-
-      const unit10 =
-        approvedUnits["unit-10"] === true;
-
-
-    const unit11 =
-        approvedUnits["unit-11"] === true;
-
-
-    const unit12 =
-        approvedUnits["unit-12"] === true;
-
-    const approvalDates =
-    student.approvalDates ||
-    {};
-
-    const unit1Date =
-    approvalDates["unit-1"];
-
-      const unit2Date =
-    approvalDates["unit-2"];
-
-     const unit3Date =
-    approvalDates["unit-3"];
-
-     const unit4Date =
-    approvalDates["unit-4"];
-
-    const unit5Date =
-    approvalDates["unit-5"];
-
-     const unit6Date =
-    approvalDates["unit-6"];
-
-     const unit7Date =
-    approvalDates["unit-7"];
-    
-     const unit8Date =
-    approvalDates["unit-8"];
-
-     const unit9Date =
-    approvalDates["unit-9"];
-
-     const unit10Date =
-    approvalDates["unit-10"];
-
-const unit11Date =
-    approvalDates["unit-11"];
-
-const unit12Date =
-    approvalDates["unit-12"];
-
-
-    const accessExpiryDates =
-        student.accessExpiryDates ||
-        {};
-
-
-    const unit1Expiry =
-        accessExpiryDates["unit-1"];
-
-      const unit2Expiry =
-        accessExpiryDates["unit-2"];
-
-      const unit3Expiry =
-        accessExpiryDates["unit-3"];
-
-     const unit4Expiry =
-        accessExpiryDates["unit-4"];
-
-    const unit5Expiry =
-        accessExpiryDates["unit-5"];
-
-    const unit6Expiry =
-        accessExpiryDates["unit-6"];
-
-    const unit7Expiry =
-        accessExpiryDates["unit-7"];
-
-    const unit8Expiry =
-        accessExpiryDates["unit-8"];
-
-    const unit9Expiry =
-        accessExpiryDates["unit-9"];
-
-    const unit10Expiry =
-        accessExpiryDates["unit-10"];
-
-
-    const unit11Expiry =
-        accessExpiryDates["unit-11"];
-
-
-    const unit12Expiry =
-        accessExpiryDates["unit-12"];
-
+    const unitState = {};
+    UNIT_NUMBERS.forEach(number => {
+        const id = `unit-${number}`;
+        unitState[id] = {
+            approved: approvedUnits[id] === true,
+            date: approvalDates[id],
+            expiry: accessExpiryDates[id]
+        };
+    });
 
     const firstLetter =
         name
@@ -2797,916 +2459,53 @@ const unit12Date =
 
             <div class="approval">
 
-
                 <div class="approval-title">
-
                     UNIT APPROVAL
+                </div>
 
+                <div class="unit-buttons">
+                    ${UNIT_NUMBERS.map(number => {
+                        const id = `unit-${number}`; const state = unitState[id];
+                        return `<button class="unit-btn ${state.approved ? "approved" : ""}" onclick="toggleUnit('${escapeHtml(student.id)}','${id}')">${state.approved ? `✓ Unit ${number} Approved` : (state.date ? `⏰ Unit ${number} Expired` : `🔒 Unit ${number}`)}</button>`;
+                    }).join("")}
+                </div>
+
+                <div class="approval-meta">
+                    ${UNIT_NUMBERS.map(number => {
+                        const state = unitState[`unit-${number}`];
+                        return `Unit ${number}: ${formatApprovalDate(state.date)}${state.expiry ? " | " + (state.approved ? "Expires: " : "Expired: ") + formatDate(state.expiry) : ""}`;
+                    }).join("<br>")}
                 </div>
 
 
-               <div class="unit-buttons">
+                <div class="approval-title" style="margin-top:18px;">
+                    2ND PAPER — GRAMMAR ITEM APPROVAL
+                </div>
 
-    <button
-        class="
-            unit-btn
-            ${unit1 ? "approved" : ""}
-        "
-        onclick="
-            toggleUnit(
-                '${escapeHtml(student.id)}',
-                'unit-1'
-            )
-        "
-    >
-        ${unit1
-            ? "✓ Unit 1"
-            : "🔒 Unit 1"
-        }
-    </button>
+                <div class="grammar-buttons">
+                    ${GRAMMAR_ITEMS.map(grammarId => {
+                        const approvedGrammarItems = student.approvedGrammarItems || {};
+                        const grammarApprovalDates = student.grammarApprovalDates || {};
+                        const grammarAccessExpiryDates = student.grammarAccessExpiryDates || {};
+                        const approved = approvedGrammarItems[grammarId] === true;
+                        const expiry = grammarAccessExpiryDates[grammarId];
+                        const expired = !approved && !!expiry && isExpired(expiry);
+                        const label = GRAMMAR_LABELS[grammarId] || grammarId;
+                        return `<button class="grammar-btn ${approved ? "approved" : ""}" onclick="toggleGrammarItem('${escapeHtml(student.id)}','${escapeHtml(grammarId)}')">${approved ? `✓ ${escapeHtml(label)} Approved` : (expired ? `⏰ ${escapeHtml(label)} Expired` : `🔒 ${escapeHtml(label)}`)}</button>`;
+                    }).join("")}
+                </div>
 
-      <button
-        class="
-            unit-btn
-            ${unit2 ? "approved" : ""}
-        "
-        onclick="
-            toggleUnit(
-                '${escapeHtml(student.id)}',
-                'unit-2'
-            )
-        "
-    >
-        ${unit2
-            ? "✓ Unit 2"
-            : "🔒 Unit 2"
-        }
-    </button>
-
-     <button
-        class="
-            unit-btn
-            ${unit3 ? "approved" : ""}
-        "
-        onclick="
-            toggleUnit(
-                '${escapeHtml(student.id)}',
-                'unit-3'
-            )
-        "
-    >
-        ${unit3
-            ? "✓ Unit 3"
-            : "🔒 Unit 3"
-        }
-    </button>
-
-    <button
-        class="
-            unit-btn
-            ${unit4 ? "approved" : ""}
-        "
-        onclick="
-            toggleUnit(
-                '${escapeHtml(student.id)}',
-                'unit-4'
-            )
-        "
-    >
-        ${unit4
-            ? "✓ Unit 4"
-            : "🔒 Unit 4"
-        }
-    </button>
-
-
-     <button
-        class="
-            unit-btn
-            ${unit5 ? "approved" : ""}
-        "
-        onclick="
-            toggleUnit(
-                '${escapeHtml(student.id)}',
-                'unit-5'
-            )
-        "
-    >
-        ${unit5
-            ? "✓ Unit 5"
-            : "🔒 Unit 5"
-        }
-    </button>
-
-      <button
-        class="
-            unit-btn
-            ${unit6 ? "approved" : ""}
-        "
-        onclick="
-            toggleUnit(
-                '${escapeHtml(student.id)}',
-                'unit-6'
-            )
-        "
-    >
-        ${unit6
-            ? "✓ Unit 6"
-            : "🔒 Unit 6"
-        }
-    </button>
-
-
-      <button
-        class="
-            unit-btn
-            ${unit7 ? "approved" : ""}
-        "
-        onclick="
-            toggleUnit(
-                '${escapeHtml(student.id)}',
-                'unit-7'
-            )
-        "
-    >
-        ${unit7
-            ? "✓ Unit 7"
-            : "🔒 Unit 7"
-        }
-    </button>
-
-
-      <button
-        class="
-            unit-btn
-            ${unit8 ? "approved" : ""}
-        "
-        onclick="
-            toggleUnit(
-                '${escapeHtml(student.id)}',
-                'unit-8'
-            )
-        "
-    >
-        ${unit8
-            ? "✓ Unit 8"
-            : "🔒 Unit 8"
-        }
-    </button>
-
-
-
-      <button
-        class="
-            unit-btn
-            ${unit9 ? "approved" : ""}
-        "
-        onclick="
-            toggleUnit(
-                '${escapeHtml(student.id)}',
-                'unit-9'
-            )
-        "
-    >
-        ${unit9
-            ? "✓ Unit 9"
-            : "🔒 Unit 9"
-        }
-    </button>
-
-
-      <button
-        class="
-            unit-btn
-            ${unit10 ? "approved" : ""}
-        "
-        onclick="
-            toggleUnit(
-                '${escapeHtml(student.id)}',
-                'unit-10'
-            )
-        "
-    >
-        ${unit10
-            ? "✓ Unit 10"
-            : "🔒 Unit 10"
-        }
-    </button>
-
-
-    <button
-        class="
-            unit-btn
-            ${unit11 ? "approved" : ""}
-        "
-        onclick="
-            toggleUnit(
-                '${escapeHtml(student.id)}',
-                'unit-11'
-            )
-        "
-    >
-        ${unit11
-            ? "✓ Unit 11"
-            : "🔒 Unit 11"
-        }
-    </button>
-
-
-    <button
-        class="
-            unit-btn
-            ${unit12 ? "approved" : ""}
-        "
-        onclick="
-            toggleUnit(
-                '${escapeHtml(student.id)}',
-                'unit-12'
-            )
-        "
-    >
-        ${unit12
-            ? "✓ Unit 12"
-            : "🔒 Unit 12"
-        }
-    </button>
-
-</div>
-
-    <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit1
-                ? "✓ Unit 1 Approved: " +
-                  formatApprovalDate(
-                      unit1Date
-                  ) +
-                  (
-                      unit1Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit1Expiry
-                            )
-                          : ""
-                  )
-                : (
-                    unit1Date
-                        ? "⏰ Unit 1 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit1Date
-                          ) +
-                          (
-                              unit1Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit1Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 1: Not Approved"
-                  )
-        }
-    </div>
-
-       <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit2
-                ? "✓ Unit 2 Approved: " +
-                  formatApprovalDate(
-                      unit2Date
-                  ) +
-                  (
-                      unit2Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit2Expiry
-                            )
-                          : ""
-                  )
-                : (
-                    unit2Date
-                        ? "⏰ Unit 2 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit2Date
-                          ) +
-                          (
-                              unit2Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit2Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 2: Not Approved"
-                  )
-        }
-    </div>
-
-      <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit3
-                ? "✓ Unit 3 Approved: " +
-                  formatApprovalDate(
-                      unit3Date
-                  ) +
-                  (
-                      unit3Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit3Expiry
-                            )
-                          : ""
-                  )
-                : (
-                    unit3Date
-                        ? "⏰ Unit 3 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit3Date
-                          ) +
-                          (
-                              unit3Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit3Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 3: Not Approved"
-                  )
-        }
-    </div>
-
-
-     <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit4
-                ? "✓ Unit 4 Approved: " +
-                  formatApprovalDate(
-                      unit4Date
-                  ) +
-                  (
-                      unit4Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit4Expiry
-                            )
-                          : ""
-                  )
-                : (
-                    unit4Date
-                        ? "⏰ Unit 4 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit4Date
-                          ) +
-                          (
-                              unit4Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit4Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 4: Not Approved"
-                  )
-        }
-    </div>
-
-
-      <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit5
-                ? "✓ Unit 5 Approved: " +
-                  formatApprovalDate(
-                      unit5Date
-                  ) +
-                  (
-                      unit5Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit5Expiry
-                            )
-                          : ""
-                  )
-                : (
-                    unit5Date
-                        ? "⏰ Unit 5 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit5Date
-                          ) +
-                          (
-                              unit5Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit5Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 5: Not Approved"
-                  )
-        }
-    </div>
-
-     <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit6
-                ? "✓ Unit 6 Approved: " +
-                  formatApprovalDate(
-                      unit6Date
-                  ) +
-                  (
-                      unit6Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit6Expiry
-                            )
-                          : ""
-                  )
-                : (
-                    unit6Date
-                        ? "⏰ Unit 6 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit6Date
-                          ) +
-                          (
-                              unit6Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit6Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 6: Not Approved"
-                  )
-        }
-    </div>
-
-
-     <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit7
-                ? "✓ Unit 7 Approved: " +
-                  formatApprovalDate(
-                      unit7Date
-                  ) +
-                  (
-                      unit7Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit7Expiry
-                            )
-                          : ""
-                  )
-                : (
-                    unit7Date
-                        ? "⏰ Unit 7 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit7Date
-                          ) +
-                          (
-                              unit7Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit7Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 7: Not Approved"
-                  )
-        }
-    </div>
-
-
-     <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit8
-                ? "✓ Unit 8 Approved: " +
-                  formatApprovalDate(
-                      unit8Date
-                  ) +
-                  (
-                      unit8Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit8Expiry
-                            )
-                          : ""
-                  )
-                : (
-                    unit8Date
-                        ? "⏰ Unit 8 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit8Date
-                          ) +
-                          (
-                              unit8Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit8Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 8: Not Approved"
-                  )
-        }
-    </div>
-
-     <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit9
-                ? "✓ Unit 9 Approved: " +
-                  formatApprovalDate(
-                      unit9Date
-                  ) +
-                  (
-                      unit9Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit9Expiry
-                            )
-                          : ""
-                  )
-                : (
-                    unit9Date
-                        ? "⏰ Unit 9 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit9Date
-                          ) +
-                          (
-                              unit9Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit9Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 9: Not Approved"
-                  )
-        }
-    </div>
-
-     <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit10
-                ? "✓ Unit 10 Approved: " +
-                  formatApprovalDate(
-                      unit10Date
-                  ) +
-                  (
-                      unit10Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit10Expiry
-                            )
-                          : ""
-                  )
-                : (
-                    unit10Date
-                        ? "⏰ Unit 10 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit10Date
-                          ) +
-                          (
-                              unit10Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit10Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 10: Not Approved"
-                  )
-        }
-    </div>
-
-
-       <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit11
-                ? "✓ Unit 11 Approved: " +
-                  formatApprovalDate(
-                      unit11Date
-                  ) +
-                  (
-                      unit11Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit11Expiry
-                            )
-                          : ""
-                  )
-                : (
-                    unit11Date
-                        ? "⏰ Unit 11 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit11Date
-                          ) +
-                          (
-                              unit11Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit11Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 11: Not Approved"
-                  )
-        }
-    </div>
-
-
-    <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit12
-                ? "✓ Unit 12 Approved: " +
-                  formatApprovalDate(
-                      unit12Date
-                  ) +
-                  (
-                      unit12Expiry
-                          ? " | Expires: " +
-                            formatDate(
-                                unit12Expiry
-                            )
-                          : ""
-                  )
-                : (
-                    unit12Date
-                        ? "⏰ Unit 12 Expired | Approved: " +
-                          formatApprovalDate(
-                              unit12Date
-                          ) +
-                          (
-                              unit12Expiry
-                                  ? " | Expired: " +
-                                    formatDate(
-                                        unit12Expiry
-                                    )
-                                  : ""
-                          )
-                        : "🔒 Unit 12: Not Approved"
-                  )
-        }
-    </div>
-
-<div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit1
-                ? "✓ Unit 1 Approved: " +
-                  formatApprovalDate(
-                      unit1Date
-                  )
-                : "🔒 Unit 1: Not Approved"
-        }
-    </div>
-
-    <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit2
-                ? "✓ Unit 2 Approved: " +
-                  formatApprovalDate(
-                      unit2Date
-                  )
-                : "🔒 Unit 2: Not Approved"
-        }
-    </div>
-
-    <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit3
-                ? "✓ Unit 3 Approved: " +
-                  formatApprovalDate(
-                      unit3Date
-                  )
-                : "🔒 Unit 3: Not Approved"
-        }
-    </div>
-
-     <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit4
-                ? "✓ Unit 4 Approved: " +
-                  formatApprovalDate(
-                      unit4Date
-                  )
-                : "🔒 Unit 4: Not Approved"
-        }
-    </div>
-
-
-    <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit5
-                ? "✓ Unit 5 Approved: " +
-                  formatApprovalDate(
-                      unit5Date
-                  )
-                : "🔒 Unit 5: Not Approved"
-        }
-    </div>
-
-
-     <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit6
-                ? "✓ Unit 6 Approved: " +
-                  formatApprovalDate(
-                      unit6Date
-                  )
-                : "🔒 Unit 6: Not Approved"
-        }
-    </div>
-
-
-     <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit7
-                ? "✓ Unit 7 Approved: " +
-                  formatApprovalDate(
-                      unit7Date
-                  )
-                : "🔒 Unit 7: Not Approved"
-        }
-    </div>
-
-     <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit8
-                ? "✓ Unit 8 Approved: " +
-                  formatApprovalDate(
-                      unit8Date
-                  )
-                : "🔒 Unit 8: Not Approved"
-        }
-    </div>
-
-
-     <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit9
-                ? "✓ Unit 9 Approved: " +
-                  formatApprovalDate(
-                      unit9Date
-                  )
-                : "🔒 Unit 9: Not Approved"
-        }
-    </div>
-
-
-     <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit10
-                ? "✓ Unit 10 Approved: " +
-                  formatApprovalDate(
-                      unit10Date
-                  )
-                : "🔒 Unit 10: Not Approved"
-        }
-    </div>
-    
-
-    <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit11
-                ? "✓ Unit 11 Approved: " +
-                  formatApprovalDate(
-                      unit11Date
-                  )
-                : "🔒 Unit 11: Not Approved"
-        }
-    </div>
-
-
-    <div
-        style="
-            font-size:8px;
-            color:#68748a;
-        "
-    >
-        ${
-            unit12
-                ? "✓ Unit 12 Approved: " +
-                  formatApprovalDate(
-                      unit12Date
-                  )
-                : "🔒 Unit 12: Not Approved"
-        }
-    </div>
-
-</div>
+                <div class="approval-meta">
+                    ${GRAMMAR_ITEMS.map(grammarId => {
+                        const grammarApprovalDates = student.grammarApprovalDates || {};
+                        const grammarAccessExpiryDates = student.grammarAccessExpiryDates || {};
+                        const approved = (student.approvedGrammarItems || {})[grammarId] === true;
+                        const approvalDate = grammarApprovalDates[grammarId];
+                        const expiry = grammarAccessExpiryDates[grammarId];
+                        const label = GRAMMAR_LABELS[grammarId] || grammarId;
+                        return `${escapeHtml(label)}: ${formatApprovalDate(approvalDate)}${expiry ? " | " + (approved ? "Expires: " : "Expired: ") + formatDate(expiry) : ""}`;
+                    }).join("<br>")}
+                </div>
 
 
                 <div class="account-actions">
@@ -4034,6 +2833,83 @@ async function (
 
     }
 
+};
+
+
+// ============================================================
+// TOGGLE GRAMMAR ITEM
+// ============================================================
+
+window.toggleGrammarItem = async function (studentId, grammarId) {
+    try {
+        const student = students.find(item => item.id === studentId);
+        if (!student) return;
+
+        const approvedGrammarItems = { ...(student.approvedGrammarItems || {}) };
+        const grammarApprovalDates = { ...(student.grammarApprovalDates || {}) };
+        const grammarAccessExpiryDates = { ...(student.grammarAccessExpiryDates || {}) };
+        const current = approvedGrammarItems[grammarId] === true;
+        const label = GRAMMAR_LABELS[grammarId] || grammarId;
+
+        if (current) {
+            approvedGrammarItems[grammarId] = false;
+            grammarApprovalDates[grammarId] = null;
+            grammarAccessExpiryDates[grammarId] = null;
+
+            await updateDoc(doc(db, "students", studentId), {
+                approvedGrammarItems,
+                grammarApprovalDates,
+                grammarAccessExpiryDates
+            });
+
+            student.approvedGrammarItems = approvedGrammarItems;
+            student.grammarApprovalDates = grammarApprovalDates;
+            student.grammarAccessExpiryDates = grammarAccessExpiryDates;
+            updateStats();
+            renderStudents();
+            showToast(label + " approval removed.");
+            return;
+        }
+
+        const durationInput = prompt(
+            "Enter access duration for " + label + ":\n\n" +
+            "6 = 6 Months\n" +
+            "12 = 12 Months\n\n" +
+            "Please enter 6 or 12."
+        );
+
+        if (durationInput === null) return;
+
+        const duration = Number(String(durationInput).trim());
+        if (duration !== 6 && duration !== 12) {
+            alert("Invalid duration.\n\nPlease enter only 6 or 12.");
+            return;
+        }
+
+        const approvalDate = new Date();
+        const expiryDate = addAccessMonths(approvalDate, duration);
+
+        approvedGrammarItems[grammarId] = true;
+        grammarApprovalDates[grammarId] = Timestamp.fromDate(approvalDate);
+        grammarAccessExpiryDates[grammarId] = Timestamp.fromDate(expiryDate);
+
+        await updateDoc(doc(db, "students", studentId), {
+            approvedGrammarItems,
+            grammarApprovalDates,
+            grammarAccessExpiryDates
+        });
+
+        student.approvedGrammarItems = approvedGrammarItems;
+        student.grammarApprovalDates = grammarApprovalDates;
+        student.grammarAccessExpiryDates = grammarAccessExpiryDates;
+
+        updateStats();
+        renderStudents();
+        showToast(label + " approved for " + duration + " months. Expires: " + formatDate(expiryDate));
+    } catch (error) {
+        console.error("Grammar item update error:", error);
+        alert("Unable to update grammar item approval.\n\n" + error.message);
+    }
 };
 
 
