@@ -1,1 +1,1449 @@
+<!DOCTYPE html>
 
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="description"
+content="HSC English 2nd Paper — All About English by Shaheen Sir."
+
+>
+
+<meta name="theme-color" content="#101b36">
+
+<title>English 2nd Paper | All About English</title>
+
+<!-- =========================================================
+     GOOGLE FONTS
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<!-- =========================================================
+     FONT AWESOME
+========================================================= -->
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
+<style>
+
+:root {
+
+    --navy: #101b36;
+    --navy-dark: #091126;
+    --gold: #c9a45c;
+    --gold-light: #ead9ae;
+
+    --ivory: #fbfaf6;
+    --white: #ffffff;
+
+    --text: #1d2940;
+    --muted: #68748a;
+
+    --border: #e7e4dc;
+
+    --shadow:
+        0 18px 55px rgba(16,27,54,.10);
+
+}
+
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    color:
+        var(--text);
+
+    background:
+        var(--ivory);
+
+    min-height:
+        100vh;
+
+}
+
+
+a {
+
+    text-decoration:
+        none;
+
+    color:
+        inherit;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+
+    background:
+        rgba(251,250,246,.96);
+
+    border-bottom:
+        1px solid rgba(16,27,54,.08);
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        1000;
+
+}
+
+
+.nav-container {
+
+    width:
+        min(1100px,92%);
+
+    min-height:
+        72px;
+
+    margin:
+        auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+}
+
+
+.brand {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+}
+
+
+.brand-icon {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    border-radius:
+        12px;
+
+    background:
+        var(--navy);
+
+    color:
+        var(--gold-light);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+}
+
+
+.brand-text strong {
+
+    display:
+        block;
+
+    color:
+        var(--navy);
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+}
+
+
+.brand-text span {
+
+    display:
+        block;
+
+    color:
+        var(--gold);
+
+    font-size:
+        8px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1px;
+
+    margin-top:
+        2px;
+
+}
+
+
+.nav-links {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+}
+
+
+.nav-links a {
+
+    padding:
+        9px 13px;
+
+    border-radius:
+        9px;
+
+    color:
+        var(--navy);
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+}
+
+
+.login-btn {
+
+    background:
+        var(--navy);
+
+    color:
+        white !important;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    width:
+        min(1100px,92%);
+
+    margin:
+        auto;
+
+    padding:
+        70px 0 45px;
+
+    text-align:
+        center;
+
+}
+
+
+.eyebrow {
+
+    color:
+        var(--gold);
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        2px;
+
+    text-transform:
+        uppercase;
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.hero h1 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    color:
+        var(--navy);
+
+    font-size:
+        clamp(34px,6vw,58px);
+
+    margin-bottom:
+        14px;
+
+}
+
+
+.hero h1 span {
+
+    color:
+        var(--gold);
+
+}
+
+
+.hero p {
+
+    max-width:
+        650px;
+
+    margin:
+        auto;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.8;
+
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section {
+
+    width:
+        min(1000px,92%);
+
+    margin:
+        auto;
+
+    padding:
+        25px 0 80px;
+
+}
+
+
+.section-heading {
+
+    text-align:
+        center;
+
+    margin-bottom:
+        30px;
+
+}
+
+
+.section-heading h2 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    color:
+        var(--navy);
+
+    font-size:
+        30px;
+
+    margin-bottom:
+        8px;
+
+}
+
+
+.section-heading p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+}
+
+
+/* =========================================================
+   UNIT GRID
+========================================================= */
+
+.unit-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:
+        18px;
+
+}
+
+
+.unit-card {
+
+    background:
+        var(--white);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        20px;
+
+    padding:
+        24px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        18px;
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        .25s ease;
+
+}
+
+
+.unit-card:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        var(--gold-light);
+
+}
+
+
+.unit-number {
+
+    width:
+        62px;
+
+    height:
+        62px;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        17px;
+
+    background:
+        var(--navy);
+
+    color:
+        var(--gold-light);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        22px;
+
+    font-weight:
+        800;
+
+}
+
+
+.unit-info {
+
+    flex:
+        1;
+
+}
+
+
+.unit-info h3 {
+
+    color:
+        var(--navy);
+
+    font-size:
+        16px;
+
+    margin-bottom:
+        5px;
+
+}
+
+
+.unit-info p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        10px;
+
+    line-height:
+        1.6;
+
+}
+
+
+.unit-open {
+
+    color:
+        var(--gold);
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    white-space:
+        nowrap;
+
+}
+
+
+/* =========================================================
+   NOTICE
+========================================================= */
+
+.notice {
+
+    margin-top:
+        25px;
+
+    padding:
+        15px 18px;
+
+    background:
+        #f8f2e4;
+
+    border:
+        1px solid var(--gold-light);
+
+    border-radius:
+        12px;
+
+    color:
+        #725d31;
+
+    font-size:
+        10px;
+
+    line-height:
+        1.7;
+
+}
+
+
+.notice i {
+
+    margin-right:
+        5px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        25px 15px;
+
+    text-align:
+        center;
+
+    border-top:
+        1px solid var(--border);
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .nav-container {
+
+        min-height:
+            65px;
+
+    }
+
+
+    .brand-text strong {
+
+        font-size:
+            12px;
+
+    }
+
+
+    .nav-links a {
+
+        font-size:
+            9px;
+
+        padding:
+            8px 9px;
+
+    }
+
+
+    .hero {
+
+        padding-top:
+            50px;
+
+    }
+
+
+    .unit-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .unit-card {
+
+        padding:
+            18px;
+
+    }
+
+
+    .unit-number {
+
+        width:
+            54px;
+
+        height:
+            54px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+```
+<div class="nav-container">
+
+
+    <!-- HSC INDEX:
+         hsc/2nd-paper/index.html
+         থেকে এক ধাপ উপরে = hsc/
+    -->
+
+    <a
+        href="../"
+        class="brand"
+    >
+
+        <div class="brand-icon">
+
+            <i class="fa-solid fa-book-open"></i>
+
+        </div>
+
+
+        <div class="brand-text">
+
+            <strong>
+                ALL ABOUT ENGLISH
+            </strong>
+
+            <span>
+                SHAHEEN SIR
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <nav class="nav-links">
+
+
+        <!-- HSC INDEX -->
+
+        <a href="../">
+            Home
+        </a>
+
+
+        <!-- ROOT LOGIN:
+             hsc/2nd-paper/
+             → hsc/
+             → root/
+             → login.html
+        -->
+
+        <a
+            href="../../login.html"
+            class="login-btn"
+        >
+
+            <i class="fa-solid fa-lock"></i>
+
+            Student Login
+
+        </a>
+
+    </nav>
+
+</div>
+```
+
+</header>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<main>
+
+<section class="hero">
+
+```
+<div class="eyebrow">
+    HSC English
+</div>
+
+
+<h1>
+
+    English
+
+    <span>
+        2nd Paper
+    </span>
+
+</h1>
+
+
+<p>
+
+    Explore the grammatical units, items, rules, explanations, examples, board questions and
+    examination-focused learning materials.
+
+</p>
+```
+
+</section>
+
+<!-- =========================================================
+     UNITS
+========================================================= -->
+
+<section class="section">
+
+```
+<div class="section-heading">
+
+    <h2>
+        Available Units and Grammatical Items
+    </h2>
+
+    <p>
+        Select a unit/grammatical item to continue your learning.
+    </p>
+
+</div>
+
+
+
+<div class="unit-grid">
+
+
+
+<!-- =================================================
+         UNIT 1
+
+         CURRENT:
+         hsc/1st-paper/index.html
+
+         TARGET:
+         hsc/1st-paper/unit-1/index.html
+    ================================================== -->
+
+    <a
+        href="./unit-1/"
+        class="unit-card"
+    >
+
+        <div class="unit-number">
+            1
+        </div>
+
+
+        <div class="unit-info">
+
+            <h3>
+                Unit 1
+            </h3>
+
+            <p>
+                Lessons, vocabulary analysis
+                and learning materials.
+            </p>
+
+        </div>
+
+
+        <div class="unit-open">
+
+            OPEN
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
+
+
+     <!-- =================================================
+         UNIT 2
+
+         CURRENT:
+         hsc/1st-paper/index.html
+
+         TARGET:
+         hsc/1st-paper/unit-2/index.html
+    ================================================== -->
+
+    <a
+        href="./unit-2/"
+        class="unit-card"
+    >
+
+        <div class="unit-number">
+            2
+        </div>
+
+
+        <div class="unit-info">
+
+            <h3>
+                Unit 2
+            </h3>
+
+            <p>
+                Lessons, vocabulary analysis
+                and learning materials.
+            </p>
+
+        </div>
+
+
+        <div class="unit-open">
+
+            OPEN
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
+
+      <!-- =================================================
+         UNIT 3
+
+         CURRENT:
+         hsc/1st-paper/index.html
+
+         TARGET:
+         hsc/1st-paper/unit-3/index.html
+    ================================================== -->
+
+    <a
+        href="./unit-3/"
+        class="unit-card"
+    >
+
+        <div class="unit-number">
+            3
+        </div>
+
+
+        <div class="unit-info">
+
+            <h3>
+                Unit 3
+            </h3>
+
+            <p>
+                Lessons, vocabulary analysis
+                and learning materials.
+            </p>
+
+        </div>
+
+
+        <div class="unit-open">
+
+            OPEN
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
+
+
+      <!-- =================================================
+         UNIT 4
+
+         CURRENT:
+         hsc/1st-paper/index.html
+
+         TARGET:
+         hsc/1st-paper/unit-4/index.html
+    ================================================== -->
+
+    <a
+        href="./unit-4/"
+        class="unit-card"
+    >
+
+        <div class="unit-number">
+            4
+        </div>
+
+
+        <div class="unit-info">
+
+            <h3>
+                Unit 4
+            </h3>
+
+            <p>
+                Lessons, vocabulary analysis
+                and learning materials.
+            </p>
+
+        </div>
+
+
+        <div class="unit-open">
+
+            OPEN
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
+
+
+
+      <!-- =================================================
+         UNIT 5
+
+         CURRENT:
+         hsc/1st-paper/index.html
+
+         TARGET:
+         hsc/1st-paper/unit-5/index.html
+    ================================================== -->
+
+    <a
+        href="./unit-5/"
+        class="unit-card"
+    >
+
+        <div class="unit-number">
+            5
+        </div>
+
+
+        <div class="unit-info">
+
+            <h3>
+                Unit 5
+            </h3>
+
+            <p>
+                Lessons, vocabulary analysis
+                and learning materials.
+            </p>
+
+        </div>
+
+
+        <div class="unit-open">
+
+            OPEN
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
+
+
+      <!-- =================================================
+         UNIT 6
+
+         CURRENT:
+         hsc/1st-paper/index.html
+
+         TARGET:
+         hsc/1st-paper/unit-6/index.html
+    ================================================== -->
+
+    <a
+        href="./unit-6/"
+        class="unit-card"
+    >
+
+        <div class="unit-number">
+            6
+        </div>
+
+
+        <div class="unit-info">
+
+            <h3>
+                Unit 6
+            </h3>
+
+            <p>
+                Lessons, vocabulary analysis
+                and learning materials.
+            </p>
+
+        </div>
+
+
+        <div class="unit-open">
+
+            OPEN
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
+
+
+       <!-- =================================================
+         UNIT 7
+
+         CURRENT:
+         hsc/1st-paper/index.html
+
+         TARGET:
+         hsc/1st-paper/unit-7/index.html
+    ================================================== -->
+
+    <a
+        href="./unit-7/"
+        class="unit-card"
+    >
+
+        <div class="unit-number">
+            7
+        </div>
+
+
+        <div class="unit-info">
+
+            <h3>
+                Unit 7
+            </h3>
+
+            <p>
+                Lessons, vocabulary analysis
+                and learning materials.
+            </p>
+
+        </div>
+
+
+        <div class="unit-open">
+
+            OPEN
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
+
+
+
+       <!-- =================================================
+         UNIT 8
+
+         CURRENT:
+         hsc/1st-paper/index.html
+
+         TARGET:
+         hsc/1st-paper/unit-8/index.html
+    ================================================== -->
+
+    <a
+        href="./unit-8/"
+        class="unit-card"
+    >
+
+        <div class="unit-number">
+            8
+        </div>
+
+
+        <div class="unit-info">
+
+            <h3>
+                Unit 8
+            </h3>
+
+            <p>
+                Lessons, vocabulary analysis
+                and learning materials.
+            </p>
+
+        </div>
+
+
+        <div class="unit-open">
+
+            OPEN
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
+
+
+
+       <!-- =================================================
+         UNIT 9
+
+         CURRENT:
+         hsc/1st-paper/index.html
+
+         TARGET:
+         hsc/1st-paper/unit-9/index.html
+    ================================================== -->
+
+    <a
+        href="./unit-9/"
+        class="unit-card"
+    >
+
+        <div class="unit-number">
+            9
+        </div>
+
+
+        <div class="unit-info">
+
+            <h3>
+                Unit 9
+            </h3>
+
+            <p>
+                Lessons, vocabulary analysis
+                and learning materials.
+            </p>
+
+        </div>
+
+
+        <div class="unit-open">
+
+            OPEN
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
+
+
+       <!-- =================================================
+         UNIT 10
+
+         CURRENT:
+         hsc/1st-paper/index.html
+
+         TARGET:
+         hsc/1st-paper/unit-10/index.html
+    ================================================== -->
+
+    <a
+        href="./unit-10/"
+        class="unit-card"
+    >
+
+        <div class="unit-number">
+            10
+        </div>
+
+
+        <div class="unit-info">
+
+            <h3>
+                Unit 10
+            </h3>
+
+            <p>
+                Lessons, vocabulary analysis
+                and learning materials.
+            </p>
+
+        </div>
+
+
+        <div class="unit-open">
+
+            OPEN
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
+
+    <!-- =================================================
+         UNIT 11
+
+         CURRENT:
+         hsc/1st-paper/index.html
+
+         TARGET:
+         hsc/1st-paper/unit-11/index.html
+    ================================================== -->
+
+    <a
+        href="./unit-11/"
+        class="unit-card"
+    >
+
+        <div class="unit-number">
+            11
+        </div>
+
+
+        <div class="unit-info">
+
+            <h3>
+                Unit 11
+            </h3>
+
+            <p>
+                Lessons, vocabulary analysis
+                and learning materials.
+            </p>
+
+        </div>
+
+
+        <div class="unit-open">
+
+            OPEN
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- =================================================
+         UNIT 12
+
+         CURRENT:
+         hsc/1st-paper/index.html
+
+         TARGET:
+         hsc/1st-paper/unit-12/index.html
+    ================================================== -->
+
+    <a
+        href="./unit-12/"
+        class="unit-card"
+    >
+
+        <div class="unit-number">
+            12
+        </div>
+
+
+        <div class="unit-info">
+
+            <h3>
+                Unit 12
+            </h3>
+
+            <p>
+                Lessons, vocabulary analysis
+                and learning materials.
+            </p>
+
+        </div>
+
+
+        <div class="unit-open">
+
+            OPEN
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
+
+
+</div>
+
+
+
+<!-- =================================================
+     NOTICE
+================================================== -->
+
+<div class="notice">
+
+    <i class="fa-solid fa-shield-halved"></i>
+
+    Unit content is protected.
+    Students must log in and have the
+    corresponding unit approved by the administrator.
+
+</div>
+```
+
+</section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+```
+© 2026 ALL ABOUT ENGLISH • BY SHAHEEN SIR
+```
+
+</footer>
+
+</body>
+
+</html>
