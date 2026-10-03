@@ -24,6 +24,7 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -32,6 +33,7 @@
 
         :root {
             --navy: #0b1f3a;
+            --navy-light: #132f52;
             --gold: #c89b3c;
             --gold-light: #e6c66a;
             --cream: #fffaf0;
@@ -40,6 +42,7 @@
             --text: #263238;
             --muted: #667085;
             --border: #e5d8bb;
+            --danger: #b42318;
             --shadow: 0 15px 40px rgba(11, 31, 58, 0.10);
             --radius: 18px;
         }
@@ -47,7 +50,11 @@
         body {
             font-family: "Inter", sans-serif;
             background:
-                radial-gradient(circle at top left, rgba(200, 155, 60, 0.08), transparent 30%),
+                radial-gradient(
+                    circle at top left,
+                    rgba(200, 155, 60, 0.08),
+                    transparent 30%
+                ),
                 linear-gradient(135deg, #fffdf8, var(--cream));
             color: var(--text);
             min-height: 100vh;
@@ -57,6 +64,8 @@
             text-decoration: none;
             color: inherit;
         }
+
+        /* ================= HEADER ================= */
 
         header {
             background: linear-gradient(135deg, var(--navy), #10294a);
@@ -72,6 +81,7 @@
             max-width: 1200px;
             margin: auto;
             padding: 15px 20px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -88,18 +98,31 @@
             width: 44px;
             height: 44px;
             border-radius: 12px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold),
+                    var(--gold-light)
+                );
+
             color: var(--navy);
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             font-size: 20px;
+
+            box-shadow:
+                0 6px 15px rgba(200, 155, 60, 0.25);
         }
 
         .brand-text strong {
             display: block;
             font-family: "Playfair Display", serif;
             font-size: 19px;
+            letter-spacing: 0.4px;
         }
 
         .brand-text span {
@@ -112,21 +135,27 @@
         .nav-actions {
             display: flex;
             gap: 10px;
+            align-items: center;
         }
 
         .nav-btn {
             display: inline-flex;
             align-items: center;
             gap: 7px;
+
             padding: 10px 15px;
+
             border-radius: 10px;
+
             font-size: 13px;
             font-weight: 700;
+
+            transition: 0.25s ease;
         }
 
         .nav-btn.home {
-            background: rgba(255,255,255,.10);
-            border: 1px solid rgba(255,255,255,.18);
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             color: white;
         }
 
@@ -135,10 +164,16 @@
             color: var(--navy);
         }
 
+        .nav-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ================= HERO ================= */
+
         .hero {
             max-width: 1200px;
             margin: auto;
-            padding: 60px 20px 35px;
+            padding: 58px 20px 32px;
             text-align: center;
         }
 
@@ -146,21 +181,32 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+
             padding: 8px 14px;
+
             border-radius: 999px;
+
             background: var(--cream-dark);
             border: 1px solid var(--border);
+
             color: var(--navy);
+
             font-size: 12px;
             font-weight: 800;
             letter-spacing: 1px;
+
             margin-bottom: 18px;
         }
 
         .hero h1 {
             font-family: "Playfair Display", serif;
+
             color: var(--navy);
+
             font-size: clamp(35px, 5vw, 58px);
+
+            line-height: 1.15;
+
             margin-bottom: 13px;
         }
 
@@ -171,10 +217,15 @@
         .hero p {
             max-width: 790px;
             margin: auto;
+
             color: var(--muted);
+
             line-height: 1.8;
+
             font-size: 15px;
         }
+
+        /* ================= BREADCRUMB ================= */
 
         .breadcrumb-wrap {
             max-width: 1200px;
@@ -185,7 +236,10 @@
         .breadcrumb {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
+
             gap: 8px;
+
             color: var(--muted);
             font-size: 13px;
         }
@@ -200,9 +254,12 @@
             font-size: 10px;
         }
 
+        /* ================= CONTENT ================= */
+
         .container {
             max-width: 1200px;
             margin: auto;
+
             padding: 0 20px 65px;
         }
 
@@ -213,8 +270,11 @@
 
         .section-title h2 {
             font-family: "Playfair Display", serif;
+
             color: var(--navy);
+
             font-size: 30px;
+
             margin-bottom: 7px;
         }
 
@@ -225,34 +285,67 @@
 
         .grammar-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
             gap: 20px;
         }
 
         .grammar-card {
             position: relative;
-            background: rgba(255,255,255,.92);
+
+            background: rgba(255, 255, 255, 0.92);
+
             border: 1px solid var(--border);
+
             border-radius: var(--radius);
+
             padding: 27px;
+
             box-shadow: var(--shadow);
+
+            overflow: hidden;
+
+            transition: 0.3s ease;
         }
 
         .grammar-card::before {
             content: "";
+
             position: absolute;
+
             left: 0;
             top: 0;
+
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--gold),
+                    var(--gold-light)
+                );
+        }
+
+        .grammar-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 22px 50px rgba(11, 31, 58, 0.15);
+
+            border-color: var(--gold);
         }
 
         .grammar-number {
             position: absolute;
+
             right: 18px;
             top: 16px;
-            color: rgba(11,31,58,.10);
+
+            color: rgba(11, 31, 58, 0.10);
+
             font-size: 30px;
             font-weight: 800;
         }
@@ -260,108 +353,275 @@
         .grammar-icon {
             width: 54px;
             height: 54px;
+
             border-radius: 14px;
+
             background: var(--cream-dark);
+
             color: var(--navy);
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             font-size: 21px;
+
             margin-bottom: 18px;
         }
 
         .grammar-card h3 {
             font-family: "Playfair Display", serif;
+
             color: var(--navy);
+
             font-size: 23px;
+
             margin-bottom: 8px;
         }
 
         .grammar-card p {
             color: var(--muted);
+
             font-size: 13px;
+
             line-height: 1.7;
+
+            min-height: 67px;
+
             margin-bottom: 20px;
         }
 
         .open-btn {
             display: inline-flex;
+
             align-items: center;
+            justify-content: center;
+
             gap: 8px;
+
             background: var(--navy);
+
             color: white;
+
             padding: 11px 16px;
+
             border-radius: 10px;
+
             font-size: 12px;
+
             font-weight: 800;
+
+            transition: 0.25s ease;
         }
+
+        .open-btn:hover {
+            background: var(--gold);
+            color: var(--navy);
+
+            transform: translateY(-2px);
+        }
+
+        /* ================= NOTICE ================= */
 
         .notice {
             margin-top: 30px;
-            background: linear-gradient(135deg, #fff9e9, #fffdf8);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff9e9,
+                    #fffdf8
+                );
+
             border: 1px solid var(--border);
+
             border-left: 5px solid var(--gold);
+
             border-radius: 15px;
+
             padding: 20px;
+
             display: flex;
+
             gap: 14px;
+
+            align-items: flex-start;
         }
 
         .notice-icon {
             color: var(--gold);
+
             font-size: 20px;
+
+            margin-top: 2px;
         }
 
         .notice strong {
             display: block;
+
             color: var(--navy);
+
             margin-bottom: 5px;
+
             font-size: 14px;
         }
 
         .notice p {
             color: var(--muted);
+
             font-size: 13px;
+
             line-height: 1.7;
         }
 
+        /* ================= ACCESS DENIED ================= */
+
+        #accessDenied {
+            display: none;
+
+            max-width: 650px;
+
+            margin: 25px auto 60px;
+
+            padding: 40px 25px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            border: 1px solid var(--border);
+
+            border-top: 5px solid var(--gold);
+
+            border-radius: 20px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .lock-icon {
+            width: 72px;
+            height: 72px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: var(--cream-dark);
+
+            color: var(--gold);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 30px;
+        }
+
+        #accessDenied h2 {
+            font-family: "Playfair Display", serif;
+
+            color: var(--navy);
+
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+
+        #accessDenied p {
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            margin-bottom: 22px;
+        }
+
+        .access-login {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background: var(--navy);
+
+            color: white;
+
+            padding: 13px 20px;
+
+            border-radius: 11px;
+
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+        .access-login:hover {
+            background: var(--gold);
+
+            color: var(--navy);
+        }
+
+        /* ================= FOOTER ================= */
+
         footer {
             background: var(--navy);
+
             color: white;
         }
 
         .footer-inner {
             max-width: 1200px;
+
             margin: auto;
+
             padding: 30px 20px;
+
             text-align: center;
         }
 
         .footer-brand {
             font-family: "Playfair Display", serif;
+
             font-size: 20px;
         }
 
         .footer-line {
             width: 80px;
+
             height: 2px;
+
             background: var(--gold);
+
             margin: 15px auto;
         }
 
         .footer-inner p {
             color: #d8dee8;
+
             font-size: 12px;
+
             line-height: 1.7;
         }
 
+        /* ================= RESPONSIVE ================= */
+
         @media (max-width: 900px) {
+
             .grammar-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
             }
+
         }
 
         @media (max-width: 650px) {
+
+            .header-inner {
+                padding: 12px 15px;
+            }
+
             .brand-text span {
                 display: none;
             }
@@ -376,6 +636,11 @@
                 font-size: 17px;
             }
 
+            .nav-btn {
+                padding: 9px 11px;
+                font-size: 12px;
+            }
+
             .nav-btn span {
                 display: none;
             }
@@ -388,16 +653,28 @@
                 font-size: 35px;
             }
 
+            .hero p {
+                font-size: 14px;
+            }
+
             .grammar-grid {
                 grid-template-columns: 1fr;
             }
+
+            .grammar-card p {
+                min-height: auto;
+            }
         }
+
     </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
+
     <div class="header-inner">
 
         <a href="../../" class="brand">
@@ -407,50 +684,81 @@
             </div>
 
             <div class="brand-text">
-                <strong>ALL ABOUT ENGLISH</strong>
+
+                <strong>
+                    ALL ABOUT ENGLISH
+                </strong>
+
                 <span>
                     SHAHEEN SIR • ASSISTANT PROFESSOR &amp; HEAD OF THE ENGLISH DEPARTMENT
                 </span>
+
             </div>
 
         </a>
 
+
         <div class="nav-actions">
 
             <a href="../../" class="nav-btn home">
+
                 <i class="fa-solid fa-house"></i>
-                <span>Home</span>
+
+                <span>
+                    Home
+                </span>
+
             </a>
 
+
             <a href="../../login.html" class="nav-btn login">
+
                 <i class="fa-solid fa-right-to-bracket"></i>
-                <span>Student Login</span>
+
+                <span>
+                    Student Login
+                </span>
+
             </a>
 
         </div>
 
     </div>
+
 </header>
 
+
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
     <div class="badge">
+
         <i class="fa-solid fa-graduation-cap"></i>
+
         HSC • ENGLISH 2ND PAPER
+
     </div>
 
+
     <h1>
+
         English <span>2nd Paper</span>
+
     </h1>
 
+
     <p>
-        HSC English 2nd Paper-এর Grammar Items, Board Questions
-        এবং Interactive Practice।
+
+        HSC English 2nd Paper-এর Grammar Items,
+        Board Questions এবং Interactive Practice।
+
     </p>
 
 </section>
 
+
+<!-- ================= BREADCRUMB ================= -->
 
 <div class="breadcrumb-wrap">
 
@@ -462,18 +770,24 @@
 
         <i class="fa-solid fa-chevron-right"></i>
 
-        <span>English 2nd Paper</span>
+        <span>
+            English 2nd Paper
+        </span>
 
     </div>
 
 </div>
 
 
-<main class="container">
+<!-- ================= MAIN CONTENT ================= -->
+
+<main class="container" id="mainContent">
 
     <div class="section-title">
 
-        <h2>Grammar Items</h2>
+        <h2>
+            Grammar Items
+        </h2>
 
         <p>
             Select a grammar item to continue.
@@ -484,27 +798,46 @@
 
     <div class="grammar-grid">
 
+
+        <!-- ================= MODIFIERS ================= -->
+
         <article class="grammar-card">
 
-            <div class="grammar-number">09</div>
-
-            <div class="grammar-icon">
-                <i class="fa-solid fa-highlighter"></i>
+            <div class="grammar-number">
+                09
             </div>
 
-            <h3>Modifiers</h3>
+
+            <div class="grammar-icon">
+
+                <i class="fa-solid fa-highlighter"></i>
+
+            </div>
+
+
+            <h3>
+                Modifiers
+            </h3>
+
 
             <p>
-                HSC Modifiers-এর Board Questions এবং
-                Interactive Practice &amp; Exam Mode।
+
+                HSC Modifiers-এর Board Questions
+                এবং Interactive Practice &amp; Exam Mode।
+
             </p>
 
+
             <a href="./modifiers/" class="open-btn">
+
                 Open Modifiers
+
                 <i class="fa-solid fa-arrow-right"></i>
+
             </a>
 
         </article>
+
 
     </div>
 
@@ -512,17 +845,25 @@
     <div class="notice">
 
         <div class="notice-icon">
+
             <i class="fa-solid fa-lock"></i>
+
         </div>
+
 
         <div>
 
-            <strong>Protected Learning Content</strong>
+            <strong>
+                Protected Learning Content
+            </strong>
+
 
             <p>
-                HSC English 2nd Paper-এর এই section-এ প্রবেশের জন্য
-                Student Login এবং সংশ্লিষ্ট Grammar Item-এর
+
+                এই section-এ প্রবেশের জন্য Student Login
+                এবং সংশ্লিষ্ট Grammar Item-এর
                 administrator approval প্রয়োজন।
+
             </p>
 
         </div>
@@ -532,6 +873,42 @@
 </main>
 
 
+<!-- ================= ACCESS DENIED ================= -->
+
+<section id="accessDenied">
+
+    <div class="lock-icon">
+
+        <i class="fa-solid fa-lock"></i>
+
+    </div>
+
+
+    <h2>
+        Access Required
+    </h2>
+
+
+    <p>
+        HSC English 2nd Paper-এর এই section ব্যবহার করতে
+        আপনার Student Account-এ <strong>Modifiers</strong>
+        access অনুমোদিত থাকতে হবে।
+    </p>
+
+
+    <a href="../../login.html" class="access-login">
+
+        <i class="fa-solid fa-right-to-bracket"></i>
+
+        Student Login
+
+    </a>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
     <div class="footer-inner">
@@ -540,16 +917,25 @@
             ALL ABOUT ENGLISH
         </div>
 
+
         <div class="footer-line"></div>
 
+
         <p>
+
             SHAHEEN SIR<br>
+
             ASSISTANT PROFESSOR &amp; HEAD OF THE ENGLISH DEPARTMENT<br>
+
             BANGLADESH AIR FORCE SHAHEEN COLLEGE KURMITOLA
+
         </p>
 
+
         <p style="margin-top:12px;">
+
             © 2026 All About English. All Rights Reserved.
+
         </p>
 
     </div>
@@ -563,11 +949,46 @@
 
     import { protectPage } from "../../firebase-security.js";
 
-    const allowed = await protectPage("grammar", "modifiers");
 
-    if (!allowed) {
-        document.body.innerHTML = "";
+    async function checkPageAccess() {
+
+        const allowed =
+            await protectPage("grammar", "modifiers");
+
+
+        if (!allowed) {
+
+            /*
+             * Do NOT make the whole body blank.
+             * Show a proper access-required screen instead.
+             */
+
+            const mainContent =
+                document.getElementById("mainContent");
+
+            const accessDenied =
+                document.getElementById("accessDenied");
+
+
+            if (mainContent) {
+
+                mainContent.style.display = "none";
+
+            }
+
+
+            if (accessDenied) {
+
+                accessDenied.style.display = "block";
+
+            }
+
+        }
+
     }
+
+
+    checkPageAccess();
 
 </script>
 
