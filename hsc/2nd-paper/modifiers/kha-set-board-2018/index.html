@@ -16,5 +16,21 @@
     }
 })();
 </script>
+
+
+    <!-- ================= GRAMMAR ITEM SECURITY ================= -->
+
+<script type="module">
+
+    import { protectPage } from "../../../../firebase-security.js";
+
+    const allowed =
+        await protectPage("grammar", "modifiers");
+
+    if (!allowed) {
+        document.body.innerHTML = "";
+    }
+
+</script>
 </body>
 </html>
