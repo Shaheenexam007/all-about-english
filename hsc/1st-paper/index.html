@@ -11,12 +11,12 @@
 <meta
 name="description"
 content="HSC English 1st Paper — All About English by Shaheen Sir."
-
 >
 
 <meta name="theme-color" content="#101b36">
 
-<title>English 1st Paper | All About English</title>
+<title>HSC English 1st Paper | All About English</title>
+
 
 <!-- =========================================================
      GOOGLE FONTS
@@ -35,6 +35,7 @@ content="HSC English 1st Paper — All About English by Shaheen Sir."
     rel="stylesheet"
 >
 
+
 <!-- =========================================================
      FONT AWESOME
 ========================================================= -->
@@ -43,6 +44,7 @@ content="HSC English 1st Paper — All About English by Shaheen Sir."
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 >
+
 
 <style>
 
@@ -381,6 +383,51 @@ header {
 
 
 /* =========================================================
+   HSC BADGE
+========================================================= */
+
+.level-badge {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    margin-top:
+        18px;
+
+    padding:
+        8px 14px;
+
+    border:
+        1px solid var(--gold-light);
+
+    border-radius:
+        999px;
+
+    background:
+        #f8f2e4;
+
+    color:
+        #725d31;
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .8px;
+
+}
+
+
+/* =========================================================
    SECTION
 ========================================================= */
 
@@ -434,6 +481,47 @@ header {
 
     font-size:
         11px;
+
+}
+
+
+/* =========================================================
+   PAPER PATH
+========================================================= */
+
+.paper-path {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-bottom:
+        22px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+}
+
+
+.paper-path .current {
+
+    color:
+        var(--gold);
 
 }
 
@@ -722,13 +810,23 @@ footer {
 
     }
 
+
+    .paper-path {
+
+        flex-wrap:
+            wrap;
+
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <!-- =========================================================
      HEADER
@@ -736,13 +834,17 @@ footer {
 
 <header>
 
-```
 <div class="nav-container">
 
 
-    <!-- HSC INDEX:
-         hsc/1st-paper/index.html
-         থেকে এক ধাপ উপরে = hsc/
+    <!--
+        HSC ENGLISH 1ST PAPER INDEX
+
+        Current location:
+        english/1st-paper/index.html
+
+        One level up:
+        english/
     -->
 
     <a
@@ -775,18 +877,22 @@ footer {
     <nav class="nav-links">
 
 
-        <!-- HSC INDEX -->
+        <!--
+            Back to English main area
+        -->
 
         <a href="../">
             Home
         </a>
 
 
-        <!-- ROOT LOGIN:
-             hsc/1st-paper/
-             → hsc/
-             → root/
-             → login.html
+        <!--
+            Root login
+
+            english/1st-paper/
+            → english/
+            → root/
+            → login.html
         -->
 
         <a
@@ -803,9 +909,9 @@ footer {
     </nav>
 
 </div>
-```
 
 </header>
+
 
 <!-- =========================================================
      HERO
@@ -815,33 +921,44 @@ footer {
 
 <section class="hero">
 
-```
-<div class="eyebrow">
-    HSC English
-</div>
+
+    <div class="eyebrow">
+        HSC English
+    </div>
 
 
-<h1>
+    <h1>
 
-    English
+        English
 
-    <span>
-        1st Paper
-    </span>
+        <span>
+            1st Paper
+        </span>
 
-</h1>
+    </h1>
 
 
-<p>
+    <p>
 
-    Explore the textbook units, reading lessons,
-    vocabulary analysis, comprehension and
-    examination-focused learning materials.
+        Explore the HSC English 1st Paper
+        textbook units, reading lessons,
+        vocabulary analysis, comprehension
+        and examination-focused learning materials.
 
-</p>
-```
+    </p>
+
+
+    <div class="level-badge">
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+        HSC • ENGLISH 1ST PAPER
+
+    </div>
+
 
 </section>
+
 
 <!-- =========================================================
      UNITS
@@ -849,589 +966,532 @@ footer {
 
 <section class="section">
 
-```
-<div class="section-heading">
 
-    <h2>
-        Available Units
-    </h2>
+    <div class="paper-path">
 
-    <p>
-        Select a unit to continue your learning.
-    </p>
+        <span>
+            HSC
+        </span>
 
-</div>
+        <i class="fa-solid fa-chevron-right"></i>
 
+        <span class="current">
+            English 1st Paper
+        </span>
 
+    </div>
 
-<div class="unit-grid">
 
+    <div class="section-heading">
 
+        <h2>
+            Available Units
+        </h2>
 
-<!-- =================================================
-         UNIT 1
+        <p>
+            Select a unit to continue your learning.
+        </p>
 
-         CURRENT:
-         hsc/1st-paper/index.html
+    </div>
 
-         TARGET:
-         hsc/1st-paper/unit-1/index.html
-    ================================================== -->
 
-    <a
-        href="./unit-1/"
-        class="unit-card"
-    >
+    <div class="unit-grid">
 
-        <div class="unit-number">
-            1
-        </div>
 
+        <!-- =================================================
+             UNIT 1
 
-        <div class="unit-info">
+             TARGET:
+             english/1st-paper/unit-1/
+        ================================================== -->
 
-            <h3>
-                Unit 1
-            </h3>
+        <a
+            href="./unit-1/"
+            class="unit-card"
+        >
 
-            <p>
-                Lessons, vocabulary analysis
-                and learning materials.
-            </p>
+            <div class="unit-number">
+                1
+            </div>
 
-        </div>
 
+            <div class="unit-info">
 
-        <div class="unit-open">
+                <h3>
+                    Unit 1
+                </h3>
 
-            OPEN
+                <p>
+                    Lessons, vocabulary analysis
+                    and learning materials.
+                </p>
 
-            <i class="fa-solid fa-arrow-right"></i>
+            </div>
 
-        </div>
 
-    </a>
+            <div class="unit-open">
 
+                OPEN
 
-     <!-- =================================================
-         UNIT 2
+                <i class="fa-solid fa-arrow-right"></i>
 
-         CURRENT:
-         hsc/1st-paper/index.html
+            </div>
 
-         TARGET:
-         hsc/1st-paper/unit-2/index.html
-    ================================================== -->
+        </a>
 
-    <a
-        href="./unit-2/"
-        class="unit-card"
-    >
 
-        <div class="unit-number">
-            2
-        </div>
+        <!-- =================================================
+             UNIT 2
+        ================================================== -->
 
+        <a
+            href="./unit-2/"
+            class="unit-card"
+        >
 
-        <div class="unit-info">
+            <div class="unit-number">
+                2
+            </div>
 
-            <h3>
-                Unit 2
-            </h3>
 
-            <p>
-                Lessons, vocabulary analysis
-                and learning materials.
-            </p>
+            <div class="unit-info">
 
-        </div>
+                <h3>
+                    Unit 2
+                </h3>
 
+                <p>
+                    Lessons, vocabulary analysis
+                    and learning materials.
+                </p>
 
-        <div class="unit-open">
+            </div>
 
-            OPEN
 
-            <i class="fa-solid fa-arrow-right"></i>
+            <div class="unit-open">
 
-        </div>
+                OPEN
 
-    </a>
+                <i class="fa-solid fa-arrow-right"></i>
 
-      <!-- =================================================
-         UNIT 3
+            </div>
 
-         CURRENT:
-         hsc/1st-paper/index.html
+        </a>
 
-         TARGET:
-         hsc/1st-paper/unit-3/index.html
-    ================================================== -->
 
-    <a
-        href="./unit-3/"
-        class="unit-card"
-    >
+        <!-- =================================================
+             UNIT 3
+        ================================================== -->
 
-        <div class="unit-number">
-            3
-        </div>
+        <a
+            href="./unit-3/"
+            class="unit-card"
+        >
 
+            <div class="unit-number">
+                3
+            </div>
 
-        <div class="unit-info">
 
-            <h3>
-                Unit 3
-            </h3>
+            <div class="unit-info">
 
-            <p>
-                Lessons, vocabulary analysis
-                and learning materials.
-            </p>
+                <h3>
+                    Unit 3
+                </h3>
 
-        </div>
+                <p>
+                    Lessons, vocabulary analysis
+                    and learning materials.
+                </p>
 
+            </div>
 
-        <div class="unit-open">
 
-            OPEN
+            <div class="unit-open">
 
-            <i class="fa-solid fa-arrow-right"></i>
+                OPEN
 
-        </div>
+                <i class="fa-solid fa-arrow-right"></i>
 
-    </a>
+            </div>
 
+        </a>
 
-      <!-- =================================================
-         UNIT 4
 
-         CURRENT:
-         hsc/1st-paper/index.html
+        <!-- =================================================
+             UNIT 4
+        ================================================== -->
 
-         TARGET:
-         hsc/1st-paper/unit-4/index.html
-    ================================================== -->
+        <a
+            href="./unit-4/"
+            class="unit-card"
+        >
 
-    <a
-        href="./unit-4/"
-        class="unit-card"
-    >
+            <div class="unit-number">
+                4
+            </div>
 
-        <div class="unit-number">
-            4
-        </div>
 
+            <div class="unit-info">
 
-        <div class="unit-info">
+                <h3>
+                    Unit 4
+                </h3>
 
-            <h3>
-                Unit 4
-            </h3>
+                <p>
+                    Lessons, vocabulary analysis
+                    and learning materials.
+                </p>
 
-            <p>
-                Lessons, vocabulary analysis
-                and learning materials.
-            </p>
+            </div>
 
-        </div>
 
+            <div class="unit-open">
 
-        <div class="unit-open">
+                OPEN
 
-            OPEN
+                <i class="fa-solid fa-arrow-right"></i>
 
-            <i class="fa-solid fa-arrow-right"></i>
+            </div>
 
-        </div>
+        </a>
 
-    </a>
 
+        <!-- =================================================
+             UNIT 5
+        ================================================== -->
 
+        <a
+            href="./unit-5/"
+            class="unit-card"
+        >
 
-      <!-- =================================================
-         UNIT 5
+            <div class="unit-number">
+                5
+            </div>
 
-         CURRENT:
-         hsc/1st-paper/index.html
 
-         TARGET:
-         hsc/1st-paper/unit-5/index.html
-    ================================================== -->
+            <div class="unit-info">
 
-    <a
-        href="./unit-5/"
-        class="unit-card"
-    >
+                <h3>
+                    Unit 5
+                </h3>
 
-        <div class="unit-number">
-            5
-        </div>
+                <p>
+                    Lessons, vocabulary analysis
+                    and learning materials.
+                </p>
 
+            </div>
 
-        <div class="unit-info">
 
-            <h3>
-                Unit 5
-            </h3>
+            <div class="unit-open">
 
-            <p>
-                Lessons, vocabulary analysis
-                and learning materials.
-            </p>
+                OPEN
 
-        </div>
+                <i class="fa-solid fa-arrow-right"></i>
 
+            </div>
 
-        <div class="unit-open">
+        </a>
 
-            OPEN
 
-            <i class="fa-solid fa-arrow-right"></i>
+        <!-- =================================================
+             UNIT 6
+        ================================================== -->
 
-        </div>
+        <a
+            href="./unit-6/"
+            class="unit-card"
+        >
 
-    </a>
+            <div class="unit-number">
+                6
+            </div>
 
 
-      <!-- =================================================
-         UNIT 6
+            <div class="unit-info">
 
-         CURRENT:
-         hsc/1st-paper/index.html
+                <h3>
+                    Unit 6
+                </h3>
 
-         TARGET:
-         hsc/1st-paper/unit-6/index.html
-    ================================================== -->
+                <p>
+                    Lessons, vocabulary analysis
+                    and learning materials.
+                </p>
 
-    <a
-        href="./unit-6/"
-        class="unit-card"
-    >
+            </div>
 
-        <div class="unit-number">
-            6
-        </div>
 
+            <div class="unit-open">
 
-        <div class="unit-info">
+                OPEN
 
-            <h3>
-                Unit 6
-            </h3>
+                <i class="fa-solid fa-arrow-right"></i>
 
-            <p>
-                Lessons, vocabulary analysis
-                and learning materials.
-            </p>
+            </div>
 
-        </div>
+        </a>
 
 
-        <div class="unit-open">
+        <!-- =================================================
+             UNIT 7
+        ================================================== -->
 
-            OPEN
+        <a
+            href="./unit-7/"
+            class="unit-card"
+        >
 
-            <i class="fa-solid fa-arrow-right"></i>
+            <div class="unit-number">
+                7
+            </div>
 
-        </div>
 
-    </a>
+            <div class="unit-info">
 
+                <h3>
+                    Unit 7
+                </h3>
 
-       <!-- =================================================
-         UNIT 7
+                <p>
+                    Lessons, vocabulary analysis
+                    and learning materials.
+                </p>
 
-         CURRENT:
-         hsc/1st-paper/index.html
+            </div>
 
-         TARGET:
-         hsc/1st-paper/unit-7/index.html
-    ================================================== -->
 
-    <a
-        href="./unit-7/"
-        class="unit-card"
-    >
+            <div class="unit-open">
 
-        <div class="unit-number">
-            7
-        </div>
+                OPEN
 
+                <i class="fa-solid fa-arrow-right"></i>
 
-        <div class="unit-info">
+            </div>
 
-            <h3>
-                Unit 7
-            </h3>
+        </a>
 
-            <p>
-                Lessons, vocabulary analysis
-                and learning materials.
-            </p>
 
-        </div>
+        <!-- =================================================
+             UNIT 8
+        ================================================== -->
 
+        <a
+            href="./unit-8/"
+            class="unit-card"
+        >
 
-        <div class="unit-open">
+            <div class="unit-number">
+                8
+            </div>
 
-            OPEN
 
-            <i class="fa-solid fa-arrow-right"></i>
+            <div class="unit-info">
 
-        </div>
+                <h3>
+                    Unit 8
+                </h3>
 
-    </a>
+                <p>
+                    Lessons, vocabulary analysis
+                    and learning materials.
+                </p>
 
+            </div>
 
 
-       <!-- =================================================
-         UNIT 8
+            <div class="unit-open">
 
-         CURRENT:
-         hsc/1st-paper/index.html
+                OPEN
 
-         TARGET:
-         hsc/1st-paper/unit-8/index.html
-    ================================================== -->
+                <i class="fa-solid fa-arrow-right"></i>
 
-    <a
-        href="./unit-8/"
-        class="unit-card"
-    >
+            </div>
 
-        <div class="unit-number">
-            8
-        </div>
+        </a>
 
 
-        <div class="unit-info">
+        <!-- =================================================
+             UNIT 9
+        ================================================== -->
 
-            <h3>
-                Unit 8
-            </h3>
+        <a
+            href="./unit-9/"
+            class="unit-card"
+        >
 
-            <p>
-                Lessons, vocabulary analysis
-                and learning materials.
-            </p>
+            <div class="unit-number">
+                9
+            </div>
 
-        </div>
 
+            <div class="unit-info">
 
-        <div class="unit-open">
+                <h3>
+                    Unit 9
+                </h3>
 
-            OPEN
+                <p>
+                    Lessons, vocabulary analysis
+                    and learning materials.
+                </p>
 
-            <i class="fa-solid fa-arrow-right"></i>
+            </div>
 
-        </div>
 
-    </a>
+            <div class="unit-open">
 
+                OPEN
 
+                <i class="fa-solid fa-arrow-right"></i>
 
-       <!-- =================================================
-         UNIT 9
+            </div>
 
-         CURRENT:
-         hsc/1st-paper/index.html
+        </a>
 
-         TARGET:
-         hsc/1st-paper/unit-9/index.html
-    ================================================== -->
 
-    <a
-        href="./unit-9/"
-        class="unit-card"
-    >
+        <!-- =================================================
+             UNIT 10
+        ================================================== -->
 
-        <div class="unit-number">
-            9
-        </div>
+        <a
+            href="./unit-10/"
+            class="unit-card"
+        >
 
+            <div class="unit-number">
+                10
+            </div>
 
-        <div class="unit-info">
 
-            <h3>
-                Unit 9
-            </h3>
+            <div class="unit-info">
 
-            <p>
-                Lessons, vocabulary analysis
-                and learning materials.
-            </p>
+                <h3>
+                    Unit 10
+                </h3>
 
-        </div>
+                <p>
+                    Lessons, vocabulary analysis
+                    and learning materials.
+                </p>
 
+            </div>
 
-        <div class="unit-open">
 
-            OPEN
+            <div class="unit-open">
 
-            <i class="fa-solid fa-arrow-right"></i>
+                OPEN
 
-        </div>
+                <i class="fa-solid fa-arrow-right"></i>
 
-    </a>
+            </div>
 
+        </a>
 
-       <!-- =================================================
-         UNIT 10
 
-         CURRENT:
-         hsc/1st-paper/index.html
+        <!-- =================================================
+             UNIT 11
+        ================================================== -->
 
-         TARGET:
-         hsc/1st-paper/unit-10/index.html
-    ================================================== -->
+        <a
+            href="./unit-11/"
+            class="unit-card"
+        >
 
-    <a
-        href="./unit-10/"
-        class="unit-card"
-    >
+            <div class="unit-number">
+                11
+            </div>
 
-        <div class="unit-number">
-            10
-        </div>
 
+            <div class="unit-info">
 
-        <div class="unit-info">
+                <h3>
+                    Unit 11
+                </h3>
 
-            <h3>
-                Unit 10
-            </h3>
+                <p>
+                    Lessons, vocabulary analysis
+                    and learning materials.
+                </p>
 
-            <p>
-                Lessons, vocabulary analysis
-                and learning materials.
-            </p>
+            </div>
 
-        </div>
 
+            <div class="unit-open">
 
-        <div class="unit-open">
+                OPEN
 
-            OPEN
+                <i class="fa-solid fa-arrow-right"></i>
 
-            <i class="fa-solid fa-arrow-right"></i>
+            </div>
 
-        </div>
+        </a>
 
-    </a>
 
-    <!-- =================================================
-         UNIT 11
+        <!-- =================================================
+             UNIT 12
+        ================================================== -->
 
-         CURRENT:
-         hsc/1st-paper/index.html
+        <a
+            href="./unit-12/"
+            class="unit-card"
+        >
 
-         TARGET:
-         hsc/1st-paper/unit-11/index.html
-    ================================================== -->
+            <div class="unit-number">
+                12
+            </div>
 
-    <a
-        href="./unit-11/"
-        class="unit-card"
-    >
 
-        <div class="unit-number">
-            11
-        </div>
+            <div class="unit-info">
 
+                <h3>
+                    Unit 12
+                </h3>
 
-        <div class="unit-info">
+                <p>
+                    Lessons, vocabulary analysis
+                    and learning materials.
+                </p>
 
-            <h3>
-                Unit 11
-            </h3>
+            </div>
 
-            <p>
-                Lessons, vocabulary analysis
-                and learning materials.
-            </p>
 
-        </div>
+            <div class="unit-open">
 
+                OPEN
 
-        <div class="unit-open">
+                <i class="fa-solid fa-arrow-right"></i>
 
-            OPEN
+            </div>
 
-            <i class="fa-solid fa-arrow-right"></i>
+        </a>
 
-        </div>
 
-    </a>
-
+    </div>
 
 
     <!-- =================================================
-         UNIT 12
-
-         CURRENT:
-         hsc/1st-paper/index.html
-
-         TARGET:
-         hsc/1st-paper/unit-12/index.html
+         NOTICE
     ================================================== -->
 
-    <a
-        href="./unit-12/"
-        class="unit-card"
-    >
+    <div class="notice">
 
-        <div class="unit-number">
-            12
-        </div>
+        <i class="fa-solid fa-shield-halved"></i>
 
+        Unit content is protected.
+        Students must log in and have the
+        corresponding HSC English 1st Paper
+        unit approved by the administrator.
 
-        <div class="unit-info">
+    </div>
 
-            <h3>
-                Unit 12
-            </h3>
-
-            <p>
-                Lessons, vocabulary analysis
-                and learning materials.
-            </p>
-
-        </div>
-
-
-        <div class="unit-open">
-
-            OPEN
-
-            <i class="fa-solid fa-arrow-right"></i>
-
-        </div>
-
-    </a>
-
-
-</div>
-
-
-
-<!-- =================================================
-     NOTICE
-================================================== -->
-
-<div class="notice">
-
-    <i class="fa-solid fa-shield-halved"></i>
-
-    Unit content is protected.
-    Students must log in and have the
-    corresponding unit approved by the administrator.
-
-</div>
-```
 
 </section>
 
 </main>
+
 
 <!-- =========================================================
      FOOTER
@@ -1439,11 +1499,10 @@ footer {
 
 <footer>
 
-```
-© 2026 ALL ABOUT ENGLISH • BY SHAHEEN SIR
-```
+    © 2026 ALL ABOUT ENGLISH • BY SHAHEEN SIR
 
 </footer>
+
 
 </body>
 
