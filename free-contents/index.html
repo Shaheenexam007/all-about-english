@@ -1,1 +1,827 @@
+```html
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Free Contents | All About English | Shaheen Sir</title>
+
+  <meta name="description"
+        content="All About English — Free English Contents by Shaheen Sir. HSC, SSC, Grammar, Written, Varsity Admission, IELTS, Spoken English and Basic English.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", "Noto Sans Bengali", Arial, sans-serif;
+      background: #f5f1e8;
+      color: #172033;
+      line-height: 1.65;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    .top-header {
+      background: linear-gradient(135deg, #071b3a, #0d2d5c);
+      color: white;
+      text-align: center;
+      padding: 28px 18px 24px;
+      border-bottom: 4px solid #d4af37;
+    }
+
+    .brand-small {
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #d4af37;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .brand-title {
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand-subtitle {
+      font-size: 15px;
+      color: #f3ead0;
+      margin-top: 5px;
+    }
+
+    /* =========================
+       STICKY NOTICE
+    ========================== */
+
+    .sticky-notice {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 252, 242, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid #d4af37;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    }
+
+    .notice-inner {
+      max-width: 1150px;
+      margin: auto;
+      padding: 16px 18px;
+    }
+
+    .notice-title {
+      text-align: center;
+      color: #8b6508;
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .notice-subtitle {
+      text-align: center;
+      font-size: 14px;
+      color: #39445a;
+      margin-bottom: 13px;
+    }
+
+    .notice-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .step {
+      background: white;
+      border: 1px solid #e4d7ad;
+      border-radius: 12px;
+      padding: 12px 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #0b2854;
+      color: #d4af37;
+      font-weight: 800;
+      margin-right: 7px;
+    }
+
+    .step-title {
+      font-weight: 800;
+      color: #0b2854;
+    }
+
+    .step-text {
+      font-size: 13px;
+      margin-top: 6px;
+      color: #424b5c;
+    }
+
+    .payment-number {
+      color: #a36d00;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    /* =========================
+       MAIN
+    ========================== */
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 42px 18px 60px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #0b2854;
+      color: #d4af37;
+      padding: 7px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      margin-bottom: 13px;
+    }
+
+    .hero h1 {
+      color: #0a2347;
+      font-size: clamp(28px, 5vw, 42px);
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      color: #5c6472;
+      font-size: 15px;
+    }
+
+    /* =========================
+       WHATSAPP BOX
+    ========================== */
+
+    .whatsapp-box {
+      background: linear-gradient(135deg, #0b2854, #123c73);
+      color: white;
+      border-radius: 18px;
+      padding: 23px;
+      margin: 0 auto 40px;
+      max-width: 900px;
+      box-shadow: 0 10px 28px rgba(7, 27, 58, .18);
+    }
+
+    .whatsapp-box h2 {
+      color: #d4af37;
+      font-size: 21px;
+      margin-bottom: 7px;
+    }
+
+    .whatsapp-box p {
+      font-size: 14px;
+      color: #eef3fa;
+    }
+
+    .sample-message {
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(212,175,55,.35);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .wa-button {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 20px;
+      background: #d4af37;
+      color: #071b3a;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 800;
+      transition: .2s;
+    }
+
+    .wa-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    }
+
+    /* =========================
+       SECTION
+    ========================== */
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 38px 0 18px;
+      color: #0a2347;
+    }
+
+    .section-title::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: #d7c58d;
+    }
+
+    .section-title span {
+      font-size: 23px;
+      font-weight: 800;
+    }
+
+    /* =========================
+       CONTENT CARDS
+    ========================== */
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      border: 1px solid #e4dcc9;
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(27, 38, 59, .08);
+      transition: transform .2s ease, box-shadow .2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(27, 38, 59, .14);
+    }
+
+    .card-top {
+      background: linear-gradient(135deg, #0b2854, #123c73);
+      padding: 20px;
+      color: white;
+      position: relative;
+    }
+
+    .card-number {
+      position: absolute;
+      right: 16px;
+      top: 14px;
+      color: #d4af37;
+      font-size: 25px;
+      font-weight: 900;
+      opacity: .85;
+    }
+
+    .card-category {
+      color: #d4af37;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 19px;
+      font-weight: 800;
+      line-height: 1.35;
+      padding-right: 25px;
+    }
+
+    .card-body {
+      padding: 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-description {
+      font-size: 14px;
+      color: #596273;
+      margin-bottom: 18px;
+    }
+
+    .open-btn {
+      display: block;
+      margin-top: auto;
+      text-align: center;
+      text-decoration: none;
+      background: #f1df9b;
+      color: #09254b;
+      border: 1px solid #d4af37;
+      border-radius: 9px;
+      padding: 10px 15px;
+      font-size: 14px;
+      font-weight: 800;
+      transition: .2s;
+    }
+
+    .open-btn:hover {
+      background: #d4af37;
+      color: #071b3a;
+    }
+
+    /* =========================
+       ACCESS INFO
+    ========================== */
+
+    .access-box {
+      background: #fffdf7;
+      border: 1px solid #dfd0a5;
+      border-left: 5px solid #d4af37;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 38px;
+    }
+
+    .access-box h2 {
+      color: #0b2854;
+      font-size: 20px;
+      margin-bottom: 9px;
+    }
+
+    .access-box p {
+      color: #535d6d;
+      font-size: 14px;
+    }
+
+    .course-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 13px;
+    }
+
+    .course {
+      background: #edf2f8;
+      color: #0b2854;
+      padding: 5px 11px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: #071b3a;
+      color: white;
+      text-align: center;
+      padding: 28px 18px;
+      border-top: 4px solid #d4af37;
+    }
+
+    .footer-brand {
+      color: #d4af37;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .footer-name {
+      margin-top: 4px;
+      font-weight: 700;
+    }
+
+    .footer-role {
+      font-size: 13px;
+      color: #cbd5e1;
+      margin-top: 2px;
+    }
+
+    .copyright {
+      margin-top: 14px;
+      color: #94a3b8;
+      font-size: 12px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 900px) {
+      .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .notice-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .top-header {
+        padding: 22px 14px;
+      }
+
+      .brand-title {
+        font-size: 29px;
+      }
+
+      .brand-subtitle {
+        font-size: 12px;
+      }
+
+      .notice-inner {
+        padding: 12px 12px;
+      }
+
+      .notice-title {
+        font-size: 17px;
+      }
+
+      .notice-subtitle {
+        font-size: 12px;
+      }
+
+      .step {
+        padding: 10px 11px;
+      }
+
+      .step-text {
+        font-size: 12px;
+      }
+
+      .container {
+        padding: 30px 13px 45px;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 29px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .section-title span {
+        font-size: 20px;
+      }
+
+      .whatsapp-box {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header class="top-header">
+    <div class="brand-small">ALL ABOUT ENGLISH</div>
+    <div class="brand-title">FREE CONTENTS</div>
+    <div class="brand-subtitle">
+      By Shaheen Sir — Assistant Professor & Head of the English Department
+    </div>
+  </header>
+
+
+  <!-- =========================
+       STICKY ACCESS NOTICE
+  ========================== -->
+
+  <div class="sticky-notice">
+
+    <div class="notice-inner">
+
+      <div class="notice-title">
+        🔐 পূর্ণাঙ্গ Content Access পেতে ৩টি ধাপ অনুসরণ করুন
+      </div>
+
+      <div class="notice-subtitle">
+        English 1st Paper, English 2nd Paper, Grammar, Written Part ও অন্যান্য Course-এর Full Access-এর জন্য
+      </div>
+
+      <div class="notice-steps">
+
+        <!-- STEP 1 -->
+        <div class="step">
+          <div>
+            <span class="step-number">1</span>
+            <span class="step-title">Payment</span>
+          </div>
+
+          <div class="step-text">
+            <span class="payment-number">01671642358</span>
+            নম্বরে <strong>৳500</strong> Send Money করুন।
+            <br>
+            bKash / Nagad / Rocket / Upay
+          </div>
+        </div>
+
+
+        <!-- STEP 2 -->
+        <div class="step">
+          <div>
+            <span class="step-number">2</span>
+            <span class="step-title">Create Account</span>
+          </div>
+
+          <div class="step-text">
+            এই Website-এ একটি Account Create করে
+            আপনার <strong>Gmail ও Password</strong> দিয়ে Login করুন।
+          </div>
+        </div>
+
+
+        <!-- STEP 3 -->
+        <div class="step">
+          <div>
+            <span class="step-number">3</span>
+            <span class="step-title">WhatsApp</span>
+          </div>
+
+          <div class="step-text">
+            <strong>01671642358</strong> নম্বরে WhatsApp করুন এবং
+            Payment Number, Class/Course ও Login Gmail উল্লেখ করুন।
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+
+  <main class="container">
+
+    <section class="hero">
+
+      <div class="hero-badge">
+        FREE & PUBLIC CONTENT
+      </div>
+
+      <h1>স্বাগতম FREE CONTENTS-এ</h1>
+
+      <p>
+        এখানে প্রকাশিত Content-গুলো Account বা Login ছাড়াই
+        সবার জন্য উন্মুক্ত। নিচের যেকোনো Content-এ ক্লিক করে
+        সরাসরি ব্যবহার করতে পারবেন।
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         WHATSAPP INSTRUCTION
+    ========================== -->
+
+    <section class="whatsapp-box">
+
+      <h2>📱 WhatsApp Message কীভাবে পাঠাবেন?</h2>
+
+      <p>
+        Payment করার পর <strong>01671642358</strong> নম্বরে WhatsApp-এ
+        নিচের ৩টি তথ্য পাঠাতে হবে:
+      </p>
+
+      <div class="sample-message">
+
+        <strong>Payment Number:</strong> 01XXXXXXXXX<br>
+
+        <strong>Class/Course:</strong> HSC<br>
+
+        <strong>Gmail:</strong> example@gmail.com
+
+      </div>
+
+      <a
+        class="wa-button"
+        href="https://wa.me/8801671642358"
+        target="_blank"
+        rel="noopener"
+      >
+        💬 WhatsApp Message করুন
+      </a>
+
+    </section>
+
+
+    <!-- =========================
+         FREE CONTENTS
+    ========================== -->
+
+    <div class="section-title">
+      <span>📚 Available Free Contents</span>
+    </div>
+
+
+    <section class="content-grid">
+
+
+      <!-- CARD 1 -->
+
+      <article class="content-card">
+
+        <div class="card-top">
+
+          <div class="card-number">01</div>
+
+          <div class="card-category">
+            HSC English 2nd Paper
+          </div>
+
+          <div class="card-title">
+            Modifiers — Dhaka Board 2017
+          </div>
+
+        </div>
+
+        <div class="card-body">
+
+          <div class="card-description">
+            HSC পরীক্ষাভিত্তিক Modifiers practice content।
+            Interactive practice ও exam-style questions।
+          </div>
+
+          <a
+            class="open-btn"
+            href="modifiers-dhaka-board-2017/"
+          >
+            Open Content →
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- CARD 2 -->
+
+      <article class="content-card">
+
+        <div class="card-top">
+
+          <div class="card-number">02</div>
+
+          <div class="card-category">
+            HSC English 1st Paper
+          </div>
+
+          <div class="card-title">
+            Unit 1 — Lesson 2<br>
+            Artificial Intelligence
+          </div>
+
+        </div>
+
+        <div class="card-body">
+
+          <div class="card-description">
+            Interactive English lesson with vocabulary,
+            contextual meanings and Exam Corner.
+          </div>
+
+          <a
+            class="open-btn"
+            href="unit-1-lesson-2-artificial-intelligence/"
+          >
+            Open Content →
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- CARD 3 -->
+
+      <article class="content-card">
+
+        <div class="card-top">
+
+          <div class="card-number">03</div>
+
+          <div class="card-category">
+            HSC English 1st Paper
+          </div>
+
+          <div class="card-title">
+            Unit 12 — Lesson 1<br>
+            Water, Water, Everywhere
+          </div>
+
+        </div>
+
+        <div class="card-body">
+
+          <div class="card-description">
+            Interactive lesson with vocabulary,
+            contextual analysis and exam-oriented features.
+          </div>
+
+          <a
+            class="open-btn"
+            href="unit-12-lesson-1-water-water-everywhere/"
+          >
+            Open Content →
+          </a>
+
+        </div>
+
+      </article>
+
+
+    </section>
+
+
+    <!-- =========================
+         FULL ACCESS INFORMATION
+    ========================== -->
+
+    <section class="access-box">
+
+      <h2>🎓 কোন কোন Class / Course-এর Full Access পাওয়া যাবে?</h2>
+
+      <p>
+        Payment ও registration সম্পন্ন করার পর আপনার প্রয়োজনীয়
+        Class বা Course-এর সম্পূর্ণ English Content-এর Access দেওয়া হবে।
+      </p>
+
+      <div class="course-list">
+
+        <span class="course">HSC</span>
+        <span class="course">SSC</span>
+        <span class="course">CLASS SIX</span>
+        <span class="course">CLASS SEVEN</span>
+        <span class="course">CLASS EIGHT</span>
+        <span class="course">VARSITY ADMISSION</span>
+        <span class="course">IELTS</span>
+        <span class="course">SPOKEN ENGLISH</span>
+        <span class="course">BASIC ENGLISH</span>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-brand">
+      ALL ABOUT ENGLISH
+    </div>
+
+    <div class="footer-name">
+      SHAHEEN SIR
+    </div>
+
+    <div class="footer-role">
+      Assistant Professor & Head of the English Department
+    </div>
+
+    <div class="copyright">
+      © 2026 All About English. All Rights Reserved.
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
+```
 
